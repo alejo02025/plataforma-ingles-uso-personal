@@ -73,3 +73,7 @@ Las dos exportaciones usan los assets de SQL.js, PDF.js y el modelo desde la ra�
 La IA local actual se entrenó principalmente en inglés: se le pide portugués brasileño y, cuando devuelve inglés o introduce nombres no respaldados, la app muestra una cita con una pregunta de lectura en portugués. No se promete la calidad de un modelo grande o un tutor humano. Las pruebas usan inferencia real para verificar este recorrido; simulan explícitamente GitHub para verificar que las dos carpetas privadas permanezcan independientes.
 
 La edición con servidor local sigue siendo de inglés; su selector de portugués enlaza a la edición publicada en GitHub Pages.
+
+## Actualizar ambos espacios
+
+El botón de actualización guarda los datos pendientes y publica un aviso común en el almacenamiento del mismo navegador. Los enlaces entre Alejo y Jazmín llevan la actualización y una marca de apertura para evitar reutilizar HTML antiguo de la caché. Una pestaña del otro espacio aplica el aviso cuando vuelve a estar visible; espera si hay un diálogo, un campo en edición, una actividad abierta o IA trabajando. Una URL explícita de actualización no vuelve a ejecutar un aviso antiguo guardado. Los datos de estudio continúan separados. El aviso local no se transmite a otros dispositivos ni a almacenamientos aislados de accesos instalados; sus enlaces versionados y el control de versión publicado siguen disponibles.

@@ -1,6 +1,12 @@
 'use client';
 import { assetBase } from '@/lib/workspace';
-import { useEffect, useState } from 'react';
+import {
+  readRefresh,
+  requestRefresh,
+  refreshEvent,
+  isRefreshStorage,
+} from '@/lib/browser/app-refresh';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { RefreshCw } from 'lucide-react';
 const base = assetBase;
@@ -10,10 +16,88 @@ export function AppUpdate() {
     [busy, setBusy] = useState(false),
     [error, setError] = useState(''),
     [anchor, setAnchor] = useState<HTMLElement | null>(null);
+  const updating = useRef(false);
+  const observedRefresh = useRef<string | null>(null);
+  const update = useCallback(async (sharedToken?: string) => {
+    if (updating.current) return;
+    if (
+      sharedToken &&
+      (document.visibilityState !== 'visible' ||
+        document.querySelector(
+          '[role="dialog"], input:focus, textarea:focus, [contenteditable="true"]:focus, .game-session, .practice-card, .reader-layout',
+        ))
+    ) {
+      setNewVersion(true);
+      return;
+    }
+    updating.current = true;
+    setBusy(true);
+    setError('');
+    try {
+      const local = await import('@/lib/browser/local-ai').catch(() => undefined);
+      if (local && ['generating', 'loading'].includes(local.localStatus().state)) {
+        if (sharedToken) {
+          setNewVersion(true);
+          setBusy(false);
+          updating.current = false;
+          return;
+        }
+        throw new Error('Finish the AI response or download before updating.');
+      }
+      await new Promise((resolve) => setTimeout(resolve, 1200));
+      // A dialog or draft may have been opened while preparing the update.
+      if (
+        sharedToken &&
+        (document.visibilityState !== 'visible' ||
+          document.querySelector(
+            '[role="dialog"], input:focus, textarea:focus, [contenteditable="true"]:focus, .game-session, .practice-card, .reader-layout',
+          ))
+      ) {
+        setNewVersion(true);
+        setBusy(false);
+        updating.current = false;
+        return;
+      }
+      if (process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github') {
+        const { exclusive, load, persist } = await import('@/lib/browser/database');
+        await load();
+        await exclusive(persist);
+      }
+      const token = sharedToken || String(Date.now());
+      const url = new URL(window.location.href);
+      url.searchParams.set('updated', token);
+      url.searchParams.set('refresh', String(Date.now()));
+      if (!sharedToken && process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github') requestRefresh(token);
+      window.location.replace(url.href);
+    } catch (error) {
+      setError(error instanceof Error ? error.message : 'The update could not be loaded.');
+      setBusy(false);
+      updating.current = false;
+    }
+  }, []);
   useEffect(() => {
     setAnchor(document.getElementById('app-updates'));
     let active = true;
+    const checkShared = () => {
+      if (process.env.NEXT_PUBLIC_DEPLOY_TARGET !== 'github') return;
+      const token = readRefresh();
+      const loaded = new URL(window.location.href).searchParams.get('updated');
+      if (observedRefresh.current === null) {
+        observedRefresh.current = token && !loaded ? '' : token;
+        // Explicit fresh links already chose a version; do not replay an older request.
+        if (token && !loaded) void update(token);
+        return;
+      }
+      if (token && token !== observedRefresh.current) {
+        if (loaded === token) observedRefresh.current = token;
+        else void update(token);
+      }
+    };
+    const onStorage = (event: StorageEvent) => {
+      if (isRefreshStorage(event)) checkShared();
+    };
     const check = async () => {
+      checkShared();
       if (document.visibilityState !== 'visible' || !current) return;
       try {
         const response = await fetch(`${base}/assets/version.json?t=${Date.now()}`, {
@@ -26,37 +110,24 @@ export function AppUpdate() {
       } catch {}
     };
     void check();
+    const retry = setInterval(checkShared, 5000);
+    window.addEventListener('storage', onStorage);
+    window.addEventListener(refreshEvent, checkShared);
+    window.addEventListener('focus', checkShared);
+    window.addEventListener('pageshow', checkShared);
     const timer = setInterval(() => void check(), 60000);
     document.addEventListener('visibilitychange', check);
     return () => {
       active = false;
       clearInterval(timer);
+      clearInterval(retry);
+      window.removeEventListener('storage', onStorage);
+      window.removeEventListener(refreshEvent, checkShared);
+      window.removeEventListener('focus', checkShared);
+      window.removeEventListener('pageshow', checkShared);
       document.removeEventListener('visibilitychange', check);
     };
-  }, []);
-  async function update() {
-    setBusy(true);
-    setError('');
-    try {
-      // An older page may reference a removed, never-loaded AI chunk after deployment.
-      // A running engine has already loaded this module; keep its download/reply guard.
-      const local = await import('@/lib/browser/local-ai').catch(() => undefined);
-      if (local && ['generating', 'loading'].includes(local.localStatus().state))
-        throw new Error('Finish the AI response or download before updating.');
-      await new Promise((resolve) => setTimeout(resolve, 1200));
-      if (process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github') {
-        const { exclusive, load, persist } = await import('@/lib/browser/database');
-        await load();
-        await exclusive(persist);
-      }
-      const url = new URL(window.location.href);
-      url.searchParams.set('updated', String(Date.now()));
-      window.location.replace(url.href);
-    } catch (error) {
-      setError(error instanceof Error ? error.message : 'The update could not be loaded.');
-      setBusy(false);
-    }
-  }
+  }, [update]);
   return (
     <>
       <div className="app-update-wrap">
