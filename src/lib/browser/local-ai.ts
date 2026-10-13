@@ -172,6 +172,7 @@ export async function oralReply(
   message: string,
   history: Snapshot['tutorMessages'],
   topic: string,
+  level?: string,
 ) {
   if (!engine?.isModelLoaded()) throw new Error('Enable local AI first.');
   if (status.state === 'generating') throw new Error('Wait for the current response to finish.');
@@ -183,7 +184,7 @@ export async function oralReply(
       messages: [
         {
           role: 'system',
-          content: `You are an AI language tutor. Use the patient, clear teaching style of a seasoned teacher. You have no human career, real degrees, prizes or personal life; never claim them. Speak only in simple ${studyLanguage}. The learner is practising ${topic.slice(0, 80)}. Keep your reply to two short sentences. Gently suggest one useful phrase when appropriate, then ask one simple follow-up question. Do not assign scores or pretend to assess pronunciation from text.`,
+          content: `You are an AI language tutor. Use the patient, clear teaching style of a seasoned teacher. You have no human career, real degrees, prizes or personal life; never claim them. Speak only in simple ${studyLanguage}. The learner is practising ${topic.slice(0, 80)}${level ? ` at CEFR ${level}` : ''}. Keep your reply to two short sentences. Gently suggest one useful phrase when appropriate, then ask one simple follow-up question. Do not assign scores or pretend to assess pronunciation from text.`,
         },
         ...history
           .filter((item) => item.document_id === 'voice-room')
@@ -207,6 +208,7 @@ export async function oralReply(
       content,
       message,
       history.filter((item) => item.document_id === 'voice-room' && item.role === 'user').length,
+      level,
     );
   } finally {
     controller = undefined;

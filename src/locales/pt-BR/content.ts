@@ -1,3 +1,4 @@
+import { cefrGrammar } from '@/lib/cefr-curriculum';
 export type Skill = 'reading' | 'grammar' | 'vocabulary' | 'writing';
 export type Question = {
   id: string;
@@ -6,7 +7,7 @@ export type Question = {
   options: string[];
   answer: number;
   explanation: string;
-  band: 'A2' | 'B1' | 'B2' | 'unrated';
+  band: 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2' | 'unrated';
 };
 
 export const diagnosticQuestions: Question[] = [
@@ -634,3 +635,60 @@ export const writingPrompts = [
   'Escreva uma mensagem para combinar um café com uma amiga. Sugira um dia, um horário e um lugar.',
   'Explique uma pequena mudança que quer fazer na sua rotina. Diga por que ela é importante e como pode começar.',
 ];
+
+grammarQuestions.push(...cefrGrammar);
+
+Object.assign(glossary, {
+  nome: {
+    meaning: 'A palavra usada para identificar uma pessoa.',
+    pronunciation: '',
+    example: 'Meu nome é Jazmín.',
+  },
+  casa: {
+    meaning: 'O lugar onde uma pessoa mora.',
+    pronunciation: '',
+    example: 'Eu estou em casa.',
+  },
+  água: {
+    meaning: 'Uma bebida sem cor que precisamos beber.',
+    pronunciation: '',
+    example: 'Eu quero um copo de água.',
+  },
+  amigo: {
+    meaning: 'Uma pessoa de quem você gosta e em quem confia.',
+    pronunciation: '',
+    example: 'Meu amigo mora perto.',
+  },
+  livro: {
+    meaning: 'Um objeto com páginas para ler.',
+    pronunciation: '',
+    example: 'Eu gosto deste livro.',
+  },
+  noite: {
+    meaning: 'A parte do dia depois da tarde.',
+    pronunciation: '',
+    example: 'À noite, eu leio.',
+  },
+  comer: {
+    meaning: 'Colocar alimento na boca.',
+    pronunciation: '',
+    example: 'Eu gosto de comer frutas.',
+  },
+  beber: { meaning: 'Tomar um líquido.', pronunciation: '', example: 'Eu vou beber água.' },
+  morar: { meaning: 'Viver em um lugar.', pronunciation: '', example: 'Eu quero morar aqui.' },
+  falar: {
+    meaning: 'Usar a voz para dizer palavras.',
+    pronunciation: '',
+    example: 'Eu gosto de falar português.',
+  },
+  'bom dia': {
+    meaning: 'Uma saudação usada de manhã.',
+    pronunciation: '',
+    example: 'Bom dia! Tudo bem?',
+  },
+  obrigada: {
+    meaning: 'Uma palavra para agradecer, usada por uma mulher.',
+    pronunciation: '',
+    example: 'Obrigada pela ajuda!',
+  },
+});

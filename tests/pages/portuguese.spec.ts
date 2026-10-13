@@ -25,7 +25,7 @@ test('Jazmín has Brazilian Portuguese study content, independent PDFs, vocabula
     .getByRole('link')
     .filter({ hasText: 'Jazmín' })
     .click();
-  await expect(page).toHaveURL(/\/portugues\/$/);
+  await expect(page).toHaveURL(/\/portugues\/(?:\?|$)/);
   await expect(page.locator('html')).toHaveAttribute('lang', 'pt-BR');
   await expect(
     page.getByRole('heading', { name: /(Bom dia|Boa tarde|Boa noite), Jazmín\./ }),
@@ -133,7 +133,8 @@ test('Jazmín has Brazilian Portuguese study content, independent PDFs, vocabula
   await page.getByRole('button', { name: 'Próxima', exact: true }).click();
   await page.getByRole('button', { name: 'Salvar e sair', exact: true }).click();
   await page
-    .locator('.study-spaces:not(.compact)')
+    .locator('.study-spaces')
+    .first()
     .getByRole('link')
     .filter({ hasText: 'Alejo' })
     .click();
@@ -206,7 +207,8 @@ test('English and Portuguese sync to different folders even in the same private 
   expect(JSON.parse(Buffer.from(englishState, 'base64').toString()).workspace).toBe('en');
   await page.getByRole('button', { name: 'Close preferences' }).click();
   await page
-    .locator('.study-spaces:not(.compact)')
+    .locator('.study-spaces')
+    .first()
     .getByRole('link')
     .filter({ hasText: 'Jazmín' })
     .click();

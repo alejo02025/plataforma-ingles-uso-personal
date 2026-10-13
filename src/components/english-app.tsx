@@ -1,5 +1,6 @@
 'use client';
 import { Mic } from 'lucide-react';
+import { CefrPath } from './cefr-path';
 import { Games } from './games';
 import { Puzzle } from 'lucide-react';
 import { StudySpaces } from './study-spaces';
@@ -190,6 +191,9 @@ export function EnglishApp() {
         )}
       </div>
     );
+  const appNavigation = isPortuguese
+    ? [...navigation, { title: 'MCER', icon: BookOpen }]
+    : navigation;
   const doc = data.documents.find((d) => d.id === active?.document_id);
   return (
     <div className="app-shell">
@@ -215,7 +219,7 @@ export function EnglishApp() {
           PERSONAL SPACE{' '}
         </div>
         <nav aria-label="Main navigation">
-          {navigation.map(({ title, icon: Icon }) => (
+          {appNavigation.map(({ title, icon: Icon }) => (
             <button
               key={title}
               className={`nav-item ${view === title && !active ? 'active' : ''}`}
@@ -236,7 +240,7 @@ export function EnglishApp() {
             </div>
             <div>
               <span>Your next horizon</span>
-              <strong>English B2</strong>
+              <strong>{isPortuguese ? `MCER · ${data.cefr?.level || 'A1'}` : 'English B2'}</strong>
             </div>
           </div>
           <button
@@ -373,6 +377,8 @@ export function EnglishApp() {
             </>
           ) : view === 'Library' ? (
             <Library data={data} onOpen={(d) => void openDocument(d)} refresh={refresh} />
+          ) : view === 'MCER' && isPortuguese ? (
+            <CefrPath data={data} refresh={refresh} navigate={(target) => void navigate(target)} />
           ) : view === 'Speaking' ? (
             <Suspense fallback={<p role="status">Preparing your speaking room…</p>}>
               <VoiceRoom data={data} refresh={refresh} />

@@ -12,6 +12,7 @@ export function saveGame(
     .object({
       id: z.string().uuid(),
       mode: z.enum(['match', 'sentence', 'trail']),
+      level: z.enum(['A1', 'A2', 'B1', 'B2', 'C1', 'C2']).optional(),
       seed: z.string().min(1).max(100),
       answers: z.array(z.string().max(1500)).max(4),
       helpUsed: z.boolean().default(false),
@@ -23,7 +24,7 @@ export function saveGame(
     .prepare('SELECT correct,total FROM results WHERE activity_id=?')
     .get(id);
   if (previous) return { ...previous, repeated: true };
-  const puzzle = makePuzzle(x.mode, x.seed);
+  const puzzle = makePuzzle(x.mode, x.seed, x.level);
   if (x.answers.length !== puzzle.rounds.length)
     throw new AppError('Finish every round before saving.');
   const correct = puzzle.rounds.filter(

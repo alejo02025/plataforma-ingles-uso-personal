@@ -198,7 +198,7 @@ export const dailyWords = Object.entries({ ...glossary, ...extra }).map(([word, 
 export function wordDetails(word: string) {
   return dailyWords.find((item) => item.word.toLowerCase() === word.toLowerCase());
 }
-export function wordsForDay(day: string) {
+export function wordsForDay(day: string, _level?: string) {
   const index = Number(day.replaceAll('-', '')) % dailyWords.length;
   return Array.from(
     { length: 5 },

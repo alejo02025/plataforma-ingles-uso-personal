@@ -1,4 +1,5 @@
-import { defaultName, initialInterests } from './workspace';
+import { cefrReadings } from './cefr-curriculum';
+import { defaultName, initialInterests, isPortuguese } from './workspace';
 import type { DatabaseSync } from 'node:sqlite';
 import { readings, glossary } from './content';
 export function initialize(connection: Pick<DatabaseSync, 'exec' | 'prepare'>) {
@@ -42,7 +43,7 @@ export function initialize(connection: Pick<DatabaseSync, 'exec' | 'prepare'>) {
   const insert = connection.prepare(
     `INSERT INTO documents(id,title,topic,level,source,minutes,intro,paragraphs,questions,created_at) VALUES(?,?,?,?,?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET topic=excluded.topic,intro=excluded.intro,questions=excluded.questions WHERE documents.source='editorial'`,
   );
-  for (const r of readings)
+  for (const r of isPortuguese ? [...readings, ...cefrReadings] : readings)
     insert.run(
       r.id,
       r.title,
@@ -139,4 +140,15 @@ export function initialize(connection: Pick<DatabaseSync, 'exec' | 'prepare'>) {
         .run(glossary[word]?.meaning || old, word, old);
     connection.prepare('INSERT INTO schema_migrations VALUES(3,?)').run(new Date().toISOString());
   }
+  if (!connection.prepare('SELECT version FROM schema_migrations WHERE version=4').get()) {
+    connection.exec(`BEGIN;
+      CREATE TABLE cefr_state (id TEXT PRIMARY KEY,level TEXT NOT NULL,updated_at TEXT NOT NULL);
+      CREATE TABLE cefr_attempts (id TEXT PRIMARY KEY,level TEXT NOT NULL,task TEXT NOT NULL,answer TEXT NOT NULL,correct INTEGER,created_at TEXT NOT NULL);
+      INSERT INTO schema_migrations VALUES(4,datetime('now'));
+      COMMIT;`);
+  }
+  if (isPortuguese)
+    connection
+      .prepare('INSERT OR IGNORE INTO cefr_state VALUES(?,?,?)')
+      .run('route', 'A1', new Date().toISOString());
 }

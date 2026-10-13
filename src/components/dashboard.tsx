@@ -1,4 +1,5 @@
 'use client';
+import { isPortuguese } from '@/lib/workspace';
 import { LearningTip } from './learning-tip';
 import { Puzzle, Bookmark, Compass, Mic } from 'lucide-react';
 import { StudySpaces } from './study-spaces';
@@ -176,6 +177,21 @@ export function Dashboard({
         </button>
       </section>
       <LearningTip day={data.day} />
+      {isPortuguese && (
+        <section className="cefr-home card">
+          <div>
+            <span className="eyebrow">MCER / QECR · SEU PERCURSO</span>
+            <h2>{data.cefr?.level || 'A1'} · Um passo de cada vez</h2>
+            <p>
+              Pratique leitura, gramática, escrita e fala. Comece pelo básico e experimente os
+              próximos níveis.
+            </p>
+          </div>
+          <Button onClick={() => navigate('MCER')}>
+            Continuar meu percurso <ArrowUpRight size={18} />
+          </Button>
+        </section>
+      )}
       <div className="dashboard-top">
         <section className="hero-card">
           <div className="hero-content">
@@ -236,30 +252,39 @@ export function Dashboard({
             </span>
           </div>
         </section>
-        <section className="card level-card">
-          <div className="card-kicker">
-            YOUR STARTING POINT <ArrowUpRight size={17} />
-          </div>
-          <div className="level-value">
-            {diagnosed ? currentLevel : 'Ready to discover'}
-            <span>{diagnosed ? 'An informal reference' : 'Let’s build your starting point'}</span>
-          </div>
-          <div className="level-track">
-            <span />
-          </div>
-          <div className="level-scale">
-            <span>Home</span>
-            <span>Goal: B2</span>
-          </div>
-          <p>
-            {diagnosed
-              ? 'Skill estimates have low confidence. Your B2 goal needs broader assessments.'
-              : 'A2/B1 is an initial assumption. You have not completed an assessment yet.'}
-          </p>
-          <ArrowLink onClick={() => (diagnosed ? navigate('Progress') : onDiagnostic())}>
-            {diagnosed ? 'See evidence by skill' : 'Take the assessment'}
-          </ArrowLink>
-        </section>
+        {isPortuguese ? (
+          <section className="card level-card">
+            <span className="eyebrow">SEU NÍVEL DE ESTUDO</span>
+            <h2>{data.cefr?.level || 'A1'}</h2>
+            <p>Ponto de partida informado por você. A1 → A2 → B1 → B2 → C1 → C2.</p>
+            <ArrowLink onClick={() => navigate('MCER')}>Ver meu percurso MCER</ArrowLink>
+          </section>
+        ) : (
+          <section className="card level-card">
+            <div className="card-kicker">
+              YOUR STARTING POINT <ArrowUpRight size={17} />
+            </div>
+            <div className="level-value">
+              {diagnosed ? currentLevel : 'Ready to discover'}
+              <span>{diagnosed ? 'An informal reference' : 'Let’s build your starting point'}</span>
+            </div>
+            <div className="level-track">
+              <span />
+            </div>
+            <div className="level-scale">
+              <span>Home</span>
+              <span>Goal: B2</span>
+            </div>
+            <p>
+              {diagnosed
+                ? 'Skill estimates have low confidence. Your B2 goal needs broader assessments.'
+                : 'A2/B1 is an initial assumption. You have not completed an assessment yet.'}
+            </p>
+            <ArrowLink onClick={() => (diagnosed ? navigate('Progress') : onDiagnostic())}>
+              {diagnosed ? 'See evidence by skill' : 'Take the assessment'}
+            </ArrowLink>
+          </section>
+        )}
       </div>
       <div className="stats-grid">
         <Stat value={String(today.length)} label="Activities today" note="Completed practice" />

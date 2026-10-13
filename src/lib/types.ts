@@ -81,6 +81,17 @@ export type Mistake = {
   created_at: string;
 };
 export type Snapshot = {
+  cefr?: {
+    level: string;
+    attempts: {
+      id: string;
+      level: string;
+      task: string;
+      answer: string;
+      correct: number | null;
+      created_at: string;
+    }[];
+  };
   profile: { name: string; daily_minutes: number; interests: string[]; theme: string };
   day: string;
   aiAvailable: boolean;

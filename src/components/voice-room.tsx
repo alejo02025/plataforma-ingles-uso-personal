@@ -32,7 +32,15 @@ export function VoiceRoom({ data, refresh }: { data: Snapshot; refresh: () => Pr
   const lang = isPortuguese ? 'pt-BR' : 'en-US';
   const teacher = isPortuguese ? 'Clara' : 'Maya';
   const messages = data.tutorMessages.filter((item) => item.document_id === voiceDocumentId);
-  const selected = voiceTopics.find((item) => item.id === topic)!;
+  const baseTopic = voiceTopics.find((item) => item.id === topic)!;
+  const selected =
+    isPortuguese && data.cefr?.level === 'A1' && topic === 'daily'
+      ? {
+          ...baseTopic,
+          prompt: 'Como você se chama? Onde você mora?',
+          example: 'Meu nome é Jazmín. Eu moro na Argentina.',
+        }
+      : baseTopic;
   useEffect(() => {
     alive.current = true;
     setSupported(Boolean(recognitionConstructor()));
@@ -167,7 +175,7 @@ export function VoiceRoom({ data, refresh }: { data: Snapshot; refresh: () => Pr
       edit('');
       await refresh();
       if (!alive.current) return;
-      const reply = await oralReply(text, data.tutorMessages, selected.title);
+      const reply = await oralReply(text, data.tutorMessages, selected.title, data.cefr?.level);
       if (!alive.current) return;
       await api('voice/message', {
         id: crypto.randomUUID(),

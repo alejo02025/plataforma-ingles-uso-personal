@@ -125,6 +125,10 @@ export function restore(input: unknown) {
       }
     }
   });
+  if (workspaceId === 'pt')
+    db()
+      .prepare('INSERT OR IGNORE INTO cefr_state VALUES(?,?,?)')
+      .run('route', 'A1', new Date().toISOString());
   previous = manifest;
 }
 let queue: Promise<unknown> = Promise.resolve();

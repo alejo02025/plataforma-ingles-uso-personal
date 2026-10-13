@@ -45,7 +45,7 @@ export function Games({ data, refresh }: { data: Snapshot; refresh: () => Promis
       ? `${data.day}:${mode}:${id}`
       : `${data.day}:${mode}`;
     try {
-      setGame({ id, seed, puzzle: makePuzzle(mode, seed) });
+      setGame({ id, seed, puzzle: makePuzzle(mode, seed, data.cefr?.level) });
     } catch (e) {
       setError((e as Error).message);
     }
@@ -212,6 +212,7 @@ function GameSession({
         id: game.id,
         mode: puzzle.mode,
         seed: game.seed,
+        level: puzzle.level,
         answers,
         helpUsed,
         seconds: seconds.current,

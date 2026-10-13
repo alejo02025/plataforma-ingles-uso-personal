@@ -1,3 +1,4 @@
+import { cefrLevels } from '../cefr-curriculum';
 import { workspaceId } from '../workspace';
 import { nextReview } from '../learning';
 export const tables = [
@@ -19,6 +20,8 @@ export const tables = [
   'progress_history',
   'tutor_messages',
   'tutor_attempts',
+  'cefr_state',
+  'cefr_attempts',
 ] as const;
 export type Row = Record<string, string | number | null>;
 export type Manifest = {
@@ -48,8 +51,21 @@ export function validate(value: unknown): Manifest {
     throw new Error('This backup format is not supported.');
   if ((manifest.workspace || 'en') !== workspaceId)
     throw new Error('This backup belongs to a different study space.');
-  for (const table of ['document_sections', 'tutor_messages', 'tutor_attempts'])
+  for (const table of [
+    'document_sections',
+    'tutor_messages',
+    'tutor_attempts',
+    'cefr_state',
+    'cefr_attempts',
+  ])
     if (manifest.data[table] === undefined) manifest.data[table] = [];
+  if (
+    !Array.isArray(manifest.data.cefr_state) ||
+    manifest.data.cefr_state.some(
+      (row) => row.id !== 'route' || !cefrLevels.includes(row.level as (typeof cefrLevels)[number]),
+    )
+  )
+    throw new Error('The CEFR study route is invalid.');
   for (const table of tables) {
     if (!Array.isArray(manifest.data[table]) || manifest.data[table].length > 50000)
       throw new Error('The backup is incomplete or too large.');
@@ -130,7 +146,7 @@ export function merge(left: Manifest, right: Manifest): Manifest {
   for (const table of tables) {
     const rows = new Map<string, Row>();
     for (const source of [left, right])
-      for (const row of source.data[table]) {
+      for (const row of source.data[table] || []) {
         const key = rowKey(table, row),
           clockKey = `${table}/${key}`;
         const existing = rows.get(key) || {};
@@ -139,6 +155,16 @@ export function merge(left: Manifest, right: Manifest): Manifest {
           const clock =
             source.clocks?.[clockKey]?.[field] ||
             `0000000000000000:${String(row.created_at || row.started_at || '')}`;
+          if (table === 'cefr_state' && field === 'level' && existing[field] !== undefined) {
+            const before = cefrLevels.indexOf(existing[field] as (typeof cefrLevels)[number]);
+            const incoming = cefrLevels.indexOf(value as (typeof cefrLevels)[number]);
+            if (before > incoming) continue;
+            if (incoming > before) {
+              existing[field] = value;
+              clocks[field] = [clocks[field] || '', clock].sort().at(-1)!;
+              continue;
+            }
+          }
           // Finalizations are monotonic; another device cannot reopen a completed activity.
           if (
             existing[field] != null &&

@@ -18,7 +18,7 @@ export function DailyWords({
     [index, setIndex] = useState(0),
     [busy, setBusy] = useState(false),
     [error, setError] = useState('');
-  const entries = wordsForDay(data.day),
+  const entries = wordsForDay(data.day, data.cefr?.level),
     entry = entries[index % entries.length],
     saved = data.vocabulary.some((word) => word.word.toLowerCase() === entry.word.toLowerCase());
   useEffect(() => {

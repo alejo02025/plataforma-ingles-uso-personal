@@ -12,11 +12,17 @@ El repositorio público contiene el código y el sitio generado; tu historial y 
 
 ## Dos espacios de estudio
 
-La página principal permite elegir **Alejo · English** o **Jazmín · Português · Brasil**. [El espacio de Jazmín](https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/) tiene la misma experiencia de PDFs, preguntas, conversación local, palabras del día, vocabulario, calendario y gráfico de constancia, con interfaz y contenido original en portugués brasileño. Incluye seis lecturas, nueve preguntas de evaluación inicial, ejercicios de gramática y 44 palabras y expresiones con ejemplos cotidianos. La voz solicita `pt-BR` al navegador.
+La página principal permite elegir **Alejo · English** o **Jazmín · Português · Brasil**. [El espacio de Jazmín](https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/) tiene la misma experiencia de PDFs, preguntas, conversación local, palabras del día, vocabulario, calendario y gráfico de constancia, con interfaz y contenido original en portugués brasileño. Incluye seis lecturas, nueve preguntas de evaluación inicial, ejercicios de gramática y 56 palabras y expresiones con ejemplos cotidianos. La voz solicita `pt-BR` al navegador.
 
 Los datos de cada espacio se guardan por separado. Los respaldos llevan un identificador de idioma y no permiten combinar los dos historiales. Si se conecta GitHub, el inglés usa `english-os/` y el portugués `portuguese-os/`, incluso dentro de un mismo repositorio privado. Cada espacio necesita su autorización en memoria; cambiar de espacio recarga la página y requiere volver a conectar para sincronizar. El estudio local sigue disponible sin esa autorización.
 
 Ambos espacios tienen su propio ícono y enlace para la pantalla de inicio. El modelo local es pequeño y su calidad en portugués es limitada: las preguntas de hechos muestran citas del documento y las respuestas en inglés vuelven al modo guiado en portugués. No hay evaluación automática de respuestas abiertas ni llamadas a una API de IA.
+
+## Ruta MCER de Jazmín
+
+Jazmín comienza en **A1**, según el punto de partida informado. **MCER** muestra A1, A2, B1, B2, C1 y C2, con descriptores y una unidad inicial de lectura, gramática, escritura y habla para cada etapa. Las comprobaciones objetivas deben responderse correctamente; escritura y habla se registran sin una nota automática. Completar esas prácticas permite **experimentar** la siguiente etapa, no certifica el dominio completo de un nivel. Es un punto de partida para ampliar el currículo y trabajar con evaluaciones más completas.
+
+El plan de portugués usa lecturas, gramática y escritura del nivel de estudio. Si cambia el nivel, sólo adapta tareas del día que todavía no fueron iniciadas; conserva sesiones, respuestas e historial. En A1, la palabra del día, los juegos y las preguntas guiadas de voz usan vocabulario inicial. Las prácticas MCER aparecen en el gráfico. La ruta y sus intentos se sincronizan con el respaldo privado; los respaldos anteriores se aceptan y un dispositivo atrasado no puede bajar el paso de la ruta.
 
 ## Conversación oral
 

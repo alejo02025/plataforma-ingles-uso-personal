@@ -223,6 +223,21 @@ export function MomentumChart({ data, compact = false }: { data: Snapshot; compa
               {item.messages.length} messages
             </span>
           </div>
+          {item.course.map((attempt) => (
+            <details className="momentum-entry" key={attempt.id}>
+              <summary>
+                MCER · {attempt.level} · {attempt.task}
+              </summary>
+              <p>{attempt.answer}</p>
+              <p>
+                {attempt.correct === null
+                  ? 'Prática sem nota automática'
+                  : attempt.correct
+                    ? 'Resposta correta'
+                    : 'Prática para revisar'}
+              </p>
+            </details>
+          ))}
           {item.assessment && <p className="momentum-entry">Starting assessment completed.</p>}
           {item.activities.map((result) => (
             <p className="momentum-entry" key={result.id}>

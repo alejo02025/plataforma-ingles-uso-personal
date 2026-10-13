@@ -1,3 +1,5 @@
+import { isPortuguese } from './workspace';
+import { cefrCourse } from './cefr-curriculum';
 import type { db as nativeDb } from './db';
 import {
   diagnosticQuestions,
@@ -157,13 +159,18 @@ export function createLearningService({
         db().prepare('SELECT count(*) AS n FROM vocabulary WHERE due_at<=?').get(now())!.n,
       );
       const interests = JSON.parse(profile.interests as string) as string[];
-      const targetLevel =
-        db()
-          .prepare('SELECT level FROM evaluations WHERE skill=? ORDER BY created_at DESC LIMIT 1')
-          .get('reading')
-          ?.level?.toString()
-          .slice(0, 2) || 'A2';
-      const read = documents().sort((a, b) => {
+      const targetLevel = isPortuguese
+        ? (db().prepare("SELECT level FROM cefr_state WHERE id='route'").get()?.level as string) ||
+          'A1'
+        : db()
+            .prepare('SELECT level FROM evaluations WHERE skill=? ORDER BY created_at DESC LIMIT 1')
+            .get('reading')
+            ?.level?.toString()
+            .slice(0, 2) || 'A2';
+      const candidates = isPortuguese
+        ? documents().filter((doc) => doc.level === targetLevel)
+        : documents();
+      const read = (candidates.length ? candidates : documents()).sort((a, b) => {
         const count = (d: Document) =>
           Number(
             db()
@@ -196,7 +203,10 @@ export function createLearningService({
           "SELECT pattern,count(*) AS n FROM mistakes WHERE category='grammar' GROUP BY pattern ORDER BY n DESC",
         )
         .all();
-      const questionSet = [...grammarQuestions]
+      const atLevel = isPortuguese
+        ? grammarQuestions.filter((q) => q.band === targetLevel)
+        : grammarQuestions;
+      const questionSet = [...atLevel]
         .sort((a, b) => {
           const n = (q: Question) => Number(recurring.find((m) => m.pattern === q.id)?.n || 0);
           return (
@@ -261,16 +271,24 @@ export function createLearningService({
           minutes: minutes - 12 - (due ? 3 : 0),
           document: null,
           payload: {
-            prompt: writingPrompts[Number(day.replaceAll('-', '')) % writingPrompts.length],
+            prompt: isPortuguese
+              ? cefrCourse
+                  .find((unit) => unit.level === targetLevel)!
+                  .tasks.find((task) => task.skill === 'writing')!.prompt
+              : writingPrompts[Number(day.replaceAll('-', '')) % writingPrompts.length],
           },
         });
         if (minutes === 40) {
           items[items.length - 1].minutes -= 12;
           items.push({
             kind: 'reading',
-            title: 'Second reading:' + documents().find((d) => d.id !== read.id)!.title,
+            title:
+              'Second reading:' +
+              (isPortuguese ? read.title : documents().find((d) => d.id !== read.id)!.title),
             minutes: 12,
-            document: documents().find((d) => d.id !== read.id)!.id,
+            document: (
+              (isPortuguese ? candidates : documents()).find((d) => d.id !== read.id) || read
+            ).id,
             payload: {},
           });
         }
@@ -294,6 +312,43 @@ export function createLearningService({
             );
       });
       plan = { id, day, minutes, reason };
+    }
+    if (isPortuguese) {
+      const level = String(
+        db().prepare("SELECT level FROM cefr_state WHERE id='route'").get()?.level || 'A1',
+      );
+      const unit = cefrCourse.find((item) => item.level === level)!;
+      const pending = db()
+        .prepare(
+          'SELECT * FROM activities WHERE plan_id=? AND completed_at IS NULL AND NOT EXISTS (SELECT 1 FROM sessions WHERE activity_id=activities.id)',
+        )
+        .all(plan.id as string);
+      for (const activity of pending) {
+        const payload = JSON.parse(activity.payload as string);
+        if (payload.optional || payload.draft) continue;
+        if (activity.kind === 'reading') {
+          const document = documents().find((doc) => doc.id === activity.document_id);
+          if (document?.level !== level)
+            db()
+              .prepare('UPDATE activities SET document_id=?,title=? WHERE id=?')
+              .run(`cefr:${level}`, unit.title, activity.id as string);
+        } else if (activity.kind === 'grammar') {
+          const ids = grammarQuestions
+            .filter((q) => q.band === level)
+            .slice(0, 3)
+            .map((q) => q.id);
+          if (JSON.stringify(payload.questionIds) !== JSON.stringify(ids))
+            db()
+              .prepare('UPDATE activities SET payload=? WHERE id=?')
+              .run(JSON.stringify({ ...payload, questionIds: ids }), activity.id as string);
+        } else if (activity.kind === 'writing') {
+          const prompt = unit.tasks.find((task) => task.skill === 'writing')!.prompt;
+          if (payload.prompt !== prompt)
+            db()
+              .prepare('UPDATE activities SET payload=? WHERE id=?')
+              .run(JSON.stringify({ ...payload, prompt }), activity.id as string);
+        }
+      }
     }
     const activities = db()
       .prepare('SELECT * FROM activities WHERE plan_id=? ORDER BY rowid')
@@ -560,6 +615,16 @@ export function createLearningService({
           'SELECT r.*,v.word FROM reviews r JOIN vocabulary v ON v.id=r.word_id ORDER BY reviewed_at',
         )
         .all() as Snapshot['reviews'],
+      cefr: isPortuguese
+        ? {
+            level: String(
+              db().prepare("SELECT level FROM cefr_state WHERE id='route'").get()!.level,
+            ),
+            attempts: db()
+              .prepare('SELECT * FROM cefr_attempts ORDER BY created_at,id')
+              .all() as NonNullable<Snapshot['cefr']>['attempts'],
+          }
+        : undefined,
       tutorMessages: db()
         .prepare('SELECT * FROM tutor_messages ORDER BY created_at,id')
         .all() as Snapshot['tutorMessages'],

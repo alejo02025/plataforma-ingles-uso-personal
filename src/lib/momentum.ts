@@ -9,6 +9,7 @@ export type PracticeDay = {
   words: Snapshot['vocabulary'];
   attempts: Snapshot['tutorAttempts'];
   messages: Snapshot['tutorMessages'];
+  course: NonNullable<Snapshot['cefr']>['attempts'];
   assessment: boolean;
   practised: boolean;
 };
@@ -31,6 +32,7 @@ export function practiceDays(data: Snapshot, length = 30): PracticeDay[] {
         words: [],
         attempts: [],
         messages: [],
+        course: [],
         assessment: false,
       });
     return records.get(day)!;
@@ -43,6 +45,8 @@ export function practiceDays(data: Snapshot, length = 30): PracticeDay[] {
   for (const message of data.tutorMessages)
     if (message.role === 'user')
       record(localDay(new Date(message.created_at))).messages.push(message);
+  for (const attempt of data.cefr?.attempts || [])
+    record(localDay(new Date(attempt.created_at))).course.push(attempt);
   for (const session of data.sessions)
     record(localDay(new Date(session.started_at))).minutes += session.active_seconds / 60;
   if (data.diagnostic.completed_at)
@@ -65,6 +69,7 @@ export function practiceDays(data: Snapshot, length = 30): PracticeDay[] {
         details.words.length +
         details.attempts.length +
         details.messages.length +
+        details.course.length +
         Number(details.assessment);
     const practised = units > 0 || details.minutes >= 1;
     const gain = practised

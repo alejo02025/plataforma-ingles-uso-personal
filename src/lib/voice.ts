@@ -47,7 +47,7 @@ export function checkedVoiceReply(text: string) {
   return value;
 }
 
-export function coachResponse(raw: string, message: string, turns: number) {
+export function coachResponse(raw: string, message: string, turns: number, level?: string) {
   const content = checkedVoiceReply(raw);
   const repeated = /\b([\p{L}]+\s+[\p{L}]+)\s+\1\b/iu.test(content);
   if (
@@ -57,6 +57,17 @@ export function coachResponse(raw: string, message: string, turns: number) {
     !repeated
   )
     return { content, mode: 'local' as const };
+  if (isPortuguese && level === 'A1')
+    return {
+      content: [
+        'Do que você gosta?',
+        'Você estuda ou trabalha?',
+        'O que você faz de manhã?',
+        'Como é sua cidade?',
+        'Você gosta de música?',
+      ][turns % 5],
+      mode: 'guided' as const,
+    };
   const prompts = isPortuguese
     ? [
         'Conte um pouco mais. O que você mais gostou?',

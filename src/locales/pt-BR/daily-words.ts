@@ -1,3 +1,4 @@
+import { cefrA1Words } from '@/lib/cefr-curriculum';
 import { glossary } from './content';
 export const wordCategories = [
   'Todas',
@@ -36,10 +37,9 @@ export function wordDetails(word: string) {
     (item) => item.word.toLocaleLowerCase('pt-BR') === word.toLocaleLowerCase('pt-BR'),
   );
 }
-export function wordsForDay(day: string) {
-  const index = Number(day.replaceAll('-', '')) % dailyWords.length;
-  return Array.from(
-    { length: 5 },
-    (_, offset) => dailyWords[(index + offset * 7) % dailyWords.length],
-  );
+export function wordsForDay(day: string, level?: string) {
+  const pool =
+    level === 'A1' ? dailyWords.filter((word) => cefrA1Words.includes(word.word)) : dailyWords;
+  const index = Number(day.replaceAll('-', '')) % pool.length;
+  return Array.from({ length: 5 }, (_, offset) => pool[(index + offset * 7) % pool.length]);
 }
