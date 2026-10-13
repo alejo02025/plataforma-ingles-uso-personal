@@ -15,14 +15,19 @@
     "test:e2e": "playwright test",
     "db:migrate": "tsx scripts/migrate.ts",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "build:pages": "node scripts/build-pages.mjs",
+    "test:pages": "playwright test --config playwright.pages.config.ts",
+    "publish:pages": "npm run build:pages && node scripts/publish-pages.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",
     "next": "16.4.0",
     "pdf-parse": "2.4.5",
+    "pdfjs-dist": "5.4.296",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "sql.js": "1.14.2",
     "zod": "^4.0.0"
   },
   "devDependencies": {
@@ -30,6 +35,7 @@
     "@types/node": "^24.0.0",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
+    "@types/sql.js": "1.4.11",
     "prettier": "3.6.2",
     "tsx": "^4.20.0",
     "typescript": "^5.9.0"

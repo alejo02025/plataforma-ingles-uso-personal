@@ -31,8 +31,12 @@ function route(request: NextRequest) {
 }
 export async function GET(request: NextRequest) {
   try {
-    if (!authorized(request)) return json({ error: 'Ingresá tu clave de acceso.' }, 401);
     const endpoint = route(request);
+    if (endpoint === 'health') {
+      db().prepare('SELECT version FROM schema_migrations ORDER BY version DESC LIMIT 1').get();
+      return json({ status: 'ok' });
+    }
+    if (!authorized(request)) return json({ error: 'Ingresá tu clave de acceso.' }, 401);
     if (endpoint === 'state') return json(snapshot());
     if (endpoint === 'export') {
       const tables = [
@@ -99,7 +103,9 @@ export async function POST(request: NextRequest) {
       response.cookies.set('english-session', sessionCookie(), {
         httpOnly: true,
         sameSite: 'strict',
-        secure: request.nextUrl.protocol === 'https:',
+        secure:
+          request.nextUrl.protocol === 'https:' ||
+          request.headers.get('x-forwarded-proto') === 'https',
         maxAge: 7 * 86400,
         path: '/',
       });

@@ -1,4 +1,5 @@
 'use client';
+import { DownloadLink } from './ui';
 import { useState } from 'react';
 import { ArrowLeft, ChevronLeft, ChevronRight, BookmarkPlus, Check, BookOpen } from 'lucide-react';
 import type { Snapshot, Activity, Document } from '@/lib/types';
@@ -316,9 +317,7 @@ export function Reader({
             <span className="eyebrow">LEER SIN APURO</span>
             <p>No necesitás entender cada palabra. Primero, buscá la idea.</p>
             {doc.filename && (
-              <a className="text-link" href={`/api/files/${doc.id}`}>
-                Descargar PDF original
-              </a>
+              <DownloadLink endpoint={`files/${doc.id}`}>Descargar PDF original</DownloadLink>
             )}
           </section>
         </aside>

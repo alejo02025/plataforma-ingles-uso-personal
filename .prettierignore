@@ -6,3 +6,10 @@ playwright-report
 test-results
 next-env.d.ts
 *.cmd
+
+.pages-project/
+out/
+_next/
+*.html
+*.txt
+assets/

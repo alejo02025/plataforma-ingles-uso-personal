@@ -3,12 +3,16 @@ import { makePdf } from '../pdf-fixture';
 test('diagnóstico retomable, lectura, vocabulario, PDF, calendario y tema persistentes', async ({
   page,
   request,
+  browser,
 }) => {
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
   await page.goto('/');
   const unauthorized = await request.get('/api/state');
   expect(unauthorized.status()).toBe(401);
+  const health = await request.get('/api/health');
+  expect(health.ok()).toBe(true);
+  expect(await health.json()).toEqual({ status: 'ok' });
   expect((await request.post('/api/login', { data: { token: 'wrong' } })).status()).toBe(401);
   await page.getByLabel('Clave de acceso').fill('e2e-access-only');
   await page.getByRole('button', { name: 'Entrar', exact: true }).click();
@@ -108,5 +112,32 @@ test('diagnóstico retomable, lectura, vocabulario, PDF, calendario y tema persi
   );
   await page.setViewportSize({ width: 390, height: 844 });
   await expect(page.locator('body')).toHaveJSProperty('scrollWidth', 390);
+  const phone = await browser.newContext({
+    baseURL: new URL(page.url()).origin,
+    viewport: { width: 390, height: 844 },
+  });
+  try {
+    const phonePage = await phone.newPage();
+    await phonePage.goto('/');
+    await phonePage.getByLabel('Clave de acceso').fill('e2e-access-only');
+    await phonePage.getByRole('button', { name: 'Entrar', exact: true }).click();
+    await expect(phonePage.getByRole('heading', { name: 'Buen día, Alejo.' })).toBeVisible();
+    const phoneState = await (await phone.request.get('/api/state')).json();
+    expect(phoneState.results).toHaveLength(2);
+    expect(phoneState.vocabulary[0].word).toBe('narrow');
+    await phonePage.getByRole('button', { name: 'Abrir navegación' }).click();
+    await phonePage
+      .getByRole('navigation')
+      .getByRole('button', { name: /Vocabulario/ })
+      .click();
+    await expect(phonePage.getByRole('heading', { name: 'narrow', exact: true })).toBeVisible();
+  } finally {
+    await phone.close();
+  }
+  const proxyLogin = await request.post('/api/login', {
+    headers: { 'x-forwarded-proto': 'https' },
+    data: { token: 'e2e-access-only' },
+  });
+  expect(proxyLogin.headers()['set-cookie']).toContain('Secure');
   expect(errors).toEqual([]);
 });

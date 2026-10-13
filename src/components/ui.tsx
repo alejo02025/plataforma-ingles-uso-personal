@@ -1,10 +1,15 @@
 'use client';
+import { useState } from 'react';
 import { ArrowRight, ArrowUpRight, Check, Volume2 } from 'lucide-react';
 import type { PublicQuestion } from '@/lib/types';
 export async function api<T = Record<string, unknown>>(
   endpoint: string,
   body?: unknown,
 ): Promise<T> {
+  if (process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github') {
+    const { browserApi } = await import('@/lib/browser/api');
+    return (await browserApi(endpoint, body)) as T;
+  }
   const response = await fetch(
     `/api/${endpoint}`,
     body === undefined
@@ -152,4 +157,56 @@ export function dateLabel(day: string, short = false) {
     day: 'numeric',
     month: short ? 'short' : 'long',
   }).format(new Date(`${day}T12:00:00-03:00`));
+}
+
+export function DownloadLink({
+  endpoint,
+  children,
+  className = 'text-link',
+}: {
+  endpoint: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
+  const [error, setError] = useState('');
+  return (
+    <>
+      <a
+        className={className}
+        href={process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github' ? '#' : `/api/${endpoint}`}
+        onClick={async (event) => {
+          if (process.env.NEXT_PUBLIC_DEPLOY_TARGET !== 'github') return;
+          event.preventDefault();
+          setError('');
+          try {
+            let blob: Blob;
+            if (endpoint === 'export')
+              blob = new Blob([JSON.stringify(await api('export'), null, 2)], {
+                type: 'application/json',
+              });
+            else {
+              const { pdfBytes } = await import('@/lib/browser/sync');
+              const bytes = await pdfBytes(endpoint.slice(6));
+              blob = new Blob([new Uint8Array(bytes)], { type: 'application/pdf' });
+            }
+            const url = URL.createObjectURL(blob),
+              link = document.createElement('a');
+            link.href = url;
+            link.download = endpoint === 'export' ? 'english-os-datos.json' : 'documento.pdf';
+            link.click();
+            setTimeout(() => URL.revokeObjectURL(url), 10000);
+          } catch (error) {
+            setError(error instanceof Error ? error.message : 'No se pudo descargar el archivo.');
+          }
+        }}
+      >
+        {children}
+      </a>
+      {error && (
+        <p className="error" role="alert">
+          {error}
+        </p>
+      )}
+    </>
+  );
 }

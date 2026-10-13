@@ -2,6 +2,14 @@
 
 Una plataforma personal para leer, practicar y construir evidencia de tu progreso en inglés. Interfaz en español argentino, contenido adulto y datos persistentes. Primera fase funcional sobre Next.js, TypeScript y SQLite.
 
+## Usar desde celular y notebook, sin PowerShell
+
+Abrí [English OS en GitHub Pages](https://alejo02025.github.io/plataforma-ingles-uso-personal/). La edición web funciona sin un servidor en tu computadora. Guarda los datos en el navegador y permite sincronizarlos automáticamente entre dispositivos con un segundo repositorio **privado** de GitHub. No usa otras plataformas ni requiere un plan de alojamiento pago.
+
+En **Preferencias → Tus dispositivos · GitHub** hay instrucciones para crear el repositorio privado y un token detallado limitado a ese repositorio con **Contents: Read and write**. Ingresá el token en la app, nunca en el chat ni en el código. Se conserva únicamente en memoria: recargar o cerrar la pestaña requiere volver a autorizar. Los cambios locales quedan guardados y se combinan al reconectar. La sincronización opera con la pestaña abierta y autorizada, cada 20 segundos y después de cambios, dentro de los límites de la API de GitHub.
+
+El repositorio público contiene el código y el sitio generado; tu historial y PDF se envían únicamente al repositorio privado. Esta edición no ofrece las funciones de IA del servidor. Los datos de la instalación anterior en Windows no se transfieren solos. [Detalles de publicación y límites](docs/DEPLOYMENT.md).
+
 ## Ejecutar
 
 ### Instalacion guiada en Windows
@@ -39,7 +47,7 @@ La primera visita permite empezar el diagnóstico. Cada respuesta se guarda; pod
 - Dashboard con actividades, tiempo activo, continuidad y vocabulario pendiente, sin estadísticas ficticias.
 - Diagnóstico retomable de nueve situaciones: reading, grammar y vocabulary. Línea de base por competencia; confianza baja, sin certificar MCER.
 - Plan diario persistente y acceso a la última actividad pendiente, incluso de un día anterior.
-- Seis lecturas originales A2–B2 sobre viajes, finanzas, historia, tecnología, trabajo y vida cotidiana. Preguntas corregidas en el servidor con explicaciones.
+- Seis lecturas originales A2–B2 sobre viajes, finanzas, historia, tecnología, trabajo y vida cotidiana. Preguntas corregidas con explicaciones; en GitHub Pages se evalúan en el navegador.
 - Lector por fragmentos, posición y respuestas guardadas, selección de palabras y expresiones, glosario inicial y pronunciación con la voz disponible en el navegador.
 - Importación de texto y PDF con texto seleccionable. Extracción real, fragmentación, descarga privada del original y resumen escrito. Sin clave de IA, el resumen se registra sin una nota de comprensión inventada.
 - Vocabulario persistente, contexto de origen, pronunciación cuando está disponible, repasos espaciados e historial de recuerdo autorreportado.

@@ -2203,3 +2203,16 @@ main {
     z-index: 29;
   }
 }
+
+.sync-status {
+  font-size: 12px;
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .sync-status {
+    font-size: 10px;
+  }
+  .topbar-actions:has(.sync-status) {
+    gap: 8px;
+  }
+}

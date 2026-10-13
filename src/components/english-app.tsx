@@ -1,5 +1,7 @@
 'use client';
-import { useCallback, useEffect, useState } from 'react';
+import { DownloadLink } from './ui';
+import { GitHubSync, GitHubSyncStatus } from './github-sync';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   BookOpen,
   CalendarDays,
@@ -53,10 +55,15 @@ export function EnglishApp() {
     document.documentElement.dataset.theme = state.profile.theme;
   }, []);
   useEffect(() => {
+    const onRemoteChange = () => {
+      void refresh().catch((e) => setError(e.message));
+    };
+    window.addEventListener('english-data-changed', onRemoteChange);
     refresh().catch((e) => {
       if (e.message.includes('clave de acceso')) setLocked(true);
       else setError(e.message);
     });
+    return () => window.removeEventListener('english-data-changed', onRemoteChange);
   }, [refresh]);
   async function navigate(target: string) {
     setView(target);
@@ -258,6 +265,9 @@ export function EnglishApp() {
             <strong>{active ? 'Práctica' : view === 'Diagnóstico' ? 'Diagnóstico' : view}</strong>
           </div>
           <div className="topbar-actions">
+            {process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github' && (
+              <GitHubSyncStatus onOpen={() => setSettings(true)} />
+            )}
             <span className="private-label">
               <span className="status-dot" />
               {data.protected ? 'Espacio protegido' : 'Uso personal'}
@@ -405,6 +415,19 @@ function Preferences({
   const [profile, setProfile] = useState(data.profile),
     [busy, setBusy] = useState(false),
     [error, setError] = useState('');
+  const baseline = useRef(data.profile);
+  useEffect(() => {
+    const before = baseline.current as unknown as Record<string, unknown>;
+    setProfile((current) => ({
+      ...data.profile,
+      ...Object.fromEntries(
+        Object.entries(current).filter(
+          ([key, value]) => JSON.stringify(value) !== JSON.stringify(before[key]),
+        ),
+      ),
+    }));
+    baseline.current = data.profile;
+  }, [data.profile]);
   const dialogRef = useDialog(close, busy);
   return (
     <div className="modal-backdrop">
@@ -504,21 +527,27 @@ function Preferences({
             <Check size={16} />
           </Button>
         </form>
+        {process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github' && <GitHubSync />}
         <div className="settings-info">
           <span className="eyebrow">PRIVACIDAD Y DATOS</span>
           <p>
-            Los datos se guardan en la base del servidor.{' '}
+            {process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github'
+              ? 'Los datos se guardan en este navegador y se sincronizan al conectar tu repositorio privado de GitHub.'
+              : 'Los datos se guardan en la base del servidor.'}{' '}
             {data.aiAvailable
               ? 'La corrección con IA está configurada.'
-              : 'Para activar correcciones, configurá ENGLISH_AI_API_KEY en el servidor.'}
+              : process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github'
+                ? 'Esta edición permite estudiar sin servicios de IA.'
+                : 'Para activar correcciones, configurá ENGLISH_AI_API_KEY en el servidor.'}
           </p>
           <p>
             Este producto tiene un diagnóstico orientativo, no una certificación MCER. Para acceso
-            desde Internet, configurá APP_ACCESS_TOKEN y HTTPS.
+            desde Internet,{' '}
+            {process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github'
+              ? 'tus datos personales se mantienen fuera del repositorio público.'
+              : 'configurá APP_ACCESS_TOKEN y HTTPS.'}
           </p>
-          <a className="text-link" href="/api/export">
-            Descargar mi historial
-          </a>
+          <DownloadLink endpoint="export">Descargar mi historial</DownloadLink>
         </div>
       </section>
     </div>

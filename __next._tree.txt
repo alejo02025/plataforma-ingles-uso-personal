@@ -1,0 +1,3 @@
+:HL["/plataforma-ingles-uso-personal/_next/static/chunks/384krjhzph83a.css","style"]
+1:[["children",{"s":"__PAGE__","h":160}]]
+0:{"b":"HGacwivsK15LoO97eRCuF","t":{"t":{"s":"","h":80,"c":"$Q1"}}}

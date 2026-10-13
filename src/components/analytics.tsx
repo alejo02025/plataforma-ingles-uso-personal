@@ -1,4 +1,5 @@
 'use client';
+import { DownloadLink } from './ui';
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, Download, TrendingUp } from 'lucide-react';
 import type { Snapshot } from '@/lib/types';
@@ -38,10 +39,10 @@ export function Progress({ data }: { data: Snapshot }) {
         title="Lo que está cambiando."
         description="Tu práctica registrada, tus aciertos y las preguntas que siguen abiertas."
       >
-        <a className="button secondary" href="/api/export">
+        <DownloadLink className="button secondary" endpoint="export">
           <Download size={16} />
           Exportar mis datos
-        </a>
+        </DownloadLink>
       </Heading>
       <div className="evidence-banner">
         <TrendingUp size={20} />

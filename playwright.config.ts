@@ -25,6 +25,7 @@ export default defineConfig({
     env: {
       ENGLISH_DATA_DIR: testData,
       APP_ACCESS_TOKEN: 'e2e-access-only',
+      ENGLISH_REQUIRE_AUTH: '1',
       ENGLISH_AI_API_KEY: '',
     },
     timeout: 30_000,

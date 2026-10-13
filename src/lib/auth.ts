@@ -11,7 +11,7 @@ export function sessionCookie() {
 }
 export function authorized(request: NextRequest) {
   const token = process.env.APP_ACCESS_TOKEN;
-  if (!token) return true;
+  if (!token) return process.env.ENGLISH_REQUIRE_AUTH !== '1';
   const cookie = request.cookies.get('english-session')?.value || '';
   const [expires, signature] = cookie.split('.');
   return Boolean(
