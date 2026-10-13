@@ -2901,6 +2901,12 @@ main {
   font-size: 30px;
   line-height: 1.1;
 }
+.daily-word-spanish {
+  margin: 10px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted);
+}
 .daily-word-tags {
   display: flex;
   gap: 7px;

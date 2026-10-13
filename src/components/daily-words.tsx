@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { ArrowLeft, ArrowRight, BookmarkPlus, Check, Bookmark, X } from 'lucide-react';
 import type { Snapshot } from '@/lib/types';
 import { wordsForDay } from '@/lib/daily-words';
+import { dailyWordSpanish } from '@/locales/es/daily-word-meanings';
 import { api, Button, Speak } from './ui';
 export function DailyWords({
   data,
@@ -48,6 +49,11 @@ export function DailyWords({
             <h2>{entry.word}</h2>
             <Speak text={entry.word} />
           </div>
+          {dailyWordSpanish[entry.word.toLowerCase()] && (
+            <p className="daily-word-spanish" lang="es">
+              {dailyWordSpanish[entry.word.toLowerCase()]}
+            </p>
+          )}
           <div className="daily-word-tags">
             <span>{entry.category}</span>
             <span>{entry.kind}</span>
