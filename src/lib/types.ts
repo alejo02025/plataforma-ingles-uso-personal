@@ -92,6 +92,7 @@ export type Snapshot = {
   };
   questions: PublicQuestion[];
   documents: Document[];
+  trashedDocuments?: Document[];
   resumeActivity: Activity | null;
   plan: { day: string; minutes: number; reason: string; activities: Activity[] };
   vocabulary: Word[];

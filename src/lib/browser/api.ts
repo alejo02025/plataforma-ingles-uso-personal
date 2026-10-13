@@ -1,3 +1,4 @@
+import { documentMutation } from '../document-store';
 import { tutorMutation } from '../tutor-store';
 import { z } from 'zod';
 import { createLearningService, AppError } from '../domain';
@@ -43,6 +44,8 @@ export async function browserApi(endpoint: string, input?: unknown): Promise<unk
 }
 async function dispatch(endpoint: string, input?: unknown): Promise<unknown> {
   if (endpoint === 'state') return snapshot();
+  if (endpoint === 'documents/trash' || endpoint === 'documents/restore')
+    return documentMutation(db(), endpoint, input);
   if (endpoint === 'export') return capture();
   if (endpoint === 'import') {
     if (!(input instanceof FormData)) throw new AppError('This material is not valid.');

@@ -82,7 +82,30 @@ test('PDF Studio, daily words, real local AI, responsive views and update banner
   await expect(page.locator('.studio-ai-state')).toHaveText('Local AI', { timeout: 90000 });
   await page.getByLabel('Message your PDF tutor').fill('Where is the town in this passage?');
   await page.getByRole('button', { name: 'Send message' }).click();
-  await expect(page.getByRole('button', { name: 'Send message' })).toBeVisible({ timeout: 90000 });
+  await expect(page.getByRole('button', { name: 'Stop response' })).toBeVisible();
+  const addPdf = page.getByRole('button', { name: 'Add PDF', exact: true });
+  await expect(addPdf).toBeEnabled();
+  const chooser = page.waitForEvent('filechooser');
+  await addPdf.click();
+  await (
+    await chooser
+  ).setFiles({
+    name: 'Timetable.pdf',
+    mimeType: 'application/pdf',
+    buffer: makePdf([
+      'The train leaves at nine in the morning.',
+      'Passengers check the timetable before travelling.',
+      'They buy tickets at the railway station.',
+    ]),
+  });
+  await expect(page.getByRole('tab', { name: 'Timetable', exact: true })).toHaveAttribute(
+    'aria-selected',
+    'true',
+  );
+  await expect(page.locator('.studio-passage')).toContainText('The train leaves');
+  await page.getByRole('tab', { name: 'Journey', exact: true }).click();
+  await expect(page.locator('.studio-message.assistant')).toHaveCount(2, { timeout: 90000 });
+  await expect(page.locator('.studio-ai-state')).toHaveClass(/enabled/, { timeout: 90000 });
   const answer = page.locator('.studio-message.assistant').last();
   await expect(answer.locator('span').first()).toHaveText(/Local AI tutor|Reading guide/);
   const answerText = await answer.locator('p').innerText();

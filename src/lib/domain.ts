@@ -39,12 +39,12 @@ export function createLearningService({
   aiAvailable?: boolean;
   protectedAccess?: boolean;
 }) {
-  function documents(): Document[] {
+  function documents(includeTrashed = false): Document[] {
     const rows = db()
       .prepare(
-        'SELECT d.*,p.paragraph,p.draft,p.updated_at FROM documents d LEFT JOIN reading_progress p ON p.document_id=d.id ORDER BY d.created_at DESC',
+        `SELECT d.*,p.paragraph,p.draft,p.updated_at FROM documents d LEFT JOIN reading_progress p ON p.document_id=d.id WHERE (? OR d.source NOT LIKE 'trash:%') ORDER BY d.created_at DESC`,
       )
-      .all() as Row[];
+      .all(Number(includeTrashed)) as Row[];
     return rows.map((r) => ({
       ...r,
       paragraph: r.paragraph || 0,
@@ -537,6 +537,7 @@ export function createLearningService({
       resumeActivity,
       questions: diagnosticQuestions.map(publicQuestion),
       documents: documents(),
+      trashedDocuments: documents(true).filter((doc) => doc.source.startsWith('trash:')),
       plan: dailyPlan(),
       vocabulary: db().prepare('SELECT * FROM vocabulary ORDER BY due_at').all() as Word[],
       results: db()

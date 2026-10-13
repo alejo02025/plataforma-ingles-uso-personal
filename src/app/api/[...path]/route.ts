@@ -1,3 +1,4 @@
+import { documentMutation } from '@/lib/document-store';
 import { tables } from '@/lib/browser/merge';
 import { tutorMutation } from '@/lib/tutor-store';
 import { NextRequest, NextResponse } from 'next/server';
@@ -118,6 +119,8 @@ export async function POST(request: NextRequest) {
     } catch {
       throw new AppError('Invalid JSON.');
     }
+    if (endpoint === 'documents/trash' || endpoint === 'documents/restore')
+      return json(documentMutation(db(), endpoint, input));
     if (endpoint.startsWith('tutor/')) return json(tutorMutation(db(), endpoint, input));
     if (endpoint === 'profile') {
       const p = z

@@ -10,5 +10,6 @@
   "assets",
   "index.html",
   "index.txt",
-  "local-ai"
+  "local-ai",
+  "manifest.webmanifest"
 ]

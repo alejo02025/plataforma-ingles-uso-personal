@@ -30,6 +30,9 @@ http
           '.css': 'text/css',
           '.wasm': 'application/wasm',
           '.json': 'application/json',
+          '.webmanifest': 'application/manifest+json',
+          '.png': 'image/png',
+          '.svg': 'image/svg+xml',
         }[path.extname(file)] || 'application/octet-stream',
       );
       res.end(contents);

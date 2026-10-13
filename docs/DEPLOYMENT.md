@@ -49,3 +49,15 @@ Las preguntas de práctica son deterministas y se verifican contra el pasaje. El
 Cada `build:pages` escribe un identificador nuevo en la app y en `assets/version.json`. La comprobación evita caché y muestra el aviso con **Update** si son distintos. La recarga espera el guardado local y conserva IndexedDB. La versión anterior, sin esta función, requiere una recarga manual inicial. El aviso no publica código: aparece después de que GitHub Pages despliega un cambio.
 
 Las migraciones agregan tablas de secciones, mensajes e intentos sin borrar registros previos. Los respaldos anteriores se admiten con estas tablas vacías. La traducción cambia solamente etiquetas conocidas; conserva textos personalizados, respuestas e historial.
+
+## Pestañas y papelera de PDFs
+
+Cada documento importado tiene una pestaña identificada por su ID. Subir otro no reemplaza los anteriores. El archivo seleccionado, el modo de lectura/práctica/chat y los borradores se recuerdan en ese navegador. La posición de lectura, respuestas enviadas y conversaciones se guardan en la base y se sincronizan con GitHub al autorizar la app. La fila de pestañas se desplaza horizontalmente en celulares; el botón para agregar permanece visible.
+
+La **×** mueve un documento a **Trash**, sin borrar el PDF original, sus referencias, vocabulario, historial o respuestas. **Restore** o **Undo** lo recuperan. El estado se registra en el campo `documents.source` con el prefijo `trash:`, conservando la fuente original para restaurarla. La sincronización combina ese campo con sus marcas existentes: un dispositivo atrasado no hace reaparecer un PDF quitado, y una restauración posterior puede recuperarlo. Los respaldos incluyen también la papelera y sus archivos. No se ofrece borrado permanente en esta versión.
+
+## Ícono de la pantalla de inicio
+
+La metadata apunta a PNG de 180 píxeles para iOS y a un manifiesto con PNG de 192 y 512 píxeles para Android, incluido un ícono apto para recorte. El logo es una versión del mismo símbolo de la interfaz: una `e` y una flecha sobre verde. Todos los archivos se sirven desde `assets/app/` en este sitio. El manifiesto usa el prefijo del repositorio en `id`, `scope` y `start_url` y el nombre **English OS**. La edición local usa la raíz del servidor.
+
+Los accesos ya agregados pueden conservar un ícono antiguo. Agregá de nuevo el sitio desde el navegador después de actualizarlo y conservá el acceso anterior hasta comprobar o respaldar tu progreso: algunos navegadores aíslan el almacenamiento de los accesos instalados. El manifiesto no agrega caché offline ni sincronización con la app cerrada.
