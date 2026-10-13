@@ -1,4 +1,5 @@
 'use client';
+import { studyStorage } from '@/lib/workspace';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ArrowLeft,
@@ -29,7 +30,7 @@ type StudioProps = {
 };
 export function PdfStudio({ data, refresh, onRead }: StudioProps) {
   const [selected, setSelected] = useState(() =>
-    typeof window === 'undefined' ? '' : localStorage.getItem('english-studio-active') || '',
+    typeof window === 'undefined' ? '' : studyStorage.getItem('english-studio-active') || '',
   );
   const [busy, setBusy] = useState(false),
     [error, setError] = useState(''),
@@ -42,7 +43,7 @@ export function PdfStudio({ data, refresh, onRead }: StudioProps) {
   const personal = data.documents.filter((doc) => doc.source !== 'editorial').reverse();
   const doc = personal.find((item) => item.id === selected) || personal.at(-1) || null;
   useEffect(() => {
-    if (doc) localStorage.setItem('english-studio-active', doc.id);
+    if (doc) studyStorage.setItem('english-studio-active', doc.id);
     const list = shelf.current,
       current = list?.querySelector<HTMLElement>('[aria-selected="true"]');
     if (list && current) {
@@ -299,7 +300,7 @@ function savedWorkspace(documentId: string): {
 } {
   try {
     const saved = JSON.parse(
-      localStorage.getItem(`english-studio-workspace:${documentId}`) || '{}',
+      studyStorage.getItem(`english-studio-workspace:${documentId}`) || '{}',
     );
     return {
       tab: ['read', 'practice', 'chat'].includes(saved.tab) ? saved.tab : 'read',
@@ -336,7 +337,7 @@ function PdfWorkspace({ doc, data, refresh, onRead }: StudioProps & { doc: Docum
   const [busy, setBusy] = useState(false),
     [error, setError] = useState('');
   const [draft, setDraft] = useState(
-      () => localStorage.getItem(`english-tutor-draft:${doc.id}`) || '',
+      () => studyStorage.getItem(`english-tutor-draft:${doc.id}`) || '',
     ),
     [stream, setStream] = useState(''),
     [responding, setResponding] = useState(false),
@@ -374,7 +375,7 @@ function PdfWorkspace({ doc, data, refresh, onRead }: StudioProps & { doc: Docum
     };
   }, []);
   useEffect(() => {
-    localStorage.setItem(
+    studyStorage.setItem(
       `english-studio-workspace:${doc.id}`,
       JSON.stringify({ tab, round, focus, updatedAt: Date.now(), answers: localAnswers }),
     );
@@ -386,7 +387,7 @@ function PdfWorkspace({ doc, data, refresh, onRead }: StudioProps & { doc: Docum
         .catch((error) => setError(error.message));
   }, [doc?.id, focus]);
   useEffect(() => {
-    if (doc) localStorage.setItem(`english-tutor-draft:${doc.id}`, draft);
+    if (doc) studyStorage.setItem(`english-tutor-draft:${doc.id}`, draft);
   }, [draft, doc?.id]);
   useEffect(() => {
     tail.current?.scrollIntoView({ block: 'nearest' });

@@ -1,3 +1,4 @@
+import { assetBase, workspaceId } from '../workspace';
 import initSqlJs, { type Database, type SqlValue } from 'sql.js';
 import type { db as nativeDb } from '../db';
 import { initialize } from '../schema';
@@ -8,7 +9,7 @@ let createDatabase: (bytes: Uint8Array) => Database;
 let ready: Promise<void> | undefined;
 let device = '';
 let previous: Manifest | undefined;
-export const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+export const basePath = assetBase;
 export function load() {
   return (ready ||= (async () => {
     const SQL = await initSqlJs({ locateFile: () => `${basePath}/assets/sql-wasm.wasm` });
@@ -71,6 +72,7 @@ export function transaction<T>(fn: () => T): T {
 export function capture(): Manifest {
   const current = {
     version: 1 as const,
+    workspace: workspaceId,
     data: Object.fromEntries(
       tables.map((table) => [table, db().prepare(`SELECT * FROM ${table}`).all()]),
     ),

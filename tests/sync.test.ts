@@ -76,3 +76,12 @@ test('los planes reemplazados después del diagnóstico no reaparecen desde un d
     combined.data.activities.some((row) => row.id === combined.data.sessions[0].activity_id),
   );
 });
+
+test('study spaces refuse cross-language backups and merges while preserving legacy English backups', () => {
+  const english = empty();
+  assert.equal(validate(structuredClone(english)).version, 1);
+  const portuguese: Manifest = { ...empty(), workspace: 'pt' };
+  assert.throws(() => validate(portuguese), /different study space/);
+  assert.throws(() => merge(english, portuguese), /Different study spaces/);
+  assert.deepEqual(english.data.documents, []);
+});

@@ -1,3 +1,4 @@
+import { workspaceId } from '@/lib/workspace';
 import { documentMutation } from '@/lib/document-store';
 import { tables } from '@/lib/browser/merge';
 import { tutorMutation } from '@/lib/tutor-store';
@@ -46,7 +47,11 @@ export async function GET(request: NextRequest) {
         tables.map((t) => [t, db().prepare(`SELECT * FROM ${t}`).all()]),
       );
       return new NextResponse(
-        JSON.stringify({ version: 1, exported_at: new Date().toISOString(), data }, null, 2),
+        JSON.stringify(
+          { version: 1, workspace: workspaceId, exported_at: new Date().toISOString(), data },
+          null,
+          2,
+        ),
         {
           headers: {
             'Content-Type': 'application/json',

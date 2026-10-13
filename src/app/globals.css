@@ -3881,3 +3881,141 @@ main {
   font-size: 11px;
   padding: 9px;
 }
+
+.study-spaces {
+  margin: 4px 0 26px;
+}
+.study-spaces-caption {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+.study-space-links {
+  display: flex;
+  gap: 12px;
+}
+.study-space {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 6px;
+}
+.study-space > span:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+.study-space strong {
+  font-size: 16px;
+}
+.study-space small {
+  color: var(--muted);
+  font-size: 11px;
+}
+.study-space[aria-current='page'] {
+  border-color: var(--green);
+  box-shadow: inset 3px 0 0 var(--green);
+}
+.study-space-mark {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: #07856f;
+  color: #fff;
+  font:
+    24px Georgia,
+    serif;
+}
+.portuguese-space .study-space-mark {
+  background: #995165;
+}
+.study-spaces.compact {
+  margin: 24px 0 0;
+}
+.study-spaces.compact .study-space-links {
+  gap: 6px;
+}
+.study-spaces.compact .study-space {
+  padding: 10px 7px;
+  gap: 5px;
+}
+.study-spaces.compact .study-space-mark {
+  display: none;
+}
+.study-spaces.compact .study-space strong {
+  font-size: 11px;
+}
+.study-spaces.compact .study-space small {
+  font-size: 9px;
+}
+.study-spaces.compact .study-space > svg {
+  width: 12px;
+}
+:root[data-space='portuguese'] {
+  --green: #955168;
+  --green-soft: #f5e4eb;
+  --sage: #f4e0e9;
+}
+:root[data-space='portuguese'] .logo-mark {
+  background: linear-gradient(135deg, #854459, #b77789);
+}
+:root[data-space='portuguese'] .nav-item.active {
+  box-shadow: inset 3px 0 0 #b56f87;
+}
+:root[data-space='portuguese'] .pdf-home-hero {
+  background: #edb485;
+  border-color: #d99c6a;
+}
+:root[data-space='portuguese'] .pdf-home-hero .button {
+  background: #6c3e52;
+  border-color: #6c3e52;
+}
+:root[data-space='portuguese'] .pdf-hero-art::before {
+  background: #97556e;
+  border-color: #814158;
+}
+:root[data-space='portuguese'] .pdf-hero-sheet {
+  border-left-color: #97556e;
+}
+:root[data-space='portuguese'][data-theme='dark'] {
+  --green: #dfa8bd;
+  --green-soft: #442c3b;
+  --sage: #442c3b;
+}
+:root[data-space='portuguese'][data-theme='dark'] .pdf-home-hero {
+  background: #754357;
+  color: #fff7e7;
+}
+@media (max-width: 640px) {
+  .study-space {
+    padding: 12px;
+    gap: 9px;
+  }
+  .study-space strong {
+    font-size: 14px;
+  }
+  .study-space-mark {
+    width: 32px;
+    height: 32px;
+    font-size: 21px;
+  }
+  .study-space small {
+    font-size: 10px;
+  }
+}
+
+.sidebar {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}

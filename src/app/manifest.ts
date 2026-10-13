@@ -1,3 +1,4 @@
+import { isPortuguese, appName, assetBase } from '@/lib/workspace';
 import type { MetadataRoute } from 'next';
 
 export const dynamic = 'force-static';
@@ -5,30 +6,32 @@ export default function manifest(): MetadataRoute.Manifest {
   const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
   return {
     id: `${base}/`,
-    name: 'English OS',
-    short_name: 'English OS',
-    description: 'Your personal reading room and English practice notebook.',
+    name: appName,
+    short_name: appName,
+    description: isPortuguese
+      ? 'Seu espaço pessoal para aprender português do Brasil.'
+      : 'Your personal reading room and English practice notebook.',
     start_url: `${base}/`,
     scope: `${base}/`,
     display: 'standalone',
-    lang: 'en',
+    lang: isPortuguese ? 'pt-BR' : 'en',
     background_color: '#fffaf3',
-    theme_color: '#07856f',
+    theme_color: isPortuguese ? '#955168' : '#07856f',
     icons: [
       {
-        src: `${base}/assets/app/icon-192-v1.png`,
+        src: `${assetBase}/assets/app/${isPortuguese ? 'portuguese-' : ''}icon-192-v1.png`,
         sizes: '192x192',
         type: 'image/png',
         purpose: 'any',
       },
       {
-        src: `${base}/assets/app/icon-512-v1.png`,
+        src: `${assetBase}/assets/app/${isPortuguese ? 'portuguese-' : ''}icon-512-v1.png`,
         sizes: '512x512',
         type: 'image/png',
         purpose: 'any',
       },
       {
-        src: `${base}/assets/app/icon-512-v1.png`,
+        src: `${assetBase}/assets/app/${isPortuguese ? 'portuguese-' : ''}icon-512-v1.png`,
         sizes: '512x512',
         type: 'image/png',
         purpose: 'maskable',

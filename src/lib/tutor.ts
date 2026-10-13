@@ -1,3 +1,4 @@
+import { isPortuguese } from './workspace';
 import type { Document } from './types';
 import { glossary } from './content';
 export type Source = { paragraph: number; page: number | null; text: string };
@@ -10,12 +11,13 @@ export type TutorQuestion = {
   source: Source;
 };
 const stop = new Set(
-  'the and that this with from into are was were have has had not but for you your they their them what which when where why how does did would could should about please explain tell simple english summarize summary some more there here these those because then than our its who can will to of in on at a an is it as be by or if i me we us do so'.split(
-    ' ',
-  ),
+  (isPortuguese
+    ? 'o a os as um uma uns umas e de do da dos das no na nos nas em por para com sem ao aos à às que é são foi eram ser estar tem têm tinha ter eu você vocês ele ela eles elas nós nosso sua suas seu seus isto isso esse esta este aqui ali lá quando onde quem como qual quais porque pois mas também mais muito me se não sim favor explique resumir português'
+    : 'the and that this with from into are was were have has had not but for you your they their them what which when where why how does did would could should about please explain tell simple english summarize summary some more there here these those because then than our its who can will to of in on at a an is it as be by or if i me we us do so'
+  ).split(' '),
 );
 export function words(text: string) {
-  return (text.toLowerCase().match(/[a-z]+(?:'[a-z]+)?/g) || []).filter(
+  return (text.toLowerCase().match(/[\p{L}]+(?:['’][\p{L}]+)?/gu) || []).filter(
     (word) => word.length > 2 && !stop.has(word),
   );
 }
@@ -83,7 +85,7 @@ export function questions(
       result.push({
         id: `${doc.id}:word:${paragraph}:${round}`,
         kind: 'word',
-        prompt: `Complete this sentence with the original word from the text:\n“${sentence.replace(new RegExp(`\\b${chosen}\\b`, 'i'), '_____')}”`,
+        prompt: `Complete this sentence with the original word from the text:\n“${sentence.replace(new RegExp(`(?<![\\p{L}])${chosen}(?![\\p{L}])`, 'iu'), '_____')}”`,
         options,
         answer: options.indexOf(chosen),
         source: ref,
@@ -128,7 +130,11 @@ export function guidedReply(
 ): { content: string; sources: Source[] } {
   const refs = references(doc, message, focus);
   const term = message
-    .match(/(?:mean|meaning of|define)\s+["']?([a-z -]+)/i)?.[1]
+    .match(
+      isPortuguese
+        ? /(?:significa|significado de|defina)\s+["']?([\p{L} -]+)/iu
+        : /(?:mean|meaning of|define)\s+["']?([a-z -]+)/i,
+    )?.[1]
     ?.trim()
     .replace(/[?"']+$/, '')
     .toLowerCase();
@@ -138,7 +144,11 @@ export function guidedReply(
       content: `${term}: ${definition.meaning}\n\nExample: ${definition.example}\n\nCan you write a sentence using this word?`,
       sources: refs,
     };
-  if (/question|quiz|practice/i.test(message))
+  if (
+    (isPortuguese ? /pergunta|questionário|pratic|exercício/i : /question|quiz|practice/i).test(
+      message,
+    )
+  )
     return {
       content: `Let's work with this passage:\n\n“${sentences(refs[0].text)[0] || refs[0].text}”\n\nWhat is the main point? Answer in English and include one detail from the text.`,
       sources: refs,
@@ -193,8 +203,53 @@ export function unverifiedNames(text: string, sources: Source[]): string[] {
     'Answer',
     'Question',
   ]);
+  if (isPortuguese)
+    for (const word of [
+      'O',
+      'A',
+      'Os',
+      'As',
+      'Um',
+      'Uma',
+      'Isso',
+      'Este',
+      'Esta',
+      'Esse',
+      'Essa',
+      'Eu',
+      'Você',
+      'Seu',
+      'Sua',
+      'Aqui',
+      'Ali',
+      'Não',
+      'Sim',
+      'No',
+      'Na',
+      'Nos',
+      'Nas',
+      'Qual',
+      'Quais',
+      'Como',
+      'Onde',
+      'Quando',
+      'Por',
+      'Pode',
+      'Podemos',
+      'Vamos',
+      'Segundo',
+      'Texto',
+      'Trecho',
+      'Resposta',
+      'Pergunta',
+      'Português',
+      'Brasil',
+    ])
+      allowed.add(word);
   const unknown: string[] = [];
-  for (const match of text.matchAll(/\b[A-Z][a-z]{2,}(?:-[A-Z][a-z]+)?\b/g)) {
+  for (const match of text.matchAll(
+    /(?<![\p{L}])[\p{Lu}][\p{Ll}]{2,}(?:-[\p{Lu}][\p{Ll}]+)?(?![\p{L}])/gu,
+  )) {
     if (allowed.has(match[0]) || reference.includes(match[0].toLowerCase())) continue;
     unknown.push(match[0]);
   }
@@ -218,18 +273,31 @@ export function checkedLocalReply(
   sources: Source[],
   question: string,
 ): { content: string; mode: 'local' | 'guided' } {
-  const factual =
-    /\b(where|when|who|how many|how much|what (?:is|are|was|were|did|does|do)|which)\b/i.test(
-      question,
-    );
+  const factual = (
+    isPortuguese
+      ? /\b(onde|quando|quem|quanto|quantos|qual|quais|o que)\b/i
+      : /\b(where|when|who|how many|how much|what (?:is|are|was|were|did|does|do)|which)\b/i
+  ).test(question);
+  if (
+    isPortuguese &&
+    /\b(the|with|where|which|according|passage|would|could|should|your|you|english)\b/i.test(
+      content,
+    )
+  )
+    return { content: sourceAnswer(sources, question), mode: 'guided' };
   if (unverifiedNames(content, sources).length)
     return { content: sourceAnswer(sources, question), mode: 'guided' };
   if (factual) {
     // Keep factual claims in the author's words; the small model contributes a follow-up.
-    const followUp = content
+    const generatedFollowUp = content
       .match(/[^.!?\n]{5,180}\?/g)
       ?.at(-1)
       ?.trim();
+    const followUp =
+      isPortuguese &&
+      generatedFollowUp?.toLocaleLowerCase('pt-BR') === question.trim().toLocaleLowerCase('pt-BR')
+        ? undefined
+        : generatedFollowUp;
     const quoted = sourceAnswer(sources, question);
     return {
       content: followUp

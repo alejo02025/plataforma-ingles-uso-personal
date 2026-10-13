@@ -61,3 +61,15 @@ La **×** mueve un documento a **Trash**, sin borrar el PDF original, sus refere
 La metadata apunta a PNG de 180 píxeles para iOS y a un manifiesto con PNG de 192 y 512 píxeles para Android, incluido un ícono apto para recorte. El logo es una versión del mismo símbolo de la interfaz: una `e` y una flecha sobre verde. Todos los archivos se sirven desde `assets/app/` en este sitio. El manifiesto usa el prefijo del repositorio en `id`, `scope` y `start_url` y el nombre **English OS**. La edición local usa la raíz del servidor.
 
 Los accesos ya agregados pueden conservar un ícono antiguo. Agregá de nuevo el sitio desde el navegador después de actualizarlo y conservá el acceso anterior hasta comprobar o respaldar tu progreso: algunos navegadores aíslan el almacenamiento de los accesos instalados. El manifiesto no agrega caché offline ni sincronización con la app cerrada.
+
+## Portugués brasileño para Jazmín
+
+`build:pages` compila dos exportaciones a partir de los mismos componentes: inglés en la raíz y portugués en `portugues/`. La copia temporal `.pages-pt-project` aplica el catálogo revisado `src/locales/pt-BR/ui.json` a textos de interfaz, preservando nombres de tablas, claves del contrato y códigos del teclado. Usa el currículo y vocabulario propios de `src/locales/pt-BR/`. Cambios en los componentes se comparten; nuevas frases de interfaz deben agregarse al catálogo. Nunca se modifican archivos fuente durante la localización.
+
+`NEXT_PUBLIC_STUDY_LANGUAGE` identifica el espacio compilado. `workspace.ts` determina nombre inicial, marca, prefijos y almacenamiento. Se conserva el nombre antiguo de IndexedDB y las claves de inglés para no perder datos existentes; portugués usa otra base y un prefijo de localStorage. Los manifiestos personales incluyen `workspace: en/pt`. Respaldos antiguos sin marcador se consideran de inglés. La restauración rechaza un espacio diferente antes de cambiar datos. La sincronización usa carpetas diferentes y conserva la exigencia de repositorio privado.
+
+Las dos exportaciones usan los assets de SQL.js, PDF.js y el modelo desde la raíz pública. Los pesos se publican una sola vez; el modelo queda cacheado en el almacenamiento de cada espacio. Ambos usan el mismo identificador de versión, servido desde la raíz. El manifiesto y alcance de instalación del portugués apuntan a `/plataforma-ingles-uso-personal/portugues/`, con nombre e ícono propios.
+
+La IA local actual se entrenó principalmente en inglés: se le pide portugués brasileño y, cuando devuelve inglés o introduce nombres no respaldados, la app muestra una cita con una pregunta de lectura en portugués. No se promete la calidad de un modelo grande o un tutor humano. Las pruebas usan inferencia real para verificar este recorrido; simulan explícitamente GitHub para verificar que las dos carpetas privadas permanezcan independientes.
+
+La edición con servidor local sigue siendo de inglés; su selector de portugués enlaza a la edición publicada en GitHub Pages.

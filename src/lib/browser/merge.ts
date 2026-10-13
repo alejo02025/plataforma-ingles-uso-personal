@@ -1,3 +1,4 @@
+import { workspaceId } from '../workspace';
 import { nextReview } from '../learning';
 export const tables = [
   'profile',
@@ -22,6 +23,7 @@ export const tables = [
 export type Row = Record<string, string | number | null>;
 export type Manifest = {
   version: 1;
+  workspace?: 'en' | 'pt';
   data: Record<string, Row[]>;
   clocks?: Record<string, Record<string, string>>;
   deletions?: Record<string, string>;
@@ -44,6 +46,8 @@ export function validate(value: unknown): Manifest {
     Object.keys(manifest.data).some((t) => !tables.includes(t as (typeof tables)[number]))
   )
     throw new Error('This backup format is not supported.');
+  if ((manifest.workspace || 'en') !== workspaceId)
+    throw new Error('This backup belongs to a different study space.');
   for (const table of ['document_sections', 'tutor_messages', 'tutor_attempts'])
     if (manifest.data[table] === undefined) manifest.data[table] = [];
   for (const table of tables) {
@@ -110,11 +114,19 @@ export function stamp(
   return { ...current, clocks, deletions };
 }
 export function merge(left: Manifest, right: Manifest): Manifest {
+  if ((left.workspace || 'en') !== (right.workspace || 'en'))
+    throw new Error('Different study spaces cannot be merged.');
   const deletions: Record<string, string> = {};
   for (const source of [left, right])
     for (const [key, clock] of Object.entries(source.deletions || {}))
       if (!deletions[key] || clock > deletions[key]) deletions[key] = clock;
-  const result: Manifest = { version: 1, data: {}, clocks: {}, deletions };
+  const result: Manifest = {
+    version: 1,
+    workspace: left.workspace || right.workspace || 'en',
+    data: {},
+    clocks: {},
+    deletions,
+  };
   for (const table of tables) {
     const rows = new Map<string, Row>();
     for (const source of [left, right])

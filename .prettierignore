@@ -16,3 +16,6 @@ assets/
 local-ai/
 public/local-ai/
 manifest.webmanifest
+
+.pages-pt-project/
+portugues/

@@ -13,6 +13,7 @@ const allowed = (name) =>
   name === 'assets' ||
   name === 'manifest.webmanifest' ||
   name === 'local-ai' ||
+  name === 'portugues' ||
   name === '_not-found' ||
   name === '.nojekyll' ||
   name === '404' ||

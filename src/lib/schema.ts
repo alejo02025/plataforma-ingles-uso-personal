@@ -1,3 +1,4 @@
+import { defaultName, initialInterests } from './workspace';
 import type { DatabaseSync } from 'node:sqlite';
 import { readings, glossary } from './content';
 export function initialize(connection: Pick<DatabaseSync, 'exec' | 'prepare'>) {
@@ -6,7 +7,7 @@ export function initialize(connection: Pick<DatabaseSync, 'exec' | 'prepare'>) {
   );
   if (!connection.prepare('SELECT version FROM schema_migrations WHERE version=1').get()) {
     connection.exec(`BEGIN;
-      CREATE TABLE profile (id INTEGER PRIMARY KEY CHECK(id=1), name TEXT NOT NULL DEFAULT 'Alejo', daily_minutes INTEGER NOT NULL DEFAULT 20, interests TEXT NOT NULL DEFAULT '["Travel","Finance","Technology"]', theme TEXT NOT NULL DEFAULT 'light', created_at TEXT NOT NULL);
+      CREATE TABLE profile (id INTEGER PRIMARY KEY CHECK(id=1), name TEXT NOT NULL DEFAULT '${defaultName}', daily_minutes INTEGER NOT NULL DEFAULT 20, interests TEXT NOT NULL DEFAULT '${JSON.stringify(initialInterests)}', theme TEXT NOT NULL DEFAULT 'light', created_at TEXT NOT NULL);
       CREATE TABLE diagnostics (id TEXT PRIMARY KEY, started_at TEXT NOT NULL, completed_at TEXT);
       CREATE TABLE diagnostic_answers (diagnostic_id TEXT REFERENCES diagnostics(id), question_id TEXT NOT NULL, answer INTEGER NOT NULL, correct INTEGER NOT NULL, PRIMARY KEY(diagnostic_id,question_id));
       CREATE TABLE documents (id TEXT PRIMARY KEY, title TEXT NOT NULL, topic TEXT NOT NULL, level TEXT NOT NULL, source TEXT NOT NULL, minutes INTEGER NOT NULL, intro TEXT NOT NULL, paragraphs TEXT NOT NULL, questions TEXT NOT NULL, filename TEXT, created_at TEXT NOT NULL);
@@ -135,7 +136,7 @@ export function initialize(connection: Pick<DatabaseSync, 'exec' | 'prepare'>) {
     for (const [word, old] of Object.entries(oldMeanings))
       connection
         .prepare('UPDATE vocabulary SET meaning=? WHERE word=? COLLATE NOCASE AND meaning=?')
-        .run(glossary[word].meaning, word, old);
+        .run(glossary[word]?.meaning || old, word, old);
     connection.prepare('INSERT INTO schema_migrations VALUES(3,?)').run(new Date().toISOString());
   }
 }

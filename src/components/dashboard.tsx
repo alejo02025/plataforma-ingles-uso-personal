@@ -1,4 +1,5 @@
 'use client';
+import { StudySpaces } from './study-spaces';
 import { useEffect, useState } from 'react';
 import { greetingForHour } from '@/lib/momentum';
 import { MomentumChart } from './momentum-chart';
@@ -124,6 +125,7 @@ export function Dashboard({
           {dateLabel(data.day)}
         </span>
       </Heading>
+      <StudySpaces />
       <div className="notebook-ribbon" aria-label="Your daily English rhythm">
         <span>
           <b>01</b> Read something.

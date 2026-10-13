@@ -1,4 +1,6 @@
 'use client';
+import { StudySpaces } from './study-spaces';
+import { isPortuguese } from '@/lib/workspace';
 import { DailyWords } from './daily-words';
 import { AppUpdate } from './app-update';
 import { PdfStudio } from './pdf-studio';
@@ -192,6 +194,7 @@ export function EnglishApp() {
       )}
       <aside className={`sidebar ${mobileMenu ? 'mobile-open' : ''}`}>
         <Logo />
+        <StudySpaces compact />
         <button
           className="icon-button mobile-sidebar-close"
           aria-label="Close menu"
@@ -406,13 +409,14 @@ function Logo() {
   return (
     <div className="logo">
       <span className="logo-mark">
-        e
+        {isPortuguese ? 'p' : 'e'}
         <span>
           <ArrowUpRight size={14} />
         </span>
       </span>
       <div>
-        english<span>os.</span>
+        {isPortuguese ? 'português' : 'english'}
+        <span>os.</span>
         <small>MAKE IT YOURS</small>
       </div>
     </div>

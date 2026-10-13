@@ -1,3 +1,4 @@
+import { syncFolder } from '../workspace';
 import { assertRestorable, capture, exclusive, load, persist, restore } from './database';
 import { merge, validate, type Manifest } from './merge';
 import { read, write } from './storage';
@@ -55,7 +56,7 @@ async function request(route: string, options?: RequestInit) {
   return response.json();
 }
 async function getFile(filename: string) {
-  const data = await request(`/contents/english-os/${filename}`);
+  const data = await request(`/contents/${syncFolder}/${filename}`);
   if (data.missing) return undefined;
   if (!data.sha || data.type !== 'file') throw new Error('GitHub returned an invalid file.');
   if (data.size > 20 * 1024 * 1024) throw new Error('The file exceeds the 20 MB sync limit.');
@@ -63,7 +64,7 @@ async function getFile(filename: string) {
   return { sha: String(data.sha), bytes: decode(payload.content) };
 }
 async function putFile(filename: string, bytes: Uint8Array, sha?: string) {
-  const response = await request(`/contents/english-os/${filename}`, {
+  const response = await request(`/contents/${syncFolder}/${filename}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({

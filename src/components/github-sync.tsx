@@ -1,4 +1,5 @@
 'use client';
+import { isPortuguese } from '@/lib/workspace';
 import { useEffect, useState } from 'react';
 import { Button } from './ui';
 import { read } from '@/lib/browser/storage';
@@ -9,7 +10,9 @@ export function GitHubSync() {
     busy: false,
     message: 'Saved on this device',
   });
-  const [repository, setRepository] = useState('alejo02025/english-os-datos'),
+  const [repository, setRepository] = useState(
+      isPortuguese ? 'alejo02025/portugues-os-dados' : 'alejo02025/english-os-datos',
+    ),
     [token, setToken] = useState(''),
     [error, setError] = useState(''),
     [busy, setBusy] = useState(false);
@@ -54,7 +57,8 @@ export function GitHubSync() {
               <a href="https://github.com/new" target="_blank" rel="noreferrer">
                 Create a private repository{' '}
               </a>{' '}
-              called <strong>english-os-datos</strong>. You can leave it empty.{' '}
+              called <strong>{isPortuguese ? 'portugues-os-dados' : 'english-os-datos'}</strong>.
+              You can leave it empty.{' '}
             </li>
             <li>
               <a

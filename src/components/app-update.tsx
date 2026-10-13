@@ -1,8 +1,9 @@
 'use client';
+import { assetBase } from '@/lib/workspace';
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { RefreshCw } from 'lucide-react';
-const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
+const base = assetBase;
 const current = process.env.NEXT_PUBLIC_APP_BUILD || '';
 export function AppUpdate() {
   const [newVersion, setNewVersion] = useState(false),
@@ -37,8 +38,10 @@ export function AppUpdate() {
     setBusy(true);
     setError('');
     try {
-      const { localStatus } = await import('@/lib/browser/local-ai');
-      if (['generating', 'loading'].includes(localStatus().state))
+      // An older page may reference a removed, never-loaded AI chunk after deployment.
+      // A running engine has already loaded this module; keep its download/reply guard.
+      const local = await import('@/lib/browser/local-ai').catch(() => undefined);
+      if (local && ['generating', 'loading'].includes(local.localStatus().state))
         throw new Error('Finish the AI response or download before updating.');
       await new Promise((resolve) => setTimeout(resolve, 1200));
       if (process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github') {

@@ -9,3 +9,5 @@ test-results/
 .npm-cache/
 .pages-project/
 out/
+
+.pages-pt-project/

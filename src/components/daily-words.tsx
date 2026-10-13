@@ -1,4 +1,5 @@
 'use client';
+import { studyStorage } from '@/lib/workspace';
 import { useEffect, useState } from 'react';
 import { ArrowLeft, ArrowRight, BookmarkPlus, Check, Bookmark, X } from 'lucide-react';
 import type { Snapshot } from '@/lib/types';
@@ -21,11 +22,11 @@ export function DailyWords({
     entry = entries[index % entries.length],
     saved = data.vocabulary.some((word) => word.word.toLowerCase() === entry.word.toLowerCase());
   useEffect(() => {
-    setOpen(localStorage.getItem('english-word-day') !== data.day);
+    setOpen(studyStorage.getItem('english-word-day') !== data.day);
   }, [data.day]);
   const close = () => {
     setOpen(false);
-    localStorage.setItem('english-word-day', data.day);
+    studyStorage.setItem('english-word-day', data.day);
   };
   return (
     <>
