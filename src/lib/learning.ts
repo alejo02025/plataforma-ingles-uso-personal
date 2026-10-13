@@ -1,9 +1,9 @@
 import type { Skill } from './content';
 export const skillNames: Record<Skill, string> = {
-  reading: 'Lectura',
-  grammar: 'Gramática',
-  vocabulary: 'Vocabulario',
-  writing: 'Escritura',
+  reading: 'Reading',
+  grammar: 'Grammar',
+  vocabulary: 'Vocabulary',
+  writing: 'Writing',
 };
 export function localDay(date = new Date()) {
   return new Intl.DateTimeFormat('en-CA', {
@@ -29,11 +29,11 @@ export function nextReview(
   return { interval, ease, due_at: new Date(now.getTime() + interval * 86_400_000).toISOString() };
 }
 export function estimate(scores: { band: string; correct: boolean }[]) {
-  if (scores.length < 3) return { level: null, confidence: 'insuficiente' };
+  if (scores.length < 3) return { level: null, confidence: 'insufficient' };
   // Deliberadamente conservador: 3 ítems no permiten certificar un nivel MCER.
   const a2 = scores.some((s) => s.band === 'A2' && s.correct);
   const b1 = scores.some((s) => s.band === 'B1' && s.correct);
-  return { level: a2 && b1 ? 'B1 orientativo' : 'A2 orientativo', confidence: 'baja' };
+  return { level: a2 && b1 ? 'B1 estimate' : 'A2 estimate', confidence: 'low' };
 }
 export function weakestSkill(
   results: { skill: string; correct: number | null; total: number | null }[],

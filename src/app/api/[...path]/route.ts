@@ -1,3 +1,5 @@
+import { tables } from '@/lib/browser/merge';
+import { tutorMutation } from '@/lib/tutor-store';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { randomUUID } from 'node:crypto';
@@ -36,26 +38,9 @@ export async function GET(request: NextRequest) {
       db().prepare('SELECT version FROM schema_migrations ORDER BY version DESC LIMIT 1').get();
       return json({ status: 'ok' });
     }
-    if (!authorized(request)) return json({ error: 'Ingresá tu clave de acceso.' }, 401);
+    if (!authorized(request)) return json({ error: 'Enter your access key.' }, 401);
     if (endpoint === 'state') return json(snapshot());
     if (endpoint === 'export') {
-      const tables = [
-        'profile',
-        'diagnostics',
-        'diagnostic_answers',
-        'documents',
-        'reading_progress',
-        'plans',
-        'activities',
-        'sessions',
-        'results',
-        'vocabulary',
-        'reviews',
-        'corrections',
-        'mistakes',
-        'evaluations',
-        'progress_history',
-      ];
       const data = Object.fromEntries(
         tables.map((t) => [t, db().prepare(`SELECT * FROM ${t}`).all()]),
       );
@@ -64,7 +49,7 @@ export async function GET(request: NextRequest) {
         {
           headers: {
             'Content-Type': 'application/json',
-            'Content-Disposition': 'attachment; filename="english-os-datos.json"',
+            'Content-Disposition': 'attachment; filename="english-os-data.json"',
             'Cache-Control': 'no-store',
           },
         },
@@ -72,19 +57,19 @@ export async function GET(request: NextRequest) {
     }
     if (endpoint.startsWith('files/')) {
       const doc = db().prepare('SELECT filename FROM documents WHERE id=?').get(endpoint.slice(6));
-      if (!doc?.filename) throw new AppError('Archivo inexistente.', 404);
+      if (!doc?.filename) throw new AppError('File not found.', 404);
       const buffer = await readFile(
         path.join(dataDir, 'files', path.basename(doc.filename as string)),
       );
       return new NextResponse(buffer, {
         headers: {
           'Content-Type': 'application/pdf',
-          'Content-Disposition': 'attachment; filename="documento.pdf"',
+          'Content-Disposition': 'attachment; filename="document.pdf"',
           'Cache-Control': 'no-store',
         },
       });
     }
-    return json({ error: 'Ruta inexistente.' }, 404);
+    return json({ error: 'Route not found.' }, 404);
   } catch (error) {
     return handleError(error);
   }
@@ -94,11 +79,11 @@ export async function POST(request: NextRequest) {
     checkOrigin(request);
     const endpoint = route(request);
     const length = Number(request.headers.get('content-length') || 0);
-    if (length > MAX_FILE_SIZE + 50_000) throw new AppError('Solicitud demasiado grande.', 413);
+    if (length > MAX_FILE_SIZE + 50_000) throw new AppError('This request is too large.', 413);
     if (endpoint === 'login') {
       const { token } = z.object({ token: z.string().max(200) }).parse(await request.json());
       if (!process.env.APP_ACCESS_TOKEN || !equal(token, process.env.APP_ACCESS_TOKEN))
-        throw new AppError('Clave incorrecta.', 401);
+        throw new AppError('Incorrect access key.', 401);
       const response = json({ ok: true });
       response.cookies.set('english-session', sessionCookie(), {
         httpOnly: true,
@@ -111,7 +96,7 @@ export async function POST(request: NextRequest) {
       });
       return response;
     }
-    if (!authorized(request)) return json({ error: 'Ingresá tu clave de acceso.' }, 401);
+    if (!authorized(request)) return json({ error: 'Enter your access key.' }, 401);
     if (endpoint === 'import') {
       const form = await request.formData();
       const title = z.string().trim().min(3).max(160).parse(form.get('title'));
@@ -126,22 +111,21 @@ export async function POST(request: NextRequest) {
       );
     }
     const rawText = await request.text();
-    if (rawText.length > 150_000) throw new AppError('Solicitud demasiado grande.', 413);
+    if (rawText.length > 150_000) throw new AppError('This request is too large.', 413);
     let input: unknown;
     try {
       input = JSON.parse(rawText);
     } catch {
-      throw new AppError('JSON inválido.');
+      throw new AppError('Invalid JSON.');
     }
+    if (endpoint.startsWith('tutor/')) return json(tutorMutation(db(), endpoint, input));
     if (endpoint === 'profile') {
       const p = z
         .object({
           name: z.string().trim().min(1).max(60),
           daily_minutes: z.union([z.literal(5), z.literal(20), z.literal(40)]),
           interests: z
-            .array(
-              z.enum(['Viajes', 'Finanzas', 'Historia', 'Tecnología', 'Trabajo', 'Vida cotidiana']),
-            )
+            .array(z.enum(['Travel', 'Finance', 'History', 'Technology', 'Work', 'Everyday Life']))
             .min(1)
             .max(6),
           theme: z.enum(['light', 'dark']),
@@ -219,7 +203,7 @@ export async function POST(request: NextRequest) {
     if (endpoint === 'reading-activity') {
       const x = z.object({ documentId: id }).parse(input);
       const doc = db().prepare('SELECT * FROM documents WHERE id=?').get(x.documentId);
-      if (!doc) throw new AppError('Texto inexistente.', 404);
+      if (!doc) throw new AppError('Text not found.', 404);
       dailyPlan();
       const plan = db().prepare('SELECT id FROM plans ORDER BY day DESC LIMIT 1').get()!;
       const previous = db()
@@ -249,13 +233,13 @@ export async function POST(request: NextRequest) {
       const a = db()
         .prepare('SELECT payload FROM activities WHERE id=? AND completed_at IS NULL')
         .get(x.activityId);
-      if (!a) throw new AppError('Actividad inexistente.', 404);
+      if (!a) throw new AppError('Activity not found.', 404);
       db()
         .prepare('UPDATE activities SET payload=? WHERE id=?')
         .run(JSON.stringify({ ...JSON.parse(a.payload as string), draft: x.text }), x.activityId);
       return json({ ok: true });
     }
-    return json({ error: 'Ruta inexistente.' }, 404);
+    return json({ error: 'Route not found.' }, 404);
   } catch (error) {
     return handleError(error);
   }
@@ -263,10 +247,10 @@ export async function POST(request: NextRequest) {
 function handleError(error: unknown) {
   if (error instanceof AppError) return json({ error: error.message }, error.status);
   if (error instanceof z.ZodError)
-    return json({ error: 'Revisá los datos: algún campo está incompleto o no es válido.' }, 400);
+    return json({ error: 'Check your entries: a field is incomplete or invalid.' }, 400);
   console.error('English OS:', error instanceof Error ? error.name : 'Unknown error');
   return json(
-    { error: 'No se pudo completar la operación. Tus datos anteriores se conservan.' },
+    { error: 'The action could not be completed. Your previous data is preserved.' },
     500,
   );
 }

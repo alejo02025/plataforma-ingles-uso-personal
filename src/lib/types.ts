@@ -9,6 +9,7 @@ export type Document = {
   minutes: number;
   intro: string;
   paragraphs: string[];
+  pages: (number | null)[];
   questions: PublicQuestion[];
   filename: string | null;
   paragraph: number;
@@ -99,6 +100,26 @@ export type Snapshot = {
   corrections: Correction[];
   mistakes: Mistake[];
   reviews: { word_id: string; word: string; known: number; day: string; reviewed_at: string }[];
+  tutorMessages: {
+    id: string;
+    document_id: string;
+    role: 'user' | 'assistant';
+    content: string;
+    sources: string;
+    mode: string;
+    created_at: string;
+  }[];
+  tutorAttempts: {
+    id: string;
+    document_id: string;
+    question_id: string;
+    prompt: string;
+    answer: string;
+    correct: number | null;
+    feedback: string;
+    source_paragraph: number;
+    created_at: string;
+  }[];
   sessions: {
     id: string;
     activity_id: string;

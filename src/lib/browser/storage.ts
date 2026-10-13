@@ -4,7 +4,7 @@ function database() {
     const request = indexedDB.open('english-os-private-v1', 1);
     request.onupgradeneeded = () => request.result.createObjectStore('values');
     request.onsuccess = () => resolve(request.result);
-    request.onerror = () => reject(new Error('No se pudo abrir el almacenamiento del navegador.'));
+    request.onerror = () => reject(new Error('Browser storage could not be opened.'));
   }));
 }
 export async function read<T>(key: string): Promise<T | undefined> {

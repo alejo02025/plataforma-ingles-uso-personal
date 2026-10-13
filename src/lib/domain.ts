@@ -50,6 +50,14 @@ export function createLearningService({
       paragraph: r.paragraph || 0,
       draft: JSON.parse((r.draft as string) || '{}'),
       paragraphs: JSON.parse(r.paragraphs as string),
+      pages: (JSON.parse(r.paragraphs as string) as string[]).map(
+        (_, index) =>
+          Number(
+            db()
+              .prepare('SELECT page FROM document_sections WHERE document_id=? AND paragraph=?')
+              .get(r.id as string, index)?.page,
+          ) || null,
+      ),
       questions: JSON.parse(r.questions as string).map(publicQuestion),
     })) as Document[];
   }
@@ -71,9 +79,9 @@ export function createLearningService({
   }
   function answerDiagnostic(questionId: string, answer: number) {
     const d = diagnostic();
-    if (d.completed_at) throw new AppError('El diagnóstico ya está cerrado.');
+    if (d.completed_at) throw new AppError('This assessment is already complete.');
     const q = diagnosticQuestions.find((q) => q.id === questionId);
-    if (!q || answer < 0 || answer >= q.options.length) throw new AppError('Respuesta inválida.');
+    if (!q || answer < 0 || answer >= q.options.length) throw new AppError('Invalid answer.');
     return transaction(() => {
       if (
         db()
@@ -82,7 +90,7 @@ export function createLearningService({
           )
           .get(d.id, questionId)
       )
-        throw new AppError('Esta respuesta ya fue guardada.');
+        throw new AppError('This answer has already been saved.');
       db()
         .prepare('INSERT INTO diagnostic_answers VALUES(?,?,?,?)')
         .run(d.id, q.id, answer, Number(q.answer === answer));
@@ -174,8 +182,8 @@ export function createLearningService({
       const minutes = Number(profile.daily_minutes);
       const evidence = results.length || evaluations.length;
       const reason = evidence
-        ? `Priorizamos ${weak === 'grammar' ? 'gramática' : weak === 'vocabulary' ? 'vocabulario' : 'lectura'} por tu menor precisión observada${due ? ` y ${due} repaso${due === 1 ? '' : 's'} pendiente${due === 1 ? '' : 's'}` : ''}.`
-        : 'Primer recorrido equilibrado. Se ajustará cuando tengamos tus resultados.';
+        ? `Today we focus on ${weak} based on your lower recorded accuracy${due ? `, with ${due} word${due === 1 ? '' : 's'} due for review` : ''}.`
+        : 'A balanced first journey. It will adapt when we have your results.';
       const items: {
         kind: string;
         title: string;
@@ -202,7 +210,7 @@ export function createLearningService({
         if (due)
           items.push({
             kind: 'vocabulary',
-            title: 'Palabras que necesitan volver',
+            title: 'Words to come back to',
             minutes: 5,
             document: null,
             payload: {},
@@ -210,7 +218,7 @@ export function createLearningService({
         else if (weak === 'grammar')
           items.push({
             kind: 'grammar',
-            title: 'Tres decisiones en inglés',
+            title: 'Three decisions in English',
             minutes: 5,
             document: null,
             payload: { questionIds: questionSet.map((q) => q.id) },
@@ -234,7 +242,7 @@ export function createLearningService({
         items.push({
           kind: 'grammar',
           title:
-            weak === 'grammar' ? 'Tu foco: preguntas y tiempos' : 'Inglés para situaciones reales',
+            weak === 'grammar' ? 'Your focus: questions and tenses' : 'English for real situations',
           minutes: 5,
           document: null,
           payload: { questionIds: questionSet.map((q) => q.id) },
@@ -242,14 +250,14 @@ export function createLearningService({
         if (due)
           items.push({
             kind: 'vocabulary',
-            title: 'Recuperar, recordar, usar',
+            title: 'Recall, remember, use',
             minutes: 3,
             document: null,
             payload: {},
           });
         items.push({
           kind: 'writing',
-          title: 'Una idea, en tus palabras',
+          title: 'An idea, in your own words',
           minutes: minutes - 12 - (due ? 3 : 0),
           document: null,
           payload: {
@@ -260,7 +268,7 @@ export function createLearningService({
           items[items.length - 1].minutes -= 12;
           items.push({
             kind: 'reading',
-            title: 'Segunda lectura: ' + documents().find((d) => d.id !== read.id)!.title,
+            title: 'Second reading:' + documents().find((d) => d.id !== read.id)!.title,
             minutes: 12,
             document: documents().find((d) => d.id !== read.id)!.id,
             payload: {},
@@ -302,7 +310,7 @@ export function createLearningService({
   }
   function startSession(activityId: string) {
     const activity = db().prepare('SELECT * FROM activities WHERE id=?').get(activityId);
-    if (!activity || activity.completed_at) throw new AppError('La actividad no está disponible.');
+    if (!activity || activity.completed_at) throw new AppError('This activity is not available.');
     const open = db()
       .prepare(
         'SELECT id,active_seconds FROM sessions WHERE activity_id=? AND ended_at IS NULL ORDER BY started_at DESC LIMIT 1',
@@ -317,7 +325,7 @@ export function createLearningService({
   }
   function tickSession(sessionId: string, seconds: number) {
     const s = db().prepare('SELECT * FROM sessions WHERE id=?').get(sessionId);
-    if (!s || s.ended_at) throw new AppError('La sesión ya terminó.');
+    if (!s || s.ended_at) throw new AppError('The session has already ended.');
     const elapsed = Math.max(
       0,
       Math.floor((Date.now() - Date.parse(s.started_at as string)) / 1000),
@@ -336,7 +344,7 @@ export function createLearningService({
     const a = db().prepare('SELECT * FROM activities WHERE id=?').get(input.activityId) as
       | Row
       | undefined;
-    if (!a) throw new AppError('Actividad inexistente.', 404);
+    if (!a) throw new AppError('Activity not found.', 404);
     const previous = db()
       .prepare('SELECT * FROM results WHERE activity_id=?')
       .get(input.activityId) as Result | undefined;
@@ -351,7 +359,7 @@ export function createLearningService({
     const session = db()
       .prepare('SELECT * FROM sessions WHERE id=? AND activity_id=? AND ended_at IS NULL')
       .get(input.sessionId, input.activityId);
-    if (!session) throw new AppError('Iniciá la actividad antes de registrar un resultado.');
+    if (!session) throw new AppError('Start the activity before recording a result.');
     let qs: Question[] = [];
     if (a.kind === 'reading')
       qs = JSON.parse(
@@ -371,13 +379,11 @@ export function createLearningService({
           input.answers[q.id] >= q.options.length,
       )
     )
-      throw new AppError('Respondé todas las preguntas antes de terminar.');
+      throw new AppError('Answer every question before finishing.');
     if (a.kind === 'writing' && (input.text?.trim().length || 0) < 30)
-      throw new AppError('Escribí al menos 30 caracteres para guardar tu práctica.');
+      throw new AppError('Write at least 30 characters to save your practice.');
     if (a.kind === 'reading' && !qs.length && (input.text?.trim().length || 0) < 30)
-      throw new AppError(
-        'Escribí un resumen de al menos 30 caracteres para registrar esta lectura.',
-      );
+      throw new AppError('Write a summary of at least 30 characters to record this reading.');
     let correct: number | null = qs.length
       ? qs.filter((q) => q.answer === input.answers[q.id]).length
       : null;
@@ -386,7 +392,7 @@ export function createLearningService({
       const r = db()
         .prepare('SELECT count(*) AS n,sum(known) AS k FROM reviews WHERE reviewed_at>=?')
         .get(session.started_at as string)!;
-      if (!Number(r.n)) throw new AppError('Repasá al menos una palabra antes de terminar.');
+      if (!Number(r.n)) throw new AppError('Review at least one word before finishing.');
       correct = Number(r.k);
       total = Number(r.n);
     }
@@ -480,9 +486,9 @@ export function createLearningService({
   }
   function reviewWord(id: string, known: boolean) {
     const word = db().prepare('SELECT * FROM vocabulary WHERE id=?').get(id) as Word | undefined;
-    if (!word) throw new AppError('Palabra inexistente.', 404);
+    if (!word) throw new AppError('Word not found.', 404);
     if (word.due_at > now())
-      throw new AppError('Esta palabra ya fue repasada. Volverá a aparecer cuando corresponda.');
+      throw new AppError('This word has already been reviewed. It will return when it is due.');
     const next = nextReview(word, known);
     transaction(() => {
       db()
@@ -496,8 +502,7 @@ export function createLearningService({
   }
   function checkpoint(id: string, paragraph: number, draft: Record<string, number>) {
     const doc = documents().find((d) => d.id === id);
-    if (!doc || paragraph >= doc.paragraphs.length)
-      throw new AppError('Posición de lectura inválida.');
+    if (!doc || paragraph >= doc.paragraphs.length) throw new AppError('Invalid reading position.');
     db()
       .prepare(
         'INSERT INTO reading_progress VALUES(?,?,?,?) ON CONFLICT(document_id) DO UPDATE SET paragraph=excluded.paragraph,draft=excluded.draft,updated_at=excluded.updated_at',
@@ -553,6 +558,12 @@ export function createLearningService({
           'SELECT r.*,v.word FROM reviews r JOIN vocabulary v ON v.id=r.word_id ORDER BY reviewed_at',
         )
         .all() as Snapshot['reviews'],
+      tutorMessages: db()
+        .prepare('SELECT * FROM tutor_messages ORDER BY created_at,id')
+        .all() as Snapshot['tutorMessages'],
+      tutorAttempts: db()
+        .prepare('SELECT * FROM tutor_attempts ORDER BY created_at,id')
+        .all() as Snapshot['tutorAttempts'],
       sessions: db()
         .prepare(
           'SELECT s.*,a.title,a.kind FROM sessions s JOIN activities a ON a.id=s.activity_id ORDER BY started_at',

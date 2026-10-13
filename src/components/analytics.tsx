@@ -1,5 +1,6 @@
 'use client';
 import { DownloadLink } from './ui';
+import { MomentumChart } from './momentum-chart';
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, Download, TrendingUp } from 'lucide-react';
 import type { Snapshot } from '@/lib/types';
@@ -35,21 +36,22 @@ export function Progress({ data }: { data: Snapshot }) {
   return (
     <>
       <Heading
-        eyebrow="EVIDENCIA, NO SOLO NÚMEROS"
-        title="Lo que está cambiando."
-        description="Tu práctica registrada, tus aciertos y las preguntas que siguen abiertas."
+        eyebrow="EVIDENCE, NOT JUST NUMBERS"
+        title="What is changing."
+        description="Your recorded practice, your answers, and the questions still open."
       >
         <DownloadLink className="button secondary" endpoint="export">
           <Download size={16} />
-          Exportar mis datos
+          Export my data{' '}
         </DownloadLink>
       </Heading>
+      <MomentumChart data={data} />
       <div className="evidence-banner">
         <TrendingUp size={20} />
         <p>
           {data.results.length
-            ? `Completaste ${data.results.length} actividades en ${new Set(data.results.map((r) => r.day)).size} días. Esto muestra continuidad; todavía no demuestra un cambio de nivel MCER.`
-            : 'Tu progreso empieza con evidencia. Completá el diagnóstico y tu primera actividad para construir una línea de base.'}
+            ? `You completed ${data.results.length} activities on ${new Set(data.results.map((r) => r.day)).size} days. This shows consistency, not a confirmed change in CEFR level.`
+            : 'Your progress starts with evidence. Complete the assessment and your first activity to build a starting point.'}
         </p>
       </div>
       <div className="skills-grid">
@@ -63,23 +65,23 @@ export function Progress({ data }: { data: Snapshot }) {
             <section className="card skill-card" key={skill}>
               <div className="card-kicker">
                 {labels[skill]}
-                <span className="tag">{evaluated ? 'Confianza baja' : 'Sin estimar'}</span>
+                <span className="tag">{evaluated ? 'Confianza baja' : 'Not assessed'}</span>
               </div>
               <h2>
                 {evaluated?.level?.replace(' orientativo', '') || '—'}
                 <span>
-                  {evaluated ? 'Referencia inicial orientativa' : 'Necesitamos una evaluación'}
+                  {evaluated ? 'Referencia inicial orientativa' : 'An assessment is needed'}
                 </span>
               </h2>
               <div className="skill-numbers">
                 <div>
                   <strong>{results.length}</strong>
-                  <span>Actividades</span>
+                  <span>Activities</span>
                 </div>
                 <div>
                   <strong>{precision === null ? '—' : `${precision}%`}</strong>
                   <span>
-                    {skill === 'vocabulary' ? 'Recuerdo declarado' : 'Precisión en práctica'}
+                    {skill === 'vocabulary' ? 'Self-reported recall' : 'Practice accuracy'}
                   </span>
                 </div>
               </div>
@@ -88,13 +90,13 @@ export function Progress({ data }: { data: Snapshot }) {
               </div>
               <p className="fine-print">
                 {total
-                  ? `${correct}/${total} respuestas${skill === 'vocabulary' ? ' autorreportadas' : ' en actividades'}; no equivale a un nivel MCER.`
+                  ? `${correct}/${total} answers${skill === 'vocabulary' ? ' (self-reported)' : ' in activities'}; it is not a CEFR level.`
                   : skill === 'writing'
-                    ? 'La escritura se conserva sin una nota automática.'
+                    ? 'Writing is saved without an automatic score.'
                     : skill === 'speaking' || skill === 'listening'
-                      ? 'Evaluación e integración previstas en fase 2.'
-                      : 'Todavía no hay respuestas en actividades.'}
-                {evaluated && ` Diagnóstico: ${evaluated.correct}/${evaluated.total} ítems.`}
+                      ? 'Assessment and integration are planned for a later phase.'
+                      : 'No activity answers yet.'}
+                {evaluated && ` Assessment: ${evaluated.correct}/${evaluated.total} items.`}
               </p>
             </section>
           );
@@ -104,15 +106,15 @@ export function Progress({ data }: { data: Snapshot }) {
         <section className="card">
           <div className="section-heading">
             <div>
-              <span className="eyebrow">ÚLTIMOS 14 DÍAS</span>
-              <h2>Hacer espacio para el inglés</h2>
+              <span className="eyebrow">LAST 14 DAYS</span>
+              <h2>Make room for English</h2>
             </div>
-            <span className="muted">Actividades completadas</span>
+            <span className="muted">Completed activities</span>
           </div>
           <div
             className="bar-chart"
             role="img"
-            aria-label={`Actividades por día: ${days.map((d, i) => `${d}: ${dailyCounts[i]}`).join(', ')}`}
+            aria-label={`Activities per day: ${days.map((d, i) => `${d}: ${dailyCounts[i]}`).join(', ')}`}
           >
             {days.map((day, i) => (
               <div key={day} className="bar-column">
@@ -128,13 +130,11 @@ export function Progress({ data }: { data: Snapshot }) {
               </div>
             ))}
           </div>
-          <p className="fine-print">
-            Los días sin registros se muestran vacíos. No son datos simulados.
-          </p>
+          <p className="fine-print">Days without records are empty. No simulated data is shown. </p>
         </section>
         <section className="card">
           <span className="eyebrow">TU PRÓXIMO FOCO</span>
-          <h2>Patrones para volver a mirar</h2>
+          <h2>Patterns to revisit</h2>
           {patterns.length ? (
             patterns.map(([pattern, count]) => {
               const m = data.mistakes.find((m) => m.pattern === pattern)!;
@@ -154,16 +154,16 @@ export function Progress({ data }: { data: Snapshot }) {
             })
           ) : (
             <p className="muted">
-              Los errores detectados en ejercicios y las sugerencias de IA aparecerán acá. Las
-              sugerencias de naturalidad no implican necesariamente un error.
+              Exercise mistakes and AI suggestions appear here. Naturalness suggestions are not
+              necessarily errors.{' '}
             </p>
           )}
         </section>
       </div>
       <section className="card correction-history">
         <div className="section-heading">
-          <h2>Tu historial de devoluciones</h2>
-          <span className="muted">{data.corrections.length} textos revisados</span>
+          <h2>Your feedback history</h2>
+          <span className="muted">{data.corrections.length} texts reviewed</span>
         </div>
         {data.corrections.length ? (
           data.corrections.map((c) => (
@@ -182,12 +182,12 @@ export function Progress({ data }: { data: Snapshot }) {
                   <p key={m.id}>{m.explanation}</p>
                 ))}
               <span className="fine-print">
-                Devolución generada por {c.model}. Puede requerir revisión.
+                Feedback generated by {c.model}. It may need review.{' '}
               </span>
             </details>
           ))
         ) : (
-          <p className="muted">Todavía no solicitaste una devolución por IA.</p>
+          <p className="muted">You have not requested AI feedback yet.</p>
         )}
       </section>
     </>
@@ -222,27 +222,27 @@ export function Calendar({ data }: { data: Snapshot }) {
   return (
     <>
       <Heading
-        eyebrow="CADA DÍA DEJA UNA HUELLA"
-        title="Tu calendario."
-        description="Un registro automático de lo que hiciste. Sin cargar nada a mano."
+        eyebrow="EVERY DAY LEAVES A TRACE"
+        title="Your calendar."
+        description="An automatic record of your practice. No manual logging needed."
       />
       <div className="calendar-stats">
         <div className="card stat">
-          <span>Últimos 7 días</span>
+          <span>Last 7 days</span>
           <strong>
             {mins(weekSessions)}
             <small>min</small>
           </strong>
         </div>
         <div className="card stat">
-          <span>Mes seleccionado</span>
+          <span>Selected month</span>
           <strong>
             {mins(monthSessions)}
             <small>min</small>
           </strong>
         </div>
         <div className="card stat">
-          <span>Actividades este mes</span>
+          <span>Activities this month</span>
           <strong>{data.results.filter((r) => r.day.startsWith(month)).length}</strong>
         </div>
       </div>
@@ -250,23 +250,23 @@ export function Calendar({ data }: { data: Snapshot }) {
         <section className="card calendar-card">
           <div className="section-heading">
             <h2>
-              {new Intl.DateTimeFormat('es-AR', {
+              {new Intl.DateTimeFormat('en-US', {
                 month: 'long',
                 year: 'numeric',
                 timeZone: 'UTC',
               }).format(first)}
             </h2>
             <div className="button-row">
-              <button className="icon-button" aria-label="Mes anterior" onClick={() => move(-1)}>
+              <button className="icon-button" aria-label="Previous month" onClick={() => move(-1)}>
                 <ChevronLeft size={20} />
               </button>
-              <button className="icon-button" aria-label="Mes siguiente" onClick={() => move(1)}>
+              <button className="icon-button" aria-label="Next month" onClick={() => move(1)}>
                 <ChevronRight size={20} />
               </button>
             </div>
           </div>
           <div className="calendar-grid">
-            {['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'].map((d) => (
+            {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((d) => (
               <span className="calendar-weekday" key={d}>
                 {d}
               </span>
@@ -284,7 +284,7 @@ export function Calendar({ data }: { data: Snapshot }) {
                   key={date}
                   className={`calendar-day ${selected === date ? 'selected' : ''} ${date === data.day ? 'current' : ''}`}
                   onClick={() => setSelected(date)}
-                  aria-label={`${dateLabel(date)}: ${count} registros`}
+                  aria-label={`${dateLabel(date)}: ${count} records`}
                 >
                   <span>{i + 1}</span>
                   {count > 0 && <span className="day-dot" />}
@@ -292,13 +292,13 @@ export function Calendar({ data }: { data: Snapshot }) {
               );
             })}
           </div>
-          <p className="fine-print">● Día con actividades o repasos · Horario de Buenos Aires.</p>
+          <p className="fine-print">● Day with activities or reviews · Buenos Aires time zone.</p>
         </section>
         <section className="card day-detail">
           <span className="eyebrow">{dateLabel(selected).toUpperCase()}</span>
-          <h2>{completed.length ? 'Un día para recordar.' : 'Tu día, en detalle.'}</h2>
+          <h2>{completed.length ? 'A day to remember.' : 'Your day, in detail.'}</h2>
           <div className="day-summary">
-            <span>{mins(sessions)} min registrados</span>
+            <span>{mins(sessions)} recorded min</span>
             <span>{completed.length} actividades</span>
           </div>
           {completed.map((r) => (
@@ -308,7 +308,7 @@ export function Calendar({ data }: { data: Snapshot }) {
                 <h3>{r.title}</h3>
                 <p>
                   {skillNames[r.skill as Skill]}
-                  {r.total !== null ? ` · ${r.correct}/${r.total} respuestas` : ' · Sin puntuación'}
+                  {r.total !== null ? ` · ${r.correct}/${r.total} answers` : '· No score'}
                 </p>
               </div>
             </div>
@@ -319,31 +319,31 @@ export function Calendar({ data }: { data: Snapshot }) {
               <div className="day-event" key={s.id}>
                 <div>
                   <h3>{s.title}</h3>
-                  <p>Pendiente · sesión iniciada</p>
+                  <p>Pending · session started</p>
                 </div>
               </div>
             ))}
           {words.length > 0 && (
             <p>
-              <strong>{words.length} palabras nuevas:</strong> {words.map((w) => w.word).join(', ')}
+              <strong>{words.length} new words:</strong> {words.map((w) => w.word).join(', ')}
             </p>
           )}
           {reviews.length > 0 && (
             <p>
-              <strong>{reviews.length} repasos:</strong> {reviews.filter((r) => r.known).length}{' '}
-              recordados según tu valoración.
+              <strong>{reviews.length} reviews:</strong> {reviews.filter((r) => r.known).length}{' '}
+              remembered according to your own rating.{' '}
             </p>
           )}
           {mistakes.length > 0 && (
             <p>
-              <strong>{mistakes.length} errores o sugerencias registrados.</strong> Mirá las
-              explicaciones en Progreso.
+              <strong>{mistakes.length} recorded mistakes or suggestions.</strong> See the
+              explanations in Progress.{' '}
             </p>
           )}
           {!completed.length && !sessions.length && !words.length && !reviews.length && (
             <Empty
-              title="Todavía no hay registros."
-              detail="Cuando practiques, tus actividades aparecerán acá automáticamente."
+              title="No records yet."
+              detail="Your activities will appear here automatically when you practise."
             />
           )}
         </section>

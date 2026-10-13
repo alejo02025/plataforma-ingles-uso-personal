@@ -16,7 +16,7 @@ export const diagnosticQuestions: Question[] = [
     prompt: 'Yesterday, I ___ a train to Córdoba.',
     options: ['take', 'took', 'have take'],
     answer: 1,
-    explanation: 'Yesterday sitúa la acción en un pasado terminado: took.',
+    explanation: 'Yesterday places the action in the completed past: took.',
   },
   {
     id: 'd2',
@@ -25,7 +25,7 @@ export const diagnosticQuestions: Question[] = [
     prompt: 'At the airport, a boarding pass is…',
     options: ['a document to get on a plane', 'a place to leave luggage', 'a return ticket'],
     answer: 0,
-    explanation: 'Boarding pass es la tarjeta de embarque.',
+    explanation: 'A boarding pass is the document that allows you to get on a plane.',
   },
   {
     id: 'd3',
@@ -34,7 +34,7 @@ export const diagnosticQuestions: Question[] = [
     prompt: '“The museum closes at six, but the last entry is at five.” Can you enter at 5:30?',
     options: ['Yes, it is still open', 'No, entry ends at five', 'Only on weekends'],
     answer: 1,
-    explanation: 'El horario de última entrada es distinto del horario de cierre.',
+    explanation: 'The last entry time is different from the closing time.',
   },
   {
     id: 'd4',
@@ -44,7 +44,7 @@ export const diagnosticQuestions: Question[] = [
     options: ['work', 'worked', 'have worked'],
     answer: 2,
     explanation:
-      'Present perfect conecta un inicio en el pasado con el presente; since indica el inicio.',
+      'The present perfect connects a past starting point to the present. Since marks that starting point.',
   },
   {
     id: 'd5',
@@ -53,7 +53,7 @@ export const diagnosticQuestions: Question[] = [
     prompt: '“We need to cut back on spending.” Cut back means…',
     options: ['increase', 'reduce', 'postpone forever'],
     answer: 1,
-    explanation: 'Cut back on significa reducir la cantidad de algo.',
+    explanation: 'Cut back on means to reduce the amount of something.',
   },
   {
     id: 'd6',
@@ -66,7 +66,8 @@ export const diagnosticQuestions: Question[] = [
       'They reached the meeting on time',
     ],
     answer: 2,
-    explanation: 'Although introduce una dificultad que no impidió llegar a tiempo.',
+    explanation:
+      'Although introduces a difficulty that did not prevent them from arriving on time.',
   },
   {
     id: 'd7',
@@ -84,7 +85,7 @@ export const diagnosticQuestions: Question[] = [
     prompt: '“The new policy is likely to undermine trust.” Undermine means…',
     options: ['gradually weaken', 'publicly announce', 'measure precisely'],
     answer: 0,
-    explanation: 'Undermine es debilitar algo, a menudo de manera gradual.',
+    explanation: 'Undermine means to weaken something, often gradually.',
   },
   {
     id: 'd9',
@@ -98,7 +99,7 @@ export const diagnosticQuestions: Question[] = [
       'The sample proves the theory',
     ],
     answer: 1,
-    explanation: 'Los resultados son alentadores, pero la muestra pequeña limita las conclusiones.',
+    explanation: 'The results are encouraging, but the small sample limits the conclusions.',
   },
 ];
 export const grammarQuestions: Question[] = [
@@ -109,7 +110,7 @@ export const grammarQuestions: Question[] = [
     prompt: 'You are asking about a trip: “___ you ever been to London?”',
     options: ['Did', 'Have', 'Do'],
     answer: 1,
-    explanation: 'Para experiencias sin fecha concreta: Have you ever been…?',
+    explanation: 'For experiences without a specific date: Have you ever been…?',
   },
   {
     id: 'g2',
@@ -127,7 +128,7 @@ export const grammarQuestions: Question[] = [
     prompt: 'A colleague asks: “How long ___ on this project?”',
     options: ['do you work', 'have you worked', 'you have worked'],
     answer: 1,
-    explanation: 'How long have you worked…? pregunta por duración hasta el presente.',
+    explanation: 'How long have you worked…? asks about duration up to the present.',
   },
   {
     id: 'g4',
@@ -136,7 +137,7 @@ export const grammarQuestions: Question[] = [
     prompt: 'If the price falls, we ___ more shares.',
     options: ['will buy', 'would bought', 'had bought'],
     answer: 0,
-    explanation: 'Primer condicional: if + presente, will + infinitivo.',
+    explanation: 'First conditional: if + present, will + base verb.',
   },
   {
     id: 'g5',
@@ -145,7 +146,7 @@ export const grammarQuestions: Question[] = [
     prompt: '“Could you tell me where ___?”',
     options: ['is the station', 'the station is', 'does the station'],
     answer: 1,
-    explanation: 'Las preguntas indirectas conservan el orden sujeto + verbo.',
+    explanation: 'Indirect questions keep the subject + verb order.',
   },
 ];
 type Reading = {
@@ -162,10 +163,10 @@ export const readings: Reading[] = [
   {
     id: 'city',
     title: 'The city you discover on foot',
-    topic: 'Viajes',
+    topic: 'Travel',
     level: 'A2',
     minutes: 6,
-    intro: 'Un paseo sin agenda puede cambiar la manera en que conocés una ciudad.',
+    intro: 'A walk without an agenda can change how you discover a city.',
     paragraphs: [
       'On my first morning in Lisbon, I put my phone in my bag and went for a walk. I did not have a plan. The streets were narrow, and small shops were opening. At a corner café, a woman asked if I wanted coffee. I sat outside and watched the city wake up.',
       'A tram passed slowly. Behind it, I saw a bookshop with an open door. The owner told me that the building was more than a hundred years old. He also showed me a small map of the neighbourhood. It had places that were not in my travel guide.',
@@ -179,7 +180,7 @@ export const readings: Reading[] = [
         prompt: 'What helped the traveller find places outside the travel guide?',
         options: ['A map from the bookshop owner', 'A phone app', 'A tram ticket'],
         answer: 0,
-        explanation: 'El dueño le mostró un mapa con lugares que no estaban en la guía.',
+        explanation: 'The owner showed a map with places outside the travel guide.',
       },
       {
         id: 'city2',
@@ -200,10 +201,10 @@ export const readings: Reading[] = [
   {
     id: 'money',
     title: 'Why a little patience changes your money',
-    topic: 'Finanzas',
+    topic: 'Finance',
     level: 'B1',
     minutes: 7,
-    intro: 'El interés compuesto, visto desde una decisión cotidiana.',
+    intro: 'Compound interest, seen through an everyday decision.',
     paragraphs: [
       'When Clara received her first salary, she wanted to buy a new phone. Instead, she decided to save a small amount every month. It was not an exciting choice, and at first the difference seemed tiny. But she was building a habit that would matter more than a single purchase.',
       'Compound interest means that you can earn interest on both your original savings and the interest you have already earned. Over time, this can make a difference. However, fees and inflation can reduce that growth. Looking only at a large number on a screen can give you the wrong impression.',
@@ -222,7 +223,7 @@ export const readings: Reading[] = [
           'The bank always makes a mistake',
         ],
         answer: 1,
-        explanation: 'Comisiones e inflación pueden reducir el crecimiento real.',
+        explanation: 'Fees and inflation can reduce real growth.',
       },
       {
         id: 'money2',
@@ -235,17 +236,17 @@ export const readings: Reading[] = [
           'Understand terms and your own needs',
         ],
         answer: 2,
-        explanation: 'El texto subraya necesidades personales y comprensión de las condiciones.',
+        explanation: 'The text highlights personal needs and understanding the terms.',
       },
     ],
   },
   {
     id: 'history',
     title: 'The clock that connected a country',
-    topic: 'Historia',
+    topic: 'History',
     level: 'B1',
     minutes: 7,
-    intro: 'Cómo los trenes hicieron que la hora dejara de ser un asunto local.',
+    intro: 'How trains made time more than a local matter.',
     paragraphs: [
       'Before railways became common, towns often used local time. Noon was the moment when the sun was highest in the sky. A small difference between two towns did not matter much when most journeys took hours or days.',
       'Trains changed that. A timetable needed to tell passengers when a train would arrive, and railway workers needed to coordinate services. Different local clocks could create confusion. In Britain, railway companies began using a shared time based on Greenwich during the nineteenth century.',
@@ -260,8 +261,7 @@ export const readings: Reading[] = [
         prompt: 'Why did railways need shared time?',
         options: ['To coordinate timetables', 'To make journeys slower', 'To remove all clocks'],
         answer: 0,
-        explanation:
-          'Los horarios y la coordinación de servicios necesitaban una referencia común.',
+        explanation: 'Schedules and service coordination needed a shared reference.',
       },
       {
         id: 'history2',
@@ -274,17 +274,17 @@ export const readings: Reading[] = [
           'Both eliminate distance',
         ],
         answer: 1,
-        explanation: 'Ambos necesitan acordar cómo interpretar la hora entre lugares distintos.',
+        explanation: 'Both require agreeing on how to interpret time across different places.',
       },
     ],
   },
   {
     id: 'tech',
     title: 'A useful tool still needs a good question',
-    topic: 'Tecnología',
+    topic: 'Technology',
     level: 'B2',
     minutes: 8,
-    intro: 'Automatizar una respuesta es más fácil que decidir qué vale la pena preguntar.',
+    intro: 'Automating an answer is easier than deciding what is worth asking.',
     paragraphs: [
       'When a company introduces a new digital tool, the first question is often how much time it will save. That is understandable: repetitive work is expensive, and nobody enjoys copying the same information between spreadsheets. Yet speed alone is a poor measure of whether a tool is useful.',
       'Consider a team that automates its weekly reports. The reports arrive instantly, but nobody has checked whether the chosen metrics reflect what customers actually need. The team can now produce a misleading answer faster than before. Efficiency has improved; judgement has not.',
@@ -303,8 +303,7 @@ export const readings: Reading[] = [
           'Automation removes all useful information',
         ],
         answer: 1,
-        explanation:
-          'La automatización acelera un informe cuyas métricas podrían no ser pertinentes.',
+        explanation: 'Automation speeds up a report whose metrics may not be relevant.',
       },
       {
         id: 'tech2',
@@ -324,10 +323,10 @@ export const readings: Reading[] = [
   {
     id: 'work',
     title: 'The meeting before the meeting',
-    topic: 'Trabajo',
+    topic: 'Work',
     level: 'B1',
     minutes: 6,
-    intro: 'Una conversación breve que evita una hora de confusión.',
+    intro: 'A short conversation that avoids an hour of confusion.',
     paragraphs: [
       'Diego was nervous before his first meeting with an international team. He knew the topic well, but speaking in English felt different. He wrote down three points he wanted to explain and practised saying them out loud. He also prepared one question in case something was unclear.',
       'During the meeting, a colleague used an expression Diego did not know. Instead of pretending to understand, he said, “Could you explain what you mean by that?” The colleague gave a simple example. Two other people thanked him because they had been confused too.',
@@ -345,7 +344,7 @@ export const readings: Reading[] = [
           'He avoided the meeting',
         ],
         answer: 1,
-        explanation: 'Preparó tres ideas y las practicó en voz alta.',
+        explanation: 'He prepared three ideas and practised them out loud.',
       },
       {
         id: 'work2',
@@ -354,17 +353,17 @@ export const readings: Reading[] = [
         prompt: 'What happened when he asked for clarification?',
         options: ['It helped others too', 'The meeting ended', 'Nobody answered'],
         answer: 0,
-        explanation: 'Otros dos participantes también habían estado confundidos.',
+        explanation: 'Two other participants had also been confused.',
       },
     ],
   },
   {
     id: 'daily',
     title: 'A small change to your morning',
-    topic: 'Vida cotidiana',
+    topic: 'Everyday Life',
     level: 'A2',
     minutes: 5,
-    intro: 'Lo que cambia cuando dejás cinco minutos libres al empezar el día.',
+    intro: 'What changes when you leave five free minutes at the start of the day.',
     paragraphs: [
       'Every morning, Sam looked at his phone before getting out of bed. Messages, news, and work emails filled his head. One Monday, he decided to try something different. He left the phone in the kitchen and opened the window instead.',
       'For five minutes, he drank water and thought about one thing he wanted to do that day. It was a very small change. He still had the same job and the same problems, but he felt less hurried.',
@@ -378,7 +377,7 @@ export const readings: Reading[] = [
         prompt: 'Where did Sam leave his phone?',
         options: ['In the kitchen', 'At work', 'Outside'],
         answer: 0,
-        explanation: 'Dejó el teléfono en la cocina.',
+        explanation: 'He left his phone in the kitchen.',
       },
       {
         id: 'daily2',
@@ -391,7 +390,7 @@ export const readings: Reading[] = [
           'He should stop working',
         ],
         answer: 1,
-        explanation: 'Una rutina útil debe ser lo bastante simple para repetirla.',
+        explanation: 'A useful routine must be simple enough to repeat.',
       },
     ],
   },
@@ -399,93 +398,97 @@ export const readings: Reading[] = [
 export const glossary: Record<string, { meaning: string; pronunciation: string; example: string }> =
   {
     'compound interest': {
-      meaning: 'interés compuesto',
+      meaning: 'Interest earned on both your savings and previously earned interest.',
       pronunciation: '/ˈkɒmpaʊnd ˈɪntrəst/',
       example: 'Compound interest includes interest earned on earlier interest.',
     },
     'out loud': {
-      meaning: 'en voz alta',
+      meaning: 'Spoken so that people can hear it.',
       pronunciation: '/aʊt laʊd/',
       example: 'Practise your main ideas out loud before the meeting.',
     },
     'cut back on': {
-      meaning: 'reducir el consumo o gasto en algo',
+      meaning: 'To reduce how much you use or spend on something.',
       pronunciation: '/kʌt bæk ɒn/',
       example: 'We want to cut back on unnecessary spending.',
     },
     'travel guide': {
-      meaning: 'guía de viaje',
+      meaning: 'A book or resource with information about a place to visit.',
       pronunciation: '/ˈtrævəl ɡaɪd/',
       example: 'The small garden was not in my travel guide.',
     },
     'ask for clarification': {
-      meaning: 'pedir una aclaración',
+      meaning: 'To ask someone to explain something more clearly.',
       pronunciation: '/ɑːsk fə ˌklærɪfɪˈkeɪʃən/',
       example: 'It is useful to ask for clarification when a point is unclear.',
     },
     narrow: {
-      meaning: 'estrecho/a',
+      meaning: 'Not wide; with little space from side to side.',
       pronunciation: '/ˈnærəʊ/',
       example: 'The streets in the old town are narrow.',
     },
     curiosity: {
-      meaning: 'curiosidad',
+      meaning: 'A strong wish to learn or discover something.',
       pronunciation: '/ˌkjʊəriˈɒsəti/',
       example: 'Curiosity helps you discover new places.',
     },
     neighbourhood: {
-      meaning: 'barrio',
+      meaning: 'A local area of a town or city where people live.',
       pronunciation: '/ˈneɪbəhʊd/',
       example: 'There is a quiet café in my neighbourhood.',
     },
     savings: {
-      meaning: 'ahorros',
+      meaning: 'Money that you have saved instead of spending.',
       pronunciation: '/ˈseɪvɪŋz/',
       example: 'I use part of my savings for travel.',
     },
     fees: {
-      meaning: 'comisiones / cargos',
+      meaning: 'Amounts of money charged for a service.',
       pronunciation: '/fiːz/',
       example: 'Check the fees before opening an account.',
     },
     growth: {
-      meaning: 'crecimiento',
+      meaning: 'An increase in size, amount, or development.',
       pronunciation: '/ɡrəʊθ/',
       example: 'Inflation can reduce real growth.',
     },
     overnight: {
-      meaning: 'de la noche a la mañana',
+      meaning: 'Very quickly or suddenly, in a short period of time.',
       pronunciation: '/ˌəʊvəˈnaɪt/',
       example: 'A new habit does not develop overnight.',
     },
     timetable: {
-      meaning: 'horario',
+      meaning: 'A schedule showing when events or journeys happen.',
       pronunciation: '/ˈtaɪmteɪbəl/',
       example: 'Check the timetable before you leave.',
     },
-    shared: { meaning: 'compartido/a', pronunciation: '/ʃeəd/', example: 'We need a shared plan.' },
+    shared: {
+      meaning: 'Used, experienced, or held by more than one person.',
+      pronunciation: '/ʃeəd/',
+      example: 'We need a shared plan.',
+    },
     judgement: {
-      meaning: 'criterio / juicio',
+      meaning: 'The ability to make sensible decisions after considering the facts.',
       pronunciation: '/ˈdʒʌdʒmənt/',
       example: 'Good judgement matters more than speed.',
     },
     misleading: {
-      meaning: 'engañoso/a',
+      meaning: 'Likely to give someone a wrong impression.',
       pronunciation: '/ˌmɪsˈliːdɪŋ/',
       example: 'A single number can be misleading.',
     },
     assumptions: {
-      meaning: 'suposiciones',
+      meaning: 'Things accepted as true without being fully checked.',
       pronunciation: '/əˈsʌmpʃənz/',
       example: 'We should question our assumptions.',
     },
     clarification: {
-      meaning: 'aclaración',
+      meaning: 'An explanation that makes something clearer.',
       pronunciation: '/ˌklærɪfɪˈkeɪʃən/',
       example: 'Could I ask for clarification?',
     },
     hurried: {
-      meaning: 'apurado/a',
+      meaning: 'Rushed; doing something with too little time.',
       pronunciation: '/ˈhʌrid/',
       example: 'I felt less hurried this morning.',
     },

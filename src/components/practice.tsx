@@ -15,8 +15,8 @@ export function ResultFeedback({ result }: { result: Feedback }) {
     <div className="feedback positive">
       <strong>
         {result.total
-          ? `${result.correct} de ${result.total} respuestas correctas`
-          : 'Práctica guardada, sin puntuación automática.'}
+          ? `${result.correct} of ${result.total} correct answers`
+          : 'Practice saved, without an automatic score.'}
       </strong>
       {result.feedback?.map((f, i) => (
         <p key={f.id}>
@@ -54,15 +54,15 @@ export function WritingBox({
   const original = useRef(initialText);
   useEffect(() => {
     if (disabled || text === original.current) return;
-    setSaveStatus('Guardando borrador…');
+    setSaveStatus('Saving draft…');
     const timer = setTimeout(() => {
       void api('draft', { activityId: activity.id, text })
         .then(() => {
           original.current = text;
-          setSaveStatus('Borrador guardado');
+          setSaveStatus('Draft saved');
         })
         .catch((e) => {
-          setSaveStatus('No se guardó el borrador');
+          setSaveStatus('Draft was not saved');
           setError(e.message);
         });
     }, 700);
@@ -82,7 +82,7 @@ export function WritingBox({
   return (
     <div className="writing-box">
       <textarea
-        aria-label="Tu respuesta en inglés"
+        aria-label="Your answer in English"
         lang="en"
         value={text}
         maxLength={6000}
@@ -96,7 +96,7 @@ export function WritingBox({
       />
       <div className="writing-meta">
         <span>
-          {text.trim().split(/\s+/).filter(Boolean).length} palabras · {saveStatus}
+          {text.trim().split(/\s+/).filter(Boolean).length} words · {saveStatus}
         </span>
         <Button
           secondary
@@ -104,13 +104,13 @@ export function WritingBox({
           onClick={correct}
         >
           <Sparkles size={15} />
-          {busy ? 'Revisando…' : 'Recibir devolución'}
+          {busy ? 'Reviewing…' : 'Get feedback'}
         </Button>
       </div>
       <p className="fine-print">
         {aiAvailable
-          ? 'Al pedir una devolución, tu texto y hasta cinco patrones de errores se envían al servicio de IA. No se evalúa pronunciación.'
-          : 'Corrección por IA disponible al configurar ENGLISH_AI_API_KEY. Podés guardar tu práctica sin una corrección.'}
+          ? 'Requesting feedback sends your text and up to five previous error patterns to the configured AI service. Pronunciation is not evaluated.'
+          : 'Writing feedback is available with a configured server AI key. You can save your practice without a correction.'}
       </p>
       {error && (
         <p className="error" role="alert">
@@ -119,17 +119,17 @@ export function WritingBox({
       )}
       {feedback && (
         <div className="ai-feedback">
-          <span className="eyebrow">DEVOLUCIÓN DE IA · REVISABLE</span>
+          <span className="eyebrow">AI FEEDBACK · CHECK AND REVIEW</span>
           <p>{feedback.feedback}</p>
           <blockquote lang="en">{feedback.revised}</blockquote>
           {feedback.corrections.map((c, i) => (
             <div key={i} className="correction-item">
               <span className="tag">
                 {c.category === 'grammar'
-                  ? 'Gramática'
+                  ? 'Grammar'
                   : c.category === 'vocabulary'
-                    ? 'Vocabulario'
-                    : 'Naturalidad · sugerencia'}
+                    ? 'Vocabulary'
+                    : 'Naturalness · suggestion'}
               </span>
               <p lang="en">
                 <del>{c.original}</del> → <strong>{c.corrected}</strong>
@@ -137,7 +137,7 @@ export function WritingBox({
               <p>{c.explanation}</p>
             </div>
           ))}
-          {!feedback.corrections.length && <p>No se señalaron cambios necesarios.</p>}
+          {!feedback.corrections.length && <p>No necessary changes were identified.</p>}
         </div>
       )}
     </div>
@@ -188,18 +188,18 @@ export function Practice({
     <>
       <button className="back-link" onClick={close}>
         <ArrowLeft size={16} />
-        Volver a mi día
+        Back to My Day{' '}
       </button>
       <Heading
         eyebrow={
           activity.kind === 'writing'
-            ? 'ESCRITURA'
+            ? 'WRITING'
             : activity.kind === 'vocabulary'
-              ? 'REPASO INTELIGENTE'
-              : 'PRÁCTICA CON PROPÓSITO'
+              ? 'SMART REVIEW'
+              : 'PRACTISE WITH PURPOSE'
         }
         title={activity.title}
-        description={`${activity.minutes} minutos sugeridos. A tu ritmo.`}
+        description={`${activity.minutes} suggested minutes. At your pace.`}
       />
       <section className="card practice-card">
         {activity.kind === 'grammar' && (
@@ -229,7 +229,7 @@ export function Practice({
           <>
             <ResultFeedback result={result} />
             <Button secondary onClick={close}>
-              Volver a mi día
+              Back to My Day{' '}
             </Button>
           </>
         ) : (
@@ -243,7 +243,7 @@ export function Practice({
             }
             onClick={finish}
           >
-            {busy ? 'Guardando…' : 'Guardar y completar'}
+            {busy ? 'Saving…' : 'Save and complete'}
             <Check size={16} />
           </Button>
         )}

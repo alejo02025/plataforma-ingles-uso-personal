@@ -11,6 +11,7 @@ try {
 const allowed = (name) =>
   name === '_next' ||
   name === 'assets' ||
+  name === 'local-ai' ||
   name === '_not-found' ||
   name === '.nojekyll' ||
   name === '404' ||

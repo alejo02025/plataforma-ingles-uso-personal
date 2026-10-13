@@ -23,7 +23,7 @@ export async function api<T = Record<string, unknown>>(
           },
   );
   const data = await response.json();
-  if (!response.ok) throw new Error(data.error || 'No se pudo completar la operación.');
+  if (!response.ok) throw new Error(data.error || 'The action could not be completed.');
   return data as T;
 }
 export function Button({
@@ -122,8 +122,8 @@ export function Speak({ text }: { text: string }) {
   return (
     <button
       className="icon-button"
-      aria-label={`Escuchar ${text}`}
-      title="Pronunciación con la voz disponible en tu navegador"
+      aria-label={`Listen to ${text}`}
+      title="Pronunciation with your browser’s available voice"
       onClick={() => {
         if (!('speechSynthesis' in window)) return;
         window.speechSynthesis.cancel();
@@ -152,7 +152,7 @@ export function ArrowLink({
   );
 }
 export function dateLabel(day: string, short = false) {
-  return new Intl.DateTimeFormat('es-AR', {
+  return new Intl.DateTimeFormat('en-US', {
     timeZone: 'America/Argentina/Buenos_Aires',
     day: 'numeric',
     month: short ? 'short' : 'long',
@@ -192,11 +192,11 @@ export function DownloadLink({
             const url = URL.createObjectURL(blob),
               link = document.createElement('a');
             link.href = url;
-            link.download = endpoint === 'export' ? 'english-os-datos.json' : 'documento.pdf';
+            link.download = endpoint === 'export' ? 'english-os-data.json' : 'document.pdf';
             link.click();
             setTimeout(() => URL.revokeObjectURL(url), 10000);
           } catch (error) {
-            setError(error instanceof Error ? error.message : 'No se pudo descargar el archivo.');
+            setError(error instanceof Error ? error.message : 'The file could not be downloaded.');
           }
         }}
       >

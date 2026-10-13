@@ -114,7 +114,7 @@ export function restore(input: unknown) {
       for (const row of manifest.data[table]) {
         const keys = Object.keys(row);
         if (!keys.length || keys.some((key) => !columns.has(key)))
-          throw new Error('El respaldo contiene columnas desconocidas.');
+          throw new Error('The backup contains unknown columns.');
         db()
           .prepare(
             `INSERT INTO ${table} (${keys.map((k) => `"${k}"`).join(',')}) VALUES (${keys.map(() => '?').join(',')})`,

@@ -1,4 +1,7 @@
 'use client';
+import { DailyWords } from './daily-words';
+import { AppUpdate } from './app-update';
+import { PdfStudio } from './pdf-studio';
 import { DownloadLink } from './ui';
 import { GitHubSync, GitHubSyncStatus } from './github-sync';
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -16,6 +19,7 @@ import {
   Menu,
   Moon,
   Settings2,
+  NotebookPen,
   Sun,
   X,
   ArrowUpRight,
@@ -31,17 +35,18 @@ import { Progress, Calendar } from './analytics';
 import { api, Button, Heading, Empty } from './ui';
 import { useDialog } from './use-dialog';
 const navigation = [
-  { title: 'Inicio', icon: Home },
-  { title: 'Mi día', icon: Compass },
-  { title: 'Biblioteca', icon: BookOpen },
-  { title: 'Practicar', icon: Languages },
-  { title: 'Vocabulario', icon: Languages },
-  { title: 'Progreso', icon: ChartNoAxesCombined },
-  { title: 'Calendario', icon: CalendarDays },
+  { title: 'Home', icon: Home },
+  { title: 'PDF Studio', icon: NotebookPen },
+  { title: 'My Day', icon: Compass },
+  { title: 'Library', icon: BookOpen },
+  { title: 'Practice', icon: Languages },
+  { title: 'Vocabulary', icon: Languages },
+  { title: 'Progress', icon: ChartNoAxesCombined },
+  { title: 'Calendar', icon: CalendarDays },
 ];
 export function EnglishApp() {
   const [data, setData] = useState<Snapshot | null>(null),
-    [view, setView] = useState('Inicio');
+    [view, setView] = useState('Home');
   const [active, setActive] = useState<Activity | null>(null),
     [error, setError] = useState(''),
     [locked, setLocked] = useState(false),
@@ -60,7 +65,7 @@ export function EnglishApp() {
     };
     window.addEventListener('english-data-changed', onRemoteChange);
     refresh().catch((e) => {
-      if (e.message.includes('clave de acceso')) setLocked(true);
+      if (e.message.includes('access key')) setLocked(true);
       else setError(e.message);
     });
     return () => window.removeEventListener('english-data-changed', onRemoteChange);
@@ -111,9 +116,9 @@ export function EnglishApp() {
       <div className="auth-page">
         <section className="card auth-card">
           <Logo />
-          <span className="eyebrow">TU ESPACIO PRIVADO</span>
-          <h1>Bienvenido de nuevo.</h1>
-          <p className="muted">Ingresá la clave de acceso configurada para tu English OS.</p>
+          <span className="eyebrow">YOUR PRIVATE SPACE</span>
+          <h1>Welcome back.</h1>
+          <p className="muted">Enter your English OS access key.</p>
           <form
             onSubmit={async (e) => {
               e.preventDefault();
@@ -129,7 +134,7 @@ export function EnglishApp() {
             }}
           >
             <label className="field">
-              Clave de acceso
+              Access key{' '}
               <input
                 type="password"
                 autoFocus
@@ -140,8 +145,7 @@ export function EnglishApp() {
               />
             </label>
             <Button type="submit">
-              Entrar
-              <ArrowUpRight size={16} />
+              Sign in <ArrowUpRight size={16} />
             </Button>
           </form>
           {error && (
@@ -165,13 +169,13 @@ export function EnglishApp() {
                 void refresh().catch((e) => setError(e.message));
               }}
             >
-              Reintentar
+              Try again{' '}
             </Button>
           </>
         ) : (
           <>
             <LoaderCircle className="spinner" size={25} />
-            <p>Preparando tu espacio…</p>
+            <p>Preparing your space…</p>
           </>
         )}
       </div>
@@ -182,7 +186,7 @@ export function EnglishApp() {
       {mobileMenu && (
         <button
           className="drawer-backdrop"
-          aria-label="Cerrar navegación"
+          aria-label="Close navigation"
           onClick={() => setMobileMenu(false)}
         />
       )}
@@ -190,16 +194,16 @@ export function EnglishApp() {
         <Logo />
         <button
           className="icon-button mobile-sidebar-close"
-          aria-label="Cerrar menú"
+          aria-label="Close menu"
           onClick={() => setMobileMenu(false)}
         >
           <X size={19} />
         </button>
         <div className="workspace-label">
           <span className="status-dot" />
-          ESPACIO PERSONAL
+          PERSONAL SPACE{' '}
         </div>
-        <nav aria-label="Navegación principal">
+        <nav aria-label="Main navigation">
           {navigation.map(({ title, icon: Icon }) => (
             <button
               key={title}
@@ -208,7 +212,7 @@ export function EnglishApp() {
             >
               <Icon size={19} strokeWidth={1.7} />
               {title}
-              {title === 'Vocabulario' && data.vocabulary.length > 0 && (
+              {title === 'Vocabulary' && data.vocabulary.length > 0 && (
                 <span className="nav-count">{data.vocabulary.length}</span>
               )}
             </button>
@@ -220,8 +224,8 @@ export function EnglishApp() {
               <ArrowUpRight size={20} />
             </div>
             <div>
-              <span>Tu próximo horizonte</span>
-              <strong>Inglés B2</strong>
+              <span>Your next horizon</span>
+              <strong>English B2</strong>
             </div>
           </div>
           <button
@@ -232,17 +236,17 @@ export function EnglishApp() {
             }}
           >
             <Settings2 size={18} />
-            Preferencias
+            Preferences{' '}
           </button>
           <div className="user-profile">
             <span className="avatar">{data.profile.name.slice(0, 1).toUpperCase()}</span>
             <div>
               <strong>{data.profile.name}</strong>
-              <span>Mi recorrido personal</span>
+              <span>My personal journey</span>
             </div>
             <button
               className="icon-button"
-              aria-label="Abrir preferencias"
+              aria-label="Open preferences"
               onClick={() => setSettings(true)}
             >
               <ChevronRight size={16} />
@@ -255,35 +259,36 @@ export function EnglishApp() {
           <div className="breadcrumb">
             <button
               className="icon-button mobile-menu"
-              aria-label="Abrir navegación"
+              aria-label="Open navigation"
               onClick={() => setMobileMenu(!mobileMenu)}
             >
               <Menu size={20} />
             </button>
-            <span>Mi espacio</span>
+            <span>My space</span>
             <ChevronRight size={14} />
-            <strong>{active ? 'Práctica' : view === 'Diagnóstico' ? 'Diagnóstico' : view}</strong>
+            <strong>{active ? 'Practice' : view === 'Assessment' ? 'Assessment' : view}</strong>
           </div>
           <div className="topbar-actions">
+            <AppUpdate />
             {process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github' && (
               <GitHubSyncStatus onOpen={() => setSettings(true)} />
             )}
             <span className="private-label">
               <span className="status-dot" />
-              {data.protected ? 'Espacio protegido' : 'Uso personal'}
+              {data.protected ? 'Protected space' : 'Personal use'}
             </span>
             <button
               className="icon-button"
               onClick={toggleTheme}
               aria-label={
-                data.profile.theme === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro'
+                data.profile.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
               }
             >
               {data.profile.theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
             <button
               className="icon-button"
-              aria-label="Ayuda y preferencias"
+              aria-label="Help and preferences"
               onClick={() => setSettings(true)}
             >
               <CircleHelp size={18} />
@@ -291,17 +296,18 @@ export function EnglishApp() {
           </div>
         </header>
         <main id="main-content">
+          <div id="app-updates" />
           {error && (
             <div role="alert" className="error global-error">
               {error}
-              <button aria-label="Cerrar mensaje" onClick={() => setError('')}>
+              <button aria-label="Dismiss message" onClick={() => setError('')}>
                 <X size={16} />
               </button>
             </div>
           )}
           {opening && (
             <div className="operation-indicator" role="status">
-              Abriendo y guardando tu sesión…
+              Opening and saving your session…{' '}
             </div>
           )}
           {active ? (
@@ -323,23 +329,25 @@ export function EnglishApp() {
                 close={() => void navigate(view)}
               />
             )
-          ) : view === 'Diagnóstico' ? (
-            <Diagnostic data={data} refresh={refresh} close={() => void navigate('Inicio')} />
-          ) : view === 'Inicio' ? (
+          ) : view === 'Assessment' ? (
+            <Diagnostic data={data} refresh={refresh} close={() => void navigate('Home')} />
+          ) : view === 'Home' ? (
             <Dashboard
               data={data}
               onStart={onStart}
               navigate={(target) => void navigate(target)}
-              onDiagnostic={() => setView('Diagnóstico')}
+              onDiagnostic={() => setView('Assessment')}
             />
-          ) : view === 'Mi día' ? (
+          ) : view === 'PDF Studio' ? (
+            <PdfStudio data={data} refresh={refresh} onRead={(doc) => void openDocument(doc)} />
+          ) : view === 'My Day' ? (
             <>
               <Heading
-                eyebrow="TU RECORRIDO, PREPARADO"
-                title="Un plan para hoy."
+                eyebrow="YOUR JOURNEY, READY"
+                title="A plan for today."
                 description={data.plan.reason}
               >
-                <span className="pill neutral">{data.plan.minutes} minutos sugeridos</span>
+                <span className="pill neutral">{data.plan.minutes} suggested minutes</span>
               </Heading>
               <section className="card daily-card">
                 <ActivityList data={data} onStart={onStart} />
@@ -347,42 +355,49 @@ export function EnglishApp() {
               <div className="evidence-banner">
                 <Check size={20} />
                 <p>
-                  Tu plan se conserva durante el día. Si cambiás la duración en Preferencias, se
-                  aplicará al próximo plan.
+                  Your plan stays the same throughout the day. Duration changes in Preferences apply
+                  to your next plan.{' '}
                 </p>
               </div>
             </>
-          ) : view === 'Biblioteca' ? (
+          ) : view === 'Library' ? (
             <Library data={data} onOpen={(d) => void openDocument(d)} refresh={refresh} />
-          ) : view === 'Vocabulario' ? (
+          ) : view === 'Vocabulary' ? (
             <Vocabulary data={data} refresh={refresh} />
-          ) : view === 'Progreso' ? (
+          ) : view === 'Progress' ? (
             <Progress data={data} />
-          ) : view === 'Calendario' ? (
+          ) : view === 'Calendar' ? (
             <Calendar data={data} />
           ) : (
             <>
               <Heading
-                eyebrow="UNA IDEA EN ACCIÓN"
-                title="Hacé lugar a la práctica."
-                description="Lectura, gramática y escritura para situaciones que sí te importan."
+                eyebrow="ONE IDEA IN ACTION"
+                title="Make room for practice."
+                description="Reading, grammar, and writing for situations that matter to you."
               />
               <section className="card daily-card">
                 <ActivityList data={data} onStart={onStart} />
               </section>
               <Empty
-                title="La voz llega en la próxima fase."
-                detail="Speaking y listening tendrán grabación, transcripción y audios naturales. Mientras tanto, podés escuchar tus lecturas con las voces del navegador."
+                title="More speaking tools are coming."
+                detail="Recording, transcription, and listening activities are planned. For now, you can listen to readings with your browser’s voices."
               />
             </>
           )}
           <footer className="app-footer">
             <span>ENGLISH OS</span>
-            <p>Menos organizar. Más descubrir.</p>
-            <span>Tu ritmo. Tu recorrido.</span>
+            <p>Less planning. More discovering.</p>
+            <span>Your pace. Your journey.</span>
           </footer>
         </main>
       </div>
+      {view === 'Home' && !active && (
+        <DailyWords
+          data={data}
+          refresh={refresh}
+          openVocabulary={() => void navigate('Vocabulary')}
+        />
+      )}
       {settings && <Preferences data={data} refresh={refresh} close={() => setSettings(false)} />}
     </div>
   );
@@ -439,8 +454,8 @@ function Preferences({
         className="card modal"
       >
         <div className="section-heading">
-          <h2 id="preferences-title">A tu manera.</h2>
-          <button className="icon-button" aria-label="Cerrar preferencias" onClick={close}>
+          <h2 id="preferences-title">Make it yours.</h2>
+          <button className="icon-button" aria-label="Close preferences" onClick={close}>
             <X size={20} />
           </button>
         </div>
@@ -461,7 +476,7 @@ function Preferences({
           }}
         >
           <label className="field">
-            Cómo te llamás
+            Your name{' '}
             <input
               autoFocus
               required
@@ -471,50 +486,48 @@ function Preferences({
             />
           </label>
           <label className="field">
-            Tu tiempo habitual
+            Your usual study time{' '}
             <select
               value={profile.daily_minutes}
               onChange={(e) => setProfile({ ...profile, daily_minutes: Number(e.target.value) })}
             >
-              <option value={5}>5 minutos · una pausa</option>
-              <option value={20}>20 minutos · mi sesión diaria</option>
-              <option value={40}>40 minutos · explorar más</option>
+              <option value={5}>5 minutes · a small break</option>
+              <option value={20}>20 minutes · my daily session</option>
+              <option value={40}>40 minutes · explore more</option>
             </select>
           </label>
-          <p className="fine-print">Los cambios de duración se aplican al próximo plan diario.</p>
+          <p className="fine-print">Duration changes apply to your next daily plan.</p>
           <fieldset className="interests">
-            <legend>Lo que te interesa</legend>
-            {['Viajes', 'Finanzas', 'Historia', 'Tecnología', 'Trabajo', 'Vida cotidiana'].map(
-              (t) => (
-                <label
-                  className={`interest-chip ${profile.interests.includes(t) ? 'active' : ''}`}
-                  key={t}
-                >
-                  <input
-                    type="checkbox"
-                    checked={profile.interests.includes(t)}
-                    onChange={(e) =>
-                      setProfile({
-                        ...profile,
-                        interests: e.target.checked
-                          ? [...profile.interests, t]
-                          : profile.interests.filter((x) => x !== t),
-                      })
-                    }
-                  />
-                  {t}
-                </label>
-              ),
-            )}
+            <legend>Your interests</legend>
+            {['Travel', 'Finance', 'History', 'Technology', 'Work', 'Everyday Life'].map((t) => (
+              <label
+                className={`interest-chip ${profile.interests.includes(t) ? 'active' : ''}`}
+                key={t}
+              >
+                <input
+                  type="checkbox"
+                  checked={profile.interests.includes(t)}
+                  onChange={(e) =>
+                    setProfile({
+                      ...profile,
+                      interests: e.target.checked
+                        ? [...profile.interests, t]
+                        : profile.interests.filter((x) => x !== t),
+                    })
+                  }
+                />
+                {t}
+              </label>
+            ))}
           </fieldset>
           <label className="field">
-            Apariencia
+            Appearance{' '}
             <select
               value={profile.theme}
               onChange={(e) => setProfile({ ...profile, theme: e.target.value })}
             >
-              <option value="light">Claro</option>
-              <option value="dark">Oscuro</option>
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
             </select>
           </label>
           {error && (
@@ -523,31 +536,30 @@ function Preferences({
             </p>
           )}
           <Button type="submit" disabled={busy || !profile.interests.length}>
-            {busy ? 'Guardando…' : 'Guardar preferencias'}
+            {busy ? 'Saving…' : 'Save preferences'}
             <Check size={16} />
           </Button>
         </form>
         {process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github' && <GitHubSync />}
         <div className="settings-info">
-          <span className="eyebrow">PRIVACIDAD Y DATOS</span>
+          <span className="eyebrow">PRIVACY AND DATA</span>
           <p>
             {process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github'
-              ? 'Los datos se guardan en este navegador y se sincronizan al conectar tu repositorio privado de GitHub.'
-              : 'Los datos se guardan en la base del servidor.'}{' '}
+              ? 'Your data is saved in this browser and synced when you connect your private GitHub repository.'
+              : 'Your data is saved in the server database.'}{' '}
             {data.aiAvailable
-              ? 'La corrección con IA está configurada.'
+              ? 'AI writing feedback is configured.'
               : process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github'
-                ? 'Esta edición permite estudiar sin servicios de IA.'
-                : 'Para activar correcciones, configurá ENGLISH_AI_API_KEY en el servidor.'}
+                ? 'You can study here without an external AI service. PDF Studio also supports local AI.'
+                : 'AI writing feedback requires a configured server key.'}
           </p>
           <p>
-            Este producto tiene un diagnóstico orientativo, no una certificación MCER. Para acceso
-            desde Internet,{' '}
+            This is an informal starting assessment, not a CEFR certification. For online access,{' '}
             {process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github'
-              ? 'tus datos personales se mantienen fuera del repositorio público.'
-              : 'configurá APP_ACCESS_TOKEN y HTTPS.'}
+              ? 'your personal data stays outside the public repository.'
+              : 'configure an access key and HTTPS on the server.'}
           </p>
-          <DownloadLink endpoint="export">Descargar mi historial</DownloadLink>
+          <DownloadLink endpoint="export">Download my history</DownloadLink>
         </div>
       </section>
     </div>

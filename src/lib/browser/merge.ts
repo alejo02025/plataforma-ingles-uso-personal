@@ -4,6 +4,7 @@ export const tables = [
   'diagnostics',
   'diagnostic_answers',
   'documents',
+  'document_sections',
   'reading_progress',
   'plans',
   'activities',
@@ -15,6 +16,8 @@ export const tables = [
   'mistakes',
   'evaluations',
   'progress_history',
+  'tutor_messages',
+  'tutor_attempts',
 ] as const;
 export type Row = Record<string, string | number | null>;
 export type Manifest = {
@@ -40,10 +43,12 @@ export function validate(value: unknown): Manifest {
     !manifest.data ||
     Object.keys(manifest.data).some((t) => !tables.includes(t as (typeof tables)[number]))
   )
-    throw new Error('El respaldo no tiene un formato compatible.');
+    throw new Error('This backup format is not supported.');
+  for (const table of ['document_sections', 'tutor_messages', 'tutor_attempts'])
+    if (manifest.data[table] === undefined) manifest.data[table] = [];
   for (const table of tables) {
     if (!Array.isArray(manifest.data[table]) || manifest.data[table].length > 50000)
-      throw new Error('El respaldo está incompleto o es demasiado grande.');
+      throw new Error('The backup is incomplete or too large.');
     for (const row of manifest.data[table]) {
       if (
         !row ||
@@ -53,18 +58,18 @@ export function validate(value: unknown): Manifest {
             v !== null && typeof v !== 'string' && (typeof v !== 'number' || !Number.isFinite(v)),
         )
       )
-        throw new Error('El respaldo contiene datos inválidos.');
+        throw new Error('The backup contains invalid data.');
     }
   }
   if (manifest.clocks && (typeof manifest.clocks !== 'object' || Array.isArray(manifest.clocks)))
-    throw new Error('Marcas de sincronización inválidas.');
+    throw new Error('Invalid synchronization markers.');
   for (const fields of Object.values(manifest.clocks || {})) {
     if (
       !fields ||
       typeof fields !== 'object' ||
       Object.values(fields).some((clock) => typeof clock !== 'string' || clock.length > 150)
     )
-      throw new Error('Marcas de sincronización inválidas.');
+      throw new Error('Invalid synchronization markers.');
   }
   if (
     manifest.deletions &&
@@ -73,7 +78,7 @@ export function validate(value: unknown): Manifest {
         (clock) => typeof clock !== 'string' || clock.length > 150,
       ))
   )
-    throw new Error('Marcas de borrado inválidas.');
+    throw new Error('Invalid deletion markers.');
   return manifest;
 }
 export function stamp(

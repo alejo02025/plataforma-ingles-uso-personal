@@ -1,4 +1,7 @@
 'use client';
+import { useEffect, useState } from 'react';
+import { greetingForHour } from '@/lib/momentum';
+import { MomentumChart } from './momentum-chart';
 import {
   ArrowUpRight,
   BookOpen,
@@ -46,14 +49,14 @@ export function ActivityList({
               <h3>{a.title}</h3>
               <p>
                 {a.completed_at
-                  ? 'Completado · ver resultado'
+                  ? 'Completed · view result'
                   : a.kind === 'reading'
-                    ? 'Leé, descubrí palabras y conectá ideas.'
+                    ? 'Read, discover words, and connect ideas.'
                     : a.kind === 'grammar'
-                      ? 'Decisiones breves con explicación.'
+                      ? 'Short decisions with an explanation.'
                       : a.kind === 'vocabulary'
-                        ? 'Recordá antes de mirar la respuesta.'
-                        : 'Expresá una idea y guardá tu práctica.'}
+                        ? 'Try to recall before looking at the answer.'
+                        : 'Express an idea and save your practice.'}
               </p>
             </div>
             <span className="row-end">
@@ -83,10 +86,24 @@ export function Dashboard({
   navigate: (view: string) => void;
   onDiagnostic: () => void;
 }) {
+  const [greeting, setGreeting] = useState('Hello');
+  useEffect(() => {
+    const update = () => setGreeting(greetingForHour(new Date().getHours()));
+    update();
+    const timer = setInterval(update, 60000);
+    return () => clearInterval(timer);
+  }, []);
   const today = data.results.filter((r) => r.day === data.day);
   const todaySessions = data.sessions.filter((s) => localDay(new Date(s.started_at)) === data.day);
   const minutes = Math.round(todaySessions.reduce((n, s) => n + s.active_seconds, 0) / 6) / 10;
-  const activeDays = new Set(data.results.map((r) => r.day).concat(data.reviews.map((r) => r.day)));
+  const activeDays = new Set(
+    data.results
+      .map((r) => r.day)
+      .concat(
+        data.reviews.map((r) => r.day),
+        data.tutorAttempts.map((attempt) => localDay(new Date(attempt.created_at))),
+      ),
+  );
   const due = data.vocabulary.filter((w) => w.due_at <= new Date().toISOString()).length;
   const remaining = data.plan.activities.find((a) => !a.completed_at && !a.payload.optional);
   const resumeSession = [...data.sessions].reverse().find((s) => !s.ended_at);
@@ -94,65 +111,105 @@ export function Dashboard({
   const doc = data.documents.find((d) => d.id === remaining?.document_id) || data.documents[0];
   const diagnosed = Boolean(data.diagnostic.completed_at);
   const bands = [...new Set(data.evaluations.map((e) => e.level?.slice(0, 2)).filter(Boolean))];
-  const currentLevel = bands.length ? bands.join(' / ') : 'Sin estimar';
+  const currentLevel = bands.length ? bands.join(' / ') : 'Not assessed';
   return (
     <>
       <Heading
-        eyebrow="TU ESPACIO DE APRENDIZAJE"
-        title={`Buen día, ${data.profile.name}.`}
-        description="Un poco de inglés. Un mundo de posibilidades."
+        eyebrow="YOUR DAILY ENGLISH EDITION"
+        title={`${greeting}, ${data.profile.name}.`}
+        description="Make yourself a little more at home in English."
       >
         <span className="date-chip">
           <CalendarDays size={16} />
           {dateLabel(data.day)}
         </span>
       </Heading>
+      <div className="notebook-ribbon" aria-label="Your daily English rhythm">
+        <span>
+          <b>01</b> Read something.
+        </span>
+        <span>
+          <b>02</b> Say something.
+        </span>
+        <span>
+          <b>03</b> Keep going.
+        </span>
+      </div>
+      <section className="pdf-home-hero">
+        <div>
+          <span className="eyebrow">FROM YOUR BOOKSHELF TO YOUR EVERYDAY LIFE</span>
+          <h2>
+            Your curiosity.
+            <br />
+            In English.
+          </h2>
+          <p>
+            A book you love. An article you saved. Bring it here and find something worth talking
+            about.
+          </p>
+          <Button onClick={() => navigate('PDF Studio')}>
+            Open PDF Studio <ArrowUpRight size={18} />
+          </Button>
+        </div>
+        <div className="pdf-hero-art" aria-hidden="true">
+          <div className="pdf-hero-sheet">
+            <BookOpen size={38} />
+            <strong>Read it. Make it yours.</strong>
+            <i />
+            <i />
+            <i />
+          </div>
+          <span className="pdf-hero-note">
+            <Languages size={20} />
+            Good reads, new words.
+          </span>
+          <span className="pdf-hero-spark">✦</span>
+        </div>
+      </section>
       <div className="dashboard-top">
         <section className="hero-card">
           <div className="hero-content">
             <span className="pill">
               <span className="status-dot" />
-              {diagnosed ? 'TU RECORRIDO PERSONAL' : 'UN BUEN LUGAR PARA EMPEZAR'}
+              {diagnosed ? 'YOUR PERSONAL JOURNEY' : 'A GOOD PLACE TO START'}
             </span>
             <h2>
               {diagnosed ? (
                 <>
-                  Tu próximo paso
-                  <br />
-                  ya está preparado.
+                  Your next step <br />
+                  is ready for you.{' '}
                 </>
               ) : (
                 <>
-                  El inglés que querés.
-                  <br />
-                  Un día a la vez.
+                  The English you want. <br />
+                  One day at a time.{' '}
                 </>
               )}
             </h2>
             <p>
               {diagnosed
                 ? data.plan.reason
-                : 'Lecturas que te interesan, práctica con propósito y un plan que se adapta a vos.'}
+                : 'Interesting readings, purposeful practice, and a plan that adapts to you.'}
             </p>
             <Button
               onClick={() =>
-                diagnosed ? (resume ? onStart(resume) : navigate('Progreso')) : onDiagnostic()
+                diagnosed ? (resume ? onStart(resume) : navigate('Progress')) : onDiagnostic()
               }
             >
               {diagnosed
                 ? resumeSession
-                  ? 'Continuar mi sesión'
+                  ? 'Continue my session'
                   : remaining
-                    ? 'Empezar mi día'
-                    : 'Ver mi progreso'
-                : 'Conocer mi punto de partida'}
+                    ? 'Start my day'
+                    : 'See my progress'
+                : 'Find my starting point'}
               <ArrowUpRight size={17} />
             </Button>
             <span className="hero-note">
               <Clock3 size={14} />
               {diagnosed
-                ? `${data.plan.minutes} minutos a tu ritmo`
-                : 'Diagnóstico breve · podés retomarlo'}
+                ? `${data.plan.minutes} minutes at your pace`
+                : 'A short assessment · pause and resume'}
             </span>
           </div>
           <div className="orbit-art" aria-hidden="true">
@@ -171,53 +228,50 @@ export function Dashboard({
         </section>
         <section className="card level-card">
           <div className="card-kicker">
-            TU PUNTO DE PARTIDA
-            <ArrowUpRight size={17} />
+            YOUR STARTING POINT <ArrowUpRight size={17} />
           </div>
           <div className="level-value">
-            {diagnosed ? currentLevel : 'Por descubrir'}
-            <span>
-              {diagnosed ? 'Referencia orientativa' : 'Vamos a construir tu línea de base'}
-            </span>
+            {diagnosed ? currentLevel : 'Ready to discover'}
+            <span>{diagnosed ? 'An informal reference' : 'Let’s build your starting point'}</span>
           </div>
           <div className="level-track">
             <span />
           </div>
           <div className="level-scale">
-            <span>Inicio</span>
-            <span>Objetivo B2</span>
+            <span>Home</span>
+            <span>Goal: B2</span>
           </div>
           <p>
             {diagnosed
-              ? 'Estimaciones por competencia, con confianza baja. Tu objetivo B2 necesita evaluaciones más amplias.'
-              : 'Tu nivel estimado A2/B1 es una hipótesis inicial. Todavía no hay una evaluación.'}
+              ? 'Skill estimates have low confidence. Your B2 goal needs broader assessments.'
+              : 'A2/B1 is an initial assumption. You have not completed an assessment yet.'}
           </p>
-          <ArrowLink onClick={() => (diagnosed ? navigate('Progreso') : onDiagnostic())}>
-            {diagnosed ? 'Ver evidencia por habilidad' : 'Hacer diagnóstico'}
+          <ArrowLink onClick={() => (diagnosed ? navigate('Progress') : onDiagnostic())}>
+            {diagnosed ? 'See evidence by skill' : 'Take the assessment'}
           </ArrowLink>
         </section>
       </div>
       <div className="stats-grid">
-        <Stat value={String(today.length)} label="Actividades hoy" note="Práctica completada" />
+        <Stat value={String(today.length)} label="Activities today" note="Completed practice" />
+        <Stat value={`${minutes}`} suffix="min" label="Time today" note="Recorded active time" />
         <Stat
-          value={`${minutes}`}
-          suffix="min"
-          label="Tiempo de hoy"
-          note="Tiempo activo registrado"
+          value={String(activeDays.size)}
+          label="Days of practice"
+          note="Your actual consistency"
         />
-        <Stat value={String(activeDays.size)} label="Días de práctica" note="Tu continuidad real" />
         <Stat
           value={String(due)}
-          label="Palabras para repasar"
-          note={`${data.vocabulary.length} en tu biblioteca`}
+          label="Words to review"
+          note={`${data.vocabulary.length} in your library`}
         />
       </div>
+      <MomentumChart data={data} compact />
       <div className="dashboard-bottom">
         <section className="card daily-card">
           <div className="section-heading">
             <div>
-              <span className="eyebrow">PASO A PASO</span>
-              <h2>Tu inglés de hoy</h2>
+              <span className="eyebrow">STEP BY STEP</span>
+              <h2>Your English today</h2>
             </div>
             <span className="muted">{data.plan.minutes} min</span>
           </div>
@@ -230,13 +284,9 @@ export function Dashboard({
         <div className="right-stack">
           <section className="card reading-recommendation">
             <div className="card-kicker">
-              UNA LECTURA PARA VOS
-              <BookOpen size={18} />
+              A READING FOR YOU <BookOpen size={18} />
             </div>
-            <div
-              className={`book-art ${doc.topic === 'Finanzas' ? 'gold' : ''}`}
-              aria-hidden="true"
-            >
+            <div className={`book-art ${doc.topic === 'Finance' ? 'gold' : ''}`} aria-hidden="true">
               <span>FIELD NOTES</span>
               <div className="book-line" />
               <BookOpen size={45} strokeWidth={1} />
@@ -251,12 +301,12 @@ export function Dashboard({
             </div>
             <h3>{doc.title}</h3>
             <p>{doc.intro}</p>
-            <ArrowLink onClick={() => navigate('Biblioteca')}>Explorar la biblioteca</ArrowLink>
+            <ArrowLink onClick={() => navigate('Library')}>Explore the library</ArrowLink>
           </section>
           <section className="card quiet-card">
-            <span className="eyebrow">UNA IDEA PARA HOY</span>
+            <span className="eyebrow">ONE IDEA FOR TODAY</span>
             <p>“You don’t have to see the whole staircase. Just take the first step.”</p>
-            <span className="muted">Lo importante es volver.</span>
+            <span className="muted">What matters is coming back.</span>
           </section>
         </div>
       </div>

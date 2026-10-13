@@ -46,19 +46,19 @@ export function Diagnostic({
   return (
     <div className="narrow-page">
       <Heading
-        eyebrow="TU PUNTO DE PARTIDA"
+        eyebrow="YOUR STARTING POINT"
         title={
           data.diagnostic.completed_at
             ? 'Ya tenemos una primera referencia.'
-            : 'Conozcamos tu inglés.'
+            : 'Let’s get to know your English.'
         }
-        description="Nueve situaciones breves de lectura, gramática y vocabulario. Sin reloj ni presión."
+        description="Nine short reading, grammar, and vocabulary situations. No timer or pressure."
       />
       <section className="card diagnostic-card">
         <div className="section-heading">
-          <span>{data.diagnostic.answers.length} de 9 guardadas</span>
+          <span>{data.diagnostic.answers.length} of 9 saved</span>
           <Button secondary onClick={close}>
-            Guardar y salir
+            Save and leave{' '}
           </Button>
         </div>
         <div className="progress-bar">
@@ -75,7 +75,7 @@ export function Diagnostic({
             />
             {feedback && (
               <div className={`feedback ${feedback.correct ? 'positive' : ''}`}>
-                <strong>{feedback.correct ? 'Bien pensado.' : 'Una pista para la próxima.'}</strong>
+                <strong>{feedback.correct ? 'Well done.' : 'A clue for next time.'}</strong>
                 <p>{feedback.explanation}</p>
               </div>
             )}
@@ -88,22 +88,20 @@ export function Diagnostic({
               disabled={busy || (!feedback && answer[next.id] === undefined)}
               onClick={feedback ? advance : save}
             >
-              {busy ? 'Guardando…' : feedback ? 'Siguiente' : 'Guardar respuesta'}
+              {busy ? 'Saving…' : feedback ? 'Next' : 'Save answer'}
             </Button>
           </>
         ) : (
           <>
-            <h2>Tu línea de base está guardada.</h2>
+            <h2>Your starting point is saved.</h2>
             <p className="muted">
-              Las estimaciones son orientativas y tienen confianza baja: este diagnóstico breve no
-              certifica un nivel MCER. Speaking, listening y writing necesitan otras evaluaciones.
+              These estimates are informal and have low confidence. This short assessment does not
+              certify a CEFR level. Speaking, listening, and writing need other assessments.{' '}
             </p>
-            <Button onClick={close}>Ir a mi recorrido</Button>
+            <Button onClick={close}>Go to my journey</Button>
           </>
         )}
-        <p className="fine-print">
-          Cada respuesta queda guardada en tu base de datos. Podés continuar otro día.
-        </p>
+        <p className="fine-print">Every answer is saved. You can continue another day. </p>
       </section>
     </div>
   );

@@ -24,7 +24,7 @@ export function authorized(request: NextRequest) {
 export function checkOrigin(request: NextRequest) {
   const origin = request.headers.get('origin');
   if (origin && new URL(origin).host !== request.headers.get('host'))
-    throw new AppError('Origen de solicitud no permitido.', 403);
+    throw new AppError('The request origin is not allowed.', 403);
   if (request.headers.get('sec-fetch-site') === 'cross-site')
-    throw new AppError('Solicitud entre sitios no permitida.', 403);
+    throw new AppError('Cross-site requests are not allowed.', 403);
 }

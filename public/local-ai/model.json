@@ -1,0 +1,27 @@
+{
+  "name": "SmolLM2 135M Instruct",
+  "quantization": "Q4_1",
+  "license": "Apache-2.0",
+  "bytes": 98362432,
+  "sha256": "b179c9523d0e6a0f98a330c7562b682750a6f8c8c15e5bc70ea373728110db53",
+  "parts": [
+    {
+      "file": "smollm2.part-01.bin",
+      "bytes": 41943040,
+      "sha256": "10c3273d8b1ef1d176d48138349a0c7a9f4abd95be0fa698d244c9b7fc664524"
+    },
+    {
+      "file": "smollm2.part-02.bin",
+      "bytes": 41943040,
+      "sha256": "d68b6a2347efe6d19e2f9414e3e0c048f1440795a9f44d151afc854a02877160"
+    },
+    {
+      "file": "smollm2.part-03.bin",
+      "bytes": 14476352,
+      "sha256": "c6c9ef78539948f99b88280ed4da697f6b94cc8c2177db8a1934420f33123f54"
+    }
+  ],
+  "source": "https://github.com/simonw/llm-smollm2",
+  "package": "llm-smollm2 0.1.2",
+  "package_sha256": "bcc81830d10ce7d9e76640cad826a4b79ed3e4547c78a0be5c4f2fb0e2448c70"
+}

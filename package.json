@@ -21,6 +21,8 @@
     "publish:pages": "npm run build:pages && node scripts/publish-pages.mjs"
   },
   "dependencies": {
+    "@wllama/wllama": "3.8.1",
+    "@wllama/wllama-compat": "3.8.1",
     "lucide-react": "^0.468.0",
     "next": "16.4.0",
     "pdf-parse": "2.4.5",

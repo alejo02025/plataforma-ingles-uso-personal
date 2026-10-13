@@ -7,7 +7,7 @@ export function GitHubSync() {
   const [status, setStatus] = useState<SyncStatus>({
     connected: false,
     busy: false,
-    message: 'Guardado en este dispositivo',
+    message: 'Saved on this device',
   });
   const [repository, setRepository] = useState('alejo02025/english-os-datos'),
     [token, setToken] = useState(''),
@@ -29,32 +29,32 @@ export function GitHubSync() {
   }, []);
   return (
     <section className="settings-info">
-      <span className="eyebrow">TUS DISPOSITIVOS · GITHUB</span>
+      <span className="eyebrow">YOUR DEVICES · GITHUB</span>
       <p role="status">
         {status.message}
-        {status.lastSync && ` · ${new Date(status.lastSync).toLocaleTimeString('es-AR')}`}
+        {status.lastSync && ` · ${new Date(status.lastSync).toLocaleTimeString('en-US')}`}
       </p>
       {status.connected ? (
         <div className="actions">
           <Button type="button" secondary disabled={status.busy} onClick={() => void syncNow()}>
-            Sincronizar ahora
+            Sync now{' '}
           </Button>
           <Button type="button" secondary onClick={disconnect}>
-            Desconectar
+            Disconnect{' '}
           </Button>
         </div>
       ) : (
         <>
           <p>
-            Conectá el mismo repositorio privado en tu celular y notebook. El progreso se sincroniza
-            automáticamente mientras esta pestaña siga abierta y autorizada.
+            Connect the same private repository on your phone and laptop. Progress syncs
+            automatically while this tab is open and authorized.{' '}
           </p>
           <ol>
             <li>
               <a href="https://github.com/new" target="_blank" rel="noreferrer">
-                Creá un repositorio privado
+                Create a private repository{' '}
               </a>{' '}
-              llamado <strong>english-os-datos</strong>. Podés dejarlo vacío.
+              called <strong>english-os-datos</strong>. You can leave it empty.{' '}
             </li>
             <li>
               <a
@@ -62,12 +62,12 @@ export function GitHubSync() {
                 target="_blank"
                 rel="noreferrer"
               >
-                Creá un token de acceso detallado
+                Create a fine-grained access token{' '}
               </a>
-              : seleccioná únicamente ese repositorio y en Repository permissions elegí{' '}
+              : select only that repository and choose this permission:{' '}
               <strong>Contents: Read and write</strong>.
             </li>
-            <li>Ingresalo acá en cada dispositivo. No lo compartas por chat.</li>
+            <li>Enter it here on each device. Never share it in chat.</li>
           </ol>
           <form
             onSubmit={async (event) => {
@@ -86,9 +86,9 @@ export function GitHubSync() {
             }}
           >
             <label className="field">
-              Repositorio privado
+              Private repository{' '}
               <input
-                aria-label="Repositorio privado"
+                aria-label="Private repository"
                 required
                 value={repository}
                 onChange={(event) => setRepository(event.target.value)}
@@ -97,9 +97,9 @@ export function GitHubSync() {
               />
             </label>
             <label className="field">
-              Token de GitHub
+              GitHub token{' '}
               <input
-                aria-label="Token de GitHub"
+                aria-label="GitHub token"
                 required
                 type="password"
                 autoComplete="off"
@@ -108,13 +108,12 @@ export function GitHubSync() {
               />
             </label>
             <Button disabled={busy} type="submit">
-              {busy ? 'Conectando…' : 'Conectar GitHub'}
+              {busy ? 'Connecting…' : 'Connect GitHub'}
             </Button>
           </form>
           <p className="fine-print">
-            La autorización queda en memoria y se borra al cerrar o recargar la pestaña. El
-            historial permanece guardado en este navegador. Al volver a conectar, se recuperan y
-            combinan los cambios de GitHub.
+            Authorization stays in memory and is cleared when you close or reload this tab. Your
+            history stays in this browser. Reconnect to merge it with your GitHub data.{' '}
           </p>
         </>
       )}
@@ -131,7 +130,7 @@ export function GitHubSyncStatus({ onOpen }: { onOpen: () => void }) {
   const [status, setStatus] = useState<SyncStatus>({
     connected: false,
     busy: false,
-    message: 'Guardado en este dispositivo',
+    message: 'Saved on this device',
   });
   useEffect(() => {
     const update = () => setStatus(getStatus());
@@ -145,15 +144,15 @@ export function GitHubSyncStatus({ onOpen }: { onOpen: () => void }) {
       className="text-link sync-status"
       onClick={onOpen}
       title={status.message}
-      aria-label="Sincronización con GitHub"
+      aria-label="GitHub sync"
     >
       {status.busy
-        ? 'Sincronizando…'
+        ? 'Syncing…'
         : status.connected
-          ? status.message === 'Sincronizado con GitHub'
+          ? status.message === 'Synced with GitHub'
             ? 'Sincronizado'
-            : 'Revisar conexión'
-          : 'Conectar GitHub'}
+            : 'Check connection'
+          : 'Connect GitHub'}
     </button>
   );
 }

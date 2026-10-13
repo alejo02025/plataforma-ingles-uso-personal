@@ -13,29 +13,29 @@ export function Library({
   onOpen: (doc: Document) => void;
   refresh: () => Promise<void>;
 }) {
-  const [topic, setTopic] = useState('Todo'),
+  const [topic, setTopic] = useState('All'),
     [search, setSearch] = useState(''),
     [showImport, setShowImport] = useState(false);
   const docs = data.documents.filter(
     (d) =>
-      (topic === 'Todo' || d.topic === topic) &&
+      (topic === 'All' || d.topic === topic) &&
       `${d.title} ${d.topic}`.toLowerCase().includes(search.toLowerCase()),
   );
   return (
     <>
       <Heading
-        eyebrow="LECTURAS CON PROPÓSITO"
-        title="Seguí tu curiosidad."
-        description="Ideas interesantes. Inglés a tu alcance. Un espacio para tus propios textos."
+        eyebrow="READ WITH PURPOSE"
+        title="Follow your curiosity."
+        description="Interesting ideas. English within reach. A space for your own texts."
       >
         <Button onClick={() => setShowImport(true)}>
           <Plus size={17} />
-          Agregar material
+          Add material{' '}
         </Button>
       </Heading>
       <div className="library-tools">
         <div className="tabs">
-          {['Todo', 'Viajes', 'Finanzas', 'Historia', 'Tecnología', 'Trabajo', 'Tu material'].map(
+          {['All', 'Travel', 'Finance', 'History', 'Technology', 'Work', 'Your material'].map(
             (t) => (
               <button key={t} className={t === topic ? 'active' : ''} onClick={() => setTopic(t)}>
                 {t}
@@ -45,8 +45,8 @@ export function Library({
         </div>
         <input
           className="search"
-          aria-label="Buscar lecturas"
-          placeholder="Buscar una lectura…"
+          aria-label="Search readings"
+          placeholder="Find a reading…"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
@@ -82,7 +82,7 @@ export function Library({
               <h2>{d.title}</h2>
               <p>{d.intro}</p>
               <span className="text-link">
-                {d.updated_at ? `Continuar · fragmento ${d.paragraph + 1}` : 'Abrir lectura'}
+                {d.updated_at ? `Continue · section ${d.paragraph + 1}` : 'Open reading'}
                 <ArrowUpRight size={16} />
               </span>
             </div>
@@ -90,10 +90,7 @@ export function Library({
         ))}
       </div>
       {!docs.length && (
-        <Empty
-          title="Todavía no hay lecturas acá."
-          detail="Probá otro tema o agregá tu propio material."
-        />
+        <Empty title="No readings here yet." detail="Try another topic or add your own material." />
       )}
       {showImport && <ImportDialog refresh={refresh} close={() => setShowImport(false)} />}
     </>
@@ -140,31 +137,26 @@ function ImportDialog({ refresh, close }: { refresh: () => Promise<void>; close:
         aria-labelledby="import-title"
       >
         <div className="section-heading">
-          <h2 id="import-title">Traé algo que te interese.</h2>
-          <button
-            className="icon-button"
-            aria-label="Cerrar importación"
-            onClick={close}
-            disabled={busy}
-          >
+          <h2 id="import-title">Bring something that interests you.</h2>
+          <button className="icon-button" aria-label="Close import" onClick={close} disabled={busy}>
             <X size={20} />
           </button>
         </div>
         <p className="muted">
-          El material se extrae y se guarda en tu biblioteca privada. No se envía automáticamente a
-          IA.
+          The text is extracted and saved in your personal library. It is not automatically sent to
+          an AI service.{' '}
         </p>
         <div className="tabs">
           <button className={mode === 'pdf' ? 'active' : ''} onClick={() => setMode('pdf')}>
             PDF
           </button>
           <button className={mode === 'text' ? 'active' : ''} onClick={() => setMode('text')}>
-            Texto
+            Text{' '}
           </button>
         </div>
         <form onSubmit={upload}>
           <label className="field">
-            Título
+            Title{' '}
             <input
               autoFocus
               value={title}
@@ -172,14 +164,14 @@ function ImportDialog({ refresh, close }: { refresh: () => Promise<void>; close:
               required
               minLength={3}
               maxLength={160}
-              placeholder="Por ejemplo: A weekend in Edinburgh"
+              placeholder="For example: A weekend in Edinburgh"
             />
           </label>
           {mode === 'pdf' ? (
             <label className="upload-zone">
               <Upload size={27} />
-              <strong>{file?.name || 'Elegí un PDF'}</strong>
-              <span>Hasta 10 MB · 150 páginas · con texto seleccionable</span>
+              <strong>{file?.name || 'Choose a PDF'}</strong>
+              <span>Up to 10 MB · 150 pages · selectable text</span>
               <input
                 type="file"
                 accept="application/pdf,.pdf"
@@ -193,14 +185,14 @@ function ImportDialog({ refresh, close }: { refresh: () => Promise<void>; close:
             </label>
           ) : (
             <label className="field">
-              Texto en inglés
+              Text in English{' '}
               <textarea
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 required
                 minLength={80}
                 maxLength={100000}
-                placeholder="Pegá acá un artículo o fragmento…"
+                placeholder="Paste an article or passage here…"
               />
             </label>
           )}
@@ -210,13 +202,13 @@ function ImportDialog({ refresh, close }: { refresh: () => Promise<void>; close:
             </p>
           )}
           <Button type="submit" disabled={busy}>
-            {busy ? 'Extrayendo y guardando…' : 'Incorporar a mi biblioteca'}
+            {busy ? 'Reading and saving…' : 'Add to my library'}
             <ArrowUpRight size={16} />
           </Button>
         </form>
         <p className="fine-print">
-          Los PDF escaneados necesitan OCR, pendiente de la siguiente fase. Los textos propios
-          comienzan sin estimación de nivel.
+          Scanned PDFs need OCR, which is not included yet. Personal texts start without an
+          estimated level.{' '}
         </p>
       </section>
     </div>

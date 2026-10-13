@@ -13,3 +13,5 @@ _next/
 *.html
 *.txt
 assets/
+local-ai/
+public/local-ai/

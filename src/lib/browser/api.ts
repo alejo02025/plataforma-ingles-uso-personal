@@ -1,3 +1,4 @@
+import { tutorMutation } from '../tutor-store';
 import { z } from 'zod';
 import { createLearningService, AppError } from '../domain';
 import { glossary } from '../content';
@@ -24,7 +25,7 @@ function json(data: unknown) {
 }
 function unavailableAI(): never {
   throw new AppError(
-    'La edición de GitHub funciona sin servicios de IA. Podés seguir practicando y guardar tus escritos.',
+    'This feature needs the server AI service. You can still save your writing and use local AI in PDF Studio.',
   );
 }
 const id = z.string().min(1).max(80);
@@ -44,7 +45,7 @@ async function dispatch(endpoint: string, input?: unknown): Promise<unknown> {
   if (endpoint === 'state') return snapshot();
   if (endpoint === 'export') return capture();
   if (endpoint === 'import') {
-    if (!(input instanceof FormData)) throw new AppError('El material no es válido.');
+    if (!(input instanceof FormData)) throw new AppError('This material is not valid.');
     const title = z.string().trim().min(3).max(160).parse(input.get('title'));
     const file = input.get('file');
     const text = z
@@ -54,15 +55,14 @@ async function dispatch(endpoint: string, input?: unknown): Promise<unknown> {
       .parse(input.get('text') || undefined);
     return importDocument(title, text, file instanceof File && file.size ? file : undefined);
   }
+  if (endpoint.startsWith('tutor/')) return tutorMutation(db(), endpoint, input);
   if (endpoint === 'profile') {
     const p = z
       .object({
         name: z.string().trim().min(1).max(60),
         daily_minutes: z.union([z.literal(5), z.literal(20), z.literal(40)]),
         interests: z
-          .array(
-            z.enum(['Viajes', 'Finanzas', 'Historia', 'Tecnología', 'Trabajo', 'Vida cotidiana']),
-          )
+          .array(z.enum(['Travel', 'Finance', 'History', 'Technology', 'Work', 'Everyday Life']))
           .min(1)
           .max(6),
         theme: z.enum(['light', 'dark']),
@@ -140,7 +140,7 @@ async function dispatch(endpoint: string, input?: unknown): Promise<unknown> {
   if (endpoint === 'reading-activity') {
     const x = z.object({ documentId: id }).parse(input);
     const doc = db().prepare('SELECT * FROM documents WHERE id=?').get(x.documentId);
-    if (!doc) throw new AppError('Texto inexistente.', 404);
+    if (!doc) throw new AppError('Text not found.', 404);
     dailyPlan();
     const plan = db().prepare('SELECT id FROM plans ORDER BY day DESC LIMIT 1').get()!;
     const previous = db()
@@ -170,11 +170,11 @@ async function dispatch(endpoint: string, input?: unknown): Promise<unknown> {
     const a = db()
       .prepare('SELECT payload FROM activities WHERE id=? AND completed_at IS NULL')
       .get(x.activityId);
-    if (!a) throw new AppError('Actividad inexistente.', 404);
+    if (!a) throw new AppError('Activity not found.', 404);
     db()
       .prepare('UPDATE activities SET payload=? WHERE id=?')
       .run(JSON.stringify({ ...JSON.parse(a.payload as string), draft: x.text }), x.activityId);
     return json({ ok: true });
   }
-  throw new AppError('Ruta inexistente.');
+  throw new AppError('Route not found.');
 }

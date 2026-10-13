@@ -1,14 +1,25 @@
 # English OS
 
-Una plataforma personal para leer, practicar y construir evidencia de tu progreso en inglés. Interfaz en español argentino, contenido adulto y datos persistentes. Primera fase funcional sobre Next.js, TypeScript y SQLite.
+Una plataforma personal para leer, practicar y construir evidencia de tu progreso en inglés. Interfaz en inglés, contenido adulto y datos persistentes. Primera fase funcional sobre Next.js, TypeScript y SQLite.
 
 ## Usar desde celular y notebook, sin PowerShell
 
 Abrí [English OS en GitHub Pages](https://alejo02025.github.io/plataforma-ingles-uso-personal/). La edición web funciona sin un servidor en tu computadora. Guarda los datos en el navegador y permite sincronizarlos automáticamente entre dispositivos con un segundo repositorio **privado** de GitHub. No usa otras plataformas ni requiere un plan de alojamiento pago.
 
-En **Preferencias → Tus dispositivos · GitHub** hay instrucciones para crear el repositorio privado y un token detallado limitado a ese repositorio con **Contents: Read and write**. Ingresá el token en la app, nunca en el chat ni en el código. Se conserva únicamente en memoria: recargar o cerrar la pestaña requiere volver a autorizar. Los cambios locales quedan guardados y se combinan al reconectar. La sincronización opera con la pestaña abierta y autorizada, cada 20 segundos y después de cambios, dentro de los límites de la API de GitHub.
+En **Preferences → Your devices · GitHub** hay instrucciones para crear el repositorio privado y un token detallado limitado a ese repositorio con **Contents: Read and write**. Ingresá el token en la app, nunca en el chat ni en el código. Se conserva únicamente en memoria: recargar o cerrar la pestaña requiere volver a autorizar. Los cambios locales quedan guardados y se combinan al reconectar. La sincronización opera con la pestaña abierta y autorizada, cada 20 segundos y después de cambios, dentro de los límites de la API de GitHub.
 
-El repositorio público contiene el código y el sitio generado; tu historial y PDF se envían únicamente al repositorio privado. Esta edición no ofrece las funciones de IA del servidor. Los datos de la instalación anterior en Windows no se transfieren solos. [Detalles de publicación y límites](docs/DEPLOYMENT.md).
+El repositorio público contiene el código y el sitio generado; tu historial y PDF se envían únicamente al repositorio privado. Incluye PDF Studio con lectura, preguntas con referencias y conversación con IA local opcional, ejecutada en el dispositivo. Los datos de la instalación anterior en Windows no se transfieren solos. [Detalles de publicación y límites](docs/DEPLOYMENT.md).
+
+## Estudiar en la edición web
+
+- **PDF Studio**: arrastrá o seleccioná PDF de texto, leé por secciones y páginas, respondé preguntas y conversá sobre pasajes del documento. Las respuestas abiertas se guardan sin inventar una nota.
+- **Enable local AI** descarga aproximadamente 110 MB la primera vez (hasta 120 MB en navegadores que necesitan el motor compatible). El modelo abierto SmolLM2 y su motor se sirven desde este mismo GitHub Pages y se guardan en el dispositivo; no se envían PDF o mensajes a una API de IA. Sin activarlo, hay un modo de lectura guiada que cita el texto original. Es un modelo pequeño: puede equivocarse o ser lento, especialmente en celulares.
+- **Word of the Day** muestra significado en inglés y un ejemplo cotidiano. Guardá palabras y expresiones en **Vocabulary**, que organiza categorías y ejemplos en **Everyday sentences**.
+- **Practice momentum** es un gráfico interactivo de constancia de 0 a 100. Tocá un día para ver sus actividades, respuestas de PDF, palabras, repasos y conversaciones guardadas. Sube con práctica registrada y disminuye 8% en días completos sin actividad; el día actual sin terminar no se penaliza. No es una estimación de nivel de inglés.
+- La interfaz adapta navegación y distribución al celular y la computadora. El saludo usa la hora local del dispositivo.
+- La app busca nuevas versiones al abrirla, al volver a la pestaña y cada minuto. Cuando encuentra una, muestra **A new version of the app is available → Update**. La actualización conserva los datos del navegador; la autorización de sincronización vuelve a ingresarse porque permanece sólo en memoria.
+
+Un repositorio público permite leer el código y proponer cambios, pero no otorga permiso de escritura a sus visitantes. Los cambios directos requieren permisos de propietario o colaborador en GitHub. La app no publica datos personales en este repositorio.
 
 ## Ejecutar
 

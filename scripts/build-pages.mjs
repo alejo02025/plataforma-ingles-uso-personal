@@ -1,20 +1,35 @@
 import { cp, mkdir, writeFile, rm, symlink } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
+const build = new Date().toISOString();
 const root = process.cwd(),
   target = path.join(root, '.pages-project');
 await rm(target, { recursive: true, force: true });
 await mkdir(target, { recursive: true });
 await cp('src', path.join(target, 'src'), { recursive: true });
+await cp('public', path.join(target, 'public'), { recursive: true });
 await rm(path.join(target, 'src/app/api'), { recursive: true });
 await symlink(path.join(root, 'node_modules'), path.join(target, 'node_modules'), 'dir');
 for (const name of ['package.json', 'tsconfig.json', 'next-env.d.ts'])
   await cp(name, path.join(target, name));
 await writeFile(
   path.join(target, 'next.config.mjs'),
-  `export default {output: 'export', basePath: '/plataforma-ingles-uso-personal', trailingSlash: true, images: {unoptimized: true}, env: {NEXT_PUBLIC_DEPLOY_TARGET: 'github', NEXT_PUBLIC_BASE_PATH: '/plataforma-ingles-uso-personal'}};\n`,
+  `export default {output: 'export', basePath: '/plataforma-ingles-uso-personal', trailingSlash: true, images: {unoptimized: true}, env: {NEXT_PUBLIC_DEPLOY_TARGET: 'github', NEXT_PUBLIC_BASE_PATH: '/plataforma-ingles-uso-personal', NEXT_PUBLIC_APP_BUILD: '${build}'}};\n`,
 );
 await mkdir(path.join(target, 'public/assets'), { recursive: true });
+await writeFile(path.join(target, 'public/assets/version.json'), JSON.stringify({ build }) + '\n');
+await cp(
+  'node_modules/@wllama/wllama/esm/wasm/wllama.wasm',
+  path.join(target, 'public/local-ai/wllama.wasm'),
+);
+await cp(
+  'node_modules/@wllama/wllama-compat/wasm/wllama.wasm',
+  path.join(target, 'public/local-ai/compat.wasm'),
+);
+await cp(
+  'node_modules/@wllama/wllama-compat/wasm/wllama.js',
+  path.join(target, 'public/local-ai/compat.js'),
+);
 await cp(
   'node_modules/sql.js/dist/sql-wasm.wasm',
   path.join(target, 'public/assets/sql-wasm.wasm'),

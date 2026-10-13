@@ -33,7 +33,7 @@ test('fechas de Buenos Aires y repetición espaciada sin evaluar MCER por flashc
       { band: 'B1', correct: true },
       { band: 'B2', correct: true },
     ]).level,
-    'B1 orientativo',
+    'B1 estimate',
   );
 });
 test('diagnóstico parcial, estimación conservadora y persistencia al reabrir la base', () => {
@@ -48,14 +48,14 @@ test('diagnóstico parcial, estimación conservadora y persistencia al reabrir l
   service.answerDiagnostic('d1', 1);
   closeDb();
   assert.equal(service.diagnostic().answers.length, 1);
-  assert.throws(() => service.answerDiagnostic('d1', 0), /ya fue guardada/);
+  assert.throws(() => service.answerDiagnostic('d1', 0), /already been saved/);
   diagnosticQuestions.slice(1).forEach((q) => service.answerDiagnostic(q.id, q.answer));
   assert.ok(service.diagnostic().completed_at);
   assert.equal(service.snapshot().evaluations.length, 3);
   assert.ok(
-    service.snapshot().evaluations.every((e) => e.confidence === 'baja' && e.level !== 'B2'),
+    service.snapshot().evaluations.every((e) => e.confidence === 'low' && e.level !== 'B2'),
   );
-  assert.throws(() => service.answerDiagnostic('d2', 1), /ya está cerrado/);
+  assert.throws(() => service.answerDiagnostic('d2', 1), /already complete/);
 });
 test('lectura: checkpoints, resultado validado e idempotente, errores y tiempo real', () => {
   const a = service.dailyPlan().activities.find((a) => a.kind === 'reading')!;
@@ -67,7 +67,7 @@ test('lectura: checkpoints, resultado validado e idempotente, errores y tiempo r
   const sessionId = session.id as string;
   assert.throws(
     () => service.finishActivity({ activityId: a.id, sessionId, seconds: 10000, answers: {} }),
-    /todas las preguntas/,
+    /every question/,
   );
   const answers = Object.fromEntries(doc.questions.map((q) => [q.id, 0]));
   const result = service.finishActivity({ activityId: a.id, sessionId, seconds: 500, answers });
@@ -89,12 +89,12 @@ test('vocabulario sin duplicados, historial y prevención de repaso duplicado', 
   service.reviewWord(word.id as string, false);
   assert.equal(service.snapshot().reviews.length, 1);
   assert.equal(service.snapshot().vocabulary[0].interval, 1);
-  assert.throws(() => service.reviewWord(word.id as string, true), /ya fue repasada/);
+  assert.throws(() => service.reviewWord(word.id as string, true), /already been reviewed/);
 });
 test('importación real de PDF, archivo privado y resumen sin nota inventada', async () => {
   await assert.rejects(
     () => importDocument('Archivo falso', undefined, new File(['not a pdf'], 'fake.pdf')),
-    /cabecera/,
+    /PDF header/,
   );
   const imported = await importDocument(
     'A small journey',
@@ -103,7 +103,7 @@ test('importación real de PDF, archivo privado y resumen sin nota inventada', a
   );
   const doc = service.documents().find((d) => d.id === imported.id)!;
   assert.match(doc.paragraphs.join(' '), /Last summer I travelled/);
-  assert.equal(doc.level, 'Sin estimar');
+  assert.equal(doc.level, 'Not assessed');
   assert.equal(doc.source, 'pdf');
   assert.ok(doc.filename);
   assert.equal(doc.questions.length, 0);
@@ -214,7 +214,7 @@ test('contrato IA: validación, correcciones persistentes y preguntas de PDF con
       new Response(JSON.stringify({ choices: [{ message: { content: '{"revised": 42}' } }] }));
     await assert.rejects(
       () => correctWriting('I like walking through a city and visiting its museums.'),
-      /formato esperado/,
+      /unexpected format/,
     );
     assert.equal(service.snapshot().corrections.length, 1);
   } finally {
@@ -231,7 +231,7 @@ test('IA sin credencial falla de manera explícita sin guardar correcciones fals
     const { correctWriting } = await import('../src/lib/ai');
     await assert.rejects(
       () => correctWriting('I enjoy reading about history and travelling.'),
-      /ENGLISH_AI_API_KEY/,
+      /server AI key/,
     );
     assert.equal(service.snapshot().corrections.length, previousCount);
   } finally {

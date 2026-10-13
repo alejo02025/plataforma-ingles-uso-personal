@@ -14,21 +14,23 @@ test('diagnóstico retomable, lectura, vocabulario, PDF, calendario y tema persi
   expect(health.ok()).toBe(true);
   expect(await health.json()).toEqual({ status: 'ok' });
   expect((await request.post('/api/login', { data: { token: 'wrong' } })).status()).toBe(401);
-  await page.getByLabel('Clave de acceso').fill('e2e-access-only');
-  await page.getByRole('button', { name: 'Entrar', exact: true }).click();
+  await page.getByLabel('Access key').fill('e2e-access-only');
+  await page.getByRole('button', { name: 'Sign in', exact: true }).click();
   expect((await request.post('/api/login', { data: { token: 'e2e-access-only' } })).ok()).toBe(
     true,
   );
-  await expect(page.getByRole('heading', { name: 'Buen día, Alejo.' })).toBeVisible();
-  await page.getByRole('button', { name: 'Conocer mi punto de partida' }).click();
+  await expect(
+    page.getByRole('heading', { name: /Good (morning|afternoon|evening), Alejo\./ }),
+  ).toBeVisible();
+  await page.getByRole('button', { name: 'Find my starting point' }).click();
   await page.getByText('took', { exact: true }).click();
-  await page.getByRole('button', { name: 'Guardar respuesta', exact: true }).click();
-  await expect(page.getByText('Bien pensado.', { exact: true })).toBeVisible();
-  await page.getByRole('button', { name: 'Siguiente', exact: true }).click();
-  await page.getByRole('button', { name: 'Guardar y salir', exact: true }).click();
+  await page.getByRole('button', { name: 'Save answer', exact: true }).click();
+  await expect(page.getByText('Well done.', { exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Next', exact: true }).click();
+  await page.getByRole('button', { name: 'Save and leave', exact: true }).click();
   await page.reload();
-  await page.getByRole('button', { name: 'Conocer mi punto de partida' }).click();
-  await expect(page.getByText('1 de 9 guardadas', { exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Find my starting point' }).click();
+  await expect(page.getByText('1 of 9 saved', { exact: true })).toBeVisible();
   const answers = [
     'a document to get on a plane',
     'No, entry ends at five',
@@ -41,59 +43,59 @@ test('diagnóstico retomable, lectura, vocabulario, PDF, calendario y tema persi
   ];
   for (const answer of answers) {
     await page.getByText(answer, { exact: true }).click();
-    await page.getByRole('button', { name: 'Guardar respuesta', exact: true }).click();
-    await page.getByRole('button', { name: 'Siguiente', exact: true }).click();
+    await page.getByRole('button', { name: 'Save answer', exact: true }).click();
+    await page.getByRole('button', { name: 'Next', exact: true }).click();
   }
-  await expect(page.getByText('Tu línea de base está guardada.')).toBeVisible();
-  await page.getByRole('button', { name: 'Ir a mi recorrido' }).click();
-  await page.getByRole('navigation').getByRole('button', { name: 'Biblioteca' }).click();
+  await expect(page.getByText('Your starting point is saved.')).toBeVisible();
+  await page.getByRole('button', { name: 'Go to my journey' }).click();
+  await page.getByRole('navigation').getByRole('button', { name: 'Library' }).click();
   await page.getByRole('button', { name: /The city you discover on foot/ }).click();
   await expect(page.getByRole('heading', { name: 'The city you discover on foot' })).toBeVisible();
   await page.getByRole('button', { name: 'narrow,', exact: true }).click();
-  await page.getByRole('button', { name: 'Guardar palabra', exact: true }).click();
-  await expect(page.getByRole('button', { name: 'En tu vocabulario' })).toBeVisible();
-  await page.getByRole('button', { name: 'Siguiente', exact: true }).click();
+  await page.getByRole('button', { name: 'Save word', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'In your vocabulary' })).toBeVisible();
+  await page.getByRole('button', { name: 'Next', exact: true }).click();
   await page.reload();
   // La navegación vuelve al inicio; abrir otra vez conserva el fragmento y la sesión.
-  await page.getByRole('navigation').getByRole('button', { name: 'Biblioteca' }).click();
+  await page.getByRole('navigation').getByRole('button', { name: 'Library' }).click();
   await page.getByRole('button', { name: /The city you discover on foot/ }).click();
-  await expect(page.getByText('FRAGMENTO 2 DE 3')).toBeVisible();
+  await expect(page.getByText('SECTION 2 OF 3')).toBeVisible();
   await page.getByText('A map from the bookshop owner', { exact: true }).click();
   await page.getByText('Slow exploration can be valuable', { exact: true }).click();
-  await page.getByRole('button', { name: 'Completar lectura', exact: true }).click();
-  await expect(page.getByText('2 de 2 respuestas correctas')).toBeVisible();
+  await page.getByRole('button', { name: 'Complete reading', exact: true }).click();
+  await expect(page.getByText('2 of 2 correct answers')).toBeVisible();
   await page
     .getByRole('navigation')
-    .getByRole('button', { name: /Vocabulario/ })
+    .getByRole('button', { name: /Vocabulary/ })
     .click();
-  await page.getByRole('button', { name: 'Mostrar significado' }).click();
-  await expect(page.getByText('estrecho/a', { exact: true }).first()).toBeVisible();
-  await page.getByRole('button', { name: 'La recordé' }).click();
-  await expect(page.getByText('Estás al día.', { exact: true })).toBeVisible();
-  await page.getByRole('navigation').getByRole('button', { name: 'Biblioteca' }).click();
-  await page.getByRole('button', { name: 'Agregar material' }).click();
-  await page.getByLabel('Título', { exact: true }).fill('My travel PDF');
+  await page.getByRole('button', { name: 'Show meaning' }).click();
+  await expect(
+    page.getByText('Not wide; with little space from side to side.', { exact: true }).first(),
+  ).toBeVisible();
+  await page.getByRole('button', { name: 'I remembered it' }).click();
+  await expect(page.getByText('You’re up to date.', { exact: true })).toBeVisible();
+  await page.getByRole('navigation').getByRole('button', { name: 'Library' }).click();
+  await page.getByRole('button', { name: 'Add material' }).click();
+  await page.getByLabel('Title', { exact: true }).fill('My travel PDF');
   await page
     .locator('input[type=file]')
     .setInputFiles({ name: 'journey.pdf', mimeType: 'application/pdf', buffer: makePdf() });
-  await page.getByRole('button', { name: 'Incorporar a mi biblioteca' }).click();
+  await page.getByRole('button', { name: 'Add to my library' }).click();
   await page.getByRole('button', { name: /My travel PDF/ }).click();
   await expect(page.getByText(/Last summer I travelled/, { exact: false })).toBeVisible();
   await page
-    .getByLabel('Tu respuesta en inglés')
+    .getByLabel('Your answer in English')
     .fill(
       'This story describes a journey to a town beside a river and a visit to its local museum.',
     );
-  await page.getByRole('button', { name: 'Completar lectura', exact: true }).click();
-  await expect(page.getByText('Práctica guardada, sin puntuación automática.')).toBeVisible();
-  await page.getByRole('navigation').getByRole('button', { name: 'Calendario' }).click();
+  await page.getByRole('button', { name: 'Complete reading', exact: true }).click();
+  await expect(page.getByText('Practice saved, without an automatic score.')).toBeVisible();
+  await page.getByRole('navigation').getByRole('button', { name: 'Calendar' }).click();
   await expect(page.getByRole('heading', { name: 'The city you discover on foot' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'My travel PDF' })).toBeVisible();
-  await page.getByRole('navigation').getByRole('button', { name: 'Progreso' }).click();
-  await expect(
-    page.getByText('2/2 respuestas en actividades; no equivale a un nivel MCER.'),
-  ).toBeVisible();
-  await page.getByRole('button', { name: 'Activar modo oscuro' }).click();
+  await page.getByRole('navigation').getByRole('button', { name: 'Progress' }).click();
+  await expect(page.getByText('2/2 answers in activities; it is not a CEFR level.')).toBeVisible();
+  await page.getByRole('button', { name: 'Switch to dark mode' }).click();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
   await page.reload();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
@@ -119,16 +121,18 @@ test('diagnóstico retomable, lectura, vocabulario, PDF, calendario y tema persi
   try {
     const phonePage = await phone.newPage();
     await phonePage.goto('/');
-    await phonePage.getByLabel('Clave de acceso').fill('e2e-access-only');
-    await phonePage.getByRole('button', { name: 'Entrar', exact: true }).click();
-    await expect(phonePage.getByRole('heading', { name: 'Buen día, Alejo.' })).toBeVisible();
+    await phonePage.getByLabel('Access key').fill('e2e-access-only');
+    await phonePage.getByRole('button', { name: 'Sign in', exact: true }).click();
+    await expect(
+      phonePage.getByRole('heading', { name: /Good (morning|afternoon|evening), Alejo\./ }),
+    ).toBeVisible();
     const phoneState = await (await phone.request.get('/api/state')).json();
     expect(phoneState.results).toHaveLength(2);
     expect(phoneState.vocabulary[0].word).toBe('narrow');
-    await phonePage.getByRole('button', { name: 'Abrir navegación' }).click();
+    await phonePage.getByRole('button', { name: 'Open navigation' }).click();
     await phonePage
       .getByRole('navigation')
-      .getByRole('button', { name: /Vocabulario/ })
+      .getByRole('button', { name: /Vocabulary/ })
       .click();
     await expect(phonePage.getByRole('heading', { name: 'narrow', exact: true })).toBeVisible();
   } finally {
