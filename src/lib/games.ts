@@ -3,7 +3,7 @@ import type { Word, Snapshot } from './types';
 export type GameMode = 'match' | 'sentence' | 'trail';
 export type Puzzle = {
   mode: GameMode;
-  rounds: { word: string; meaning: string; solution: string; choices: string[] }[];
+  rounds: { word: string; meaning: string; example: string; solution: string; choices: string[] }[];
 };
 export const gameTitles: Record<GameMode, string> = {
   match: 'Meaning Match',
@@ -44,6 +44,7 @@ export function makePuzzle(mode: GameMode, seed: string): Puzzle {
         word,
         meaning: item.meaning,
         solution,
+        example: item.example,
         choices:
           mode === 'sentence'
             ? shuffle(solution.split(/\s+/))
@@ -86,4 +87,15 @@ export function recallBand(word: Word, reviews: Snapshot['reviews']) {
   const recent = reviews.filter((r) => r.word_id === word.id).slice(-3);
   if (!recent.length || !recent.at(-1)?.known) return 'weak';
   return recent.length >= 3 && recent.every((r) => r.known) ? 'strong' : 'growing';
+}
+
+export function puzzleHint(round: Puzzle['rounds'][number], mode: GameMode) {
+  if (mode === 'sentence') return round.solution.split(/\s+/)[0];
+  return Array.from(round.word)[0].toLocaleUpperCase();
+}
+export function exampleWithGap(round: Puzzle['rounds'][number]) {
+  const start = round.example.toLocaleLowerCase().indexOf(round.word.toLocaleLowerCase());
+  return start < 0
+    ? ''
+    : round.example.slice(0, start) + '____' + round.example.slice(start + round.word.length);
 }

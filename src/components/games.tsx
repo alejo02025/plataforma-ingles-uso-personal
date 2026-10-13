@@ -7,9 +7,12 @@ import {
   Puzzle as PuzzleIcon,
   RotateCcw,
   Sparkles,
+  Lightbulb,
 } from 'lucide-react';
 import {
   makePuzzle,
+  puzzleHint,
+  exampleWithGap,
   letterMarks,
   normalizeAnswer,
   gameTitles,
@@ -19,6 +22,12 @@ import {
 import type { Snapshot } from '@/lib/types';
 import { Button, Heading, Speak, api } from './ui';
 const modes: GameMode[] = ['match', 'sentence', 'trail'];
+const tips: Record<GameMode, string> = {
+  match: 'Picture a real situation for each word. Which one fits the meaning?',
+  sentence:
+    'Look for the capital letter and the ending punctuation. Then read your sentence aloud.',
+  trail: 'Try different letters first. Use green letters again in the same place.',
+};
 const descriptions: Record<GameMode, string> = {
   match: 'One meaning. Four words. Find the connection.',
   sentence: 'Put the pieces together. Make an everyday sentence.',
@@ -43,11 +52,13 @@ export function Games({ data, refresh }: { data: Snapshot; refresh: () => Promis
   }
   return (
     <>
-      <Heading
-        eyebrow="THE DAILY PLAYROOM"
-        title="A little play. A lot of discovery."
-        description="Quick word games for your everyday English. Your results count as practice."
-      />
+      {!game && (
+        <Heading
+          eyebrow="A LITTLE EVERY DAY"
+          title="Play & learn."
+          description="Pick a game. Hints are here when you need them."
+        />
+      )}
       {error && (
         <p className="error" role="alert">
           {error}
@@ -57,20 +68,6 @@ export function Games({ data, refresh }: { data: Snapshot; refresh: () => Promis
         <GameSession key={game.id} game={game} refresh={refresh} close={() => setGame(null)} />
       ) : (
         <>
-          <section className="playroom-banner">
-            <div>
-              <span className="eyebrow">A FEW MINUTES, JUST FOR YOU</span>
-              <h2>Words worth playing with.</h2>
-              <p>A meaning to uncover. A sentence to rebuild. A small win to take into your day.</p>
-            </div>
-            <div className="playroom-art" aria-hidden="true">
-              <span>W</span>
-              <span>O</span>
-              <span>R</span>
-              <span>D</span>
-              <Sparkles />
-            </div>
-          </section>
           <div className="game-grid">
             {modes.map((mode, i) => (
               <button key={mode} className={`game-card game-${mode}`} onClick={() => start(mode)}>
@@ -108,11 +105,11 @@ export function Games({ data, refresh }: { data: Snapshot; refresh: () => Promis
               </button>
             ))}
           </div>
-          <section className="card game-history">
-            <div className="section-heading">
-              <h2>Your playbook</h2>
+          <details className="card game-history">
+            <summary>
+              <strong>Your playbook</strong>
               <span className="pill neutral">{history.length} games saved</span>
-            </div>
+            </summary>
             {history.length ? (
               history
                 .slice(-8)
@@ -126,6 +123,9 @@ export function Games({ data, refresh }: { data: Snapshot; refresh: () => Promis
                     </div>
                     <b>
                       {r.correct} / {r.total}
+                      {JSON.parse(r.answers).helpUsed && (
+                        <small className="assisted-label">With hints</small>
+                      )}
                     </b>
                   </div>
                 ))
@@ -134,7 +134,7 @@ export function Games({ data, refresh }: { data: Snapshot; refresh: () => Promis
                 Finish a game to start your playbook. No result is added until you save it.
               </p>
             )}
-          </section>
+          </details>
         </>
       )}
     </>
@@ -156,6 +156,8 @@ function GameSession({
     [checked, setChecked] = useState(false),
     [guesses, setGuesses] = useState<string[]>([]),
     [guess, setGuess] = useState('');
+  const [hint, setHint] = useState(false),
+    [helpUsed, setHelpUsed] = useState(false);
   const [busy, setBusy] = useState(false),
     [saved, setSaved] = useState(false),
     [error, setError] = useState('');
@@ -181,6 +183,7 @@ function GameSession({
   ).length;
   function next() {
     setAnswers([...answers, answer]);
+    setHint(false);
     setChoice('');
     setPicked([]);
     setChecked(false);
@@ -210,6 +213,7 @@ function GameSession({
         mode: puzzle.mode,
         seed: game.seed,
         answers,
+        helpUsed,
         seconds: seconds.current,
       });
       setSaved(true);
@@ -238,6 +242,18 @@ function GameSession({
             {correct} / {puzzle.rounds.length}
           </p>
           <p>This is your result for this game, not a language-level assessment.</p>
+          {helpUsed && <span className="pill neutral">Practised with hints</span>}
+          <details className="game-takeaways">
+            <summary>Take it into your day</summary>
+            {puzzle.rounds.map((item, i) => (
+              <div key={i}>
+                <strong>{item.word}</strong>
+                <p>{item.example}</p>
+                <Speak text={item.example} />
+                <p className="fine-print">Try saying this with one detail from your own life.</p>
+              </div>
+            ))}
+          </details>
           {puzzle.mode === 'trail' && (
             <p>
               The word was <strong>{round.solution}</strong>.
@@ -276,6 +292,40 @@ function GameSession({
                   : 'Find the five-letter word.'}
             </h2>
           </div>
+          <progress
+            className="game-round-progress"
+            aria-label="Game progress"
+            max={puzzle.rounds.length}
+            value={answers.length}
+          />
+          <div className="game-help">
+            <details>
+              <summary>
+                <Lightbulb size={16} /> How to play
+              </summary>
+              <p>{tips[puzzle.mode]}</p>
+            </details>
+            <button
+              className="text-link"
+              onClick={() => {
+                setHint(true);
+                setHelpUsed(true);
+              }}
+            >
+              Get a hint
+            </button>
+          </div>
+          {hint && (
+            <div className="game-hint" role="status">
+              <strong>
+                {puzzle.mode === 'sentence' ? 'Start with:' : 'First letter:'}{' '}
+                {puzzleHint(round, puzzle.mode)}
+              </strong>
+              {puzzle.mode !== 'sentence' && exampleWithGap(round) && (
+                <p>{exampleWithGap(round)}</p>
+              )}
+            </div>
+          )}
           {puzzle.mode === 'trail' ? (
             <>
               <p className="game-clue">{round.meaning}</p>
@@ -363,6 +413,7 @@ function GameSession({
                       : 'Keep this one for next time.'}
                   </strong>
                   <p>{round.solution}</p>
+                  {puzzle.mode === 'match' && <p className="game-example">{round.example}</p>}
                   <Speak text={round.solution} />
                   <Button onClick={next}>
                     {answers.length + 1 === puzzle.rounds.length ? 'See my result' : 'Next round'}

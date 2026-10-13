@@ -14,6 +14,7 @@ export function saveGame(
       mode: z.enum(['match', 'sentence', 'trail']),
       seed: z.string().min(1).max(100),
       answers: z.array(z.string().max(1500)).max(4),
+      helpUsed: z.boolean().default(false),
       seconds: z.number().int().min(0).max(7200),
     })
     .parse(input);
@@ -49,19 +50,23 @@ export function saveGame(
       'INSERT INTO sessions(id,activity_id,started_at,active_seconds,ended_at) VALUES(?,?,?,?,?)',
     )
     .run(id, id, new Date(Date.now() - x.seconds * 1000).toISOString(), x.seconds, date);
-  connection
-    .prepare('INSERT INTO results VALUES(?,?,?,?,?,?,?,?,?)')
-    .run(
-      id,
-      id,
-      id,
-      'vocabulary',
-      correct,
-      total,
-      JSON.stringify({ game: x.mode, seed: x.seed, responses: x.answers, feedback: [] }),
-      date,
-      localDay(),
-    );
+  connection.prepare('INSERT INTO results VALUES(?,?,?,?,?,?,?,?,?)').run(
+    id,
+    id,
+    id,
+    'vocabulary',
+    correct,
+    total,
+    JSON.stringify({
+      game: x.mode,
+      seed: x.seed,
+      responses: x.answers,
+      helpUsed: x.helpUsed,
+      feedback: [],
+    }),
+    date,
+    localDay(),
+  );
   connection
     .prepare('INSERT INTO progress_history VALUES(?,?,?,?,?,?)')
     .run(id, 'vocabulary', correct, total, id, date);

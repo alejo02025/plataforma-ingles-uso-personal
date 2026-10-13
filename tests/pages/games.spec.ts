@@ -19,11 +19,22 @@ for (const pt of [false, true])
     const quick = page.getByRole('navigation', {
       name: pt ? 'Navegação rápida' : 'Quick navigation',
     });
-    await quick.getByRole('button', { name: pt ? 'Jogos' : 'Games', exact: true }).click();
+    await page.locator('.daily-idea summary').click();
+    await expect(page.locator('.daily-idea p')).toBeVisible();
+    await page
+      .getByRole('region', { name: pt ? 'Prática rápida' : 'Quick practice' })
+      .getByRole('button', { name: pt ? 'Jogos' : 'Games' })
+      .click();
     await page.screenshot({ path: `/tmp/playroom-${pt ? 'pt' : 'en'}-mobile.png`, fullPage: true });
     const dictionary = pt ? portuguese : english;
     for (const mode of ['match', 'sentence', 'trail']) {
       await page.locator(`.game-${mode}`).click();
+      await page.locator('.game-help summary').click();
+      await expect(page.locator('.game-help p')).toBeVisible();
+      await page
+        .getByRole('button', { name: pt ? 'Ver uma dica' : 'Get a hint', exact: true })
+        .click();
+      await expect(page.locator('.game-hint')).toBeVisible();
       if (mode === 'match') {
         for (let i = 0; i < 4; i++) {
           const meaning = await page.locator('.game-clue').innerText();
@@ -100,6 +111,11 @@ for (const pt of [false, true])
           .getByRole('button', { name: pt ? 'Verificar palavra' : 'Check word', exact: true })
           .click();
       }
+      await expect(
+        page.getByText(pt ? 'Prática com dicas' : 'Practised with hints', { exact: true }),
+      ).toBeVisible();
+      await page.locator('.game-takeaways summary').click();
+      await expect(page.locator('.game-takeaways > div')).toHaveCount(mode === 'trail' ? 1 : 4);
       await expect(page.locator('.game-score')).toHaveText(mode === 'trail' ? '1 / 1' : '4 / 4');
       await page
         .getByRole('button', {
@@ -121,6 +137,7 @@ for (const pt of [false, true])
         .click();
     }
     await expect(page.locator('.game-history-row')).toHaveCount(3);
+    await expect(page.locator('.assisted-label')).toHaveCount(3);
     await page.reload();
     await quick.getByRole('button', { name: pt ? 'Jogos' : 'Games', exact: true }).click();
     await expect(page.locator('.game-history-row')).toHaveCount(3);

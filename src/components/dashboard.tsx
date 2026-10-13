@@ -1,4 +1,6 @@
 'use client';
+import { LearningTip } from './learning-tip';
+import { Puzzle, Bookmark, Compass } from 'lucide-react';
 import { StudySpaces } from './study-spaces';
 import { useEffect, useState } from 'react';
 import { greetingForHour } from '@/lib/momentum';
@@ -125,31 +127,13 @@ export function Dashboard({
           {dateLabel(data.day)}
         </span>
       </Heading>
-      <StudySpaces />
+      <StudySpaces compact />
 
-      <div className="notebook-ribbon" aria-label="Your daily English rhythm">
-        <span>
-          <b>01</b> Read something.
-        </span>
-        <span>
-          <b>02</b> Say something.
-        </span>
-        <span>
-          <b>03</b> Keep going.
-        </span>
-      </div>
       <section className="pdf-home-hero">
         <div>
-          <span className="eyebrow">FROM YOUR BOOKSHELF TO YOUR EVERYDAY LIFE</span>
-          <h2>
-            Your curiosity.
-            <br />
-            In English.
-          </h2>
-          <p>
-            A book you love. An article you saved. Bring it here and find something worth talking
-            about.
-          </p>
+          <span className="eyebrow">YOUR READING CORNER</span>
+          <h2>Your PDFs. Your stories.</h2>
+          <p>Add a PDF. Discover words. Talk about what you read.</p>
           <Button onClick={() => navigate('PDF Studio')}>
             Open PDF Studio <ArrowUpRight size={18} />
           </Button>
@@ -169,16 +153,24 @@ export function Dashboard({
           <span className="pdf-hero-spark">✦</span>
         </div>
       </section>
-      <section className="home-play-callout">
-        <div>
-          <span className="eyebrow">A LITTLE PLAY GOES A LONG WAY</span>
-          <h2>Your daily word break.</h2>
-          <p>Match a meaning, rebuild a sentence, or follow a five-letter trail.</p>
-        </div>
-        <Button onClick={() => navigate('Games')}>
-          Open the playroom <ArrowUpRight size={18} />
-        </Button>
+      <section className="quick-sections" aria-label="Quick practice">
+        <button className="quick-play" onClick={() => navigate('Games')}>
+          <Puzzle size={25} />
+          <strong>Games</strong>
+          <span>Play a little</span>
+        </button>
+        <button className="quick-review" onClick={() => navigate('Vocabulary')}>
+          <Bookmark size={25} />
+          <strong>Review</strong>
+          <span>Keep your words</span>
+        </button>
+        <button className="quick-plan" onClick={() => navigate('My Day')}>
+          <Compass size={25} />
+          <strong>My Day</strong>
+          <span>One step at a time</span>
+        </button>
       </section>
+      <LearningTip day={data.day} />
       <div className="dashboard-top">
         <section className="hero-card">
           <div className="hero-content">

@@ -4591,3 +4591,280 @@ main {
     flex-wrap: wrap;
   }
 }
+
+/* Less to scan, more to do. */
+.quick-sections {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0 0 18px;
+}
+.quick-sections button {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+  padding: 22px;
+  text-align: left;
+  border: 0;
+  border-radius: 20px;
+  color: #28263d;
+  transition: transform 0.15s;
+}
+.quick-sections button:hover {
+  transform: translateY(-3px);
+}
+.quick-sections strong {
+  font-size: 19px;
+}
+.quick-sections span {
+  font-size: 12px;
+}
+.quick-play {
+  background: #cabcfa;
+}
+.quick-review {
+  background: #a8dcc0;
+}
+.quick-plan {
+  background: #f8e7a4;
+}
+.daily-idea {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px 20px;
+  background: var(--surface);
+  margin-bottom: 25px;
+}
+.daily-idea summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.daily-idea summary::after {
+  content: '+';
+  margin-left: auto;
+  font-size: 20px;
+  color: var(--green);
+}
+.daily-idea[open] summary::after {
+  content: '−';
+}
+.daily-idea > div {
+  padding: 18px 0 3px;
+}
+.daily-idea p {
+  margin-top: 9px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.game-history summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+}
+.game-history summary::before {
+  content: '+';
+  color: var(--green);
+}
+.game-history[open] summary::before {
+  content: '−';
+}
+.game-history summary strong {
+  flex: 1;
+}
+.game-history[open] summary {
+  margin-bottom: 20px;
+}
+.assisted-label {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 400;
+  margin-top: 6px;
+}
+.game-round-progress {
+  width: 100%;
+  height: 5px;
+  border: 0;
+  appearance: none;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--line);
+  accent-color: var(--green);
+}
+.game-round-progress::-webkit-progress-bar {
+  background: var(--line);
+}
+.game-round-progress::-webkit-progress-value {
+  background: var(--green);
+}
+.game-help {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+  margin: 18px 0;
+}
+.game-help details {
+  flex: 1;
+}
+.game-help summary {
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+}
+.game-help p {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.game-hint {
+  background: #f4d76925;
+  padding: 18px;
+  border-radius: 14px;
+  margin-bottom: 15px;
+}
+.game-hint p {
+  margin-top: 10px;
+  line-height: 1.7;
+}
+.game-feedback .game-example {
+  font-size: 15px;
+  color: var(--muted);
+  margin: 0;
+}
+.game-takeaways {
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  padding: 18px;
+}
+.game-takeaways summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.game-takeaways > div {
+  border-top: 1px solid var(--line);
+  margin-top: 16px;
+  padding-top: 16px;
+}
+.game-takeaways strong {
+  color: var(--green);
+}
+.game-takeaways p {
+  margin-top: 10px;
+  font-size: 14px;
+}
+.dashboard-top .hero-card {
+  min-height: 185px;
+  padding: 24px;
+}
+.dashboard-top .hero-content {
+  width: 100%;
+}
+.dashboard-top .hero-card h2 {
+  font-size: 27px;
+  margin: 15px 0;
+}
+.dashboard-top .hero-content > p,
+.dashboard-top .orbit-art {
+  display: none;
+}
+.dashboard-top .level-card {
+  padding: 24px;
+}
+.dashboard-top .level-value {
+  font-size: 28px;
+  margin: 14px 0;
+}
+@media (max-width: 640px) {
+  .quick-sections {
+    gap: 9px;
+  }
+  .quick-sections button {
+    padding: 18px 12px;
+    border-radius: 16px;
+    gap: 10px;
+  }
+  .quick-sections strong {
+    font-size: 15px;
+  }
+  .quick-sections span {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+  .pdf-home-hero {
+    min-height: 0;
+    padding: 24px;
+    margin-bottom: 18px;
+  }
+  .pdf-home-hero h2 {
+    font-size: 32px;
+  }
+  .pdf-home-hero p {
+    font-size: 13px;
+    margin: 12px 0 18px;
+  }
+  .pdf-hero-art {
+    display: none;
+  }
+  .game-card {
+    display: grid;
+    grid-template-columns: 80px minmax(0, 1fr);
+    column-gap: 18px;
+    padding: 20px;
+  }
+  .game-cover {
+    grid-column: 1;
+    grid-row: 1/5;
+    align-self: center;
+    min-height: 80px;
+    padding: 8px;
+    margin: 0;
+    gap: 5px;
+  }
+  .game-cover span {
+    padding: 5px;
+    font-size: 9px;
+    min-width: 0;
+  }
+  .game-number,
+  .game-card h2,
+  .game-card p,
+  .game-start {
+    grid-column: 2;
+  }
+  .game-number {
+    font-size: 9px;
+  }
+  .game-card h2 {
+    font-size: 23px;
+    margin: 8px 0;
+  }
+  .game-card p {
+    font-size: 12px;
+    margin: 0 0 8px;
+  }
+  .game-start {
+    font-size: 12px;
+    padding-top: 9px;
+  }
+  .game-grid {
+    gap: 14px;
+  }
+  .game-history {
+    padding: 20px;
+  }
+  .game-help .text-link {
+    flex-shrink: 0;
+    font-size: 12px;
+  }
+}

@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { randomUUID } from 'node:crypto';
 import { DatabaseSync } from 'node:sqlite';
-import { makePuzzle, letterMarks, recallBand } from '../src/lib/games';
+import { makePuzzle, letterMarks, recallBand, puzzleHint, exampleWithGap } from '../src/lib/games';
 import { saveGame } from '../src/lib/game-store';
 import { initialize } from '../src/lib/schema';
 import { createLearningService } from '../src/lib/domain';
@@ -84,4 +84,16 @@ test('Recall categories reflect the last self rating and need three consecutive 
   assert.equal(recallBand(word, reviews([1, 1, 1])), 'strong');
   assert.equal(recallBand(word, reviews([1, 1, 1, 0])), 'weak');
   assert.equal(recallBand(word, reviews([0, 1, 1])), 'growing');
+});
+
+test('Hints give an initial letter or opening word, and everyday examples hide the target word', () => {
+  const match = makePuzzle('match', 'help').rounds[0];
+  assert.equal(puzzleHint(match, 'match'), Array.from(match.word)[0].toUpperCase());
+  const gap = exampleWithGap(match);
+  if (gap) {
+    assert.ok(gap.includes('____'));
+    assert.ok(!gap.toLowerCase().includes(match.word.toLowerCase()));
+  }
+  const sentence = makePuzzle('sentence', 'help').rounds[0];
+  assert.equal(puzzleHint(sentence, 'sentence'), sentence.solution.split(/\s+/)[0]);
 });
