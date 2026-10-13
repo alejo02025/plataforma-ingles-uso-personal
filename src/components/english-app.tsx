@@ -1,4 +1,5 @@
 'use client';
+import { Mic } from 'lucide-react';
 import { Games } from './games';
 import { Puzzle } from 'lucide-react';
 import { StudySpaces } from './study-spaces';
@@ -8,7 +9,7 @@ import { AppUpdate } from './app-update';
 import { PdfStudio } from './pdf-studio';
 import { DownloadLink } from './ui';
 import { GitHubSync, GitHubSyncStatus } from './github-sync';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState, lazy, Suspense } from 'react';
 import {
   BookOpen,
   CalendarDays,
@@ -38,6 +39,9 @@ import { Practice } from './practice';
 import { Progress, Calendar } from './analytics';
 import { api, Button, Heading, Empty } from './ui';
 import { useDialog } from './use-dialog';
+const VoiceRoom = lazy(() =>
+  import('./voice-room').then((module) => ({ default: module.VoiceRoom })),
+);
 const navigation = [
   { title: 'Home', icon: Home },
   { title: 'PDF Studio', icon: NotebookPen },
@@ -48,6 +52,7 @@ const navigation = [
   { title: 'Vocabulary', icon: Languages },
   { title: 'Progress', icon: ChartNoAxesCombined },
   { title: 'Calendar', icon: CalendarDays },
+  { title: 'Speaking', icon: Mic },
 ];
 export function EnglishApp() {
   const [data, setData] = useState<Snapshot | null>(null),
@@ -368,6 +373,10 @@ export function EnglishApp() {
             </>
           ) : view === 'Library' ? (
             <Library data={data} onOpen={(d) => void openDocument(d)} refresh={refresh} />
+          ) : view === 'Speaking' ? (
+            <Suspense fallback={<p role="status">Preparing your speaking room…</p>}>
+              <VoiceRoom data={data} refresh={refresh} />
+            </Suspense>
           ) : view === 'Games' ? (
             <Games data={data} refresh={refresh} />
           ) : view === 'Vocabulary' ? (

@@ -1,3 +1,4 @@
+import { voiceMutation } from '../voice-store';
 import { saveGame } from '../game-store';
 import { documentMutation } from '../document-store';
 import { tutorMutation } from '../tutor-store';
@@ -45,6 +46,7 @@ export async function browserApi(endpoint: string, input?: unknown): Promise<unk
 }
 async function dispatch(endpoint: string, input?: unknown): Promise<unknown> {
   if (endpoint === 'state') return snapshot();
+  if (endpoint === 'voice/message') return voiceMutation(db(), input);
   if (endpoint === 'games/result') {
     dailyPlan();
     const plan = db().prepare('SELECT id FROM plans ORDER BY day DESC LIMIT 1').get()!;

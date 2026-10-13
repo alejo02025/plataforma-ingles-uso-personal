@@ -1,6 +1,6 @@
 'use client';
 import { LearningTip } from './learning-tip';
-import { Puzzle, Bookmark, Compass } from 'lucide-react';
+import { Puzzle, Bookmark, Compass, Mic } from 'lucide-react';
 import { StudySpaces } from './study-spaces';
 import { useEffect, useState } from 'react';
 import { greetingForHour } from '@/lib/momentum';
@@ -163,6 +163,11 @@ export function Dashboard({
           <Bookmark size={25} />
           <strong>Review</strong>
           <span>Keep your words</span>
+        </button>
+        <button className="quick-speaking" onClick={() => navigate('Speaking')}>
+          <Mic size={25} />
+          <strong>Speaking</strong>
+          <span>Talk to your tutor</span>
         </button>
         <button className="quick-plan" onClick={() => navigate('My Day')}>
           <Compass size={25} />

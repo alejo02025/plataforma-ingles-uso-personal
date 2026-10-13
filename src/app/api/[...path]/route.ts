@@ -1,3 +1,4 @@
+import { voiceMutation } from '@/lib/voice-store';
 import { workspaceId } from '@/lib/workspace';
 import { documentMutation } from '@/lib/document-store';
 import { tables } from '@/lib/browser/merge';
@@ -125,6 +126,7 @@ export async function POST(request: NextRequest) {
     } catch {
       throw new AppError('Invalid JSON.');
     }
+    if (endpoint === 'voice/message') return json(voiceMutation(db(), input));
     if (endpoint === 'games/result') {
       dailyPlan();
       const plan = db().prepare('SELECT id FROM plans ORDER BY day DESC LIMIT 1').get()!;

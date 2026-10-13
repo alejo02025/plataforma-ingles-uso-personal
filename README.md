@@ -18,6 +18,14 @@ Los datos de cada espacio se guardan por separado. Los respaldos llevan un ident
 
 Ambos espacios tienen su propio ícono y enlace para la pantalla de inicio. El modelo local es pequeño y su calidad en portugués es limitada: las preguntas de hechos muestran citas del documento y las respuestas en inglés vuelven al modo guiado en portugués. No hay evaluación automática de respuestas abiertas ni llamadas a una API de IA.
 
+## Conversación oral
+
+**Speaking / Conversação** abre una sala con tutora ficticia de IA, temas cotidianos y ejemplos para iniciar. Comparte el modelo local de PDF Studio, con una primera descarga de unos 98 MB. La calidad de este modelo pequeño, especialmente en portugués, es limitada; no reemplaza un profesor humano ni inventa una certificación de pronunciación. El estilo es paciente y pedagógico, y la identidad de IA permanece explícita. Cuando la respuesta del modelo es un eco o no sostiene una conversación, se usa una pregunta cotidiana marcada **Practice prompt**, sin atribuírsela al modelo.
+
+El micrófono convierte voz en texto para que puedas revisar la transcripción antes de **Send**. Por defecto sólo se usa reconocimiento local si el navegador dispone de la API y del paquete de idioma ya instalado. **Voice options → Allow browser speech recognition** permite usar el reconocimiento estándar; según el navegador puede enviar audio a su proveedor. La elección se conserva por espacio. La app guarda texto, nunca archivos de audio. Las respuestas se leen con las voces disponibles en el dispositivo; **Listen to message** permite reproducirlas si el navegador bloquea la reproducción automática. Sin reconocimiento de voz disponible, se puede escribir y escuchar.
+
+Conversación y borradores se conservan separados para Alejo y Jazmín. El historial se incluye en el respaldo y en la sincronización privada, dentro de las tablas ya existentes. Los mensajes del alumno cuentan como práctica en el gráfico, sin asignar una nota de habla. Las pruebas de navegador simulan micrófono y reproducción, y ejecutan inferencia real con el modelo local; no sustituyen una prueba física en iPhone.
+
 ## Juegos y repaso
 
 **Games / Jogos** tiene tres juegos gratis: **Meaning Match**, **Sentence Shuffle** y **Word Trail**. Cada idioma usa su propio vocabulario y ejemplos. El primer desafío de cada tipo se mantiene estable durante el día; después de guardar su resultado, se puede jugar una ronda nueva. El botón **Save game result** registra la puntuación y el tiempo de juego visible en el historial y en el gráfico de progreso. Las partidas sin guardar no cuentan; salir o recargar antes de guardar descarta la ronda. Cada juego ofrece **How to play**, una pista opcional y ejemplos cotidianos al terminar. Las partidas con pistas quedan identificadas en el historial. La puntuación compara las respuestas con el contenido del juego, sin IA ni una evaluación de nivel. No se altera el calendario de repetición espaciada por jugar.

@@ -42,7 +42,7 @@ export function createLearningService({
   function documents(includeTrashed = false): Document[] {
     const rows = db()
       .prepare(
-        `SELECT d.*,p.paragraph,p.draft,p.updated_at FROM documents d LEFT JOIN reading_progress p ON p.document_id=d.id WHERE (? OR d.source NOT LIKE 'trash:%') ORDER BY d.created_at DESC`,
+        `SELECT d.*,p.paragraph,p.draft,p.updated_at FROM documents d LEFT JOIN reading_progress p ON p.document_id=d.id WHERE d.source!='conversation' AND (? OR d.source NOT LIKE 'trash:%') ORDER BY d.created_at DESC`,
       )
       .all(Number(includeTrashed)) as Row[];
     return rows.map((r) => ({

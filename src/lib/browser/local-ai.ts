@@ -1,3 +1,5 @@
+import { studyLanguage } from '../workspace';
+import { coachResponse } from '../voice';
 import type { Wllama } from '@wllama/wllama/esm/index.js';
 import { basePath } from './database';
 import { read, write } from './storage';
@@ -160,6 +162,52 @@ export async function localReply(
     const reply = checkedLocalReply(content, refs, message);
     onText(reply.content);
     return { ...reply, sources: refs };
+  } finally {
+    controller = undefined;
+    update({ state: 'ready' });
+  }
+}
+
+export async function oralReply(
+  message: string,
+  history: Snapshot['tutorMessages'],
+  topic: string,
+) {
+  if (!engine?.isModelLoaded()) throw new Error('Enable local AI first.');
+  if (status.state === 'generating') throw new Error('Wait for the current response to finish.');
+  controller = new AbortController();
+  update({ state: 'generating' });
+  let content = '';
+  try {
+    await engine.createChatCompletion({
+      messages: [
+        {
+          role: 'system',
+          content: `You are an AI language tutor. Use the patient, clear teaching style of a seasoned teacher. You have no human career, real degrees, prizes or personal life; never claim them. Speak only in simple ${studyLanguage}. The learner is practising ${topic.slice(0, 80)}. Keep your reply to two short sentences. Gently suggest one useful phrase when appropriate, then ask one simple follow-up question. Do not assign scores or pretend to assess pronunciation from text.`,
+        },
+        ...history
+          .filter((item) => item.document_id === 'voice-room')
+          .slice(-4)
+          .map((item) => ({ role: item.role, content: item.content.slice(0, 350) })),
+        { role: 'user', content: message.slice(0, 1000) },
+      ],
+      max_tokens: 110,
+      temperature: 0.35,
+      seed: 43,
+      stream: true,
+      abortSignal: controller.signal,
+      onData: (chunk) => {
+        content += chunk.choices[0]?.delta.content || '';
+      },
+    });
+    if (controller.signal.aborted) throw new Error('The reply was stopped. Your message is saved.');
+    if (!content.trim())
+      throw new Error('The model did not produce a response. Try a shorter question.');
+    return coachResponse(
+      content,
+      message,
+      history.filter((item) => item.document_id === 'voice-room' && item.role === 'user').length,
+    );
   } finally {
     controller = undefined;
     update({ state: 'ready' });

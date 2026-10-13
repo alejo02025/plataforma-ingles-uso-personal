@@ -4868,3 +4868,199 @@ main {
     font-size: 12px;
   }
 }
+
+/* A calm, turn-by-turn speaking room. */
+.quick-sections {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.quick-speaking {
+  background: #bfdcff;
+}
+.voice-room {
+  max-width: 850px;
+  margin: auto;
+  padding: 30px;
+}
+.voice-teacher {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+.voice-avatar {
+  display: grid;
+  place-items: center;
+  width: 70px;
+  height: 70px;
+  background: #bfdcff;
+  color: #26426e;
+  border-radius: 24px;
+}
+.voice-teacher h2 {
+  font-family: Georgia, serif;
+  font-size: 32px;
+}
+.voice-teacher p {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+.voice-about,
+.voice-options {
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  padding: 16px;
+  margin: 16px 0;
+}
+.voice-room summary {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+.voice-about p,
+.voice-options p {
+  margin-top: 12px;
+  line-height: 1.7;
+  color: var(--muted);
+  font-size: 12px;
+}
+.voice-topic-tabs {
+  flex-wrap: wrap;
+  margin: 23px 0;
+}
+.voice-starter {
+  display: flex;
+  gap: 13px;
+  padding: 22px;
+  background: #bfdcff28;
+  border-radius: 18px;
+  line-height: 1.6;
+}
+.voice-starter > svg {
+  flex-shrink: 0;
+  color: var(--green);
+}
+.voice-starter details {
+  margin-top: 14px;
+}
+.voice-starter p {
+  margin: 12px 0;
+}
+.voice-enable {
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 15px;
+  background: var(--surface-soft);
+}
+.voice-enable p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 14px;
+  font-size: 13px;
+}
+.voice-enable progress {
+  display: block;
+  width: 100%;
+  margin-top: 15px;
+}
+.voice-transcript {
+  display: grid;
+  gap: 16px;
+  margin: 24px 0;
+  max-height: 480px;
+  overflow: auto;
+  padding: 4px;
+}
+.voice-message {
+  position: relative;
+  padding: 18px 48px 18px 20px;
+  max-width: 92%;
+  border-radius: 19px;
+  border: 1px solid var(--line);
+  background: var(--surface-soft);
+  line-height: 1.7;
+}
+.voice-message.user {
+  justify-self: end;
+  background: #bfdcff30;
+}
+.voice-message.assistant {
+  justify-self: start;
+}
+.voice-message > span {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+.voice-message .icon-button {
+  position: absolute;
+  right: 8px;
+  bottom: 10px;
+}
+.voice-composer {
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+}
+.voice-composer textarea {
+  min-height: 95px;
+}
+.voice-controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+.voice-controls .button:has(svg:first-child) {
+  gap: 9px;
+}
+.voice-options > label {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 18px;
+  font-size: 13px;
+}
+.voice-options > .field {
+  align-items: stretch;
+}
+.voice-options input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--green);
+}
+@media (max-width: 640px) {
+  .quick-sections {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .voice-room {
+    padding: 22px 18px;
+  }
+  .voice-avatar {
+    width: 58px;
+    height: 58px;
+  }
+  .voice-teacher h2 {
+    font-size: 28px;
+  }
+  .voice-teacher p {
+    font-size: 11px;
+    line-height: 1.6;
+  }
+  .voice-message {
+    max-width: 96%;
+    font-size: 13px;
+  }
+  .voice-controls {
+    gap: 8px;
+  }
+  .voice-controls .button {
+    font-size: 12px;
+    padding: 13px;
+  }
+  .voice-starter {
+    padding: 17px;
+    font-size: 14px;
+  }
+}

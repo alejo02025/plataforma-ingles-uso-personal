@@ -20,3 +20,5 @@ export const studyStorage = {
     localStorage.setItem(isPortuguese ? `portuguese:${key}` : key, value);
   },
 };
+
+export const studyLanguage = isPortuguese ? 'Brazilian Portuguese' : 'English';
