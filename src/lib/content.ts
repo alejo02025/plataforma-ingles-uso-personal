@@ -397,6 +397,36 @@ export const readings: Reading[] = [
 ];
 export const glossary: Record<string, { meaning: string; pronunciation: string; example: string }> =
   {
+    quiet: {
+      meaning: 'Making very little noise.',
+      pronunciation: '/ˈkwaɪət/',
+      example: 'I found a quiet place to read.',
+    },
+    train: {
+      meaning: 'A connected group of vehicles that travels on railway tracks.',
+      pronunciation: '/treɪn/',
+      example: 'The train leaves in twenty minutes.',
+    },
+    share: {
+      meaning: 'To let someone else use or have part of something.',
+      pronunciation: '/ʃeə/',
+      example: 'Can we share a table?',
+    },
+    learn: {
+      meaning: 'To gain knowledge or a skill through study or experience.',
+      pronunciation: '/lɜːn/',
+      example: 'I learn a new word every day.',
+    },
+    spend: {
+      meaning: 'To use money to pay for something.',
+      pronunciation: '/spend/',
+      example: 'I spend less money when I plan my meals.',
+    },
+    habit: {
+      meaning: 'Something you do regularly, often without thinking about it.',
+      pronunciation: '/ˈhæbɪt/',
+      example: 'Reading before bed is my favourite habit.',
+    },
     'compound interest': {
       meaning: 'Interest earned on both your savings and previously earned interest.',
       pronunciation: '/ˈkɒmpaʊnd ˈɪntrəst/',

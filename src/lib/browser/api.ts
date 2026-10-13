@@ -1,3 +1,4 @@
+import { saveGame } from '../game-store';
 import { documentMutation } from '../document-store';
 import { tutorMutation } from '../tutor-store';
 import { z } from 'zod';
@@ -44,6 +45,11 @@ export async function browserApi(endpoint: string, input?: unknown): Promise<unk
 }
 async function dispatch(endpoint: string, input?: unknown): Promise<unknown> {
   if (endpoint === 'state') return snapshot();
+  if (endpoint === 'games/result') {
+    dailyPlan();
+    const plan = db().prepare('SELECT id FROM plans ORDER BY day DESC LIMIT 1').get()!;
+    return transaction(() => saveGame(db(), input, plan.id as string));
+  }
   if (endpoint === 'documents/trash' || endpoint === 'documents/restore')
     return documentMutation(db(), endpoint, input);
   if (endpoint === 'export') return capture();

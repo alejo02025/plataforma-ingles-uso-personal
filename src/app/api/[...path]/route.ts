@@ -7,7 +7,8 @@ import { z } from 'zod';
 import { randomUUID } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
-import { db, dataDir } from '@/lib/db';
+import { saveGame } from '@/lib/game-store';
+import { db, dataDir, transaction } from '@/lib/db';
 import { authorized, checkOrigin, equal, sessionCookie } from '@/lib/auth';
 import {
   snapshot,
@@ -123,6 +124,11 @@ export async function POST(request: NextRequest) {
       input = JSON.parse(rawText);
     } catch {
       throw new AppError('Invalid JSON.');
+    }
+    if (endpoint === 'games/result') {
+      dailyPlan();
+      const plan = db().prepare('SELECT id FROM plans ORDER BY day DESC LIMIT 1').get()!;
+      return json(transaction(() => saveGame(db(), input, plan.id as string)));
     }
     if (endpoint === 'documents/trash' || endpoint === 'documents/restore')
       return json(documentMutation(db(), endpoint, input));

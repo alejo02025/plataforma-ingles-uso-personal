@@ -1,4 +1,5 @@
 'use client';
+import { recallBand } from '@/lib/games';
 import { categoryFor, wordCategories, wordDetails, type WordCategory } from '@/lib/daily-words';
 import { useState } from 'react';
 import { Bookmark, RefreshCw, Check } from 'lucide-react';
@@ -13,6 +14,7 @@ export function Vocabulary({
   refresh: () => Promise<void>;
   embedded?: boolean;
 }) {
+  const [strength, setStrength] = useState('all');
   const [collection, setCollection] = useState<'words' | 'sentences'>('words');
   const [category, setCategory] = useState<WordCategory>('All'),
     [search, setSearch] = useState('');
@@ -45,6 +47,43 @@ export function Vocabulary({
           title="Your vocabulary."
           description="Discovered in your readings. Reviewed when you need it."
         />
+      )}
+      {!embedded && (
+        <section className="recall-overview" aria-label="Your recall collection">
+          <div className="section-heading">
+            <h2>A word at a time.</h2>
+            <button className="text-link" onClick={() => setStrength('all')}>
+              Show all words
+            </button>
+          </div>
+          <div className="recall-grid">
+            {[
+              { id: 'weak', title: 'Needs practice', note: 'New or missed last time' },
+              { id: 'growing', title: 'Getting familiar', note: 'Remembered recently' },
+              {
+                id: 'strong',
+                title: 'Remembered consistently',
+                note: 'Three recent successful reviews',
+              },
+            ].map((item) => (
+              <button
+                className={`recall-card recall-${item.id} ${strength === item.id ? 'selected' : ''}`}
+                aria-pressed={strength === item.id}
+                key={item.id}
+                onClick={() => setStrength(strength === item.id ? 'all' : item.id)}
+              >
+                <strong>
+                  {data.vocabulary.filter((w) => recallBand(w, data.reviews) === item.id).length}
+                </strong>
+                <span>{item.title}</span>
+                <small>{item.note}</small>
+              </button>
+            ))}
+          </div>
+          <p className="fine-print">
+            Based on your own recall ratings, not a certified measure of mastery.
+          </p>
+        </section>
       )}
       {current ? (
         <section className={`review-card ${embedded ? '' : 'card'}`}>
@@ -150,6 +189,7 @@ export function Vocabulary({
           {data.vocabulary
             .filter(
               (word) =>
+                (strength === 'all' || recallBand(word, data.reviews) === strength) &&
                 matches(word.word, word.example, category) &&
                 `${word.word} ${word.meaning} ${word.example}`
                   .toLowerCase()

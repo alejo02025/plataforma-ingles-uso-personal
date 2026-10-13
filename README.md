@@ -18,6 +18,12 @@ Los datos de cada espacio se guardan por separado. Los respaldos llevan un ident
 
 Ambos espacios tienen su propio ícono y enlace para la pantalla de inicio. El modelo local es pequeño y su calidad en portugués es limitada: las preguntas de hechos muestran citas del documento y las respuestas en inglés vuelven al modo guiado en portugués. No hay evaluación automática de respuestas abiertas ni llamadas a una API de IA.
 
+## Juegos y repaso
+
+**Games / Jogos** tiene tres juegos gratis: **Meaning Match**, **Sentence Shuffle** y **Word Trail**. Cada idioma usa su propio vocabulario y ejemplos. El primer desafío de cada tipo se mantiene estable durante el día; después de guardar su resultado, se puede jugar una ronda nueva. El botón **Save game result** registra la puntuación y el tiempo de juego visible en el historial y en el gráfico de progreso. Las partidas sin guardar no cuentan; salir o recargar antes de guardar descarta la ronda. La puntuación compara las respuestas con el contenido del juego, sin IA ni una evaluación de nivel. No se altera el calendario de repetición espaciada por jugar.
+
+**Vocabulary / Vocabulário** permite filtrar las palabras por memoria declarada: nuevas o falladas, recordadas recientemente y tres revisiones consecutivas recordadas. La barra inferior de celular conecta inicio, lectura, juegos, repaso y progreso; la notebook conserva el menú lateral. No hay anuncios, bloqueos de pago ni suscripciones.
+
 ## Estudiar en la edición web
 
 - **PDF Studio**: cada PDF queda en una pestaña de **Your bookshelf**. **Add PDF** agrega uno o varios sin reemplazar los anteriores, incluso mientras el tutor responde. Cada documento conserva su lectura, sus respuestas, su conversación y los borradores de ese navegador. La **×** lo mueve a **Trash**; **Undo** o **Restore** lo recupera con su historial. Las respuestas abiertas se guardan sin inventar una nota.

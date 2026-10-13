@@ -81,7 +81,7 @@ export function Progress({ data }: { data: Snapshot }) {
                 <div>
                   <strong>{precision === null ? '—' : `${precision}%`}</strong>
                   <span>
-                    {skill === 'vocabulary' ? 'Self-reported recall' : 'Practice accuracy'}
+                    {skill === 'vocabulary' ? 'Review & game results' : 'Practice accuracy'}
                   </span>
                 </div>
               </div>
@@ -90,7 +90,7 @@ export function Progress({ data }: { data: Snapshot }) {
               </div>
               <p className="fine-print">
                 {total
-                  ? `${correct}/${total} answers${skill === 'vocabulary' ? ' (self-reported)' : ' in activities'}; it is not a CEFR level.`
+                  ? `${correct}/${total} answers${skill === 'vocabulary' ? ' (self-rated reviews and scored games)' : ' in activities'}; it is not a CEFR level.`
                   : skill === 'writing'
                     ? 'Writing is saved without an automatic score.'
                     : skill === 'speaking' || skill === 'listening'

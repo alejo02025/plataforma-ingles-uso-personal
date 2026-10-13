@@ -1,4 +1,6 @@
 'use client';
+import { Games } from './games';
+import { Puzzle } from 'lucide-react';
 import { StudySpaces } from './study-spaces';
 import { isPortuguese } from '@/lib/workspace';
 import { DailyWords } from './daily-words';
@@ -42,6 +44,7 @@ const navigation = [
   { title: 'My Day', icon: Compass },
   { title: 'Library', icon: BookOpen },
   { title: 'Practice', icon: Languages },
+  { title: 'Games', icon: Puzzle },
   { title: 'Vocabulary', icon: Languages },
   { title: 'Progress', icon: ChartNoAxesCombined },
   { title: 'Calendar', icon: CalendarDays },
@@ -365,6 +368,8 @@ export function EnglishApp() {
             </>
           ) : view === 'Library' ? (
             <Library data={data} onOpen={(d) => void openDocument(d)} refresh={refresh} />
+          ) : view === 'Games' ? (
+            <Games data={data} refresh={refresh} />
           ) : view === 'Vocabulary' ? (
             <Vocabulary data={data} refresh={refresh} />
           ) : view === 'Progress' ? (
@@ -394,6 +399,22 @@ export function EnglishApp() {
           </footer>
         </main>
       </div>
+      <nav className="mobile-bottom-nav" aria-label="Quick navigation">
+        {[navigation[0], navigation[1], navigation[5], navigation[6], navigation[7]].map(
+          ({ title, icon: Icon }) => (
+            <button
+              key={title}
+              aria-current={view === title && !active ? 'page' : undefined}
+              onClick={() => void navigate(title)}
+            >
+              <Icon size={20} />
+              <span>
+                {title === 'PDF Studio' ? 'Read' : title === 'Vocabulary' ? 'Review' : title}
+              </span>
+            </button>
+          ),
+        )}
+      </nav>
       {view === 'Home' && !active && (
         <DailyWords
           data={data}

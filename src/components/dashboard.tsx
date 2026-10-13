@@ -126,6 +126,7 @@ export function Dashboard({
         </span>
       </Heading>
       <StudySpaces />
+
       <div className="notebook-ribbon" aria-label="Your daily English rhythm">
         <span>
           <b>01</b> Read something.
@@ -167,6 +168,16 @@ export function Dashboard({
           </span>
           <span className="pdf-hero-spark">✦</span>
         </div>
+      </section>
+      <section className="home-play-callout">
+        <div>
+          <span className="eyebrow">A LITTLE PLAY GOES A LONG WAY</span>
+          <h2>Your daily word break.</h2>
+          <p>Match a meaning, rebuild a sentence, or follow a five-letter trail.</p>
+        </div>
+        <Button onClick={() => navigate('Games')}>
+          Open the playroom <ArrowUpRight size={18} />
+        </Button>
       </section>
       <div className="dashboard-top">
         <section className="hero-card">
