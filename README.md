@@ -4,6 +4,16 @@ Una plataforma personal para leer, practicar y construir evidencia de tu progres
 
 ## Ejecutar
 
+### Instalacion guiada en Windows
+
+Descarga [install-windows.cmd](scripts/install-windows.cmd) y ejecutalo con doble clic. Instala Node.js 24.20.0 y Git mediante el catalogo oficial de `winget`, sin desactivar comprobaciones de firmas, checksums o TLS. Windows puede solicitar permiso para instalar esas herramientas. Si falta `winget`, muestra el enlace oficial de Microsoft para instalar **Instalador de aplicaciones**.
+
+El proyecto se descarga en `%USERPROFILE%\EnglishOS\plataforma-ingles-uso-personal`. El script instala dependencias con `npm.cmd ci`, conserva la base de datos y arranca el servidor. Crea un archivo **English OS.cmd** en el escritorio cuando puede, sin reemplazar un archivo existente con ese nombre. Tambien deja **Abrir English OS.cmd** en la carpeta EnglishOS de tu usuario. Este archivo abre el navegador cuando la API responde con lecturas y un plan; el proceso del servidor debe permanecer abierto.
+
+Si encuentra otra version de Node, una carpeta que no corresponde al proyecto o un puerto ocupado, se detiene y conserva el estado existente. El instalador no reinicia, borra ni actualiza un checkout existente, y no configura claves de IA. Un repositorio privado puede solicitar tu inicio de sesion en GitHub. Estos scripts fueron revisados y sus paquetes contrastados con el catalogo oficial; su ejecucion en Windows todavia necesita validarse en una maquina Windows.
+
+### Instalacion manual
+
 Requiere **Node.js 24** y npm. No necesita PostgreSQL, Docker ni una clave de IA para empezar.
 
 ```bash
