@@ -5,6 +5,7 @@ import { EntryPhrase } from './entry-phrase';
 import { NewsBriefing } from './news-briefing';
 import { OfflineStatus } from './offline-status';
 import { Games } from './games';
+import { LanguageHelp } from './language-help';
 import { Classes } from './classes';
 import { WordHelpCloud } from './word-help';
 import { Puzzle } from 'lucide-react';
@@ -26,6 +27,7 @@ import {
   Compass,
   Home,
   Languages,
+  Lightbulb,
   LoaderCircle,
   Menu,
   Moon,
@@ -57,6 +59,7 @@ const navigation = [
   { title: 'Calendar', icon: CalendarDays },
   { title: 'Classes', icon: BookOpen },
   { title: 'News', icon: BookOpen },
+  { title: 'Language help', icon: Lightbulb },
 ];
 export function EnglishApp() {
   const [data, setData] = useState<Snapshot | null>(null),
@@ -400,6 +403,8 @@ export function EnglishApp() {
                 </p>
               </div>
             </>
+          ) : view === 'Language help' ? (
+            <LanguageHelp />
           ) : view === 'News' ? (
             <NewsBriefing />
           ) : view === 'Library' ? (

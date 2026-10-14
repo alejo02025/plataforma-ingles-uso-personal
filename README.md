@@ -188,3 +188,9 @@ La primera tarjeta ofrece un recorrido opcional: explorar una lectura del nivel 
 La interfaz comparte la tipografía redondeada Nunito (licencia SIL OFL, incluida con la app y disponible sin señal), tarjetas y acentos vivos en ambos idiomas y temas. Inicio evita duplicar el recorrido, la lectura y las tareas del día: los accesos a las actividades, el diagnóstico opcional y los datos guardados siguen disponibles.
 
 Inicio muestra únicamente el saludo y un itinerario opcional compacto. Sólo el primer paso está desplegado; clase, noticia y juego se abren al tocarlos. Se retiraron de Inicio las promociones, accesos grandes repetidos, el panel de nivel y los gráficos; las funciones siguen en sus secciones. La frase está en Mi día dentro de un desplegable y la palabra del día tiene un botón pequeño en la barra superior, sin botón flotante que tape el contenido.
+
+## Ayudas siempre disponibles
+
+Language help / Ajuda com o idioma aparece en el menú principal y en la bandera. Es una sección independiente, sin bloqueos ni requisitos: tablas de verbos, armado interactivo de afirmaciones/negativas/preguntas, tiempos presentes/pasados/futuros y fichas de consulta para acciones en curso, experiencias y pedidos corteses. Las explicaciones están en español y los modelos en el idioma del espacio. Reutiliza el borrador existente y funciona sin señal después de guardar la app; no acredita clases ni altera su acceso.
+
+Las notas de las 131 clases del idioma, de A1 a C2, también se pueden consultar libremente por nivel y búsqueda desde Study notes / Notas de estudo. Esto permite leer teoría y ejemplos sin abrir ejercicios bloqueados ni registrar aprobaciones ficticias.

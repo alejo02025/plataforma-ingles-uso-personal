@@ -6792,3 +6792,45 @@ select {
     padding: 20px;
   }
 }
+
+.toolkit-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  background: var(--green-soft);
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+.grammar-reference {
+  padding: 8px 24px;
+}
+.grammar-reference-entry summary {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 800;
+}
+.grammar-reference-entry p {
+  margin: 18px 0;
+  font-size: 14px;
+}
+.grammar-reference-entry .guide-number {
+  background: #8354fa;
+  color: #fff;
+}
+.grammar-reference-entry:last-child {
+  border-bottom: 0;
+}
+.category-6 {
+  border-left-color: #8354fa;
+}
+@media (max-width: 680px) {
+  .grammar-reference {
+    padding: 4px 16px;
+  }
+  .grammar-reference-entry summary {
+    font-size: 14px;
+  }
+}

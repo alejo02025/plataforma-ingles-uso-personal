@@ -95,6 +95,14 @@ function Menu({
       detail: isPortuguese ? 'Tradução, exemplos e revisão.' : 'Translation, examples and review.',
       view: 'Vocabulary',
     },
+    {
+      icon: BookOpen,
+      title: isPortuguese ? 'Ajuda com o idioma' : 'Language help',
+      detail: isPortuguese
+        ? 'Verbos, frases e tempos. Sempre disponível.'
+        : 'Verbs, sentences and tenses. Always available.',
+      view: 'Language help',
+    },
   ];
   return (
     <div
@@ -139,12 +147,18 @@ function Menu({
                 <strong>{title}</strong>
                 <small>{detail}</small>
                 <small className="flag-course-state">
-                  {level} ·{' '}
-                  {journey.repairs.some((r) => r.view === view)
-                    ? 'Reinforce first'
-                    : journey.pending.some((r) => r.view === view)
-                      ? 'Practice needed'
-                      : 'Part of your learning path'}
+                  {view === 'Language help' ? (
+                    'Always available'
+                  ) : (
+                    <>
+                      {level} ·{' '}
+                      {journey.repairs.some((r) => r.view === view)
+                        ? 'Reinforce first'
+                        : journey.pending.some((r) => r.view === view)
+                          ? 'Practice needed'
+                          : 'Part of your learning path'}
+                    </>
+                  )}
                 </small>
               </span>
               <Icon size={32} />

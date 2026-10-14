@@ -17,9 +17,11 @@ import { Button, Speak } from './ui';
 export function Foundations({
   mode,
   onOpenLesson,
+  referenceOnly = false,
 }: {
   mode: 'verbs' | 'sentences';
   onOpenLesson: (id: string) => void;
+  referenceOnly?: boolean;
 }) {
   const verbs = isPortuguese ? portugueseVerbs : englishVerbs,
     subjects = isPortuguese ? portugueseSubjects : englishSubjects;
@@ -205,18 +207,21 @@ export function Foundations({
         />
       </label>
       <p className="fine-print" lang="es">
-        Este borrador se conserva en este dispositivo sin nota automática. Para guardar un ejercicio
-        en tu progreso, abrí la clase de práctica.
+        {referenceOnly
+          ? 'Tu borrador se guarda en este dispositivo, sin nota automática. Podés consultar y probar todos estos modelos sin completar ninguna clase.'
+          : 'Este borrador se conserva en este dispositivo sin nota automática. Para guardar un ejercicio en tu progreso, abrí la clase de práctica.'}
       </p>
-      <Button
-        onClick={() =>
-          onOpenLesson(
-            `${isPortuguese ? 'pt' : 'en'}-found-${mode === 'sentences' ? 'sentences' : tense === 'present' ? 'present' : tense === 'past' ? 'past' : 'future'}`,
-          )
-        }
-      >
-        Practise this in a class <ArrowRight size={16} />
-      </Button>
+      {!referenceOnly && (
+        <Button
+          onClick={() =>
+            onOpenLesson(
+              `${isPortuguese ? 'pt' : 'en'}-found-${mode === 'sentences' ? 'sentences' : tense === 'present' ? 'present' : tense === 'past' ? 'past' : 'future'}`,
+            )
+          }
+        >
+          Practise this in a class <ArrowRight size={16} />
+        </Button>
+      )}
     </section>
   );
 }
