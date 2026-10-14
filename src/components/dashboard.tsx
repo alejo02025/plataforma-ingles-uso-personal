@@ -1,4 +1,5 @@
 'use client';
+import { HomeRoutine } from './home-routine';
 import { FirstSteps } from './first-steps';
 import { studyStorage } from '@/lib/workspace';
 import { DailyGuide } from './daily-guide';
@@ -76,6 +77,7 @@ export function Dashboard({
   onRead,
   onClass,
   onGame,
+  refresh,
 }: {
   data: Snapshot;
   onStart: (a: Activity) => void;
@@ -84,6 +86,7 @@ export function Dashboard({
   onRead: (doc: import('@/lib/types').Document) => void;
   onClass: (id: string) => void;
   onGame: (seed: string) => void;
+  refresh: () => Promise<void>;
 }) {
   const [greeting, setGreeting] = useState('Hello');
   const [welcome, setWelcome] = useState(false);
@@ -120,6 +123,10 @@ export function Dashboard({
           {dateLabel(data.day)}
         </span>
       </Heading>
+      <p className="home-purpose-spanish" lang="es">
+        Un poco de práctica para poder entender y expresarte mejor. Cada actividad tiene un
+        propósito y se conecta con tu nivel.
+      </p>
       {welcome && <FirstSteps onTest={() => finishWelcome(true)} onDone={() => finishWelcome()} />}
       <DailyGuide
         data={data}
@@ -128,6 +135,13 @@ export function Dashboard({
         onClass={onClass}
         onGame={onGame}
         navigate={navigate}
+      />
+      <HomeRoutine
+        data={data}
+        refresh={refresh}
+        onStart={onStart}
+        onClass={onClass}
+        onGame={onGame}
       />
       <div className="home-small-links">
         <button

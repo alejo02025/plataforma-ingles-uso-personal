@@ -1,3 +1,4 @@
+import { saveRoutine } from '@/lib/routine-store';
 import { courseWriting, courseGrammar } from '@/lib/course-store';
 import { saveLesson } from '../lesson-store';
 import { cefrMutation } from '../cefr-store';
@@ -66,6 +67,11 @@ async function dispatch(endpoint: string, input?: unknown): Promise<unknown> {
     dailyPlan();
     const plan = db().prepare('SELECT id FROM plans WHERE day=?').get(snapshot().day)!;
     return transaction(() => saveLesson(db(), input, plan.id as string));
+  }
+  if (endpoint === 'routine/result') {
+    dailyPlan();
+    const plan = db().prepare('SELECT id FROM plans WHERE day=?').get(snapshot().day)!;
+    return transaction(() => saveRoutine(db(), input, plan.id as string));
   }
   if (endpoint === 'games/result') {
     dailyPlan();

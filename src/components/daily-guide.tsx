@@ -63,10 +63,9 @@ export function DailyGuide({
             {pt ? 'UM BOM JEITO DE COMEÇAR' : 'A GOOD PLACE TO START'}
           </span>
           <h2>{pt ? 'Por onde começar hoje?' : 'Where should you start today?'}</h2>
-          <p>
-            {pt
-              ? 'Uma sugestão, não uma lista obrigatória. Escolha o que cabe no seu dia.'
-              : 'A suggestion, not a required checklist. Pick what fits your day.'}
+          <p lang="es">
+            Una sugerencia flexible para explorar. Para aprender paso a paso, seguí Actividades más
+            abajo; no necesitás empezar leyendo un artículo.
           </p>
         </div>
         <span className="pill neutral">
@@ -76,7 +75,8 @@ export function DailyGuide({
       </div>
       {guide.journey.repairs.length > 0 && (
         <p className="journey-next" lang="es">
-          {guide.journey.repairs[0].explanation}
+          Hoy conviene reforzar una competencia. En Actividades, más abajo, vas a ver qué retomar y
+          por qué.
         </p>
       )}
       <ol className="daily-guide-steps">
@@ -88,7 +88,8 @@ export function DailyGuide({
               {pt ? 'Dê uma primeira olhada' : 'Take a first look'}
             </>
           }
-          first={true}
+          first={false}
+          reason="Reconocé palabras e ideas antes de usarlas."
         >
           <strong>{guide.reading?.title || (pt ? 'Sua biblioteca' : 'Your library')}</strong>
           <p>
@@ -124,6 +125,7 @@ export function DailyGuide({
             </>
           }
           first={false}
+          reason="Convertí una idea de la lectura en una oración propia."
         >
           <strong>{guide.lesson.title}</strong>
           <p>{guide.lesson.goal}</p>
@@ -146,6 +148,7 @@ export function DailyGuide({
             </>
           }
           first={false}
+          reason="Probá el idioma con una noticia real."
         >
           {guide.story ? (
             <>
@@ -212,6 +215,7 @@ export function DailyGuide({
             </>
           }
           first={false}
+          reason="Recordá y reutilizá las palabras que viste."
         >
           <strong>{pt ? 'Combinar significados' : 'Meaning Match'}</strong>
           <p lang="es">
@@ -232,8 +236,8 @@ export function DailyGuide({
         </GuideStep>
       </ol>
       <p className="guide-closing" lang="es">
-        Tip: empezá por un párrafo y una palabra nueva. Si tenés poco tiempo, con ese paso alcanza
-        por hoy. El orden es una sugerencia; abrir una clase sigue respetando sus requisitos.
+        Tip: si estás empezando, probá primero una actividad corta del recorrido de abajo. El orden
+        es una sugerencia; abrir una clase sigue respetando sus requisitos.
       </p>
     </section>
   );
@@ -243,11 +247,13 @@ function GuideStep({
   number,
   title,
   first,
+  reason,
   children,
 }: {
   number: string;
   title: ReactNode;
   first: boolean;
+  reason: string;
   children: ReactNode;
 }) {
   return (
@@ -255,7 +261,10 @@ function GuideStep({
       <details className="guide-step" open={first}>
         <summary>
           <span className="guide-number">{number}</span>
-          <h3>{title}</h3>
+          <span className="guide-summary-copy">
+            <h3>{title}</h3>
+            <small lang="es">{reason}</small>
+          </span>
         </summary>
         <div className="guide-step-body">{children}</div>
       </details>

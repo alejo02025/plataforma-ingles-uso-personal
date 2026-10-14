@@ -107,8 +107,15 @@ export function WordHelpCloud({ data, refresh }: { data: Snapshot; refresh: () =
         )
       )
         return;
-      if (document.querySelector('[role="dialog"]:not(.word-cloud):not(.daily-word-popup)')) return;
+      if (
+        document.querySelector(
+          '[role="dialog"]:not(.word-cloud):not(.daily-word-popup):not(.routine-session)',
+        )
+      )
+        return;
       const interactive = target.closest('button,label,summary,[role="button"],[role="tab"]');
+      // Exercise controls keep their action; native prose remains available for word help.
+      if (interactive && target.closest('.routine-session')) return;
       if (interactive && !armedRef.current) {
         setLookup(null);
         request.current++;

@@ -1,3 +1,4 @@
+import { routineRecord } from './routine';
 import { lessons, type Lesson } from './lessons';
 import { grammarQuestions } from './content';
 import { cefrLevels, type CefrLevel } from './cefr-curriculum';
@@ -49,13 +50,29 @@ function body(result: Result) {
 /** Evidence belongs to this workspace and the current block's study window. A class score is not reused as a reading task. */
 export function integration(data: CourseEvidence, block: Lesson[]): Requirement[] {
   const passes = block.map((l) => passedLesson(data, l.id));
-  const began = passes
-    .filter(Boolean)
-    .map((r) => r!.completed_at)
-    .sort()[0];
+  const blockIndex = Math.floor(
+    levelLessons(block[0]?.level).findIndex((l) => l.id === block[0]?.id) / blockSize,
+  );
+  const starters = data.results.filter((r) => {
+    const record = routineRecord(r);
+    return record?.level === block[0]?.level && record?.block === blockIndex;
+  });
+  const began = [
+    ...passes.filter(Boolean).map((r) => r!.completed_at),
+    ...starters.map((r) => r.completed_at),
+  ].sort()[0];
   const recent = data.results.filter((r) => began && r.completed_at >= began && !lessonRecord(r));
   const target = block[0]?.level;
   const reading =
+    starters.some((r) => {
+      const record = routineRecord(r);
+      return (
+        r.skill === 'reading' &&
+        !record?.helpUsed &&
+        Number(r.total) > 0 &&
+        Number(r.correct) / Number(r.total) >= 0.6
+      );
+    }) ||
     recent.some(
       (r) =>
         r.skill === 'reading' &&
@@ -79,6 +96,15 @@ export function integration(data: CourseEvidence, block: Lesson[]): Requirement[
       .filter((r) => began && r.reviewed_at >= began && r.known === 1)
       .map((r) => r.word_id),
   ).size;
+  const starterVocabulary = starters.some((r) => {
+    const record = routineRecord(r);
+    return (
+      r.skill === 'vocabulary' &&
+      !record?.helpUsed &&
+      Number(r.total) > 0 &&
+      Number(r.correct) / Number(r.total) >= 0.8
+    );
+  });
   const game = recent.some(
     (r) =>
       r.activity_id.startsWith('game:') &&
@@ -102,14 +128,14 @@ export function integration(data: CourseEvidence, block: Lesson[]): Requirement[
       id: 'reading',
       done: reading,
       explanation:
-        'Desde que comenzaste este bloque, completá una lectura de tu nivel con al menos 60 % de aciertos, o respondé correctamente una pregunta sobre uno de tus PDF.',
+        'Completá la lectura breve de Actividades o una lectura de tu nivel con al menos 60 % de aciertos, sin ayudas en la rutina; también sirve una pregunta correcta sobre uno de tus PDF. La práctica debe pertenecer a este bloque.',
       view: 'Library',
     },
     {
       id: 'vocabulary',
-      done: reviews >= 3 || game,
+      done: reviews >= 3 || game || starterVocabulary,
       explanation:
-        'Repasá correctamente tres palabras distintas o completá y guardá un juego con al menos 75 % de aciertos sin ayudas, después de comenzar este bloque.',
+        'Completá Descubrir palabras de este bloque con al menos 80 % sin ayudas, repasá correctamente tres palabras distintas o guardá un juego con al menos 75 % sin ayudas durante este bloque.',
       view: 'Vocabulary',
     },
     {
@@ -196,6 +222,12 @@ export function reinforcement(data: CourseEvidence, level: string): Requirement[
   );
   const documents = [...data.documents, ...(data.trashedDocuments || [])];
   const atLevel = (r: Result) => {
+    const starter = routineRecord(r);
+    if (starter)
+      return (
+        cefrLevels.indexOf(starter.level as CefrLevel) >= cefrLevels.indexOf(startLevel) &&
+        cefrLevels.indexOf(starter.level as CefrLevel) <= cefrLevels.indexOf(level as CefrLevel)
+      );
     const record = lessonRecord(r);
     if (record) {
       const band = lessons.find((l) => l.id === record.lessonId)?.level;
@@ -235,7 +267,7 @@ export function reinforcement(data: CourseEvidence, level: string): Requirement[
     .filter(
       (r) =>
         !(
-          r.skill === 'vocabulary' &&
+          (r.skill === 'vocabulary' || Boolean(routineRecord(r))) &&
           body(r).helpUsed &&
           Number(r.correct) / Number(r.total) >= 0.8
         ),
@@ -278,13 +310,15 @@ export function reinforcement(data: CourseEvidence, level: string): Requirement[
     pending.push({
       id: `reinforce:${skill}`,
       done: false,
-      view: lessonId
-        ? 'Classes'
-        : skill === 'reading'
-          ? 'Library'
-          : skill === 'vocabulary'
-            ? 'Games'
-            : 'My Day',
+      view: routineRecord(latest)
+        ? 'Home'
+        : lessonId
+          ? 'Classes'
+          : skill === 'reading'
+            ? 'Library'
+            : skill === 'vocabulary'
+              ? 'Games'
+              : 'My Day',
       lessonId,
       explanation: `Necesitás reforzar ${skill === 'reading' ? 'lectura' : skill === 'grammar' ? 'gramática' : 'vocabulario'}: tus últimos ${rows.length} ejercicios de esta competencia registran ${correct} de ${total} respuestas correctas. Completá una nueva práctica de esa competencia con al menos 80 % de aciertos${skill === 'vocabulary' ? ' sin ayudas' : ''} para habilitar nuevas clases. Tus niveles, hitos e intentos anteriores se conservan.`,
     });

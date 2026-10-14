@@ -12,7 +12,7 @@ for (const pt of [false, true])
       .getByRole('button', { name: pt ? 'Fechar palavra do dia' : 'Close daily word' })
       .click();
     const guide = page.locator('.daily-guide');
-    await expect(guide).toContainText(pt ? 'Uma sugestão' : 'A suggestion');
+    await expect(guide).toContainText('Una sugerencia flexible');
     await expect(guide.locator('.daily-guide-steps > li')).toHaveCount(4);
     await expect(page.locator('main .welcome-guide')).toBeVisible();
     await expect(guide).toContainText(pt ? 'A1' : 'A2');
@@ -22,7 +22,7 @@ for (const pt of [false, true])
       true,
     );
     await page.screenshot({ path: `/tmp/simple-home-${pt ? 'pt' : 'en'}.png`, fullPage: true });
-    await expect(guide.locator('.guide-step[open]')).toHaveCount(1);
+    await expect(guide.locator('.guide-step[open]')).toHaveCount(0);
     await expect(
       page.locator(
         'main .entry-phrase, main .pdf-home-hero, main .quick-sections, main .stats-grid, main .course-dashboard',
@@ -57,6 +57,7 @@ for (const pt of [false, true])
     await expect(page.locator('.game-session')).toBeVisible();
     await expect(page.locator('.game-session')).toContainText(words[0]);
     await page.locator('.mobile-bottom-nav').getByRole('button').first().click();
+    await guide.locator('li').nth(0).locator('summary').click();
     await guide
       .getByRole('button', { name: pt ? 'Abrir leitura' : 'Open suggested reading', exact: true })
       .click();

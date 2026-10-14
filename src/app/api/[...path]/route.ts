@@ -1,3 +1,4 @@
+import { saveRoutine } from '@/lib/routine-store';
 import { courseWriting, courseGrammar } from '@/lib/course-store';
 import { saveLesson } from '@/lib/lesson-store';
 import { voiceMutation } from '@/lib/voice-store';
@@ -143,6 +144,11 @@ export async function POST(request: NextRequest) {
       dailyPlan();
       const plan = db().prepare('SELECT id FROM plans WHERE day=?').get(snapshot().day)!;
       return json(transaction(() => saveLesson(db(), input, plan.id as string)));
+    }
+    if (endpoint === 'routine/result') {
+      dailyPlan();
+      const plan = db().prepare('SELECT id FROM plans WHERE day=?').get(snapshot().day)!;
+      return json(transaction(() => saveRoutine(db(), input, plan.id as string)));
     }
     if (endpoint === 'games/result') {
       dailyPlan();

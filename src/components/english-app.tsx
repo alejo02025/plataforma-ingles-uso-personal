@@ -391,6 +391,7 @@ export function EnglishApp() {
           ) : view === 'Home' ? (
             <Dashboard
               data={data}
+              refresh={refresh}
               onStart={onStart}
               navigate={(target) => void navigate(target)}
               onDiagnostic={() => {

@@ -231,3 +231,31 @@ Se eliminaron títulos y consejos duplicados; la regla de cada ejemplo y la
 comparación se despliegan a pedido. Los tiempos están agrupados para consultar
 solo el bloque necesario; las notas de A1–C2 siguen disponibles al pie. La lista
 completa de verbos, todos los tiempos y los borradores existentes se conservan.
+
+## Recorrido de actividades en Home
+
+Debajo de la sugerencia flexible del día hay un recorrido de actividades A1–C2
+con el propósito de cada paso explicado en español: palabras con ilustraciones,
+formación de oraciones con bloques, lectura de una situación corta, las clases
+del bloque y escritura personal. Los juegos y las lecturas largas son otra
+forma de practicar, sin reemplazar el recorrido ni sus requisitos. Alejo mantiene
+entrada A2 y Jazmín A1; los niveles futuros están bloqueados y los completados
+se pueden repasar.
+
+Los ejercicios objetivos se guardan automáticamente al terminarlos en las mismas
+tablas de resultados, sesiones, errores e historial. El servidor o SQL.js vuelve
+a calcular los aciertos desde el banco; no acepta una nota enviada por el cliente.
+Cada intento tiene un ID y se guarda una vez. Las respuestas incompletas y los
+bloques elegidos se conservan por dispositivo y espacio, también sin señal.
+La rutina breve establece el comienzo de su bloque: lectura independiente ≥60%
+y vocabulario independiente ≥80% aportan evidencia a los mismos requisitos que
+las otras secciones. Las clases siguen necesitando ≥80%, escritura registrada y
+las restantes condiciones del recorrido. Dos ejercicios fallidos pueden pausar
+clases nuevas; una práctica independiente ≥80% permite retomar. Consultar ayudas
+se registra y no acredita evidencia independiente. Los hitos anteriores no se
+borran. La extensión de una escritura acredita práctica, sin calificar su calidad.
+
+El banco de rutinas edición 1 debe conservarse para los borradores y resultados
+publicados. Futuras ediciones deben agregarse con sus propios identificadores y
+mantener la reproducción y el crédito de las ediciones previas; nunca reescribir
+respuestas anteriores ni reiniciar bases de datos para actualizar contenido.
