@@ -175,6 +175,8 @@ test('contrato IA: validación, correcciones persistentes y preguntas de PDF con
       assert.equal(input, 'https://api.openai.com/v1/chat/completions');
       const body = JSON.parse(options!.body as string);
       assert.ok(body.messages[0].content.includes('untrusted'));
+      assert.ok(body.messages[0].content.includes('Spanish'));
+      assert.ok(body.messages[0].content.includes('English'));
       const content = body.messages[0].content.includes('comprehension')
         ? {
             questions: Array.from({ length: 3 }, () => ({
@@ -210,6 +212,10 @@ test('contrato IA: validación, correcciones persistentes y preguntas de PDF con
     const doc = service.documents().find((d) => d.source === 'pdf')!;
     await generateQuestions(doc.id);
     assert.equal(service.documents().find((d) => d.id === doc.id)!.questions.length, 3);
+    assert.equal(
+      service.documents().find((d) => d.id === doc.id)!.questions[0].explanationLanguage,
+      'es',
+    );
     globalThis.fetch = async () =>
       new Response(JSON.stringify({ choices: [{ message: { content: '{"revised": 42}' } }] }));
     await assert.rejects(

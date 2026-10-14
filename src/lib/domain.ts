@@ -1,5 +1,6 @@
 import { isPortuguese } from './workspace';
 import { cefrCourse } from './cefr-curriculum';
+import { answerWhy } from '@/locales/es/answer-help';
 import type { db as nativeDb } from './db';
 import {
   diagnosticQuestions,
@@ -460,6 +461,8 @@ export function createLearningService({
         id: q.id,
         correct: q.answer === input.answers[q.id],
         answer: q.answer,
+        correction: q.options[q.answer],
+        explanationSpanish: q.explanationLanguage === 'es' ? q.explanation : answerWhy(q.id),
         explanation: q.explanation,
       }));
       db()
@@ -503,6 +506,8 @@ export function createLearningService({
           id: q.id,
           correct: q.answer === input.answers[q.id],
           answer: q.answer,
+          correction: q.options[q.answer],
+          explanationSpanish: q.explanationLanguage === 'es' ? q.explanation : answerWhy(q.id),
           explanation: q.explanation,
         })),
       };

@@ -5,10 +5,18 @@ import type { Snapshot, Activity } from '@/lib/types';
 import { Button, Heading, QuestionForm, api } from './ui';
 import { useStudySession } from './use-session';
 import { Vocabulary } from './vocabulary';
+import { Correction } from './correction';
+import { questionFeedback } from '@/lib/answer-feedback';
 type Feedback = {
   correct: number | null;
   total: number | null;
-  feedback?: { id: string; correct: boolean; explanation: string }[];
+  feedback?: {
+    id: string;
+    correct: boolean;
+    explanation: string;
+    correction?: string;
+    explanationSpanish?: string;
+  }[];
 };
 export function ResultFeedback({ result }: { result: Feedback }) {
   return (
@@ -19,12 +27,19 @@ export function ResultFeedback({ result }: { result: Feedback }) {
           : 'Practice saved, without an automatic score.'}
       </strong>
       {result.feedback?.map((f, i) => (
-        <p key={f.id}>
+        <div key={f.id}>
           <span>
             {f.correct ? '✓' : '↗'} {i + 1}.
           </span>{' '}
-          {f.explanation}
-        </p>
+          {f.correct ? (
+            f.explanation
+          ) : (
+            <Correction
+              explanation={f.explanationSpanish || questionFeedback(f.id).explanation}
+              correction={f.correction || questionFeedback(f.id).correction}
+            />
+          )}
+        </div>
       ))}
     </div>
   );
@@ -120,7 +135,7 @@ export function WritingBox({
       {feedback && (
         <div className="ai-feedback">
           <span className="eyebrow">AI FEEDBACK · CHECK AND REVIEW</span>
-          <p>{feedback.feedback}</p>
+          <p lang="es">{feedback.feedback}</p>
           <blockquote lang="en">{feedback.revised}</blockquote>
           {feedback.corrections.map((c, i) => (
             <div key={i} className="correction-item">
@@ -131,10 +146,7 @@ export function WritingBox({
                     ? 'Vocabulary'
                     : 'Naturalness · suggestion'}
               </span>
-              <p lang="en">
-                <del>{c.original}</del> → <strong>{c.corrected}</strong>
-              </p>
-              <p>{c.explanation}</p>
+              <Correction explanation={c.explanation} correction={c.corrected} />
             </div>
           ))}
           {!feedback.corrections.length && <p>No necessary changes were identified.</p>}

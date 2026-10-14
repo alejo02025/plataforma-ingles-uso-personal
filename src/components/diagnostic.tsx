@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import type { Snapshot } from '@/lib/types';
 import { Button, Heading, QuestionForm, api } from './ui';
+import { Correction } from './correction';
+import { questionFeedback } from '@/lib/answer-feedback';
 export function Diagnostic({
   data,
   refresh,
@@ -76,7 +78,11 @@ export function Diagnostic({
             {feedback && (
               <div className={`feedback ${feedback.correct ? 'positive' : ''}`}>
                 <strong>{feedback.correct ? 'Well done.' : 'A clue for next time.'}</strong>
-                <p>{feedback.explanation}</p>
+                {feedback.correct ? (
+                  <p>{feedback.explanation}</p>
+                ) : (
+                  <Correction {...questionFeedback(next.id)} />
+                )}
               </div>
             )}
             {error && (

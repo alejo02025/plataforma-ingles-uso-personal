@@ -4,6 +4,10 @@ import { Activity, BookOpen, Check, Clock3, MessageCircle, Sparkles } from 'luci
 import type { Snapshot } from '@/lib/types';
 import { practiceDays } from '@/lib/momentum';
 import { dateLabel } from './ui';
+import { Correction } from './correction';
+import { questionFeedback } from '@/lib/answer-feedback';
+import { pdfWhy } from '@/locales/es/answer-help';
+import { questions } from '@/lib/tutor';
 export function MomentumChart({ data, compact = false }: { data: Snapshot; compact?: boolean }) {
   const [length, setLength] = useState(14),
     [selected, setSelected] = useState<string | null>(null);
@@ -229,6 +233,9 @@ export function MomentumChart({ data, compact = false }: { data: Snapshot; compa
                 MCER · {attempt.level} · {attempt.task}
               </summary>
               <p>{attempt.answer}</p>
+              {attempt.correct === 0 && (
+                <Correction {...questionFeedback(`cefr:${attempt.level}:${attempt.task}`)} />
+              )}
               <p>
                 {attempt.correct === null
                   ? 'Prática sem nota automática'
@@ -254,7 +261,27 @@ export function MomentumChart({ data, compact = false }: { data: Snapshot; compa
               </summary>
               <p>{attempt.prompt}</p>
               <blockquote>{attempt.answer}</blockquote>
-              <p>{attempt.feedback}</p>
+              {attempt.correct === 0 ? (
+                (() => {
+                  const doc = data.documents.find((doc) => doc.id === attempt.document_id);
+                  const parts = attempt.question_id.split(':');
+                  const q =
+                    doc &&
+                    questions(doc, Number(parts.at(-1)), Number(parts.at(-2))).find(
+                      (q) => q.id === attempt.question_id,
+                    );
+                  return (
+                    <Correction
+                      explanation={pdfWhy(
+                        q?.kind || (attempt.question_id.includes(':word:') ? 'word' : 'detail'),
+                      )}
+                      correction={q?.options[q.answer!] || attempt.feedback.split('\n\n').at(-1)!}
+                    />
+                  );
+                })()
+              ) : (
+                <p>{attempt.feedback}</p>
+              )}
             </details>
           ))}
           {item.words.length > 0 && (

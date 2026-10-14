@@ -2907,6 +2907,16 @@ main {
   line-height: 1.6;
   color: var(--muted);
 }
+.answer-correction > p {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+.answer-correction-model {
+  padding: 10px 12px;
+  border-left: 3px solid var(--green);
+  background: var(--surface-soft);
+  border-radius: 0 8px 8px 0;
+}
 .daily-word-tags {
   display: flex;
   gap: 7px;

@@ -21,6 +21,8 @@ import {
 } from '@/lib/games';
 import type { Snapshot } from '@/lib/types';
 import { Button, Heading, Speak, api } from './ui';
+import { Correction } from './correction';
+import { matchWhy, sentenceWhy, trailWhy } from '@/locales/es/answer-help';
 const modes: GameMode[] = ['match', 'sentence', 'trail'];
 const tips: Record<GameMode, string> = {
   match: 'Picture a real situation for each word. Which one fits the meaning?',
@@ -256,9 +258,14 @@ function GameSession({
             ))}
           </details>
           {puzzle.mode === 'trail' && (
-            <p>
-              The word was <strong>{round.solution}</strong>.
-            </p>
+            <Correction
+              explanation={
+                normalizeAnswer(answers[0]) === normalizeAnswer(round.solution)
+                  ? matchWhy(round.word, round.word)
+                  : `Se terminaron los seis intentos. La palabra buscada significa: ${matchWhy(round.word, answers[0])}`
+              }
+              correction={round.solution}
+            />
           )}
           <Button disabled={busy || saved} onClick={() => void save()}>
             {saved ? (
@@ -349,6 +356,18 @@ function GameSession({
                 <span>Gold: another place</span>
                 <span>Grey: not in the word</span>
               </p>
+              {guesses.length > 0 && (
+                <div role="status">
+                  <p lang="es">{trailWhy(letterMarks(round.solution, guesses.at(-1)!))}</p>
+                  <p className="answer-correction-model">
+                    {Array.from(guesses.at(-1)!)
+                      .map((letter, i) =>
+                        letterMarks(round.solution, guesses.at(-1)!)[i] === 'exact' ? letter : '_',
+                      )
+                      .join(' ')}
+                  </p>
+                </div>
+              )}
               <form onSubmit={submitGuess} className="trail-input">
                 <label className="field">
                   Your guess
@@ -413,7 +432,18 @@ function GameSession({
                       ? 'You found it!'
                       : 'Keep this one for next time.'}
                   </strong>
-                  <p>{round.solution}</p>
+                  {normalizeAnswer(answer) === normalizeAnswer(round.solution) ? (
+                    <p>{round.solution}</p>
+                  ) : (
+                    <Correction
+                      explanation={
+                        puzzle.mode === 'match'
+                          ? matchWhy(round.word, answer)
+                          : sentenceWhy(round.solution, answer)
+                      }
+                      correction={round.solution}
+                    />
+                  )}
                   {puzzle.mode === 'match' && <p className="game-example">{round.example}</p>}
                   <Speak text={round.solution} />
                   <Button onClick={next}>

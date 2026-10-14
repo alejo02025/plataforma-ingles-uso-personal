@@ -1,4 +1,6 @@
 'use client';
+import { Correction } from './correction';
+import { pdfWhy } from '@/locales/es/answer-help';
 import { studyStorage } from '@/lib/workspace';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
@@ -663,12 +665,19 @@ function PdfWorkspace({ doc, data, refresh, onRead }: StudioProps & { doc: Docum
                     />
                   )}{' '}
                   {feedback[question.id] ? (
-                    <p
+                    <div
                       className={`studio-feedback ${feedback[question.id].correct === 1 ? 'correct' : ''}`}
                       role="status"
                     >
-                      {feedback[question.id].feedback}
-                    </p>
+                      {feedback[question.id].correct === 0 && question.answer !== null ? (
+                        <Correction
+                          explanation={pdfWhy(question.kind)}
+                          correction={question.options[question.answer]}
+                        />
+                      ) : (
+                        feedback[question.id].feedback
+                      )}
+                    </div>
                   ) : (
                     <Button
                       secondary

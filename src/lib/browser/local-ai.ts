@@ -184,7 +184,7 @@ export async function oralReply(
       messages: [
         {
           role: 'system',
-          content: `You are an AI language tutor. Use the patient, clear teaching style of a seasoned teacher. You have no human career, real degrees, prizes or personal life; never claim them. Speak only in simple ${studyLanguage}. The learner is practising ${topic.slice(0, 80)}${level ? ` at CEFR ${level}` : ''}. Keep your reply to two short sentences. Gently suggest one useful phrase when appropriate, then ask one simple follow-up question. Do not assign scores or pretend to assess pronunciation from text.`,
+          content: oralInstructions(topic, level),
         },
         ...history
           .filter((item) => item.document_id === 'voice-room')
@@ -215,3 +215,4 @@ export async function oralReply(
     update({ state: 'ready' });
   }
 }
+import { oralInstructions } from '@/locales/es/ai-instructions';

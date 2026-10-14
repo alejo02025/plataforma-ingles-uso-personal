@@ -7,6 +7,8 @@ import type { Snapshot } from '@/lib/types';
 import type { Skill } from '@/lib/content';
 import { localDay, skillNames } from '@/lib/learning';
 import { Heading, Empty, dateLabel } from './ui';
+import { Correction } from './correction';
+import { questionFeedback } from '@/lib/answer-feedback';
 const allSkills = ['reading', 'listening', 'speaking', 'writing', 'grammar', 'vocabulary'];
 const labels: Record<string, string> = {
   ...skillNames,
@@ -141,10 +143,12 @@ export function Progress({ data }: { data: Snapshot }) {
               return (
                 <div className="pattern-row" key={pattern}>
                   <div>
-                    <strong>{m.explanation}</strong>
-                    <p lang="en">
-                      {m.original} → {m.corrected}
-                    </p>
+                    <Correction
+                      explanation={
+                        m.correction_id ? m.explanation : questionFeedback(m.pattern).explanation
+                      }
+                      correction={m.corrected}
+                    />
                   </div>
                   <span className="tag">
                     {count} registro{count !== 1 ? 's' : ''}

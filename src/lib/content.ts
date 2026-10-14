@@ -6,6 +6,7 @@ export type Question = {
   options: string[];
   answer: number;
   explanation: string;
+  explanationLanguage?: 'es';
   band: 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2' | 'unrated';
 };
 export const diagnosticQuestions: Question[] = [

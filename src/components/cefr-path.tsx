@@ -4,6 +4,8 @@ import { Check, ArrowRight, BookOpen, Mic } from 'lucide-react';
 import { cefrCourse, cefrLevels } from '@/lib/cefr-curriculum';
 import type { Snapshot } from '@/lib/types';
 import { Button, api, Speak } from './ui';
+import { Correction } from './correction';
+import { questionFeedback } from '@/lib/answer-feedback';
 export function CefrPath({
   data,
   refresh,
@@ -18,6 +20,7 @@ export function CefrPath({
     [active, setActive] = useState('reading'),
     [answer, setAnswer] = useState(''),
     [feedback, setFeedback] = useState(''),
+    [incorrectTask, setIncorrectTask] = useState(''),
     [busy, setBusy] = useState(false),
     [error, setError] = useState('');
   const unit = cefrCourse.find((item) => item.level === preview)!;
@@ -48,6 +51,7 @@ export function CefrPath({
             ? 'Você encontrou a resposta!'
             : `Vamos tentar novamente. ${result.tip}`,
       );
+      setIncorrectTask(result.correct === 0 ? `cefr:${preview}:${task.id}` : '');
       await refresh();
     } catch (e) {
       setError((e as Error).message);
@@ -65,6 +69,7 @@ export function CefrPath({
       setActive('reading');
       setAnswer('');
       setFeedback('');
+      setIncorrectTask('');
     } catch (e) {
       setError((e as Error).message);
     } finally {
@@ -93,6 +98,7 @@ export function CefrPath({
               setActive('reading');
               setAnswer('');
               setFeedback('');
+              setIncorrectTask('');
             }}
           >
             <strong>{item.level}</strong>
@@ -120,6 +126,7 @@ export function CefrPath({
                 setActive(item.id);
                 setAnswer('');
                 setFeedback('');
+                setIncorrectTask('');
               }}
             >
               {done(item.id) ? (
@@ -197,9 +204,9 @@ export function CefrPath({
           Salvar prática
         </Button>
         {feedback && (
-          <p className="cefr-feedback" role="status">
-            {feedback}
-          </p>
+          <div className="cefr-feedback" role="status">
+            {incorrectTask ? <Correction {...questionFeedback(incorrectTask)} /> : feedback}
+          </div>
         )}
         {error && (
           <p role="alert" className="error">
