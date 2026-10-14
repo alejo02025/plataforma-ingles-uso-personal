@@ -19,12 +19,8 @@ for (const pt of [false, true])
     const quick = page.getByRole('navigation', {
       name: pt ? 'Navegação rápida' : 'Quick navigation',
     });
-    await page.locator('.daily-idea summary').click();
-    await expect(page.locator('.daily-idea p')).toBeVisible();
-    await page
-      .getByRole('region', { name: pt ? 'Prática rápida' : 'Quick practice' })
-      .getByRole('button', { name: pt ? 'Jogos' : 'Games' })
-      .click();
+    await expect(page.locator('.guide-closing')).toContainText('Tip:');
+    await quick.getByRole('button', { name: pt ? 'Jogos' : 'Games', exact: true }).click();
     await page.screenshot({ path: `/tmp/playroom-${pt ? 'pt' : 'en'}-mobile.png`, fullPage: true });
     const dictionary = pt ? portuguese : english;
     for (const mode of ['match', 'sentence', 'trail']) {

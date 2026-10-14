@@ -28,7 +28,7 @@ test('PDF Studio, daily words, real local AI, responsive views and update banner
   await expect(page.getByRole('heading', { name: word, exact: true }).first()).toBeVisible();
   await page.getByRole('button', { name: 'Everyday sentences', exact: true }).click();
   await expect(page.locator('.word-library h3').filter({ hasText: usage })).toBeVisible();
-  await page.getByRole('navigation').getByRole('button', { name: 'Home', exact: true }).click();
+  await page.getByRole('navigation').getByRole('button', { name: 'Progress', exact: true }).click();
   await page
     .getByRole('group', { name: 'Interactive practice momentum chart' })
     .getByRole('button', { name: /View practice on/ })

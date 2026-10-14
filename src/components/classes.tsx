@@ -1,5 +1,5 @@
 'use client';
-import { lazy, Suspense, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   ArrowLeft,
   ArrowRight,
@@ -26,9 +26,6 @@ import {
   type Requirement,
 } from '@/lib/course-route';
 import type { Activity } from '@/lib/types';
-const VoiceRoom = lazy(() =>
-  import('./voice-room').then((module) => ({ default: module.VoiceRoom })),
-);
 type Review = {
   correct: number;
   total: number;
@@ -67,10 +64,13 @@ export function Classes({
     suggested = route.level;
   const [level, setLevel] = useState(suggested),
     [selected, setSelected] = useState(''),
-    [section, setSection] = useState<'classes' | 'verbs' | 'sentences' | 'practice'>(
-      initialSection,
+    [section, setSection] = useState<'classes' | 'verbs' | 'sentences'>(
+      initialSection === 'practice' ? 'classes' : initialSection,
     );
-  useEffect(() => setSection(initialSection), [initialSection]);
+  useEffect(
+    () => setSection(initialSection === 'practice' ? 'classes' : initialSection),
+    [initialSection],
+  );
   useEffect(() => {
     setLevel(suggested);
     setSelected(initialLesson);
@@ -170,18 +170,8 @@ export function Classes({
         >
           Sentences
         </button>
-        <button
-          className={section === 'practice' ? 'active' : ''}
-          onClick={() => setSection('practice')}
-        >
-          Use it
-        </button>
       </div>
-      {section === 'practice' ? (
-        <Suspense fallback={<p role="status">Preparing your class practice…</p>}>
-          <VoiceRoom data={data} refresh={refresh} />
-        </Suspense>
-      ) : section !== 'classes' ? (
+      {section !== 'classes' ? (
         <Foundations
           mode={section}
           onOpenLesson={(id) => {
@@ -575,8 +565,8 @@ function LessonRoom({
                   <RotateCcw size={16} />
                   Try again later
                 </Button>
-                <Button secondary onClick={() => navigate('Course practice')}>
-                  Use it in a conversation <ArrowRight size={16} />
+                <Button secondary onClick={() => navigate('Language help')}>
+                  Open language help <ArrowRight size={16} />
                 </Button>
               </div>
             ) : (

@@ -95,8 +95,14 @@ export function EnglishApp() {
     setSuggestedClass('');
     setSuggestedGame('');
     setClassroomVisit((v) => v + 1);
-    setView(['Speaking', 'Course practice', 'MCER'].includes(target) ? 'Classes' : target);
-    setClassroomSection(['Speaking', 'Course practice'].includes(target) ? 'practice' : 'classes');
+    setView(
+      ['Speaking', 'Course practice'].includes(target)
+        ? 'Language help'
+        : target === 'MCER'
+          ? 'Classes'
+          : target,
+    );
+    setClassroomSection('classes');
     setActive(null);
     setMobileMenu(false);
     setError('');
@@ -231,19 +237,40 @@ export function EnglishApp() {
           PERSONAL SPACE{' '}
         </div>
         <nav aria-label="Main navigation">
-          {appNavigation.map(({ title, icon: Icon }) => (
-            <button
-              key={title}
-              className={`nav-item ${view === title && !active ? 'active' : ''}`}
-              onClick={() => void navigate(title)}
-            >
-              <Icon size={19} strokeWidth={1.7} />
-              {title}
-              {title === 'Vocabulary' && data.vocabulary.length > 0 && (
-                <span className="nav-count">{data.vocabulary.length}</span>
-              )}
-            </button>
-          ))}
+          <div className="nav-primary">
+            {appNavigation
+              .filter((item) => !['Library', 'Practice', 'Calendar', 'News'].includes(item.title))
+              .map(({ title, icon: Icon }) => (
+                <button
+                  key={title}
+                  aria-label={title}
+                  className={`nav-item ${view === title && !active ? 'active' : ''}`}
+                  onClick={() => void navigate(title)}
+                >
+                  <Icon size={19} />
+                  <span>{title}</span>
+                </button>
+              ))}
+          </div>
+          <details
+            className="nav-more"
+            open={!mobileMenu || ['Library', 'Practice', 'Calendar', 'News'].includes(view)}
+          >
+            <summary>More sections</summary>
+            {appNavigation
+              .filter((item) => ['Library', 'Practice', 'Calendar', 'News'].includes(item.title))
+              .map(({ title, icon: Icon }) => (
+                <button
+                  key={title}
+                  aria-label={title}
+                  className={`nav-item ${view === title && !active ? 'active' : ''}`}
+                  onClick={() => void navigate(title)}
+                >
+                  <Icon size={19} />
+                  {title}
+                </button>
+              ))}
+          </details>
         </nav>
         <div className="sidebar-bottom">
           <div className="goal-note">
@@ -434,7 +461,7 @@ export function EnglishApp() {
           ) : view === 'Vocabulary' ? (
             <Vocabulary data={data} refresh={refresh} />
           ) : view === 'Progress' ? (
-            <Progress data={data} />
+            <Progress data={data} navigate={(target) => void navigate(target)} />
           ) : view === 'Calendar' ? (
             <Calendar data={data} />
           ) : (

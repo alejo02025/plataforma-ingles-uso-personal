@@ -1,7 +1,7 @@
 'use client';
 import { Correction } from './correction';
 import { pdfWhy, pdfAnswerWhy, openAnswerNote } from '@/locales/es/answer-help';
-import { studyStorage } from '@/lib/workspace';
+import { studyStorage, isPortuguese } from '@/lib/workspace';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ArrowLeft,
@@ -117,8 +117,11 @@ export function PdfStudio({ data, refresh, onRead }: StudioProps) {
       <div className="studio-heading">
         <div>
           <span className="eyebrow">THE READING ROOM</span>
-          <h1>Good reads. Better conversations.</h1>
-          <p>Pull up a chair. Bring a book, a story, or something you want to understand.</p>
+          <h1>Your PDF, step by step.</h1>
+          <p lang="es">
+            Esta sección convierte tus PDF en material de estudio: leés por partes, guardás palabras
+            y practicás con preguntas sobre el texto.
+          </p>
         </div>
         <span className="studio-local-pill">
           <Sparkles size={15} />
@@ -270,23 +273,41 @@ export function PdfStudio({ data, refresh, onRead }: StudioProps) {
         </section>
       )}
       {!doc ? (
-        <div className="studio-intro-grid">
-          <section className="card studio-feature coral">
-            <BookOpen />
-            <h3>Understand the text.</h3>
-            <p>Read in small sections, listen to words, and keep the page in view.</p>
-          </section>
-          <section className="card studio-feature blue">
-            <MessageCircle />
-            <h3>A little back-and-forth.</h3>
-            <p>Ask about the content. Local AI runs on your device when you enable it.</p>
-          </section>
-          <section className="card studio-feature teal">
-            <Sparkles />
-            <h3>Keep the good bits.</h3>
-            <p>Answer questions linked to your document and collect words you want to keep.</p>
-          </section>
-        </div>
+        <section className="card studio-first-steps">
+          <h2>How to start</h2>
+          <ol lang="es">
+            <li>
+              <strong>Subí un PDF.</strong> Tocá “{isPortuguese ? 'Escolher PDFs' : 'Choose PDFs'}”.
+              Podés agregar varios, de hasta 10 MB cada uno.
+            </li>
+            <li>
+              <strong>Leé una parte.</strong> El texto se divide en secciones. Tocá una palabra si
+              necesitás su significado.
+            </li>
+            <li>
+              <strong>Practicá.</strong> Abrí las preguntas del documento. Las respuestas objetivas
+              incluyen una explicación en español.
+            </li>
+          </ol>
+          <details>
+            <summary>What happens to my PDFs?</summary>
+            <p lang="es">
+              Cada PDF queda en su pestaña con tus respuestas. Podés agregar otro sin reemplazar el
+              anterior, quitarlo y restaurarlo desde la papelera. El guardado es local en este
+              dispositivo; si activaste respaldo en GitHub, también puede respaldarse allí. Un PDF
+              escaneado como imagen necesita reconocimiento de texto, que esta versión todavía no
+              realiza.
+            </p>
+          </details>
+          <details>
+            <summary>Optional help with the text</summary>
+            <p lang="es">
+              La ayuda guiada encuentra pasajes del documento sin descargar IA. La IA local es
+              opcional y requiere una descarga previa; no hace falta activarla para leer, guardar
+              palabras o responder preguntas.
+            </p>
+          </details>
+        </section>
       ) : (
         <PdfWorkspace key={doc.id} doc={doc} data={data} refresh={refresh} onRead={onRead} />
       )}

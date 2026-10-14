@@ -1,5 +1,5 @@
 'use client';
-import { learningJourney } from '@/lib/course-route';
+import { ProgressPath } from './progress-path';
 import { DownloadLink } from './ui';
 import { MomentumChart } from './momentum-chart';
 import { useState } from 'react';
@@ -16,8 +16,7 @@ const labels: Record<string, string> = {
   listening: 'Listening',
   speaking: 'Speaking',
 };
-export function Progress({ data }: { data: Snapshot }) {
-  const journey = learningJourney(data);
+export function Progress({ data, navigate }: { data: Snapshot; navigate: (view: string) => void }) {
   const counts = allSkills.map((skill) => ({
     skill,
     results: data.results.filter((r) => r.skill === skill),
@@ -49,164 +48,159 @@ export function Progress({ data }: { data: Snapshot }) {
           Export my data{' '}
         </DownloadLink>
       </Heading>
-      <section className="card journey-progress">
-        <span className="eyebrow">ONE LANGUAGE, ONE JOURNEY</span>
-        <h2>
-          {journey.level} · Block {journey.block + 1}
-        </h2>
-        <p lang="es">
-          El nivel de estudio es compartido por todas las secciones. Los resultados de cada
-          competencia se conservan y las necesidades de refuerzo pueden pausar las clases nuevas.
-        </p>
-        {journey.next && <p lang="es">{journey.next.explanation}</p>}
-      </section>
+      <ProgressPath data={data} navigate={navigate} />
       <MomentumChart data={data} />
-      <div className="evidence-banner">
-        <TrendingUp size={20} />
-        <p>
-          {data.results.length
-            ? `You completed ${data.results.length} activities on ${new Set(data.results.map((r) => r.day)).size} days. This shows consistency, not a confirmed change in CEFR level.`
-            : 'Your progress starts with evidence. Complete the assessment and your first activity to build a starting point.'}
-        </p>
-      </div>
-      <div className="skills-grid">
-        {counts.map(({ skill, results }) => {
-          const evaluated = data.evaluations.find((e) => e.skill === skill);
-          const scored = results.filter((r) => r.total !== null && r.correct !== null);
-          const total = scored.reduce((n, r) => n + r.total!, 0),
-            correct = scored.reduce((n, r) => n + r.correct!, 0);
-          const precision = total ? Math.round((correct / total) * 100) : null;
-          return (
-            <section className="card skill-card" key={skill}>
-              <div className="card-kicker">
-                {labels[skill]}
-                <span className="tag">{evaluated ? 'Confianza baja' : 'Not assessed'}</span>
-              </div>
-              <h2>
-                {evaluated?.level?.replace(' orientativo', '') || '—'}
-                <span>
-                  {evaluated ? 'Referencia inicial orientativa' : 'An assessment is needed'}
-                </span>
-              </h2>
-              <div className="skill-numbers">
-                <div>
-                  <strong>{results.length}</strong>
-                  <span>Activities</span>
+      <details className="progress-details">
+        <summary>Practice details</summary>
+        <div className="evidence-banner">
+          <TrendingUp size={20} />
+          <p>
+            {data.results.length
+              ? `You completed ${data.results.length} activities on ${new Set(data.results.map((r) => r.day)).size} days. This shows consistency, not a confirmed change in CEFR level.`
+              : 'Your progress starts with evidence. Complete the assessment and your first activity to build a starting point.'}
+          </p>
+        </div>
+        <div className="skills-grid">
+          {counts.map(({ skill, results }) => {
+            const evaluated = data.evaluations.find((e) => e.skill === skill);
+            const scored = results.filter((r) => r.total !== null && r.correct !== null);
+            const total = scored.reduce((n, r) => n + r.total!, 0),
+              correct = scored.reduce((n, r) => n + r.correct!, 0);
+            const precision = total ? Math.round((correct / total) * 100) : null;
+            return (
+              <section className="card skill-card" key={skill}>
+                <div className="card-kicker">
+                  {labels[skill]}
+                  <span className="tag">{evaluated ? 'Confianza baja' : 'Not assessed'}</span>
                 </div>
-                <div>
-                  <strong>{precision === null ? '—' : `${precision}%`}</strong>
+                <h2>
+                  {evaluated?.level?.replace(' orientativo', '') || '—'}
                   <span>
-                    {skill === 'vocabulary' ? 'Review & game results' : 'Practice accuracy'}
+                    {evaluated ? 'Referencia inicial orientativa' : 'An assessment is needed'}
                   </span>
-                </div>
-              </div>
-              <div className="progress-bar">
-                <span style={{ width: `${precision || 0}%` }} />
-              </div>
-              <p className="fine-print">
-                {total
-                  ? `${correct}/${total} answers${skill === 'vocabulary' ? ' (self-rated reviews and scored games)' : ' in activities'}; it is not a CEFR level.`
-                  : skill === 'writing'
-                    ? 'Writing is saved without an automatic score.'
-                    : skill === 'speaking' || skill === 'listening'
-                      ? 'Assessment and integration are planned for a later phase.'
-                      : 'No activity answers yet.'}
-                {evaluated && ` Assessment: ${evaluated.correct}/${evaluated.total} items.`}
-              </p>
-            </section>
-          );
-        })}
-      </div>
-      <div className="analytics-grid">
-        <section className="card">
-          <div className="section-heading">
-            <div>
-              <span className="eyebrow">LAST 14 DAYS</span>
-              <h2>Make room for English</h2>
-            </div>
-            <span className="muted">Completed activities</span>
-          </div>
-          <div
-            className="bar-chart"
-            role="img"
-            aria-label={`Activities per day: ${days.map((d, i) => `${d}: ${dailyCounts[i]}`).join(', ')}`}
-          >
-            {days.map((day, i) => (
-              <div key={day} className="bar-column">
-                <span className="bar-number">{dailyCounts[i] || ''}</span>
-                <div className="bar-track">
-                  <div
-                    className={`bar ${day === data.day ? 'today' : ''}`}
-                    style={{ height: `${(dailyCounts[i] / max) * 100}%` }}
-                    title={`${dateLabel(day)}: ${dailyCounts[i]} actividades`}
-                  />
-                </div>
-                <span>{day.slice(8)}</span>
-              </div>
-            ))}
-          </div>
-          <p className="fine-print">Days without records are empty. No simulated data is shown. </p>
-        </section>
-        <section className="card">
-          <span className="eyebrow">TU PRÓXIMO FOCO</span>
-          <h2>Patterns to revisit</h2>
-          {patterns.length ? (
-            patterns.map(([pattern, count]) => {
-              const m = data.mistakes.find((m) => m.pattern === pattern)!;
-              return (
-                <div className="pattern-row" key={pattern}>
+                </h2>
+                <div className="skill-numbers">
                   <div>
-                    <Correction
-                      explanation={
-                        m.correction_id ? m.explanation : questionFeedback(m.pattern).explanation
-                      }
-                      correction={m.corrected}
+                    <strong>{results.length}</strong>
+                    <span>Activities</span>
+                  </div>
+                  <div>
+                    <strong>{precision === null ? '—' : `${precision}%`}</strong>
+                    <span>
+                      {skill === 'vocabulary' ? 'Review & game results' : 'Practice accuracy'}
+                    </span>
+                  </div>
+                </div>
+                <div className="progress-bar">
+                  <span style={{ width: `${precision || 0}%` }} />
+                </div>
+                <p className="fine-print">
+                  {total
+                    ? `${correct}/${total} answers${skill === 'vocabulary' ? ' (self-rated reviews and scored games)' : ' in activities'}; it is not a CEFR level.`
+                    : skill === 'writing'
+                      ? 'Writing is saved without an automatic score.'
+                      : skill === 'speaking' || skill === 'listening'
+                        ? 'Assessment and integration are planned for a later phase.'
+                        : 'No activity answers yet.'}
+                  {evaluated && ` Assessment: ${evaluated.correct}/${evaluated.total} items.`}
+                </p>
+              </section>
+            );
+          })}
+        </div>
+        <div className="analytics-grid">
+          <section className="card">
+            <div className="section-heading">
+              <div>
+                <span className="eyebrow">LAST 14 DAYS</span>
+                <h2>Make room for English</h2>
+              </div>
+              <span className="muted">Completed activities</span>
+            </div>
+            <div
+              className="bar-chart"
+              role="img"
+              aria-label={`Activities per day: ${days.map((d, i) => `${d}: ${dailyCounts[i]}`).join(', ')}`}
+            >
+              {days.map((day, i) => (
+                <div key={day} className="bar-column">
+                  <span className="bar-number">{dailyCounts[i] || ''}</span>
+                  <div className="bar-track">
+                    <div
+                      className={`bar ${day === data.day ? 'today' : ''}`}
+                      style={{ height: `${(dailyCounts[i] / max) * 100}%` }}
+                      title={`${dateLabel(day)}: ${dailyCounts[i]} actividades`}
                     />
                   </div>
-                  <span className="tag">
-                    {count} registro{count !== 1 ? 's' : ''}
-                  </span>
+                  <span>{day.slice(8)}</span>
                 </div>
-              );
-            })
-          ) : (
-            <p className="muted">
-              Exercise mistakes and AI suggestions appear here. Naturalness suggestions are not
-              necessarily errors.{' '}
+              ))}
+            </div>
+            <p className="fine-print">
+              Days without records are empty. No simulated data is shown.{' '}
             </p>
+          </section>
+          <section className="card">
+            <span className="eyebrow">TU PRÓXIMO FOCO</span>
+            <h2>Patterns to revisit</h2>
+            {patterns.length ? (
+              patterns.map(([pattern, count]) => {
+                const m = data.mistakes.find((m) => m.pattern === pattern)!;
+                return (
+                  <div className="pattern-row" key={pattern}>
+                    <div>
+                      <Correction
+                        explanation={
+                          m.correction_id ? m.explanation : questionFeedback(m.pattern).explanation
+                        }
+                        correction={m.corrected}
+                      />
+                    </div>
+                    <span className="tag">
+                      {count} registro{count !== 1 ? 's' : ''}
+                    </span>
+                  </div>
+                );
+              })
+            ) : (
+              <p className="muted">
+                Exercise mistakes and AI suggestions appear here. Naturalness suggestions are not
+                necessarily errors.{' '}
+              </p>
+            )}
+          </section>
+        </div>
+        <section className="card correction-history">
+          <div className="section-heading">
+            <h2>Your feedback history</h2>
+            <span className="muted">{data.corrections.length} texts reviewed</span>
+          </div>
+          {data.corrections.length ? (
+            data.corrections.map((c) => (
+              <details key={c.id}>
+                <summary>
+                  {dateLabel(localDay(new Date(c.created_at)))} · {c.original.slice(0, 85)}…
+                </summary>
+                <p>{c.feedback}</p>
+                <p lang="en">
+                  <strong>Original:</strong> {c.original}
+                </p>
+                <blockquote lang="en">{c.revised}</blockquote>
+                {data.mistakes
+                  .filter((m) => m.correction_id === c.id)
+                  .map((m) => (
+                    <p key={m.id}>{m.explanation}</p>
+                  ))}
+                <span className="fine-print">
+                  Feedback generated by {c.model}. It may need review.{' '}
+                </span>
+              </details>
+            ))
+          ) : (
+            <p className="muted">You have not requested AI feedback yet.</p>
           )}
         </section>
-      </div>
-      <section className="card correction-history">
-        <div className="section-heading">
-          <h2>Your feedback history</h2>
-          <span className="muted">{data.corrections.length} texts reviewed</span>
-        </div>
-        {data.corrections.length ? (
-          data.corrections.map((c) => (
-            <details key={c.id}>
-              <summary>
-                {dateLabel(localDay(new Date(c.created_at)))} · {c.original.slice(0, 85)}…
-              </summary>
-              <p>{c.feedback}</p>
-              <p lang="en">
-                <strong>Original:</strong> {c.original}
-              </p>
-              <blockquote lang="en">{c.revised}</blockquote>
-              {data.mistakes
-                .filter((m) => m.correction_id === c.id)
-                .map((m) => (
-                  <p key={m.id}>{m.explanation}</p>
-                ))}
-              <span className="fine-print">
-                Feedback generated by {c.model}. It may need review.{' '}
-              </span>
-            </details>
-          ))
-        ) : (
-          <p className="muted">You have not requested AI feedback yet.</p>
-        )}
-      </section>
+      </details>
     </>
   );
 }
