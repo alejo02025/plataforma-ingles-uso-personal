@@ -1,23 +1,41 @@
 {
-  "checkedAt": "2026-10-14T10:37:03.715547+00:00",
+  "checkedAt": "2026-10-14T21:46:20.670357+00:00",
   "stories": [
     {
-      "id": "38baf772a938d90f",
+      "id": "eabcd42a819b6b05",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Russian strikes leave 600,000 without power in Ukraine, as Starlink restrictions affect front line",
-      "url": "https://www.bbc.co.uk/news/articles/cm2d6e62p49do?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-14T10:04:28+00:00"
+      "title": "Musk says any limits on Ukraine's Starlink access down to US, not his firm",
+      "url": "https://www.bbc.co.uk/news/articles/c8wy9veedgygo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-14T20:55:24+00:00"
     },
     {
-      "id": "4c4f3673e6e39a25",
+      "id": "056f4bacd70046a7",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Pope diagnosed with lung cancer but had successful surgery, Vatican says",
-      "url": "https://www.bbc.co.uk/news/articles/ck1wvd9dvv22o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-14T08:53:40+00:00"
+      "title": "Student protesters attack government buildings in Tirana",
+      "url": "https://www.bbc.co.uk/news/articles/cq80zk5k2ep4o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-14T20:29:05+00:00"
+    },
+    {
+      "id": "9658d95d216c968e",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Pope walking and recovering 'as expected' after surgery, doctors say",
+      "url": "https://www.bbc.co.uk/news/articles/cwx28r0zvm6lo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-14T15:12:46+00:00"
+    },
+    {
+      "id": "96faa508b0e30813",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "US inflation rises more than expected - here's what is happening with prices",
+      "url": "https://www.bbc.co.uk/news/articles/cwy8lx3pg4k2o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-14T15:26:14+00:00"
     },
     {
       "id": "682415106c6cc7b9",
@@ -26,34 +44,25 @@
       "source": "BBC News",
       "title": "Germany puts Ukrainian on trial accused of blowing up Nord Stream pipelines",
       "url": "https://www.bbc.co.uk/news/articles/cw99zpmnxzmjo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-14T09:32:54+00:00"
+      "published": "2026-10-14T13:41:51+00:00"
     },
     {
-      "id": "994246342d5e43ad",
+      "id": "24a07499117480c5",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Saudi employee charged with planting recording device in OpenAI office",
-      "url": "https://www.bbc.co.uk/news/articles/cwg5jq4vlddzo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-13T21:42:49+00:00"
+      "title": "Australia's first-ever Michelin stars go to 11 restaurants in one state",
+      "url": "https://www.bbc.co.uk/news/articles/crje5we583qwo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-14T13:35:29+00:00"
     },
     {
-      "id": "11f619156f457045",
+      "id": "f72fa532500caca1",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Turkish police raid opposition TV station, halting live broadcasts",
-      "url": "https://www.bbc.co.uk/news/articles/crx23y3d970vo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-14T10:07:02+00:00"
-    },
-    {
-      "id": "291095c2d1fdbb68",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "MI5 chief warns of threats to UK from Russia, Iran and AI",
-      "url": "https://www.bbc.co.uk/news/articles/c60rl5vwpk02o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-13T15:52:15+00:00"
+      "title": "Toilet paper and secret recorders: What we know about the arrest of the Saudi OpenAI engineer",
+      "url": "https://www.bbc.co.uk/news/articles/cm04054ykqqqo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-14T15:54:04+00:00"
     },
     {
       "id": "d4f2375d084377be",
@@ -101,67 +110,58 @@
       "published": "2026-10-12T15:03:42+00:00"
     },
     {
-      "id": "1aff4bf29ee2a8bd",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "AI is less regulated than milk, says Microsoft president",
-      "url": "https://www.bbc.co.uk/news/articles/c6rmy7zmvx3lo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-12T07:47:37+00:00"
-    },
-    {
-      "id": "00320830dd5558ba",
+      "id": "1957a03b44623268",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Libertadores: Rádio Nacional transmite Fluminense x Palmeiras",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/libertadores-radio-nacional-transmite-fluminense-x-palmeiras",
-      "published": "2026-10-14T06:45:00-03:00"
+      "title": "Governo da Colômbia assina decreto que criminaliza protestos sociais",
+      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-10/governo-da-colombia-assina-decreto-que-criminaliza-protestos-sociais",
+      "published": "2026-10-14T18:03:00-03:00"
     },
     {
-      "id": "277e0beff141914d",
+      "id": "54258938e4426f1b",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Lula garante versão universitária do “Pé de Meia” caso seja reeleito",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/lula-garante-versao-universitaria-do-pe-de-meia-caso-seja-reeleito",
-      "published": "2026-10-13T22:16:00-03:00"
+      "title": "Entenda o linfoma não Hodgkin, câncer que causou morte de Netinho",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-10/entenda-o-linfoma-nao-hodgkin-cancer-que-causou-morte-de-netinho",
+      "published": "2026-10-14T17:44:00-03:00"
     },
     {
-      "id": "d03d480e378c0573",
+      "id": "3ad0bf3903e90ef6",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Flávio faz visita ao pai em prisão domiciliar e recebe apoios em SP",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/flavio-faz-visita-ao-pai-em-prisao-domiciliar-e-recebe-apoios-em-sp",
-      "published": "2026-10-13T22:15:00-03:00"
+      "title": "Campanha de Lula vai ao TSE após IA da Meta restringir buscas",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/campanha-de-lula-vai-ao-tse-apos-ia-da-meta-restringir-buscas",
+      "published": "2026-10-14T17:05:00-03:00"
     },
     {
-      "id": "29d19e2cb98e81a2",
+      "id": "33c7bb40019c6499",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Perdão de dívidas de MEIs terá impacto fiscal, mas redução de custos",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/perdao-de-dividas-de-meis-tera-impacto-de-r-3-bilhoes",
-      "published": "2026-10-13T22:09:00-03:00"
+      "title": "Corte amplo de gastos públicos afetaria área social, dizem economistas",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/corte-amplo-de-gastos-publicos-afetaria-area-social-dizem-economistas",
+      "published": "2026-10-14T16:20:00-03:00"
     },
     {
-      "id": "da90e877b15b15aa",
+      "id": "4d51909cc1d2741b",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Milhares de estudantes tomam a Esplanada em apoio a Lula",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/milhares-de-estudantes-tomam-esplanada-em-apoio-lula",
-      "published": "2026-10-13T21:50:00-03:00"
+      "title": "Confiança da indústria sobe em outubro, mas setor segue pessimista",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/confianca-da-industria-sobe-em-outubro-mas-setor-segue-pessimista",
+      "published": "2026-10-14T15:59:00-03:00"
     },
     {
-      "id": "72414084622b063b",
+      "id": "9f83f063b19f7525",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "TSE mantém veto a posts que ligam Lula e Flávio ao crime organizado",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/tse-mantem-veto-posts-que-ligam-lula-e-flavio-ao-crime-organizado",
-      "published": "2026-10-13T21:43:00-03:00"
+      "title": "Governo federal regulamenta Marco Legal dos Jogos Eletrônicos",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/governo-federal-regulamenta-marco-legal-dos-jogos-eletronicos",
+      "published": "2026-10-14T15:32:00-03:00"
     }
   ],
   "unavailable": []
