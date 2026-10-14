@@ -1,3 +1,10 @@
+import { everydayLessons } from '@/locales/learning/everyday-lessons';
+import { advancedLessons } from '@/locales/learning/advanced-lessons';
+import { verbLessons } from '@/locales/learning/verb-lessons';
+import {
+  englishFoundationLessons,
+  portugueseFoundationLessons,
+} from '@/locales/learning/foundation-lessons';
 import type { Lesson } from '@/lib/lessons';
 // Original micro-lessons. Level labels indicate study focus, not a complete CEFR syllabus.
 export const englishClasses: Lesson[] = [
@@ -654,3 +661,15 @@ export const portugueseClasses: Lesson[] = [
     ],
   },
 ];
+
+englishClasses.push(...englishFoundationLessons);
+portugueseClasses.push(...portugueseFoundationLessons);
+
+englishClasses.push(...verbLessons(false));
+portugueseClasses.push(...verbLessons(true));
+
+englishClasses.push(...advancedLessons(false));
+portugueseClasses.push(...advancedLessons(true));
+
+englishClasses.push(...everydayLessons(false));
+portugueseClasses.push(...everydayLessons(true));

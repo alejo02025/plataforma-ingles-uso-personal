@@ -1,3 +1,4 @@
+import { studyLevel, courseEvidence, preserveCourseProgress } from './course-store';
 import { isPortuguese } from './workspace';
 import { cefrCourse } from './cefr-curriculum';
 import { answerWhy } from '@/locales/es/answer-help';
@@ -160,17 +161,8 @@ export function createLearningService({
         db().prepare('SELECT count(*) AS n FROM vocabulary WHERE due_at<=?').get(now())!.n,
       );
       const interests = JSON.parse(profile.interests as string) as string[];
-      const targetLevel = isPortuguese
-        ? (db().prepare("SELECT level FROM cefr_state WHERE id='route'").get()?.level as string) ||
-          'A1'
-        : db()
-            .prepare('SELECT level FROM evaluations WHERE skill=? ORDER BY created_at DESC LIMIT 1')
-            .get('reading')
-            ?.level?.toString()
-            .slice(0, 2) || 'A2';
-      const candidates = isPortuguese
-        ? documents().filter((doc) => doc.level === targetLevel)
-        : documents();
+      const targetLevel = studyLevel(db());
+      const candidates = documents().filter((doc) => doc.level === targetLevel);
       const read = (candidates.length ? candidates : documents()).sort((a, b) => {
         const count = (d: Document) =>
           Number(
@@ -204,9 +196,7 @@ export function createLearningService({
           "SELECT pattern,count(*) AS n FROM mistakes WHERE category='grammar' GROUP BY pattern ORDER BY n DESC",
         )
         .all();
-      const atLevel = isPortuguese
-        ? grammarQuestions.filter((q) => q.band === targetLevel)
-        : grammarQuestions;
+      const atLevel = grammarQuestions.filter((q) => q.band === targetLevel);
       const questionSet = [...atLevel]
         .sort((a, b) => {
           const n = (q: Question) => Number(recurring.find((m) => m.pattern === q.id)?.n || 0);
@@ -315,9 +305,7 @@ export function createLearningService({
       plan = { id, day, minutes, reason };
     }
     if (isPortuguese) {
-      const level = String(
-        db().prepare("SELECT level FROM cefr_state WHERE id='route'").get()?.level || 'A1',
-      );
+      const level = studyLevel(db());
       const unit = cefrCourse.find((item) => item.level === level)!;
       const pending = db()
         .prepare(
@@ -574,6 +562,7 @@ export function createLearningService({
       .run(id, paragraph, JSON.stringify(draft), now());
   }
   function snapshot(): Snapshot {
+    preserveCourseProgress(db());
     const profile = db().prepare('SELECT * FROM profile WHERE id=1').get()!;
     const resume = db()
       .prepare(
@@ -590,6 +579,8 @@ export function createLearningService({
       resumeActivity = { ...resume, payload } as Activity;
     }
     return {
+      backlog: courseEvidence(db()).backlog,
+      courseCheckpoints: courseEvidence(db()).courseCheckpoints,
       profile: {
         ...profile,
         interests: JSON.parse(profile.interests as string),
@@ -625,9 +616,7 @@ export function createLearningService({
         .all() as Snapshot['reviews'],
       cefr: isPortuguese
         ? {
-            level: String(
-              db().prepare("SELECT level FROM cefr_state WHERE id='route'").get()!.level,
-            ),
+            level: studyLevel(db()),
             attempts: db()
               .prepare('SELECT * FROM cefr_attempts ORDER BY created_at,id')
               .all() as NonNullable<Snapshot['cefr']>['attempts'],

@@ -1,123 +1,172 @@
 import { test, expect } from '@playwright/test';
+import { englishClasses, portugueseClasses } from '../../src/locales/lessons/catalog';
+import { glossary as enWords, readings as enReadings } from '../../src/lib/content';
+import { glossary as ptWords, readings as ptReadings } from '../../src/locales/pt-BR/content';
+import { englishCourseReadings } from '../../src/locales/learning/course-readings';
+import { cefrReadings } from '../../src/lib/cefr-curriculum';
 for (const pt of [false, true])
-  test(`Classes teach with Spanish explanations, save real practice, retain drafts and adapt to phone screens (${pt ? 'Portuguese' : 'English'})`, async ({
+  test(`Connected course starts at ${pt ? 'A1' : 'A2'}, retains attempts and requires cross-section evidence (${pt ? 'PT' : 'EN'})`, async ({
     page,
   }) => {
+    test.setTimeout(60000);
     const errors: string[] = [];
     page.on('pageerror', (e) => errors.push(e.message));
-    await page.setViewportSize({ width: 1440, height: 1000 });
+    const catalog = pt ? portugueseClasses : englishClasses,
+      level = pt ? 'A1' : 'A2',
+      items = catalog.filter((l) => l.level === level);
     await page.goto(pt ? './portugues/' : './');
     await page
       .getByRole('dialog', { name: pt ? 'Palavra do dia' : 'Word of the Day' })
       .getByRole('button', { name: pt ? 'Fechar palavra do dia' : 'Close daily word' })
       .click();
-    const open = async () => {
+    const classes = async () => {
       await page
-        .getByRole('button', { name: pt ? 'Abrir aulas' : 'Open classes', exact: true })
+        .getByRole('navigation', { name: pt ? 'Navegação principal' : 'Main navigation' })
+        .getByRole('button', { name: pt ? 'Aulas' : 'Classes', exact: true })
         .click();
-      await expect(page.locator('.class-levels [aria-pressed="true"]')).toHaveText(
-        pt ? 'A1' : 'A2',
-      );
-      await page
-        .locator('.class-levels')
-        .getByRole('button', { name: pt ? 'Todos os níveis' : 'All levels', exact: true })
-        .click();
-      await expect(page.locator('.class-card')).toHaveCount(10);
-      await page.locator('.class-levels').getByRole('button', { name: 'A1', exact: true }).click();
-      await page.locator('.class-card').first().click();
     };
-    await open();
-    await expect(page.locator('.lesson-step > p[lang="es"]').first()).toContainText(
-      'Para presentarte',
-    );
-    await expect(page.locator('.lesson-pattern')).toHaveAttribute('lang', pt ? 'pt-BR' : 'en');
-    await page.evaluate(() => {
-      window.speechSynthesis.speak = (utterance) => {
-        (window as unknown as { spoken: string }).spoken = utterance.lang;
-      };
-    });
-    await page.locator('.lesson-example button').first().click();
-    expect(await page.evaluate(() => (window as unknown as { spoken: string }).spoken)).toBe(
-      pt ? 'pt-BR' : 'en-US',
-    );
-    await page.locator('.lesson-tip summary').click();
-    await expect(page.locator('.lesson-tip [lang="es"]')).toBeVisible();
-    await page.locator('.lesson-check').first().getByRole('radio').first().check();
-    await page.locator('.lesson-check').last().getByRole('radio').nth(2).check();
+    await classes();
+    await expect(page.locator('.class-levels [aria-pressed="true"]')).toContainText(level);
+    await page.locator('.class-levels').getByRole('button', { name: 'C2', exact: false }).click();
+    await page.locator('.class-card').first().click();
+    await expect(page.locator('.course-locked')).toContainText('nivel activo');
+    await expect(page.locator('.lesson-room')).toHaveCount(0);
+    await page
+      .getByRole('button', { name: pt ? 'Voltar às aulas' : 'Back to classes', exact: true })
+      .click();
+    await page.locator('.class-levels').getByRole('button', { name: level, exact: true }).click();
+    await page.locator('.class-card').nth(1).click();
+    await expect(page.locator('.course-locked')).toContainText('Primero completá');
+    await page
+      .getByRole('button', { name: pt ? 'Voltar às aulas' : 'Back to classes', exact: true })
+      .click();
     const practice = pt
-      ? 'Meu nome é Jazmín. Eu sou argentina e moro em Buenos Aires.'
-      : 'I’m Alejo. I’m from Argentina and I study English.';
-    await page.getByLabel(pt ? 'Sua prática da aula' : 'Your class practice').fill(practice);
-    await page.reload();
-    await open();
-    await expect(page.locator('.lesson-check').first().getByRole('radio').first()).toBeChecked();
-    await expect(page.getByLabel(pt ? 'Sua prática da aula' : 'Your class practice')).toHaveValue(
-      practice,
-    );
-    await page
-      .getByRole('button', {
-        name: pt ? 'Conferir e salvar minha aula' : 'Check and save my class',
-        exact: true,
-      })
-      .click();
-    await expect(page.locator('.lesson-saved > p')).toContainText('1 / 2');
-    await expect(page.locator('.lesson-check').first().locator('[lang="es"]')).toContainText(
-      pt ? 'Con “eu”' : 'El sujeto es “I”',
-    );
-    await expect(
-      page.locator('.lesson-check').first().locator('.answer-correction-model'),
-    ).toHaveText(pt ? 'Correção: Eu sou argentina.' : 'Correction: I am from Argentina.');
-    await page.screenshot({ path: `/tmp/classes-${pt ? 'pt' : 'en'}-desktop.png`, fullPage: true });
-    await page.reload();
-    await open();
-    await expect(page.locator('.lesson-saved > p')).toContainText('1 / 2');
-    await expect(page.getByLabel(pt ? 'Sua prática da aula' : 'Your class practice')).toHaveValue(
-      practice,
-    );
-    await page
-      .getByRole('button', { name: pt ? 'Praticar novamente' : 'Try again later', exact: true })
-      .click();
-    await page.locator('.lesson-check').first().getByRole('radio').nth(1).check();
-    await page.locator('.lesson-check').last().getByRole('radio').nth(2).check();
-    await page
-      .getByRole('button', {
-        name: pt ? 'Conferir e salvar minha aula' : 'Check and save my class',
-        exact: true,
-      })
-      .click();
-    await expect(page.locator('.lesson-saved > p')).toContainText('2 / 2');
-    await expect(page.locator('.lesson-saved > p')).toContainText(
-      pt ? 'Prática da aula salva' : 'Class practice saved',
+      ? 'Eu estudo português e quero falar sobre minha rotina.'
+      : 'I study English and want to talk about my daily routine.';
+    for (let i = 0; i < 4; i++) {
+      await page.locator('.class-card').nth(i).click();
+      await expect(page.locator('.lesson-step > p[lang="es"]').first()).toBeVisible();
+      for (const [j, q] of items[i].checks.entries())
+        await page.locator('.lesson-check').nth(j).getByRole('radio').nth(q.answer).check();
+      await page.getByLabel(pt ? 'Sua prática da aula' : 'Your class practice').fill(practice);
+      if (i === 0) {
+        await page.reload();
+        await classes();
+        await page.locator('.class-card').first().click();
+        await expect(
+          page.getByLabel(pt ? 'Sua prática da aula' : 'Your class practice'),
+        ).toHaveValue(practice);
+      }
+      await page
+        .getByRole('button', {
+          name: pt ? 'Conferir e salvar minha aula' : 'Check and save my class',
+          exact: true,
+        })
+        .click();
+      await expect(page.locator('.lesson-saved > p')).toContainText('2 / 2');
+      await page
+        .getByRole('button', { name: pt ? 'Voltar às aulas' : 'Back to classes', exact: true })
+        .click();
+    }
+    await page.locator('.class-card').nth(4).click();
+    await expect(page.locator('.course-locked')).toContainText('lectura de tu nivel');
+    await expect(page.locator('.course-locked [data-requirement="reading"]')).not.toHaveClass(
+      /done/,
     );
     await page
       .getByRole('button', { name: pt ? 'Voltar às aulas' : 'Back to classes', exact: true })
       .click();
-    await expect(page.locator('.classes-count strong')).toHaveText('1 / 10');
-    await expect(page.locator('.class-card').first()).toContainText('2 / 2');
-    await page.locator('.class-method summary').click();
-    await expect(page.locator('.class-method a')).toHaveCount(3);
+    await page.locator('.course-connected [data-requirement="writing"] button').click();
+    await page
+      .getByLabel(pt ? 'Sua resposta em português' : 'Your answer in English')
+      .fill(practice);
+    await page
+      .getByRole('button', { name: pt ? 'Salvar e concluir' : 'Save and complete', exact: true })
+      .click();
+    await classes();
+    await expect(page.locator('.course-connected [data-requirement="writing"]')).toHaveClass(
+      /done/,
+    );
+    await page.locator('.course-connected [data-requirement="speaking"] button').click();
+    await page.getByLabel(pt ? 'Minha prática de fala' : 'My speaking practice').fill(practice);
+    await page
+      .getByRole('button', {
+        name: pt ? 'Salvar minha prática de fala' : 'Save my speaking practice',
+        exact: true,
+      })
+      .click();
+    await classes();
+    await expect(page.locator('.course-connected [data-requirement="speaking"]')).toHaveClass(
+      /done/,
+    );
+    await page.locator('.course-connected [data-requirement="reading"] button').click();
+    const title = await page.locator('.document-card h2').first().innerText();
+    const reading = [
+      ...(pt ? ptReadings : enReadings),
+      ...(pt ? cefrReadings : englishCourseReadings),
+    ].find((d) => d.title === title)!;
+    await page.locator('.document-card').first().click();
+    for (const q of reading.questions)
+      await page.getByLabel(q.options[q.answer], { exact: true }).check();
+    await page
+      .getByRole('button', { name: pt ? 'Concluir leitura' : 'Complete reading', exact: true })
+      .click();
+    await classes();
+    await expect(page.locator('.course-connected [data-requirement="reading"]')).toHaveClass(
+      /done/,
+    );
+    await page
+      .locator('.course-connected')
+      .getByRole('button', { name: pt ? 'Jogos' : 'Games', exact: true })
+      .click();
+    await page.locator('.game-match').click();
+    const dictionary = pt ? ptWords : enWords;
+    for (let i = 0; i < 4; i++) {
+      const meaning = await page.locator('.game-clue').innerText(),
+        word = Object.entries(dictionary).find(([, v]) => v.meaning === meaning)![0];
+      await page.locator('.game-choices').getByRole('button', { name: word, exact: true }).click();
+      await page
+        .getByRole('button', { name: pt ? 'Verificar resposta' : 'Check answer', exact: true })
+        .click();
+      await page
+        .getByRole('button', {
+          name:
+            i === 3
+              ? pt
+                ? 'Ver meu resultado'
+                : 'See my result'
+              : pt
+                ? 'Próxima rodada'
+                : 'Next round',
+          exact: true,
+        })
+        .click();
+    }
+    await expect(page.locator('.game-score')).toContainText('4 / 4');
+    await page
+      .getByRole('button', {
+        name: pt ? 'Salvar resultado do jogo' : 'Save game result',
+        exact: true,
+      })
+      .click();
+    await expect(
+      page.getByRole('button', {
+        name: pt ? 'Salvo no seu progresso' : 'Saved to your progress',
+        exact: true,
+      }),
+    ).toBeDisabled();
+    await classes();
+    await expect(page.locator('.class-card').nth(4)).not.toHaveClass(/is-locked/);
+    await page.locator('.class-card').nth(4).click();
+    await expect(page.locator('.lesson-room')).toBeVisible();
+    await page.reload();
+    await classes();
+    await page.locator('.class-card').nth(4).click();
+    await expect(page.locator('.lesson-room')).toBeVisible();
     await page.setViewportSize({ width: 390, height: 844 });
-    await page.locator('.class-card').first().click();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
       true,
     );
-    await expect
-      .poll(() => page.locator('.sidebar').evaluate((e) => e.getBoundingClientRect().right))
-      .toBeLessThanOrEqual(1);
-    await page.evaluate(() => window.scrollTo(0, 0));
-    await page.screenshot({ path: `/tmp/classes-${pt ? 'pt' : 'en'}-mobile.png` });
-    await page
-      .getByRole('navigation', { name: pt ? 'Navegação rápida' : 'Quick navigation' })
-      .getByRole('button', { name: pt ? 'Progresso' : 'Progress', exact: true })
-      .click();
-    const entries = page
-      .locator('.momentum-entry')
-      .filter({ hasText: pt ? 'Meu nome, minha história' : 'A little about me' });
-    await expect(entries).toHaveCount(2);
-    await entries.first().locator('summary').click();
-    await expect(entries.first().locator('blockquote')).toHaveText(practice);
-    await expect(entries.first().locator('[lang="es"]')).toContainText(
-      pt ? 'Con “eu”' : 'El sujeto es “I”',
-    );
+    await page.screenshot({ path: `/tmp/connected-${pt ? 'pt' : 'en'}.png`, fullPage: true });
     expect(errors).toEqual([]);
   });

@@ -107,8 +107,10 @@ export function answerWhy(id: string) {
   );
 }
 export function matchWhy(word: string, selected: string) {
+  const detail = `La definición corresponde a «${word}»: ${dailyWordSpanish[word.toLowerCase()] || 'revisá su significado en el ejemplo'}.`;
+  if (selected === word) return detail;
   return (
-    `La definición corresponde a «${word}»: ${dailyWordSpanish[word.toLowerCase()] || 'revisá su significado en el ejemplo'}.` +
+    detail +
     (dailyWordSpanish[selected.toLowerCase()]
       ? ` En cambio, «${selected}» significa: ${dailyWordSpanish[selected.toLowerCase()]}`
       : ' La otra palabra no corresponde a esa definición.')
@@ -135,3 +137,12 @@ export function trailWhy(marks: string[]) {
     absent = marks.filter((x) => x === 'absent').length;
   return `Todavía no es la palabra: ${exact} letra(s) están en el lugar correcto y ${moved} deben cambiar de posición. ${absent} letra(s) no aparecen o ya se usaron todas sus repeticiones disponibles. Conservá las verdes y reubicá las doradas; mientras queden intentos, la solución permanece oculta.`;
 }
+
+export function pdfAnswerWhy(kind: string, correct: boolean) {
+  if (!correct) return pdfWhy(kind);
+  return kind === 'word'
+    ? 'Encontraste la palabra exacta que completa el fragmento original. Compará la oración completa para entender su uso.'
+    : 'La frase elegida aparece en el párrafo indicado y coincide con el detalle que pide la consigna.';
+}
+export const openAnswerNote =
+  'Tu respuesta queda registrada sin nota automática. Comparala con el fragmento de referencia; una formulación distinta también puede ser válida.';

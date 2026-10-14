@@ -19,26 +19,33 @@ test('Every CEFR stage contains progressively different Portuguese reading, gram
   }
   assert.ok(cefrCourse[5].text.length > cefrCourse[0].text.length);
 });
-test('A1 advancement requires correct checks and saved open practices without creating a CEFR certification', () => {
+test('Legacy starter tasks cannot bypass the connected course or unlock a future level', () => {
   const db = new DatabaseSync(':memory:');
   try {
     initialize(db);
     db.prepare('INSERT INTO cefr_state VALUES(?,?,?)').run('route', 'A1', new Date().toISOString());
-    assert.throws(() => cefrMutation(db, 'cefr/advance', {}), /Conclua/);
-    const answer = (task: string, text: string) =>
-      cefrMutation(db, 'cefr/answer', { id: randomUUID(), level: 'A1', task, answer: text });
-    answer('reading', '1');
-    answer('grammar', '0');
-    answer('writing', 'Meu nome é Jazmín. Eu moro na Argentina.');
-    answer('speaking', 'Pratiquei meu nome e minha cidade em voz alta.');
-    assert.throws(() => cefrMutation(db, 'cefr/advance', {}), /Conclua/);
-    answer('reading', '0');
-    assert.deepEqual(cefrMutation(db, 'cefr/advance', {}), { level: 'A2' });
-    assert.equal(db.prepare('SELECT count(*) AS n FROM evaluations').get()!.n, 0);
-    assert.equal(
-      db.prepare('SELECT correct FROM cefr_attempts WHERE task=?').get('speaking')!.correct,
-      null,
+    for (const task of cefrCourse[0].tasks)
+      db.prepare('INSERT INTO cefr_attempts VALUES(?,?,?,?,?,?)').run(
+        randomUUID(),
+        'A1',
+        task.id,
+        task.options ? '0' : 'Minha prática anterior continua guardada.',
+        task.options ? 1 : null,
+        new Date().toISOString(),
+      );
+    assert.throws(() => cefrMutation(db, 'cefr/advance', {}), /cuatro prácticas no bastan/);
+    assert.throws(
+      () =>
+        cefrMutation(db, 'cefr/answer', {
+          id: randomUUID(),
+          level: 'C2',
+          task: 'reading',
+          answer: '0',
+        }),
+      /bloqueado/,
     );
+    assert.equal(db.prepare('SELECT count(*) AS n FROM cefr_attempts').get()!.n, 4);
+    assert.equal(db.prepare('SELECT count(*) AS n FROM evaluations').get()!.n, 0);
   } finally {
     db.close();
   }

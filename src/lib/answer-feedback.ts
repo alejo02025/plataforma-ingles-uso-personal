@@ -1,3 +1,4 @@
+import { englishCourseReadings } from '@/locales/learning/course-readings';
 import { lessons } from './lessons';
 import { diagnosticQuestions, grammarQuestions, readings } from './content';
 import { cefrCourse } from './cefr-curriculum';
@@ -11,6 +12,7 @@ export function questionFeedback(id: string) {
     ...diagnosticQuestions,
     ...grammarQuestions,
     ...readings.flatMap((doc) => doc.questions),
+    ...englishCourseReadings.flatMap((doc) => doc.questions),
   ].find((q) => q.id === id);
   const task = cefrCourse
     .flatMap((unit) =>
@@ -20,7 +22,9 @@ export function questionFeedback(id: string) {
     )
     .find((t) => t.id === id)?.task;
   return {
-    explanation: answerWhy(id),
+    explanation: id.startsWith('course-reading:')
+      ? question?.explanation || answerWhy(id)
+      : answerWhy(id),
     correction: question ? question.options[question.answer] : task?.options?.[task.answer!] || '',
   };
 }

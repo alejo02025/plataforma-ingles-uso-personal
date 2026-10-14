@@ -22,6 +22,7 @@ export const tables = [
   'tutor_attempts',
   'cefr_state',
   'cefr_attempts',
+  'course_checkpoints',
 ] as const;
 export type Row = Record<string, string | number | null>;
 export type Manifest = {
@@ -57,6 +58,7 @@ export function validate(value: unknown): Manifest {
     'tutor_attempts',
     'cefr_state',
     'cefr_attempts',
+    'course_checkpoints',
   ])
     if (manifest.data[table] === undefined) manifest.data[table] = [];
   if (

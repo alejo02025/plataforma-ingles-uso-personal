@@ -49,16 +49,16 @@ test('diagnóstico retomable, lectura, vocabulario, PDF, calendario y tema persi
   await expect(page.getByText('Your starting point is saved.')).toBeVisible();
   await page.getByRole('button', { name: 'Go to my journey' }).click();
   await page.getByRole('navigation').getByRole('button', { name: 'Library' }).click();
-  await page.getByRole('button', { name: /The city you discover on foot/ }).click();
+  await page.locator('.document-card').filter({hasText:'The city you discover on foot'}).click();
   await expect(page.getByRole('heading', { name: 'The city you discover on foot' })).toBeVisible();
   await page.getByRole('button', { name: 'narrow,', exact: true }).click();
-  await page.getByRole('button', { name: 'Save word', exact: true }).click();
-  await expect(page.getByRole('button', { name: 'In your vocabulary' })).toBeVisible();
+  await page.getByRole('button', { name: 'Save to vocabulary', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Saved to vocabulary' })).toBeVisible();
   await page.getByRole('button', { name: 'Next', exact: true }).click();
   await page.reload();
   // La navegación vuelve al inicio; abrir otra vez conserva el fragmento y la sesión.
   await page.getByRole('navigation').getByRole('button', { name: 'Library' }).click();
-  await page.getByRole('button', { name: /The city you discover on foot/ }).click();
+  await page.locator('.document-card').filter({hasText:'The city you discover on foot'}).click();
   await expect(page.getByText('SECTION 2 OF 3')).toBeVisible();
   await page.getByText('A map from the bookshop owner', { exact: true }).click();
   await page.getByText('Slow exploration can be valuable', { exact: true }).click();
@@ -70,7 +70,7 @@ test('diagnóstico retomable, lectura, vocabulario, PDF, calendario y tema persi
     .click();
   await page.getByRole('button', { name: 'Show meaning' }).click();
   await expect(
-    page.getByText('Not wide; with little space from side to side.', { exact: true }).first(),
+    page.getByText(/Estrecho|estrecho/, { exact: false }).first(),
   ).toBeVisible();
   await page.getByRole('button', { name: 'I remembered it' }).click();
   await expect(page.getByText('You’re up to date.', { exact: true })).toBeVisible();

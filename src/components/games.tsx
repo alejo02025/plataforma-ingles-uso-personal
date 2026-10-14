@@ -1,4 +1,5 @@
 'use client';
+import { courseRoute } from '@/lib/course-route';
 import { useEffect, useRef, useState } from 'react';
 import {
   ArrowLeft,
@@ -47,7 +48,7 @@ export function Games({ data, refresh }: { data: Snapshot; refresh: () => Promis
       ? `${data.day}:${mode}:${id}`
       : `${data.day}:${mode}`;
     try {
-      setGame({ id, seed, puzzle: makePuzzle(mode, seed, data.cefr?.level) });
+      setGame({ id, seed, puzzle: makePuzzle(mode, seed, courseRoute(data).level) });
     } catch (e) {
       setError((e as Error).message);
     }
@@ -163,6 +164,11 @@ function GameSession({
   const [busy, setBusy] = useState(false),
     [saved, setSaved] = useState(false),
     [error, setError] = useState('');
+  useEffect(() => {
+    const lookedUp = () => setHelpUsed(true);
+    window.addEventListener('study-word-looked-up', lookedUp);
+    return () => window.removeEventListener('study-word-looked-up', lookedUp);
+  }, []);
   const seconds = useRef(0),
     saving = useRef(false);
   useEffect(() => {

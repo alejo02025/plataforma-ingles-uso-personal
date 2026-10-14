@@ -1,3 +1,4 @@
+import { writeOfflineWorker } from './offline-worker.mjs';
 import { cp, mkdir, writeFile, rm, symlink } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
@@ -54,4 +55,5 @@ for (const language of ['en', 'pt']) {
   await cp(path.join(target, 'out'), destination, { recursive: true });
 }
 await writeFile('out/.nojekyll', '');
+await writeOfflineWorker(build, siteRoot);
 console.log('English OS y Português OS: exportaciones listas en out/.');

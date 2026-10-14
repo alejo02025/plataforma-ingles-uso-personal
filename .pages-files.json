@@ -12,5 +12,6 @@
   "index.txt",
   "local-ai",
   "manifest.webmanifest",
-  "portugues"
+  "portugues",
+  "sw.js"
 ]

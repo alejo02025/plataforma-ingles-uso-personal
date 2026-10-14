@@ -1,4 +1,5 @@
 'use client';
+import { courseRoute } from '@/lib/course-route';
 import { useEffect, useRef, useState } from 'react';
 import { Mic, MicOff, Volume2, Send, Headphones, Square, MessageCircle } from 'lucide-react';
 import { voiceDocumentId, voiceTopics } from '@/lib/voice';
@@ -14,6 +15,8 @@ import {
   type LocalStatus,
 } from '@/lib/browser/local-ai';
 export function VoiceRoom({ data, refresh }: { data: Snapshot; refresh: () => Promise<void> }) {
+  const [practiceNote, setPracticeNote] = useState(''),
+    [practiceSaved, setPracticeSaved] = useState(false);
   const [draft, setDraft] = useState(''),
     [topic, setTopic] = useState<string>('daily'),
     [error, setError] = useState(''),
@@ -34,7 +37,7 @@ export function VoiceRoom({ data, refresh }: { data: Snapshot; refresh: () => Pr
   const messages = data.tutorMessages.filter((item) => item.document_id === voiceDocumentId);
   const baseTopic = voiceTopics.find((item) => item.id === topic)!;
   const selected =
-    isPortuguese && data.cefr?.level === 'A1' && topic === 'daily'
+    isPortuguese && courseRoute(data).level === 'A1' && topic === 'daily'
       ? {
           ...baseTopic,
           prompt: 'Como você se chama? Onde você mora?',
@@ -43,6 +46,7 @@ export function VoiceRoom({ data, refresh }: { data: Snapshot; refresh: () => Pr
       : baseTopic;
   useEffect(() => {
     alive.current = true;
+    setPracticeNote(studyStorage.getItem('speaking-practice-draft') || '');
     setSupported(Boolean(recognitionConstructor()));
     setStatus(localStatus());
     setAllowBrowser(studyStorage.getItem('voice-room-browser-speech') === 'yes');
@@ -175,7 +179,12 @@ export function VoiceRoom({ data, refresh }: { data: Snapshot; refresh: () => Pr
       edit('');
       await refresh();
       if (!alive.current) return;
-      const reply = await oralReply(text, data.tutorMessages, selected.title, data.cefr?.level);
+      const reply = await oralReply(
+        text,
+        data.tutorMessages,
+        selected.title,
+        courseRoute(data).level,
+      );
       if (!alive.current) return;
       await api('voice/message', {
         id: crypto.randomUUID(),
@@ -199,6 +208,52 @@ export function VoiceRoom({ data, refresh }: { data: Snapshot; refresh: () => Pr
         title="Let’s talk."
         description="Speak, check your words, and hear your AI tutor reply."
       />
+      <section className="card speaking-practice-note">
+        <span className="eyebrow">USE WHAT YOU LEARNED</span>
+        <h2>Speaking practice · {courseRoute(data).level}</h2>
+        <p lang="es">
+          Decí en voz alta dos oraciones usando una idea de tus clases. Escribí abajo lo que dijiste
+          o intentaste decir y guardalo. También podés enviar tu intervención al tutor más abajo.
+          Este registro es una declaración de práctica, no una evaluación automática de
+          pronunciación.
+        </p>
+        <label className="field">
+          My speaking practice
+          <textarea
+            aria-label="My speaking practice"
+            maxLength={2000}
+            value={practiceNote}
+            onChange={(e) => {
+              setPracticeNote(e.target.value);
+              setPracticeSaved(false);
+              studyStorage.setItem('speaking-practice-draft', e.target.value);
+            }}
+          />
+        </label>
+        <Button
+          disabled={practiceNote.trim().length < 20 || busy}
+          onClick={async () => {
+            setBusy(true);
+            try {
+              await api('voice/message', {
+                id: crypto.randomUUID(),
+                role: 'user',
+                content: practiceNote,
+                mode: 'user',
+              });
+              await refresh();
+              setPracticeSaved(true);
+            } catch (error) {
+              setError((error as Error).message);
+            } finally {
+              setBusy(false);
+            }
+          }}
+        >
+          Save my speaking practice
+        </Button>
+        {practiceSaved && <p role="status">Speaking practice saved</p>}
+      </section>
       <section className="card voice-room">
         <div className="voice-teacher">
           <span className="voice-avatar" aria-hidden="true">

@@ -61,7 +61,7 @@ test('PDF tabs preserve each document, reading position, answers and chat drafts
   await firstQuestion.locator('input[type=radio]').first().check();
   await firstQuestion.getByRole('button', { name: 'Check and save' }).click();
   await expect(firstQuestion.getByRole('status')).toBeVisible();
-  const feedback = await firstQuestion.getByRole('status').innerText();
+  const feedback = (await firstQuestion.getByRole('status').textContent())!;
   await page
     .locator('.studio-question textarea')
     .fill('Passengers use a timetable to plan their railway journey.');

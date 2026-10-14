@@ -1,3 +1,4 @@
+import { courseWriting } from '@/lib/course-store';
 import { saveLesson } from '@/lib/lesson-store';
 import { voiceMutation } from '@/lib/voice-store';
 import { workspaceId } from '@/lib/workspace';
@@ -128,6 +129,11 @@ export async function POST(request: NextRequest) {
       throw new AppError('Invalid JSON.');
     }
     if (endpoint === 'voice/message') return json(voiceMutation(db(), input));
+    if (endpoint === 'course/writing') {
+      dailyPlan();
+      const plan = db().prepare('SELECT id FROM plans WHERE day=?').get(snapshot().day)!;
+      return json(transaction(() => courseWriting(db(), plan.id as string)));
+    }
     if (endpoint === 'classes/result') {
       dailyPlan();
       const plan = db().prepare('SELECT id FROM plans WHERE day=?').get(snapshot().day)!;

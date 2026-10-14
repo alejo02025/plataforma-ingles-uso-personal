@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/freedict/fd-dictionaries",
+  "commit": "5bdceeac8d0dba3298c1bebe734f60d54dad30f7",
+  "sha256": {
+    "spa-eng.tei": "d1a48cd5b1fb5111d36243a9ee4a226d2e29b70f0f8a8262b9f334b2b8f6c47c",
+    "spa-eng-COPYING": "91df39d1816bfb17a4dda2d3d2c83b1f6f2d38d53e53e41e8f97ad5ac46a0cad",
+    "spa-por.tei": "f3775004c51be8206ff593bd5765821ae05def0696e4e529a40d75a41a94f7cc",
+    "spa-por-COPYING": "91df39d1816bfb17a4dda2d3d2c83b1f6f2d38d53e53e41e8f97ad5ac46a0cad",
+    "por-eng.tei": "e09878652f2a33e4364c14d68176496089c73943fb5252d882f701c79c7fcbc2",
+    "por-eng-COPYING": "91df39d1816bfb17a4dda2d3d2c83b1f6f2d38d53e53e41e8f97ad5ac46a0cad"
+  }
+}

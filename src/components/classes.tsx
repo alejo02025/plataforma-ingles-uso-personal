@@ -1,12 +1,32 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, BookOpen, Check, Clock3, Lightbulb, RotateCcw } from 'lucide-react';
+import {
+  ArrowLeft,
+  ArrowRight,
+  BookOpen,
+  Check,
+  Clock3,
+  Lightbulb,
+  RotateCcw,
+  LockKeyhole,
+} from 'lucide-react';
 import { lessons, classRevision, type Lesson } from '@/lib/lessons';
 import { cefrLevels } from '@/lib/cefr-curriculum';
 import { isPortuguese, studyStorage } from '@/lib/workspace';
 import type { Snapshot, Result } from '@/lib/types';
 import { Heading, Button, Speak, api } from './ui';
 import { Correction } from './correction';
+import { Foundations } from './foundations';
+import {
+  courseRoute,
+  lessonRequirements,
+  levelLessons,
+  integration,
+  blockSize,
+  passedLesson,
+  type Requirement,
+} from '@/lib/course-route';
+import type { Activity } from '@/lib/types';
 type Review = {
   correct: number;
   total: number;
@@ -30,21 +50,87 @@ export function Classes({
   data,
   refresh,
   navigate,
+  onStart,
 }: {
   data: Snapshot;
   refresh: () => Promise<void>;
   navigate: (view: string) => void;
+  onStart: (activity: Activity) => void;
 }) {
-  const suggested = isPortuguese
-    ? data.cefr?.level || 'A1'
-    : data.evaluations.find((e) => e.skill === 'grammar')?.level?.match(/A1|A2|B1|B2|C1|C2/)?.[0] ||
-      'A2';
+  const route = courseRoute(data),
+    suggested = route.level;
   const [level, setLevel] = useState(suggested),
-    [selected, setSelected] = useState('');
+    [selected, setSelected] = useState(''),
+    [section, setSection] = useState<'classes' | 'verbs' | 'sentences'>('classes');
+  useEffect(() => {
+    setLevel(suggested);
+    setSelected('');
+  }, [suggested]);
   const history = data.results.filter((r) => attempt(r));
   const practised = new Set(history.map((r) => attempt(r)!.lessonId));
   const lesson = lessons.find((item) => item.id === selected);
-  const filtered = lessons.filter((item) => level === 'All levels' || item.level === level);
+  const blocked = lesson ? lessonRequirements(data, lesson).filter((r) => !r.done) : [];
+  const activeLessons = levelLessons(route.level);
+  const blocks = Array.from({ length: Math.ceil(activeLessons.length / blockSize) }, (_, index) =>
+    activeLessons.slice(index * blockSize, (index + 1) * blockSize),
+  );
+  const currentBlock = Math.max(
+    0,
+    blocks.findIndex((block) => !integration(data, block).every((r) => r.done)),
+  );
+  const tasks = integration(
+    data,
+    activeLessons.slice(currentBlock * blockSize, (currentBlock + 1) * blockSize),
+  );
+  const [taskError, setTaskError] = useState('');
+  async function goTask(requirement: Requirement) {
+    if (requirement.activity) {
+      onStart(requirement.activity);
+      return;
+    }
+    if (requirement.id === 'previous' && lesson) {
+      const items = levelLessons(lesson.level);
+      setSelected(items[items.findIndex((l) => l.id === lesson.id) - 1].id);
+      return;
+    }
+    if (requirement.id === 'writing') {
+      try {
+        const activity = await api<Activity>('course/writing', {});
+        await refresh();
+        onStart(activity);
+      } catch (error) {
+        setTaskError((error as Error).message);
+      }
+      return;
+    }
+    if (requirement.view === 'Classes') {
+      setLevel(suggested);
+      setSelected('');
+    } else navigate(requirement.view);
+  }
+  function checklist(requirements: Requirement[]) {
+    return (
+      <div className="course-checklist">
+        {requirements.map((r) => (
+          <div key={r.id} className={r.done ? 'done' : ''} data-requirement={r.id}>
+            {r.done ? <Check size={18} /> : <LockKeyhole size={18} />}
+            <p lang="es">{r.explanation}</p>
+            {!r.done && (
+              <Button secondary onClick={() => void goTask(r)}>
+                Go to task <ArrowRight size={15} />
+              </Button>
+            )}
+          </div>
+        ))}
+        {taskError && (
+          <p className="error" role="alert">
+            {taskError}
+          </p>
+        )}
+      </div>
+    );
+  }
+  const filtered = lessons.filter((item) => item.level === level);
   return (
     <>
       <Heading
@@ -52,7 +138,47 @@ export function Classes({
         title="Learn it. Use it."
         description="Short classes. Clear explanations. Something you can use today."
       />
-      {lesson ? (
+      <div className="tabs foundation-tabs" role="group" aria-label="Classroom sections">
+        <button
+          className={section === 'classes' ? 'active' : ''}
+          onClick={() => setSection('classes')}
+        >
+          Classes
+        </button>
+        <button className={section === 'verbs' ? 'active' : ''} onClick={() => setSection('verbs')}>
+          Verbs
+        </button>
+        <button
+          className={section === 'sentences' ? 'active' : ''}
+          onClick={() => setSection('sentences')}
+        >
+          Sentences
+        </button>
+      </div>
+      {section !== 'classes' ? (
+        <Foundations
+          mode={section}
+          onOpenLesson={(id) => {
+            setSelected(id);
+            setSection('classes');
+            setLevel(lessons.find((l) => l.id === id)!.level);
+          }}
+        />
+      ) : lesson && blocked.length ? (
+        <section className="card course-locked">
+          <Button secondary onClick={() => setSelected('')}>
+            <ArrowLeft size={16} />
+            Back to classes
+          </Button>
+          <LockKeyhole size={32} />
+          <h2>{lesson.title}</h2>
+          <p lang="es">
+            Esta clase todavía está bloqueada. Tu progreso se conserva; completá estas tareas para
+            habilitarla.
+          </p>
+          {checklist(blocked)}
+        </section>
+      ) : lesson ? (
         <LessonRoom
           key={lesson.id}
           lesson={lesson}
@@ -74,31 +200,52 @@ export function Classes({
             </div>
             <div className="classes-count">
               <strong>
-                {practised.size} / {lessons.length}
+                {levelLessons(level).filter((l) => practised.has(l.id)).length} /{' '}
+                {levelLessons(level).length}
               </strong>
               <span>classes practised</span>
             </div>
           </section>
           <div className="class-levels" role="group" aria-label="Class level">
-            <button aria-pressed={level === 'All levels'} onClick={() => setLevel('All levels')}>
-              All levels
-            </button>
             {cefrLevels.map((item) => (
               <button key={item} aria-pressed={level === item} onClick={() => setLevel(item)}>
-                {item}
+                {item}{' '}
+                {item !== route.level && !route.completed.includes(item) && (
+                  <LockKeyhole size={13} />
+                )}
               </button>
             ))}
           </div>
           <p className="fine-print">
-            Suggested study level: {suggested}. Browse other levels whenever you want; a class score
-            does not certify a CEFR level.
+            Study level: {suggested}. Classes and practice share one learning path.
+          </p>
+          <section className="card course-connected">
+            <span className="eyebrow">ONE CONNECTED JOURNEY</span>
+            <h2>
+              {route.level} · Block {currentBlock + 1}
+            </h2>
+            <p lang="es">
+              Cada bloque conecta cuatro clases con actividades reales de otras secciones. Las
+              tareas cuentan desde tu primera clase aprobada del bloque; no necesitás hacerlas en un
+              orden fijo. Los niveles futuros se habilitan al completar todos los bloques, sin
+              alterar tu historial ni certificar oficialmente el MCER.
+            </p>
+            {checklist(tasks)}
+            <Button secondary onClick={() => navigate('Games')}>
+              Games <ArrowRight size={15} />
+            </Button>
+          </section>
+          <p className="fine-print" lang="es">
+            Tocá una clase bloqueada para ver el requisito exacto y cómo completarlo.
           </p>
           <div className="class-grid">
             {filtered.map((item, index) => {
+              const pending = lessonRequirements(data, item).filter((r) => !r.done);
               const latest = history.findLast((r) => attempt(r)!.lessonId === item.id);
               return (
                 <button
-                  className={`class-card class-tone-${index % 3}`}
+                  className={`class-card class-tone-${index % 3} ${pending.length ? 'is-locked' : ''}`}
+                  aria-label={`${item.title}${pending.length ? ' · Locked' : ''}`}
                   key={item.id}
                   onClick={() => setSelected(item.id)}
                 >
@@ -106,12 +253,17 @@ export function Classes({
                     <span>
                       {item.level} · <Clock3 size={13} /> 8 min
                     </span>
-                    <BookOpen size={23} />
+                    {pending.length ? <LockKeyhole size={23} /> : <BookOpen size={23} />}
                   </span>
                   <h2>{item.title}</h2>
                   <p>{item.goal}</p>
                   <span className="class-card-bottom">
-                    {latest ? (
+                    {pending.length ? (
+                      <>
+                        <LockKeyhole size={15} />
+                        View requirements
+                      </>
+                    ) : latest ? (
                       <>
                         <Check size={15} />
                         {latest.correct} / {latest.total} ·{' '}

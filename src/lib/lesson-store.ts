@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { checkLessonAccess } from './course-store';
 import type { DatabaseSync } from 'node:sqlite';
 import { lessons, classRevision } from './lessons';
 import { localDay } from './learning';
@@ -22,7 +23,7 @@ export function saveLesson(
   if (!lesson || x.revision !== classRevision)
     throw new AppError('This class has changed. Update the app and reopen it.');
   if (x.answers.length !== lesson.checks.length)
-    throw new AppError('Answer both questions before saving your class.');
+    throw new AppError('Answer every question before saving your class.');
   const id = `class:${x.id}`;
   const previous = connection
     .prepare('SELECT correct,total,answers FROM results WHERE activity_id=?')
@@ -37,6 +38,7 @@ export function saveLesson(
       repeated: true,
     };
   }
+  checkLessonAccess(connection, lesson.id);
   const feedback = lesson.checks.map((q, i) => ({
     id: `${lesson.id}:${i}`,
     correct: x.answers[i] === q.answer,

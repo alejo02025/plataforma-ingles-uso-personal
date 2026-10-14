@@ -1,4 +1,5 @@
 'use client';
+import { courseRoute } from '@/lib/course-route';
 import { useState } from 'react';
 import { ArrowUpRight, BookOpen, FileText, Plus, Upload, X } from 'lucide-react';
 import type { Snapshot, Document } from '@/lib/types';
@@ -13,14 +14,26 @@ export function Library({
   onOpen: (doc: Document) => void;
   refresh: () => Promise<void>;
 }) {
+  const currentLevel = courseRoute(data).level;
+  const [levelOnly, setLevelOnly] = useState(true);
   const [topic, setTopic] = useState('All'),
     [search, setSearch] = useState(''),
     [showImport, setShowImport] = useState(false);
   const docs = data.documents.filter(
     (d) =>
+      (!levelOnly || d.level === currentLevel || d.filename) &&
       (topic === 'All' || d.topic === topic) &&
       `${d.title} ${d.topic}`.toLowerCase().includes(search.toLowerCase()),
   );
+  const continued = [...data.documents]
+    .filter((d) => d.updated_at)
+    .sort((a, b) => String(b.updated_at).localeCompare(String(a.updated_at)))[0];
+  const progress = (d: Document) =>
+    data.results.some((r) => r.skill === 'reading' && r.document_id === d.id)
+      ? 100
+      : d.updated_at
+        ? Math.round(((d.paragraph + 1) / Math.max(1, d.paragraphs.length)) * 100)
+        : 0;
   return (
     <>
       <Heading
@@ -33,7 +46,37 @@ export function Library({
           Add material{' '}
         </Button>
       </Heading>
+      {continued && (
+        <section className="continue-reading">
+          <h2>Continue reading</h2>
+          <button className="card continue-book" onClick={() => onOpen(continued)}>
+            <span className="mini-book-cover">{continued.title}</span>
+            <div>
+              <h3>{continued.title}</h3>
+              <span>
+                {continued.topic} · {continued.level}
+              </span>
+              <progress
+                value={progress(continued)}
+                max={100}
+                aria-label="Reading sections visited"
+              />
+              <strong>{progress(continued)} %</strong>
+              <p>Continue · section {continued.paragraph + 1}</p>
+            </div>
+            <ArrowUpRight size={22} />
+          </button>
+        </section>
+      )}
       <div className="library-tools">
+        <label className="level-filter">
+          <input
+            type="checkbox"
+            checked={levelOnly}
+            onChange={(e) => setLevelOnly(e.target.checked)}
+          />
+          My study level · {currentLevel}
+        </label>
         <div className="tabs">
           {['All', 'Travel', 'Finance', 'History', 'Technology', 'Work', 'Your material'].map(
             (t) => (
@@ -58,6 +101,7 @@ export function Library({
               <span>
                 {d.source === 'editorial' ? 'ENGLISH OS / READINGS' : 'PERSONAL COLLECTION'}
               </span>
+              <strong className="book-cover-title">{d.title}</strong>
               {d.source === 'editorial' ? (
                 <BookOpen size={54} strokeWidth={1} />
               ) : (
@@ -80,6 +124,7 @@ export function Library({
                 )}
               </div>
               <h2>{d.title}</h2>
+              <progress value={progress(d)} max={100} aria-label="Reading sections visited" />
               <p>{d.intro}</p>
               <span className="text-link">
                 {d.updated_at ? `Continue · section ${d.paragraph + 1}` : 'Open reading'}

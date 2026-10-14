@@ -1,8 +1,12 @@
 'use client';
+import { CourseMenu } from './course-menu';
+import { NewsBriefing } from './news-briefing';
+import { OfflineStatus } from './offline-status';
 import { Mic } from 'lucide-react';
 import { CefrPath } from './cefr-path';
 import { Games } from './games';
 import { Classes } from './classes';
+import { WordHelpCloud } from './word-help';
 import { Puzzle } from 'lucide-react';
 import { StudySpaces } from './study-spaces';
 import { isPortuguese } from '@/lib/workspace';
@@ -56,6 +60,7 @@ const navigation = [
   { title: 'Calendar', icon: CalendarDays },
   { title: 'Speaking', icon: Mic },
   { title: 'Classes', icon: BookOpen },
+  { title: 'News', icon: BookOpen },
 ];
 export function EnglishApp() {
   const [data, setData] = useState<Snapshot | null>(null),
@@ -286,7 +291,9 @@ export function EnglishApp() {
             <strong>{active ? 'Practice' : view === 'Assessment' ? 'Assessment' : view}</strong>
           </div>
           <div className="topbar-actions">
+            <CourseMenu data={data} navigate={(target) => void navigate(target)} />
             <AppUpdate />
+            <WordHelpCloud data={data} refresh={refresh} />
             {process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github' && (
               <GitHubSyncStatus onOpen={() => setSettings(true)} />
             )}
@@ -377,16 +384,28 @@ export function EnglishApp() {
                 </p>
               </div>
             </>
+          ) : view === 'News' ? (
+            <NewsBriefing />
           ) : view === 'Library' ? (
             <Library data={data} onOpen={(d) => void openDocument(d)} refresh={refresh} />
           ) : view === 'MCER' && isPortuguese ? (
-            <CefrPath data={data} refresh={refresh} navigate={(target) => void navigate(target)} />
+            <Classes
+              data={data}
+              refresh={refresh}
+              navigate={(target) => void navigate(target)}
+              onStart={onStart}
+            />
           ) : view === 'Speaking' ? (
             <Suspense fallback={<p role="status">Preparing your speaking room…</p>}>
               <VoiceRoom data={data} refresh={refresh} />
             </Suspense>
           ) : view === 'Classes' ? (
-            <Classes data={data} refresh={refresh} navigate={(target) => void navigate(target)} />
+            <Classes
+              data={data}
+              refresh={refresh}
+              navigate={(target) => void navigate(target)}
+              onStart={onStart}
+            />
           ) : view === 'Games' ? (
             <Games data={data} refresh={refresh} />
           ) : view === 'Vocabulary' ? (
@@ -416,6 +435,7 @@ export function EnglishApp() {
             <p>Less planning. More discovering.</p>
             <span>Your pace. Your journey.</span>
           </footer>
+          <OfflineStatus />
         </main>
       </div>
       <nav className="mobile-bottom-nav" aria-label="Quick navigation">

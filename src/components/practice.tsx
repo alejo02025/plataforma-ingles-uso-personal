@@ -31,14 +31,10 @@ export function ResultFeedback({ result }: { result: Feedback }) {
           <span>
             {f.correct ? '✓' : '↗'} {i + 1}.
           </span>{' '}
-          {f.correct ? (
-            f.explanation
-          ) : (
-            <Correction
-              explanation={f.explanationSpanish || questionFeedback(f.id).explanation}
-              correction={f.correction || questionFeedback(f.id).correction}
-            />
-          )}
+          <Correction
+            explanation={f.explanationSpanish || questionFeedback(f.id).explanation}
+            correction={f.correction || questionFeedback(f.id).correction}
+          />
         </div>
       ))}
     </div>

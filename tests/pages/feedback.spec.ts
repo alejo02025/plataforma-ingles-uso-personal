@@ -102,22 +102,17 @@ for (const pt of [false, true])
     );
     if (pt) {
       await page.goto('./portugues/');
-      await page.getByRole('button', { name: 'Continuar meu percurso', exact: true }).click();
-      await page.getByLabel('Em Lisboa', { exact: true }).check();
-      await page.getByRole('button', { name: 'Salvar prática', exact: true }).click();
-      await expect(page.locator('.cefr-feedback [lang="es"]')).toContainText('Buenos Aires');
-      await expect(page.locator('.cefr-feedback .answer-correction-model')).toContainText(
-        'Em Buenos Aires',
+      await page.getByRole('button', { name: 'Abrir aulas', exact: true }).click();
+      await page.locator('.class-card').first().click();
+      await page.locator('.lesson-check').first().getByRole('radio').first().check();
+      await page.locator('.lesson-check').last().getByRole('radio').last().check();
+      await page.getByRole('button', { name: 'Conferir e salvar minha aula', exact: true }).click();
+      await expect(page.locator('.lesson-check').first().locator('[lang="es"]')).toContainText(
+        'Con “eu”',
       );
-      await page
-        .locator('.cefr-tasks')
-        .getByRole('button', { name: 'Gramática', exact: true })
-        .click();
-      await expect(page.locator('.cefr-feedback')).toHaveCount(0);
-      await page.getByLabel('é', { exact: true }).check();
-      await page.getByRole('button', { name: 'Salvar prática', exact: true }).click();
-      await expect(page.locator('.cefr-feedback [lang="es"]')).toContainText('Con “eu”');
-      await expect(page.locator('.cefr-feedback .answer-correction-model')).toContainText('sou');
+      await expect(
+        page.locator('.lesson-check').first().locator('.answer-correction-model'),
+      ).toContainText('sou');
     }
     await page.goto(pt ? './portugues/' : './');
     await page

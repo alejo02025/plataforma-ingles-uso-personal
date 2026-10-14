@@ -38,6 +38,7 @@ test('Jazmín has Brazilian Portuguese study content, independent PDFs, vocabula
   await popup.getByRole('button', { name: 'Meu vocabulário' }).click();
   await expect(page.getByRole('heading', { name: word, exact: true }).first()).toBeVisible();
   await page.getByRole('navigation').getByRole('button', { name: 'Biblioteca' }).click();
+  await page.locator('.level-filter input').uncheck();
   await expect(page.getByRole('button', { name: /Uma cidade descoberta a pé/ })).toBeVisible();
   await expect(page.getByRole('button', { name: /The city you discover/ })).toHaveCount(0);
   await page.getByRole('navigation').getByRole('button', { name: 'Estúdio de PDFs' }).click();

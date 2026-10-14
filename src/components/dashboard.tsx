@@ -1,4 +1,6 @@
 'use client';
+import { EntryPhrase } from './entry-phrase';
+import { courseRoute, levelLessons, passedLesson } from '@/lib/course-route';
 import { isPortuguese } from '@/lib/workspace';
 import { LearningTip } from './learning-tip';
 import { Puzzle, Bookmark, Compass, Mic } from 'lucide-react';
@@ -91,6 +93,9 @@ export function Dashboard({
   navigate: (view: string) => void;
   onDiagnostic: () => void;
 }) {
+  const route = courseRoute(data);
+  const courseItems = levelLessons(route.level);
+  const classCount = courseItems.filter((l) => passedLesson(data, l.id)).length;
   const [greeting, setGreeting] = useState('Hello');
   useEffect(() => {
     const update = () => setGreeting(greetingForHour(new Date().getHours()));
@@ -129,6 +134,25 @@ export function Dashboard({
           {dateLabel(data.day)}
         </span>
       </Heading>
+      <section className="card course-dashboard">
+        <span className="eyebrow">YOUR LEARNING PATH</span>
+        <h2>
+          {route.level} · {classCount} / {courseItems.length}
+        </h2>
+        <p>
+          Classes, reading, games, review and conversation. Your practice moves one journey forward.
+        </p>
+        <progress max={courseItems.length} value={classCount} aria-label="Learning path classes" />
+        {(data.backlog || []).length > 0 && (
+          <p lang="es">
+            Tenés una lectura pendiente. Podés retomarla desde Classes sin perder el borrador.
+          </p>
+        )}
+        <Button secondary onClick={() => navigate('Classes')}>
+          Continue my learning path <ArrowRight size={16} />
+        </Button>
+      </section>
+      <EntryPhrase />
       <StudySpaces compact />
 
       <section className="pdf-home-hero">

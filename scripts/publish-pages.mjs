@@ -10,6 +10,7 @@ try {
 // Only remove generated files recorded by an earlier publication, never source or personal data.
 const allowed = (name) =>
   name === '_next' ||
+  name === 'sw.js' ||
   name === 'assets' ||
   name === 'manifest.webmanifest' ||
   name === 'local-ai' ||

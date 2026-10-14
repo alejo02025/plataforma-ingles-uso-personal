@@ -1,6 +1,6 @@
 'use client';
 import { Correction } from './correction';
-import { pdfWhy } from '@/locales/es/answer-help';
+import { pdfWhy, pdfAnswerWhy, openAnswerNote } from '@/locales/es/answer-help';
 import { studyStorage } from '@/lib/workspace';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
@@ -23,6 +23,7 @@ import {
 } from 'lucide-react';
 import type { Snapshot, Document } from '@/lib/types';
 import { guidedReply, questions, type Source } from '@/lib/tutor';
+import { requestWordHelp } from '@/lib/word-help';
 import { api, Button, DownloadLink, Speak } from './ui';
 import type { LocalStatus } from '@/lib/browser/local-ai';
 type StudioProps = {
@@ -537,10 +538,12 @@ function PdfWorkspace({ doc, data, refresh, onRead }: StudioProps & { doc: Docum
               <h2>{doc.title}</h2>
               <div
                 className="studio-passage"
+                data-source-id={doc.id}
                 lang="en"
                 onPointerUp={() => {
                   const selection = window.getSelection()?.toString().trim() || '';
-                  if (selection && selection.length <= 100) setWord(selection);
+                  if (selection && selection.length <= 70)
+                    requestWordHelp(selection, doc.paragraphs[focus], doc.id);
                 }}
               >
                 {doc.paragraphs[focus]}
@@ -669,13 +672,19 @@ function PdfWorkspace({ doc, data, refresh, onRead }: StudioProps & { doc: Docum
                       className={`studio-feedback ${feedback[question.id].correct === 1 ? 'correct' : ''}`}
                       role="status"
                     >
-                      {feedback[question.id].correct === 0 && question.answer !== null ? (
+                      {feedback[question.id].correct !== null && question.answer !== null ? (
                         <Correction
-                          explanation={pdfWhy(question.kind)}
+                          explanation={pdfAnswerWhy(
+                            question.kind,
+                            feedback[question.id].correct === 1,
+                          )}
                           correction={question.options[question.answer]}
                         />
                       ) : (
-                        feedback[question.id].feedback
+                        <>
+                          <p lang="es">{openAnswerNote}</p>
+                          <p>{feedback[question.id].feedback}</p>
+                        </>
                       )}
                     </div>
                   ) : (

@@ -81,6 +81,8 @@ export type Mistake = {
   created_at: string;
 };
 export type Snapshot = {
+  backlog?: Activity[];
+  courseCheckpoints?: { id: string; level: string; completed_at: string }[];
   cefr?: {
     level: string;
     attempts: {

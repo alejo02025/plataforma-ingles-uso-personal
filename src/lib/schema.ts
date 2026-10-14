@@ -1,3 +1,4 @@
+import { englishCourseReadings } from '@/locales/learning/course-readings';
 import { cefrReadings } from './cefr-curriculum';
 import { defaultName, initialInterests, isPortuguese } from './workspace';
 import type { DatabaseSync } from 'node:sqlite';
@@ -43,7 +44,9 @@ export function initialize(connection: Pick<DatabaseSync, 'exec' | 'prepare'>) {
   const insert = connection.prepare(
     `INSERT INTO documents(id,title,topic,level,source,minutes,intro,paragraphs,questions,created_at) VALUES(?,?,?,?,?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET topic=excluded.topic,intro=excluded.intro,questions=excluded.questions WHERE documents.source='editorial'`,
   );
-  for (const r of isPortuguese ? [...readings, ...cefrReadings] : readings)
+  for (const r of isPortuguese
+    ? [...readings, ...cefrReadings]
+    : [...readings, ...englishCourseReadings])
     insert.run(
       r.id,
       r.title,
@@ -151,4 +154,10 @@ export function initialize(connection: Pick<DatabaseSync, 'exec' | 'prepare'>) {
     connection
       .prepare('INSERT OR IGNORE INTO cefr_state VALUES(?,?,?)')
       .run('route', 'A1', new Date().toISOString());
+  if (!connection.prepare('SELECT version FROM schema_migrations WHERE version=5').get()) {
+    connection.exec(`BEGIN;
+      CREATE TABLE course_checkpoints (id TEXT PRIMARY KEY, level TEXT NOT NULL, completed_at TEXT NOT NULL);
+      INSERT INTO schema_migrations VALUES(5,datetime('now'));
+      COMMIT;`);
+  }
 }

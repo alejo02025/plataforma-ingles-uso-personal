@@ -20,7 +20,7 @@ export function CefrPath({
     [active, setActive] = useState('reading'),
     [answer, setAnswer] = useState(''),
     [feedback, setFeedback] = useState(''),
-    [incorrectTask, setIncorrectTask] = useState(''),
+    [feedbackTask, setFeedbackTask] = useState(''),
     [busy, setBusy] = useState(false),
     [error, setError] = useState('');
   const unit = cefrCourse.find((item) => item.level === preview)!;
@@ -51,7 +51,7 @@ export function CefrPath({
             ? 'Você encontrou a resposta!'
             : `Vamos tentar novamente. ${result.tip}`,
       );
-      setIncorrectTask(result.correct === 0 ? `cefr:${preview}:${task.id}` : '');
+      setFeedbackTask(result.correct !== null ? `cefr:${preview}:${task.id}` : '');
       await refresh();
     } catch (e) {
       setError((e as Error).message);
@@ -69,7 +69,7 @@ export function CefrPath({
       setActive('reading');
       setAnswer('');
       setFeedback('');
-      setIncorrectTask('');
+      setFeedbackTask('');
     } catch (e) {
       setError((e as Error).message);
     } finally {
@@ -98,7 +98,7 @@ export function CefrPath({
               setActive('reading');
               setAnswer('');
               setFeedback('');
-              setIncorrectTask('');
+              setFeedbackTask('');
             }}
           >
             <strong>{item.level}</strong>
@@ -126,7 +126,7 @@ export function CefrPath({
                 setActive(item.id);
                 setAnswer('');
                 setFeedback('');
-                setIncorrectTask('');
+                setFeedbackTask('');
               }}
             >
               {done(item.id) ? (
@@ -205,7 +205,7 @@ export function CefrPath({
         </Button>
         {feedback && (
           <div className="cefr-feedback" role="status">
-            {incorrectTask ? <Correction {...questionFeedback(incorrectTask)} /> : feedback}
+            {feedbackTask ? <Correction {...questionFeedback(feedbackTask)} /> : feedback}
           </div>
         )}
         {error && (

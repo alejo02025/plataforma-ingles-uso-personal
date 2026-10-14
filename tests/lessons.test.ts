@@ -12,7 +12,7 @@ import { practiceDays } from '../src/lib/momentum';
 
 test('Both class catalogs cover A1–C2 with original explanations, spoken models and unambiguous choices', () => {
   for (const catalog of [englishClasses, portugueseClasses]) {
-    assert.equal(new Set(catalog.map((l) => l.id)).size, 10);
+    assert.equal(new Set(catalog.map((l) => l.id)).size, 131);
     assert.deepEqual(
       [...new Set(catalog.map((l) => l.level))],
       ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'],
@@ -20,7 +20,7 @@ test('Both class catalogs cover A1–C2 with original explanations, spoken model
     for (const lesson of catalog) {
       assert.ok(lesson.explanation.length > 80);
       assert.equal(lesson.examples.length, 2);
-      assert.equal(lesson.checks.length, 2);
+      assert.ok(lesson.checks.length >= 1);
       for (const q of lesson.checks) {
         assert.equal(new Set(q.options).size, 3);
         assert.ok(q.options[q.answer]);
@@ -47,7 +47,7 @@ test('Class attempts are graded from the catalog, save Spanish corrections, and 
     });
     const before = service.snapshot();
     const plan = db.prepare('SELECT id FROM plans WHERE day=?').get(before.day)!.id as string;
-    const lesson = lessons[0];
+    const lesson = lessons.find((l) => l.level === 'A2')!;
     const input = {
       id: randomUUID(),
       lessonId: lesson.id,
@@ -57,7 +57,7 @@ test('Class attempts are graded from the catalog, save Spanish corrections, and 
       seconds: 19,
       correct: 99,
     };
-    assert.throws(() => saveLesson(db, { ...input, answers: [] }, plan), /both questions/);
+    assert.throws(() => saveLesson(db, { ...input, answers: [] }, plan), /every question/);
     assert.throws(
       () => saveLesson(db, { ...input, lessonId: portugueseClasses[0].id }, plan),
       /class has changed/,
@@ -90,18 +90,6 @@ test('Class attempts are graded from the catalog, save Spanish corrections, and 
     );
     assert.equal(retry.correct, 2);
     assert.equal(service.snapshot().results.length, 2);
-    const advanced = lessons.find((lesson) => lesson.skill === 'reading')!;
-    saveLesson(
-      db,
-      {
-        ...input,
-        id: randomUUID(),
-        lessonId: advanced.id,
-        answers: advanced.checks.map((q) => q.answer),
-      },
-      plan,
-    );
-    assert.equal(service.snapshot().results.at(-1)!.skill, 'reading');
   } finally {
     db.close();
   }

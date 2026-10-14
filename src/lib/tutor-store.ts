@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import type { db as nativeDb } from './db';
 import { questions } from './tutor';
-import { pdfWhy } from '@/locales/es/answer-help';
+import { pdfWhy, pdfAnswerWhy, openAnswerNote } from '@/locales/es/answer-help';
 const id = z.string().min(1).max(150);
 export function tutorMutation(db: ReturnType<typeof nativeDb>, endpoint: string, input: unknown) {
   if (endpoint === 'tutor/message') {
@@ -55,9 +55,10 @@ export function tutorMutation(db: ReturnType<typeof nativeDb>, endpoint: string,
       question.answer === null ? null : Number(question.options[question.answer] === item.answer);
     const feedback =
       correct === null
-        ? 'Your response is saved. Compare it with the source passage; this open answer has not been automatically graded.'
+        ? openAnswerNote +
+          '\n\nYour response is saved. Compare it with the source passage; this open answer has not been automatically graded.'
         : correct
-          ? 'Correct. You found the detail in your document.'
+          ? `${pdfAnswerWhy(question.kind, true)}\n\n${question.options[question.answer!]}`
           : `${pdfWhy(question.kind)}\n\n${question.options[question.answer!]}`;
     const attemptId = crypto.randomUUID();
     db.prepare('INSERT INTO tutor_attempts VALUES(?,?,?,?,?,?,?,?,?)').run(

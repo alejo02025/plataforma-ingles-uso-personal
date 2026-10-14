@@ -1,9 +1,9 @@
 'use client';
 import { DownloadLink } from './ui';
 import { useState } from 'react';
-import { ArrowLeft, ChevronLeft, ChevronRight, BookmarkPlus, Check, BookOpen } from 'lucide-react';
+import { ArrowLeft, ChevronLeft, ChevronRight, Check, BookOpen } from 'lucide-react';
 import type { Snapshot, Activity, Document } from '@/lib/types';
-import { glossary } from '@/lib/content';
+import { requestWordHelp } from '@/lib/word-help';
 import { Button, QuestionForm, Speak, api } from './ui';
 import { useStudySession } from './use-session';
 import { WritingBox, ResultFeedback } from './practice';
@@ -22,10 +22,7 @@ export function Reader({
 }) {
   const [paragraph, setParagraph] = useState(doc.paragraph);
   const [answers, setAnswers] = useState<Record<string, number>>(doc.draft);
-  const [word, setWord] = useState('');
-  const [definition, setDefinition] = useState({ meaning: '', pronunciation: '', example: '' });
-  const [saved, setSaved] = useState(false),
-    [busy, setBusy] = useState(false),
+  const [busy, setBusy] = useState(false),
     [error, setError] = useState('');
   const [finished, setFinished] = useState(Boolean(activity.completed_at));
   const [summary, setSummary] = useState(activity.payload.draft || '');
@@ -41,17 +38,7 @@ export function Reader({
   );
   const session = useStudySession(activity.id, finished);
   function select(value: string) {
-    const clean = value
-      .replace(/^[^a-zA-Z]+|[^a-zA-Z]+$/g, '')
-      .trim()
-      .toLowerCase();
-    if (!clean || clean.length > 100) return;
-    setWord(clean);
-    setDefinition(
-      glossary[clean] || { meaning: '', pronunciation: '', example: doc.paragraphs[paragraph] },
-    );
-    setSaved(data.vocabulary.some((w) => w.word === clean));
-    setError('');
+    requestWordHelp(value, doc.paragraphs[paragraph], doc.id);
   }
   async function checkpoint(position: number, draft: Record<string, number>) {
     setError('');
@@ -65,44 +52,12 @@ export function Reader({
     setParagraph(position);
     await checkpoint(position, answers);
   }
-  async function saveWord() {
-    setBusy(true);
-    setError('');
-    try {
-      await api('word', {
-        word,
-        sourceId: doc.id,
-        meaning: definition.meaning,
-        pronunciation: definition.pronunciation,
-        example: definition.example,
-      });
-      setSaved(true);
-      await refresh();
-    } catch (e) {
-      setError((e as Error).message);
-    } finally {
-      setBusy(false);
-    }
-  }
   async function generate() {
     setBusy(true);
     setError('');
     try {
       await api('generate-questions', { documentId: doc.id });
       await refresh();
-    } catch (e) {
-      setError((e as Error).message);
-    } finally {
-      setBusy(false);
-    }
-  }
-  async function lookup() {
-    setBusy(true);
-    setError('');
-    try {
-      setDefinition(
-        await api('lookup', { word, sentence: doc.paragraphs[paragraph].slice(0, 1500) }),
-      );
     } catch (e) {
       setError((e as Error).message);
     } finally {
@@ -160,6 +115,7 @@ export function Reader({
           <p
             lang="en"
             className="reading-text"
+            data-source-id={doc.id}
             onMouseUp={() => {
               const selection = window.getSelection()?.toString();
               if (selection?.trim()) select(selection);
@@ -264,53 +220,11 @@ export function Reader({
         <aside className="reader-sidebar">
           <section className="card word-card">
             <span className="eyebrow">YOUR VOCABULARY, IN CONTEXT</span>
-            {word ? (
-              <>
-                <div className="section-heading">
-                  <h2 lang="en">{word}</h2>
-                  <Speak text={word} />
-                </div>
-                <p className="phonetic">
-                  {definition.pronunciation || 'Listen with your browser’s voice'}
-                </p>
-                {definition.meaning ? (
-                  <p>{definition.meaning}</p>
-                ) : (
-                  <p className="muted">
-                    This word is not in the starter glossary. Add your own meaning or use the
-                    configured AI dictionary.{' '}
-                  </p>
-                )}
-                <label className="field">
-                  Meaning{' '}
-                  <input
-                    value={definition.meaning}
-                    maxLength={1000}
-                    onChange={(e) => setDefinition({ ...definition, meaning: e.target.value })}
-                    placeholder="Definition or personal note"
-                  />
-                </label>
-                <blockquote lang="en">{definition.example}</blockquote>
-                {!glossary[word] && (
-                  <Button secondary disabled={busy || !data.aiAvailable} onClick={lookup}>
-                    {busy ? 'Looking it up…' : 'Consultar significado con IA'}
-                  </Button>
-                )}
-                <Button disabled={saved || busy} onClick={saveWord}>
-                  {saved ? <Check size={16} /> : <BookmarkPlus size={16} />}
-                  {saved ? 'In your vocabulary' : 'Save word'}
-                </Button>
-              </>
-            ) : (
-              <div className="word-empty">
-                <BookOpen size={32} strokeWidth={1} />
-                <h3>Keep the words you discover.</h3>
-                <p>
-                  Tap a word in the text, discover its meaning, and bring it into your next
-                  reviews.{' '}
-                </p>
-              </div>
-            )}
+            <div className="word-empty">
+              <BookOpen size={32} />
+              <h3>Keep the words you discover.</h3>
+              <p>Tap a word for Spanish meaning, explanation, and an everyday example.</p>
+            </div>
           </section>
           <section className="card quiet-card">
             <span className="eyebrow">READ AT YOUR PACE</span>

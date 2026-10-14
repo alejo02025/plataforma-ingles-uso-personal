@@ -62,6 +62,8 @@ export function AppUpdate() {
         const { exclusive, load, persist } = await import('@/lib/browser/database');
         await load();
         await exclusive(persist);
+        const { prepareOfflineUpdate } = await import('@/lib/browser/offline');
+        await prepareOfflineUpdate();
       }
       const token = sharedToken || String(Date.now());
       const url = new URL(window.location.href);

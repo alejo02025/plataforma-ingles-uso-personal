@@ -78,11 +78,7 @@ export function Diagnostic({
             {feedback && (
               <div className={`feedback ${feedback.correct ? 'positive' : ''}`}>
                 <strong>{feedback.correct ? 'Well done.' : 'A clue for next time.'}</strong>
-                {feedback.correct ? (
-                  <p>{feedback.explanation}</p>
-                ) : (
-                  <Correction {...questionFeedback(next.id)} />
-                )}
+                <Correction {...questionFeedback(next.id)} />
               </div>
             )}
             {error && (

@@ -71,7 +71,7 @@ test('English migration preserves learner history, drafts and custom definitions
       db.prepare('SELECT reviews FROM vocabulary WHERE id=?').get('old-word')!.reviews,
       3,
     );
-    assert.equal(db.prepare('SELECT count(*) AS count FROM schema_migrations').get()!.count, 4);
+    assert.equal(db.prepare('SELECT count(*) AS count FROM schema_migrations').get()!.count, 5);
   } finally {
     db.close();
   }
