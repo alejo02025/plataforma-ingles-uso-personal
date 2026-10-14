@@ -217,3 +217,11 @@ muestran una explicación en lugar de enseñar un ejemplo engañoso. La comparac
 opcional reúne afirmación, negativa y pregunta con traducción en español.
 Este cambio no modifica los modelos usados para calificar las clases anteriores,
 ni los requisitos del recorrido, ni la clave de guardado de los borradores.
+
+El selector del constructor tiene 182 verbos en inglés y 180 en portugués,
+con búsqueda por infinitivo en el idioma o por significado en español. Los
+modelos incluyen complementos compatibles, formas irregulares y ayudas de
+traducción con voseo. Esta colección de práctica se mantiene separada del
+catálogo de diccionario de miles de entradas y del banco de clases calificadas;
+ampliarla no agrega requisitos ni cambia clases aprobadas. Un filtro sin
+coincidencias conserva el verbo seleccionado y su oración; no borra borradores.

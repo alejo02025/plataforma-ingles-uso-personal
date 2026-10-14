@@ -81,6 +81,35 @@ for (const pt of [false, true])
       pt ? 'Não estude' : 'Do not study',
     );
     await timeSelect.selectOption('past');
+    await timeSelect.selectOption('present-perfect');
+    const verbSearch = page.getByRole('searchbox', {
+      name: pt ? 'Encontrar um verbo' : 'Find a verb',
+    });
+    await expect(page.locator('.builder-verb-count')).toContainText(pt ? '/ 180' : '/ 182');
+    await verbSearch.fill('comprar');
+    await page
+      .getByLabel(pt ? 'Escolher um verbo' : 'Choose a verb')
+      .selectOption(pt ? 'comprar' : 'buy');
+    await expect(page.locator('.foundation-model h3')).toContainText(
+      pt ? 'não tenho comprado' : 'have not bought',
+    );
+    await verbSearch.fill(pt ? 'poner' : 'bring');
+    await page
+      .getByLabel(pt ? 'Escolher um verbo' : 'Choose a verb')
+      .selectOption(pt ? 'pôr' : 'bring');
+    await timeSelect.selectOption('past');
+    await expect(page.locator('.foundation-model h3')).toContainText(
+      pt ? 'não pus' : 'did not bring',
+    );
+    await verbSearch.fill('zzzznoverb');
+    await expect(page.locator('.foundations')).toContainText('No encontramos ese verbo');
+    await expect(page.locator('.foundation-model h3')).toContainText(
+      pt ? 'não pus' : 'did not bring',
+    );
+    await verbSearch.fill('');
+    await page
+      .getByLabel(pt ? 'Escolher um verbo' : 'Choose a verb')
+      .selectOption(pt ? 'estudar' : 'study');
     await page
       .locator('.foundation-draft textarea')
       .fill('A reference draft that must survive reload.');

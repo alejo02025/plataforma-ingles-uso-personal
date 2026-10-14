@@ -19,6 +19,7 @@ import {
   builderSubjects,
   builderVerbWarning,
 } from '@/locales/learning/sentence-builder';
+import { englishBuilderVerbs, portugueseBuilderVerbs } from '@/locales/learning/builder-verbs';
 import { requestWordHelp } from '@/lib/word-help';
 import { Button, Speak } from './ui';
 export function Foundations({
@@ -30,14 +31,24 @@ export function Foundations({
   onOpenLesson: (id: string) => void;
   referenceOnly?: boolean;
 }) {
-  const verbs = isPortuguese ? portugueseVerbs : englishVerbs,
+  const verbs = isPortuguese ? portugueseBuilderVerbs : englishBuilderVerbs,
     subjects = isPortuguese ? portugueseSubjects : englishSubjects;
   const [verbId, setVerbId] = useState(verbs.find((v) => v.es === 'estudiar')!.id),
     [subjectId, setSubjectId] = useState(subjects[0].id),
     [tense, setTense] = useState('present'),
     [kind, setKind] = useState<SentenceKind>('statement'),
-    [draft, setDraft] = useState('');
+    [draft, setDraft] = useState(''),
+    [verbQuery, setVerbQuery] = useState('');
   const verb = verbs.find((v) => v.id === verbId)!;
+  const normalize = (s: string) =>
+    s
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase();
+  const matches = verbs
+    .filter((v) => normalize(v.word + ' ' + v.es).includes(normalize(verbQuery)))
+    .sort((a, b) => a.word.localeCompare(b.word, isPortuguese ? 'pt-BR' : 'en'));
+  const isCourseVerb = (isPortuguese ? portugueseVerbs : englishVerbs).some((v) => v.id === verbId);
   const allowedSubjects = builderSubjects(isPortuguese, tense, subjects);
   const effectiveSubject = allowedSubjects.find((s) => s.id === subjectId) || allowedSubjects[0];
   const sentence = buildReferenceSentence(isPortuguese, verb, effectiveSubject, tense, kind);
@@ -107,6 +118,25 @@ export function Foundations({
           </select>
         </label>
       </div>
+      <label className="field builder-verb-search">
+        {isPortuguese ? 'Encontrar um verbo' : 'Find a verb'}
+        <input
+          type="search"
+          value={verbQuery}
+          placeholder={isPortuguese ? 'comprar, trazer, abrir…' : 'buy, bring, comprar…'}
+          onChange={(e) => setVerbQuery(e.target.value)}
+        />
+      </label>
+      <p className="fine-print builder-verb-count" aria-live="polite">
+        {matches.length} / {verbs.length}{' '}
+        {isPortuguese ? 'verbos para criar frases' : 'verbs for building sentences'}
+      </p>
+      {verbQuery && !matches.length && (
+        <p className="fine-print" lang="es">
+          No encontramos ese verbo en los modelos. Probá otra palabra o borrá la búsqueda. El
+          diccionario completo sigue disponible en la pestaña de verbos.
+        </p>
+      )}
       <div className="foundation-selectors">
         <label className="field">
           Verb
@@ -115,7 +145,12 @@ export function Foundations({
             value={verbId}
             onChange={(e) => setVerbId(e.target.value)}
           >
-            {verbs.map((v) => (
+            {!matches.some((v) => v.id === verbId) && (
+              <option value={verbId}>
+                {verb.word} · {verb.es}
+              </option>
+            )}
+            {matches.map((v) => (
               <option key={v.id} value={v.id}>
                 {v.word} · {v.es}
               </option>
@@ -259,7 +294,7 @@ export function Foundations({
           ? 'Tu borrador se guarda en este dispositivo, sin nota automática. Podés consultar y probar todos estos modelos sin completar ninguna clase.'
           : 'Este borrador se conserva en este dispositivo sin nota automática. Para guardar un ejercicio en tu progreso, abrí la clase de práctica.'}
       </p>
-      {!referenceOnly && ['present', 'past', 'future', 'plans'].includes(tense) && (
+      {!referenceOnly && isCourseVerb && ['present', 'past', 'future', 'plans'].includes(tense) && (
         <Button
           onClick={() =>
             onOpenLesson(

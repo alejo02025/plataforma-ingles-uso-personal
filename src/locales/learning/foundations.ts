@@ -1,3 +1,4 @@
+import type { SpanishVerbModel } from './spanish-verb-models';
 export type Tense = 'present' | 'past' | 'future' | 'plans';
 export type SentenceKind = 'statement' | 'negative' | 'question';
 export type Subject = {
@@ -20,6 +21,14 @@ export type Verb = {
   pastForms?: string[];
   formal?: string[];
   be?: boolean;
+  participle?: string;
+  gerund?: string;
+  subjunctive?: string[];
+  imperfect?: string[];
+  pastStemStressed?: string;
+  futureSubjunctive?: string[];
+  personalInfinitive?: string[];
+  esGrammar?: SpanishVerbModel;
 };
 export const englishSubjects: Subject[] = [
   { id: 'i', text: 'I', es: 'Yo', esIndex: 0, formIndex: 0 },
@@ -402,11 +411,15 @@ export function buildSentence(
   const periphrastic = pt ? tense === 'future' : tense === 'plans';
   const spanishVerb = periphrastic
     ? esForm('ir', 'present', subject.esIndex) + ' a ' + verb.es
-    : esForm(
-        verb.es,
-        tense === 'past' ? 'past' : tense === 'present' ? 'present' : 'future',
-        subject.esIndex,
-      );
+    : verb.esGrammar
+      ? verb.esGrammar[tense === 'past' ? 'past' : tense === 'present' ? 'present' : 'future'][
+          subject.esIndex
+        ]
+      : esForm(
+          verb.es,
+          tense === 'past' ? 'past' : tense === 'present' ? 'present' : 'future',
+          subject.esIndex,
+        );
   const spanish = `${subject.es} ${kind === 'negative' ? 'no ' : ''}${spanishVerb} ${complementES}`;
   return {
     text: body + (kind === 'question' ? '?' : '.'),

@@ -367,15 +367,18 @@ function ptForms(v: Verb, name: string): string[] {
     ar = v.word.endsWith('ar'),
     i = v.pastForms![3].slice(0, -3);
   if (name === 'participle')
-    return Array(4).fill(ptParticiples[v.id] || stem + (ar ? 'ado' : 'ido'));
-  if (name === 'ing') return Array(4).fill(v.id === 'ir' ? 'indo' : stem + (ar ? 'ando' : 'endo'));
+    return Array(4).fill(v.participle || ptParticiples[v.id] || stem + (ar ? 'ado' : 'ido'));
+  if (name === 'ing')
+    return Array(4).fill(v.gerund || (v.id === 'ir' ? 'indo' : stem + (ar ? 'ando' : 'endo')));
   if (name === 'subjunctive')
     return (
+      v.subjunctive ||
       ptSubj[v.id] ||
       (ar ? ['e', 'e', 'emos', 'em'] : ['a', 'a', 'amos', 'am']).map((e) => stem + e)
     );
   if (name === 'imperfect')
     return (
+      v.imperfect ||
       ptImperfect[v.id] ||
       (ar ? ['ava', 'ava', 'ávamos', 'avam'] : ['ia', 'ia', 'íamos', 'iam']).map((e) => stem + e)
     );
@@ -386,11 +389,18 @@ function ptForms(v: Verb, name: string): string[] {
   if (name === 'pluperfect-simple')
     return ['ra', 'ra', 'ramos', 'ram'].map((e, n) => (n === 2 ? accentPT(i, v) : i) + e);
   if (name === 'subjunctive-future')
-    return ['', '', 'mos', 'em'].map((e) => v.pastForms![3].slice(0, -2) + e);
-  if (name === 'personal-infinitive') return ['', '', 'mos', 'em'].map((e) => v.word + e);
+    return (
+      v.futureSubjunctive || ['', '', 'mos', 'em'].map((e) => v.pastForms![3].slice(0, -2) + e)
+    );
+  if (name === 'personal-infinitive')
+    return (
+      v.personalInfinitive ||
+      ['', '', 'mos', 'em'].map((e) => (v.word === 'pôr' && e ? 'por' : v.word) + e)
+    );
   throw new Error('Unknown Portuguese form: ' + name);
 }
 function accentPT(stem: string, v: Verb) {
+  if (v.pastStemStressed) return v.pastStemStressed;
   const last = stem.slice(-1),
     acute = ['estar', 'ter', 'querer', 'fazer'].includes(v.id);
   return (
@@ -445,6 +455,18 @@ const esSpecial: Record<
   },
 };
 function esParts(v: Verb, s: Subject) {
+  if (v.esGrammar) {
+    const g = v.esGrammar,
+      n = s.esIndex;
+    return {
+      part: g.part,
+      ing: g.ing,
+      imperfect: g.imperfect[n],
+      subj: g.subjunctive[n],
+      pastSubj: g.pastSubjunctive[n],
+      conditional: g.conditional[n],
+    };
+  }
   const stem = v.es.slice(0, -2),
     ar = v.es.endsWith('ar'),
     special = esSpecial[v.es],
@@ -489,7 +511,19 @@ export function builderVerbWarning(pt: boolean, v: Verb, time: string) {
   if (
     !pt &&
     (time.includes('continuous') || time === 'arrangement' || time === 'gerund') &&
-    ['be', 'have', 'want', 'need'].includes(v.id)
+    [
+      'be',
+      'have',
+      'want',
+      'need',
+      'understand',
+      'remember',
+      'prefer',
+      'love',
+      'hate',
+      'trust',
+      'believe',
+    ].includes(v.id)
   )
     return 'Este verbo expresa un estado en este ejemplo. Para practicar una acción en curso, elegí study, work, read u otro verbo de acción; no todos los verbos admiten el continuo con el mismo significado.';
   if (
@@ -535,8 +569,8 @@ export function buildReferenceSentence(
     note = definition.explanation;
   const esNormal = (action: string) => `${s.es} ${neg ? 'no ' : ''}${action} ${ces}`;
   if (!pt) {
-    const part = enParticiples[v.id],
-      ing = enIng[v.id],
+    const part = v.participle || enParticiples[v.id],
+      ing = v.gerund || enIng[v.id],
       has = s.third ? 'has' : 'have',
       be = s.id === 'i' ? 'am' : s.third ? 'is' : 'are',
       was = s.id === 'i' || s.third ? 'was' : 'were';
@@ -582,7 +616,7 @@ export function buildReferenceSentence(
         body = q ? `Could you ${v.word} ${c}, please` : `${neg ? 'Do not ' : ''}${v.word} ${c}`;
         spanish = q
           ? `¿Podés ${v.es} ${ces}, por favor`
-          : `${neg ? 'No ' : ''}${neg ? es.subj : { ir: 'andá', ser: 'sé', estar: 'está', tener: 'tené', hacer: 'hacé' }[v.es] || v.es.slice(0, -1).replace(/a$/, 'á').replace(/e$/, 'é').replace(/i$/, 'í')} ${ces}`;
+          : `${neg ? 'No ' : ''}${neg ? es.subj : v.esGrammar?.imperative || { ir: 'andá', ser: 'sé', estar: 'está', tener: 'tené', hacer: 'hacé' }[v.es] || v.es.slice(0, -1).replace(/a$/, 'á').replace(/e$/, 'é').replace(/i$/, 'í')} ${ces}`;
       }
     } else if (t === 'infinitive') {
       const obj = { i: 'me', you: 'you', he: 'him', she: 'her', we: 'us', they: 'them' }[s.id];
@@ -664,7 +698,7 @@ export function buildReferenceSentence(
       if (q && s.id === 'nos') body = `Nós podemos ${v.word} ${c}`;
       spanish = q
         ? `${s.es} ${['puedo', 'podés', 'puede', 'podemos', 'pueden'][n]} ${v.es} ${ces}`
-        : `${neg ? 'No ' : ''}${neg || s.id === 'nos' || s.id === 'voces' ? es.subj : { ir: 'andá', ser: 'sé', estar: 'está', tener: 'tené', hacer: 'hacé' }[v.es] || v.es.slice(0, -1).replace(/a$/, 'á').replace(/e$/, 'é').replace(/i$/, 'í')} ${ces}`;
+        : `${neg ? 'No ' : ''}${neg || s.id === 'nos' || s.id === 'voces' ? es.subj : v.esGrammar?.imperative || { ir: 'andá', ser: 'sé', estar: 'está', tener: 'tené', hacer: 'hacé' }[v.es] || v.es.slice(0, -1).replace(/a$/, 'á').replace(/e$/, 'é').replace(/i$/, 'í')} ${ces}`;
     } else if (t === 'infinitive') {
       body = `${s.text} ${neg ? 'não ' : ''}${['pretendo', 'pretende', 'pretendemos', 'pretendem'][f]} ${v.word} ${c}`;
       spanish = `${s.es} ${neg ? 'no ' : ''}${['pienso', 'pensás', 'piensa', 'pensamos', 'piensan'][n]} ${v.es} ${ces}`;
