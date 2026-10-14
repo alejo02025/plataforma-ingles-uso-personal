@@ -18,6 +18,12 @@ for (const pt of [false, true])
       'daily-guide',
     );
     await expect(guide).toContainText(pt ? 'A1' : 'A2');
+    await page.evaluate(() => document.fonts.ready);
+    expect(await page.evaluate(() => document.fonts.check('800 20px "Study Rounded"'))).toBe(true);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+      true,
+    );
+    await page.screenshot({ path: `/tmp/simple-home-${pt ? 'pt' : 'en'}.png`, fullPage: true });
     const question = guide.locator('textarea');
     await expect(question).toBeVisible();
     await question.fill(pt ? 'Eu aprendo sobre o mundo.' : 'I learn about the world.');
@@ -49,5 +55,28 @@ for (const pt of [false, true])
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
       true,
     );
+    await page.setViewportSize({ width: 1280, height: 900 });
+    await page
+      .getByRole('navigation', { name: pt ? 'Navegação principal' : 'Main navigation' })
+      .getByRole('button', { name: pt ? 'Início' : 'Home', exact: true })
+      .click();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+      true,
+    );
+    await page.screenshot({
+      path: `/tmp/simple-home-desktop-${pt ? 'pt' : 'en'}.png`,
+      fullPage: true,
+    });
+    await page
+      .getByRole('button', {
+        name: pt ? 'Mudar para aparência escura' : 'Switch to dark mode',
+        exact: true,
+      })
+      .click();
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+    await page.screenshot({
+      path: `/tmp/simple-home-dark-${pt ? 'pt' : 'en'}.png`,
+      fullPage: true,
+    });
     expect(errors).toEqual([]);
   });

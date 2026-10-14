@@ -7,9 +7,9 @@ test('The Portuguese MCER entry opens the same connected route; future levels re
     .getByRole('dialog', { name: 'Palavra do dia' })
     .getByRole('button', { name: 'Fechar palavra do dia' })
     .click();
-  await expect(page.locator('.cefr-home')).toContainText('A1');
+  await expect(page.locator('.course-dashboard')).toContainText('A1');
   await page
-    .locator('.cefr-home')
+    .locator('.course-dashboard')
     .getByRole('button', { name: 'Continuar meu percurso', exact: true })
     .click();
   await expect(page.locator('.course-connected')).toContainText('A1');

@@ -2,7 +2,6 @@
 import { DailyGuide } from './daily-guide';
 import { EntryPhrase } from './entry-phrase';
 import { courseRoute, levelLessons, passedLesson, learningJourney } from '@/lib/course-route';
-import { isPortuguese } from '@/lib/workspace';
 import { LearningTip } from './learning-tip';
 import { Puzzle, Bookmark, Compass } from 'lucide-react';
 import { StudySpaces } from './study-spaces';
@@ -14,15 +13,13 @@ import {
   ArrowRight,
   BookOpen,
   Check,
-  Clock3,
   Feather,
   Languages,
-  MoveUpRight,
   CalendarDays,
 } from 'lucide-react';
 import type { Snapshot, Activity } from '@/lib/types';
 import { localDay, skillNames } from '@/lib/learning';
-import { Heading, Button, ArrowLink, dateLabel } from './ui';
+import { Heading, Button, dateLabel } from './ui';
 export const activityIcons = {
   reading: BookOpen,
   grammar: Languages,
@@ -124,12 +121,8 @@ export function Dashboard({
   );
   const due = data.vocabulary.filter((w) => w.due_at <= new Date().toISOString()).length;
   const remaining = data.plan.activities.find((a) => !a.completed_at && !a.payload.optional);
-  const resumeSession = [...data.sessions].reverse().find((s) => !s.ended_at);
   const resume = data.resumeActivity || remaining;
-  const doc = data.documents.find((d) => d.id === remaining?.document_id) || data.documents[0];
   const diagnosed = Boolean(data.diagnostic.completed_at);
-  const bands = [...new Set(data.evaluations.map((e) => e.level?.slice(0, 2)).filter(Boolean))];
-  const currentLevel = bands.length ? bands.join(' / ') : 'Not assessed';
   return (
     <>
       <Heading
@@ -185,20 +178,6 @@ export function Dashboard({
             Open PDF Studio <ArrowUpRight size={18} />
           </Button>
         </div>
-        <div className="pdf-hero-art" aria-hidden="true">
-          <div className="pdf-hero-sheet">
-            <BookOpen size={38} />
-            <strong>Read it. Make it yours.</strong>
-            <i />
-            <i />
-            <i />
-          </div>
-          <span className="pdf-hero-note">
-            <Languages size={20} />
-            Good reads, new words.
-          </span>
-          <span className="pdf-hero-spark">✦</span>
-        </div>
       </section>
       <section className="quick-sections" aria-label="Quick practice">
         <button className="quick-play" onClick={() => navigate('Games')}>
@@ -211,7 +190,11 @@ export function Dashboard({
           <strong>Review</strong>
           <span>Keep your words</span>
         </button>
-        <button className="quick-speaking" onClick={() => navigate('Classes')}>
+        <button
+          className="quick-speaking"
+          aria-label="Open classes"
+          onClick={() => navigate('Classes')}
+        >
           <BookOpen size={25} />
           <strong>Learning path</strong>
           <span>Follow your next step</span>
@@ -222,129 +205,30 @@ export function Dashboard({
           <span>One step at a time</span>
         </button>
       </section>
-      <section className="classes-home card">
-        <div className="classes-home-icon">
-          <BookOpen size={28} />
-        </div>
+      <LearningTip day={data.day} />
+      <section className="card assessment-home">
         <div>
-          <span className="eyebrow">YOUR CLASSROOM</span>
-          <h2>Learn it. Use it.</h2>
-          <p>Clear explanations, everyday examples, and a little practice.</p>
+          <h2>{diagnosed ? 'Keep your next step close.' : 'Find your starting point.'}</h2>
+          <p>
+            {diagnosed
+              ? 'Return to your saved practice whenever you are ready.'
+              : 'An optional short assessment. Your learning path stays at its current level.'}
+          </p>
         </div>
-        <Button onClick={() => navigate('Classes')}>
-          Open classes <ArrowRight size={16} />
+        <Button
+          secondary
+          onClick={() =>
+            diagnosed ? (resume ? onStart(resume) : navigate('Progress')) : onDiagnostic()
+          }
+        >
+          {diagnosed
+            ? resume
+              ? 'Continue my session'
+              : 'See my progress'
+            : 'Find my starting point'}
+          <ArrowRight size={16} />
         </Button>
       </section>
-      <LearningTip day={data.day} />
-      {isPortuguese && (
-        <section className="cefr-home card">
-          <div>
-            <span className="eyebrow">MCER / QECR · SEU PERCURSO</span>
-            <h2>{data.cefr?.level || 'A1'} · Um passo de cada vez</h2>
-            <p>
-              Pratique leitura, gramática, escrita e fala. Comece pelo básico e experimente os
-              próximos níveis.
-            </p>
-          </div>
-          <Button onClick={() => navigate('MCER')}>
-            Continuar meu percurso <ArrowUpRight size={18} />
-          </Button>
-        </section>
-      )}
-      <div className="dashboard-top">
-        <section className="hero-card">
-          <div className="hero-content">
-            <span className="pill">
-              <span className="status-dot" />
-              {diagnosed ? 'YOUR PERSONAL JOURNEY' : 'A GOOD PLACE TO START'}
-            </span>
-            <h2>
-              {diagnosed ? (
-                <>
-                  Your next step <br />
-                  is ready for you.{' '}
-                </>
-              ) : (
-                <>
-                  The English you want. <br />
-                  One day at a time.{' '}
-                </>
-              )}
-            </h2>
-            <p>
-              {diagnosed
-                ? data.plan.reason
-                : 'Interesting readings, purposeful practice, and a plan that adapts to you.'}
-            </p>
-            <Button
-              onClick={() =>
-                diagnosed ? (resume ? onStart(resume) : navigate('Progress')) : onDiagnostic()
-              }
-            >
-              {diagnosed
-                ? resumeSession
-                  ? 'Continue my session'
-                  : remaining
-                    ? 'Start my day'
-                    : 'See my progress'
-                : 'Find my starting point'}
-              <ArrowUpRight size={17} />
-            </Button>
-            <span className="hero-note">
-              <Clock3 size={14} />
-              {diagnosed
-                ? `${data.plan.minutes} minutes at your pace`
-                : 'A short assessment · pause and resume'}
-            </span>
-          </div>
-          <div className="orbit-art" aria-hidden="true">
-            <div className="orbit orbit-one" />
-            <div className="orbit orbit-two" />
-            <div className="orbit orbit-three" />
-            <div className="orbit-center">
-              <MoveUpRight size={55} strokeWidth={1} />
-            </div>
-            <span className="orbit-label">
-              small steps,
-              <br />
-              real progress.
-            </span>
-          </div>
-        </section>
-        {isPortuguese ? (
-          <section className="card level-card">
-            <span className="eyebrow">SEU NÍVEL DE ESTUDO</span>
-            <h2>{data.cefr?.level || 'A1'}</h2>
-            <p>Ponto de partida informado por você. A1 → A2 → B1 → B2 → C1 → C2.</p>
-            <ArrowLink onClick={() => navigate('MCER')}>Ver meu percurso MCER</ArrowLink>
-          </section>
-        ) : (
-          <section className="card level-card">
-            <div className="card-kicker">
-              YOUR STARTING POINT <ArrowUpRight size={17} />
-            </div>
-            <div className="level-value">
-              {diagnosed ? currentLevel : 'Ready to discover'}
-              <span>{diagnosed ? 'An informal reference' : 'Let’s build your starting point'}</span>
-            </div>
-            <div className="level-track">
-              <span />
-            </div>
-            <div className="level-scale">
-              <span>Home</span>
-              <span>Goal: B2</span>
-            </div>
-            <p>
-              {diagnosed
-                ? 'Skill estimates have low confidence. Your B2 goal needs broader assessments.'
-                : 'A2/B1 is an initial assumption. You have not completed an assessment yet.'}
-            </p>
-            <ArrowLink onClick={() => (diagnosed ? navigate('Progress') : onDiagnostic())}>
-              {diagnosed ? 'See evidence by skill' : 'Take the assessment'}
-            </ArrowLink>
-          </section>
-        )}
-      </div>
       <div className="stats-grid">
         <Stat value={String(today.length)} label="Activities today" note="Completed practice" />
         <Stat value={`${minutes}`} suffix="min" label="Time today" note="Recorded active time" />
@@ -360,50 +244,6 @@ export function Dashboard({
         />
       </div>
       <MomentumChart data={data} compact />
-      <div className="dashboard-bottom">
-        <section className="card daily-card">
-          <div className="section-heading">
-            <div>
-              <span className="eyebrow">STEP BY STEP</span>
-              <h2>Your English today</h2>
-            </div>
-            <span className="muted">{data.plan.minutes} min</span>
-          </div>
-          <ActivityList data={data} onStart={onStart} />
-          <div className="card-footer">
-            <span className="status-dot" />
-            {data.plan.reason}
-          </div>
-        </section>
-        <div className="right-stack">
-          <section className="card reading-recommendation">
-            <div className="card-kicker">
-              A READING FOR YOU <BookOpen size={18} />
-            </div>
-            <div className={`book-art ${doc.topic === 'Finance' ? 'gold' : ''}`} aria-hidden="true">
-              <span>FIELD NOTES</span>
-              <div className="book-line" />
-              <BookOpen size={45} strokeWidth={1} />
-              <small>{doc.topic.toUpperCase()}</small>
-            </div>
-            <div className="reading-meta">
-              {doc.topic}
-              <span>·</span>
-              {doc.level}
-              <span>·</span>
-              {doc.minutes} min
-            </div>
-            <h3>{doc.title}</h3>
-            <p>{doc.intro}</p>
-            <ArrowLink onClick={() => navigate('Library')}>Explore the library</ArrowLink>
-          </section>
-          <section className="card quiet-card">
-            <span className="eyebrow">ONE IDEA FOR TODAY</span>
-            <p>“You don’t have to see the whole staircase. Just take the first step.”</p>
-            <span className="muted">What matters is coming back.</span>
-          </section>
-        </div>
-      </div>
     </>
   );
 }

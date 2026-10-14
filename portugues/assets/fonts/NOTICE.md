@@ -1,0 +1,1 @@
+Nunito, by Vernon Adams and contributors. Source: https://github.com/google/fonts/tree/main/ofl/nunito . Distributed under the SIL Open Font License 1.1; see OFL.txt. Served locally with the app, including offline.

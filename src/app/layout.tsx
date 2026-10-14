@@ -38,6 +38,16 @@ export const viewport: Viewport = { themeColor: isPortuguese ? '#955168' : '#078
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang={isPortuguese ? 'pt-BR' : 'en'} data-space={isPortuguese ? 'portuguese' : 'english'}>
+      <head>
+        <link
+          rel="preload"
+          href={`${assetBase}/assets/fonts/Nunito.ttf`}
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
+        <style>{`@font-face { font-family: 'Study Rounded'; src: url('${assetBase}/assets/fonts/Nunito.ttf') format('truetype'); font-weight: 200 900; font-style: normal; font-display: swap; }`}</style>
+      </head>
       <body>{children}</body>
     </html>
   );
