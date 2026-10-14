@@ -1,4 +1,4 @@
-:HL["/plataforma-ingles-uso-personal/_next/static/chunks/1--37d0ws-mlh.css","style"]
+:HL["/plataforma-ingles-uso-personal/_next/static/chunks/2g-k-jity0pup.css","style"]
 :HL["/plataforma-ingles-uso-personal/assets/fonts/Nunito.ttf","font",{"crossOrigin":"anonymous","type":"font/ttf"}]
 1:[["children",{"s":"__PAGE__","h":160}]]
-0:{"b":"X5tk_Sj_oUHqBLzo5n-cS","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"qWgZq1oI3hd5aPfqcRc8Q","t":{"t":{"s":"","h":80,"c":"$Q1"}}}

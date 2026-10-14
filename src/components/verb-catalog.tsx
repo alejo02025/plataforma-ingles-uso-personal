@@ -50,8 +50,7 @@ export function VerbCatalog() {
       <div className="toolkit-intro">
         <h2>{isPortuguese ? 'Encontre seu verbo' : 'Find your verb'}</h2>
         <p lang="es">
-          Buscá una acción en español o en el idioma que estudiás. Abrí un verbo para consultar sus
-          significados. Una misma palabra puede tener varios sentidos.
+          Buscá en español o en el idioma que estudiás. Tocá un verbo para ver su significado.
         </p>
       </div>
       <label className="field verb-search">
@@ -111,9 +110,8 @@ export function VerbCatalog() {
                 </div>
               ))}
               <p className="fine-print" lang="es">
-                Las equivalencias dependen del contexto; no todas se pueden intercambiar. Este
-                diccionario incluye usos poco frecuentes. Para aprender el patrón de conjugación,
-                usá los modelos cotidianos de abajo.
+                El significado depende del contexto. Para armar una oración, usá el constructor de
+                frases.
               </p>
             </div>
           </details>
@@ -148,10 +146,7 @@ export function VerbCatalog() {
         <summary>
           {isPortuguese ? 'Conjugar verbos do dia a dia' : 'Conjugate everyday verbs'}
         </summary>
-        <p lang="es">
-          Modelos de uso revisados para verbos cotidianos: elegí persona y tiempo. El catálogo
-          amplio es de significados; no genera conjugaciones automáticas para verbos irregulares.
-        </p>
+        <p lang="es">Elegí un verbo, una persona y un tiempo para ver un modelo de uso.</p>
         <Foundations mode="verbs" referenceOnly onOpenLesson={() => {}} />
       </details>
       <details className="catalog-sources">

@@ -67,24 +67,14 @@ export function Foundations({
   const form = (subjectId: string, tense: Tense) =>
     verbPart(isPortuguese, verb, subjects.find((s) => s.id === subjectId)!, tense);
   return (
-    <section className="foundations card">
-      <div className="foundation-heading">
-        <BookOpen size={26} />
-        <div>
-          <span className="eyebrow">LANGUAGE, PIECE BY PIECE</span>
+    <section className={`foundations card ${referenceOnly ? 'reference-builder' : ''}`}>
+      {!(referenceOnly && mode === 'sentences') && (
+        <div className="foundation-heading">
+          <BookOpen size={22} />
           <h2>{mode === 'verbs' ? 'Verbs for everyday life' : 'Build your own sentence'}</h2>
-          <p>Every tense, one clear example at a time.</p>
         </div>
-      </div>
-      <div className="foundation-day" lang="es">
-        <strong>Tu práctica de hoy · 5 minutos</strong>
-        <p>
-          {mode === 'verbs'
-            ? 'Elegí un verbo. Leé un ejemplo de hoy, uno de ayer y uno de mañana. Después decilos sin mirar y cambiá un detalle para que sean sobre vos.'
-            : 'Elegí una acción y armá una afirmación. Cambiala a negativa y a pregunta. Después repetí el proceso en pasado y en futuro. Compará cada modelo y escribí tu propia versión.'}
-        </p>
-      </div>
-      <div className="foundation-selectors">
+      )}
+      <div className="foundation-selectors builder-time-options">
         <label className="field">
           Time
           <select
@@ -222,7 +212,10 @@ export function Foundations({
             <Speak text={sentence.text} />
           </div>
           <p lang="es">{sentence.translation}</p>
-          <p lang="es">{sentence.explanation}</p>
+          <details className="builder-why">
+            <summary>{isPortuguese ? 'Por que funciona assim?' : 'Why does it work?'}</summary>
+            <p lang="es">{sentence.explanation}</p>
+          </details>
           <details className="builder-comparison">
             <summary>
               {isPortuguese ? 'Comparar as três formas' : 'Compare all three forms'}
@@ -257,28 +250,31 @@ export function Foundations({
           </details>
         </div>
       )}
-      <details className="lesson-tip">
-        <summary>
-          <Lightbulb size={16} />A sentence has a shape
-        </summary>
-        <p lang="es">
-          El modelo combina sujeto, verbo y un complemento adecuado para ese verbo. En inglés, el
-          sujeto normalmente se expresa; en portugués puede omitirse cuando está claro. En las
-          preguntas, fijate dónde va el auxiliar o el verbo. La traducción usa voseo argentino;
-          «you» puede referirse a vos o a ustedes, según el contexto.
-        </p>
-        <p lang="es">
-          No toda oración válida tiene exactamente el orden del modelo. Para portugués, el cuadro de
-          pasado usa pretérito perfeito; los hábitos pasados también pueden necesitar imperfeito.
-          Para inglés, «be» no sigue el mismo patrón de preguntas y negativas que un verbo de
-          acción.
-        </p>
-      </details>
+      {!referenceOnly && (
+        <details className="lesson-tip">
+          <summary>
+            <Lightbulb size={16} />A sentence has a shape
+          </summary>
+          <p lang="es">
+            El modelo combina sujeto, verbo y un complemento adecuado para ese verbo. En inglés, el
+            sujeto normalmente se expresa; en portugués puede omitirse cuando está claro. En las
+            preguntas, fijate dónde va el auxiliar o el verbo. La traducción usa voseo argentino;
+            «you» puede referirse a vos o a ustedes, según el contexto.
+          </p>
+          <p lang="es">
+            No toda oración válida tiene exactamente el orden del modelo. Para portugués, el cuadro
+            de pasado usa pretérito perfeito; los hábitos pasados también pueden necesitar
+            imperfeito. Para inglés, «be» no sigue el mismo patrón de preguntas y negativas que un
+            verbo de acción.
+          </p>
+        </details>
+      )}
       <label className="field foundation-draft">
-        <strong>Make one about your day</strong>
+        <strong>{isPortuguese ? 'Sua vez (opcional)' : 'Your turn (optional)'}</strong>
         <textarea
           aria-label="My daily sentence"
           value={draft}
+          rows={3}
           maxLength={2000}
           onChange={(e) => {
             setDraft(e.target.value);
@@ -291,7 +287,7 @@ export function Foundations({
       </label>
       <p className="fine-print" lang="es">
         {referenceOnly
-          ? 'Tu borrador se guarda en este dispositivo, sin nota automática. Podés consultar y probar todos estos modelos sin completar ninguna clase.'
+          ? 'Tu borrador se guarda automáticamente en este dispositivo. No se califica.'
           : 'Este borrador se conserva en este dispositivo sin nota automática. Para guardar un ejercicio en tu progreso, abrí la clase de práctica.'}
       </p>
       {!referenceOnly && isCourseVerb && ['present', 'past', 'future', 'plans'].includes(tense) && (

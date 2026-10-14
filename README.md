@@ -225,3 +225,9 @@ traducción con voseo. Esta colección de práctica se mantiene separada del
 catálogo de diccionario de miles de entradas y del banco de clases calificadas;
 ampliarla no agrega requisitos ni cambia clases aprobadas. Un filtro sin
 coincidencias conserva el verbo seleccionado y su oración; no borra borradores.
+
+La ayuda de lenguaje abre con una guía de tres pasos y un constructor compacto.
+Se eliminaron títulos y consejos duplicados; la regla de cada ejemplo y la
+comparación se despliegan a pedido. Los tiempos están agrupados para consultar
+solo el bloque necesario; las notas de A1–C2 siguen disponibles al pie. La lista
+completa de verbos, todos los tiempos y los borradores existentes se conservan.

@@ -7308,3 +7308,170 @@ select {
 .builder-comparison-row p {
   font-size: 14px;
 }
+
+/* One small guide, one example; further help opens on demand. */
+.language-desk .toolkit-note {
+  background: transparent;
+  padding: 0;
+  margin: 8px 0 18px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+.language-desk .toolkit-tabs button {
+  padding: 12px;
+  border-radius: 16px;
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+  min-height: 54px;
+}
+.language-desk .toolkit-tabs button span {
+  font-size: 10px;
+}
+.language-desk .toolkit-extra {
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  margin-top: 28px;
+}
+.language-desk .toolkit-guide {
+  border: 0;
+  border-left: 4px solid #9164f3;
+  border-radius: 14px;
+  background: var(--green-soft);
+  padding: 16px 18px;
+  margin-bottom: 18px;
+}
+.language-desk .toolkit-guide h2 {
+  font-size: 18px;
+  margin: 0 0 10px;
+}
+.toolkit-guide ol {
+  padding-left: 18px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.toolkit-guide li + li {
+  margin-top: 8px;
+}
+.language-desk .reference-builder {
+  padding: 20px;
+}
+.reference-builder .foundation-selectors {
+  margin: 0 0 14px;
+  gap: 12px;
+}
+.reference-builder .field {
+  gap: 6px;
+  font-size: 13px;
+}
+.reference-builder input,
+.reference-builder select {
+  padding: 10px 12px;
+  min-height: 44px;
+  border-radius: 12px;
+  font-size: 14px;
+}
+.reference-builder .builder-verb-search {
+  margin: 12px 0 6px;
+}
+.reference-builder .builder-verb-count {
+  margin: 5px 0 14px;
+  font-size: 11px;
+}
+.reference-builder .foundation-model {
+  padding: 18px;
+  margin: 18px 0;
+}
+.reference-builder .foundation-model h3 {
+  font-size: 24px;
+}
+.builder-why {
+  margin-top: 12px;
+}
+.builder-why summary {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 800;
+}
+.builder-why p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 12px;
+}
+.reference-builder .foundation-draft {
+  margin-top: 18px;
+}
+.reference-builder .foundation-draft textarea {
+  min-height: 90px;
+  padding: 12px;
+  font-size: 14px;
+}
+.language-desk .tense-group {
+  margin-top: 12px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px;
+}
+.language-desk .tense-group > summary {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 850;
+}
+.language-desk .tense-group[open] > summary {
+  margin-bottom: 12px;
+}
+.language-desk .tense-group .tense-card {
+  box-shadow: none;
+}
+.language-desk .toolkit-intro {
+  margin: 18px 0;
+}
+.language-desk .toolkit-intro h2 {
+  font-size: 22px;
+}
+@media (max-width: 680px) {
+  .language-desk .toolkit-tabs button {
+    font-size: 12px;
+    padding: 10px 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .language-desk .reference-builder {
+    padding: 16px;
+  }
+  .reference-builder .foundation-selectors {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .reference-builder select {
+    width: 100%;
+    min-width: 0;
+  }
+  .reference-builder .foundation-model h3 {
+    font-size: 22px;
+  }
+}
+.language-desk .guide-formula {
+  margin: 12px 0 0;
+  font-size: 12px;
+  font-weight: 800;
+  opacity: 0.85;
+}
+@media (max-width: 680px) {
+  .reference-builder .builder-time-options {
+    grid-template-columns: 1fr;
+  }
+}
+.reference-builder .field {
+  margin: 0;
+}
+.reference-builder .builder-why {
+  padding: 10px 0;
+  border-bottom: 0;
+}
+.reference-builder .builder-comparison {
+  margin-top: 8px;
+  padding: 12px 0 0;
+  border-bottom: 0;
+}
