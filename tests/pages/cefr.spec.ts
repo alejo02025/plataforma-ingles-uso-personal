@@ -7,10 +7,10 @@ test('The Portuguese MCER entry opens the same connected route; future levels re
     .getByRole('dialog', { name: 'Palavra do dia' })
     .getByRole('button', { name: 'Fechar palavra do dia' })
     .click();
-  await expect(page.locator('.course-dashboard')).toContainText('A1');
+  await expect(page.locator('.daily-guide')).toContainText('A1');
   await page
-    .locator('.course-dashboard')
-    .getByRole('button', { name: 'Continuar meu percurso', exact: true })
+    .locator('.home-small-links')
+    .getByRole('button', { name: 'Abrir aulas', exact: true })
     .click();
   await expect(page.locator('.course-connected')).toContainText('A1');
   await page.locator('.class-levels').getByRole('button', { name: /A2/ }).click();
@@ -18,5 +18,5 @@ test('The Portuguese MCER entry opens the same connected route; future levels re
   await expect(page.locator('.course-locked')).toContainText('nivel activo es A1');
   await expect(page.locator('.lesson-room')).toHaveCount(0);
   await page.reload();
-  await expect(page.locator('.course-dashboard')).toContainText('A1');
+  await expect(page.locator('.daily-guide')).toContainText('A1');
 });

@@ -6695,3 +6695,100 @@ select {
     min-width: 0;
   }
 }
+
+/* Home is an itinerary, not a second copy of every section. */
+.daily-guide {
+  max-width: 850px;
+  margin-inline: auto;
+}
+.daily-guide-steps {
+  display: block;
+  margin: 18px 0;
+}
+.daily-guide-steps li {
+  display: block;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}
+.guide-step {
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  padding: 0;
+  margin: 0;
+}
+.guide-step summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0;
+  list-style: none;
+}
+.guide-step summary::-webkit-details-marker {
+  display: none;
+}
+.guide-step summary::after {
+  content: '+';
+  margin-left: auto;
+  font-size: 23px;
+  color: var(--muted);
+}
+.guide-step[open] summary::after {
+  content: '−';
+}
+.guide-step summary h3 {
+  margin: 0;
+  font-size: 16px;
+}
+.guide-step-body {
+  padding: 0 0 20px 42px;
+}
+.guide-step-body > strong {
+  display: block;
+}
+.daily-guide-steps .guide-step-body p {
+  margin: 8px 0;
+}
+.guide-closing {
+  font-size: 13px;
+  color: var(--muted);
+}
+.home-small-links {
+  max-width: 850px;
+  margin: 16px auto;
+  display: flex;
+  gap: 20px;
+  font-size: 12px;
+}
+.home-small-links button {
+  border: 0;
+  background: none;
+  padding: 4px 0;
+}
+.topbar .daily-word-launcher {
+  position: static;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  margin: 0;
+  font-size: 0;
+  box-shadow: none;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--green);
+}
+@media (max-width: 680px) {
+  .guide-step-body {
+    padding-left: 0;
+  }
+  .daily-guide-heading {
+    gap: 10px;
+    padding-bottom: 12px;
+  }
+  .daily-guide {
+    padding: 20px;
+  }
+}

@@ -24,13 +24,23 @@ for (const pt of [false, true])
       true,
     );
     await page.screenshot({ path: `/tmp/simple-home-${pt ? 'pt' : 'en'}.png`, fullPage: true });
+    await expect(guide.locator('.guide-step[open]')).toHaveCount(1);
+    await expect(
+      page.locator(
+        'main .entry-phrase, main .pdf-home-hero, main .quick-sections, main .stats-grid, main .course-dashboard',
+      ),
+    ).toHaveCount(0);
+    await expect(page.locator('.topbar .daily-word-launcher')).toBeVisible();
+    await guide.locator('li').nth(2).locator('summary').click();
     const question = guide.locator('textarea');
     await expect(question).toBeVisible();
     await question.fill(pt ? 'Eu aprendo sobre o mundo.' : 'I learn about the world.');
     await page.reload();
+    await guide.locator('li').nth(2).locator('summary').click();
     await expect(question).toHaveValue(
       pt ? 'Eu aprendo sobre o mundo.' : 'I learn about the world.',
     );
+    await guide.locator('li').nth(1).locator('summary').click();
     const title = await guide.locator('li').nth(1).locator('strong').innerText();
     await guide
       .getByRole('button', {
@@ -41,6 +51,7 @@ for (const pt of [false, true])
     await expect(page.getByRole('heading', { name: title, exact: true })).toBeVisible();
     // Mobile navigation labels differ across editions; use the visible bottom Home button.
     await page.locator('.mobile-bottom-nav').getByRole('button').first().click();
+    await guide.locator('li').nth(3).locator('summary').click();
     const words = await guide.locator('.guide-words span').allTextContents();
     await guide
       .getByRole('button', { name: pt ? 'Jogar a sugestão' : 'Play suggested game', exact: true })

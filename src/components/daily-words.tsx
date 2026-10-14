@@ -1,4 +1,5 @@
 'use client';
+import { createPortal } from 'react-dom';
 import { courseRoute } from '@/lib/course-route';
 import { studyStorage } from '@/lib/workspace';
 import { useEffect, useState } from 'react';
@@ -16,6 +17,8 @@ export function DailyWords({
   refresh: () => Promise<void>;
   openVocabulary: () => void;
 }) {
+  const [slot, setSlot] = useState<HTMLElement | null>(null);
+  useEffect(() => setSlot(document.getElementById('daily-word-slot')), []);
   const [open, setOpen] = useState(false),
     [index, setIndex] = useState(0),
     [busy, setBusy] = useState(false),
@@ -32,10 +35,14 @@ export function DailyWords({
   };
   return (
     <>
-      <button className="daily-word-launcher" onClick={() => setOpen(true)}>
-        <Bookmark size={17} />
-        Word of the Day
-      </button>
+      {slot &&
+        createPortal(
+          <button className="daily-word-launcher" onClick={() => setOpen(true)}>
+            <Bookmark size={17} />
+            Word of the Day
+          </button>,
+          slot,
+        )}
       {open && (
         <aside className="daily-word-popup" role="dialog" aria-label="Word of the Day">
           <div className="daily-word-top">

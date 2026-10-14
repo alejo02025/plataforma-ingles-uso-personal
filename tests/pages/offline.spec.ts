@@ -31,7 +31,13 @@ test('Both spaces reopen without a signal, retain vocabulary and PDFs, and rejec
   await context.setOffline(true);
   await page.reload();
   await expect(page.locator('.offline-status summary')).toContainText('Sem conexão');
-  await expect(page.locator('.course-dashboard')).toContainText('A1');
+  await expect(page.locator('.daily-guide')).toContainText('A1');
+  await expect(page.locator('.guide-closing[lang="es"]')).toBeVisible();
+  await page
+    .getByRole('navigation', { name: 'Navegação principal' })
+    .getByRole('button', { name: 'Meu dia', exact: true })
+    .click();
+  await page.locator('.daily-thought summary').click();
   await expect(page.locator('.entry-phrase [lang="es"]')).toBeVisible();
   await page
     .getByRole('navigation')
@@ -39,7 +45,7 @@ test('Both spaces reopen without a signal, retain vocabulary and PDFs, and rejec
     .click();
   await expect(page.getByRole('heading', { name: ptWord, exact: true }).first()).toBeVisible();
   await page.goto('./');
-  await expect(page.locator('.course-dashboard')).toContainText('A2');
+  await expect(page.locator('.daily-guide')).toContainText('A2');
   await page.getByRole('button', { name: 'Update app', exact: true }).click();
   await expect(
     page.getByRole('alert').filter({ hasText: 'Connect to the internet' }),

@@ -57,9 +57,6 @@ for (const pt of [false, true])
     await read(false);
     await read(false);
     await nav.getByRole('button', { name: pt ? 'Início' : 'Home', exact: true }).click();
-    await expect(page.locator('.course-dashboard .journey-next')).toContainText(
-      'Necesitás reforzar lectura',
-    );
     await expect(page.locator('.daily-guide')).toContainText('Necesitás reforzar lectura');
     await page
       .getByRole('button', {

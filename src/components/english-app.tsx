@@ -1,6 +1,7 @@
 'use client';
 import { courseRoute } from '@/lib/course-route';
 import { CourseMenu } from './course-menu';
+import { EntryPhrase } from './entry-phrase';
 import { NewsBriefing } from './news-briefing';
 import { OfflineStatus } from './offline-status';
 import { Games } from './games';
@@ -294,6 +295,7 @@ export function EnglishApp() {
           <div className="topbar-actions">
             <CourseMenu data={data} navigate={(target) => void navigate(target)} />
             <AppUpdate />
+            {view === 'Home' && !active && <span id="daily-word-slot" />}
             <WordHelpCloud data={data} refresh={refresh} />
             {process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github' && (
               <GitHubSyncStatus onOpen={() => setSettings(true)} />
@@ -383,6 +385,10 @@ export function EnglishApp() {
               >
                 <span className="pill neutral">{data.plan.minutes} suggested minutes</span>
               </Heading>
+              <details className="daily-thought">
+                <summary>A thought for today</summary>
+                <EntryPhrase />
+              </details>
               <section className="card daily-card">
                 <ActivityList data={data} onStart={onStart} />
               </section>
