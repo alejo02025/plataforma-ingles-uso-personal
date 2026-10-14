@@ -259,3 +259,20 @@ El banco de rutinas edición 1 debe conservarse para los borradores y resultados
 publicados. Futuras ediciones deben agregarse con sus propios identificadores y
 mantener la reproducción y el crédito de las ediciones previas; nunca reescribir
 respuestas anteriores ni reiniciar bases de datos para actualizar contenido.
+
+## Racha diaria y logros
+
+Inicio y Mi día muestran una barra compacta de racha y 12 logros. Al tocar el
+fuego se ve la última semana y la mejor racha; la estrella despliega cada logro
+y su requisito en español. Se calculan desde el historial del espacio actual:
+actividades terminadas, repasos, respuestas de PDF, prácticas MCER guardadas y
+diagnósticos completados. Abrir la app, guardar una palabra o dejar un temporizador
+activo no suma una racha. Los aciertos no son requisito para reconocer práctica.
+
+Los días siguen la zona de estudio Argentina. La racha de ayer sigue vigente
+durante hoy; un día completo sin práctica corta la racha actual, conserva la mejor
+y no retira los logros conseguidos. Las clases deben aprobarse con 80 % y contar
+como clases distintas para sus logros; bloques y niveles usan los hitos ya
+persistidos del recorrido. Los logros no desbloquean ni sustituyen los requisitos
+MCER. No hay migración ni almacenamiento separado: el historial existente permite
+recuperar los contadores después de una actualización, un respaldo o sin señal.

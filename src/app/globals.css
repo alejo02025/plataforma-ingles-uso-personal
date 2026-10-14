@@ -7476,6 +7476,241 @@ select {
   border-bottom: 0;
 }
 
+/* A small daily streak and saved achievements, expanded only when requested. */
+.daily-rewards {
+  margin: -6px 0 24px;
+}
+.daily-rewards-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--surface);
+}
+.reward-stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  background: transparent;
+  padding: 4px 8px;
+  text-align: left;
+  color: var(--text);
+  border-radius: 12px;
+  min-height: 48px;
+}
+.reward-stat:hover,
+.reward-stat[aria-expanded='true'] {
+  background: var(--surface-soft);
+}
+.reward-stat:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+.reward-stat > span {
+  display: flex;
+  flex-direction: column;
+}
+.reward-stat strong {
+  font-size: 21px;
+  line-height: 1.1;
+}
+.reward-stat small {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 4px;
+}
+.reward-stat i {
+  color: var(--muted);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+}
+.streak-stat > svg {
+  color: var(--muted);
+}
+.streak-stat.is-lit > svg {
+  color: #f47738;
+}
+.star-stat > svg {
+  color: #e9ad20;
+}
+.reward-today {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.reward-today.is-done {
+  color: var(--green);
+  font-weight: 800;
+}
+.reward-today-dot {
+  width: 7px;
+  height: 7px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+}
+.reward-hint {
+  margin: 8px 4px 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.reward-details {
+  padding: 22px;
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--surface);
+}
+.reward-details[hidden] {
+  display: none;
+}
+.reward-details > h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px;
+  font-size: 19px;
+}
+.reward-details > h3 svg {
+  color: #e9ad20;
+}
+.reward-details > p {
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 13px;
+}
+.streak-week {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  padding: 0;
+  margin: 20px 0;
+  list-style: none;
+  gap: 7px;
+}
+.streak-week li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 3px;
+  background: var(--surface-soft);
+  border-radius: 14px;
+  color: var(--muted);
+  font-size: 11px;
+}
+.streak-week li[aria-current='date'] {
+  outline: 2px solid var(--green);
+  outline-offset: 1px;
+}
+.streak-week li.practised svg {
+  color: #f47738;
+}
+.streak-best {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+.streak-best > svg {
+  color: #e9ad20;
+}
+.reward-badges {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  list-style: none;
+  gap: 12px;
+  padding: 0;
+  margin: 20px 0 0;
+}
+.reward-badges li {
+  display: flex;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface-soft);
+}
+.reward-badges li.earned {
+  border-color: #e9ad20;
+}
+.reward-badge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 36px;
+  height: 36px;
+  border-radius: 12px;
+  color: var(--muted);
+  background: var(--surface);
+}
+.earned .reward-badge-icon {
+  color: #986d08;
+  background: #ffedaa;
+}
+.reward-badges h4 {
+  margin: 0 0 6px;
+  font-size: 15px;
+}
+.reward-badges p {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+.reward-badges small {
+  font-weight: 800;
+  color: var(--muted);
+}
+.reward-badges .earned small {
+  color: var(--green);
+}
+@media (max-width: 600px) {
+  .daily-rewards-bar {
+    gap: 8px;
+    padding: 10px;
+  }
+  .reward-stat {
+    gap: 7px;
+    padding: 4px;
+  }
+  .reward-details {
+    padding: 18px;
+  }
+  .reward-badges {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 360px) {
+  .topbar {
+    padding: 0 10px;
+  }
+  .topbar .breadcrumb {
+    flex: 0 0 30px;
+  }
+  .topbar .breadcrumb > strong,
+  .topbar .breadcrumb > svg {
+    display: none;
+  }
+  .topbar .topbar-actions {
+    gap: 0;
+  }
+  .topbar .sync-status {
+    max-width: 54px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 10px;
+  }
+}
+
 /* A connected learning routine, using small exercises before longer reading. */
 .home-purpose-spanish {
   color: var(--muted);
@@ -7825,4 +8060,15 @@ select {
   font-size: 13px;
   color: var(--green);
   font-weight: 800;
+}
+
+.streak-week .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }

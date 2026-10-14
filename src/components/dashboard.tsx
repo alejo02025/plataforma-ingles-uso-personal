@@ -1,5 +1,6 @@
 'use client';
 import { HomeRoutine } from './home-routine';
+import { DailyRewards } from './daily-rewards';
 import { FirstSteps } from './first-steps';
 import { studyStorage } from '@/lib/workspace';
 import { DailyGuide } from './daily-guide';
@@ -123,6 +124,7 @@ export function Dashboard({
           {dateLabel(data.day)}
         </span>
       </Heading>
+      <DailyRewards data={data} />
       <p className="home-purpose-spanish" lang="es">
         Un poco de práctica para poder entender y expresarte mejor. Cada actividad tiene un
         propósito y se conecta con tu nivel.

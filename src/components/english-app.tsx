@@ -1,6 +1,7 @@
 'use client';
 import { courseRoute } from '@/lib/course-route';
 import { CourseMenu } from './course-menu';
+import { DailyRewards } from './daily-rewards';
 import { EntryPhrase } from './entry-phrase';
 import { NewsBriefing } from './news-briefing';
 import { OfflineStatus } from './offline-status';
@@ -419,6 +420,7 @@ export function EnglishApp() {
               >
                 <span className="pill neutral">{data.plan.minutes} suggested minutes</span>
               </Heading>
+              <DailyRewards data={data} />
               <details className="daily-thought">
                 <summary>A thought for today</summary>
                 <EntryPhrase />
