@@ -1,5 +1,12 @@
 'use client';
 import { courseRoute } from '@/lib/course-route';
+import {
+  readGameDraft,
+  writeGameDraft,
+  clearGameDraft,
+  gameDraftIdentity,
+  type GameDraft,
+} from '@/lib/browser/game-draft';
 import { useEffect, useRef, useState } from 'react';
 import {
   ArrowLeft,
@@ -37,10 +44,25 @@ const descriptions: Record<GameMode, string> = {
   trail: 'A five-letter word. Six guesses. Follow the clues.',
 };
 export function Games({ data, refresh }: { data: Snapshot; refresh: () => Promise<void> }) {
-  const [game, setGame] = useState<{ id: string; seed: string; puzzle: Puzzle } | null>(null);
+  const [game, setGame] = useState<{
+    id: string;
+    seed: string;
+    puzzle: Puzzle;
+    draft?: GameDraft;
+  } | null>(null);
+  const [draftModes, setDraftModes] = useState<GameMode[]>([]);
   const [error, setError] = useState('');
   const history = data.results.filter((r) => r.activity_id.startsWith('game:'));
   const today = history.filter((r) => r.day === data.day);
+  useEffect(() => {
+    if (!game)
+      setDraftModes(
+        modes.filter((mode) => {
+          const draft = readGameDraft(mode);
+          return draft && !history.some((r) => r.activity_id === `game:${draft.id}`);
+        }),
+      );
+  }, [game, data.results]);
   function start(mode: GameMode) {
     setError('');
     const id = crypto.randomUUID();
@@ -48,6 +70,16 @@ export function Games({ data, refresh }: { data: Snapshot; refresh: () => Promis
       ? `${data.day}:${mode}:${id}`
       : `${data.day}:${mode}`;
     try {
+      const draft = readGameDraft(mode);
+      if (draft && !history.some((r) => r.activity_id === `game:${draft.id}`)) {
+        setGame({
+          id: draft.id,
+          seed: draft.seed,
+          puzzle: makePuzzle(mode, draft.seed, draft.level),
+          draft,
+        });
+        return;
+      }
       setGame({ id, seed, puzzle: makePuzzle(mode, seed, courseRoute(data).level) });
     } catch (e) {
       setError((e as Error).message);
@@ -103,7 +135,8 @@ export function Games({ data, refresh }: { data: Snapshot; refresh: () => Promis
                 <h2>{gameTitles[mode]}</h2>
                 <p>{descriptions[mode]}</p>
                 <span className="game-start">
-                  Play now <ArrowUpRight size={18} />
+                  {draftModes.includes(mode) ? 'Resume game' : 'Play now'}{' '}
+                  <ArrowUpRight size={18} />
                 </span>
               </button>
             ))}
@@ -148,19 +181,20 @@ function GameSession({
   refresh,
   close,
 }: {
-  game: { id: string; seed: string; puzzle: Puzzle };
+  game: { id: string; seed: string; puzzle: Puzzle; draft?: GameDraft };
   refresh: () => Promise<void>;
   close: () => void;
 }) {
   const { puzzle } = game;
-  const [answers, setAnswers] = useState<string[]>([]),
-    [picked, setPicked] = useState<number[]>([]),
-    [choice, setChoice] = useState(''),
-    [checked, setChecked] = useState(false),
-    [guesses, setGuesses] = useState<string[]>([]),
-    [guess, setGuess] = useState('');
-  const [hint, setHint] = useState(false),
-    [helpUsed, setHelpUsed] = useState(false);
+  const [initial] = useState(() => game.draft);
+  const [answers, setAnswers] = useState<string[]>(initial?.answers || []),
+    [picked, setPicked] = useState<number[]>(initial?.picked || []),
+    [choice, setChoice] = useState(initial?.choice || ''),
+    [checked, setChecked] = useState(initial?.checked || false),
+    [guesses, setGuesses] = useState<string[]>(initial?.guesses || []),
+    [guess, setGuess] = useState(initial?.guess || '');
+  const [hint, setHint] = useState(initial?.hint || false),
+    [helpUsed, setHelpUsed] = useState(initial?.helpUsed || false);
   const [busy, setBusy] = useState(false),
     [saved, setSaved] = useState(false),
     [error, setError] = useState('');
@@ -169,8 +203,50 @@ function GameSession({
     window.addEventListener('study-word-looked-up', lookedUp);
     return () => window.removeEventListener('study-word-looked-up', lookedUp);
   }, []);
-  const seconds = useRef(0),
+  const seconds = useRef(initial?.seconds || 0),
     saving = useRef(false);
+  const draftRef = useRef<GameDraft | undefined>(undefined),
+    savedRef = useRef(false);
+  savedRef.current = saved;
+  draftRef.current = {
+    ...gameDraftIdentity(game.id, game.seed, puzzle),
+    answers,
+    picked,
+    choice,
+    checked,
+    guesses,
+    guess,
+    hint,
+    helpUsed,
+    seconds: seconds.current,
+  };
+  const [draftError, setDraftError] = useState('');
+  function persistDraft() {
+    try {
+      if (savedRef.current) clearGameDraft(puzzle.mode);
+      else if (draftRef.current)
+        writeGameDraft(puzzle.mode, { ...draftRef.current, seconds: seconds.current });
+    } catch {
+      setDraftError(
+        'Your game draft could not be saved on this device. Finish and save the result before leaving.',
+      );
+    }
+  }
+  useEffect(() => {
+    persistDraft();
+  }, [answers, picked, choice, checked, guesses, guess, hint, helpUsed, saved]);
+  useEffect(() => {
+    const flush = () => persistDraft();
+    window.addEventListener('pagehide', flush);
+    document.addEventListener('visibilitychange', flush);
+    const timer = setInterval(flush, 5000);
+    return () => {
+      clearInterval(timer);
+      window.removeEventListener('pagehide', flush);
+      document.removeEventListener('visibilitychange', flush);
+      flush();
+    };
+  }, [game.id]);
   useEffect(() => {
     const timer = setInterval(() => {
       if (
@@ -470,6 +546,11 @@ function GameSession({
             </>
           )}
         </>
+      )}
+      {draftError && (
+        <p role="alert" className="error">
+          {draftError}
+        </p>
       )}
       {error && (
         <p role="alert" className="error">

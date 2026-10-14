@@ -1,4 +1,4 @@
 :HL["/plataforma-ingles-uso-personal/portugues/_next/static/chunks/1bbhjo-6n7eq_.css","style"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"/_not-found","h":96,"c":"$Q2"}]]
-0:{"b":"6xj4uNqUCbgObaioI3YV0","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"e5r3kpz-MtAp8x0jTEEPe","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
