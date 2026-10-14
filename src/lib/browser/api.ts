@@ -1,4 +1,4 @@
-import { courseWriting } from '@/lib/course-store';
+import { courseWriting, courseGrammar } from '@/lib/course-store';
 import { saveLesson } from '../lesson-store';
 import { cefrMutation } from '../cefr-store';
 import { isPortuguese } from '../workspace';
@@ -56,6 +56,11 @@ async function dispatch(endpoint: string, input?: unknown): Promise<unknown> {
     dailyPlan();
     const plan = db().prepare('SELECT id FROM plans WHERE day=?').get(snapshot().day)!;
     return transaction(() => courseWriting(db(), plan.id as string));
+  }
+  if (endpoint === 'course/grammar') {
+    dailyPlan();
+    const plan = db().prepare('SELECT id FROM plans WHERE day=?').get(snapshot().day)!;
+    return transaction(() => courseGrammar(db(), plan.id as string));
   }
   if (endpoint === 'classes/result') {
     dailyPlan();

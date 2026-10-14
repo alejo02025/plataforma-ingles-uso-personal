@@ -10,6 +10,8 @@ import {
   lessonRequirements,
   integration,
   blockSize,
+  reinforcement,
+  learningJourney,
   type CourseEvidence,
 } from '../src/lib/course-route';
 import { saveLesson } from '../src/lib/lesson-store';
@@ -67,18 +69,30 @@ test('A2 is the English entry point, mistakes do not unlock the next class, and 
         id: randomUUID(),
         lessonId: first.id,
         revision: classRevision,
+        answers: first.checks.map((q) => (q.answer + 1) % 3),
+        seconds: 20,
+      },
+      plan,
+    );
+    assert.doesNotThrow(() => checkLessonAccess(db, first.id));
+    saveLesson(
+      db,
+      {
+        id: randomUUID(),
+        lessonId: first.id,
+        revision: classRevision,
         answers: first.checks.map((q) => q.answer),
         seconds: 20,
       },
       plan,
     );
     assert.doesNotThrow(() => checkLessonAccess(db, second.id));
-    assert.equal(service.snapshot().results.length, 2);
+    assert.equal(service.snapshot().results.length, 3);
   } finally {
     db.close();
   }
 });
-test('Block boundaries require real reading, vocabulary, writing and conversation in the block window; classes cannot substitute for reading', () => {
+test('Block boundaries require real reading, vocabulary and writing in the block window; classes cannot substitute for reading', () => {
   const block = levelLessons('A2').slice(0, blockSize),
     date = '2026-10-14T12:00:00.000Z';
   const data: CourseEvidence = {
@@ -93,7 +107,7 @@ test('Block boundaries require real reading, vocabulary, writing and conversatio
   };
   assert.equal(integration(data, block).filter((r) => r.done).length, 1);
   const next = levelLessons('A2')[blockSize];
-  assert.equal(lessonRequirements(data, next).filter((r) => !r.done).length, 4);
+  assert.equal(lessonRequirements(data, next).filter((r) => !r.done).length, 3);
   data.results.push(
     result('reading', 'old-reading', '2026-10-13T12:00:00.000Z', { document_id: 'article' }),
   );
@@ -237,4 +251,127 @@ test('A full level unlocks only after every class block has cross-section eviden
   data.reviews = [];
   data.tutorMessages = [];
   assert.equal(courseRoute(data).level, 'B1');
+});
+
+test('Recent reading failures pause new classes everywhere, preserve earned checkpoints, and clear after a successful reading', () => {
+  const first = levelLessons('A2')[0],
+    next = levelLessons('A2')[1];
+  const data: CourseEvidence = {
+    day: '2026-10-14',
+    documents: [{ id: 'story', level: 'A2', filename: null } as never],
+    reviews: [],
+    tutorMessages: [],
+    tutorAttempts: [],
+    courseCheckpoints: [{ id: `block:${first.id}`, level: 'A2', completed_at: '2026-10-13' }],
+    results: [
+      result('grammar', 'class:first', '2026-10-14T09:00:00Z', {
+        answers: JSON.stringify({ lessonId: first.id }),
+        correct: 2,
+        total: 2,
+      }),
+      result('reading', 'r1', '2026-10-14T10:00:00Z', {
+        document_id: 'story',
+        correct: 0,
+        total: 2,
+      }),
+      result('reading', 'r2', '2026-10-14T11:00:00Z', {
+        document_id: 'story',
+        correct: 1,
+        total: 2,
+      }),
+    ],
+  };
+  assert.equal(learningJourney(data).next!.id, 'reinforce:reading');
+  assert.ok(lessonRequirements(data, next).some((r) => r.id === 'reinforce:reading' && !r.done));
+  assert.deepEqual(lessonRequirements(data, first), []);
+  assert.equal(data.courseCheckpoints!.length, 1);
+  data.results.push(
+    result('reading', 'r3', '2026-10-14T12:00:00Z', { document_id: 'story', correct: 2, total: 2 }),
+  );
+  assert.equal(reinforcement(data, 'A2').length, 0);
+  assert.ok(lessonRequirements(data, next).every((r) => r.done));
+});
+test('PDF checks feed the same reading reinforcement, and an advanced optional reading does not falsely block an elementary learner', () => {
+  const data: CourseEvidence = {
+    day: '2026-10-14',
+    documents: [
+      { id: 'pdf', level: 'Unassessed', filename: 'book.pdf' } as never,
+      { id: 'advanced', level: 'C2', filename: null } as never,
+    ],
+    results: [
+      result('reading', 'advanced1', '2026-10-14T09:00:00Z', {
+        document_id: 'advanced',
+        correct: 0,
+        total: 2,
+      }),
+      result('reading', 'advanced2', '2026-10-14T10:00:00Z', {
+        document_id: 'advanced',
+        correct: 0,
+        total: 2,
+      }),
+    ],
+    reviews: [],
+    tutorMessages: [],
+    tutorAttempts: [],
+  };
+  assert.deepEqual(reinforcement(data, 'A2'), []);
+  for (let i = 0; i < 2; i++)
+    data.tutorAttempts.push({
+      id: `pdf${i}`,
+      document_id: 'pdf',
+      question_id: 'word',
+      prompt: 'A sourced question',
+      answer: 'wrong',
+      correct: 0,
+      feedback: 'Source correction',
+      source_paragraph: 0,
+      created_at: `2026-10-14T11:0${i}:00Z`,
+    });
+  assert.equal(reinforcement(data, 'A2')[0].id, 'reinforce:reading');
+  data.tutorAttempts.push({
+    ...data.tutorAttempts[0],
+    id: 'recovery',
+    correct: 1,
+    created_at: '2026-10-14T12:00:00Z',
+  });
+  assert.deepEqual(reinforcement(data, 'A2'), []);
+});
+test('An English level change aligns untouched daily tasks while preserving an active reading and its draft', () => {
+  const db = new DatabaseSync(':memory:');
+  try {
+    initialize(db);
+    const service = createLearningService({
+      db: () => db,
+      transaction: (fn) => fn(),
+      uuid: randomUUID,
+    });
+    const before = service.snapshot(),
+      reading = before.plan.activities.find((a) => a.kind === 'reading')!;
+    const session = service.startSession(reading.id);
+    service.checkpoint(reading.document_id!, 1, { saved: 1 });
+    db.prepare('INSERT INTO course_checkpoints VALUES(?,?,?)').run(
+      'level:A2',
+      'A2',
+      new Date().toISOString(),
+    );
+    const after = service.snapshot();
+    assert.equal(courseRoute(after).level, 'B1');
+    assert.equal(
+      after.plan.activities.find((a) => a.id === reading.id)!.document_id,
+      reading.document_id,
+    );
+    assert.equal(after.documents.find((d) => d.id === reading.document_id)!.draft.saved, 1);
+    assert.equal(
+      db.prepare('SELECT activity_id FROM sessions WHERE id=?').get(session.id)!.activity_id,
+      reading.id,
+    );
+    const grammar = after.plan.activities.find((a) => a.kind === 'grammar')!;
+    assert.ok(grammar.payload.questions!.every((q) => q.band === 'B1'));
+    assert.equal(
+      after.plan.activities.find((a) => a.kind === 'writing')!.id,
+      before.plan.activities.find((a) => a.kind === 'writing')!.id,
+    );
+  } finally {
+    db.close();
+  }
 });

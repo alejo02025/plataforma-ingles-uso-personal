@@ -1,4 +1,5 @@
 'use client';
+import { learningJourney } from '@/lib/course-route';
 import { DownloadLink } from './ui';
 import { MomentumChart } from './momentum-chart';
 import { useState } from 'react';
@@ -9,13 +10,14 @@ import { localDay, skillNames } from '@/lib/learning';
 import { Heading, Empty, dateLabel } from './ui';
 import { Correction } from './correction';
 import { questionFeedback } from '@/lib/answer-feedback';
-const allSkills = ['reading', 'listening', 'speaking', 'writing', 'grammar', 'vocabulary'];
+const allSkills = ['reading', 'writing', 'grammar', 'vocabulary'];
 const labels: Record<string, string> = {
   ...skillNames,
   listening: 'Listening',
   speaking: 'Speaking',
 };
 export function Progress({ data }: { data: Snapshot }) {
+  const journey = learningJourney(data);
   const counts = allSkills.map((skill) => ({
     skill,
     results: data.results.filter((r) => r.skill === skill),
@@ -47,6 +49,17 @@ export function Progress({ data }: { data: Snapshot }) {
           Export my data{' '}
         </DownloadLink>
       </Heading>
+      <section className="card journey-progress">
+        <span className="eyebrow">ONE LANGUAGE, ONE JOURNEY</span>
+        <h2>
+          {journey.level} · Block {journey.block + 1}
+        </h2>
+        <p lang="es">
+          El nivel de estudio es compartido por todas las secciones. Los resultados de cada
+          competencia se conservan y las necesidades de refuerzo pueden pausar las clases nuevas.
+        </p>
+        {journey.next && <p lang="es">{journey.next.explanation}</p>}
+      </section>
       <MomentumChart data={data} />
       <div className="evidence-banner">
         <TrendingUp size={20} />

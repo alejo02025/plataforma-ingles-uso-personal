@@ -63,8 +63,11 @@ for (const pt of [false, true])
       .getByRole('button', { name: pt ? 'Fechar palavra do dia' : 'Close daily word' })
       .click();
     await page
-      .getByRole('region', { name: pt ? 'Prática rápida' : 'Quick practice' })
-      .getByRole('button', { name: pt ? 'Conversação' : 'Speaking' })
+      .getByRole('button', { name: pt ? 'Abrir aulas' : 'Open classes', exact: true })
+      .click();
+    await page
+      .locator('.foundation-tabs')
+      .getByRole('button', { name: pt ? 'Aplicar' : 'Use it', exact: true })
       .click();
     await page
       .getByRole('button', { name: pt ? 'Começar a falar' : 'Start speaking', exact: true })
@@ -113,8 +116,11 @@ for (const pt of [false, true])
       .fill(pt ? 'Um rascunho salvo.' : 'A saved draft.');
     await page.reload();
     await page
-      .getByRole('region', { name: pt ? 'Prática rápida' : 'Quick practice' })
-      .getByRole('button', { name: pt ? 'Conversação' : 'Speaking' })
+      .getByRole('button', { name: pt ? 'Abrir aulas' : 'Open classes', exact: true })
+      .click();
+    await page
+      .locator('.foundation-tabs')
+      .getByRole('button', { name: pt ? 'Aplicar' : 'Use it', exact: true })
       .click();
     await expect(page.locator('.voice-message.user p')).toHaveText(words);
     await expect(page.locator('.voice-message.assistant p')).toHaveText(reply);

@@ -1,4 +1,4 @@
-import { cefrA1Words } from '@/lib/cefr-curriculum';
+import { vocabularyAtLevel } from '@/locales/learning/vocabulary-bands';
 import { glossary } from './content';
 export const wordCategories = [
   'Todas',
@@ -38,8 +38,7 @@ export function wordDetails(word: string) {
   );
 }
 export function wordsForDay(day: string, level?: string) {
-  const pool =
-    level === 'A1' ? dailyWords.filter((word) => cefrA1Words.includes(word.word)) : dailyWords;
+  const pool = dailyWords.filter((word) => vocabularyAtLevel(word.word, level, true));
   const index = Number(day.replaceAll('-', '')) % pool.length;
   return Array.from({ length: 5 }, (_, offset) => pool[(index + offset * 7) % pool.length]);
 }

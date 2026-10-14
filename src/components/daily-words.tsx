@@ -1,4 +1,5 @@
 'use client';
+import { courseRoute } from '@/lib/course-route';
 import { studyStorage } from '@/lib/workspace';
 import { useEffect, useState } from 'react';
 import { ArrowLeft, ArrowRight, BookmarkPlus, Check, Bookmark, X } from 'lucide-react';
@@ -19,7 +20,7 @@ export function DailyWords({
     [index, setIndex] = useState(0),
     [busy, setBusy] = useState(false),
     [error, setError] = useState('');
-  const entries = wordsForDay(data.day, data.cefr?.level),
+  const entries = wordsForDay(data.day, courseRoute(data).level),
     entry = entries[index % entries.length],
     saved = data.vocabulary.some((word) => word.word.toLowerCase() === entry.word.toLowerCase());
   useEffect(() => {

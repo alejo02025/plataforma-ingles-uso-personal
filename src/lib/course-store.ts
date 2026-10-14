@@ -1,3 +1,4 @@
+import { grammarQuestions } from './content';
 import { isPortuguese } from './workspace';
 import { cefrLevels } from './cefr-curriculum';
 import type { DatabaseSync } from 'node:sqlite';
@@ -104,4 +105,38 @@ export function preserveCourseProgress(db: Connection) {
     }
   }
   for (const level of route.completed) save.run(`level:${level}`, level, new Date().toISOString());
+}
+
+export function courseGrammar(db: Connection, planId: string): Activity {
+  const level = studyLevel(db),
+    questions = grammarQuestions.filter((q) => q.band === level).slice(0, 3);
+  if (!questions.length)
+    throw new Error(
+      'Repasá la última clase de gramática de tu recorrido; todavía no hay un ejercicio adicional disponible para este nivel.',
+    );
+  const id = `course-grammar:${crypto.randomUUID()}`;
+  const activity: Activity = {
+    id,
+    plan_id: planId,
+    kind: 'grammar',
+    title: isPortuguese
+      ? 'Reforçar a gramática do seu percurso'
+      : 'Reinforce your learning path grammar',
+    minutes: 5,
+    document_id: null,
+    payload: { optional: true, questions: questions.map(({ answer, explanation, ...q }) => q) },
+    completed_at: null,
+  };
+  db.prepare(
+    'INSERT INTO activities(id,plan_id,kind,title,minutes,document_id,payload) VALUES(?,?,?,?,?,?,?)',
+  ).run(
+    id,
+    planId,
+    'grammar',
+    activity.title,
+    5,
+    null,
+    JSON.stringify({ optional: true, questionIds: questions.map((q) => q.id) }),
+  );
+  return activity;
 }

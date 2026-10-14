@@ -1,3 +1,4 @@
+import { levelLessons, reinforcement } from './course-route';
 import { studyLevel, courseEvidence, preserveCourseProgress } from './course-store';
 import { isPortuguese } from './workspace';
 import { cefrCourse } from './cefr-curriculum';
@@ -304,9 +305,13 @@ export function createLearningService({
       });
       plan = { id, day, minutes, reason };
     }
-    if (isPortuguese) {
+    {
       const level = studyLevel(db());
       const unit = cefrCourse.find((item) => item.level === level)!;
+      const atLevel = documents().filter((d) => d.level === level);
+      const read = isPortuguese
+        ? atLevel.find((d) => d.id === `cefr:${level}`) || atLevel[0]
+        : atLevel[0];
       const pending = db()
         .prepare(
           'SELECT * FROM activities WHERE plan_id=? AND completed_at IS NULL AND NOT EXISTS (SELECT 1 FROM sessions WHERE activity_id=activities.id)',
@@ -317,21 +322,28 @@ export function createLearningService({
         if (payload.optional || payload.draft) continue;
         if (activity.kind === 'reading') {
           const document = documents().find((doc) => doc.id === activity.document_id);
-          if (document?.level !== level)
+          if (document?.level !== level && read)
             db()
               .prepare('UPDATE activities SET document_id=?,title=? WHERE id=?')
-              .run(`cefr:${level}`, unit.title, activity.id as string);
+              .run(read!.id, read!.title, activity.id as string);
         } else if (activity.kind === 'grammar') {
           const ids = grammarQuestions
             .filter((q) => q.band === level)
             .slice(0, 3)
             .map((q) => q.id);
-          if (JSON.stringify(payload.questionIds) !== JSON.stringify(ids))
+          if (
+            (payload.questionIds || []).some(
+              (id: string) => grammarQuestions.find((q) => q.id === id)?.band !== level,
+            )
+          )
             db()
               .prepare('UPDATE activities SET payload=? WHERE id=?')
               .run(JSON.stringify({ ...payload, questionIds: ids }), activity.id as string);
         } else if (activity.kind === 'writing') {
-          const prompt = unit.tasks.find((task) => task.skill === 'writing')!.prompt;
+          const focus = levelLessons(level)[0];
+          const prompt = isPortuguese
+            ? unit.tasks.find((task) => task.skill === 'writing')!.prompt
+            : focus.practice;
           if (payload.prompt !== prompt)
             db()
               .prepare('UPDATE activities SET payload=? WHERE id=?')
@@ -354,7 +366,26 @@ export function createLearningService({
           );
         return { ...r, payload };
       }) as Activity[];
-    return { ...plan, activities } as Snapshot['plan'];
+    const repairs = reinforcement(courseEvidence(db()), studyLevel(db()));
+    const focus = repairs
+      .map((r) => r.id.split(':')[1])
+      .map((skill) =>
+        isPortuguese
+          ? (
+              { reading: 'leitura', grammar: 'gramática', vocabulary: 'vocabulário' } as Record<
+                string,
+                string
+              >
+            )[skill]
+          : skill,
+      )
+      .join(', ');
+    const reason = repairs.length
+      ? isPortuguese
+        ? `Seu percurso pede reforço em ${focus}. Abra Aulas para seguir a próxima prática antes de avançar.`
+        : `Your learning path needs reinforcement in ${focus}. Open Classes for the next practice before moving on.`
+      : plan.reason;
+    return { ...plan, reason, activities } as Snapshot['plan'];
   }
   function startSession(activityId: string) {
     const activity = db().prepare('SELECT * FROM activities WHERE id=?').get(activityId);

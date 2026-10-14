@@ -1,3 +1,4 @@
+import { vocabularyAtLevel } from '@/locales/learning/vocabulary-bands';
 import { glossary } from './content';
 export const wordCategories = [
   'All',
@@ -198,10 +199,8 @@ export const dailyWords = Object.entries({ ...glossary, ...extra }).map(([word, 
 export function wordDetails(word: string) {
   return dailyWords.find((item) => item.word.toLowerCase() === word.toLowerCase());
 }
-export function wordsForDay(day: string, _level?: string) {
-  const index = Number(day.replaceAll('-', '')) % dailyWords.length;
-  return Array.from(
-    { length: 5 },
-    (_, offset) => dailyWords[(index + offset * 7) % dailyWords.length],
-  );
+export function wordsForDay(day: string, level?: string) {
+  const pool = dailyWords.filter((word) => vocabularyAtLevel(word.word, level, false));
+  const index = Number(day.replaceAll('-', '')) % pool.length;
+  return Array.from({ length: 5 }, (_, offset) => pool[(index + offset * 7) % pool.length]);
 }

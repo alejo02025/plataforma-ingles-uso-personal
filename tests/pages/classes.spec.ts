@@ -87,18 +87,6 @@ for (const pt of [false, true])
     await expect(page.locator('.course-connected [data-requirement="writing"]')).toHaveClass(
       /done/,
     );
-    await page.locator('.course-connected [data-requirement="speaking"] button').click();
-    await page.getByLabel(pt ? 'Minha prática de fala' : 'My speaking practice').fill(practice);
-    await page
-      .getByRole('button', {
-        name: pt ? 'Salvar minha prática de fala' : 'Save my speaking practice',
-        exact: true,
-      })
-      .click();
-    await classes();
-    await expect(page.locator('.course-connected [data-requirement="speaking"]')).toHaveClass(
-      /done/,
-    );
     await page.locator('.course-connected [data-requirement="reading"] button').click();
     const title = await page.locator('.document-card h2').first().innerText();
     const reading = [

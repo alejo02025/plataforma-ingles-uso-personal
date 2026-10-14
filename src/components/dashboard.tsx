@@ -1,9 +1,9 @@
 'use client';
 import { EntryPhrase } from './entry-phrase';
-import { courseRoute, levelLessons, passedLesson } from '@/lib/course-route';
+import { courseRoute, levelLessons, passedLesson, learningJourney } from '@/lib/course-route';
 import { isPortuguese } from '@/lib/workspace';
 import { LearningTip } from './learning-tip';
-import { Puzzle, Bookmark, Compass, Mic } from 'lucide-react';
+import { Puzzle, Bookmark, Compass } from 'lucide-react';
 import { StudySpaces } from './study-spaces';
 import { useEffect, useState } from 'react';
 import { greetingForHour } from '@/lib/momentum';
@@ -93,7 +93,8 @@ export function Dashboard({
   navigate: (view: string) => void;
   onDiagnostic: () => void;
 }) {
-  const route = courseRoute(data);
+  const route = courseRoute(data),
+    journey = learningJourney(data);
   const courseItems = levelLessons(route.level);
   const classCount = courseItems.filter((l) => passedLesson(data, l.id)).length;
   const [greeting, setGreeting] = useState('Hello');
@@ -148,6 +149,11 @@ export function Dashboard({
             Tenés una lectura pendiente. Podés retomarla desde Classes sin perder el borrador.
           </p>
         )}
+        {journey.next && (
+          <p className="journey-next" lang="es">
+            {journey.next.explanation}
+          </p>
+        )}
         <Button secondary onClick={() => navigate('Classes')}>
           Continue my learning path <ArrowRight size={16} />
         </Button>
@@ -190,10 +196,10 @@ export function Dashboard({
           <strong>Review</strong>
           <span>Keep your words</span>
         </button>
-        <button className="quick-speaking" onClick={() => navigate('Speaking')}>
-          <Mic size={25} />
-          <strong>Speaking</strong>
-          <span>Talk to your tutor</span>
+        <button className="quick-speaking" onClick={() => navigate('Classes')}>
+          <BookOpen size={25} />
+          <strong>Learning path</strong>
+          <span>Follow your next step</span>
         </button>
         <button className="quick-plan" onClick={() => navigate('My Day')}>
           <Compass size={25} />

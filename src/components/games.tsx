@@ -75,12 +75,12 @@ export function Games({ data, refresh }: { data: Snapshot; refresh: () => Promis
         setGame({
           id: draft.id,
           seed: draft.seed,
-          puzzle: makePuzzle(mode, draft.seed, draft.level),
+          puzzle: makePuzzle(mode, draft.seed, draft.level, draft.curriculum),
           draft,
         });
         return;
       }
-      setGame({ id, seed, puzzle: makePuzzle(mode, seed, courseRoute(data).level) });
+      setGame({ id, seed, puzzle: makePuzzle(mode, seed, courseRoute(data).level, 2) });
     } catch (e) {
       setError((e as Error).message);
     }
@@ -297,6 +297,7 @@ function GameSession({
         mode: puzzle.mode,
         seed: game.seed,
         level: puzzle.level,
+        curriculum: puzzle.curriculum,
         answers,
         helpUsed,
         seconds: seconds.current,

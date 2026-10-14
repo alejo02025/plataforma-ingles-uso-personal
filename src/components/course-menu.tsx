@@ -1,8 +1,8 @@
 'use client';
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ArrowRight, X, BookOpen, Mic, Newspaper, Plane, FileText, Bookmark } from 'lucide-react';
-import { courseRoute } from '@/lib/course-route';
+import { ArrowRight, X, BookOpen, Newspaper, Plane, FileText, Bookmark } from 'lucide-react';
+import { learningJourney } from '@/lib/course-route';
 import { isPortuguese } from '@/lib/workspace';
 import type { Snapshot } from '@/lib/types';
 import { StudySpaces } from './study-spaces';
@@ -50,7 +50,8 @@ function Menu({
   navigate: (view: string) => void;
 }) {
   const ref = useDialog(close),
-    level = courseRoute(data).level;
+    journey = learningJourney(data),
+    level = journey.level;
   const categories = [
     {
       icon: BookOpen,
@@ -61,12 +62,12 @@ function Menu({
       view: 'Classes',
     },
     {
-      icon: Mic,
-      title: isPortuguese ? 'Fala e pronúncia' : 'Speaking and pronunciation',
+      icon: Bookmark,
+      title: isPortuguese ? 'Prática com jogos' : 'Practice through games',
       detail: isPortuguese
-        ? 'Ouça, pratique e converse.'
-        : 'Listen, practise and have a conversation.',
-      view: 'Speaking',
+        ? 'Pratique o vocabulário do seu percurso.'
+        : 'Practise vocabulary from your learning path.',
+      view: 'Games',
     },
     {
       icon: Newspaper,
@@ -118,6 +119,15 @@ function Menu({
           </button>
         </div>
         <StudySpaces compact />
+        {journey.next && (
+          <div className="flag-next-step">
+            <strong>Next guided step</strong>
+            <p lang="es">{journey.next.explanation}</p>
+            <button className="button secondary" onClick={() => navigate('Classes')}>
+              Open my learning path <ArrowRight size={16} />
+            </button>
+          </div>
+        )}
         <div className="course-category-grid">
           {categories.map(({ icon: Icon, title, detail, view }, i) => (
             <button
@@ -128,6 +138,14 @@ function Menu({
               <span>
                 <strong>{title}</strong>
                 <small>{detail}</small>
+                <small className="flag-course-state">
+                  {level} ·{' '}
+                  {journey.repairs.some((r) => r.view === view)
+                    ? 'Reinforce first'
+                    : journey.pending.some((r) => r.view === view)
+                      ? 'Practice needed'
+                      : 'Part of your learning path'}
+                </small>
               </span>
               <Icon size={32} />
               <ArrowRight size={17} />

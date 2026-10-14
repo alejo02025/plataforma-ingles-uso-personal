@@ -3,6 +3,7 @@ import { studyStorage } from '../workspace';
 import { makePuzzle, type GameMode, type Puzzle } from '../games';
 const schema = z.object({
   version: z.literal(1),
+  curriculum: z.literal(2).optional(),
   id: z.string().uuid(),
   seed: z.string().min(1).max(100),
   level: z.enum(['A1', 'A2', 'B1', 'B2', 'C1', 'C2']).optional(),
@@ -24,7 +25,7 @@ export function readGameDraft(mode: GameMode): GameDraft | undefined {
     const parsed = schema.safeParse(JSON.parse(studyStorage.getItem(key(mode)) || 'null'));
     if (!parsed.success) return;
     const draft = parsed.data,
-      puzzle = makePuzzle(mode, draft.seed, draft.level);
+      puzzle = makePuzzle(mode, draft.seed, draft.level, draft.curriculum);
     if (JSON.stringify(puzzle) !== draft.puzzleKey) return;
     const round = puzzle.rounds[Math.min(draft.answers.length, puzzle.rounds.length - 1)];
     if (
@@ -48,6 +49,7 @@ export function clearGameDraft(mode: GameMode) {
 export function gameDraftIdentity(id: string, seed: string, puzzle: Puzzle) {
   return {
     version: 1 as const,
+    ...(puzzle.curriculum ? { curriculum: puzzle.curriculum } : {}),
     id,
     seed,
     level: puzzle.level as GameDraft['level'],

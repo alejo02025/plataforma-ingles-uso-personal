@@ -1,9 +1,8 @@
 'use client';
+import { courseRoute } from '@/lib/course-route';
 import { CourseMenu } from './course-menu';
 import { NewsBriefing } from './news-briefing';
 import { OfflineStatus } from './offline-status';
-import { Mic } from 'lucide-react';
-import { CefrPath } from './cefr-path';
 import { Games } from './games';
 import { Classes } from './classes';
 import { WordHelpCloud } from './word-help';
@@ -15,7 +14,7 @@ import { AppUpdate } from './app-update';
 import { PdfStudio } from './pdf-studio';
 import { DownloadLink } from './ui';
 import { GitHubSync, GitHubSyncStatus } from './github-sync';
-import { useCallback, useEffect, useRef, useState, lazy, Suspense } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   BookOpen,
   CalendarDays,
@@ -45,9 +44,6 @@ import { Practice } from './practice';
 import { Progress, Calendar } from './analytics';
 import { api, Button, Heading, Empty } from './ui';
 import { useDialog } from './use-dialog';
-const VoiceRoom = lazy(() =>
-  import('./voice-room').then((module) => ({ default: module.VoiceRoom })),
-);
 const navigation = [
   { title: 'Home', icon: Home },
   { title: 'PDF Studio', icon: NotebookPen },
@@ -58,13 +54,14 @@ const navigation = [
   { title: 'Vocabulary', icon: Languages },
   { title: 'Progress', icon: ChartNoAxesCombined },
   { title: 'Calendar', icon: CalendarDays },
-  { title: 'Speaking', icon: Mic },
   { title: 'Classes', icon: BookOpen },
   { title: 'News', icon: BookOpen },
 ];
 export function EnglishApp() {
   const [data, setData] = useState<Snapshot | null>(null),
     [view, setView] = useState('Home');
+  const [classroomVisit, setClassroomVisit] = useState(0);
+  const [classroomSection, setClassroomSection] = useState<'classes' | 'practice'>('classes');
   const [active, setActive] = useState<Activity | null>(null),
     [error, setError] = useState(''),
     [locked, setLocked] = useState(false),
@@ -89,7 +86,9 @@ export function EnglishApp() {
     return () => window.removeEventListener('english-data-changed', onRemoteChange);
   }, [refresh]);
   async function navigate(target: string) {
-    setView(target);
+    setClassroomVisit((v) => v + 1);
+    setView(['Speaking', 'Course practice', 'MCER'].includes(target) ? 'Classes' : target);
+    setClassroomSection(['Speaking', 'Course practice'].includes(target) ? 'practice' : 'classes');
     setActive(null);
     setMobileMenu(false);
     setError('');
@@ -198,9 +197,7 @@ export function EnglishApp() {
         )}
       </div>
     );
-  const appNavigation = isPortuguese
-    ? [...navigation, { title: 'MCER', icon: BookOpen }]
-    : navigation;
+  const appNavigation = navigation;
   const doc = data.documents.find((d) => d.id === active?.document_id);
   return (
     <div className="app-shell">
@@ -246,8 +243,8 @@ export function EnglishApp() {
               <ArrowUpRight size={20} />
             </div>
             <div>
-              <span>Your next horizon</span>
-              <strong>{isPortuguese ? `MCER · ${data.cefr?.level || 'A1'}` : 'English B2'}</strong>
+              <span>Your learning path</span>
+              <strong>{`${isPortuguese ? 'MCER' : 'English'} · ${courseRoute(data).level}`}</strong>
             </div>
           </div>
           <button
@@ -394,17 +391,17 @@ export function EnglishApp() {
               refresh={refresh}
               navigate={(target) => void navigate(target)}
               onStart={onStart}
+              key={`${classroomSection}:${classroomVisit}`}
+              initialSection={classroomSection}
             />
-          ) : view === 'Speaking' ? (
-            <Suspense fallback={<p role="status">Preparing your speaking room…</p>}>
-              <VoiceRoom data={data} refresh={refresh} />
-            </Suspense>
           ) : view === 'Classes' ? (
             <Classes
               data={data}
               refresh={refresh}
               navigate={(target) => void navigate(target)}
               onStart={onStart}
+              key={`${classroomSection}:${classroomVisit}`}
+              initialSection={classroomSection}
             />
           ) : view === 'Games' ? (
             <Games data={data} refresh={refresh} />
@@ -424,10 +421,6 @@ export function EnglishApp() {
               <section className="card daily-card">
                 <ActivityList data={data} onStart={onStart} />
               </section>
-              <Empty
-                title="More speaking tools are coming."
-                detail="Recording, transcription, and listening activities are planned. For now, you can listen to readings with your browser’s voices."
-              />
             </>
           )}
           <footer className="app-footer">

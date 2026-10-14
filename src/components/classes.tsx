@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import {
   ArrowLeft,
   ArrowRight,
@@ -19,14 +19,16 @@ import { Correction } from './correction';
 import { Foundations } from './foundations';
 import {
   courseRoute,
-  lessonRequirements,
   levelLessons,
-  integration,
-  blockSize,
+  lessonRequirements,
   passedLesson,
+  learningJourney,
   type Requirement,
 } from '@/lib/course-route';
 import type { Activity } from '@/lib/types';
+const VoiceRoom = lazy(() =>
+  import('./voice-room').then((module) => ({ default: module.VoiceRoom })),
+);
 type Review = {
   correct: number;
   total: number;
@@ -51,17 +53,22 @@ export function Classes({
   refresh,
   navigate,
   onStart,
+  initialSection = 'classes',
 }: {
   data: Snapshot;
   refresh: () => Promise<void>;
   navigate: (view: string) => void;
   onStart: (activity: Activity) => void;
+  initialSection?: 'classes' | 'practice';
 }) {
   const route = courseRoute(data),
     suggested = route.level;
   const [level, setLevel] = useState(suggested),
     [selected, setSelected] = useState(''),
-    [section, setSection] = useState<'classes' | 'verbs' | 'sentences'>('classes');
+    [section, setSection] = useState<'classes' | 'verbs' | 'sentences' | 'practice'>(
+      initialSection,
+    );
+  useEffect(() => setSection(initialSection), [initialSection]);
   useEffect(() => {
     setLevel(suggested);
     setSelected('');
@@ -70,22 +77,29 @@ export function Classes({
   const practised = new Set(history.map((r) => attempt(r)!.lessonId));
   const lesson = lessons.find((item) => item.id === selected);
   const blocked = lesson ? lessonRequirements(data, lesson).filter((r) => !r.done) : [];
-  const activeLessons = levelLessons(route.level);
-  const blocks = Array.from({ length: Math.ceil(activeLessons.length / blockSize) }, (_, index) =>
-    activeLessons.slice(index * blockSize, (index + 1) * blockSize),
-  );
-  const currentBlock = Math.max(
-    0,
-    blocks.findIndex((block) => !integration(data, block).every((r) => r.done)),
-  );
-  const tasks = integration(
-    data,
-    activeLessons.slice(currentBlock * blockSize, (currentBlock + 1) * blockSize),
-  );
+  const journey = learningJourney(data),
+    currentBlock = journey.block,
+    tasks = journey.tasks;
   const [taskError, setTaskError] = useState('');
   async function goTask(requirement: Requirement) {
     if (requirement.activity) {
       onStart(requirement.activity);
+      return;
+    }
+    if (requirement.lessonId) {
+      setSelected(requirement.lessonId);
+      setSection('classes');
+      setLevel(suggested);
+      return;
+    }
+    if (requirement.id === 'reinforce:grammar') {
+      try {
+        const activity = await api<Activity>('course/grammar', {});
+        await refresh();
+        onStart(activity);
+      } catch (error) {
+        setTaskError((error as Error).message);
+      }
       return;
     }
     if (requirement.id === 'previous' && lesson) {
@@ -154,8 +168,18 @@ export function Classes({
         >
           Sentences
         </button>
+        <button
+          className={section === 'practice' ? 'active' : ''}
+          onClick={() => setSection('practice')}
+        >
+          Use it
+        </button>
       </div>
-      {section !== 'classes' ? (
+      {section === 'practice' ? (
+        <Suspense fallback={<p role="status">Preparing your class practice…</p>}>
+          <VoiceRoom data={data} refresh={refresh} />
+        </Suspense>
+      ) : section !== 'classes' ? (
         <Foundations
           mode={section}
           onOpenLesson={(id) => {
@@ -230,7 +254,10 @@ export function Classes({
               orden fijo. Los niveles futuros se habilitan al completar todos los bloques, sin
               alterar tu historial ni certificar oficialmente el MCER.
             </p>
-            {checklist(tasks)}
+            {checklist([
+              ...journey.pending.filter((r) => r.id.startsWith('reinforce:') || r.id === 'backlog'),
+              ...tasks,
+            ])}
             <Button secondary onClick={() => navigate('Games')}>
               Games <ArrowRight size={15} />
             </Button>
@@ -546,7 +573,7 @@ function LessonRoom({
                   <RotateCcw size={16} />
                   Try again later
                 </Button>
-                <Button secondary onClick={() => navigate('Speaking')}>
+                <Button secondary onClick={() => navigate('Course practice')}>
                   Use it in a conversation <ArrowRight size={16} />
                 </Button>
               </div>

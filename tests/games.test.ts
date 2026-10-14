@@ -97,3 +97,15 @@ test('Hints give an initial letter or opening word, and everyday examples hide t
   const sentence = makePuzzle('sentence', 'help').rounds[0];
   assert.equal(puzzleHint(sentence, 'sentence'), sentence.solution.split(/\s+/)[0]);
 });
+test('New game editions follow the active vocabulary band while legacy puzzles stay reproducible', () => {
+  const legacy = makePuzzle('match', 'edition-check', 'A2');
+  assert.equal(legacy.curriculum, undefined);
+  const current = makePuzzle('match', 'edition-check', 'A2', 2);
+  assert.equal(current.curriculum, 2);
+  assert.ok(
+    current.rounds.every(
+      (r) => !['assumptions', 'judgement', 'misleading', 'compound interest'].includes(r.word),
+    ),
+  );
+  assert.deepEqual(makePuzzle('match', 'edition-check', 'A2'), legacy);
+});

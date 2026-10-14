@@ -1,3 +1,4 @@
+import { vocabularyAtLevel } from '@/locales/learning/vocabulary-bands';
 import { isPortuguese } from './workspace';
 import { cefrA1Words } from './cefr-curriculum';
 import { glossary } from './content';
@@ -6,6 +7,7 @@ export type GameMode = 'match' | 'sentence' | 'trail';
 export type Puzzle = {
   mode: GameMode;
   level?: string;
+  curriculum?: 2;
   rounds: { word: string; meaning: string; example: string; solution: string; choices: string[] }[];
 };
 export const gameTitles: Record<GameMode, string> = {
@@ -16,7 +18,7 @@ export const gameTitles: Record<GameMode, string> = {
 export function normalizeAnswer(text: string) {
   return text.trim().toLocaleLowerCase().replace(/\s+/g, ' ');
 }
-export function makePuzzle(mode: GameMode, seed: string, level?: string): Puzzle {
+export function makePuzzle(mode: GameMode, seed: string, level?: string, curriculum = 1): Puzzle {
   let state = Array.from(seed).reduce((n, c) => (Math.imul(n, 31) + c.charCodeAt(0)) >>> 0, 7);
   const random = () => {
     state = (Math.imul(state, 1664525) + 1013904223) >>> 0;
@@ -32,7 +34,9 @@ export function makePuzzle(mode: GameMode, seed: string, level?: string): Puzzle
   }
   const entries = Object.entries(glossary).filter(
     ([word, item]) =>
-      (!isPortuguese || level !== 'A1' || cefrA1Words.includes(word)) &&
+      (curriculum === 2
+        ? vocabularyAtLevel(word, level, isPortuguese)
+        : !isPortuguese || level !== 'A1' || cefrA1Words.includes(word)) &&
       item.meaning &&
       item.example &&
       (mode !== 'trail' || /^[\p{L}]{5}$/u.test(word)) &&
@@ -43,6 +47,7 @@ export function makePuzzle(mode: GameMode, seed: string, level?: string): Puzzle
   return {
     mode,
     level,
+    ...(curriculum === 2 ? { curriculum: 2 as const } : {}),
     rounds: picked.map(([word, item]) => {
       const solution = mode === 'sentence' ? item.example : word;
       return {

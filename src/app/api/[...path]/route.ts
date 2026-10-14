@@ -1,4 +1,4 @@
-import { courseWriting } from '@/lib/course-store';
+import { courseWriting, courseGrammar } from '@/lib/course-store';
 import { saveLesson } from '@/lib/lesson-store';
 import { voiceMutation } from '@/lib/voice-store';
 import { workspaceId } from '@/lib/workspace';
@@ -133,6 +133,11 @@ export async function POST(request: NextRequest) {
       dailyPlan();
       const plan = db().prepare('SELECT id FROM plans WHERE day=?').get(snapshot().day)!;
       return json(transaction(() => courseWriting(db(), plan.id as string)));
+    }
+    if (endpoint === 'course/grammar') {
+      dailyPlan();
+      const plan = db().prepare('SELECT id FROM plans WHERE day=?').get(snapshot().day)!;
+      return json(transaction(() => courseGrammar(db(), plan.id as string)));
     }
     if (endpoint === 'classes/result') {
       dailyPlan();
