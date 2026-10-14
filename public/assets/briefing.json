@@ -1,18 +1,168 @@
 {
-  "checkedAt": "2026-10-14T10:02:20.782484+00:00",
-  "stories": [],
-  "unavailable": [
+  "checkedAt": "2026-10-14T10:37:03.715547+00:00",
+  "stories": [
     {
+      "id": "38baf772a938d90f",
       "language": "en",
-      "topic": "World"
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Russian strikes leave 600,000 without power in Ukraine, as Starlink restrictions affect front line",
+      "url": "https://www.bbc.co.uk/news/articles/cm2d6e62p49do?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-14T10:04:28+00:00"
     },
     {
+      "id": "4c4f3673e6e39a25",
       "language": "en",
-      "topic": "Technology"
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Pope diagnosed with lung cancer but had successful surgery, Vatican says",
+      "url": "https://www.bbc.co.uk/news/articles/ck1wvd9dvv22o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-14T08:53:40+00:00"
     },
     {
+      "id": "682415106c6cc7b9",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Germany puts Ukrainian on trial accused of blowing up Nord Stream pipelines",
+      "url": "https://www.bbc.co.uk/news/articles/cw99zpmnxzmjo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-14T09:32:54+00:00"
+    },
+    {
+      "id": "994246342d5e43ad",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Saudi employee charged with planting recording device in OpenAI office",
+      "url": "https://www.bbc.co.uk/news/articles/cwg5jq4vlddzo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-13T21:42:49+00:00"
+    },
+    {
+      "id": "11f619156f457045",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Turkish police raid opposition TV station, halting live broadcasts",
+      "url": "https://www.bbc.co.uk/news/articles/crx23y3d970vo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-14T10:07:02+00:00"
+    },
+    {
+      "id": "291095c2d1fdbb68",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "MI5 chief warns of threats to UK from Russia, Iran and AI",
+      "url": "https://www.bbc.co.uk/news/articles/c60rl5vwpk02o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-13T15:52:15+00:00"
+    },
+    {
+      "id": "d4f2375d084377be",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "'I applied for 200 jobs' - How 'spray and pray' AI job applications can backfire",
+      "url": "https://www.bbc.co.uk/news/articles/c623dnkn8pkyo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-14T08:27:17+00:00"
+    },
+    {
+      "id": "681dcee3dafd5881",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "How long will humans be needed for translation?",
+      "url": "https://www.bbc.co.uk/news/articles/c1wxdjx27ypo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-13T23:05:29+00:00"
+    },
+    {
+      "id": "0b28be7298fc2a3b",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Bumble bought for $1.3bn in 'bet on the future of humanity'",
+      "url": "https://www.bbc.co.uk/news/articles/cm9qzwjgnjxlo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-13T15:59:07+00:00"
+    },
+    {
+      "id": "a814e655ef43ac12",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Phase Eight and Hobbs owner hit by cyber-attack, as H&M probes separate hack claim",
+      "url": "https://www.bbc.co.uk/news/articles/cwly38gjkejko?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-13T09:34:43+00:00"
+    },
+    {
+      "id": "46087bb9b492e6fa",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "AI minister warns 'likely' UK's cyber defences will be breached",
+      "url": "https://www.bbc.co.uk/news/articles/cr78pe09y05xo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-12T15:03:42+00:00"
+    },
+    {
+      "id": "1aff4bf29ee2a8bd",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "AI is less regulated than milk, says Microsoft president",
+      "url": "https://www.bbc.co.uk/news/articles/c6rmy7zmvx3lo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-12T07:47:37+00:00"
+    },
+    {
+      "id": "00320830dd5558ba",
       "language": "pt",
-      "topic": "Brasil"
+      "topic": "Brasil",
+      "source": "Agência Brasil",
+      "title": "Libertadores: Rádio Nacional transmite Fluminense x Palmeiras",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/libertadores-radio-nacional-transmite-fluminense-x-palmeiras",
+      "published": "2026-10-14T06:45:00-03:00"
+    },
+    {
+      "id": "277e0beff141914d",
+      "language": "pt",
+      "topic": "Brasil",
+      "source": "Agência Brasil",
+      "title": "Lula garante versão universitária do “Pé de Meia” caso seja reeleito",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/lula-garante-versao-universitaria-do-pe-de-meia-caso-seja-reeleito",
+      "published": "2026-10-13T22:16:00-03:00"
+    },
+    {
+      "id": "d03d480e378c0573",
+      "language": "pt",
+      "topic": "Brasil",
+      "source": "Agência Brasil",
+      "title": "Flávio faz visita ao pai em prisão domiciliar e recebe apoios em SP",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/flavio-faz-visita-ao-pai-em-prisao-domiciliar-e-recebe-apoios-em-sp",
+      "published": "2026-10-13T22:15:00-03:00"
+    },
+    {
+      "id": "29d19e2cb98e81a2",
+      "language": "pt",
+      "topic": "Brasil",
+      "source": "Agência Brasil",
+      "title": "Perdão de dívidas de MEIs terá impacto fiscal, mas redução de custos",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/perdao-de-dividas-de-meis-tera-impacto-de-r-3-bilhoes",
+      "published": "2026-10-13T22:09:00-03:00"
+    },
+    {
+      "id": "da90e877b15b15aa",
+      "language": "pt",
+      "topic": "Brasil",
+      "source": "Agência Brasil",
+      "title": "Milhares de estudantes tomam a Esplanada em apoio a Lula",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/milhares-de-estudantes-tomam-esplanada-em-apoio-lula",
+      "published": "2026-10-13T21:50:00-03:00"
+    },
+    {
+      "id": "72414084622b063b",
+      "language": "pt",
+      "topic": "Brasil",
+      "source": "Agência Brasil",
+      "title": "TSE mantém veto a posts que ligam Lula e Flávio ao crime organizado",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/tse-mantem-veto-posts-que-ligam-lula-e-flavio-ao-crime-organizado",
+      "published": "2026-10-13T21:43:00-03:00"
     }
-  ]
+  ],
+  "unavailable": []
 }
