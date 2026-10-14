@@ -28,7 +28,7 @@ for (const pt of [false, true])
     await expect(category).toContainText(pt ? 'Sempre disponível' : 'Always available');
     await category.click();
     await expect(page.locator('.toolkit-note')).toContainText('sin requisitos de nivel');
-    await expect(page.locator('.verb-table')).toBeVisible();
+    await expect(page.locator('.sentence-shape')).toBeVisible();
     await page.getByLabel(pt ? 'Escolher um tempo' : 'Choose a time').selectOption('past');
     await page
       .getByLabel(pt ? 'Escolher um tipo de frase' : 'Choose a sentence type')
@@ -40,7 +40,9 @@ for (const pt of [false, true])
       .getByLabel(pt ? 'Escolher um tipo de frase' : 'Choose a sentence type')
       .selectOption('question');
     await expect(page.locator('.foundation-model h3')).toContainText(pt ? '?' : 'Did I study');
-    await page.getByRole('button', { name: pt ? 'Frases' : 'Sentences', exact: true }).click();
+    await page
+      .getByRole('button', { name: pt ? '01 Formar frases' : '01 Build sentences', exact: true })
+      .click();
     await page.getByLabel(pt ? 'Escolher um tempo' : 'Choose a time').selectOption('future');
     await page
       .getByLabel(pt ? 'Escolher um tipo de frase' : 'Choose a sentence type')
@@ -51,6 +53,30 @@ for (const pt of [false, true])
     await page
       .locator('.foundation-draft textarea')
       .fill('A reference draft that must survive reload.');
+    await page
+      .getByRole('button', { name: pt ? '02 Todos os tempos' : '02 All tenses', exact: true })
+      .click();
+    await expect(page.locator('.tense-card')).toHaveCount(pt ? 22 : 18);
+    const advanced = page
+      .locator('.tense-card')
+      .filter({ hasText: pt ? 'Futuro composto do subjuntivo' : 'Future perfect continuous' });
+    await advanced.locator('summary').click();
+    await expect(advanced.locator('.tense-body')).toContainText(
+      pt ? 'Quando eu tiver terminado' : 'will have been studying',
+    );
+    await expect(advanced.locator('.tense-tip')).toBeVisible();
+    await page.getByRole('button', { name: pt ? '03 Verbos' : '03 Verbs', exact: true }).click();
+    await expect(page.locator('.catalog-count')).toContainText(pt ? '2.415' : '7,100');
+    await expect(page.locator('.verb-entry')).toHaveCount(30);
+    await page.getByRole('searchbox').fill('respirar');
+    const breathe = page
+      .locator('.verb-entry')
+      .filter({ hasText: pt ? 'respirar' : 'breathe' })
+      .first();
+    await breathe.locator('summary').first().click();
+    await expect(breathe.locator('.verb-senses')).toContainText('respirar');
+    await expect(page.locator('.course-locked')).toHaveCount(0);
+    await page.locator('.toolkit-extra > summary').click();
     await page
       .getByRole('button', { name: pt ? 'Consulta rápida' : 'Quick reference', exact: true })
       .click();
@@ -82,10 +108,17 @@ for (const pt of [false, true])
       .locator('.course-category')
       .filter({ hasText: pt ? 'Ajuda com o idioma' : 'Language help' })
       .click();
-    await expect(page.locator('.verb-table')).toBeVisible();
+    await expect(page.locator('.sentence-shape')).toBeVisible();
     await expect(page.locator('.foundation-draft textarea')).toHaveValue(
       'A reference draft that must survive reload.',
     );
+    await page.getByRole('button', { name: pt ? '03 Verbos' : '03 Verbs', exact: true }).click();
+    await expect(page.locator('.catalog-count')).toContainText(pt ? '2.415' : '7,100');
+    await page.getByRole('searchbox').fill(pt ? 'estudar' : 'study');
+    await expect(page.locator('.verb-entry').first()).toBeVisible();
+    expect(
+      await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
+    ).toBe(true);
     await page.locator('.mobile-bottom-nav').getByRole('button').first().click();
     await expect(page.locator('.daily-guide')).toContainText(pt ? 'A1' : 'A2');
     await page

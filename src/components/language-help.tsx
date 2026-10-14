@@ -3,11 +3,15 @@ import { useState } from 'react';
 import { BookOpen, Lightbulb } from 'lucide-react';
 import { isPortuguese } from '@/lib/workspace';
 import { grammarReference } from '@/locales/learning/grammar-reference';
+import { englishTenses, portugueseTenses } from '@/locales/learning/tense-reference';
+import { VerbCatalog } from './verb-catalog';
 import { lessons } from '@/lib/lessons';
 import { Foundations } from './foundations';
 import { Heading, Speak } from './ui';
 export function LanguageHelp() {
-  const [mode, setMode] = useState<'verbs' | 'sentences' | 'reference' | 'notes'>('verbs');
+  const [mode, setMode] = useState<'verbs' | 'sentences' | 'reference' | 'notes' | 'tenses'>(
+    'sentences',
+  );
   const [band, setBand] = useState('A1');
   const [query, setQuery] = useState('');
   const notes = lessons.filter(
@@ -19,34 +23,91 @@ export function LanguageHelp() {
       <Heading
         eyebrow="ALWAYS HERE TO HELP"
         title="Your language toolkit."
-        description="Verbs, sentence patterns and clear explanations. Open whenever you need a hand."
+        description="Sentences, tenses, verbs. Everything you need, always unlocked."
       />
       <p className="toolkit-note" lang="es">
-        <Lightbulb size={18} /> Todas las ayudas están disponibles desde el primer día, sin
-        requisitos de nivel. Consultarlas no modifica tus notas ni desbloquea clases. Tocá una
-        palabra para ver su ayuda en español.
+        <Lightbulb size={18} /> Ayuda disponible desde el primer día, sin requisitos de nivel.
+        Consultarla no modifica tu progreso.
       </p>
-      <div className="tabs foundation-tabs" role="group" aria-label="Language help sections">
-        <button className={mode === 'verbs' ? 'active' : ''} onClick={() => setMode('verbs')}>
-          Verbs
-        </button>
+      <div className="toolkit-tabs" role="group" aria-label="Language help sections">
         <button
           className={mode === 'sentences' ? 'active' : ''}
           onClick={() => setMode('sentences')}
         >
-          Sentences
+          <span>01</span>
+          {isPortuguese ? 'Formar frases' : 'Build sentences'}
         </button>
-        <button
-          className={mode === 'reference' ? 'active' : ''}
-          onClick={() => setMode('reference')}
-        >
-          Quick reference
+        <button className={mode === 'tenses' ? 'active' : ''} onClick={() => setMode('tenses')}>
+          <span>02</span>
+          {isPortuguese ? 'Todos os tempos' : 'All tenses'}
         </button>
-        <button className={mode === 'notes' ? 'active' : ''} onClick={() => setMode('notes')}>
-          Study notes
+        <button className={mode === 'verbs' ? 'active' : ''} onClick={() => setMode('verbs')}>
+          <span>03</span>Verbs
         </button>
       </div>
-      {mode === 'reference' ? (
+      <details className="toolkit-extra">
+        <summary>{isPortuguese ? 'Mais explicações' : 'More explanations'}</summary>
+        <div className="tabs">
+          <button
+            className={mode === 'reference' ? 'active' : ''}
+            onClick={() => setMode('reference')}
+          >
+            Quick reference
+          </button>
+          <button className={mode === 'notes' ? 'active' : ''} onClick={() => setMode('notes')}>
+            Study notes
+          </button>
+        </div>
+      </details>
+      {mode === 'tenses' ? (
+        <section className="tense-reference">
+          <div className="toolkit-intro">
+            <h2>{isPortuguese ? 'Um mapa de todos os tempos' : 'A map of all tenses'}</h2>
+            <p lang="es">
+              Abrí el tiempo que necesitás. Primero mirá para qué sirve, después compará afirmación,
+              negativa y pregunta. Las formas no personales, los modos y las perífrasis también
+              están incluidos, pero no son todos tiempos distintos.
+            </p>
+          </div>
+          {Array.from(
+            new Set((isPortuguese ? portugueseTenses : englishTenses).map((t) => t.group)),
+          ).map((group) => (
+            <section className="tense-group" key={group}>
+              <h3>{group}</h3>
+              {(isPortuguese ? portugueseTenses : englishTenses)
+                .filter((t) => t.group === group)
+                .map((t) => (
+                  <details className="tense-card card" key={t.name}>
+                    <summary>
+                      <strong>{t.name}</strong>
+                      <span lang="es">{t.use}</span>
+                    </summary>
+                    <div className="tense-body">
+                      <code className="lesson-pattern">{t.pattern}</code>
+                      {t.examples.map((text, i) => (
+                        <div className="tense-example" key={text}>
+                          <span lang="es">
+                            {['Afirmación / modelo', 'Negativa', 'Pregunta'][i]}
+                          </span>
+                          <div className="lesson-example">
+                            <blockquote lang={isPortuguese ? 'pt-BR' : 'en'}>{text}</blockquote>
+                            <Speak text={text} />
+                          </div>
+                          {i === 0 && <p lang="es">{t.translation}</p>}
+                        </div>
+                      ))}
+                      <p className="tense-tip" lang="es">
+                        {t.tip}
+                      </p>
+                    </div>
+                  </details>
+                ))}
+            </section>
+          ))}
+        </section>
+      ) : mode === 'verbs' ? (
+        <VerbCatalog />
+      ) : mode === 'reference' ? (
         <section className="card grammar-reference">
           {grammarReference.map((entry, index) => (
             <details key={entry.en} className="grammar-reference-entry">
@@ -117,7 +178,27 @@ export function LanguageHelp() {
           )}
         </section>
       ) : (
-        <Foundations mode={mode} referenceOnly onOpenLesson={() => {}} />
+        <div className="sentence-toolkit">
+          <div className="sentence-shape card">
+            <h2>{isPortuguese ? 'Como formar uma frase' : 'How to form a sentence'}</h2>
+            <div className="sentence-pieces">
+              <span>Sujeto</span>
+              <b>+</b>
+              <span>Verbo</span>
+              <b>+</b>
+              <span>Complemento</span>
+            </div>
+            <p lang="es">
+              ¿Quién? + ¿Qué hace? + ¿Qué, dónde o cuándo? Primero armá una afirmación; después
+              elegí negativa o pregunta en el modelo de abajo.
+            </p>
+            <p className="sentence-example">
+              {isPortuguese ? 'Eu estudo português todos os dias.' : 'I study English every day.'}
+            </p>
+            <p lang="es">Estudio {isPortuguese ? 'portugués' : 'inglés'} todos los días.</p>
+          </div>
+          <Foundations mode="sentences" referenceOnly onOpenLesson={() => {}} />
+        </div>
       )}
     </>
   );

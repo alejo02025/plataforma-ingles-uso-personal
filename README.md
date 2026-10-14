@@ -196,3 +196,14 @@ El menú agrupa las secciones principales en accesos compactos y las complementa
 ## Primer día y test orientativo
 
 El tutorial de primera entrada explica en español cómo empezar: test, guía del día, clases y ayudas. Se recuerda por espacio y dispositivo; se puede volver a abrir con How to start / Como começar. El test contiene 12 situaciones (tres por tramo A1–B2) y una opción de desconocimiento, sin límite de tiempo. Cada respuesta se guarda al confirmarla y se puede retomar. El resultado muestra una referencia conservadora, resultados por lectura/gramática/vocabulario y un primer foco. Es un cuestionario guiado pequeño, no una certificación, ni evalúa audio o escritura. No altera el nivel de clases ni saltea requisitos. Los diagnósticos anteriores ya terminados se muestran con sus respuestas originales, sin exigir nuevas preguntas ni borrar historial.
+
+Language help is always unlocked and opens with sentence construction, followed
+by a full tense reference and a searchable offline verb catalogue. The catalogue
+contains 7,100 English and 2,415 Portuguese verb lemmas / verb expressions with
+Spanish equivalents aligned by WordNet sense. Forms are not counted as separate
+verbs. It is a dictionary, not an automatic conjugator: reviewed everyday
+conjugation models remain separate. Source notices, licenses, pinned input hashes
+and reproducible extraction live in `external-data/wordnet/`,
+`public/assets/verbs/` and `scripts/build-verb-catalog.py`. Dictionary adaptations
+are CC BY-SA 3.0, separately from app code. All existing progress and drafts use
+the same storage keys; consulting the help does not award course credit.

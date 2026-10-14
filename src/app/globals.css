@@ -7056,3 +7056,230 @@ select {
 .home-small-links {
   flex-wrap: wrap;
 }
+
+/* A small, always-open language desk: sentence → time → verb. */
+.toolkit-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 18px 0;
+}
+.toolkit-tabs button {
+  padding: 18px 12px;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  color: #202b36;
+  background: #bcebd8;
+  font-weight: 850;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  text-align: left;
+}
+.toolkit-tabs button:nth-child(2) {
+  background: #c9b6fa;
+}
+.toolkit-tabs button:nth-child(3) {
+  background: #ffd389;
+}
+.toolkit-tabs button.active {
+  border-color: var(--green);
+  box-shadow: 0 3px 0 var(--green);
+}
+.toolkit-tabs button span {
+  font-size: 12px;
+  opacity: 0.7;
+}
+.toolkit-extra,
+.catalog-sources {
+  margin: 20px 0;
+  font-size: 14px;
+}
+.toolkit-extra summary,
+.catalog-sources summary,
+.toolkit-practice > summary {
+  cursor: pointer;
+  font-weight: 800;
+}
+.toolkit-extra .tabs {
+  margin-top: 14px;
+}
+.toolkit-intro {
+  margin: 24px 0;
+}
+.toolkit-intro h2,
+.sentence-shape h2 {
+  font-size: 25px;
+}
+.toolkit-intro p,
+.sentence-shape p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+.sentence-shape {
+  padding: 24px;
+  border-top: 5px solid #49d7af;
+  margin-bottom: 20px;
+}
+.sentence-pieces {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+.sentence-pieces span {
+  padding: 9px 13px;
+  border-radius: 12px;
+  background: #bcebd8;
+  color: #202b36;
+  font-weight: 800;
+}
+.sentence-pieces span:nth-of-type(2) {
+  background: #c9b6fa;
+}
+.sentence-pieces span:nth-of-type(3) {
+  background: #ffd389;
+}
+.sentence-example {
+  font-weight: 850;
+  font-size: 20px !important;
+}
+.tense-group {
+  margin-top: 28px;
+}
+.tense-group h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+.tense-card {
+  margin: 10px 0;
+  padding: 0;
+  overflow: hidden;
+  border-left: 5px solid #9164f3;
+}
+.tense-card summary,
+.verb-entry summary {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+.tense-card summary strong {
+  font-size: 17px;
+}
+.tense-card summary span,
+.verb-entry summary span {
+  font-size: 13px;
+  opacity: 0.85;
+}
+.tense-card[open] {
+  border-left-color: #49d7af;
+}
+.tense-body {
+  padding: 0 18px 20px;
+}
+.tense-body code {
+  display: block;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.tense-example {
+  margin-top: 18px;
+}
+.tense-example > span {
+  font-size: 12px;
+  font-weight: 800;
+  opacity: 0.75;
+}
+.tense-example .lesson-example {
+  margin: 4px 0;
+}
+.tense-example p {
+  font-size: 14px;
+  margin: 6px 0;
+}
+.tense-tip {
+  font-size: 14px;
+  padding: 14px;
+  background: var(--green-soft);
+  border-radius: 12px;
+  margin-top: 20px;
+}
+.verb-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  align-items: start;
+}
+.verb-entry {
+  padding: 0;
+  border-top: 3px solid #ffb64d;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.verb-entry summary strong {
+  font-size: 18px;
+}
+.verb-senses {
+  padding: 0 18px 18px;
+  font-size: 14px;
+}
+.verb-senses details summary {
+  padding: 5px 0;
+  font-size: 12px;
+  display: list-item;
+}
+.catalog-pages {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 0;
+  gap: 10px;
+}
+.catalog-pages button {
+  padding: 10px 16px;
+  border-radius: 14px;
+  background: #c9b6fa;
+  color: #202b36;
+  border: 0;
+  font-weight: 800;
+}
+.catalog-pages button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.toolkit-practice {
+  margin: 28px 0;
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+}
+.toolkit-practice > p {
+  font-size: 14px;
+  margin: 14px 0;
+}
+@media (max-width: 680px) {
+  .verb-results {
+    grid-template-columns: 1fr;
+  }
+  .toolkit-tabs {
+    gap: 7px;
+  }
+  .toolkit-tabs button {
+    padding: 14px 10px;
+    font-size: 13px;
+  }
+  .sentence-shape {
+    padding: 18px;
+  }
+  .sentence-pieces {
+    gap: 6px;
+  }
+  .sentence-pieces span {
+    padding: 8px;
+    font-size: 13px;
+  }
+}

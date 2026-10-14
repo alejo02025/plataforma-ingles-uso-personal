@@ -1,0 +1,16 @@
+{
+  "sources": [
+    "https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/corpora/wordnet.zip",
+    "https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/corpora/omw-1.4.zip"
+  ],
+  "release": "WordNet 3.0 / OMW 1.4",
+  "changes": "OMW extracts retain verb lemmas only; index joins Spanish senses by synset; Portuguese index retains infinitive entries.",
+  "sha256": {
+    "data.verb": "29cc96ed80c9f47d94fe75e332a9df80f4b1c737205f92d2f433d63c6da2ab51",
+    "WORDNET-LICENSE": "7731175a77952e259390b496fab905e57118b8d19ad3a8383c67eee724ff443f",
+    "wn-data-spa.tab": "d96f7872eef3321c104c9d391c2956b3a24dcd9fe25cfaedf5fd4b9bd5c4d00e",
+    "SPANISH-LICENSE": "ccbb7b96a812b37a88a9cb8dfda92dc251e61c5fca5225ff23f5fc3d33b32a70",
+    "wn-data-por.tab": "cac95086d3e27523ba422e264934f54238b3ab42d5a646347c74bae47793e96f",
+    "PORTUGUESE-LICENSE": "4c7824c3cf3ca7d5fc68ee0473e16741361a67e242557c0661a0d6bd926ea297"
+  }
+}
