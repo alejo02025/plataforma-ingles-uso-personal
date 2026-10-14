@@ -8,6 +8,7 @@ import { Correction } from './correction';
 import { questionFeedback } from '@/lib/answer-feedback';
 import { pdfWhy } from '@/locales/es/answer-help';
 import { questions } from '@/lib/tutor';
+import { lessons } from '@/lib/lessons';
 export function MomentumChart({ data, compact = false }: { data: Snapshot; compact?: boolean }) {
   const [length, setLength] = useState(14),
     [selected, setSelected] = useState<string | null>(null);
@@ -246,12 +247,49 @@ export function MomentumChart({ data, compact = false }: { data: Snapshot; compa
             </details>
           ))}
           {item.assessment && <p className="momentum-entry">Starting assessment completed.</p>}
-          {item.activities.map((result) => (
-            <p className="momentum-entry" key={result.id}>
-              <strong>{result.title}</strong>
-              {result.total !== null && ` · ${result.correct}/${result.total} correct`}
-            </p>
-          ))}
+          {item.activities.map((result) =>
+            result.activity_id.startsWith('class:') ? (
+              (() => {
+                const saved = JSON.parse(result.answers);
+                const lesson = lessons.find((lesson) => lesson.id === saved.lessonId);
+                return (
+                  <details className="momentum-entry" key={result.id}>
+                    <summary>
+                      Class · {result.title} · {result.correct}/{result.total}
+                    </summary>
+                    {lesson && (
+                      <p>
+                        {lesson.level} · {lesson.goal}
+                      </p>
+                    )}
+                    {saved.practice && <blockquote>{saved.practice}</blockquote>}
+                    {saved.feedback?.map(
+                      (
+                        feedback: {
+                          correct: boolean;
+                          explanationSpanish: string;
+                          correction: string;
+                        },
+                        index: number,
+                      ) =>
+                        !feedback.correct && (
+                          <Correction
+                            key={index}
+                            explanation={feedback.explanationSpanish}
+                            correction={feedback.correction}
+                          />
+                        ),
+                    )}
+                  </details>
+                );
+              })()
+            ) : (
+              <p className="momentum-entry" key={result.id}>
+                <strong>{result.title}</strong>
+                {result.total !== null && ` · ${result.correct}/${result.total} correct`}
+              </p>
+            ),
+          )}
           {item.attempts.map((attempt) => (
             <details className="momentum-entry" key={attempt.id}>
               <summary>

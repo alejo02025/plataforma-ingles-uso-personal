@@ -2,6 +2,7 @@
 import { Mic } from 'lucide-react';
 import { CefrPath } from './cefr-path';
 import { Games } from './games';
+import { Classes } from './classes';
 import { Puzzle } from 'lucide-react';
 import { StudySpaces } from './study-spaces';
 import { isPortuguese } from '@/lib/workspace';
@@ -54,6 +55,7 @@ const navigation = [
   { title: 'Progress', icon: ChartNoAxesCombined },
   { title: 'Calendar', icon: CalendarDays },
   { title: 'Speaking', icon: Mic },
+  { title: 'Classes', icon: BookOpen },
 ];
 export function EnglishApp() {
   const [data, setData] = useState<Snapshot | null>(null),
@@ -383,6 +385,8 @@ export function EnglishApp() {
             <Suspense fallback={<p role="status">Preparing your speaking room…</p>}>
               <VoiceRoom data={data} refresh={refresh} />
             </Suspense>
+          ) : view === 'Classes' ? (
+            <Classes data={data} refresh={refresh} navigate={(target) => void navigate(target)} />
           ) : view === 'Games' ? (
             <Games data={data} refresh={refresh} />
           ) : view === 'Vocabulary' ? (

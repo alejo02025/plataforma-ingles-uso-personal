@@ -24,7 +24,7 @@ export function AppUpdate() {
       sharedToken &&
       (document.visibilityState !== 'visible' ||
         document.querySelector(
-          '[role="dialog"], input:focus, textarea:focus, [contenteditable="true"]:focus, .game-session, .practice-card, .reader-layout, .voice-room',
+          '[role="dialog"], input:focus, textarea:focus, [contenteditable="true"]:focus, .game-session, .practice-card, .reader-layout, .voice-room, .lesson-room',
         ))
     ) {
       setNewVersion(true);
@@ -50,7 +50,7 @@ export function AppUpdate() {
         sharedToken &&
         (document.visibilityState !== 'visible' ||
           document.querySelector(
-            '[role="dialog"], input:focus, textarea:focus, [contenteditable="true"]:focus, .game-session, .practice-card, .reader-layout, .voice-room',
+            '[role="dialog"], input:focus, textarea:focus, [contenteditable="true"]:focus, .game-session, .practice-card, .reader-layout, .voice-room, .lesson-room',
           ))
       ) {
         setNewVersion(true);

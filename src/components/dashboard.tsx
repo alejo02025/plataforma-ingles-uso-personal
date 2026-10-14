@@ -8,6 +8,7 @@ import { greetingForHour } from '@/lib/momentum';
 import { MomentumChart } from './momentum-chart';
 import {
   ArrowUpRight,
+  ArrowRight,
   BookOpen,
   Check,
   Clock3,
@@ -175,6 +176,19 @@ export function Dashboard({
           <strong>My Day</strong>
           <span>One step at a time</span>
         </button>
+      </section>
+      <section className="classes-home card">
+        <div className="classes-home-icon">
+          <BookOpen size={28} />
+        </div>
+        <div>
+          <span className="eyebrow">YOUR CLASSROOM</span>
+          <h2>Learn it. Use it.</h2>
+          <p>Clear explanations, everyday examples, and a little practice.</p>
+        </div>
+        <Button onClick={() => navigate('Classes')}>
+          Open classes <ArrowRight size={16} />
+        </Button>
       </section>
       <LearningTip day={data.day} />
       {isPortuguese && (

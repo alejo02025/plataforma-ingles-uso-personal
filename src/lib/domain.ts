@@ -354,7 +354,10 @@ export function createLearningService({
     const activities = db()
       .prepare('SELECT * FROM activities WHERE plan_id=? ORDER BY rowid')
       .all(plan.id as string)
-      .filter((r) => !JSON.parse(r.payload as string).game)
+      .filter((r) => {
+        const payload = JSON.parse(r.payload as string);
+        return !payload.game && !payload.lesson;
+      })
       .map((r) => {
         const payload = JSON.parse(r.payload as string);
         if (payload.questionIds)

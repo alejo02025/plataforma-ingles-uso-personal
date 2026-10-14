@@ -1,7 +1,12 @@
+import { lessons } from './lessons';
 import { diagnosticQuestions, grammarQuestions, readings } from './content';
 import { cefrCourse } from './cefr-curriculum';
 import { answerWhy } from '@/locales/es/answer-help';
 export function questionFeedback(id: string) {
+  const lessonCheck = lessons
+    .flatMap((lesson) => lesson.checks.map((q, i) => ({ id: `${lesson.id}:${i}`, q })))
+    .find((check) => check.id === id)?.q;
+  if (lessonCheck) return { explanation: lessonCheck.why, correction: lessonCheck.correction };
   const question = [
     ...diagnosticQuestions,
     ...grammarQuestions,
