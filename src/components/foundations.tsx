@@ -12,6 +12,13 @@ import {
   type Tense,
   type SentenceKind,
 } from '@/locales/learning/foundations';
+import {
+  buildReferenceSentence,
+  englishBuilderTimes,
+  portugueseBuilderTimes,
+  builderSubjects,
+  builderVerbWarning,
+} from '@/locales/learning/sentence-builder';
 import { requestWordHelp } from '@/lib/word-help';
 import { Button, Speak } from './ui';
 export function Foundations({
@@ -27,12 +34,14 @@ export function Foundations({
     subjects = isPortuguese ? portugueseSubjects : englishSubjects;
   const [verbId, setVerbId] = useState(verbs.find((v) => v.es === 'estudiar')!.id),
     [subjectId, setSubjectId] = useState(subjects[0].id),
-    [tense, setTense] = useState<Tense>('present'),
+    [tense, setTense] = useState('present'),
     [kind, setKind] = useState<SentenceKind>('statement'),
     [draft, setDraft] = useState('');
-  const verb = verbs.find((v) => v.id === verbId)!,
-    subject = subjects.find((s) => s.id === subjectId)!;
-  const sentence = buildSentence(isPortuguese, verb, subject, tense, kind);
+  const verb = verbs.find((v) => v.id === verbId)!;
+  const allowedSubjects = builderSubjects(isPortuguese, tense, subjects);
+  const effectiveSubject = allowedSubjects.find((s) => s.id === subjectId) || allowedSubjects[0];
+  const sentence = buildReferenceSentence(isPortuguese, verb, effectiveSubject, tense, kind);
+  const warning = builderVerbWarning(isPortuguese, verb, tense);
   useEffect(() => {
     try {
       setDraft(studyStorage.getItem('foundation-sentence-draft') || '');
@@ -43,12 +52,7 @@ export function Foundations({
       if (draft) studyStorage.setItem('foundation-sentence-draft', draft);
     } catch {}
   }, [draft]);
-  const tenses: { id: Tense; label: string }[] = [
-    { id: 'present', label: 'Present' },
-    { id: 'past', label: 'Past · completed action' },
-    { id: 'future', label: isPortuguese ? 'Futuro · vou + verbo' : 'Future · will' },
-    { id: 'plans', label: isPortuguese ? 'Futuro formal' : 'Future · going to' },
-  ];
+  const tenses = isPortuguese ? portugueseBuilderTimes : englishBuilderTimes;
   const form = (subjectId: string, tense: Tense) =>
     verbPart(isPortuguese, verb, subjects.find((s) => s.id === subjectId)!, tense);
   return (
@@ -58,7 +62,7 @@ export function Foundations({
         <div>
           <span className="eyebrow">LANGUAGE, PIECE BY PIECE</span>
           <h2>{mode === 'verbs' ? 'Verbs for everyday life' : 'Build your own sentence'}</h2>
-          <p>Present, past, future. One useful idea at a time.</p>
+          <p>Every tense, one clear example at a time.</p>
         </div>
       </div>
       <div className="foundation-day" lang="es">
@@ -68,6 +72,40 @@ export function Foundations({
             ? 'Elegí un verbo. Leé un ejemplo de hoy, uno de ayer y uno de mañana. Después decilos sin mirar y cambiá un detalle para que sean sobre vos.'
             : 'Elegí una acción y armá una afirmación. Cambiala a negativa y a pregunta. Después repetí el proceso en pasado y en futuro. Compará cada modelo y escribí tu propia versión.'}
         </p>
+      </div>
+      <div className="foundation-selectors">
+        <label className="field">
+          Time
+          <select
+            aria-label="Choose a time"
+            value={tense}
+            onChange={(e) => setTense(e.target.value)}
+          >
+            {Array.from(new Set(tenses.map((t) => t.group))).map((group) => (
+              <optgroup label={group} key={group}>
+                {tenses
+                  .filter((t) => t.group === group)
+                  .map((t) => (
+                    <option key={t.id} value={t.id}>
+                      {t.label}
+                    </option>
+                  ))}
+              </optgroup>
+            ))}
+          </select>
+        </label>
+        <label className="field">
+          Sentence type
+          <select
+            aria-label="Choose a sentence type"
+            value={kind}
+            onChange={(e) => setKind(e.target.value as SentenceKind)}
+          >
+            <option value="statement">Statement</option>
+            <option value="negative">Negative</option>
+            <option value="question">Question</option>
+          </select>
+        </label>
       </div>
       <div className="foundation-selectors">
         <label className="field">
@@ -88,10 +126,10 @@ export function Foundations({
           Subject
           <select
             aria-label="Choose a subject"
-            value={subjectId}
+            value={effectiveSubject.id}
             onChange={(e) => setSubjectId(e.target.value)}
           >
-            {subjects.map((s) => (
+            {allowedSubjects.map((s) => (
               <option key={s.id} value={s.id}>
                 {s.text} · {s.es}
               </option>
@@ -137,43 +175,53 @@ export function Foundations({
           </table>
         </div>
       )}
-      <div className="foundation-selectors">
-        <label className="field">
-          Time
-          <select
-            aria-label="Choose a time"
-            value={tense}
-            onChange={(e) => setTense(e.target.value as Tense)}
-          >
-            {tenses.map((t) => (
-              <option key={t.id} value={t.id}>
-                {t.label}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label className="field">
-          Sentence type
-          <select
-            aria-label="Choose a sentence type"
-            value={kind}
-            onChange={(e) => setKind(e.target.value as SentenceKind)}
-          >
-            <option value="statement">Statement</option>
-            <option value="negative">Negative</option>
-            <option value="question">Question</option>
-          </select>
-        </label>
-      </div>
-      <div className="foundation-model">
-        <span className="eyebrow">YOUR SENTENCE</span>
-        <div className="section-heading">
-          <h3 lang={isPortuguese ? 'pt-BR' : 'en'}>{sentence.text}</h3>
-          <Speak text={sentence.text} />
+      {warning ? (
+        <div className="foundation-model" lang="es">
+          <p role="status">{warning}</p>
         </div>
-        <p lang="es">{sentence.translation}</p>
-        <p lang="es">{sentence.explanation}</p>
-      </div>
+      ) : (
+        <div className="foundation-model">
+          <span className="eyebrow">YOUR SENTENCE</span>
+          <div className="section-heading">
+            <h3 lang={isPortuguese ? 'pt-BR' : 'en'}>{sentence.text}</h3>
+            <Speak text={sentence.text} />
+          </div>
+          <p lang="es">{sentence.translation}</p>
+          <p lang="es">{sentence.explanation}</p>
+          <details className="builder-comparison">
+            <summary>
+              {isPortuguese ? 'Comparar as três formas' : 'Compare all three forms'}
+            </summary>
+            {(['statement', 'negative', 'question'] as SentenceKind[]).map((form) => {
+              const model = buildReferenceSentence(
+                isPortuguese,
+                verb,
+                effectiveSubject,
+                tense,
+                form,
+              );
+              return (
+                <div className="builder-comparison-row" key={form}>
+                  <strong lang="es">
+                    {
+                      {
+                        statement: 'Afirmación / modelo',
+                        negative: 'Negativa',
+                        question: 'Pregunta',
+                      }[form]
+                    }
+                  </strong>
+                  <div className="lesson-example">
+                    <blockquote lang={isPortuguese ? 'pt-BR' : 'en'}>{model.text}</blockquote>
+                    <Speak text={model.text} />
+                  </div>
+                  <p lang="es">{model.translation}</p>
+                </div>
+              );
+            })}
+          </details>
+        </div>
+      )}
       <details className="lesson-tip">
         <summary>
           <Lightbulb size={16} />A sentence has a shape
@@ -203,7 +251,7 @@ export function Foundations({
               studyStorage.setItem('foundation-sentence-draft', e.target.value);
             } catch {}
           }}
-          placeholder={sentence.text}
+          placeholder={warning ? undefined : sentence.text}
         />
       </label>
       <p className="fine-print" lang="es">
@@ -211,7 +259,7 @@ export function Foundations({
           ? 'Tu borrador se guarda en este dispositivo, sin nota automática. Podés consultar y probar todos estos modelos sin completar ninguna clase.'
           : 'Este borrador se conserva en este dispositivo sin nota automática. Para guardar un ejercicio en tu progreso, abrí la clase de práctica.'}
       </p>
-      {!referenceOnly && (
+      {!referenceOnly && ['present', 'past', 'future', 'plans'].includes(tense) && (
         <Button
           onClick={() =>
             onOpenLesson(

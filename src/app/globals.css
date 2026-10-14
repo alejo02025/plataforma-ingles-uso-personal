@@ -7283,3 +7283,28 @@ select {
     font-size: 13px;
   }
 }
+
+.builder-comparison {
+  margin-top: 18px;
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+}
+.builder-comparison > summary {
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.builder-comparison-row {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+.builder-comparison-row > strong {
+  font-size: 12px;
+  opacity: 0.8;
+}
+.builder-comparison-row .lesson-example {
+  margin: 8px 0;
+}
+.builder-comparison-row p {
+  font-size: 14px;
+}

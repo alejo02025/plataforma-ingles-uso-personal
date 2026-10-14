@@ -50,6 +50,37 @@ for (const pt of [false, true])
     await expect(page.locator('.foundation-model h3')).toContainText(
       pt ? 'não vou estudar' : 'will not study',
     );
+    const timeSelect = page.getByLabel(pt ? 'Escolher um tempo' : 'Choose a time');
+    await expect(timeSelect.locator('option')).toHaveCount(pt ? 26 : 23);
+    await timeSelect.selectOption(pt ? 'subjunctive-future-perfect' : 'future-perfect-continuous');
+    await expect(page.locator('.foundation-model h3')).toContainText(
+      pt ? 'não tiver estudado' : 'will not have been studying',
+    );
+    await page.locator('.builder-comparison > summary').click();
+    await expect(page.locator('.builder-comparison-row')).toHaveCount(3);
+    await expect(page.locator('.builder-comparison-row').last()).toContainText('?');
+    if (pt) {
+      await timeSelect.selectOption('subjunctive-past');
+      await page.getByLabel('Escolher um verbo').selectOption('fazer');
+      await page.getByLabel('Escolher um sujeito').selectOption('nos');
+      await expect(page.locator('.foundation-model h3')).toContainText('não fizéssemos');
+      await page.getByLabel('Escolher um verbo').selectOption('estudar');
+      await page.getByLabel('Escolher um sujeito').selectOption('eu');
+    } else {
+      await page.getByLabel('Choose a verb').selectOption('have');
+      await expect(page.locator('.foundation-model [role="status"]')).toContainText(
+        'expresa un estado',
+      );
+      await page.getByLabel('Choose a verb').selectOption('study');
+    }
+    await timeSelect.selectOption('imperative');
+    await expect(
+      page.getByLabel(pt ? 'Escolher um sujeito' : 'Choose a subject').locator('option'),
+    ).toHaveCount(pt ? 3 : 2);
+    await expect(page.locator('.foundation-model h3')).toContainText(
+      pt ? 'Não estude' : 'Do not study',
+    );
+    await timeSelect.selectOption('past');
     await page
       .locator('.foundation-draft textarea')
       .fill('A reference draft that must survive reload.');

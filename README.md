@@ -207,3 +207,13 @@ and reproducible extraction live in `external-data/wordnet/`,
 `public/assets/verbs/` and `scripts/build-verb-catalog.py`. Dictionary adaptations
 are CC BY-SA 3.0, separately from app code. All existing progress and drafts use
 the same storage keys; consulting the help does not award course credit.
+
+El constructor desbloqueado permite elegir los doce patrones temporales del inglés
+más futuro con going to, condicionales y formas no personales; en portugués incluye
+indicativo y subjuntivo simples/compuestos, imperativo, infinitivos y gerundios.
+Las formas irregulares están revisadas para sus verbos cotidianos. Los imperativos
+ofrecen solo las personas aplicables; los estados con un continuo poco natural
+muestran una explicación en lugar de enseñar un ejemplo engañoso. La comparación
+opcional reúne afirmación, negativa y pregunta con traducción en español.
+Este cambio no modifica los modelos usados para calificar las clases anteriores,
+ni los requisitos del recorrido, ni la clave de guardado de los borradores.
