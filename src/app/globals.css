@@ -6249,3 +6249,110 @@ body {
   padding: 24px;
   margin: 24px 0;
 }
+
+/* A light itinerary, ahead of the rest of Home. */
+.daily-guide {
+  margin-bottom: 24px;
+  padding: clamp(20px, 3vw, 36px);
+  border-top: 5px solid var(--accent, #078975);
+}
+.daily-guide-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+.daily-guide-heading h2 {
+  font: inherit;
+  font-size: clamp(23px, 3vw, 32px);
+  font-weight: 750;
+  margin: 8px 0;
+}
+.daily-guide-heading .pill {
+  flex-shrink: 0;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.daily-guide-steps {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.daily-guide-steps li {
+  display: flex;
+  gap: 14px;
+  padding: 20px;
+  border: 1px solid var(--border, #dfe5df);
+  border-radius: 20px;
+  min-width: 0;
+}
+.daily-guide-steps li > div {
+  min-width: 0;
+  flex: 1;
+}
+.daily-guide-steps h3 {
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+}
+.daily-guide-steps p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+.guide-number {
+  font-size: 14px;
+  font-weight: 750;
+  color: var(--accent, #078975);
+}
+.daily-guide blockquote {
+  margin: 12px 0;
+  border-left: 3px solid #f58a61;
+  padding-left: 12px;
+}
+.guide-words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 14px 0;
+}
+.guide-words span {
+  border: 1px solid var(--border, #dfe5df);
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 13px;
+}
+.guide-question {
+  display: block;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 14px 0 8px;
+}
+.guide-question textarea {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  resize: vertical;
+}
+@media (max-width: 680px) {
+  .daily-guide-heading {
+    flex-direction: column;
+  }
+  .daily-guide-steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .daily-guide-steps li {
+    padding: 16px 12px;
+    gap: 10px;
+  }
+  .daily-guide .button {
+    max-width: 100%;
+    white-space: normal;
+  }
+}

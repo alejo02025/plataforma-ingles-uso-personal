@@ -60,6 +60,8 @@ const navigation = [
 export function EnglishApp() {
   const [data, setData] = useState<Snapshot | null>(null),
     [view, setView] = useState('Home');
+  const [suggestedClass, setSuggestedClass] = useState('');
+  const [suggestedGame, setSuggestedGame] = useState('');
   const [classroomVisit, setClassroomVisit] = useState(0);
   const [classroomSection, setClassroomSection] = useState<'classes' | 'practice'>('classes');
   const [active, setActive] = useState<Activity | null>(null),
@@ -86,6 +88,8 @@ export function EnglishApp() {
     return () => window.removeEventListener('english-data-changed', onRemoteChange);
   }, [refresh]);
   async function navigate(target: string) {
+    setSuggestedClass('');
+    setSuggestedGame('');
     setClassroomVisit((v) => v + 1);
     setView(['Speaking', 'Course practice', 'MCER'].includes(target) ? 'Classes' : target);
     setClassroomSection(['Speaking', 'Course practice'].includes(target) ? 'practice' : 'classes');
@@ -358,6 +362,15 @@ export function EnglishApp() {
               onStart={onStart}
               navigate={(target) => void navigate(target)}
               onDiagnostic={() => setView('Assessment')}
+              onRead={(doc) => void openDocument(doc)}
+              onClass={(id) => {
+                void navigate('Classes');
+                setSuggestedClass(id);
+              }}
+              onGame={(seed) => {
+                void navigate('Games');
+                setSuggestedGame(seed);
+              }}
             />
           ) : view === 'PDF Studio' ? (
             <PdfStudio data={data} refresh={refresh} onRead={(doc) => void openDocument(doc)} />
@@ -393,6 +406,7 @@ export function EnglishApp() {
               onStart={onStart}
               key={`${classroomSection}:${classroomVisit}`}
               initialSection={classroomSection}
+              initialLesson={suggestedClass}
             />
           ) : view === 'Classes' ? (
             <Classes
@@ -402,9 +416,10 @@ export function EnglishApp() {
               onStart={onStart}
               key={`${classroomSection}:${classroomVisit}`}
               initialSection={classroomSection}
+              initialLesson={suggestedClass}
             />
           ) : view === 'Games' ? (
-            <Games data={data} refresh={refresh} />
+            <Games data={data} refresh={refresh} initialSeed={suggestedGame} />
           ) : view === 'Vocabulary' ? (
             <Vocabulary data={data} refresh={refresh} />
           ) : view === 'Progress' ? (

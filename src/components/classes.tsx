@@ -54,12 +54,14 @@ export function Classes({
   navigate,
   onStart,
   initialSection = 'classes',
+  initialLesson = '',
 }: {
   data: Snapshot;
   refresh: () => Promise<void>;
   navigate: (view: string) => void;
   onStart: (activity: Activity) => void;
   initialSection?: 'classes' | 'practice';
+  initialLesson?: string;
 }) {
   const route = courseRoute(data),
     suggested = route.level;
@@ -71,8 +73,8 @@ export function Classes({
   useEffect(() => setSection(initialSection), [initialSection]);
   useEffect(() => {
     setLevel(suggested);
-    setSelected('');
-  }, [suggested]);
+    setSelected(initialLesson);
+  }, [suggested, initialLesson]);
   const history = data.results.filter((r) => attempt(r));
   const practised = new Set(history.map((r) => attempt(r)!.lessonId));
   const lesson = lessons.find((item) => item.id === selected);

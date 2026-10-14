@@ -43,7 +43,15 @@ const descriptions: Record<GameMode, string> = {
   sentence: 'Put the pieces together. Make an everyday sentence.',
   trail: 'A five-letter word. Six guesses. Follow the clues.',
 };
-export function Games({ data, refresh }: { data: Snapshot; refresh: () => Promise<void> }) {
+export function Games({
+  data,
+  refresh,
+  initialSeed = '',
+}: {
+  data: Snapshot;
+  refresh: () => Promise<void>;
+  initialSeed?: string;
+}) {
   const [game, setGame] = useState<{
     id: string;
     seed: string;
@@ -63,12 +71,17 @@ export function Games({ data, refresh }: { data: Snapshot; refresh: () => Promis
         }),
       );
   }, [game, data.results]);
-  function start(mode: GameMode) {
+  useEffect(() => {
+    if (initialSeed) start('match', initialSeed);
+  }, [initialSeed]);
+  function start(mode: GameMode, suggestedSeed?: string) {
     setError('');
     const id = crypto.randomUUID();
-    const seed = today.some((r) => r.title === gameTitles[mode])
-      ? `${data.day}:${mode}:${id}`
-      : `${data.day}:${mode}`;
+    const seed =
+      suggestedSeed ||
+      (today.some((r) => r.title === gameTitles[mode])
+        ? `${data.day}:${mode}:${id}`
+        : `${data.day}:${mode}`);
     try {
       const draft = readGameDraft(mode);
       if (draft && !history.some((r) => r.activity_id === `game:${draft.id}`)) {

@@ -1,4 +1,5 @@
 'use client';
+import { DailyGuide } from './daily-guide';
 import { EntryPhrase } from './entry-phrase';
 import { courseRoute, levelLessons, passedLesson, learningJourney } from '@/lib/course-route';
 import { isPortuguese } from '@/lib/workspace';
@@ -87,11 +88,17 @@ export function Dashboard({
   onStart,
   navigate,
   onDiagnostic,
+  onRead,
+  onClass,
+  onGame,
 }: {
   data: Snapshot;
   onStart: (a: Activity) => void;
   navigate: (view: string) => void;
   onDiagnostic: () => void;
+  onRead: (doc: import('@/lib/types').Document) => void;
+  onClass: (id: string) => void;
+  onGame: (seed: string) => void;
 }) {
   const route = courseRoute(data),
     journey = learningJourney(data);
@@ -135,6 +142,14 @@ export function Dashboard({
           {dateLabel(data.day)}
         </span>
       </Heading>
+      <DailyGuide
+        data={data}
+        onRead={onRead}
+        onStart={onStart}
+        onClass={onClass}
+        onGame={onGame}
+        navigate={navigate}
+      />
       <section className="card course-dashboard">
         <span className="eyebrow">YOUR LEARNING PATH</span>
         <h2>

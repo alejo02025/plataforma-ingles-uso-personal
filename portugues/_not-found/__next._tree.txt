@@ -1,4 +1,4 @@
-:HL["/plataforma-ingles-uso-personal/portugues/_next/static/chunks/20jr8pyzfm9t0.css","style"]
+:HL["/plataforma-ingles-uso-personal/portugues/_next/static/chunks/401o6fbzmgjcx.css","style"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"/_not-found","h":96,"c":"$Q2"}]]
-0:{"b":"USTTuNns6Ds2KEhvqOYMU","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"Z1JQA6SssIJ1wniXQ3AUs","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
