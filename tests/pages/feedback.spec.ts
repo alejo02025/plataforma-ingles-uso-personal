@@ -94,11 +94,9 @@ for (const pt of [false, true])
     await page
       .getByRole('button', { name: pt ? 'Salvar resposta' : 'Save answer', exact: true })
       .click();
-    await expect(page.locator('.feedback [lang="es"]')).toContainText(
-      pt ? '“Ontem”' : '“Yesterday”',
-    );
+    await expect(page.locator('.feedback [lang="es"]')).toContainText(pt ? 'Con “eu”' : 'Con “I”');
     await expect(page.locator('.feedback .answer-correction-model')).toContainText(
-      pt ? 'fui' : 'took',
+      pt ? 'sou' : 'am',
     );
     if (pt) {
       await page.goto('./portugues/');

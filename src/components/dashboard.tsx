@@ -1,4 +1,6 @@
 'use client';
+import { FirstSteps } from './first-steps';
+import { studyStorage } from '@/lib/workspace';
 import { DailyGuide } from './daily-guide';
 import { useEffect, useState } from 'react';
 import { greetingForHour } from '@/lib/momentum';
@@ -84,6 +86,22 @@ export function Dashboard({
   onGame: (seed: string) => void;
 }) {
   const [greeting, setGreeting] = useState('Hello');
+  const [welcome, setWelcome] = useState(false);
+  useEffect(() => {
+    try {
+      setWelcome(!studyStorage.getItem('first-steps:v1') && !data.results.length);
+    } catch {
+      setWelcome(true);
+    }
+  }, []);
+  function finishWelcome(test = false) {
+    try {
+      studyStorage.setItem('first-steps:v1', 'seen');
+    } catch {}
+    setWelcome(false);
+    if (test) onDiagnostic();
+  }
+
   useEffect(() => {
     const update = () => setGreeting(greetingForHour(new Date().getHours()));
     update();
@@ -102,6 +120,7 @@ export function Dashboard({
           {dateLabel(data.day)}
         </span>
       </Heading>
+      {welcome && <FirstSteps onTest={() => finishWelcome(true)} onDone={() => finishWelcome()} />}
       <DailyGuide
         data={data}
         onRead={onRead}
@@ -111,10 +130,19 @@ export function Dashboard({
         navigate={navigate}
       />
       <div className="home-small-links">
+        <button
+          className="text-link"
+          onClick={() => {
+            setWelcome(true);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+        >
+          How to start
+        </button>
         <button className="text-link" onClick={() => navigate('Classes')}>
           Open classes
         </button>
-        <button className="text-link" onClick={onDiagnostic}>
+        <button className="text-link" onClick={() => finishWelcome(true)}>
           Find my starting point
         </button>
       </div>

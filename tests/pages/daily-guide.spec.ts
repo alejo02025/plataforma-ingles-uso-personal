@@ -14,9 +14,7 @@ for (const pt of [false, true])
     const guide = page.locator('.daily-guide');
     await expect(guide).toContainText(pt ? 'Uma sugestão' : 'A suggestion');
     await expect(guide.locator('.daily-guide-steps > li')).toHaveCount(4);
-    expect(await page.locator('main section').first().getAttribute('class')).toContain(
-      'daily-guide',
-    );
+    await expect(page.locator('main .welcome-guide')).toBeVisible();
     await expect(guide).toContainText(pt ? 'A1' : 'A2');
     await page.evaluate(() => document.fonts.ready);
     expect(await page.evaluate(() => document.fonts.check('800 20px "Study Rounded"'))).toBe(true);

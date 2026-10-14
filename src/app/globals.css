@@ -7004,3 +7004,55 @@ select {
     flex: 1 1 100%;
   }
 }
+
+.welcome-guide {
+  padding: 24px;
+  border-top: 4px solid #8354fa;
+  margin-bottom: 20px;
+}
+.welcome-guide .eyebrow {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.welcome-guide h2 {
+  margin: 10px 0;
+  font-size: 27px;
+}
+.welcome-guide h3 {
+  margin: 18px 0 10px;
+}
+.welcome-guide p {
+  font-size: 14px;
+}
+.welcome-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0 12px;
+}
+.placement-result h2 {
+  font-size: 38px;
+  margin: 12px 0;
+  color: var(--green);
+}
+.placement-result p {
+  margin: 16px 0;
+  font-size: 14px;
+}
+.placement-skills {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.placement-skills > div {
+  display: grid;
+  gap: 8px;
+  background: var(--green-soft);
+  padding: 14px;
+  border-radius: 15px;
+  font-size: 12px;
+}
+.home-small-links {
+  flex-wrap: wrap;
+}

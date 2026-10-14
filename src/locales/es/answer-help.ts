@@ -2,6 +2,11 @@ import { isPortuguese } from '@/lib/workspace';
 import { dailyWordSpanish } from './daily-word-meanings';
 
 const english: Record<string, string> = {
+  'd-a1-g':
+    'Con “I”, el verbo “be” se conjuga “am”: I am Alejo. “Is” acompaña he/she/it y “are”, you/we/they.',
+  'd-a1-v': '“Bread” es pan y “bakery” significa panadería: ahí se compra pan.',
+  'd-a1-r': 'El texto dice que Ana estudia por la mañana: “in the morning”. Por la tarde trabaja.',
+
   d1: '“Yesterday” sitúa la acción en un pasado terminado. Por eso necesitás “took”, el pasado de “take”, y no una forma presente.',
   d2: 'La tarjeta de embarque es el documento que permite subir al avión. No es lo mismo que una reserva o un comprobante de pago.',
   d3: 'La última hora de entrada y la hora de cierre son distintas: podés entrar hasta la primera, aunque el lugar cierre más tarde.',
@@ -42,6 +47,11 @@ const english: Record<string, string> = {
     'La rutina debía ser lo bastante sencilla para poder repetirla; una sesión muy exigente no garantiza constancia.',
 };
 const portuguese: Record<string, string> = {
+  'd-a1-g':
+    'Con “eu”, el verbo “ser” se conjuga “sou”: Eu sou Jazmín. “É” acompaña você/ele/ela y “são”, vocês/eles/elas.',
+  'd-a1-v': '“Pão” es pan y “padaria” significa panadería: ahí se compra pan.',
+  'd-a1-r': 'El texto dice que Ana estudia por la mañana: “de manhã”. Por la tarde trabaja.',
+
   d1: '“Ontem” indica una acción terminada en el pasado. Con “eu”, el pasado de “ir” es “fui”.',
   d2: 'El recibo demuestra que el pago se realizó; no es solamente una solicitud o una reserva.',
   d3: 'El horario de ingreso es distinto del de cierre. La última entrada puede ser antes de que cierre el lugar.',

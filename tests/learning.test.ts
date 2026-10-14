@@ -49,7 +49,9 @@ test('diagnóstico parcial, estimación conservadora y persistencia al reabrir l
   closeDb();
   assert.equal(service.diagnostic().answers.length, 1);
   assert.throws(() => service.answerDiagnostic('d1', 0), /already been saved/);
-  diagnosticQuestions.slice(1).forEach((q) => service.answerDiagnostic(q.id, q.answer));
+  diagnosticQuestions
+    .filter((q) => q.id !== 'd1')
+    .forEach((q) => service.answerDiagnostic(q.id, q.answer));
   assert.ok(service.diagnostic().completed_at);
   assert.equal(service.snapshot().evaluations.length, 3);
   assert.ok(

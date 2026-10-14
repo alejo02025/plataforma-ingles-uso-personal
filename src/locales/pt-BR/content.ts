@@ -13,6 +13,33 @@ export type Question = {
 
 export const diagnosticQuestions: Question[] = [
   {
+    id: 'd-a1-g',
+    skill: 'grammar',
+    band: 'A1',
+    prompt: 'Eu ___ Jazmín.',
+    options: ['é', 'sou', 'são'],
+    answer: 1,
+    explanation: 'Con eu, ser se conjuga sou.',
+  },
+  {
+    id: 'd-a1-v',
+    skill: 'vocabulary',
+    band: 'A1',
+    prompt: 'Onde você compra pão?',
+    options: ['Na padaria', 'No banco', 'No hospital'],
+    answer: 0,
+    explanation: 'Una panadería vende pan.',
+  },
+  {
+    id: 'd-a1-r',
+    skill: 'reading',
+    band: 'A1',
+    prompt: '“Ana estuda de manhã e trabalha à tarde.” Quando ela estuda?',
+    options: ['À noite', 'À tarde', 'De manhã'],
+    answer: 2,
+    explanation: 'El texto dice que estudia por la mañana.',
+  },
+  {
     id: 'd1',
     skill: 'grammar',
     band: 'A2',
@@ -103,6 +130,8 @@ export const diagnosticQuestions: Question[] = [
     explanation: 'Os resultados são positivos, mas a amostra limita as conclusões.',
   },
 ];
+for (const question of diagnosticQuestions) question.options.push('Ainda não sei.');
+
 export const grammarQuestions: Question[] = [
   {
     id: 'g1',

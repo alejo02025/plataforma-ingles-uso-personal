@@ -68,13 +68,13 @@ test('Pages: SQLite en navegador, persistencia, PDF y sincronización privada en
     page.getByRole('heading', { name: /Good (morning|afternoon|evening), Alejo\./ }),
   ).toBeVisible();
   await page.getByRole('button', { name: 'Find my starting point' }).click();
-  await page.getByText('took', { exact: true }).click();
+  await page.getByText('am', { exact: true }).click();
   await page.getByRole('button', { name: 'Save answer', exact: true }).click();
   await page.getByRole('button', { name: 'Next', exact: true }).click();
   await page.getByRole('button', { name: 'Save and leave', exact: true }).click();
   await page.reload();
   await page.getByRole('button', { name: 'Find my starting point' }).click();
-  await expect(page.getByText('1 of 9 saved', { exact: true })).toBeVisible();
+  await expect(page.getByText('1 / 12 · answers saved', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Save and leave', exact: true }).click();
   await authorize(page);
   await page.getByRole('button', { name: 'Close preferences' }).click();
@@ -117,6 +117,7 @@ test('Pages: SQLite en navegador, persistencia, PDF y sincronización privada en
     page.getByRole('heading', { name: /Good (morning|afternoon|evening), Alejo\ sincronizado\./ }),
   ).toBeVisible();
   await phone.getByRole('button', { name: 'Open navigation' }).click();
+  await phone.locator('.nav-more summary').click();
   await phone.getByRole('navigation').getByRole('button', { name: 'Library' }).click();
   await phone.getByRole('button', { name: /Private travel PDF/ }).click();
   await expect(phone.getByText(/Last summer I travelled/)).toBeVisible();

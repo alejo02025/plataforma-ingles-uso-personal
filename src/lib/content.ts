@@ -11,6 +11,33 @@ export type Question = {
 };
 export const diagnosticQuestions: Question[] = [
   {
+    id: 'd-a1-g',
+    skill: 'grammar',
+    band: 'A1',
+    prompt: 'I ___ Alejo.',
+    options: ['is', 'am', 'are'],
+    answer: 1,
+    explanation: 'Con I, be se conjuga am.',
+  },
+  {
+    id: 'd-a1-v',
+    skill: 'vocabulary',
+    band: 'A1',
+    prompt: 'Where do you buy bread?',
+    options: ['At a bakery', 'At a bank', 'At a hospital'],
+    answer: 0,
+    explanation: 'Una panadería vende pan.',
+  },
+  {
+    id: 'd-a1-r',
+    skill: 'reading',
+    band: 'A1',
+    prompt: '“Ana studies in the morning and works in the afternoon.” When does she study?',
+    options: ['At night', 'In the afternoon', 'In the morning'],
+    answer: 2,
+    explanation: 'El texto dice que estudia por la mañana.',
+  },
+  {
     id: 'd1',
     skill: 'grammar',
     band: 'A2',
@@ -103,6 +130,8 @@ export const diagnosticQuestions: Question[] = [
     explanation: 'The results are encouraging, but the small sample limits the conclusions.',
   },
 ];
+for (const question of diagnosticQuestions) question.options.push('I don’t know yet.');
+
 export const grammarQuestions: Question[] = [
   {
     id: 'g1',

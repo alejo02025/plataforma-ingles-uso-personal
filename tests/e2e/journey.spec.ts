@@ -23,14 +23,14 @@ test('diagnóstico retomable, lectura, vocabulario, PDF, calendario y tema persi
     page.getByRole('heading', { name: /Good (morning|afternoon|evening), Alejo\./ }),
   ).toBeVisible();
   await page.getByRole('button', { name: 'Find my starting point' }).click();
-  await page.getByText('took', { exact: true }).click();
+  await page.getByText('am', { exact: true }).click();
   await page.getByRole('button', { name: 'Save answer', exact: true }).click();
   await expect(page.getByText('Well done.', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Next', exact: true }).click();
   await page.getByRole('button', { name: 'Save and leave', exact: true }).click();
   await page.reload();
   await page.getByRole('button', { name: 'Find my starting point' }).click();
-  await expect(page.getByText('1 of 9 saved', { exact: true })).toBeVisible();
+  await expect(page.getByText('1 / 12 · answers saved', { exact: true })).toBeVisible();
   const answers = [
     'a document to get on a plane',
     'No, entry ends at five',
@@ -49,7 +49,7 @@ test('diagnóstico retomable, lectura, vocabulario, PDF, calendario y tema persi
   await expect(page.getByText('Your starting point is saved.')).toBeVisible();
   await page.getByRole('button', { name: 'Go to my journey' }).click();
   await page.getByRole('navigation').getByRole('button', { name: 'Library' }).click();
-  await page.locator('.document-card').filter({hasText:'The city you discover on foot'}).click();
+  await page.locator('.document-card').filter({ hasText: 'The city you discover on foot' }).click();
   await expect(page.getByRole('heading', { name: 'The city you discover on foot' })).toBeVisible();
   await page.getByRole('button', { name: 'narrow,', exact: true }).click();
   await page.getByRole('button', { name: 'Save to vocabulary', exact: true }).click();
@@ -58,7 +58,7 @@ test('diagnóstico retomable, lectura, vocabulario, PDF, calendario y tema persi
   await page.reload();
   // La navegación vuelve al inicio; abrir otra vez conserva el fragmento y la sesión.
   await page.getByRole('navigation').getByRole('button', { name: 'Library' }).click();
-  await page.locator('.document-card').filter({hasText:'The city you discover on foot'}).click();
+  await page.locator('.document-card').filter({ hasText: 'The city you discover on foot' }).click();
   await expect(page.getByText('SECTION 2 OF 3')).toBeVisible();
   await page.getByText('A map from the bookshop owner', { exact: true }).click();
   await page.getByText('Slow exploration can be valuable', { exact: true }).click();
@@ -69,9 +69,7 @@ test('diagnóstico retomable, lectura, vocabulario, PDF, calendario y tema persi
     .getByRole('button', { name: /Vocabulary/ })
     .click();
   await page.getByRole('button', { name: 'Show meaning' }).click();
-  await expect(
-    page.getByText(/Estrecho|estrecho/, { exact: false }).first(),
-  ).toBeVisible();
+  await expect(page.getByText(/Estrecho|estrecho/, { exact: false }).first()).toBeVisible();
   await page.getByRole('button', { name: 'I remembered it' }).click();
   await expect(page.getByText('You’re up to date.', { exact: true })).toBeVisible();
   await page.getByRole('navigation').getByRole('button', { name: 'Library' }).click();

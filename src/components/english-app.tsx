@@ -393,7 +393,10 @@ export function EnglishApp() {
               data={data}
               onStart={onStart}
               navigate={(target) => void navigate(target)}
-              onDiagnostic={() => setView('Assessment')}
+              onDiagnostic={() => {
+                setView('Assessment');
+                window.scrollTo({ top: 0 });
+              }}
               onRead={(doc) => void openDocument(doc)}
               onClass={(id) => {
                 void navigate('Classes');

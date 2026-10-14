@@ -33,7 +33,10 @@ export function estimate(scores: { band: string; correct: boolean }[]) {
   // Deliberadamente conservador: 3 ítems no permiten certificar un nivel MCER.
   const a2 = scores.some((s) => s.band === 'A2' && s.correct);
   const b1 = scores.some((s) => s.band === 'B1' && s.correct);
-  return { level: a2 && b1 ? 'B1 estimate' : 'A2 estimate', confidence: 'low' };
+  return {
+    level: a2 && b1 ? 'B1 estimate' : a2 ? 'A2 estimate' : 'A1 estimate',
+    confidence: 'low',
+  };
 }
 export function weakestSkill(
   results: { skill: string; correct: number | null; total: number | null }[],
