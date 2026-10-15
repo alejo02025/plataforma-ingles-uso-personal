@@ -10,13 +10,10 @@ for (const pt of [false, true])
     page.on('pageerror', (e) => errors.push(e.message));
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(pt ? './portugues/' : './');
-    const daily = page.getByRole('dialog', { name: pt ? 'Palavra do dia' : 'Word of the Day' });
-    await daily
-      .getByRole('button', { name: pt ? 'Fechar palavra do dia' : 'Close daily word' })
-      .click();
-    await page
-      .getByRole('button', { name: pt ? 'Explorar meu dia' : 'Explore my day', exact: true })
-      .click();
+    await page.getByRole('button', { name: pt ? 'Abrir navegação' : 'Open navigation' }).click();
+    const more = page.locator('.sidebar .nav-more');
+    await more.locator('summary').click();
+    await more.getByRole('button', { name: pt ? 'Praticar' : 'Practice', exact: true }).click();
     await expect(page.locator('.offline-status summary')).toContainText(
       pt ? 'Pronto sem conexão' : 'Ready offline',
       { timeout: 90000 },
@@ -151,6 +148,9 @@ for (const pt of [false, true])
       .click();
     await expect(page.locator('.lesson-room')).toBeVisible();
     await page.locator('.mobile-bottom-nav').getByRole('button').first().click();
+    await page.getByRole('button', { name: pt ? 'Abrir navegação' : 'Open navigation' }).click();
+    await page.locator('.sidebar .nav-more').locator('summary').click();
+    await page.locator('.sidebar .nav-more').getByRole('button', { name: pt ? 'Praticar' : 'Practice', exact: true }).click();
     await expect(path.locator('.routine-node.done')).toHaveCount(3);
     await page.reload();
     await expect(path.locator('.routine-node.done')).toHaveCount(3);
