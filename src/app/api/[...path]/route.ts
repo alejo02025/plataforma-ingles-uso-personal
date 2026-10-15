@@ -1,3 +1,4 @@
+import { saveStudyDay } from '@/lib/daily-study-store';
 import { saveRoutine } from '@/lib/routine-store';
 import { courseWriting, courseGrammar } from '@/lib/course-store';
 import { saveLesson } from '@/lib/lesson-store';
@@ -132,6 +133,10 @@ export async function POST(request: NextRequest) {
     }
     if (endpoint === 'voice/message') return json(voiceMutation(db(), input));
     if (endpoint === 'oral/attempt') return json(transaction(() => saveOralAttempt(db(), input)));
+    if (endpoint === 'study-day') {
+      const state = snapshot();
+      return json(transaction(() => saveStudyDay(db(), input, state)));
+    }
     if (endpoint === 'course/writing') {
       dailyPlan();
       const plan = db().prepare('SELECT id FROM plans WHERE day=?').get(snapshot().day)!;
@@ -164,7 +169,14 @@ export async function POST(request: NextRequest) {
       const p = z
         .object({
           name: z.string().trim().min(1).max(60),
-          daily_minutes: z.union([z.literal(5), z.literal(20), z.literal(40)]),
+          daily_minutes: z.union([
+            z.literal(5),
+            z.literal(15),
+            z.literal(20),
+            z.literal(30),
+            z.literal(40),
+            z.literal(45),
+          ]),
           interests: z
             .array(z.enum(['Travel', 'Finance', 'History', 'Technology', 'Work', 'Everyday Life']))
             .min(1)

@@ -41,4 +41,4 @@ http
       res.end();
     }
   })
-  .listen(3200, '127.0.0.1');
+  .listen(Number(process.env.STUDY_PREVIEW_PORT || 3200), '127.0.0.1');

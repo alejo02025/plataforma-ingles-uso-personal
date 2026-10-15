@@ -1,0 +1,49 @@
+{
+  "checkedAt": "2026-10-15T20:03:01.080Z",
+  "scope": "Structural checks on every class; manual review limited to the twelve listed samples. This is not complete semantic validation or CEFR course accreditation.",
+  "languages": [
+    {
+      "language": "en",
+      "classes": 131,
+      "checks": 214,
+      "levels": {
+        "A1": 31,
+        "A2": 46,
+        "B1": 14,
+        "B2": 14,
+        "C1": 13,
+        "C2": 13
+      },
+      "manuallyInspected": [
+        "en-meet",
+        "en-routine",
+        "en-experiences",
+        "en-opinions",
+        "en-nuance",
+        "en-paraphrase"
+      ]
+    },
+    {
+      "language": "pt-BR",
+      "classes": 131,
+      "checks": 214,
+      "levels": {
+        "A1": 31,
+        "A2": 46,
+        "B1": 14,
+        "B2": 14,
+        "C1": 13,
+        "C2": 13
+      },
+      "manuallyInspected": [
+        "pt-meet",
+        "pt-routine",
+        "pt-stories",
+        "pt-opinions",
+        "pt-nuance",
+        "pt-paraphrase"
+      ]
+    }
+  ],
+  "issues": []
+}

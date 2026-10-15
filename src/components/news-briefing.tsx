@@ -1,8 +1,9 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { ArrowUpRight, Newspaper } from 'lucide-react';
-import { isPortuguese, assetBase } from '@/lib/workspace';
+import { isPortuguese, assetBase, studyStorage } from '@/lib/workspace';
 import { Heading } from './ui';
+import { localDay } from '@/lib/learning';
 type Briefing = {
   checkedAt: string;
   stories: {
@@ -78,6 +79,7 @@ export function NewsBriefing() {
               <a href={s.url} target="_blank" rel="noreferrer">
                 Read the source <ArrowUpRight size={16} />
               </a>
+              <NewsReflection storyId={s.id} />
             </article>
           ))}
         </div>
@@ -89,5 +91,52 @@ export function NewsBriefing() {
         </p>
       )}
     </>
+  );
+}
+
+function NewsReflection({ storyId }: { storyId: string }) {
+  const key = `daily-guide:${localDay()}:${storyId}`;
+  const [answer, setAnswer] = useState(''),
+    [error, setError] = useState(false);
+  useEffect(() => {
+    try {
+      setAnswer(studyStorage.getItem(key) || '');
+    } catch {
+      setError(true);
+    }
+  }, [key]);
+  return (
+    <details>
+      <summary>
+        {isPortuguese ? 'Uma ideia com suas palavras' : 'An idea in your own words'}
+      </summary>
+      <label className="field">
+        {isPortuguese
+          ? 'O que aconteceu? Por que isso importa?'
+          : 'What happened? Why does it matter?'}
+        <textarea
+          value={answer}
+          maxLength={3000}
+          onChange={(e) => {
+            setAnswer(e.target.value);
+            try {
+              studyStorage.setItem(key, e.target.value);
+              setError(false);
+            } catch {
+              setError(true);
+            }
+          }}
+        />
+      </label>
+      <p className="fine-print" role="status">
+        {error
+          ? isPortuguese
+            ? 'Não foi possível salvar. Copie seu texto.'
+            : 'Could not save. Copy your text.'
+          : isPortuguese
+            ? 'Salvo neste dispositivo, sem nota automática.'
+            : 'Saved on this device, without an automatic grade.'}
+      </p>
+    </details>
   );
 }

@@ -1,5 +1,9 @@
 'use client';
-import { useState } from 'react';
+import { useState, createContext, useContext } from 'react';
+const EmbeddedHeading = createContext(false);
+export function EmbeddedHeadings({ children }: { children: React.ReactNode }) {
+  return <EmbeddedHeading.Provider value={true}>{children}</EmbeddedHeading.Provider>;
+}
 import { ArrowRight, ArrowUpRight, Check, Volume2 } from 'lucide-react';
 import type { PublicQuestion } from '@/lib/types';
 export async function api<T = Record<string, unknown>>(
@@ -69,11 +73,12 @@ export function Heading({
   description: string;
   children?: React.ReactNode;
 }) {
+  const nested = useContext(EmbeddedHeading);
   return (
     <div className="page-heading">
       <div>
         <div className="eyebrow">{eyebrow}</div>
-        <h1>{title}</h1>
+        {nested ? <h2>{title}</h2> : <h1>{title}</h1>}
         <p>{description}</p>
       </div>
       {children}

@@ -1,3 +1,4 @@
+import { go, dailyWord, ready } from './navigation';
 import { test, expect } from '@playwright/test';
 for (const pt of [false, true])
   test(`Language help and all-level notes stay unlocked without advancing the course (${pt ? 'PT' : 'EN'})`, async ({
@@ -8,25 +9,13 @@ for (const pt of [false, true])
     page.on('pageerror', (e) => errors.push(e.message));
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(pt ? './portugues/' : './');
-    await page
-      .getByRole('dialog', { name: pt ? 'Palavra do dia' : 'Word of the Day' })
-      .getByRole('button', { name: pt ? 'Fechar palavra do dia' : 'Close daily word' })
-      .click();
+
+    await go(page, 'Settings');
     await expect(page.locator('.offline-status summary')).toContainText(
       pt ? 'Pronto sem conexão' : 'Ready offline',
       { timeout: 90000 },
     );
-    await page
-      .getByRole('button', {
-        name: pt ? 'Escolher uma seção de estudo' : 'Choose a learning section',
-        exact: true,
-      })
-      .click();
-    const category = page
-      .locator('.course-category')
-      .filter({ hasText: pt ? 'Ajuda com o idioma' : 'Language help' });
-    await expect(category).toContainText(pt ? 'Sempre disponível' : 'Always available');
-    await category.click();
+    await go(page, 'Language help');
     await expect(page.locator('.toolkit-note[lang="es"]')).toContainText('sin requisitos de nivel');
     await expect(page.locator('.sentence-shape')).toBeVisible();
     await expect(page.locator('.toolkit-guide li')).toHaveCount(3);
@@ -183,16 +172,7 @@ for (const pt of [false, true])
     await expect(page.locator('.course-locked')).toHaveCount(0);
     await context.setOffline(true);
     await page.reload();
-    await page
-      .getByRole('button', {
-        name: pt ? 'Escolher uma seção de estudo' : 'Choose a learning section',
-        exact: true,
-      })
-      .click();
-    await page
-      .locator('.course-category')
-      .filter({ hasText: pt ? 'Ajuda com o idioma' : 'Language help' })
-      .click();
+    await go(page, 'Language help');
     await expect(page.locator('.sentence-shape')).toBeVisible();
     await expect(page.locator('.toolkit-guide li')).toHaveCount(3);
     await expect(page.locator('.foundation-day')).toHaveCount(0);
@@ -214,12 +194,12 @@ for (const pt of [false, true])
       await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
     ).toBe(true);
     await page.locator('.mobile-bottom-nav').getByRole('button').first().click();
-    await expect(page.locator('.daily-guide')).toContainText(pt ? 'A1' : 'A2');
-    await page
-      .getByRole('button', { name: pt ? 'Abrir aulas' : 'Open classes', exact: true })
-      .click();
-    await page.locator('.class-levels').getByRole('button', { name: 'C2', exact: true }).click();
-    await page.locator('.class-card').first().click();
-    await expect(page.locator('.course-locked')).toBeVisible();
+    await ready(page);
+    await go(page, 'Classes');
+    await expect(
+      page
+        .getByLabel(pt ? 'Nível de estudo' : 'Study level', { exact: true })
+        .locator('option[value="C2"]'),
+    ).toHaveAttribute('disabled', '');
     expect(errors).toEqual([]);
   });

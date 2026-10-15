@@ -1,83 +1,52 @@
 'use client';
-import { courseRoute } from '@/lib/course-route';
-import { CourseMenu } from './course-menu';
-import { OralPractice } from './oral-practice';
-import { NewsBriefing } from './news-briefing';
-import { OfflineStatus } from './offline-status';
-import { Games } from './games';
-import { LanguageHelp } from './language-help';
-import { Classes } from './classes';
-import { WordHelpCloud } from './word-help';
-import { Puzzle } from 'lucide-react';
-import { StudySpaces } from './study-spaces';
-import { isPortuguese } from '@/lib/workspace';
-import { DailyWords } from './daily-words';
-import { AppUpdate } from './app-update';
-import { PdfStudio } from './pdf-studio';
-import { DownloadLink } from './ui';
-import { GitHubSync } from './github-sync';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import {
+  ArrowUpRight,
   BookOpen,
-  CalendarDays,
   ChartNoAxesCombined,
   Check,
-  ChevronRight,
-  CircleHelp,
-  Compass,
-  Home,
   Languages,
-  Lightbulb,
   LoaderCircle,
-  Menu,
-  Moon,
-  Settings2,
+  Home,
   NotebookPen,
-  Headphones,
-  Sun,
+  Settings2,
   X,
-  ArrowUpRight,
 } from 'lucide-react';
+import { isPortuguese } from '@/lib/workspace';
 import type { Snapshot, Activity, Document } from '@/lib/types';
-import { Dashboard, ActivityList } from './dashboard';
-import { HomeRoutine } from './home-routine';
+import type { StudyTask } from '@/lib/daily-study';
+import { Today } from './today';
+import { RoutinePractice } from './routine-practice';
 import { Diagnostic } from './diagnostic';
-import { Library } from './library';
-import { Reader } from './reader';
+import { Classes } from './classes';
 import { Vocabulary } from './vocabulary';
+import { Games } from './games';
+import { OralPractice } from './oral-practice';
+import { LanguageHelp } from './language-help';
+import { Library } from './library';
+import { PdfStudio } from './pdf-studio';
+import { NewsBriefing } from './news-briefing';
+import { Reader } from './reader';
 import { Practice } from './practice';
 import { Progress, Calendar } from './analytics';
-import { api, Button, Heading, Empty } from './ui';
-import { useDialog } from './use-dialog';
-const navigation = [
-  { title: 'Home', icon: Home },
-  { title: 'PDF Studio', icon: NotebookPen },
-  { title: 'My Day', icon: Compass },
-  { title: 'Library', icon: BookOpen },
-  { title: 'Practice', icon: Languages },
-  { title: 'Games', icon: Puzzle },
-  { title: 'Vocabulary', icon: Languages },
-  { title: 'Progress', icon: ChartNoAxesCombined },
-  { title: 'Calendar', icon: CalendarDays },
-  { title: 'Classes', icon: BookOpen },
-  { title: 'News', icon: BookOpen },
-  { title: 'Language help', icon: Lightbulb },
-  { title: 'Oral practice', icon: Headphones },
-];
+import { GitHubSync } from './github-sync';
+import { OfflineStatus } from './offline-status';
+import { SpaceLink } from './space-link';
+import { AppUpdate } from './app-update';
+import { DailyWords } from './daily-words';
+import { WordHelpCloud } from './word-help';
+import { api, Button, EmbeddedHeadings, DownloadLink } from './ui';
 export function EnglishApp() {
   const [data, setData] = useState<Snapshot | null>(null),
     [view, setView] = useState('Home');
   const [suggestedClass, setSuggestedClass] = useState('');
   const [suggestedGame, setSuggestedGame] = useState('');
   const [classroomVisit, setClassroomVisit] = useState(0);
-  const [classroomSection, setClassroomSection] = useState<'classes' | 'practice'>('classes');
   const [active, setActive] = useState<Activity | null>(null),
     [error, setError] = useState(''),
     [locked, setLocked] = useState(false),
     [token, setToken] = useState('');
-  const [settings, setSettings] = useState(false),
-    [mobileMenu, setMobileMenu] = useState(false),
-    [opening, setOpening] = useState(false);
+  const [opening, setOpening] = useState(false);
   const refresh = useCallback(async () => {
     const state = await api<Snapshot>('state');
     setData(state);
@@ -88,12 +57,19 @@ export function EnglishApp() {
     const onRemoteChange = () => {
       void refresh().catch((e) => setError(e.message));
     };
+    const onVisible = () => {
+      if (document.visibilityState === 'visible') onRemoteChange();
+    };
     window.addEventListener('english-data-changed', onRemoteChange);
+    document.addEventListener('visibilitychange', onVisible);
     refresh().catch((e) => {
       if (e.message.includes('access key')) setLocked(true);
       else setError(e.message);
     });
-    return () => window.removeEventListener('english-data-changed', onRemoteChange);
+    return () => {
+      window.removeEventListener('english-data-changed', onRemoteChange);
+      document.removeEventListener('visibilitychange', onVisible);
+    };
   }, [refresh]);
   async function navigate(target: string) {
     if (document.querySelector('.oral-recording-active')) {
@@ -114,9 +90,7 @@ export function EnglishApp() {
           ? 'Classes'
           : target,
     );
-    setClassroomSection('classes');
     setActive(null);
-    setMobileMenu(false);
     setError('');
     try {
       await refresh();
@@ -143,16 +117,6 @@ export function EnglishApp() {
   function onStart(a: Activity) {
     setActive(a);
     window.scrollTo({ top: 0 });
-  }
-  async function toggleTheme() {
-    if (!data) return;
-    const theme = data.profile.theme === 'dark' ? 'light' : 'dark';
-    try {
-      await api('profile', { ...data.profile, theme });
-      await refresh();
-    } catch (e) {
-      setError((e as Error).message);
-    }
   }
   if (locked)
     return (
@@ -223,357 +187,326 @@ export function EnglishApp() {
         )}
       </div>
     );
-  const appNavigation = navigation;
+  const pt = isPortuguese;
+  const area =
+    view === 'Settings' || view === 'Assessment'
+      ? 'settings'
+      : ['Classes', 'Language help', 'MCER'].includes(view)
+        ? 'classes'
+        : ['Vocabulary', 'Practice', 'Games', 'Oral practice'].includes(view)
+          ? 'review'
+          : ['PDF Studio', 'Library', 'News'].includes(view)
+            ? 'library'
+            : ['Progress', 'Calendar'].includes(view)
+              ? 'progress'
+              : 'today';
+  const destinations = [
+    { area: 'today', target: 'Home', label: pt ? 'Hoje' : 'Today', icon: Home },
+    { area: 'classes', target: 'Classes', label: pt ? 'Aulas' : 'Classes', icon: BookOpen },
+    { area: 'review', target: 'Vocabulary', label: pt ? 'Revisão' : 'Review', icon: Languages },
+    {
+      area: 'library',
+      target: 'PDF Studio',
+      label: pt ? 'Biblioteca' : 'Library',
+      icon: NotebookPen,
+    },
+    {
+      area: 'progress',
+      target: 'Progress',
+      label: pt ? 'Progresso' : 'Progress',
+      icon: ChartNoAxesCombined,
+    },
+  ];
+  const groups: Record<string, { target: string; label: string }[]> = {
+    classes: [
+      { target: 'Classes', label: pt ? 'Percurso' : 'Course' },
+      { target: 'Language help', label: pt ? 'Guia de idioma' : 'Language reference' },
+    ],
+    review: [
+      { target: 'Vocabulary', label: pt ? 'Palavras' : 'Words' },
+      { target: 'Practice', label: pt ? 'Prática' : 'Practice' },
+      { target: 'Games', label: pt ? 'Jogos' : 'Games' },
+      { target: 'Oral practice', label: pt ? 'Ouvir e gravar' : 'Listen & record' },
+    ],
+    library: [
+      { target: 'PDF Studio', label: pt ? 'Meus arquivos' : 'My files' },
+      { target: 'Library', label: pt ? 'Leituras' : 'Readings' },
+      { target: 'News', label: pt ? 'Notícias' : 'News' },
+    ],
+    progress: [
+      { target: 'Progress', label: pt ? 'Visão geral' : 'Overview' },
+      { target: 'Calendar', label: pt ? 'Calendário' : 'Calendar' },
+    ],
+  };
+  const areaTitle =
+    destinations.find((d) => d.area === area)?.label || (pt ? 'Ajustes' : 'Settings');
   const doc = data.documents.find((d) => d.id === active?.document_id);
+  async function startTask(task: StudyTask) {
+    try {
+      const action = task.action;
+      if (action.kind === 'activity') {
+        const activity = [
+          ...data!.plan.activities,
+          ...(data!.backlog || []),
+          ...(data!.resumeActivity ? [data!.resumeActivity] : []),
+        ].find((a) => a.id === action.id);
+        if (!activity)
+          throw new Error(
+            pt
+              ? 'Esta atividade não está disponível. Veja seus arquivos.'
+              : 'This activity is unavailable. Check your files.',
+          );
+        onStart(activity);
+      } else if (action.kind === 'class') {
+        setView('Classes');
+        setSuggestedClass(action.id);
+        setClassroomVisit((v) => v + 1);
+      } else if (action.kind === 'review') {
+        void navigate('Vocabulary');
+      } else if (action.mode === 'writing') {
+        const activity = await api<Activity>('course/writing', {});
+        await refresh();
+        onStart(activity);
+      } else {
+        window.dispatchEvent(
+          new CustomEvent('english-os:routine-start', {
+            detail: { mode: action.mode, level: action.level, block: action.block },
+          }),
+        );
+      }
+    } catch (e) {
+      setError((e as Error).message);
+    }
+  }
   return (
-    <div className="app-shell">
+    <div className="app-shell" data-area={area.toLowerCase()}>
       <a className="skip-learning-link" href="#main-content">
-        {isPortuguese ? 'Ir para o conteúdo' : 'Skip to learning'}
+        {pt ? 'Ir para o conteúdo' : 'Skip to learning'}
       </a>
-      {mobileMenu && (
-        <button
-          className="drawer-backdrop"
-          aria-label="Close navigation"
-          onClick={() => setMobileMenu(false)}
-        />
-      )}
-      <aside className={`sidebar ${mobileMenu ? 'mobile-open' : ''}`}>
+      <aside className="sidebar">
         <Logo />
-        <StudySpaces compact />
-        <button
-          className="icon-button mobile-sidebar-close"
-          aria-label="Close menu"
-          onClick={() => setMobileMenu(false)}
-        >
-          <X size={19} />
-        </button>
-        <div className="workspace-label">
-          <span className="status-dot" />
-          PERSONAL SPACE{' '}
-        </div>
-        <nav aria-label="Main navigation">
-          <div className="nav-primary">
-            {appNavigation
-              .filter((item) => ['Home', 'Classes', 'Vocabulary', 'PDF Studio', 'Progress'].includes(item.title))
-              .sort((a, b) =>
-                ['Home', 'Classes', 'Vocabulary', 'PDF Studio', 'Progress'].indexOf(a.title) -
-                ['Home', 'Classes', 'Vocabulary', 'PDF Studio', 'Progress'].indexOf(b.title),
-              )
-              .map(({ title, icon: Icon }) => (
-                <button
-                  key={title}
-                  aria-label={title}
-                  aria-current={view === title && !active ? 'page' : undefined}
-                  className={`nav-item ${view === title && !active ? 'active' : ''}`}
-                  onClick={() => void navigate(title)}
-                >
-                  <Icon size={19} />
-                  <span>{
-                    title === 'Home' ? (isPortuguese ? 'Hoje' : 'Today') :
-                    title === 'Vocabulary' ? (isPortuguese ? 'Revisão' : 'Review') :
-                    title === 'PDF Studio' ? (isPortuguese ? 'Biblioteca' : 'Library') :
-                    title === 'Classes' ? (isPortuguese ? 'Aulas' : 'Classes') :
-                    (isPortuguese ? 'Progresso' : 'Progress')
-                  }</span>
-                </button>
-              ))}
-          </div>
-          <details
-            className="nav-more"
-            open={['Library', 'Practice', 'My Day', 'Games', 'Calendar', 'News', 'Language help', 'Oral practice'].includes(view)}
-          >
-            <summary>{isPortuguese ? 'Outras ferramentas' : 'More tools'}</summary>
-            {appNavigation
-              .filter((item) => ['Library', 'Practice', 'My Day', 'Games', 'Calendar', 'News', 'Language help', 'Oral practice'].includes(item.title))
-              .map(({ title, icon: Icon }) => (
-                <button
-                  key={title}
-                  aria-label={title}
-                  className={`nav-item ${view === title && !active ? 'active' : ''}`}
-                  onClick={() => void navigate(title)}
-                >
-                  <Icon size={19} />
-                  <span>{
-                    title === 'Library' ? (isPortuguese ? 'Leituras' : 'Readings') :
-                    title === 'My Day' ? (isPortuguese ? 'Todas as atividades' : 'All activities') :
-                    title === 'Practice' ? (isPortuguese ? 'Prática extra' : 'Extra practice') :
-                    title === 'Oral practice' ? (isPortuguese ? 'Fala' : 'Speaking') :
-                    title
-                  }</span>
-                </button>
-              ))}
-          </details>
+        <nav className="nav-primary" aria-label={pt ? 'Navegação principal' : 'Main navigation'}>
+          {destinations.map((d) => (
+            <button
+              key={d.area}
+              className={`nav-item ${area === d.area ? 'active' : ''}`}
+              aria-current={area === d.area ? 'page' : undefined}
+              onClick={() => void navigate(d.target)}
+            >
+              <d.icon size={18} />
+              <span>{d.label}</span>
+            </button>
+          ))}
         </nav>
         <div className="sidebar-bottom">
-          <div className="goal-note">
-            <div className="goal-icon">
-              <ArrowUpRight size={20} />
-            </div>
-            <div>
-              <span>Your learning path</span>
-              <strong>{`${isPortuguese ? 'MCER' : 'English'} · ${courseRoute(data).level}`}</strong>
-            </div>
-          </div>
           <button
-            className="nav-item"
-            onClick={() => {
-              setSettings(true);
-              setMobileMenu(false);
-            }}
+            className={`nav-item ${area === 'settings' ? 'active' : ''}`}
+            onClick={() => void navigate('Settings')}
           >
             <Settings2 size={18} />
-            Preferences{' '}
+            {pt ? 'Ajustes' : 'Settings'}
           </button>
-          <div className="user-profile">
-            <span className="avatar">{data.profile.name.slice(0, 1).toUpperCase()}</span>
-            <div>
-              <strong>{data.profile.name}</strong>
-              <span>My personal journey</span>
-            </div>
-            <button
-              className="icon-button"
-              aria-label="Open preferences"
-              onClick={() => setSettings(true)}
-            >
-              <ChevronRight size={16} />
-            </button>
+          <div className="space-switch">
+            <span>{data.profile.name}</span>
+            <SpaceLink language={pt ? 'en' : 'pt'} />
           </div>
         </div>
       </aside>
       <div className="main-shell">
-        <header className="topbar">
-          <div className="breadcrumb">
-            <button
-              className="icon-button mobile-menu"
-              aria-label="Open navigation"
-              onClick={() => setMobileMenu(!mobileMenu)}
-            >
-              <Menu size={20} />
-            </button>
-            <span>My space</span>
-            <ChevronRight size={14} />
-            <strong>{active ? (isPortuguese ? 'Atividade' : 'Activity') : view === 'Home' ? (isPortuguese ? 'Hoje' : 'Today') : view === 'Assessment' ? (isPortuguese ? 'Diagnóstico' : 'Assessment') : view}</strong>
-          </div>
-          <div className="topbar-actions">
-            <div className="topbar-course"><CourseMenu data={data} navigate={(target) => void navigate(target)} /></div>
-            <AppUpdate />
-            {view === 'Home' && !active && <span id="daily-word-slot" />}
-            <div className="topbar-extra"><WordHelpCloud data={data} refresh={refresh} /></div>
-            <button
-              className="icon-button topbar-extra"
-              onClick={toggleTheme}
-              aria-label={
-                data.profile.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
-              }
-            >
-              {data.profile.theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
-            <button
-              className="icon-button"
-              aria-label="Help and preferences"
-              onClick={() => setSettings(true)}
-            >
-              <CircleHelp size={18} />
-            </button>
-          </div>
-        </header>
+        <div className="mobile-masthead">
+          <Logo />
+          <button
+            className="icon-button"
+            aria-label={pt ? 'Ajustes' : 'Settings'}
+            onClick={() => void navigate('Settings')}
+          >
+            <Settings2 size={19} />
+          </button>
+        </div>
         <main id="main-content" tabIndex={-1}>
-          <div id="app-updates" />
           {error && (
             <div role="alert" className="error global-error">
               {error}
-              <button aria-label="Dismiss message" onClick={() => setError('')}>
+              <button
+                className="icon-button"
+                aria-label={pt ? 'Fechar mensagem' : 'Dismiss message'}
+                onClick={() => setError('')}
+              >
                 <X size={16} />
               </button>
             </div>
           )}
           {opening && (
-            <div className="operation-indicator" role="status">
-              Opening and saving your session…{' '}
-            </div>
+            <p className="operation-indicator" role="status">
+              {pt ? 'Abrindo seu material…' : 'Opening your material…'}
+            </p>
           )}
-          {active ? (
-            active.kind === 'reading' && doc ? (
-              <Reader
-                key={active.id}
-                document={doc}
-                activity={active}
-                data={data}
-                refresh={refresh}
-                close={() => void navigate(view)}
-              />
-            ) : (
-              <Practice
-                key={active.id}
-                activity={active}
-                data={data}
-                refresh={refresh}
-                close={() => void navigate(view)}
-              />
-            )
-          ) : view === 'Assessment' ? (
-            <Diagnostic data={data} refresh={refresh} close={() => void navigate('Home')} />
-          ) : view === 'Home' ? (
-            <>
-              <Dashboard
-              data={data}
-              refresh={refresh}
-              onStart={onStart}
-              navigate={(target) => void navigate(target)}
-              onDiagnostic={() => {
-                setView('Assessment');
-                window.scrollTo({ top: 0 });
-              }}
-              onRead={(doc) => void openDocument(doc)}
-              onClass={(id) => {
-                void navigate('Classes');
-                setSuggestedClass(id);
-              }}
-              onGame={(seed) => {
-                void navigate('Games');
-                setSuggestedGame(seed);
-              }}
-              onRoutine={(mode) =>
-                window.dispatchEvent(
-                  new CustomEvent('english-os:routine-start', { detail: { mode } }),
-                )
-              }
-            />
-            <HomeRoutine
-              data={data}
-              refresh={refresh}
-              onStart={onStart}
-              onClass={(id) => {
-                void navigate('Classes');
-                setSuggestedClass(id);
-              }}
-              onGame={(seed) => {
-                void navigate('Games');
-                setSuggestedGame(seed);
-              }}
-              compact
-            />
-            </>
-          ) : view === 'PDF Studio' ? (
-            <PdfStudio data={data} refresh={refresh} onRead={(doc) => void openDocument(doc)} />
-          ) : view === 'My Day' ? (
-            <div className="learning-path-view">
-              <Heading
-                eyebrow={isPortuguese ? 'PLANO DE ESTUDO' : 'STUDY PLAN'}
-                title={isPortuguese ? 'Todas as atividades' : 'All activities'}
-                description={isPortuguese ? 'Seu plano de atividades. Comece pela próxima tarefa pendente.' : 'Your full activity list. Start with the next unfinished task.'}
-              />
-              <section className="card daily-card">
-                <ActivityList data={data} onStart={onStart} />
-              </section>
+          <div className="runtime-services" hidden={area !== 'settings'}>
+            <div id="app-updates" />
+            <AppUpdate />
+            <OfflineStatus />
+          </div>
+          <header hidden={area === 'today' && !active} className="workspace-heading">
+            <div className="workspace-title-row">
+              {(area !== 'today' || active) && (
+                <h1>{active ? (pt ? 'Atividade' : 'Activity') : areaTitle}</h1>
+              )}
+              <WordHelpCloud data={data} refresh={refresh} />
             </div>
-          ) : view === 'Practice' ? (
-            <div className="learning-path-view">
-              <Heading
-                eyebrow={isPortuguese ? 'PRÁTICA EXTRA' : 'EXTRA PRACTICE'}
-                title={isPortuguese ? 'Pratique no seu ritmo' : 'Practise at your pace'}
-                description={isPortuguese ? 'Atividades para reforçar o que você estudou.' : 'Extra activities to reinforce your learning.'}
+            {groups[area] && (
+              <nav className="section-tabs" aria-label={pt ? 'Seções' : 'Sections'}>
+                {groups[area].map((t) => (
+                  <button
+                    key={t.target}
+                    aria-current={view === t.target ? 'page' : undefined}
+                    className={view === t.target ? 'active' : ''}
+                    onClick={() => void navigate(t.target)}
+                  >
+                    {t.label}
+                  </button>
+                ))}
+              </nav>
+            )}
+          </header>
+          <EmbeddedHeadings>
+            {active ? (
+              active.kind === 'reading' && doc ? (
+                <Reader
+                  key={active.id}
+                  document={doc}
+                  activity={active}
+                  data={data}
+                  refresh={refresh}
+                  close={() => void navigate(view)}
+                />
+              ) : (
+                <Practice
+                  key={active.id}
+                  activity={active}
+                  data={data}
+                  refresh={refresh}
+                  close={() => void navigate(view)}
+                />
+              )
+            ) : view === 'Assessment' ? (
+              <Diagnostic data={data} refresh={refresh} close={() => void navigate('Settings')} />
+            ) : view === 'Home' || view === 'My Day' ? (
+              <Today
+                data={data}
+                refresh={refresh}
+                onTask={(task) => void startTask(task)}
+                navigate={(target) => void navigate(target)}
               />
-              <HomeRoutine
+            ) : view === 'PDF Studio' ? (
+              <PdfStudio data={data} refresh={refresh} onRead={(doc) => void openDocument(doc)} />
+            ) : view === 'Library' ? (
+              <Library data={data} onOpen={(doc) => void openDocument(doc)} refresh={refresh} />
+            ) : view === 'News' ? (
+              <NewsBriefing />
+            ) : view === 'Classes' || view === 'MCER' ? (
+              <Classes
+                key={classroomVisit}
+                data={data}
+                refresh={refresh}
+                navigate={(target) => void navigate(target)}
+                onStart={onStart}
+                initialLesson={suggestedClass}
+              />
+            ) : view === 'Language help' ? (
+              <LanguageHelp
+                onOpenLesson={(id) => {
+                  setView('Classes');
+                  setSuggestedClass(id);
+                  setClassroomVisit((v) => v + 1);
+                }}
+              />
+            ) : view === 'Vocabulary' ? (
+              <>
+                <div className="review-tools">
+                  <span id="daily-word-slot" />
+                </div>
+                <Vocabulary data={data} refresh={refresh} embedded />
+                <DailyWords
+                  data={data}
+                  refresh={refresh}
+                  openVocabulary={() => void navigate('Vocabulary')}
+                />
+              </>
+            ) : view === 'Practice' ? (
+              <RoutinePractice
                 data={data}
                 refresh={refresh}
                 onStart={onStart}
-                onClass={(id) => { void navigate('Classes'); setSuggestedClass(id); }}
-                onGame={(seed) => { void navigate('Games'); setSuggestedGame(seed); }}
+                onClass={(id) => {
+                  setView('Classes');
+                  setSuggestedClass(id);
+                }}
+                onGame={(seed) => {
+                  setView('Games');
+                  setSuggestedGame(seed);
+                }}
               />
-            </div>
-          ) : view === 'Oral practice' ? (
-            <OralPractice data={data} refresh={refresh} />
-          ) : view === 'Language help' ? (
-            <LanguageHelp />
-          ) : view === 'News' ? (
-            <NewsBriefing />
-          ) : view === 'Library' ? (
-            <Library data={data} onOpen={(d) => void openDocument(d)} refresh={refresh} />
-          ) : view === 'MCER' && isPortuguese ? (
-            <Classes
-              data={data}
-              refresh={refresh}
-              navigate={(target) => void navigate(target)}
-              onStart={onStart}
-              key={`${classroomSection}:${classroomVisit}`}
-              initialSection={classroomSection}
-              initialLesson={suggestedClass}
-            />
-          ) : view === 'Classes' ? (
-            <Classes
-              data={data}
-              refresh={refresh}
-              navigate={(target) => void navigate(target)}
-              onStart={onStart}
-              key={`${classroomSection}:${classroomVisit}`}
-              initialSection={classroomSection}
-              initialLesson={suggestedClass}
-            />
-          ) : view === 'Games' ? (
-            <Games data={data} refresh={refresh} initialSeed={suggestedGame} />
-          ) : view === 'Vocabulary' ? (
-            <Vocabulary data={data} refresh={refresh} />
-          ) : view === 'Progress' ? (
-            <Progress data={data} navigate={(target) => void navigate(target)} />
-          ) : view === 'Calendar' ? (
-            <Calendar data={data} />
-          ) : (
-            <>
-              <Heading
-                eyebrow="ONE IDEA IN ACTION"
-                title="Make room for practice."
-                description="Reading, grammar, and writing for situations that matter to you."
+            ) : view === 'Games' ? (
+              <Games data={data} refresh={refresh} initialSeed={suggestedGame} />
+            ) : view === 'Oral practice' ? (
+              <OralPractice data={data} refresh={refresh} />
+            ) : view === 'Progress' ? (
+              <Progress data={data} navigate={(target) => void navigate(target)} />
+            ) : view === 'Calendar' ? (
+              <Calendar data={data} />
+            ) : (
+              <Preferences
+                data={data}
+                refresh={refresh}
+                close={() => {}}
+                onDiagnostic={() => void navigate('Assessment')}
               />
-              <section className="card daily-card">
-                <ActivityList data={data} onStart={onStart} />
-              </section>
-            </>
-          )}
-          {/* Account and offline technical details live in Preferences. */}
+            )}
+          </EmbeddedHeadings>
         </main>
       </div>
-      <nav className="mobile-bottom-nav" aria-label="Quick navigation">
-        {[navigation[0], navigation[9], navigation[6], navigation[1], navigation[7]].map(
-          ({ title, icon: Icon }) => (
-            <button
-              key={title}
-              aria-current={view === title && !active ? 'page' : undefined}
-              onClick={() => void navigate(title)}
-            >
-              <Icon size={20} />
-              <span>
-                {title === 'Home' ? (isPortuguese ? 'Hoje' : 'Today') : title === 'Classes' ? (isPortuguese ? 'Aulas' : 'Classes') : title === 'PDF Studio' ? (isPortuguese ? 'Ler' : 'Read') : title === 'Vocabulary' ? (isPortuguese ? 'Revisar' : 'Review') : (isPortuguese ? 'Progresso' : title)}
-              </span>
-            </button>
-          ),
-        )}
+      <nav
+        className="mobile-bottom-nav"
+        aria-label={pt ? 'Navegação principal' : 'Main navigation'}
+      >
+        {destinations.map((d) => (
+          <button
+            key={d.area}
+            aria-current={area === d.area ? 'page' : undefined}
+            onClick={() => void navigate(d.target)}
+          >
+            <d.icon size={20} />
+            <span>{d.label}</span>
+          </button>
+        ))}
       </nav>
-      {view === 'Home' && !active && (
-        <DailyWords
-          data={data}
-          refresh={refresh}
-          openVocabulary={() => void navigate('Vocabulary')}
-        />
-      )}
-      {settings && <Preferences data={data} refresh={refresh} close={() => setSettings(false)} />}
+      <RoutinePractice
+        data={data}
+        refresh={refresh}
+        onStart={onStart}
+        onClass={(id) => {
+          setView('Classes');
+          setSuggestedClass(id);
+        }}
+        onGame={(seed) => {
+          setView('Games');
+          setSuggestedGame(seed);
+        }}
+        compact
+      />
     </div>
   );
 }
+
 function Logo() {
   return (
     <div className="logo">
-      <span className="logo-mark">
-        {isPortuguese ? 'p' : 'e'}
-        <span>
-          <ArrowUpRight size={14} />
-        </span>
+      <span className="logo-mark" aria-hidden>
+        <ArrowUpRight size={19} />
       </span>
-      <div>
-        {isPortuguese ? 'português' : 'english'}
-        <span>os.</span>
-        <small>MAKE IT YOURS</small>
-      </div>
+      <span>
+        {isPortuguese ? 'Português' : 'English'} <b>OS</b>
+      </span>
     </div>
   );
 }
@@ -581,10 +514,12 @@ function Preferences({
   data,
   refresh,
   close,
+  onDiagnostic,
 }: {
   data: Snapshot;
   refresh: () => Promise<void>;
   close: () => void;
+  onDiagnostic: () => void;
 }) {
   const [profile, setProfile] = useState(data.profile),
     [busy, setBusy] = useState(false),
@@ -602,23 +537,15 @@ function Preferences({
     }));
     baseline.current = data.profile;
   }, [data.profile]);
-  const dialogRef = useDialog(close, busy);
+  const [saved, setSaved] = useState(false);
   return (
-    <div className="modal-backdrop">
-      <section
-        role="dialog"
-        ref={dialogRef}
-        aria-modal="true"
-        aria-labelledby="preferences-title"
-        className="card modal"
-      >
-        <div className="section-heading">
-          <h2 id="preferences-title">Make it yours.</h2>
-          <button className="icon-button" aria-label="Close preferences" onClick={close}>
-            <X size={20} />
-          </button>
-        </div>
+    <section className="settings-page">
+      <div className="settings-main">
+        <h2>{isPortuguese ? 'Preferências' : 'Preferences'}</h2>
         <form
+          data-update-guard={
+            JSON.stringify(profile) !== JSON.stringify(data.profile) ? 'dirty' : undefined
+          }
           onSubmit={async (e) => {
             e.preventDefault();
             setBusy(true);
@@ -626,7 +553,7 @@ function Preferences({
             try {
               await api('profile', profile);
               await refresh();
-              close();
+              setSaved(true);
             } catch (e) {
               setError((e as Error).message);
             } finally {
@@ -635,7 +562,7 @@ function Preferences({
           }}
         >
           <label className="field">
-            Your name{' '}
+            {isPortuguese ? 'Seu nome' : 'Your name'}{' '}
             <input
               autoFocus
               required
@@ -645,19 +572,29 @@ function Preferences({
             />
           </label>
           <label className="field">
-            Your usual study time{' '}
+            {isPortuguese ? 'Tempo habitual' : 'Usual study time'}{' '}
             <select
+              aria-label={isPortuguese ? 'Tempo habitual' : 'Usual study time'}
               value={profile.daily_minutes}
               onChange={(e) => setProfile({ ...profile, daily_minutes: Number(e.target.value) })}
             >
-              <option value={5}>5 minutes · a small break</option>
-              <option value={20}>20 minutes · my daily session</option>
-              <option value={40}>40 minutes · explore more</option>
+              {![15, 20, 30, 45].includes(profile.daily_minutes) && (
+                <option value={profile.daily_minutes}>{profile.daily_minutes} min</option>
+              )}
+              {[15, 20, 30, 45].map((m) => (
+                <option key={m} value={m}>
+                  {m} min
+                </option>
+              ))}
             </select>
           </label>
-          <p className="fine-print">Duration changes apply to your next daily plan.</p>
+          <p className="fine-print">
+            {isPortuguese
+              ? 'Aplicado aos próximos dias. O trabalho atual é preservado.'
+              : 'Applies to future days. Current work is preserved.'}
+          </p>
           <fieldset className="interests">
-            <legend>Your interests</legend>
+            <legend>{isPortuguese ? 'Seus interesses' : 'Your interests'}</legend>
             {['Travel', 'Finance', 'History', 'Technology', 'Work', 'Everyday Life'].map((t) => (
               <label
                 className={`interest-chip ${profile.interests.includes(t) ? 'active' : ''}`}
@@ -680,13 +617,14 @@ function Preferences({
             ))}
           </fieldset>
           <label className="field">
-            Appearance{' '}
+            {isPortuguese ? 'Aparência' : 'Appearance'}{' '}
             <select
+              aria-label={isPortuguese ? 'Aparência' : 'Appearance'}
               value={profile.theme}
               onChange={(e) => setProfile({ ...profile, theme: e.target.value })}
             >
-              <option value="light">Light</option>
-              <option value="dark">Dark</option>
+              <option value="light">{isPortuguese ? 'Claro' : 'Light'}</option>
+              <option value="dark">{isPortuguese ? 'Escuro' : 'Dark'}</option>
             </select>
           </label>
           {error && (
@@ -695,33 +633,51 @@ function Preferences({
             </p>
           )}
           <Button type="submit" disabled={busy || !profile.interests.length}>
-            {busy ? 'Saving…' : 'Save preferences'}
+            {busy
+              ? isPortuguese
+                ? 'Salvando…'
+                : 'Saving…'
+              : isPortuguese
+                ? 'Salvar preferências'
+                : 'Save preferences'}
             <Check size={16} />
           </Button>
         </form>
+        {saved && (
+          <p role="status">{isPortuguese ? 'Preferências salvas.' : 'Preferences saved.'}</p>
+        )}
+      </div>
+      <div className="settings-secondary">
         {process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github' && <GitHubSync />}
-        <OfflineStatus />
-        <div className="settings-info">
-          <span className="eyebrow">PRIVACY AND DATA</span>
+
+        <section className="settings-info">
+          <h2>{isPortuguese ? 'Dados e privacidade' : 'Data & privacy'}</h2>
           <p>
-            {process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github'
-              ? 'Your data is saved in this browser and synced when you connect your private GitHub repository.'
-              : 'Your data is saved in the server database.'}{' '}
-            {data.aiAvailable
-              ? 'AI writing feedback is configured.'
-              : process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github'
-                ? 'You can study here without an external AI service. PDF Studio also supports local AI.'
-                : 'AI writing feedback requires a configured server key.'}
+            {isPortuguese
+              ? 'O progresso é salvo neste navegador. A sincronização privada é opcional; para outro dispositivo, sincronize ou exporte seus dados.'
+              : 'Progress is saved in this browser. Private sync is optional; sync or export your data to use another device.'}
           </p>
+          <DownloadLink endpoint="export">
+            {isPortuguese ? 'Exportar histórico' : 'Export history'}
+          </DownloadLink>
+        </section>
+        <details className="settings-info">
+          <summary>{isPortuguese ? 'Diagnóstico e avaliação' : 'Assessment & level check'}</summary>
           <p>
-            This is an informal starting assessment, not a CEFR certification. For online access,{' '}
-            {process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github'
-              ? 'your personal data stays outside the public repository.'
-              : 'configure an access key and HTTPS on the server.'}
+            {isPortuguese
+              ? 'O diagnóstico é orientativo, não uma certificação. Escrita e gravações ficam no histórico sem notas automáticas de qualidade ou pronúncia.'
+              : 'The level check is a starting reference, not a certificate. Writing and recordings remain in history without automatic quality or pronunciation grades.'}
           </p>
-          <DownloadLink endpoint="export">Download my history</DownloadLink>
-        </div>
-      </section>
-    </div>
+          <button className="button secondary" onClick={onDiagnostic}>
+            {isPortuguese ? 'Fazer diagnóstico' : 'Take the level check'}
+          </button>
+        </details>
+        <section className="settings-info">
+          <h2>{isPortuguese ? 'Espaços de estudo' : 'Study spaces'}</h2>
+          <SpaceLink language="en" />
+          <SpaceLink language="pt" />
+        </section>
+      </div>
+    </section>
   );
 }

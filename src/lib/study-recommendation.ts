@@ -4,11 +4,12 @@ import { isPortuguese } from './workspace';
 import type { Activity, Snapshot } from './types';
 import { routineTitles, type RoutineMode } from './routine';
 
-export const studyBudgets = [5, 20, 40] as const;
+export const studyBudgets = [15, 20, 30, 45] as const;
+const supportedBudgets = [5, 15, 20, 30, 40, 45] as const;
 export function studyBudget(value: unknown, fallback = 20): number {
-  return studyBudgets.includes(value as (typeof studyBudgets)[number])
+  return supportedBudgets.includes(value as (typeof supportedBudgets)[number])
     ? Number(value)
-    : studyBudgets.includes(fallback as (typeof studyBudgets)[number])
+    : supportedBudgets.includes(fallback as (typeof supportedBudgets)[number])
       ? fallback
       : 20;
 }

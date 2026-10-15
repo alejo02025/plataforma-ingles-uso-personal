@@ -1,108 +1,70 @@
-# Auditoría integral — English OS y Português OS
+# Auditoría y reconstrucción de la experiencia
 
-Fecha: 14–15 de octubre de 2026. Rama de trabajo: `audit/integral-2026-10-14`.
+Revisión: 15/10/2026. Base real inspeccionada: `4d78acf`, obtenida de `origin/main` antes de modificar. Rama: `redesign/study-first-2026-10-15`. Esta revisión reemplaza el diseño de inicio anterior; [los informes previos se conservan como historial](docs/audit-2026-10-14/RESULTADOS_QA.md).
 
-La auditoría se realizó antes de publicar. Después de la autorización expresa del usuario, se desplegó la versión verificada; el estado y las comprobaciones están en [PUBLICACION.md](PUBLICACION.md).
+## Alcance verificado
 
-## Alcance y evidencia
+Se ejecutaron ambas aplicaciones públicas, con perfiles temporales, a 1440×900, 1280×800, 768×1024, 390×844 y 375×812. Se visitaron todos los destinos anteriores; las herramientas secundarias también se recorrieron en escritorio y móvil. Las **92 capturas anteriores** y sus observaciones están en [artifacts/redesign/before](artifacts/redesign/before/observations.json).
 
-Se inspeccionaron arquitectura, almacenamiento, sincronización, motores de ejercicios, progresión, diagnóstico, feedback, PDF y componentes visuales. Se ejecutó un inventario estructural de **todas las 262 clases y sus 428 comprobaciones**. Esto verifica campos, identificadores, opciones y referencias; **no equivale a una validación pedagógica externa de cada descriptor o de cada ítem**. Las revisiones lingüísticas y los cambios se detallan en los informes por idioma.
+No se usaron datos privados de los estudiantes. Las medidas de pantalla son Chromium con viewports configurados, no pruebas sobre un iPhone físico.
 
-La referencia primaria es el [MCER Companion Volume, Consejo de Europa, 2020](https://rm.coe.int/common-european-framework-of-reference-for-languages-learning-teaching/16809ea0d4). El intento de acceso desde este entorno obtuvo `403 CONNECT tunnel failed`. No se afirma haber descargado o contrastado directamente el documento en esta ejecución. El contraste pedagógico utiliza las distinciones conocidas entre recepción, producción, interacción y mediación; una alineación validada exige revisión independiente de los ítems y estudio con estudiantes reales.
+## Hallazgos confirmados y respuesta implementada
 
-## Hechos verificados en la versión inicial
+| Hallazgo observado                                                               | Cambio de producto                                                                                           |
+| -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| Trece destinos en el menú, más navegación inferior y un menú móvil adicional     | Cinco áreas reales; herramientas agrupadas mediante pestañas internas. Sin hamburger                         |
+| Biblioteca dividida entre PDFs, materiales y lecturas                            | Biblioteca contiene Archivos, Lecturas y Noticias. Un solo importador de PDFs; importación de texto separada |
+| Inicio mezclaba la recomendación con un contador de otro conjunto de actividades | Agenda diaria persistente con referencias a tareas reales; el contador usa esas mismas tareas                |
+| La recomendación se podía renovar indefinidamente                                | Día finito, finalización estable, dos acciones secundarias al terminar                                       |
+| Catálogo de Clases de unos 18.000 px en un móvil nuevo de inglés                 | Un bloque de cuatro clases, selector de bloque y siguiente clase destacada                                   |
+| Referencia gramatical duplicada dentro y fuera de Clases                         | Una guía siempre desbloqueada dentro de Clases                                                               |
+| Siete hojas de estilos acumuladas, además de `classes.css`                       | Dos hojas con responsabilidades distintas: base compartida y herramientas de estudio                         |
+| Información técnica competía con estudiar                                        | Ajustes reúne tiempo habitual, tema, diagnóstico, sincronización, estado offline y actualización             |
 
-| Área           | Hallazgo                                                                                | Riesgo / decisión                                                                                         |
-| -------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| Arquitectura   | Next 16.4, React 19, TypeScript; API local y exportación estática dual                  | Conservar la arquitectura; no reescribir desde cero                                                       |
-| Persistencia   | SQL.js en IndexedDB, dos bases distintas y claves de borrador separadas                 | Mantener nombres, claves, IDs de intentos y migraciones                                                   |
-| Sincronización | GitHub opcional; token en memoria; exige repositorio privado con permiso de escritura   | No afirmar sincronización entre dispositivos sin autorización; fallo remoto no debe perder guardado local |
-| Recorrido      | Clases ≥80 %, lectura objetiva, vocabulario independiente y escritura de ≥30 caracteres | Esas reglas habilitan contenidos; no certifican competencia ni calidad de escritura                       |
-| Diagnóstico    | 12 ítems por idioma, A1–B2; tres competencias; clasificación por bandas                 | Muestra pequeña, incertidumbre alta; no cambia el recorrido automáticamente                               |
-| Clases         | 131 por idioma; 214 comprobaciones por idioma; IDs únicos e índices válidos             | Numerosas clases tienen dos ítems: un resultado alto es evidencia muy limitada                            |
-| Rutina         | Actividades deterministas; borrador único retomado antes de otra actividad              | El botón de otra tarea puede parecer repetir la anterior; aclarar y controlar reanudación                 |
-| Speaking       | El chat oral no aparece en navegación; existen datos y utilidades de voz heredados      | Mantener historial y no presentar transcripción como evaluación de pronunciación                          |
-| IA local       | SmolLM2 pequeño, descarga opcional verificada con SHA-256, respuestas vinculadas al PDF | Guía orientativa; no docente acreditado ni evaluador validado                                             |
-| Offline        | Service worker guarda aplicación y recursos; PDFs/progreso en IndexedDB                 | Requiere una primera carga completa; modelo y voces tienen requisitos separados                           |
-| Documentación  | README aún decía nueve preguntas; banco real tiene doce                                 | Corregir cantidades y describir diagnóstico por versión                                                   |
-| Idiomas        | Explicaciones en español estaban mezcladas con interfaz nativa                          | Idioma de estudio primero; español debajo, claramente marcado                                             |
+El [registro detallado de inspección](docs/REDISENO_DEFINITIVO.md) distingue observaciones previas y decisiones. Las capturas no prueban por sí solas persistencia, accesibilidad ni corrección pedagógica: esos aspectos tienen pruebas separadas.
 
-## Apoyo bilingüe revisado
+## Arquitectura conservada
 
-La rama contiene traducciones nativas escritas para las 262 definiciones de clases: 476 campos explicación/tip/why por idioma, además de bases de nivel, usos de tiempos, reglas del constructor y requisitos dinámicos del recorrido. El inventario y las pruebas del módulo no encontraron entradas faltantes en ese conjunto. **Esto no significa traducción automática de PDFs o textos propios**: el contenido del alumno conserva su idioma original. La comprobación visual de entradas faltantes en los recorridos ejecutados se registra en QA.
+Next.js, React y TypeScript; exportación estática EN/PT; API de servidor autenticada; SQLite/SQL.js; IndexedDB; PDFs y archivos originales; vocabulario; sesiones y resultados; respaldo privado opcional; modelo local opcional; service worker compartido. No se incorporan dependencias ni claves en el frontend.
 
-## Distinciones que debe conservar el producto
+Las bases `english-os-private-v1` y `portuguese-os-private-v1` conservan sus nombres y esquemas. Las claves de borradores también se conservan. La agenda se añade al `payload` de una actividad opcional identificada por fecha, sin sesión, resultado o crédito académico artificial. Participa del respaldo privado existente. Una agenda dañada se reconstruye conservando el payload anterior; no se restablece la base.
 
-1. **Constancia:** días, sesiones y tiempo realmente registrado; la racha no mide habilidad.
-2. **Actividad completada:** se guardó un intento o una producción; no implica corrección.
-3. **Resultado objetivo:** aciertos sobre un número concreto de ítems, fecha, nivel de la tarea y ayudas.
-4. **Habilidad observada:** evidencia limitada a una tarea y condiciones determinadas.
-5. **Nivel orientativo:** estimación parcial, con incertidumbre; no certificación MCER.
-6. **Competencia demostrada:** requiere evidencia suficiente en contextos variados y evaluación válida. No inventar un porcentaje global de dominio.
+## Organización del aprendizaje
 
-## Seguridad y conservación de datos
+Hoy recupera una agenda estable. Al crearla considera lecturas inconclusas, refuerzos registrados, rutina pausada, palabras realmente vencidas y la siguiente clase disponible. El inicio promueve una rutina pausada que pertenece a su agenda. No cambia el nivel de estudio ni relaja requisitos.
 
-El código rechaza sincronizar datos privados al repositorio público de la aplicación, valida el formato de los respaldos y distingue espacios `en`/`pt`. No se encontraron claves de proveedor embebidas en las rutas inspeccionadas. Esto es una revisión de código, no una auditoría de penetración ni garantía universal de seguridad.
+El tiempo elegido es un presupuesto estimativo; las tareas suman como máximo ese presupuesto y no se agregan ejercicios para llenarlo artificialmente. Hay 15, 20, 30 y 45 minutos; se respetan ajustes históricos de 5 y 40. Cambiar tiempo conserva trabajo terminado; el día ya terminado no se reabre. La preferencia habitual se aplica a días nuevos.
 
-Se conservan las tablas existentes y los hitos monotónicos. No se autoriza borrar datos, cambiar el punto de partida existente a B1 automáticamente, publicar o fusionar la rama. La preferencia actual de English OS sigue siendo A2 como recorrido de consolidación, aunque la meta personal sea B2 y el diagnóstico pueda orientar a B1.
+Completar una tarea significa guardar práctica. Aprobarla significa cumplir su criterio objetivo. Ninguna de esas dos cosas certifica una competencia MCER. Un intento incorrecto cuenta como estudio, mientras los requisitos de refuerzo y avance siguen vigentes.
 
-## Correcciones pedagógicas implementadas en la rama
+## Correcciones encontradas durante la reconstrucción
 
-- Diagnóstico ampliado de 12 a **24 ítems** por idioma: seis por banda A1–B2, dos por competencia y banda. Se conservan los IDs antiguos y los diagnósticos ya cerrados de nueve/doce preguntas. La regla nueva exige al menos cinco de seis por banda; conserva el criterio histórico para sesiones antiguas.
-- Nuevos contextos de decisiones, logística, recibos/reembolsos, posesivos, rutinas/acciones actuales y relaciones causales; no se mide escritura/listening/speaking con este diagnóstico.
-- Correcciones editoriales PT y aclaración de contrafactuales pasados en B2; explicación inglesa del tercer condicional corregida.
-- El banco inicial concentraba la respuesta correcta en la primera opción: 148/214 EN y 150/214 PT. Se modifica el orden **visual** de opciones sin cambiar índices persistidos, IDs ni revisión histórica.
-- Clase centrada en una pregunta, feedback de la primera respuesta, aplicación personal sin nota inventada, resumen y repaso/próxima clase con ID real.
+- Identificadores de áreas separados de las etiquetas traducidas: la localización dejaba sin pestañas internas a portugués.
+- Actualización compartida aplazada mientras una preferencia está modificada, aunque el formulario ya no sea modal.
+- Enlaces de idioma conservan la versión compartida; cada idioma conserva su propia base.
+- Nombres accesibles explícitos en selectores; texto para lectores de pantalla oculto visualmente.
+- Nube de palabras situada dentro del viewport al abrirla desde el encabezado.
+- Colección completa de palabras disponible también en el nuevo Repaso.
+- Un repaso futuro dentro del mismo día no genera una tarea vacía.
+- Planes de 15 minutos con vocabulario pendiente conservan duraciones positivas para lectura, gramática y escritura.
+- El diagnóstico no elimina una agenda diaria preservada al terminar.
 
-## Límites pendientes
+## Auditoría pedagógica: límites de la revisión
 
-- PDFs escaneados sin texto: no se implementa OCR; las pruebas usan PDFs sintéticos con texto extraíble.
-- Evaluación externa de escritura y pronunciación; no hay rúbrica validada aplicada por evaluadores humanos.
-- Validez psicométrica del diagnóstico y equivalencia MCER de los bancos.
-- Safari/iPhone físico, voces regionales y políticas reales de expulsión de almacenamiento.
-- Sincronización privada real con credenciales de usuario: los recorridos automatizados usan un servicio GitHub simulado, nunca tokens reales.
-- Una revisión completa del Companion Volume requiere acceso a la fuente oficial y revisión externa.
+Se comprobaron estructuralmente **262 clases y 428 comprobaciones** y se inspeccionaron manualmente doce muestras, una por nivel e idioma. Se verificaron objetivos, ejemplos, respuestas, distractores y feedback de esas muestras; no se afirma una revisión semántica exhaustiva del banco. [Inventario reproducible](artifacts/redesign/pedagogy.json).
 
-Los resultados ejecutados, capturas y fallos están en `RESULTADOS_QA.md`; las recomendaciones no ejecutadas se mantienen identificadas allí.
+Los ejercicios iniciales revisados son correctos como práctica de estructuras. Dos opciones múltiples no demuestran producción espontánea. Las muestras C1/C2 tienen una discriminación limitada para acreditar esos niveles: conservan valor como práctica de matiz, no como examen avanzado. Se requieren tareas extensas y evaluación válida para una conclusión superior.
 
-## Integración final implementada
+El Companion Volume se usa como marco conceptual, no como acreditación del curso. Se intentó consultar directamente el PDF y el buscador oficiales del Consejo de Europa; el proxy respondió 403. No se presenta esa descarga como realizada. [Fuente oficial para contrastación adicional](https://www.coe.int/en/web/common-european-framework-reference-languages).
 
-- Inicio reorganizado: recomendación accionable y motivo, semana resumida, habilidades medidas o pendientes, accesos y recorrido. El tutorial de primera visita se conserva visible después de la acción principal; la sugerencia extendida queda disponible en un desplegable.
-- Edición 2 de rutinas con seis ítems contextualizados, ilustraciones SVG originales y secuencias alternativas explícitas para reforzar. La edición 1, las primeras respuestas y los resultados anteriores permanecen reproducibles. Cada tarea conserva su propio borrador; «siguiente» busca el próximo paso pendiente.
-- PDF Studio conserva varios documentos, historial y papelera; añade dos paneles en escritorio, pestañas móviles y borradores por sección/ronda. No se añade OCR.
-- Analítica y vocabulario separan recuerdo autorreportado, ayuda utilizada y resultado objetivo. Escritura guardada y rachas no producen notas de competencia.
-- Práctica oral: audio local reproducible, notas/transcripción **manual**, reflexión y tareas auditivas breves con voz sintética. Solo las preguntas auditivas sin transcripción visible entran como resultado objetivo limitado; pronunciación, fluidez y calidad de contenido oral siguen sin evaluación. No se reintroduce charla oral con IA.
-- Audio pendiente: navegación y actualización se detienen mientras se solicita permiso, graba o termina de guardar; el micrófono se libera si falla la inicialización. Las actualizaciones revisan nuevamente ese estado antes de recargar.
-- La instrucción del modelo PDF respeta English/Brazilian Portuguese y evita presentarse como evaluador acreditado; conserva los controles de citas y de nombres ajenos a la fuente. Sus respuestas siguen siendo orientativas.
+## Riesgos y límites que permanecen
 
-## Almacenamiento de audio y límites de respaldo
+- Persistencia automática en este navegador; respaldo entre dispositivos opcional. No se promete una nube automática sin configurar un servicio.
+- La práctica oral guarda audio real y transcripción manual. No evalúa acústicamente pronunciación, acento o fluidez.
+- Listening usa voz sintética y preguntas objetivas; no acredita comprensión de hablantes reales.
+- Escritura y reflexiones se guardan sin una nota fiable de calidad.
+- La IA pequeña puede equivocarse; la ayuda guiada cita el documento y la generación local continúa opcional y delimitada.
+- PDFs de imagen necesitan OCR, aún no incluido. Noticias externas necesitan conexión; la lista descargada conserva fecha y fuente.
+- No hay certificación WCAG, MCER ni validación clínica o educativa del producto completo.
 
-No se agrega una migración ni se sustituyen tablas. El gráfico y el calendario muestran registros orales legibles y suman solo su duración técnica, sin exponer JSON ni inventar notas. Los metadatos `oral-v1` usan mensajes existentes; los Blob se guardan en IndexedDB del espacio correspondiente. El respaldo de progreso conserva metadatos y notas, **no los archivos de audio**. La descarga permite guardar una copia externa. Al borrar almacenamiento del navegador se pueden perder datos locales; no se promete sincronización automática entre dispositivos sin el respaldo privado configurado. Una grabación en curso no es un guardado confirmado hasta detenerla.
-
-## Archivos y responsabilidades
-
-| Grupo                       | Archivos principales                                                                                                                     | Cambio                                                                |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| Inicio y sistema visual     | `dashboard.tsx`, `daily-guide.tsx`, `daily-rewards.tsx`, `audit-design.css`, `layout.tsx`                                                | Jerarquía, recomendación, idiomas, temas y foco                       |
-| Rutina y continuidad        | `routine.ts`, `routine-store.ts`, `routine-draft.ts`, `home-routine.tsx`, `routine-session.tsx`, `routine-scene.tsx`, bancos `routine-*` | Edición contextual, borradores separados, siguiente paso y reintentos |
-| Clases y diagnóstico        | `classes.tsx`, `classes.css`, `placement.ts`, `diagnostic.tsx`, `lesson-store.ts`, `content.ts`, `pt-BR/content.ts`                      | Una pregunta, primera respuesta, localización, 24 ítems, persistencia |
-| Apoyo bilingüe              | `study-copy.tsx`, `study-copy.ts`, `native-*.json`, `answer-feedback.ts`, `correction.tsx` y puntos de uso                               | Nativo primero y español después; diccionario editorial cerrado       |
-| PDF/vocabulario/juegos      | `pdf-studio.tsx`, `audit-studio.css`, `reader.tsx`, `vocabulary.tsx`, `games.tsx`                                                        | Dos paneles, móvil, borradores, recuperación activa y feedback        |
-| Evidencia y progreso        | `evidence-summary.ts`, `analytics.tsx`, `progress-path.tsx`, `momentum-chart.tsx`                                                        | Constancia, resultados y competencias separados                       |
-| Práctica oral               | `oral-practice.tsx`, `oral-practice.ts`, `oral-store.ts`, `oral-scenarios.ts`, `oral-practice.css`                                       | Grabaciones, notas, escucha limitada y ausencia de notas inventadas   |
-| Integración y actualización | `english-app.tsx`, `app-update.tsx`, API de navegador y servidor, `local-ai.ts`                                                          | Navegación, audio pendiente, guardado seguro e idioma del tutor PDF   |
-| Verificación                | Nuevas pruebas de evidencia/copia/oral, suites de páginas y servidor, `artifacts/audit/`                                                 | Recorridos, regresión, capturas y límites                             |
-
-No se cambian dependencias ni archivos publicados de raíz. Los cambios de las fuentes no se copian a GitHub Pages durante esta intervención.
-
-## Seguimiento del motor diario
-
-Se confirmó que el inicio anterior de esta rama ofrecía una clase de ocho minutos incluso con una preferencia habitual de cinco. Además, solo buscaba actividades generales pendientes: un ejercicio guiado pausado podía quedar relegado al recorrido inferior.
-
-`study-recommendation.ts` centraliza ahora esas decisiones sin mutar evidencia ni permisos. Usa tiempo habitual o ajuste local de hoy; conserva pendientes y refuerzos prioritarios, recupera el borrador guiado del bloque activo y descarta punteros completados. El recorrido opcional muestra explícitamente su duración completa. Los límites de validez pedagógica y de sincronización señalados en esta auditoría se mantienen: es una recomendación explicable mediante reglas, no una evaluación estadística de dominio.
-
-## Seguimiento P0: guardado durable
-
-La inspección del código confirmó dos escrituras separadas para la base exportada y el manifiesto, con avance del manifiesto en memoria antes de confirmar persistencia. La API tampoco recuperaba el estado anterior cuando fallaba esa escritura. Ese diseño permitía divergir entre memoria, base guardada y metadatos; no se afirma que un estudiante real haya sufrido pérdida de datos.
-
-Se sustituyó por una confirmación IndexedDB conjunta, lectura inicial coherente y recuperación de la última revisión durable para mutaciones locales y merges remotos. La inicialización puede reintentarse después de un fallo transitorio. Las pruebas inyectan aborto y excepción síncrona en la segunda escritura: verifican igualdad de los bytes/metadatos anteriores y reintentan la misma respuesta diagnóstica sin duplicados. No se migran ni borran tablas, perfiles o archivos.
+[Resultados ejecutados y estado de publicación](RESULTADOS_QA.md) · [Sistema de diseño](DESIGN_SYSTEM.md) · [Auditoría visual](AUDITORIA_VISUAL.md).

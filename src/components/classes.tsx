@@ -1,6 +1,6 @@
 'use client';
 import { StudyCopy, SpanishTranslation } from './study-copy';
-import './classes.css';
+
 import { useEffect, useRef, useState } from 'react';
 import {
   ArrowLeft,
@@ -19,8 +19,9 @@ import { nativeCopy } from '@/lib/study-copy';
 import type { Snapshot, Result } from '@/lib/types';
 import { Heading, Button, Speak, api } from './ui';
 import { Correction } from './correction';
-import { Foundations } from './foundations';
+
 import {
+  blockSize,
   courseRoute,
   levelLessons,
   lessonRequirements,
@@ -55,33 +56,23 @@ export function Classes({
   refresh,
   navigate,
   onStart,
-  initialSection = 'classes',
   initialLesson = '',
 }: {
   data: Snapshot;
   refresh: () => Promise<void>;
   navigate: (view: string) => void;
   onStart: (activity: Activity) => void;
-  initialSection?: 'classes' | 'practice';
   initialLesson?: string;
 }) {
   const route = courseRoute(data),
     suggested = route.level;
   const [level, setLevel] = useState(suggested),
-    [selected, setSelected] = useState(''),
-    [section, setSection] = useState<'classes' | 'verbs' | 'sentences'>(
-      initialSection === 'practice' ? 'classes' : initialSection,
-    );
-  useEffect(
-    () => setSection(initialSection === 'practice' ? 'classes' : initialSection),
-    [initialSection],
-  );
+    [selected, setSelected] = useState('');
   useEffect(() => {
     setLevel(suggested);
     setSelected(initialLesson);
   }, [suggested, initialLesson]);
   const history = data.results.filter((r) => attempt(r));
-  const practised = new Set(history.map((r) => attempt(r)!.lessonId));
   const lesson = lessons.find((item) => item.id === selected);
   const blocked = lesson ? lessonRequirements(data, lesson).filter((r) => !r.done) : [];
   const journey = learningJourney(data),
@@ -95,7 +86,6 @@ export function Classes({
     }
     if (requirement.lessonId) {
       setSelected(requirement.lessonId);
-      setSection('classes');
       setLevel(suggested);
       return;
     }
@@ -151,41 +141,13 @@ export function Classes({
       </div>
     );
   }
-  const filtered = lessons.filter((item) => item.level === level);
+  const [browseBlock, setBrowseBlock] = useState<number | null>(null);
+  const block = browseBlock ?? (level === journey.level ? journey.block : 0);
+  const levelItems = levelLessons(level);
+  const filtered = levelItems.slice(block * blockSize, (block + 1) * blockSize);
   return (
     <>
-      <Heading
-        eyebrow="YOUR CLASSROOM"
-        title="Learn it. Use it."
-        description="Short classes. Clear explanations. Something you can use today."
-      />
-      <div className="tabs foundation-tabs" role="group" aria-label="Classroom sections">
-        <button
-          className={section === 'classes' ? 'active' : ''}
-          onClick={() => setSection('classes')}
-        >
-          Classes
-        </button>
-        <button className={section === 'verbs' ? 'active' : ''} onClick={() => setSection('verbs')}>
-          Verbs
-        </button>
-        <button
-          className={section === 'sentences' ? 'active' : ''}
-          onClick={() => setSection('sentences')}
-        >
-          Sentences
-        </button>
-      </div>
-      {section !== 'classes' ? (
-        <Foundations
-          mode={section}
-          onOpenLesson={(id) => {
-            setSelected(id);
-            setSection('classes');
-            setLevel(lessons.find((l) => l.id === id)!.level);
-          }}
-        />
-      ) : lesson && blocked.length ? (
+      {lesson && blocked.length ? (
         <section className="card course-locked">
           <Button secondary onClick={() => setSelected('')}>
             <ArrowLeft size={16} />
@@ -214,72 +176,75 @@ export function Classes({
         />
       ) : (
         <>
-          <section className="classes-intro card">
-            <div>
-              <span className="eyebrow">A CLEAR WAY TO LEARN</span>
-              <h2>One idea. A real situation.</h2>
-              <p>
-                Understand the idea, listen to examples, then try it yourself. Return later to check
-                what you remember.
-              </p>
-            </div>
-            <div className="classes-count">
-              <strong>
-                {levelLessons(level).filter((l) => practised.has(l.id)).length} /{' '}
-                {levelLessons(level).length}
-              </strong>
-              <span>classes practised</span>
-            </div>
-          </section>
-          <div className="class-levels" role="group" aria-label="Class level">
-            {cefrLevels.map((item) => (
-              <button key={item} aria-pressed={level === item} onClick={() => setLevel(item)}>
-                {item}{' '}
-                {item !== route.level && !route.completed.includes(item) && (
-                  <LockKeyhole size={13} />
-                )}
-              </button>
-            ))}
+          <div className="course-toolbar">
+            <label>
+              {isPortuguese ? 'Nível de estudo' : 'Study level'}
+              <select
+                aria-label={isPortuguese ? 'Nível de estudo' : 'Study level'}
+                value={level}
+                onChange={(e) => {
+                  setLevel(e.target.value as typeof suggested);
+                  setBrowseBlock(0);
+                }}
+              >
+                {cefrLevels.map((item) => (
+                  <option
+                    key={item}
+                    value={item}
+                    disabled={item !== route.level && !route.completed.includes(item)}
+                  >
+                    {item}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label>
+              {isPortuguese ? 'Bloco' : 'Block'}
+              <select
+                aria-label={isPortuguese ? 'Bloco' : 'Block'}
+                value={block}
+                onChange={(e) => setBrowseBlock(Number(e.target.value))}
+              >
+                {Array.from({ length: Math.ceil(levelItems.length / blockSize) }, (_, i) => (
+                  <option key={i} value={i}>
+                    {i + 1} / {Math.ceil(levelItems.length / blockSize)}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <span>
+              {levelItems.filter((l) => passedLesson(data, l.id)).length} / {levelItems.length}{' '}
+              {isPortuguese ? 'aulas aprovadas' : 'classes passed'}
+            </span>
           </div>
-          <p className="fine-print">
-            Study level: {suggested}. Classes and practice share one learning path.
-          </p>
-          <section className="card course-connected">
-            <span className="eyebrow">ONE CONNECTED JOURNEY</span>
+          <div className="course-current">
+            <span className="eyebrow">{isPortuguese ? 'SEU PRÓXIMO PASSO' : 'YOUR NEXT STEP'}</span>
             <h2>
-              {route.level} · Block {currentBlock + 1}
+              {journey.nextLesson?.title || (isPortuguese ? 'Rever e aplicar' : 'Review and apply')}
             </h2>
-            <StudyCopy
-              as="p"
-              native={
-                isPortuguese
-                  ? 'Cada bloco conecta quatro aulas com práticas de outras seções. As tarefas contam a partir da primeira prática ou aula salva no bloco, sem uma ordem fixa. Concluir todos os blocos libera o próximo nível de estudo, preservando seu histórico; isso não é uma certificação do QECR.'
-                  : 'Each block connects four classes with practice in other sections. Tasks count from the first saved practice or class in that block, without a fixed order. Completing all blocks opens the next study level while preserving your history; it is not a CEFR certificate.'
-              }
+            <p>
+              {journey.nextLesson?.goal ||
+                (isPortuguese
+                  ? 'Complete as práticas conectadas antes de avançar.'
+                  : 'Complete the connected practice before moving on.')}
+            </p>
+            <button
+              className="button"
+              onClick={() => journey.nextLesson && setSelected(journey.nextLesson.id)}
             >
-              Cada bloque conecta cuatro clases con actividades de otras secciones. Las tareas
-              cuentan desde tu primera práctica o clase guardada del bloque, sin un orden fijo.
-              Completar todos los bloques habilita el siguiente nivel de estudio y conserva tu
-              historial; no es una certificación MCER.
-            </StudyCopy>
-            {checklist([
-              ...journey.pending.filter((r) => r.id.startsWith('reinforce:') || r.id === 'backlog'),
-              ...tasks,
-            ])}
-            <Button secondary onClick={() => navigate('Games')}>
-              Games <ArrowRight size={15} />
-            </Button>
-          </section>
-          <StudyCopy as="p" className="fine-print">
-            Tocá una clase bloqueada para ver el requisito exacto y cómo completarlo.
-          </StudyCopy>
+              {isPortuguese ? 'Abrir aula' : 'Open class'} <ArrowRight size={17} />
+            </button>
+          </div>
+          <h2 className="list-heading">
+            {level} · {isPortuguese ? 'Bloco' : 'Block'} {block + 1}
+          </h2>
           <div className="class-grid">
             {filtered.map((item, index) => {
               const pending = lessonRequirements(data, item).filter((r) => !r.done);
               const latest = history.findLast((r) => attempt(r)!.lessonId === item.id);
               return (
                 <button
-                  className={`class-card class-tone-${index % 3} ${pending.length ? 'is-locked' : ''}`}
+                  className={`class-card ${pending.length ? 'is-locked' : ''}`}
                   aria-label={`${item.title}${pending.length ? ' · Locked' : ''}`}
                   key={item.id}
                   onClick={() => setSelected(item.id)}
@@ -315,6 +280,22 @@ export function Classes({
             })}
           </div>
         </>
+      )}
+      {!lesson && (
+        <details className="course-requirements">
+          <summary>
+            {isPortuguese ? 'O que preciso para avançar?' : 'What do I need to move on?'}
+          </summary>
+          <p>
+            {isPortuguese
+              ? 'Aulas e práticas compartilham o mesmo percurso. Fazer exercícios não certifica seu nível.'
+              : 'Classes and practice share the same path. Completing exercises does not certify your level.'}
+          </p>
+          {checklist([
+            ...journey.pending.filter((r) => r.id.startsWith('reinforce:') || r.id === 'backlog'),
+            ...tasks,
+          ])}
+        </details>
       )}
       <details className="class-method card">
         <summary>How these classes are designed</summary>

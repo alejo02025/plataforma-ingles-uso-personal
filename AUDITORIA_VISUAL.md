@@ -1,32 +1,34 @@
-# Auditoría visual y de interacción
+# Auditoría visual de la reconstrucción definitiva
 
-## Antes: evidencia ejecutada
+## Antes: versión real vigente al comenzar
 
-Se capturaron EN/PT a 375, 390, 768 y 1440 px en Chromium, perfiles nuevos, tema claro. Las ocho capturas están en `artifacts/audit/before/`; las mediciones en `measurements.json`. No se observó desbordamiento horizontal ni errores JavaScript en estas pantallas.
+Base `4d78acf`, sitio público. Se recorrieron todos los destinos anteriores en EN/PT y los cinco tamaños pedidos. [92 capturas y observaciones](artifacts/redesign/before/observations.json). La adquisición HTTPS se hizo con Node fetch usando la CA de confianza del proxy; Chromium ejecutó los HTML/assets públicos reales. No se desactivó TLS. El service worker se bloqueó solo durante estas capturas públicas; las pruebas offline se ejecutan por separado con worker activo.
 
-La pantalla inicial presentaba saludo, tutorial, racha/logros, sugerencia diaria, recorrido, nivel, explicaciones, requisitos y accesos. La acción de aprender se desplazaba hacia abajo. Esto fragmentaba la atención y mezclaba orientación, resultados y reglas. La jerarquía debe llevar una recomendación accionable arriba y dejar las reglas detalladas accesibles en segundo plano.
+A 390 px, Clases medía 18.013 px en inglés y 13.797 px en portugués. Había trece destinos, catálogo completo de un nivel, referencia duplicada y controles móviles competidores. Inicio ya mostraba Today, pero todavía tenía diagnóstico, notas, enlaces y un contador desconectado de algunas recomendaciones. La reconstrucción parte de estos hechos, no de las pantallas de un intento anterior.
 
-Los detalles plegados y varias ventanas modales incrementan las transiciones. Una actividad pausada no debe sustituir silenciosamente la actividad que el usuario acaba de elegir. El aviso de reanudación y los controles de continuar necesitan nombrar su destino.
+## Intervención visual y operativa
 
-## Dirección implementada
+- Inicio sustituido por Hoy: fecha, tiempo, una tarea, hasta tres siguientes y contador de esas tareas.
+- Lateral de cinco áreas; Ajustes e idioma secundarios. Móvil con barra fija compacta y áreas seguras.
+- Clases reconstruida como bloque de cuatro lecciones, con próximo paso y requisitos plegables.
+- Repaso concentra recuperación y práctica; la colección guardada mantiene búsqueda, ejemplos y próximas revisiones.
+- Biblioteca integra archivos, lecturas y noticias, sin duplicar importadores PDF.
+- Progreso muestra semana, aciertos en ejercicios y lo pendiente de evaluación; el detalle no ocupa la portada.
+- Ajustes es una pantalla, no una ventana que compite con la navegación.
+- Nueva tipografía principal, composiciones, espaciado, estados, tablas y paneles. Sin overlays de los estilos anteriores.
 
-- Home: saludo compacto, objetivo/etapa, recomendación principal, resumen semanal, habilidades y accesos.
-- Rutina: contexto adulto, imagen/ilustración útil, instrucción breve nativa y apoyo español debajo.
-- Clases: un ejercicio a la vez; teoría revisable; feedback cercano al elemento respondido.
-- PDF: lectura a la izquierda y herramientas a la derecha en escritorio; pestañas/paneles en móvil.
-- Progreso: constancia, resultados y competencias como conceptos separados.
-- Vocabulario/juegos: navegación rápida, prioridades de repaso y ayudas registradas.
+## Capturas posteriores
 
-## Verificación accesible
+Se regeneraron **92 capturas posteriores**, sin overflow ni excepciones en esas visitas. [Registro posterior](artifacts/redesign/after/observations.json) y [comparador de PNG originales](artifacts/redesign/comparison.html).
 
-Los tests comprueban nombres accesibles, foco, teclado y ausencia de overflow en recorridos concretos. Eso no equivale a certificación WCAG. Contraste debe medirse sobre estilos computados y composiciones visibles; gradientes, imágenes y estados requieren inspección adicional. Animaciones deben respetar `prefers-reduced-motion`.
+| Pantalla móvil de 390 px | Inglés antes → después | Portugués antes → después |
+| ------------------------ | ---------------------- | ------------------------- |
+| Clases                   | 18.013 → 1.511 px      | 13.797 → 1.532 px         |
+| Biblioteca / PDFs        | 1.227 → 844 px         | 1.301 → 844 px            |
+| Progreso                 | 5.393 → 1.753 px       | 5.479 → 1.757 px          |
 
-## Después
+La altura por sí sola no define calidad. La diferencia comprobada es que el catálogo se pagina, las herramientas se agrupan y la acción principal está en el primer viewport. El contenido sigue accesible. El CSS pasó de 9,957 líneas en ocho hojas a 2,834 líneas en dos hojas, con responsabilidades separadas.
 
-La rama incorpora un dashboard con CTA antes del resumen semanal, explicación bilingüe del motivo y duración. El tutorial inicial queda visible en su primera visita después de la acción principal; la sugerencia extendida queda en detalles opcionales; el recorrido permanece accesible. Analítica se organiza en constancia, rendimiento y competencia, excluyendo resultados con ayudas de los porcentajes objetivos independientes y marcando escritura/oral sin evaluar.
+Las mediciones de interacción confirman Start dentro de la primera pantalla y el contador libre de la barra al desplazarse. Los tiempos observados son locales, sin throttling, no promesas sobre dispositivos físicos. La repetición contra la publicación real sigue pendiente hasta integrar y desplegar.
 
-Las capturas posteriores y las diferencias observadas se registran en `RESULTADOS_QA.md` y `artifacts/audit/COMPARACION.md`. No se considera probado un componente únicamente porque su CSS compiló.
-
-Se corrigió una colisión de especificidad: los tokens heredados del tema claro y del espacio portugués seguían imponiendo parte de la paleta anterior. Las pruebas verifican el fondo efectivo de cada idioma, además del contraste de texto principal/secundario frente a superficie en temas claro/oscuro. El amarillo queda reservado al acento decorativo; los enlaces usan el tono de acción.
-
-El texto bilingüe aumenta la altura de pantalla. Se prioriza la tarea principal y se mantienen accesibles los detalles; no se afirma que la pantalla completa quepa sin desplazamiento. Las capturas se hacen con el pop-up diario y el tutorial descartados para comparar la misma situación inicial. Las pruebas específicas verifican también la primera visita.
+Los estados de clase, lector, error de guardado y oralidad se capturan mediante pruebas funcionales en `artifacts/redesign/qa/`. Las capturas anteriores permanecen intactas.

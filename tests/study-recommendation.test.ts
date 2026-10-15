@@ -43,7 +43,7 @@ function dueWord(data: Snapshot) {
       example: '',
       source_id: null,
       created_at: `${data.day}T10:00:00Z`,
-      due_at: `${data.day}T10:00:00Z`,
+      due_at: '2000-01-01T00:00:00Z',
       interval: 0,
       ease: 2.5,
       reviews: 0,

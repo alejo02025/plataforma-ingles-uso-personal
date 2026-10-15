@@ -9,7 +9,7 @@ import { VerbCatalog } from './verb-catalog';
 import { lessons } from '@/lib/lessons';
 import { Foundations } from './foundations';
 import { Heading, Speak } from './ui';
-export function LanguageHelp() {
+export function LanguageHelp({ onOpenLesson }: { onOpenLesson?: (id: string) => void } = {}) {
   const [mode, setMode] = useState<'verbs' | 'sentences' | 'reference' | 'notes' | 'tenses'>(
     'sentences',
   );
@@ -34,15 +34,13 @@ export function LanguageHelp() {
           className={mode === 'sentences' ? 'active' : ''}
           onClick={() => setMode('sentences')}
         >
-          <span>01</span>
-          {isPortuguese ? 'Formar frases' : 'Build sentences'}
+          <span>01</span> {isPortuguese ? 'Formar frases' : 'Build sentences'}
         </button>
         <button className={mode === 'tenses' ? 'active' : ''} onClick={() => setMode('tenses')}>
-          <span>02</span>
-          {isPortuguese ? 'Todos os tempos' : 'All tenses'}
+          <span>02</span> {isPortuguese ? 'Todos os tempos' : 'All tenses'}
         </button>
         <button className={mode === 'verbs' ? 'active' : ''} onClick={() => setMode('verbs')}>
-          <span>03</span>Verbs
+          <span>03</span> Verbs
         </button>
       </div>
       {mode === 'tenses' ? (
@@ -185,7 +183,12 @@ export function LanguageHelp() {
               Sujeto + verbo + complemento.
             </StudyCopy>
           </div>
-          <Foundations mode="sentences" referenceOnly onOpenLesson={() => {}} />
+          <Foundations
+            mode="sentences"
+            referenceOnly
+            allowLessonLink={!!onOpenLesson}
+            onOpenLesson={onOpenLesson || (() => {})}
+          />
         </div>
       )}
       <details className="toolkit-extra">

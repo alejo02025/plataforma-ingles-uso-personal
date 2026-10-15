@@ -1,0 +1,24 @@
+{
+  "baseCommit": "4d78acfb017f8097b02090d4afe1d18f5591771a",
+  "branch": "redesign/study-first-2026-10-15",
+  "candidateBuild": "2026-10-15T20:00:31.303Z",
+  "unit": {
+    "passed": 111,
+    "failed": 0,
+    "skipped": 0
+  },
+  "staticRegression": {
+    "passed": 75,
+    "failed": 0,
+    "skipped": 0
+  },
+  "serverRegression": {
+    "passed": 1,
+    "failed": 0
+  },
+  "beforeScreens": 92,
+  "afterScreens": 92,
+  "publicVerification": {
+    "status": "pending"
+  }
+}

@@ -27,10 +27,12 @@ export function Foundations({
   mode,
   onOpenLesson,
   referenceOnly = false,
+  allowLessonLink = false,
 }: {
   mode: 'verbs' | 'sentences';
   onOpenLesson: (id: string) => void;
   referenceOnly?: boolean;
+  allowLessonLink?: boolean;
 }) {
   const verbs = isPortuguese ? portugueseBuilderVerbs : englishBuilderVerbs,
     subjects = isPortuguese ? portugueseSubjects : englishSubjects;
@@ -291,17 +293,19 @@ export function Foundations({
           ? 'Tu borrador se guarda automáticamente en este dispositivo. No se califica.'
           : 'Este borrador se conserva en este dispositivo sin nota automática. Para guardar un ejercicio en tu progreso, abrí la clase de práctica.'}
       </StudyCopy>
-      {!referenceOnly && isCourseVerb && ['present', 'past', 'future', 'plans'].includes(tense) && (
-        <Button
-          onClick={() =>
-            onOpenLesson(
-              `${isPortuguese ? 'pt' : 'en'}-found-${mode === 'sentences' ? 'sentences' : tense === 'present' ? 'present' : tense === 'past' ? 'past' : 'future'}`,
-            )
-          }
-        >
-          Practise this in a class <ArrowRight size={16} />
-        </Button>
-      )}
+      {(!referenceOnly || allowLessonLink) &&
+        isCourseVerb &&
+        ['present', 'past', 'future', 'plans'].includes(tense) && (
+          <Button
+            onClick={() =>
+              onOpenLesson(
+                `${isPortuguese ? 'pt' : 'en'}-found-${mode === 'sentences' ? 'sentences' : tense === 'present' ? 'present' : tense === 'past' ? 'past' : 'future'}`,
+              )
+            }
+          >
+            Practise this in a class <ArrowRight size={16} />
+          </Button>
+        )}
     </section>
   );
 }

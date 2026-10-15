@@ -130,6 +130,7 @@ export function createLearningService({
         const plan = db().prepare('SELECT id FROM plans WHERE day=?').get(localDay());
         if (
           plan &&
+          !db().prepare('SELECT id FROM activities WHERE id=?').get(`study-day:${localDay()}`) &&
           !db()
             .prepare(
               'SELECT id FROM sessions WHERE activity_id IN (SELECT id FROM activities WHERE plan_id=?)',
@@ -240,10 +241,12 @@ export function createLearningService({
             payload: {},
           });
       } else {
+        const readingMinutes = minutes === 15 && due ? 5 : 7;
+        const grammarMinutes = minutes === 15 && due ? 4 : 5;
         items.push({
           kind: 'reading',
           title: read.title,
-          minutes: 7,
+          minutes: readingMinutes,
           document: read.id,
           payload: {},
         });
@@ -251,7 +254,7 @@ export function createLearningService({
           kind: 'grammar',
           title:
             weak === 'grammar' ? 'Your focus: questions and tenses' : 'English for real situations',
-          minutes: 5,
+          minutes: grammarMinutes,
           document: null,
           payload: { questionIds: questionSet.map((q) => q.id) },
         });
@@ -266,7 +269,7 @@ export function createLearningService({
         items.push({
           kind: 'writing',
           title: 'An idea, in your own words',
-          minutes: minutes - 12 - (due ? 3 : 0),
+          minutes: minutes - readingMinutes - grammarMinutes - (due ? 3 : 0),
           document: null,
           payload: {
             prompt: isPortuguese

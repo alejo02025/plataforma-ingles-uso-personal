@@ -115,27 +115,6 @@ export function PdfStudio({ data, refresh, onRead }: StudioProps) {
   }
   return (
     <>
-      <div className="studio-heading">
-        <div>
-          <span className="eyebrow">THE READING ROOM</span>
-          <h1>Your PDF, step by step.</h1>
-          <StudyCopy
-            as="p"
-            native={
-              isPortuguese
-                ? 'Transforme seus PDFs em material de estudo: leia por partes, salve palavras e pratique com perguntas sobre o texto.'
-                : 'Turn your PDFs into study material: read in sections, save words and practise with questions about the text.'
-            }
-          >
-            Esta sección convierte tus PDF en material de estudio: leés por partes, guardás palabras
-            y practicás con preguntas sobre el texto.
-          </StudyCopy>
-        </div>
-        <span className="studio-local-pill">
-          <Sparkles size={15} />
-          Private by design
-        </span>
-      </div>
       <input
         ref={input}
         className="visually-hidden"
@@ -160,18 +139,13 @@ export function PdfStudio({ data, refresh, onRead }: StudioProps) {
           void upload(event.dataTransfer.files);
         }}
       >
-        <div className="studio-drop-icon">
-          <Upload size={doc ? 22 : 34} />
-        </div>
         <div>
-          <h2>
-            {uploadStatus
-              ? uploadStatus
-              : doc
-                ? 'Something else caught your eye?'
-                : 'Drop your PDFs here.'}
-          </h2>
-          <p>Books, notes, articles. Text-based PDFs up to 10 MB each.</p>
+          <h2>{uploadStatus || (isPortuguese ? 'Seus PDFs' : 'Your PDFs')}</h2>
+          <p>
+            {isPortuguese
+              ? 'Adicione um arquivo, leia e salve palavras. PDFs com texto, até 10 MB cada.'
+              : 'Add a file, read and save words. Text-based PDFs, up to 10 MB each.'}
+          </p>
         </div>
         <Button disabled={busy} onClick={() => input.current?.click()}>
           <Plus size={17} />
@@ -281,74 +255,21 @@ export function PdfStudio({ data, refresh, onRead }: StudioProps) {
         </section>
       )}
       {!doc ? (
-        <section className="card studio-first-steps">
-          <h2>How to start</h2>
-          <ol>
-            <StudyCopy
-              as="li"
-              native={
-                isPortuguese
-                  ? 'Envie um PDF. Toque em “Escolher PDFs”. Você pode adicionar vários arquivos, de até 10 MB cada.'
-                  : 'Upload a PDF. Select “Choose PDFs”. You can add several files, up to 10 MB each.'
-              }
-            >
-              <strong>Subí un PDF.</strong> Tocá “{isPortuguese ? 'Escolher PDFs' : 'Choose PDFs'}”.
-              Podés agregar varios, de hasta 10 MB cada uno.
-            </StudyCopy>
-            <StudyCopy
-              as="li"
-              native={
-                isPortuguese
-                  ? 'Leia uma parte. O texto é dividido em seções. Toque em uma palavra para consultar seu significado.'
-                  : 'Read a section. The text is divided into short sections. Tap a word to look up its meaning.'
-              }
-            >
-              <strong>Leé una parte.</strong> El texto se divide en secciones. Tocá una palabra si
-              necesitás su significado.
-            </StudyCopy>
-            <StudyCopy
-              as="li"
-              native={
-                isPortuguese
-                  ? 'Pratique. Abra as perguntas do documento. As respostas objetivas incluem explicações em português com apoio em espanhol.'
-                  : 'Practise. Open the document questions. Objective answers include explanations in English with Spanish support.'
-              }
-            >
-              <strong>Practicá.</strong> Abrí las preguntas del documento. Las respuestas objetivas
-              incluyen una explicación en el idioma de estudio con apoyo en español.
-            </StudyCopy>
-          </ol>
+        <section className="studio-first-steps">
+          <p>
+            {isPortuguese
+              ? 'Seus arquivos aparecerão aqui. Cada um guarda seu ponto de leitura, palavras e respostas.'
+              : 'Your files will appear here. Each keeps its reading position, words and answers.'}
+          </p>
           <details>
-            <summary>What happens to my PDFs?</summary>
-            <StudyCopy
-              as="p"
-              native={
-                isPortuguese
-                  ? 'Cada PDF mantém sua própria aba e suas respostas. Adicione outro sem substituir o anterior; remova ou restaure arquivos na lixeira. Os dados são salvos neste dispositivo; um backup do GitHub configurado pode fazer uma cópia privada. PDFs digitalizados como imagem precisam de reconhecimento de texto, ainda não disponível nesta versão.'
-                  : 'Each PDF keeps its own tab and answers. Add another without replacing the first; remove or restore files in Trash. Data is saved on this device; a configured GitHub backup can make a private copy. Image-only scanned PDFs need text recognition, which this version does not yet support.'
-              }
-            >
-              Cada PDF queda en su pestaña con tus respuestas. Podés agregar otro sin reemplazar el
-              anterior, quitarlo y restaurarlo desde la papelera. El guardado es local en este
-              dispositivo; si activaste respaldo en GitHub, también puede respaldarse allí. Un PDF
-              escaneado como imagen necesita reconocimiento de texto, que esta versión todavía no
-              realiza.
-            </StudyCopy>
-          </details>
-          <details>
-            <summary>Optional help with the text</summary>
-            <StudyCopy
-              as="p"
-              native={
-                isPortuguese
-                  ? 'O guia encontra trechos do documento sem baixar IA. A IA local é opcional e precisa de um download prévio; não é necessária para ler, salvar palavras ou responder perguntas.'
-                  : 'The reading guide finds passages without downloading AI. Local AI is optional and needs an initial download; it is not required to read, save words or answer questions.'
-              }
-            >
-              La ayuda guiada encuentra pasajes del documento sin descargar IA. La IA local es
-              opcional y requiere una descarga previa; no hace falta activarla para leer, guardar
-              palabras o responder preguntas.
-            </StudyCopy>
+            <summary>
+              {isPortuguese ? 'Que tipo de PDF posso usar?' : 'Which PDFs can I use?'}
+            </summary>
+            <p>
+              {isPortuguese
+                ? 'PDFs com texto selecionável. Arquivos digitalizados como imagem precisam de OCR, ainda não disponível. Os arquivos ficam neste navegador; use uma cópia de segurança para outro dispositivo.'
+                : 'PDFs with selectable text. Image-only scans need OCR, which is not available yet. Files stay in this browser; use a backup for another device.'}
+            </p>
           </details>
         </section>
       ) : (

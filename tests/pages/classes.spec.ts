@@ -1,3 +1,4 @@
+import { go, dailyWord, ready } from './navigation';
 import { test, expect } from '@playwright/test';
 import { englishClasses, portugueseClasses } from '../../src/locales/lessons/catalog';
 import { glossary as enWords, readings as enReadings } from '../../src/lib/content';
@@ -15,26 +16,20 @@ for (const pt of [false, true])
       level = pt ? 'A1' : 'A2',
       items = catalog.filter((l) => l.level === level);
     await page.goto(pt ? './portugues/' : './');
-    await page
-      .getByRole('dialog', { name: pt ? 'Palavra do dia' : 'Word of the Day' })
-      .getByRole('button', { name: pt ? 'Fechar palavra do dia' : 'Close daily word' })
-      .click();
+
     const classes = async () => {
-      await page
-        .getByRole('navigation', { name: pt ? 'Navegação principal' : 'Main navigation' })
-        .getByRole('button', { name: pt ? 'Aulas' : 'Classes', exact: true })
-        .click();
+      await go(page, pt ? 'Aulas' : 'Classes');
     };
     await classes();
-    await expect(page.locator('.class-levels [aria-pressed="true"]')).toContainText(level);
-    await page.locator('.class-levels').getByRole('button', { name: 'C2', exact: false }).click();
-    await page.locator('.class-card').first().click();
-    await expect(page.locator('.course-locked')).toContainText('nivel activo');
-    await expect(page.locator('.lesson-room')).toHaveCount(0);
-    await page
-      .getByRole('button', { name: pt ? 'Voltar às aulas' : 'Back to classes', exact: true })
-      .click();
-    await page.locator('.class-levels').getByRole('button', { name: level, exact: true }).click();
+    await expect(
+      page.getByLabel(pt ? 'Nível de estudo' : 'Study level', { exact: true }),
+    ).toHaveValue(level);
+    await expect(
+      page
+        .getByLabel(pt ? 'Nível de estudo' : 'Study level', { exact: true })
+        .locator('option[value="C2"]'),
+    ).toHaveAttribute('disabled', '');
+    await expect(page.locator('.class-card')).toHaveCount(4);
     await page.locator('.class-card').nth(1).click();
     await expect(page.locator('.course-locked')).toContainText('Primero completá');
     await page
@@ -59,7 +54,7 @@ for (const pt of [false, true])
               await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
             ).toBe(true);
             await page.screenshot({
-              path: `artifacts/audit/after/class-${pt ? 'pt' : 'en'}-${width}.png`,
+              path: `artifacts/redesign/qa/class-${pt ? 'pt' : 'en'}-${width}.png`,
               fullPage: true,
             });
           }
@@ -130,7 +125,8 @@ for (const pt of [false, true])
         .getByRole('button', { name: pt ? 'Voltar às aulas' : 'Back to classes', exact: true })
         .click();
     }
-    await page.locator('.class-card').nth(4).click();
+    await page.getByLabel(pt ? 'Bloco' : 'Block', { exact: true }).selectOption('1');
+    await page.locator('.class-card').first().click();
     await expect(page.locator('.course-locked')).toContainText('lectura de tu nivel');
     await expect(page.locator('.course-locked [data-requirement="reading"]')).not.toHaveClass(
       /done/,
@@ -138,7 +134,8 @@ for (const pt of [false, true])
     await page
       .getByRole('button', { name: pt ? 'Voltar às aulas' : 'Back to classes', exact: true })
       .click();
-    await page.locator('.course-connected [data-requirement="writing"] button').click();
+    await page.locator('.course-requirements > summary').click();
+    await page.locator('.course-requirements [data-requirement="writing"] button').click();
     await page
       .getByLabel(pt ? 'Sua resposta em português' : 'Your answer in English')
       .fill(practice);
@@ -146,10 +143,11 @@ for (const pt of [false, true])
       .getByRole('button', { name: pt ? 'Salvar e concluir' : 'Save and complete', exact: true })
       .click();
     await classes();
-    await expect(page.locator('.course-connected [data-requirement="writing"]')).toHaveClass(
+    await page.locator('.course-requirements > summary').click();
+    await expect(page.locator('.course-requirements [data-requirement="writing"]')).toHaveClass(
       /done/,
     );
-    await page.locator('.course-connected [data-requirement="reading"] button').click();
+    await page.locator('.course-requirements [data-requirement="reading"] button').click();
     const title = await page.locator('.document-card h2').first().innerText();
     const reading = [
       ...(pt ? ptReadings : enReadings),
@@ -162,13 +160,11 @@ for (const pt of [false, true])
       .getByRole('button', { name: pt ? 'Concluir leitura' : 'Complete reading', exact: true })
       .click();
     await classes();
-    await expect(page.locator('.course-connected [data-requirement="reading"]')).toHaveClass(
+    await page.locator('.course-requirements > summary').click();
+    await expect(page.locator('.course-requirements [data-requirement="reading"]')).toHaveClass(
       /done/,
     );
-    await page
-      .locator('.course-connected')
-      .getByRole('button', { name: pt ? 'Jogos' : 'Games', exact: true })
-      .click();
+    await go(page, 'Games');
     await page.locator('.game-match').click();
     const dictionary = pt ? ptWords : enWords;
     for (let i = 0; i < 4; i++) {
@@ -206,12 +202,15 @@ for (const pt of [false, true])
       }),
     ).toBeDisabled();
     await classes();
-    await expect(page.locator('.class-card').nth(4)).not.toHaveClass(/is-locked/);
-    await page.locator('.class-card').nth(4).click();
+    await page.getByLabel(pt ? 'Bloco' : 'Block', { exact: true }).selectOption('1');
+    await expect(page.locator('.class-card').first()).not.toHaveClass(/is-locked/);
+    await page.getByLabel(pt ? 'Bloco' : 'Block', { exact: true }).selectOption('1');
+    await page.locator('.class-card').first().click();
     await expect(page.locator('.lesson-room')).toBeVisible();
     await page.reload();
     await classes();
-    await page.locator('.class-card').nth(4).click();
+    await page.getByLabel(pt ? 'Bloco' : 'Block', { exact: true }).selectOption('1');
+    await page.locator('.class-card').first().click();
     await expect(page.locator('.lesson-room')).toBeVisible();
     await page.setViewportSize({ width: 390, height: 844 });
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(

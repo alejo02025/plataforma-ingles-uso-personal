@@ -1,3 +1,4 @@
+import { go, dailyWord, ready } from './navigation';
 import { test, expect } from '@playwright/test';
 import { makePdf } from '../pdf-fixture';
 
@@ -33,11 +34,8 @@ test('PDF tabs preserve each document, reading position, answers and chat drafts
   const appleIcon = await appleResponse.body();
   expect(appleIcon.readUInt32BE(16)).toBe(180);
   expect(appleIcon.readUInt32BE(20)).toBe(180);
-  await page
-    .getByRole('dialog', { name: 'Word of the Day' })
-    .getByRole('button', { name: 'Close daily word' })
-    .click();
-  await page.getByRole('navigation').getByRole('button', { name: 'PDF Studio' }).click();
+
+  await go(page, 'PDF Studio');
   await page.getByLabel('Upload PDFs').setInputFiles({
     name: 'Railway notebook.pdf',
     mimeType: 'application/pdf',
@@ -128,7 +126,7 @@ test('PDF tabs preserve each document, reading position, answers and chat drafts
     'My unfinished question about savings.',
   );
   await page.reload();
-  await page.getByRole('navigation').getByRole('button', { name: 'PDF Studio' }).click();
+  await go(page, 'PDF Studio');
   await expect(finance).toHaveAttribute('aria-selected', 'true');
   await expect(tabs.getByRole('tab')).toHaveCount(3);
   await expect(page.getByLabel('Message your PDF tutor')).toHaveValue(
@@ -163,8 +161,8 @@ test('PDF tabs preserve each document, reading position, answers and chat drafts
   await page.locator('.studio-trash summary').click();
   await expect(page.locator('.studio-trash-row')).toContainText('Railway notebook');
   await page.reload();
-  await page.getByRole('button', { name: 'Open navigation' }).click();
-  await page.getByRole('navigation').getByRole('button', { name: 'PDF Studio' }).click();
+
+  await go(page, 'PDF Studio');
   await expect(tabs.getByRole('tab')).toHaveCount(2);
   await page.locator('.studio-trash summary').click();
   await page

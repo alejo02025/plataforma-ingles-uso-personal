@@ -2,9 +2,12 @@
 import { StudyCopy } from './study-copy';
 import { OralEvidenceRecord } from './oral-evidence-record';
 import { oralEvidence } from '@/lib/oral-practice';
+import { courseRoute, levelLessons, passedLesson } from '@/lib/course-route';
+import { DailyRewards } from './daily-rewards';
 import { ProgressPath } from './progress-path';
+import { dailyRewards } from '@/lib/daily-rewards';
 import { DownloadLink } from './ui';
-import { MomentumChart } from './momentum-chart';
+
 import { useState } from 'react';
 import {
   ChevronLeft,
@@ -45,229 +48,96 @@ export function Progress({ data, navigate }: { data: Snapshot; navigate: (view: 
   }
   return (
     <div className="audit-progress">
-      <Heading
-        eyebrow={pt ? 'PRÁTICA, RESULTADOS E EVIDÊNCIAS' : 'PRACTICE, RESULTS AND EVIDENCE'}
-        title={pt ? 'Seu progresso, com clareza.' : 'Your progress, made clear.'}
-        description={
-          pt
-            ? 'Veja o que praticou, como respondeu e o que ainda precisa ser avaliado.'
-            : 'See what you practised, how you answered, and what still needs assessment.'
-        }
-      >
-        <DownloadLink className="button secondary" endpoint="export">
-          <Download size={16} />
-          {pt ? 'Exportar meus dados' : 'Export my data'}
-        </DownloadLink>
-      </Heading>
-      <StudyCopy
-        native={
-          pt
-            ? 'Constância é estudar. Desempenho é responder exercícios. Competência é usar o idioma em diferentes situações com evidência suficiente. Não são a mesma medida.'
-            : 'Consistency means studying. Performance means answering exercises. Competence means using the language across situations with enough evidence. These are different measures.'
-        }
-      >
-        Constancia es estudiar. Rendimiento es responder ejercicios. Competencia es usar el idioma
-        en situaciones diversas con evidencia suficiente. Son medidas distintas.
-      </StudyCopy>
-      <section
-        className="card audit-progress-section"
-        aria-label={pt ? 'Constância' : 'Consistency'}
-      >
-        <div className="audit-section-title">
-          <ActivityIcon size={20} />
-          <div>
-            <span className="eyebrow">01 · {pt ? 'CONSTÂNCIA' : 'CONSISTENCY'}</span>
-            <h2>{pt ? 'Seu hábito de estudo' : 'Your study habit'}</h2>
-          </div>
-        </div>
-        <div className="audit-week-stats">
-          {[
-            {
-              v: `${summary.days}/7`,
-              en: 'Study days this week',
-              pt: 'Dias de prática na semana',
-              es: 'Días de estudio esta semana',
-            },
-            {
-              v: `${summary.minutes} min`,
-              en: 'Recorded time this week',
-              pt: 'Tempo registrado na semana',
-              es: 'Tiempo registrado esta semana',
-            },
-            {
-              v: summary.activities,
-              en: 'Activities saved this week',
-              pt: 'Atividades salvas na semana',
-              es: 'Actividades guardadas esta semana',
-            },
-            {
-              v: data.vocabulary.length,
-              en: 'Words saved',
-              pt: 'Palavras salvas',
-              es: 'Palabras guardadas',
-            },
-          ].map((s) => (
-            <div key={s.en}>
-              <strong>{s.v}</strong>
-              <span>{pt ? s.pt : s.en}</span>
-              <small lang="es">{s.es}</small>
-            </div>
+      <section className="progress-week">
+        <h2>{pt ? 'Sua semana' : 'Your week'}</h2>
+        <div className="week-days">
+          {dailyRewards(data).week.map((day) => (
+            <button
+              key={day.day}
+              aria-label={`${dateLabel(day.day)} · ${day.done ? (pt ? 'com prática' : 'practice recorded') : pt ? 'sem prática' : 'no practice'}`}
+              className={day.done ? 'studied' : ''}
+              onClick={() => navigate('Calendar')}
+            >
+              <small>
+                {new Date(`${day.day}T12:00:00`).toLocaleDateString(pt ? 'pt-BR' : 'en-US', {
+                  weekday: 'short',
+                })}
+              </small>
+              <strong>{new Date(`${day.day}T12:00:00`).getDate()}</strong>
+              <span aria-hidden>{day.done ? '●' : '·'}</span>
+            </button>
           ))}
         </div>
-        <button className="text-link" onClick={() => navigate('Calendar')}>
-          {pt ? 'Abrir calendário interativo' : 'Open interactive calendar'}
-        </button>
+        <p className="muted">
+          {summary.days}/7 {pt ? 'dias de estudo' : 'study days'} · {summary.minutes} min ·{' '}
+          {summary.activities} {pt ? 'atividades salvas' : 'saved activities'}
+        </p>
       </section>
-      <MomentumChart data={data} />
-      <section
-        className="card audit-progress-section"
-        aria-label={pt ? 'Desempenho' : 'Performance'}
-      >
-        <div className="audit-section-title">
-          <BarChart3 size={20} />
-          <div>
-            <span className="eyebrow">02 · {pt ? 'DESEMPENHO' : 'PERFORMANCE'}</span>
-            <h2>{pt ? 'Resultados em tarefas específicas' : 'Results in specific tasks'}</h2>
-          </div>
+      <section className="progress-overview">
+        <div>
+          <strong>
+            {levelLessons(courseRoute(data).level).filter((l) => passedLesson(data, l.id)).length}
+          </strong>
+          <span>
+            {pt ? 'Aulas aprovadas no nível de estudo' : 'Classes passed at your study level'}
+          </span>
         </div>
-        <StudyCopy
-          native={
-            pt
-              ? 'Apenas respostas objetivas sem ajuda entram nos números abaixo. Resultados acumulados incluem repetições e não estimam seu nível MCER.'
-              : 'Only objective answers without help enter these numbers. Accumulated results include repeated practice and do not estimate your CEFR level.'
-          }
-        >
-          Solo se incluyen respuestas objetivas sin ayuda. Los resultados acumulados incluyen
-          repeticiones y no estiman tu nivel MCER.
-        </StudyCopy>
-        <div className="audit-performance-grid">
+        <div>
+          <strong>{data.vocabulary.filter((w) => w.reviews > 0 && w.interval > 1).length}</strong>
+          <span>{pt ? 'Palavras lembradas · autoavaliação' : 'Words recalled · self-rated'}</span>
+        </div>
+        <div>
+          <strong>{summary.due}</strong>
+          <span>{pt ? 'Palavras para revisar' : 'Words due for review'}</span>
+          <button className="text-link" onClick={() => navigate('Vocabulary')}>
+            {pt ? 'Revisar' : 'Review'}
+          </button>
+        </div>
+      </section>
+      <section className="progress-evidence">
+        <h2>{pt ? 'Resultados e evidências' : 'Results & evidence'}</h2>
+        <p>
+          {pt
+            ? 'Acertos se referem a estes exercícios, sem ajuda. Não são uma certificação de nível.'
+            : 'Correct answers refer to these exercises, without help. They are not a level certificate.'}
+        </p>
+        <div className="evidence-table">
           {summary.skills.map((skill) => (
-            <section key={skill.skill} className="audit-performance-skill">
-              <h3>
+            <div key={skill.skill}>
+              <strong>
                 {pt
                   ? { reading: 'Leitura', grammar: 'Gramática', vocabulary: 'Vocabulário' }[
                       skill.skill
                     ]
                   : skillNames[skill.skill]}
-              </h3>
-              <strong>{skill.total ? `${skill.correct}/${skill.total}` : '—'}</strong>
+              </strong>
               <span>
                 {skill.total
-                  ? `${skill.accuracy}% · ${skill.attempts} ${pt ? 'práticas registradas' : 'recorded attempts'}`
+                  ? `${skill.correct}/${skill.total} · ${skill.attempts} ${pt ? 'práticas' : 'attempts'}`
                   : pt
                     ? 'Ainda sem respostas avaliadas'
                     : 'No scored answers yet'}
               </span>
-              <small lang="es">
-                {skill.total
-                  ? 'Respuestas correctas en estas tareas; no porcentaje de dominio.'
-                  : 'Falta evidencia objetiva en esta habilidad.'}
-              </small>
-              {skill.total > 0 && (
-                <progress
-                  value={skill.correct}
-                  max={skill.total}
-                  aria-label={
-                    pt
-                      ? 'Respostas corretas nestes exercícios'
-                      : 'Correct answers in these exercises'
-                  }
-                />
-              )}
-            </section>
+            </div>
           ))}
-          <section className="audit-performance-skill">
-            <h3>{pt ? 'Compreensão oral' : 'Listening'}</h3>
-            <strong>
-              {summary.listening.total
-                ? `${summary.listening.correct}/${summary.listening.total}`
-                : '—'}
-            </strong>
+          <div>
+            <strong>{pt ? 'Compreensão oral' : 'Listening'}</strong>
             <span>
               {summary.listening.total
-                ? `${summary.listening.attempts} ${pt ? 'práticas · voz sintética' : 'attempts · synthetic voice'}`
+                ? `${summary.listening.correct}/${summary.listening.total} · ${pt ? 'voz sintética' : 'synthetic voice'}`
                 : pt
                   ? 'Ainda sem respostas avaliadas'
                   : 'No scored answers yet'}
             </span>
-            <small lang="es">
-              Solo comprensión de estos audios sintéticos, sin ayudas. No evalúa pronunciación ni
-              nivel.
-            </small>
-          </section>
-        </div>
-        <StudyCopy
-          native={
-            pt
-              ? `${data.reviews.length} revisões de vocabulário usam sua própria avaliação de memória e aparecem no histórico, não na precisão objetiva. ${summary.due} palavras estão prontas para revisão.`
-              : `${data.reviews.length} vocabulary reviews use your own memory rating and appear in history, not objective accuracy. ${summary.due} words are ready for review.`
-          }
-        >
-          {data.reviews.length} repasos usan tu propia valoración de memoria: quedan en el
-          historial, no en la precisión objetiva. {summary.due} palabras están listas para repasar.
-        </StudyCopy>
-        <button className="text-link" onClick={() => navigate('Vocabulary')}>
-          {pt ? 'Revisar vocabulário' : 'Review vocabulary'}
-        </button>
-      </section>
-      <section
-        className="card audit-progress-section"
-        aria-label={pt ? 'Competência' : 'Competence'}
-      >
-        <div className="audit-section-title">
-          <Target size={20} />
-          <div>
-            <span className="eyebrow">03 · {pt ? 'COMPETÊNCIA' : 'COMPETENCE'}</span>
-            <h2>{pt ? 'O que pode ser observado' : 'What can be observed'}</h2>
-          </div>
-        </div>
-        <StudyCopy
-          native={
-            pt
-              ? 'Acertos em atividades mostram desempenho nesses itens. Ainda não comprovam transferência para situações novas, qualidade da escrita, fluência oral ou domínio integral de um nível.'
-              : 'Correct exercise answers show performance on those items. They do not yet demonstrate transfer to new situations, writing quality, oral fluency, or mastery of a whole level.'
-          }
-        >
-          Los aciertos muestran desempeño en esos ítems. Todavía no prueban transferencia a
-          situaciones nuevas, calidad de escritura, fluidez oral ni dominio integral de un nivel.
-        </StudyCopy>
-        <div className="audit-observation-list">
-          <div>
-            <strong>{pt ? 'Leitura e uso das estruturas' : 'Reading and use of structures'}</strong>
-            <span>
-              {pt
-                ? 'Evidência limitada a tarefas objetivas'
-                : 'Evidence limited to objective tasks'}
-            </span>
-            <small lang="es">
-              Los resultados de arriba son observaciones de práctica, no certificaciones.
-            </small>
           </div>
           <div>
             <strong>{pt ? 'Escrita' : 'Writing'}</strong>
             <span>
               {writing.length}{' '}
               {pt
-                ? 'textos registrados · qualidade pendente de avaliação'
-                : 'recorded texts · quality awaiting assessment'}
+                ? 'textos · qualidade pendente de avaliação'
+                : 'texts · quality awaiting assessment'}
             </span>
-            <small lang="es">
-              Guardar un texto acredita práctica; su extensión no demuestra que esté bien escrito.
-            </small>
-          </div>
-          <div>
-            <strong>{pt ? 'Compreensão oral' : 'Listening'}</strong>
-            <span>
-              {summary.listening.total
-                ? `${summary.listening.correct}/${summary.listening.total} ${pt ? 'respostas objetivas sobre áudio sintético' : 'objective answers about synthetic audio'}`
-                : pt
-                  ? 'Ainda sem respostas avaliadas'
-                  : 'No scored answers yet'}
-            </span>
-            <small lang="es">
-              Las preguntas observan comprensión de estos audios sintéticos. No prueban comprensión
-              de voces reales o situaciones nuevas.
-            </small>
           </div>
           <div>
             <strong>{pt ? 'Expressão oral' : 'Speaking'}</strong>
@@ -277,36 +147,38 @@ export function Progress({ data, navigate }: { data: Snapshot; navigate: (view: 
                 ? 'gravações · pronúncia e fluência não avaliadas'
                 : 'recordings · pronunciation and fluency not assessed'}
             </span>
-            <small lang="es">
-              Un audio o una transcripción no reciben una nota automática de pronunciación.
-            </small>
           </div>
         </div>
-        {data.evaluations.length > 0 && (
-          <details>
-            <summary>
-              {pt ? 'Referência inicial orientativa' : 'Initial indicative reference'}
-            </summary>
-            <StudyCopy
-              native={
-                pt
-                  ? 'O diagnóstico é uma amostra curta com incerteza. Não modifica automaticamente seu percurso e não certifica um nível.'
-                  : 'The diagnostic is a short sample with uncertainty. It does not automatically change your path and does not certify a level.'
-              }
-            >
-              El diagnóstico es una muestra corta con incertidumbre. No modifica automáticamente el
-              recorrido ni certifica un nivel.
-            </StudyCopy>
-            {data.evaluations.map((e, i) => (
-              <p key={i}>
-                {skillNames[e.skill]} · {e.correct}/{e.total} ·{' '}
-                {e.level || (pt ? 'Evidência insuficiente' : 'Insufficient evidence')}
-              </p>
-            ))}
-          </details>
-        )}
+        <details>
+          <summary>{pt ? 'Limites destas evidências' : 'Limits of this evidence'}</summary>
+          <p lang="es">
+            Completar actividades acredita práctica. Los resultados objetivos describen esas tareas;
+            no demuestran todavía transferencia a situaciones nuevas. Los repasos de palabras son
+            autoevaluados. Guardar un texto o audio no demuestra su calidad. Listening usa voz
+            sintética, no evalúa pronunciación ni comprensión de voces reales.
+          </p>
+          {data.evaluations.map((e, i) => (
+            <p key={i}>
+              {skillNames[e.skill]} · {e.correct}/{e.total} ·{' '}
+              {e.level || (pt ? 'Evidência insuficiente' : 'Insufficient evidence')}
+            </p>
+          ))}
+        </details>
       </section>
-      <ProgressPath data={data} navigate={navigate} />
+      <details className="progress-path-panel">
+        <summary>{pt ? 'Percurso e requisitos' : 'Course path & requirements'}</summary>
+        <ProgressPath data={data} navigate={navigate} />
+      </details>
+      <details className="progress-milestones">
+        <summary>{pt ? 'Marcos de prática' : 'Practice milestones'}</summary>
+        <DailyRewards data={data} />
+      </details>
+      <details className="progress-oral-history">
+        <summary>{pt ? 'Histórico oral' : 'Oral history'}</summary>
+        {oralEvidence(data).map((a) => (
+          <OralEvidenceRecord key={a.id} attempt={a} />
+        ))}
+      </details>
       <details className="progress-details">
         <summary>
           {pt ? 'Erros, escrita e histórico de feedback' : 'Mistakes, writing and feedback history'}

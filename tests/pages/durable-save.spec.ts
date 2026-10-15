@@ -1,3 +1,4 @@
+import { go, dailyWord, ready } from './navigation';
 import { test, expect, type Page } from '@playwright/test';
 
 async function fingerprint(page: Page, pt: boolean) {
@@ -68,12 +69,7 @@ for (const pt of [false, true])
     }) => {
       await page.setViewportSize({ width: 390, height: 844 });
       await enter(page, pt);
-      await page
-        .getByRole('button', {
-          name: pt ? 'Descobrir meu ponto de partida' : 'Find my starting point',
-          exact: true,
-        })
-        .click();
+      await go(page, 'Assessment');
       const card = page.locator('.diagnostic-card');
       await card.locator('input[type="radio"]').first().check();
       const before = await fingerprint(page, pt);
@@ -96,7 +92,7 @@ for (const pt of [false, true])
           window.scrollTo(0, 0);
         });
         await page.screenshot({
-          path: `artifacts/audit/after/save-error-${pt ? 'pt' : 'en'}-390.png`,
+          path: `artifacts/redesign/qa/save-error-${pt ? 'pt' : 'en'}-390.png`,
           fullPage: true,
         });
       }
@@ -109,12 +105,7 @@ for (const pt of [false, true])
       expect(after.database).not.toBe(before.database);
       expect(JSON.parse(after.manifest).data.diagnostic_answers).toHaveLength(1);
       await page.reload();
-      await page
-        .getByRole('button', {
-          name: pt ? 'Descobrir meu ponto de partida' : 'Find my starting point',
-          exact: true,
-        })
-        .click();
+      await go(page, 'Assessment');
       await expect(card).toContainText('1 / 24');
     });
 
@@ -123,13 +114,7 @@ for (const pt of [false, true])
     page,
   }) => {
     await enter(page, pt);
-    await page
-      .locator('.topbar')
-      .getByRole('button', {
-        name: pt ? 'Ajuda e preferências' : 'Help and preferences',
-        exact: true,
-      })
-      .click();
+    await go(page, 'Settings');
     await page
       .getByLabel(pt ? 'Seu nome' : 'Your name', { exact: true })
       .fill('Saved before failure');
@@ -160,7 +145,10 @@ for (const pt of [false, true])
       .getByRole('button', { name: pt ? 'Tentar novamente' : 'Try again', exact: true })
       .click();
     await expect(page.locator('.app-shell')).toBeVisible();
-    await expect(page.locator('h1')).toContainText('Saved before failure');
+    await go(page, 'Settings');
+    await expect(page.getByLabel(pt ? 'Seu nome' : 'Your name', { exact: true })).toHaveValue(
+      'Saved before failure',
+    );
     const after = await fingerprint(page, pt);
     expect(JSON.parse(after.manifest).data.profile[0].name).toBe('Saved before failure');
   });
@@ -184,7 +172,9 @@ test('Durable save: a transient opening error does not permanently reject startu
   );
   await page.getByRole('button', { name: 'Try again', exact: true }).click();
   await expect(page.locator('.app-shell')).toBeVisible();
-  await expect(page.locator('h1')).toContainText('Alejo');
+  await ready(page);
+  await go(page, 'Settings');
+  await expect(page.getByLabel('Your name', { exact: true })).toHaveValue('Alejo');
 });
 
 test('Durable save: a failed local sync commit preserves the device snapshot and can retry the remote merge', async ({
@@ -211,7 +201,7 @@ test('Durable save: a failed local sync commit preserves the device snapshot and
       });
     await route.fulfill({ json: { content: { sha: 'durable-upload' } } });
   });
-  await page.getByRole('button', { name: 'Help and preferences', exact: true }).click();
+  await go(page, 'Settings');
   await page.getByLabel('GitHub token').fill('synthetic-durable-token-never-real');
   await failNextManifest(page, 'abort');
   await page.getByRole('button', { name: 'Connect GitHub', exact: true }).click();
@@ -219,9 +209,10 @@ test('Durable save: a failed local sync commit preserves the device snapshot and
   expect(await fingerprint(page, false)).toEqual(before);
   await expect(page.getByLabel('Your name', { exact: true })).toHaveValue('Alejo');
   await page.getByRole('button', { name: 'Sync now', exact: true }).click();
-  await expect(page.getByRole('status')).toContainText('Synced with GitHub');
-  await page.getByRole('button', { name: 'Close preferences', exact: true }).click();
-  await expect(page.locator('h1')).toContainText('Remote profile fixture');
+  await expect(page.locator('.github-sync [role="status"]')).toContainText('Synced with GitHub');
+  await go(page, 'Home');
+  await go(page, 'Settings');
+  await expect(page.getByLabel('Your name', { exact: true })).toHaveValue('Remote profile fixture');
   expect(JSON.parse((await fingerprint(page, false)).manifest).data.profile[0].name).toBe(
     'Remote profile fixture',
   );
