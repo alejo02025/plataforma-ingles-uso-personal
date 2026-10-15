@@ -26,9 +26,12 @@ export function LanguageHelp({ onOpenLesson }: { onOpenLesson?: (id: string) => 
         title={isPortuguese ? 'Como formar frases' : 'Build your own sentences'}
         description={isPortuguese ? 'Aprenda a estrutura e depois crie as suas frases.' : 'Understand the pattern, then make it your own.'}
       />
-      <StudyCopy as="p" className="toolkit-note">
-        Siempre disponible, sin requisitos de nivel.
-      </StudyCopy>
+      <p className="toolkit-note toolkit-note-native" lang={isPortuguese ? 'pt-BR' : 'en'}>
+        {isPortuguese ? 'Sempre disponível, sem requisitos de nível.' : 'Always available, at any level.'}
+      </p>
+      <p className="toolkit-note toolkit-note-es" lang="es">
+        {'Siempre disponible, sin requisitos de nivel.'}
+      </p>
       <div className="toolkit-tabs" role="group" aria-label="Language help sections">
         <button
           className={mode === 'sentences' ? 'active' : ''}
@@ -179,9 +182,12 @@ export function LanguageHelp({ onOpenLesson }: { onOpenLesson?: (id: string) => 
                 <strong>Mirá tu oración.</strong> Cambiala a negativa o pregunta y compará.
               </StudyCopy>
             </ol>
-            <StudyCopy as="p" className="guide-formula">
-              Sujeto + verbo + complemento.
-            </StudyCopy>
+            <p className="guide-formula" lang={isPortuguese ? 'pt-BR' : 'en'}>
+              {isPortuguese ? 'Sujeito + verbo + complemento.' : 'Subject + verb + complement.'}
+            </p>
+            <p className="guide-formula guide-formula-es" lang="es">
+              {'Sujeto + verbo + complemento.'}
+            </p>
           </div>
           <Foundations
             mode="sentences"
