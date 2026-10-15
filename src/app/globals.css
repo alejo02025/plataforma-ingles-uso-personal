@@ -1248,7 +1248,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,te
   box-shadow:0 5px 20px rgba(35,35,62,.04);
 }
 .class-card:hover {border-color:var(--accent);background:var(--accent-soft);transform:translateY(-2px);}
-.class-card-top {grid-column:1;grid-row:1/4;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;}
+.class-card-top {grid-column:1;grid-row:1/5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;}
 .class-card-top>svg{display:none;}
 .class-node-art {display:grid;place-items:center;width:67px;height:67px;background:var(--learning-tint);border-radius:20px;font-size:2rem;}
 .class-card:nth-child(2) .class-node-art{background:var(--review-tint);}
@@ -1257,8 +1257,10 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,te
 .class-card.is-complete .class-node-art{outline:3px solid var(--success);outline-offset:2px;}
 .class-node-meta{font-size:.65rem;white-space:nowrap;display:flex;align-items:center;gap:4px;color:var(--muted);}
 .class-card h2{grid-column:2;grid-row:1;font-size:1.03rem;color:var(--text);line-height:1.25;}
-.class-card p{grid-column:2;grid-row:2;font-size:.8rem;color:var(--muted);line-height:1.5;}
-.class-card-bottom{grid-column:2;grid-row:3;line-height:1.25;margin-top:7px;font-weight:750;color:var(--accent);font-size:.75rem;}
+ .class-card p{grid-column:2;grid-row:2;font-size:.8rem;color:var(--muted);line-height:1.5;}
+.class-card p.class-card-spanish{grid-column:2;grid-row:3;font-size:.72rem;margin:4px 0 0;color:var(--muted);opacity:.87;}
+.course-current .course-current-es{font-size:.83rem;opacity:.86;margin-top:-5px;color:var(--hero-note);}
+.class-card-bottom{grid-column:2;grid-row:4;line-height:1.25;margin-top:7px;font-weight:750;color:var(--accent);font-size:.75rem;}
 .class-card.is-locked{opacity:.75;}
 .list-heading{font-size:1.2rem;margin:15px 0;}
 .lesson-room{max-width:860px;}
@@ -1386,3 +1388,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,te
   .mobile-bottom-nav button{font-size:.6rem;}
 }
 @media(prefers-reduced-motion:reduce){.document-card:hover,.class-card:hover,.today-focus .start-button:hover{transform:none;}}
+
+.builder-label-es{display:block;font-size:.77rem;line-height:1.38;color:var(--muted);font-weight:510;margin-top:3px;margin-bottom:6px;}
+.foundation-selectors .field{gap:4px;}
+.foundation-model>p[lang='es']{font-size:.9rem;line-height:1.65;color:var(--muted);margin-top:13px;}
