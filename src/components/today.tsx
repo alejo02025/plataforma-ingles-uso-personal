@@ -1,12 +1,40 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { ArrowRight, Check, Clock3 } from 'lucide-react';
+import { spanishCopy } from '@/lib/study-copy';
 import { isPortuguese, studyStorage } from '@/lib/workspace';
 import { readRoutineDraft } from '@/lib/browser/routine-draft';
 import { readStudyDay, studyTaskDone, type StudyDay, type StudyTask } from '@/lib/daily-study';
 import { studyBudgets, studyBudget, dailyBudgetKey } from '@/lib/study-recommendation';
 import type { Snapshot } from '@/lib/types';
 import { api, dateLabel } from './ui';
+/** Spanish is an intentionally authored learning aid, not a translation of user files. */
+function spanishTaskHelp(task: StudyTask): string {
+  const source = task.purpose;
+  if (/continue where you stopped|continue de onde parou/i.test(source))
+    return 'Retomá la actividad pendiente. Tus respuestas anteriores se conservaron.';
+  if (/needs reinforcement|precisa de reforço|revisit a point|reveja um ponto/i.test(source))
+    return 'Repasá el punto que necesitás reforzar antes de avanzar.';
+  if (task.action.kind === 'class')
+    return 'Aprendé una estructura, mirá ejemplos y usala en una situación real.';
+  if (task.action.kind === 'review')
+    return 'Recordá las palabras sin mirar la respuesta y después comprobá.';
+  if (task.action.kind === 'activity')
+    return 'Leé, comprendé y respondé las preguntas de esta actividad.';
+  return {
+    vocabulary: 'Recordá palabras útiles y practicá cómo usarlas en una oración.',
+    grammar: 'Observá cómo se forma la oración y después construí la tuya.',
+    reading: 'Leé una situación cotidiana y buscá la información importante.',
+    writing: 'Escribí tus propias oraciones con las estructuras que aprendiste.',
+  }[task.action.mode];
+}
+function taskEmoji(task: StudyTask): string {
+  if (task.action.kind === 'class') return '📘';
+  if (task.action.kind === 'review') return '🧠';
+  if (task.action.kind === 'activity') return '📖';
+  return { vocabulary: '🗣️', grammar: '🧩', reading: '📚', writing: '✍️' }[task.action.mode];
+}
+
 export function Today({
   data,
   onTask,
@@ -89,11 +117,13 @@ export function Today({
       }) || [];
   const primary = remaining[0];
   const finished = !!agenda && remaining.length === 0;
+  const total = agenda?.tasks.length || 0;
+  const progress = total ? Math.round((completed / total) * 100) : 0;
   return (
     <div className="today-screen" data-no-word-help>
       <header className="today-head">
         <div>
-          <h1>{pt ? 'Hoje' : 'Today'}</h1>
+          <h1>{pt ? 'Hoje' : 'Today'} <span className="today-title-spark" aria-hidden="true">✳</span></h1>
           <p>{dateLabel(data.day)}</p>
         </div>
         <label className="today-duration">
@@ -117,6 +147,17 @@ export function Today({
           </select>
         </label>
       </header>
+      {agenda && (
+        <div className="today-journey-progress" aria-label={pt ? 'Progresso do dia' : 'Daily progress'}>
+          <div className="today-journey-copy">
+            <span>{pt ? 'Seu ritmo de hoje' : "Today's progress"}</span>
+            <strong>{completed}/{total} <span lang="es">completadas</span></strong>
+          </div>
+          <div className="today-journey-bar" role="progressbar" aria-valuemin={0} aria-valuemax={total} aria-valuenow={completed} aria-label={pt ? 'Atividades concluídas' : 'Completed activities'}>
+            <span style={{ width: `${progress}%` }} />
+          </div>
+        </div>
+      )}
       {error && (
         <p role="alert" className="error">
           {error}{' '}
@@ -131,6 +172,7 @@ export function Today({
         </div>
       ) : finished ? (
         <section className="today-finished">
+          <span className="finished-emoji" aria-hidden="true">🎉</span>
           <Check size={30} />
           <h2>{pt ? 'Você terminou por hoje.' : "You're done for today."}</h2>
           <div className="actions">
@@ -155,8 +197,10 @@ export function Today({
                 {primary!.minutes} min
               </span>
             </div>
+            <span className="today-primary-art" aria-hidden="true">{taskEmoji(primary!)}</span>
             <h2>{primary!.title}</h2>
-            <p>{primary!.purpose}</p>
+            <p lang={pt ? 'pt-BR' : 'en'}>{primary!.purpose}</p>
+            <p className="today-primary-spanish" lang="es">{spanishCopy(primary!.purpose) || spanishTaskHelp(primary!)}</p>
             <button
               className="button start-button"
               disabled={busy}
@@ -168,13 +212,15 @@ export function Today({
           </section>
           {remaining.length > 1 && (
             <section className="today-next" aria-labelledby="next-title">
-              <h2 id="next-title">{pt ? 'Depois' : 'Then'}</h2>
+              <h2 id="next-title">{pt ? 'Depois' : 'Then'} <span aria-hidden="true">✨</span></h2>
+              <p className="today-next-subtitle" lang="es">Después de esta actividad, seguí con:</p>
               {remaining.slice(1, 4).map((task, i) => (
                 <button className="today-task" key={task.id} onClick={() => onTask(task)}>
-                  <span className="task-number">{String(i + 2).padStart(2, '0')}</span>
+                  <span className="task-number" aria-hidden="true">{taskEmoji(task)}</span>
                   <span>
                     <strong>{task.title}</strong>
                     <small>{task.minutes} min</small>
+                    <small className="task-spanish" lang="es">{spanishCopy(task.purpose) || spanishTaskHelp(task)}</small>
                   </span>
                   <ArrowRight size={17} />
                 </button>
