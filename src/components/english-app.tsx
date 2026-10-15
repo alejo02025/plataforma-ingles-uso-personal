@@ -417,7 +417,8 @@ export function EnglishApp() {
           ) : view === 'Assessment' ? (
             <Diagnostic data={data} refresh={refresh} close={() => void navigate('Home')} />
           ) : view === 'Home' ? (
-            <Dashboard
+            <>
+              <Dashboard
               data={data}
               refresh={refresh}
               onStart={onStart}
@@ -455,6 +456,7 @@ export function EnglishApp() {
               }}
               compact
             />
+            </>
           ) : view === 'PDF Studio' ? (
             <PdfStudio data={data} refresh={refresh} onRead={(doc) => void openDocument(doc)} />
           ) : view === 'My Day' ? (
