@@ -4,6 +4,7 @@ test('an older home page can update when its unloaded AI bundle is unavailable, 
   page,
 }) => {
   await page.goto('./');
+  await page.locator('.daily-word-launcher').click();
   const popup = page.getByRole('dialog', { name: 'Word of the Day' });
   const word = await popup.getByRole('heading').innerText();
   await popup.getByRole('button', { name: 'Save this word' }).click();
@@ -35,12 +36,14 @@ test('Updating one space refreshes an idle second space and keeps both vocabular
   context,
 }) => {
   await page.goto('./');
+  await page.locator('.daily-word-launcher').click();
   const englishPopup = page.getByRole('dialog', { name: 'Word of the Day' });
   const englishWord = await englishPopup.getByRole('heading').innerText();
   await englishPopup.getByRole('button', { name: 'Save this word', exact: true }).click();
   await englishPopup.getByRole('button', { name: 'Close daily word' }).click();
   const pt = await context.newPage();
   await pt.goto('./portugues/');
+  await pt.locator('.daily-word-launcher').click();
   const ptPopup = pt.getByRole('dialog', { name: 'Palavra do dia' });
   const portugueseWord = await ptPopup.getByRole('heading').innerText();
   await ptPopup.getByRole('button', { name: 'Salvar esta palavra', exact: true }).click();
@@ -100,9 +103,7 @@ test('a fresh explicit link does not replay an older refresh request', async ({ 
 
 test('online update is not blocked by a stalled offline pre-cache', async ({ page }) => {
   await page.goto('./');
-  await page.getByRole('dialog', { name: 'Word of the Day' })
-    .getByRole('button', { name: 'Close daily word' })
-    .click();
+  await expect(page.locator('.today-screen')).toBeVisible();
   // Mimic a slow or unresponsive service-worker update. The online app should
   // still reload while the offline cache catches up independently.
   await page.evaluate(() => {
