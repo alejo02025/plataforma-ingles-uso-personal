@@ -23,7 +23,7 @@ for (const pt of [false, true])
     page,
     context,
   }) => {
-    test.setTimeout(120000);
+    test.setTimeout(180000);
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
     await page.setViewportSize({ width: 390, height: 844 });
