@@ -1,5 +1,6 @@
 'use client';
 import { StudyCopy, SpanishTranslation } from './study-copy';
+import { spanishCopy } from '@/lib/study-copy';
 
 import { useEffect, useRef, useState } from 'react';
 import {
@@ -222,11 +223,16 @@ export function Classes({
             <h2>
               {journey.nextLesson?.title || (isPortuguese ? 'Rever e aplicar' : 'Review and apply')}
             </h2>
-            <p>
+            <p lang={isPortuguese ? 'pt-BR' : 'en'}>
               {journey.nextLesson?.goal ||
                 (isPortuguese
                   ? 'Complete as práticas conectadas antes de avançar.'
                   : 'Complete the connected practice before moving on.')}
+            </p>
+            <p className="course-current-es" lang="es">
+              {journey.nextLesson?.goal && spanishCopy(journey.nextLesson.goal)
+                ? spanishCopy(journey.nextLesson.goal)
+                : 'Aprendé cómo se usa esta estructura, practicá y después aplicala a tu vida.'}
             </p>
             <button
               className="button"
@@ -269,7 +275,8 @@ export function Classes({
                     {pending.length ? <LockKeyhole size={23} /> : <BookOpen size={23} />}
                   </span>
                   <h2>{item.title}</h2>
-                  <p>{item.goal}</p>
+                  <p lang={isPortuguese ? 'pt-BR' : 'en'}>{item.goal}</p>
+                  <p className="class-card-spanish" lang="es">{spanishCopy(item.goal) || 'Leé la explicación, practicá y formá tus propias oraciones.'}</p>
                   <span className="class-card-bottom">
                     {pending.length ? (
                       <>
