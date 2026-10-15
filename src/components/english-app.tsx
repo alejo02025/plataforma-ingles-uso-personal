@@ -319,7 +319,7 @@ export function EnglishApp() {
         <div className="mobile-masthead">
           <Logo />
           <div className="masthead-controls">
-            <SpaceLink language={pt ? 'en' : 'pt'} />
+            <span className="active-language-indicator" aria-label={pt ? 'Idioma actual: Português' : 'Current language: English'}><span aria-hidden="true">{pt ? '🇧🇷' : '🇬🇧'}</span><span>{pt ? 'Português' : 'English'}</span></span>
           <button
             className="icon-button"
             aria-label={pt ? 'Ajustes' : 'Settings'}
