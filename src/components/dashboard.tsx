@@ -194,7 +194,7 @@ export function Dashboard({
       <Heading
         eyebrow={pt ? 'SEU ESPAÇO DE PORTUGUÊS' : 'YOUR ENGLISH SPACE'}
         title={`${greeting}, ${data.profile.name}.`}
-        description={undefined}
+        description=""
       >
         <span className="date-chip">
           <CalendarDays size={16} />
