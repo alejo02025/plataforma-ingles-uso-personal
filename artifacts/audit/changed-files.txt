@@ -43,6 +43,8 @@ artifacts/audit/after/studio-pt-1440.png
 artifacts/audit/after/studio-pt-375.png
 artifacts/audit/after/studio-pt-390.png
 artifacts/audit/after/studio-pt-768.png
+artifacts/audit/after/time-en-390.png
+artifacts/audit/after/time-pt-390.png
 artifacts/audit/before/collection-only.json
 artifacts/audit/before/en-1440.png
 artifacts/audit/before/en-375.png
@@ -106,6 +108,7 @@ src/lib/placement.ts
 src/lib/routine-store.ts
 src/lib/routine.ts
 src/lib/study-copy.ts
+src/lib/study-recommendation.ts
 src/locales/learning/advanced-lessons.ts
 src/locales/learning/native-explanations.json
 src/locales/learning/native-instructions.json
@@ -141,7 +144,9 @@ tests/pages/pages.spec.ts
 tests/pages/pdf-tabs.spec.ts
 tests/pages/portuguese.spec.ts
 tests/pages/simple-sections.spec.ts
+tests/pages/study-time.spec.ts
 tests/pages/word-help.spec.ts
 tests/placement.test.ts
 tests/routine.test.ts
 tests/study-copy.test.ts
+tests/study-recommendation.test.ts

@@ -32,11 +32,16 @@ for (const pt of [false, true])
     if (await tutorial.isVisible()) await tutorial.click();
     await page.evaluate(() => {
       if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
+      window.scrollTo(0, 0);
     });
     await page.screenshot({
       path: `artifacts/audit/${phase}/${pt ? 'pt' : 'en'}-${width}.png`,
       fullPage: true,
     });
+    if (phase === 'after' && width === 390)
+      await page.screenshot({
+        path: `artifacts/audit/after/${pt ? 'pt' : 'en'}-home-viewport-390.png`,
+      });
     results.push({
       language: pt ? 'pt' : 'en',
       width,

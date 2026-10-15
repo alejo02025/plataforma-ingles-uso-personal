@@ -20,3 +20,5 @@ Los fixtures de niveles B1/B2/A2 existen solamente dentro de contextos Playwrigh
 Las capturas `class-*`, `studio-*`, `routine-*`, `oral-*` y `*-dark-*` muestran estados adicionales **posteriores**; no se presenta una comparación anterior de esos estados cuando no se capturó. `*-home-viewport-390.png` muestra el primer viewport móvil, mientras que las capturas por ancho son de página completa. Los archivos de métricas identifican mediciones locales, no puntuaciones de rendimiento certificadas.
 
 `before/collection-only.json` conserva una recolección inicial de 11 casos omitidos, sin ejecución. No se contabiliza como QA aprobada. Los resultados ejecutados de cierre están en `verification.json` y `verification.txt`.
+
+`after/time-en-390.png` y `after/time-pt-390.png` muestran una recomendación para cinco minutos. Se reproducen con `npm run test:pages -- tests/pages/study-time.spec.ts`. La preferencia vale para ese día y espacio en el dispositivo; no modifica el plan ni sus requisitos. Ejecutar las suites estática y Node por separado: ambas usan por defecto `test-results`.

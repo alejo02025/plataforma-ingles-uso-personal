@@ -40,3 +40,15 @@ P0/P1: código integrado para progresión y borradores, diagnóstico, feedback b
 P2 implementado: recomendación priorizada por pendientes/refuerzo/repasos, grabación local, reflexión y comprensión breve de voz sintética. P2 pendiente de validación externa: diagnóstico calibrado, producciones evaluadas por rúbrica, audio natural licenciado amplio y evaluación fiable de pronunciación. No se sustituyen esas limitaciones por porcentajes inventados.
 
 El estado exacto de la puerta de revisión figura en `RESULTADOS_QA.md`. Los casos se ejecutan en bases temporales; los perfiles de niveles superiores son fixtures desechables, no cambios a los estudiantes reales.
+
+## Seguimiento: tiempo disponible y continuidad
+
+Implementado después de la revisión inicial:
+
+- Motor de recomendación separado: pendiente real → refuerzo → ejercicio guiado pausado → palabras por repasar → práctica breve o siguiente clase habilitada.
+- Elección opcional de 5, 20 o 40 minutos para hoy. Se conserva por idioma y día de estudio en este dispositivo; el tiempo habitual y el plan existente no cambian.
+- Una pausa de cinco minutos propone una práctica pendiente del bloque antes de una clase más larga. Si hay una tarea pendiente o un refuerzo que requiere más tiempo, ofrece un tramo y aclara que empezar no acredita terminar.
+- Retomar desde el inicio abre el modo del borrador pausado, sin reiniciar su secuencia. Los borradores completados o de otro bloque/nivel no se recomiendan.
+- El recorrido exploratorio distingue su duración completa del tiempo elegido hoy. Mantiene su carácter opcional.
+
+No introduce migraciones, puntuaciones nuevas ni requisitos más débiles. Las duraciones son estimaciones, no límites que corten una sesión. La preferencia diaria es local; no constituye sincronización entre dispositivos.

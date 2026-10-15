@@ -92,3 +92,9 @@ No se agrega una migración ni se sustituyen tablas. El gráfico y el calendario
 | Verificación                | Nuevas pruebas de evidencia/copia/oral, suites de páginas y servidor, `artifacts/audit/`                                                 | Recorridos, regresión, capturas y límites                             |
 
 No se cambian dependencias ni archivos publicados de raíz. Los cambios de las fuentes no se copian a GitHub Pages durante esta intervención.
+
+## Seguimiento del motor diario
+
+Se confirmó que el inicio anterior de esta rama ofrecía una clase de ocho minutos incluso con una preferencia habitual de cinco. Además, solo buscaba actividades generales pendientes: un ejercicio guiado pausado podía quedar relegado al recorrido inferior.
+
+`study-recommendation.ts` centraliza ahora esas decisiones sin mutar evidencia ni permisos. Usa tiempo habitual o ajuste local de hoy; conserva pendientes y refuerzos prioritarios, recupera el borrador guiado del bloque activo y descarta punteros completados. El recorrido opcional muestra explícitamente su duración completa. Los límites de validez pedagógica y de sincronización señalados en esta auditoría se mantienen: es una recomendación explicable mediante reglas, no una evaluación estadística de dominio.

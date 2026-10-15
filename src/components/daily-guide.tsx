@@ -13,6 +13,7 @@ export function DailyGuide({
   onClass,
   onGame,
   navigate,
+  availableMinutes = data.profile.daily_minutes,
 }: {
   data: Snapshot;
   onRead: (doc: Document) => void;
@@ -20,6 +21,7 @@ export function DailyGuide({
   onClass: (id: string) => void;
   onGame: (seed: string) => void;
   navigate: (view: string) => void;
+  availableMinutes?: number;
 }) {
   const [stories, setStories] = useState<NewsStory[]>([]);
   const [answer, setAnswer] = useState('');
@@ -78,9 +80,22 @@ export function DailyGuide({
         </div>
         <span className="pill neutral">
           <Clock3 size={15} />
-          {guide.minutes} min · {guide.journey.level}
+          {guide.minutes} min · {pt ? 'percurso completo' : 'full route'} · {guide.journey.level}
         </span>
       </div>
+      {availableMinutes < guide.minutes && (
+        <StudyCopy
+          as="small"
+          native={
+            pt
+              ? `Hoje você escolheu ${availableMinutes} minutos. Explore apenas um passo; este percurso completo é opcional e pode continuar em outro dia.`
+              : `You chose ${availableMinutes} minutes today. Explore just one step; this full route is optional and can continue another day.`
+          }
+        >
+          Hoy elegiste {availableMinutes} minutos. Explorá un solo paso; este recorrido completo es
+          opcional y puede seguir otro día.
+        </StudyCopy>
+      )}
       {guide.journey.repairs.length > 0 && (
         <StudyCopy
           as="p"

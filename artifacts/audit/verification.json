@@ -1,20 +1,24 @@
 {
-  "recordedAtUTC": "2026-10-15T02:59:39.060181+00:00",
+  "recordedAtUTC": "2026-10-15T12:14:13.981719+00:00",
   "branch": "audit/integral-2026-10-14",
-  "build": "2026-10-15T02:55:59.866Z",
+  "build": "2026-10-15T12:06:24.060Z",
   "published": false,
   "checks": [
     {
       "name": "unit",
-      "passed": 94
+      "passed": 102
     },
     {
-      "name": "pages-wide",
-      "passed": 54
+      "name": "recommendation-pt-same-eight-cases",
+      "passed": 8
     },
     {
-      "name": "pages-final",
-      "passed": 20
+      "name": "pages-followup-regression",
+      "passed": 22
+    },
+    {
+      "name": "pages-study-time-final",
+      "passed": 4
     },
     {
       "name": "node-e2e",
@@ -56,6 +60,8 @@
     "artifacts/audit/after/studio-pt-375.png",
     "artifacts/audit/after/studio-pt-390.png",
     "artifacts/audit/after/studio-pt-768.png",
+    "artifacts/audit/after/time-en-390.png",
+    "artifacts/audit/after/time-pt-390.png",
     "artifacts/audit/before/en-1440.png",
     "artifacts/audit/before/en-375.png",
     "artifacts/audit/before/en-390.png",
@@ -65,5 +71,27 @@
     "artifacts/audit/before/pt-390.png",
     "artifacts/audit/before/pt-768.png"
   ],
-  "note": "The 54-case regression preceded the last oral/calendar integration. All 20 affected browser cases were rerun afterward; these are overlapping cases, not 74 unique browser tests."
+  "note": "Time-aware follow-up: 22 regression cases passed, followed by 4 study-time cases, three overlapping. There are 23 distinct pages cases in this follow-up; the full historical 54-case suite was not repeated. Eight recommendation cases also passed in PT configuration; these are the same eight included in the 102 project unit tests.",
+  "historical": {
+    "build": "2026-10-15T02:55:59.866Z",
+    "checks": [
+      {
+        "name": "unit",
+        "passed": 94
+      },
+      {
+        "name": "pages-wide",
+        "passed": 54
+      },
+      {
+        "name": "pages-final",
+        "passed": 20
+      },
+      {
+        "name": "node-e2e",
+        "passed": 1
+      }
+    ],
+    "note": "The 54-case regression preceded the last oral/calendar integration. All 20 affected browser cases were rerun afterward; these are overlapping cases, not 74 unique browser tests."
+  }
 }

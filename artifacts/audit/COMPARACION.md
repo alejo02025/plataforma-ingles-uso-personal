@@ -16,5 +16,6 @@ También se capturaron 375 y 768 px para ambos espacios. Los estados siguientes 
 - [Actividad contextual inglesa](after/routine-mobile-en.png) · [portuguesa](after/routine-mobile-pt.png).
 - [Práctica oral inglesa](after/oral-en-390.png) · [portuguesa](after/oral-pt-390.png).
 - [Tema oscuro inglés](after/en-dark-1440.png) · [portugués](after/pt-dark-1440.png).
+- [Recomendación para una pausa de cinco minutos, inglés](after/time-en-390.png) · [portugués](after/time-pt-390.png). Son estados posteriores adicionales; el tiempo habitual y los requisitos del curso se conservan.
 
 Las mediciones y las pruebas realizadas están en [RESULTADOS_QA](../../RESULTADOS_QA.md). Una captura no demuestra corrección pedagógica ni certifica accesibilidad.

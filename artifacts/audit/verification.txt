@@ -88,3 +88,172 @@ pages-final
 node-e2e
   ✓  1 tests/e2e/journey.spec.ts:4:1 › diagnóstico retomable, lectura, vocabulario, PDF, calendario y tema persistentes (12.8s)
   1 passed (14.1s)
+
+
+Time-aware recommendation follow-up; build 2026-10-15T12:06:24.060Z; not published.
+
+unit-102
+✔ Expanded builder verbs remain separate from graded class banks and every selected form is complete (1088.078433ms)
+✔ Added English irregular and spelling-sensitive forms have correct Spanish equivalents (0.512802ms)
+✔ Added Portuguese AR, ER and IR models preserve orthography, irregular stems and participles (0.485451ms)
+✔ Every CEFR stage contains progressively different Portuguese reading, grammar, writing and speaking practices (1.658497ms)
+✔ Legacy starter tasks cannot bypass the connected course or unlock a future level (59.612548ms)
+✔ A stale device cannot move the CEFR route back after an advance (1.133647ms)
+✔ A2 is the English entry point, mistakes do not unlock the next class, and the API rejects locked levels (62.238482ms)
+✔ Block boundaries require real reading, vocabulary and writing in the block window; classes cannot substitute for reading (2.486144ms)
+✔ A previous-day reading is resumed with its original ID; update migrations keep drafts and completed checkpoints (48.173901ms)
+✔ An older backup gains the new table and a stale device does not remove course checkpoints (2.681699ms)
+✔ A full level unlocks only after every class block has cross-section evidence, and a completed checkpoint keeps the level after later catalog updates (12.945135ms)
+✔ Recent reading failures pause new classes everywhere, preserve earned checkpoints, and clear after a successful reading (0.872854ms)
+✔ PDF checks feed the same reading reinforcement, and an advanced optional reading does not falsely block an elementary learner (0.37858ms)
+✔ An English level change aligns untouched daily tasks while preserving an active reading and its draft (16.085985ms)
+✔ streaks count distinct days of saved practice, preserve yesterday until today ends, and restart after a gap (7.435338ms)
+✔ all-history streaks cross month, year and leap-day boundaries and award past milestones after pauses (1.860643ms)
+✔ saved words and session timers do not create a streak; failed reviews and genuine PDF answers do, in Argentina time (60.768679ms)
+✔ class badges count passed unique lessons and stored block/level checkpoints; rewards never bypass course gates (3.872022ms)
+✔ future, malformed and unfinished evidence does not light today or award achievements (4.692327ms)
+✔ Trash keeps a PDF, source references, reading progress and tutor history intact for restoration (65.057032ms)
+✔ a stale second device cannot bring a trashed PDF back, and a later restore keeps both devices history (1.600531ms)
+✔ observed accuracy excludes self-ratings, aided attempts and unscored writing without conflating effort with mastery (2.858916ms)
+✔ weekly records use Argentina study days, exclude future dates and do not treat saved words as completed study days (16.420058ms)
+✔ oral practice distinguishes recordings from scored synthetic listening and ignores helped scores (7.840418ms)
+✔ Sentence models distinguish auxiliaries, be, Brazilian future and formal future without inventing a grade (11.338365ms)
+✔ Word help gives curated Spanish support, loads the bundled dictionary and admits missing entries (55.392322ms)
+✔ Game drafts retain attempts and hints, reject malformed selections, and clear only the completed mode (15.624981ms)
+✔ Word Trail counts duplicate letters once and preserves accents (2.749852ms)
+✔ All games have solvable, deterministic rounds and match choices contain the correct word (3.013438ms)
+✔ Game saves are scored from the puzzle, idempotent and appear in real progress without changing the daily plan or spaced reviews (114.799385ms)
+✔ Recall categories reflect the last self rating and need three consecutive known ratings for strong (2.513531ms)
+✔ Hints give an initial letter or opening word, and everyday examples hide the target word (0.620284ms)
+✔ New game editions follow the active vocabulary band while legacy puzzles stay reproducible (3.915727ms)
+✔ fechas de Buenos Aires y repetición espaciada sin evaluar MCER por flashcards (24.717255ms)
+✔ diagnóstico parcial, estimación conservadora y persistencia al reabrir la base (61.863798ms)
+✔ lectura: checkpoints, resultado validado e idempotente, errores y tiempo real (20.950082ms)
+✔ vocabulario sin duplicados, historial y prevención de repaso duplicado (11.031844ms)
+✔ importación real de PDF, archivo privado y resumen sin nota inventada (3680.261407ms)
+✔ plan persistente, 5/40 minutos y adaptación al error registrado (19.563092ms)
+✔ retomar una actividad del día anterior conserva su sesión y borrador (19.166926ms)
+✔ contrato IA: validación, correcciones persistentes y preguntas de PDF con proveedor simulado (140.780604ms)
+✔ IA sin credencial falla de manera explícita sin guardar correcciones falsas (16.595392ms)
+✔ Both class catalogs cover A1–C2 with original explanations, spoken models and unambiguous choices (62.738019ms)
+✔ Class attempts are graded from the catalog, save Spanish corrections, and preserve daily plans and open practice without a fake grade (111.925272ms)
+✔ English migration preserves learner history, drafts and custom definitions on repeated startup (16.249262ms)
+✔ greetings change with the local hour, including afternoon and evening (0.89008ms)
+✔ momentum rises from saved practice, declines on completed inactive days, and preserves day details (44.006585ms)
+✔ recorded oral practice contributes only its technical duration and a saved event to the habit graph (8.60561ms)
+✔ listening answers are recomputed, assisted practice is separate, and repeated IDs retain the original responses (51.076792ms)
+✔ recordings preserve text metadata in existing backups, remain unassessed and never become class scores (16.624017ms)
+✔ oral tasks have original contextual progression in both languages and specific Spanish feedback (0.5179ms)
+✔ Placement uses context, covers skills evenly and does not skip weaker bands (EN) (9.222559ms)
+✔ A completed historical sample retains its original band rule; imports do not inflate scores (EN) (1.197333ms)
+✔ Placement uses context, covers skills evenly and does not skip weaker bands (PT) (26.763637ms)
+✔ A completed historical sample retains its original band rule; imports do not inflate scores (PT) (3.643357ms)
+✔ All CEFR starters have native choices, Spanish feedback and stable sentence blocks (EN) (9.307637ms)
+✔ All CEFR starters have native choices, Spanish feedback and stable sentence blocks (PT) (6.056742ms)
+✔ Starters save once, reject locked levels and integrate with reading/vocabulary/classes/writing in one block (216.729906ms)
+✔ Objective scores are recomputed, mistakes retained, and assisted practice cannot clear independent evidence (326.775943ms)
+✔ A paused sentence keeps its selected blocks and checked first answer through a reload (5.234133ms)
+✔ Contextual edition 2 has six valid varied exercises per session (EN) (4.126575ms)
+✔ Contextual edition 2 has six valid varied exercises per session (PT) (2.066142ms)
+✔ Edition 2 stores variant, enforces objective answers and preserves edition 1 evidence (61.443315ms)
+✔ Changing activity preserves an unrelated draft and resumes legacy content reproducibly (1.483885ms)
+✔ English builder places auxiliaries and irregular participles correctly across advanced tense families (2.245051ms)
+✔ Portuguese builder distinguishes personal infinitive from subjunctive and preserves irregular forms and Spanish explanations (1.107057ms)
+✔ Every builder choice supplies all sentence forms and keeps legacy course models unchanged (283.044627ms)
+✔ All class explanations, tips and answer rationales have authored native support (EN) (67.072038ms)
+✔ Level objectives and all grammar/tense reference guidance have native support (EN) (0.574706ms)
+✔ All class explanations, tips and answer rationales have authored native support (PT) (13.6057ms)
+✔ Level objectives and all grammar/tense reference guidance have native support (PT) (1.640781ms)
+✔ Combined JSX copy translates numbers, CEFR bands, punctuation and counted fragments (3.696917ms)
+✔ Templates translate known dynamic skills and optional aids but preserve quoted meanings (2.105691ms)
+✔ Unknown prose is never labeled translated by catch-all placeholders or partial word matches (6.659089ms)
+✔ StudyCopy keeps the native instruction first and Spanish support below in safe markup (7.754448ms)
+✔ The 24 diagnostic prompts and every review choice have Spanish support (EN) (4.308168ms)
+✔ The 24 diagnostic prompts and every review choice have Spanish support (PT) (0.945074ms)
+✔ a five-minute break selects a pending short practice while a full session keeps the next unlocked class (41.594022ms)
+✔ unfinished reading stays first even when the budget is shorter and vocabulary is due (30.597201ms)
+✔ a completed resume pointer does not send the learner back to the same exercise (16.955285ms)
+✔ repeated grammar errors keep their repair ahead of short practice, saved drafts and word reviews (16.369312ms)
+✔ due vocabulary remains ahead of an available class in both short and long sessions (13.692972ms)
+✔ a valid paused routine resumes its own mode instead of switching to the next class (9.227347ms)
+✔ a completed draft or a draft from another block or level never reopens through the main recommendation (9.93951ms)
+✔ daily budget keys expire by study day and malformed values fall back to the profile without mutation (8.525399ms)
+✔ sincronización combina cambios independientes de dos dispositivos y mantiene las finalizaciones (15.922059ms)
+✔ dos intentos offline conservan sus resultados y referencias al combinarse (0.701126ms)
+✔ el respaldo rechaza tablas y valores no compatibles sin ejecutar SQL remoto (0.457058ms)
+✔ los planes reemplazados después del diagnóstico no reaparecen desde un dispositivo atrasado (0.39862ms)
+✔ study spaces refuse cross-language backups and merges while preserving legacy English backups (0.432482ms)
+✔ PDF questions keep an unambiguous source and do not assign a score to open answers (12.066833ms)
+✔ question retrieval returns the relevant paragraph with the original page reference (0.566944ms)
+✔ PDF chunking keeps page numbers for each section (0.91576ms)
+✔ daily words are stable for the day and organized into practical categories (0.242525ms)
+✔ the local reply guard catches names introduced outside the document (2.130319ms)
+✔ factual local-model replies quote the source rather than repeat unsupported story details (0.771742ms)
+✔ Offline en verbs contain thousands of distinct sense-aligned entries (100.054394ms)
+✔ Offline pt verbs contain thousands of distinct sense-aligned entries (55.751298ms)
+✔ Tense reference covers twelve English combinations and Portuguese simple and compound moods (0.582117ms)
+✔ Voice history persists separately from PDFs and records real learner messages without an invented pronunciation grade (41.412848ms)
+✔ The AI tutor does not repeat fictional degrees or years of employment as real credentials (0.591121ms)
+✔ An echo or repetitive model reply becomes a labelled, well-formed practice prompt (1.251945ms)
+ℹ tests 102
+ℹ suites 0
+ℹ pass 102
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5798.696172
+
+recommendation-same-8-pt
+✔ a five-minute break selects a pending short practice while a full session keeps the next unlocked class (31.301731ms)
+✔ unfinished reading stays first even when the budget is shorter and vocabulary is due (13.488695ms)
+✔ a completed resume pointer does not send the learner back to the same exercise (11.483564ms)
+✔ repeated grammar errors keep their repair ahead of short practice, saved drafts and word reviews (11.001729ms)
+✔ due vocabulary remains ahead of an available class in both short and long sessions (13.026988ms)
+✔ a valid paused routine resumes its own mode instead of switching to the next class (12.088952ms)
+✔ a completed draft or a draft from another block or level never reopens through the main recommendation (13.192949ms)
+✔ daily budget keys expire by study day and malformed values fall back to the profile without mutation (11.512548ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 391.839895
+
+pages-22-regression
+[1/22] tests/pages/adaptive-path.spec.ts:8:3 › The flag, home and classroom share a reading reinforcement gate; Speaking is removed (EN)
+[2/22] tests/pages/adaptive-path.spec.ts:8:3 › The flag, home and classroom share a reading reinforcement gate; Speaking is removed (PT)
+[3/22] tests/pages/classes.spec.ts:8:3 › Connected course starts at A2, retains attempts and requires cross-section evidence (EN)
+[4/22] tests/pages/classes.spec.ts:8:3 › Connected course starts at A1, retains attempts and requires cross-section evidence (PT)
+[5/22] tests/pages/daily-guide.spec.ts:3:3 › Suggested Home route is optional, opens exact activities and saves news reflection (EN)
+[6/22] tests/pages/daily-guide.spec.ts:3:3 › Suggested Home route is optional, opens exact activities and saves news reflection (PT)
+[7/22] tests/pages/home-routine.spec.ts:4:3 › Contextual routine moves forward, varies retries and preserves separate paused drafts (EN)
+[8/22] tests/pages/home-routine.spec.ts:4:3 › Contextual routine moves forward, varies retries and preserves separate paused drafts (PT)
+[9/22] tests/pages/integral-audit.spec.ts:126:3 › Integral: new English A2 across four screen widths
+[10/22] tests/pages/integral-audit.spec.ts:126:3 › Integral: new Portuguese A1 across four screen widths
+[11/22] tests/pages/integral-audit.spec.ts:173:3 › Integral: English B1 with repeated grammar errors
+[12/22] tests/pages/integral-audit.spec.ts:173:3 › Integral: English B2 preserves prior checkpoints
+[13/22] tests/pages/integral-audit.spec.ts:173:3 › Integral: Portuguese A2 preserves prior checkpoints
+[14/22] tests/pages/integral-audit.spec.ts:191:1 › Integral: multiple PDFs, deletion, restoration and language isolation
+[15/22] tests/pages/integral-audit.spec.ts:229:1 › Integral: failed GitHub authorization retains local data and forgets credentials
+[16/22] tests/pages/integral-audit.spec.ts:249:3 › Integral: unfinished EN sentence resumes offline without losing its tiles
+[17/22] tests/pages/integral-audit.spec.ts:249:3 › Integral: unfinished PT sentence resumes offline without losing its tiles
+[18/22] tests/pages/integral-audit.spec.ts:276:3 › Integral: EN light and dark text tokens meet normal-text contrast
+[19/22] tests/pages/integral-audit.spec.ts:276:3 › Integral: PT light and dark text tokens meet normal-text contrast
+[20/22] tests/pages/study-time.spec.ts:26:3 › Today's time changes the recommendation, preserves a paused exercise offline and isolates profiles (EN)
+[21/22] tests/pages/study-time.spec.ts:26:3 › Today's time changes the recommendation, preserves a paused exercise offline and isolates profiles (PT)
+[22/22] tests/pages/study-time.spec.ts:113:1 › a malformed daily preference falls back safely; a failed write shows feedback without disabling Start
+  22 passed (1.7m)
+
+pages-4-time-final (3 overlap with previous 22)
+[1/4] tests/pages/study-time.spec.ts:26:3 › Today's time changes the recommendation, preserves a paused exercise offline and isolates profiles (EN)
+[2/4] tests/pages/study-time.spec.ts:26:3 › Today's time changes the recommendation, preserves a paused exercise offline and isolates profiles (PT)
+[3/4] tests/pages/study-time.spec.ts:114:1 › a malformed daily preference falls back safely; a failed write shows feedback without disabling Start
+[4/4] tests/pages/study-time.spec.ts:143:1 › the daily time override expires on the next study day without changing the usual study time
+  4 passed (13.1s)
+
+node-e2e-followup
+  ✓  1 tests/e2e/journey.spec.ts:4:1 › diagnóstico retomable, lectura, vocabulario, PDF, calendario y tema persistentes (11.3s)
+  1 passed (12.5s)

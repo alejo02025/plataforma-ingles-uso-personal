@@ -432,7 +432,10 @@ export function HomeRoutine({
           key={session.id}
           initial={session}
           refresh={refresh}
-          close={() => setSession(null)}
+          close={() => {
+            setSession(null);
+            window.dispatchEvent(new Event('english-os:routine-paused'));
+          }}
           onAdvance={advance}
           nextLabel={
             following

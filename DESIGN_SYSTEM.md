@@ -28,3 +28,5 @@ Escala implementada: 4/8/12/16/24/32 px, radios 10/16/22 px y títulos responsiv
 Las mediciones, capturas y límites reales se registran en `RESULTADOS_QA.md`; este documento describe el sistema y sus reglas, no declara una certificación de accesibilidad.
 
 Los indicadores de etapa de clase usan texto `var(--surface)` sobre `var(--green)`; el tema oscuro no conserva texto blanco sobre verde claro. La copia secundaria conserva un tamaño legible, `lang="es"` y espacio separado. Las traducciones de opciones de clase aparecen después de confirmar la respuesta; la teoría y la explicación bilingües siguen disponibles.
+
+El ajuste «Time for today / Tempo para hoje» permanece en un detalle cerrado debajo de la acción principal. Usa controles nativos con foco visible y área mínima de 44 px; admite 5/20/40 minutos. Una nota bilingüe distingue duración estimada completa y tramo recomendado cuando no alcanza el tiempo. El inicio conserva una sola acción primaria; el selector no genera tarjetas o estadísticas adicionales.

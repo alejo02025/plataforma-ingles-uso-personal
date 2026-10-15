@@ -1,6 +1,6 @@
 # Resultados de QA
 
-Fecha de cierre: 15/10/2026. Rama `audit/integral-2026-10-14`. Build estático final `2026-10-15T02:55:59.866Z`. **No publicado ni fusionado.** Se usaron perfiles y bases temporales, no datos personales existentes.
+Fecha de cierre: 15/10/2026. Rama `audit/integral-2026-10-14`. Build estático final `2026-10-15T12:06:24.060Z`. **No publicado ni fusionado.** Se usaron perfiles y bases temporales, no datos personales existentes.
 
 ## Informes y evidencia
 
@@ -8,16 +8,31 @@ Fecha de cierre: 15/10/2026. Rama `audit/integral-2026-10-14`. Build estático f
 
 ## Comprobaciones ejecutadas
 
-| Comando / ámbito                                                                     | Resultado observado                                            |
-| ------------------------------------------------------------------------------------ | -------------------------------------------------------------- |
-| `npm test` tras integrar duración oral en el gráfico                                 | **94/94** unitarias aprobadas, sin omitidas                    |
-| `npm run typecheck`                                                                  | Aprobado; además ambos builds ejecutaron TypeScript            |
-| `npm run build:pages`                                                                | Exportaciones English OS y Português OS aprobadas              |
-| Regresión amplia `npm run test:pages -- --timeout=30000`                             | **54/54** casos aprobados en Chromium                          |
-| Revisión final de calendario/gráfico oral, clases, perfiles, offline y actualización | **20/20** casos afectados aprobados tras la última integración |
-| `npm run build` y `npm run test:e2e`                                                 | Build Node aprobado y **1/1** recorrido con servidor aprobado  |
+| Comando / ámbito                                                                      | Resultado observado                                                |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| `npm test` tras integrar recomendación por tiempo                                     | **102/102** unitarias aprobadas, sin omitidas                      |
+| `npm run typecheck`                                                                   | Aprobado; además ambos builds ejecutaron TypeScript                |
+| `npm run build:pages`                                                                 | Exportaciones English OS y Português OS aprobadas                  |
+| Regresión amplia previa `npm run test:pages -- --timeout=30000`                       | **54/54** casos aprobados en Chromium                              |
+| Revisión previa de calendario/gráfico oral, clases, perfiles, offline y actualización | **20/20** casos afectados aprobados tras integrar el registro oral |
+| `npm run build` y `npm run test:e2e`                                                  | Build Node aprobado y **1/1** recorrido con servidor aprobado      |
 
-La regresión de 54 casos precedió al último cambio de integración del registro oral. Después se repitieron los 20 casos afectados sobre la compilación final. Son pruebas solapadas: **no se suman como 74 casos diferentes**. Las capturas de clases se ampliaron en esa última revisión.
+La regresión de 54 casos y los 20 casos posteriores pertenecen a la revisión anterior (`2026-10-15T02:55:59.866Z`). Son pruebas solapadas: **no se suman como 74 casos diferentes**. El seguimiento por tiempo disponible se verifica por separado más abajo; no se afirma haber repetido toda la suite de páginas en ese seguimiento.
+
+## Seguimiento: tiempo disponible y actividad pausada
+
+En el build `2026-10-15T12:06:24.060Z`:
+
+- **102/102** unitarias del proyecto. Las ocho pruebas nuevas del motor también pasaron con `NEXT_PUBLIC_STUDY_LANGUAGE=pt`; no son ocho casos distintos adicionales.
+- **22/22** recorridos Chromium de clases, guía diaria, refuerzos, rutina y auditoría integral. Se repitieron después los **4/4** casos de `study-time.spec.ts`, incorporando el cambio de día: tres se solapan con los 22 anteriores; **23 casos de páginas distintos** en este seguimiento.
+- TypeScript, exportaciones EN/PT, build Node y **1/1** recorrido de servidor aprobados.
+- Nueva captura de inicio por idioma y ancho, más dos estados de pausa corta; el total conservado es 44 capturas. Mediciones locales posteriores regeneradas sobre este build.
+
+Se ejecutó: elegir cinco minutos → contestar la primera pregunta → pausar → cambiar a veinte minutos → modificar el tiempo del otro perfil → volver → recargar sin conexión → retomar la segunda pregunta → terminar → comprobar que el inicio ofrece la clase y no repite la rutina completada. Ambos idiomas conservaron respuestas y preferencias independientes.
+
+Se verificaron preferencia corrupta, fallo simulado de escritura en almacenamiento y cambio al siguiente día de estudio. El ajuste de ayer no se aplica al nuevo día; la lectura pendiente mantiene su prioridad. Ninguna sugerencia modifica el plan existente ni desbloquea clases.
+
+En las primeras ejecuciones se corrigieron dos supuestos de prueba: el selector inexistente `.lesson-detail` y esperar una clase nueva cuando al cambiar de día corresponde retomar lectura pendiente. Una ejecución simultánea de las suites Node y estática produjo colisión en el directorio compartido `test-results`; ambas se repitieron por separado y pasaron. Un intento adicional no llegó a ejecutar pruebas porque seguía abierto el servidor temporal de capturas; se detuvo ese proceso propio antes de repetir. Esas ejecuciones no cuentan como aprobadas.
 
 ## Matriz solicitada
 
@@ -46,11 +61,11 @@ El gráfico y el calendario muestran la grabación y la escucha como registros d
 
 ## Pantallas, accesibilidad y rendimiento local
 
-- EN/PT a **375, 390, 768 y 1440 px**, inicio, PDF y primera actividad de clase; móvil y escritorio en rutina/oral. Se conservaron **42 capturas** entre antes y después.
+- EN/PT a **375, 390, 768 y 1440 px**, inicio, PDF y primera actividad de clase; móvil y escritorio en rutina/oral. Se conservaron **44 capturas** entre antes y después.
 - Ocho capturas iniciales sobre los archivos publicados existentes, ocho posteriores de inicio en la misma situación y estados adicionales de clases, PDF, rutina, oral y temas oscuros. Las capturas adicionales de módulos no tienen un «antes» que no se haya tomado.
 - Ausencia de overflow horizontal y excepciones JavaScript en los recorridos que lo verifican; nombres de controles, tabulación básica, ayuda por teclado, selección/retoma y formularios ejercitados. No es una certificación WCAG.
 - Contraste de texto principal/secundario contra superficie medido en estilos computados EN/PT claro/oscuro: umbral **4,5:1** superado. No se extrapola a todas las imágenes, estados o combinaciones posibles.
-- Baseline local: ready visual 678–823 ms, DOMContentLoaded 38–114 ms, load 116–182 ms. Después: ready **759–910 ms**, DOMContentLoaded **37–88 ms**, load **144–211 ms**. Ready incluye espera visual/captura. Son muestras locales sin throttling, no Lighthouse, LCP, Core Web Vitals ni mediciones de teléfono físico; no se declara una mejora de rendimiento a partir de ellas.
+- Baseline local: ready visual 678–823 ms, DOMContentLoaded 38–114 ms, load 116–182 ms. Después: ready **740–865 ms**, DOMContentLoaded **36–70 ms**, load **133–232 ms**. Ready incluye espera visual/captura. Son muestras locales sin throttling, no Lighthouse, LCP, Core Web Vitals ni mediciones de teléfono físico; no se declara una mejora de rendimiento a partir de ellas.
 
 La primera métrica provisional de nombres usó `innerText` y contó cuatro controles dentro de detalles cerrados. Inspección confirmó nombres existentes; la medición posterior usa `textContent` y da cero controles sin texto/aria-label/title. No se presenta el conteo inicial como un defecto accesible confirmado.
 

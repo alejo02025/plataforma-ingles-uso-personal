@@ -4,8 +4,15 @@ import { HomeRoutine } from './home-routine';
 import { DailyRewards } from './daily-rewards';
 import { FirstSteps } from './first-steps';
 import { studyStorage } from '@/lib/workspace';
+import { readRoutineDraft, type RoutineDraft } from '@/lib/browser/routine-draft';
 import { isPortuguese } from '@/lib/workspace';
-import { learningJourney, lessonRequirements } from '@/lib/course-route';
+import { learningJourney } from '@/lib/course-route';
+import {
+  dailyBudgetKey,
+  studyBudget,
+  studyBudgets,
+  studyRecommendation,
+} from '@/lib/study-recommendation';
 import { evidenceSummary } from '@/lib/evidence-summary';
 import { DailyGuide } from './daily-guide';
 import { useEffect, useState } from 'react';
@@ -107,6 +114,27 @@ export function Dashboard({
 }) {
   const [greeting, setGreeting] = useState('Hello');
   const [welcome, setWelcome] = useState(false);
+  const [todayBudget, setTodayBudget] = useState<{ day: string; minutes: number } | null>(null);
+  const [budgetError, setBudgetError] = useState(false);
+  useEffect(() => {
+    try {
+      const stored = JSON.parse(studyStorage.getItem(dailyBudgetKey(data.day)) || 'null');
+      setTodayBudget({ day: data.day, minutes: studyBudget(stored, data.profile.daily_minutes) });
+      setBudgetError(false);
+    } catch {
+      setTodayBudget(null);
+      setBudgetError(true);
+    }
+  }, [data.day, data.profile.daily_minutes]);
+  function changeBudget(minutes: number) {
+    setTodayBudget({ day: data.day, minutes });
+    try {
+      studyStorage.setItem(dailyBudgetKey(data.day), JSON.stringify(minutes));
+      setBudgetError(false);
+    } catch {
+      setBudgetError(true);
+    }
+  }
   useEffect(() => {
     try {
       setWelcome(!studyStorage.getItem('first-steps:v1') && !data.results.length);
@@ -131,95 +159,32 @@ export function Dashboard({
   const pt = isPortuguese;
   const journey = learningJourney(data);
   const summary = evidenceSummary(data);
-  const pending = data.backlog?.find((a) => !a.completed_at) || data.resumeActivity;
-  const repair = journey.repairs[0];
-  const nextClass = journey.nextLesson;
-  const canOpenClass = nextClass && !lessonRequirements(data, nextClass).some((r) => !r.done);
-  const defaultMode = journey.tasks.find((t) => !t.done)?.id;
-  const mode =
-    defaultMode === 'reading' ? 'reading' : defaultMode === 'vocabulary' ? 'vocabulary' : 'grammar';
-  const recommendation = pending
-    ? {
-        title: pending.title,
-        reason: pt
-          ? 'Retome de onde parou. Suas respostas anteriores foram preservadas.'
-          : 'Pick up where you stopped. Your previous answers have been preserved.',
-        es: 'Retomá desde donde dejaste. Tus respuestas anteriores están guardadas.',
-        minutes: pending.minutes,
-        start: () => onStart(pending),
+  const [pausedRoutine, setPausedRoutine] = useState<RoutineDraft | null>(null);
+  useEffect(() => {
+    const readPaused = () => {
+      try {
+        setPausedRoutine(readRoutineDraft({ level: journey.level, block: journey.block }) || null);
+      } catch {
+        setPausedRoutine(null);
       }
-    : repair
-      ? {
-          title: pt ? 'Reforce o que precisa de atenção' : 'Strengthen what needs attention',
-          reason: pt
-            ? 'Seus resultados recentes indicam que vale rever este ponto antes de uma aula nova.'
-            : 'Your recent results suggest revisiting this point before a new class.',
-          es: 'Tus resultados recientes indican que conviene reforzar este punto antes de una clase nueva.',
-          minutes: 5,
-          start: () =>
-            repair.lessonId
-              ? onClass(repair.lessonId)
-              : repair.activity
-                ? onStart(repair.activity)
-                : repair.view === 'Home'
-                  ? window.dispatchEvent(
-                      new CustomEvent('english-os:routine-start', {
-                        detail: {
-                          mode: repair.id.includes('reading')
-                            ? 'reading'
-                            : repair.id.includes('vocabulary')
-                              ? 'vocabulary'
-                              : 'grammar',
-                        },
-                      }),
-                    )
-                  : navigate(repair.view),
-        }
-      : summary.due
-        ? {
-            title: pt ? 'Recupere palavras da memória' : 'Recall your saved words',
-            reason: pt
-              ? `${summary.due} palavras estão prontas para revisão. Tente lembrar antes de mostrar a resposta.`
-              : `${summary.due} words are ready for review. Try to recall them before revealing the answer.`,
-            es: `${summary.due} palabras necesitan repaso. Intentá recordarlas antes de ver la respuesta.`,
-            minutes: 4,
-            start: () => navigate('Vocabulary'),
-          }
-        : canOpenClass
-          ? {
-              title: nextClass.title,
-              reason: pt
-                ? 'Esta é a próxima aula disponível no seu percurso. Pratique uma ideia em uma situação real.'
-                : 'This is the next available class on your path. Practise one idea in a real situation.',
-              es: 'Es la próxima clase disponible de tu recorrido. Practicá una idea en una situación real.',
-              minutes: 8,
-              start: () => onClass(nextClass.id),
-            }
-          : defaultMode === 'writing'
-            ? {
-                title: pt ? 'Use uma ideia em um texto seu' : 'Use an idea in your own writing',
-                reason: pt
-                  ? 'A próxima prática do bloco é expressar uma ideia com suas palavras. O texto fica no histórico, sem nota automática de qualidade.'
-                  : 'The next practice in this block is to express an idea in your own words. Your text stays in history without an automatic quality score.',
-                es: 'La próxima práctica del bloque es expresar una idea con tus palabras. El texto queda en el historial, sin una nota automática de calidad.',
-                minutes: 5,
-                start: () =>
-                  window.dispatchEvent(
-                    new CustomEvent('english-os:routine-start', { detail: { mode: 'writing' } }),
-                  ),
-              }
-            : {
-                title: pt ? 'Uma atividade curta, com contexto' : 'A short activity, with context',
-                reason: pt
-                  ? 'Conecte palavras, frases e compreensão. O percurso abaixo mostra o próximo passo do seu bloco.'
-                  : 'Connect words, sentences and understanding. The path below shows the next step in your block.',
-                es: 'Conectá palabras, oraciones y comprensión. El recorrido de abajo muestra el próximo paso del bloque.',
-                minutes: 5,
-                start: () =>
-                  window.dispatchEvent(
-                    new CustomEvent('english-os:routine-start', { detail: { mode } }),
-                  ),
-              };
+    };
+    readPaused();
+    window.addEventListener('english-os:routine-paused', readPaused);
+    return () => window.removeEventListener('english-os:routine-paused', readPaused);
+  }, [data, journey.level, journey.block]);
+  const budget =
+    todayBudget?.day === data.day ? todayBudget.minutes : studyBudget(data.profile.daily_minutes);
+  const recommendation = studyRecommendation(data, budget, pausedRoutine);
+  function startRecommendation() {
+    const action = recommendation.action;
+    if (action.kind === 'activity') onStart(action.activity);
+    else if (action.kind === 'class') onClass(action.id);
+    else if (action.kind === 'review') navigate('Vocabulary');
+    else
+      window.dispatchEvent(
+        new CustomEvent('english-os:routine-start', { detail: { mode: action.mode } }),
+      );
+  }
   return (
     <div className="audit-dashboard">
       <Heading
@@ -267,15 +232,73 @@ export function Dashboard({
           <span className="eyebrow">{pt ? 'CONTINUAR APRENDENDO' : 'CONTINUE LEARNING'}</span>
           <span className="pill neutral">
             <Clock3 size={14} />
-            {recommendation.minutes} min
+            {recommendation.sessionMinutes} min {pt ? 'aprox.' : 'approx.'}
           </span>
         </div>
         <h2>{recommendation.title}</h2>
         <StudyCopy native={recommendation.reason}>{recommendation.es}</StudyCopy>
-        <button className="button" onClick={recommendation.start}>
+        {recommendation.partial && (
+          <StudyCopy
+            as="small"
+            className="audit-session-note"
+            native={
+              pt
+                ? `A atividade completa leva cerca de ${recommendation.minutes} minutos. Hoje, dedique ${budget} minutos e retome depois; começar não conta como concluir.`
+                : `The full activity takes about ${recommendation.minutes} minutes. Spend ${budget} minutes today and resume later; starting does not count as completing.`
+            }
+          >
+            La actividad completa lleva aproximadamente {recommendation.minutes} minutos. Hoy dedicá{' '}
+            {budget} minutos y retomá después; empezar no cuenta como completar.
+          </StudyCopy>
+        )}
+        <button className="button" onClick={startRecommendation}>
           {pt ? 'Começar agora' : 'Start now'}
           <ArrowRight size={18} />
         </button>
+        <details className="audit-time-choice">
+          <summary>
+            {budget} min · {pt ? 'Tempo para hoje' : 'Time for today'}{' '}
+            <span lang="es">/ Tiempo para hoy</span>
+          </summary>
+          <label>
+            {pt ? 'Quanto tempo você tem hoje?' : 'How much time do you have today?'}
+            <small lang="es">¿Cuánto tiempo tenés hoy?</small>
+            <select
+              aria-label={pt ? 'Tempo para hoje' : 'Time for today'}
+              value={budget}
+              onChange={(event) => changeBudget(Number(event.target.value))}
+            >
+              {studyBudgets.map((minutes) => (
+                <option key={minutes} value={minutes}>
+                  {minutes} min
+                </option>
+              ))}
+            </select>
+          </label>
+          <StudyCopy
+            as="small"
+            native={
+              pt
+                ? 'Vale só para hoje, neste dispositivo. Não altera seu plano, suas respostas nem os requisitos das aulas.'
+                : 'Just for today, on this device. Your plan, answers and class requirements stay unchanged.'
+            }
+          >
+            Solo por hoy, en este dispositivo. Conserva el plan, tus respuestas y los requisitos de
+            las clases.
+          </StudyCopy>
+          {budgetError && (
+            <StudyCopy
+              as="small"
+              native={
+                pt
+                  ? 'Não foi possível salvar esta preferência. Ela vale enquanto esta tela estiver aberta.'
+                  : 'This preference could not be saved. It applies while this screen stays open.'
+              }
+            >
+              No se pudo guardar esta preferencia. Se aplica mientras esta pantalla siga abierta.
+            </StudyCopy>
+          )}
+        </details>
         <small className="audit-choice-note">
           {pt
             ? 'Uma recomendação, não uma obrigação. Você pode escolher outra atividade abaixo.'
@@ -435,6 +458,7 @@ export function Dashboard({
         <summary>{pt ? 'Outras ideias para explorar hoje' : 'More ideas to explore today'}</summary>
         <DailyGuide
           data={data}
+          availableMinutes={budget}
           onRead={onRead}
           onStart={onStart}
           onClass={onClass}
