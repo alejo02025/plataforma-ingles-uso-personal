@@ -201,20 +201,22 @@ export function EnglishApp() {
               ? 'progress'
               : 'today';
   const destinations = [
-    { area: 'today', target: 'Home', label: pt ? 'Hoje' : 'Today', icon: Home },
-    { area: 'classes', target: 'Classes', label: pt ? 'Aulas' : 'Classes', icon: BookOpen },
-    { area: 'review', target: 'Vocabulary', label: pt ? 'Revisão' : 'Review', icon: Languages },
+    { area: 'today', target: 'Home', label: pt ? 'Hoje' : 'Today', icon: Home, emoji: '☀️' },
+    { area: 'classes', target: 'Classes', label: pt ? 'Aulas' : 'Classes', icon: BookOpen, emoji: '📘' },
+    { area: 'review', target: 'Vocabulary', label: pt ? 'Revisão' : 'Review', icon: Languages, emoji: '🧠' },
     {
       area: 'library',
       target: 'PDF Studio',
       label: pt ? 'Biblioteca' : 'Library',
       icon: NotebookPen,
+      emoji: '📚',
     },
     {
       area: 'progress',
       target: 'Progress',
       label: pt ? 'Progresso' : 'Progress',
       icon: ChartNoAxesCombined,
+      emoji: '📈',
     },
   ];
   const groups: Record<string, { target: string; label: string }[]> = {
@@ -293,7 +295,7 @@ export function EnglishApp() {
               aria-current={area === d.area ? 'page' : undefined}
               onClick={() => void navigate(d.target)}
             >
-              <d.icon size={18} />
+              <span className="nav-emoji" aria-hidden="true">{d.emoji}</span>
               <span>{d.label}</span>
             </button>
           ))}
@@ -319,7 +321,10 @@ export function EnglishApp() {
         <div className="mobile-masthead">
           <Logo />
           <div className="masthead-controls">
-            <span className="active-language-indicator" aria-label={pt ? 'Idioma actual: Português' : 'Current language: English'}><span aria-hidden="true">{pt ? '🇧🇷' : '🇬🇧'}</span><span>{pt ? 'Português' : 'English'}</span></span>
+            <div className="mobile-language-switch" aria-label={pt ? 'Escolher idioma' : 'Choose language'}>
+              <SpaceLink language="en" />
+              <SpaceLink language="pt" />
+            </div>
           <button
             className="icon-button"
             aria-label={pt ? 'Ajustes' : 'Settings'}
@@ -354,6 +359,7 @@ export function EnglishApp() {
           </div>
           <header hidden={area === 'today' && !active} className="workspace-heading">
             <div className="workspace-title-row">
+              <span className="workspace-kicker" aria-hidden="true">{area === 'classes' ? '📘' : area === 'review' ? '🧠' : area === 'library' ? '📚' : area === 'progress' ? '📈' : '⚙️'}</span>
               {(area !== 'today' || active) && (
                 <h1>{active ? (pt ? 'Atividade' : 'Activity') : areaTitle}</h1>
               )}
@@ -481,7 +487,7 @@ export function EnglishApp() {
             aria-current={area === d.area ? 'page' : undefined}
             onClick={() => void navigate(d.target)}
           >
-            <d.icon size={20} />
+            <span className="bottom-emoji" aria-hidden="true">{d.emoji}</span>
             <span>{d.label}</span>
           </button>
         ))}
@@ -507,12 +513,8 @@ export function EnglishApp() {
 function Logo() {
   return (
     <div className="logo">
-      <span className="logo-mark" aria-hidden>
-        <ArrowUpRight size={19} />
-      </span>
-      <span>
-        {isPortuguese ? 'Português' : 'English'} <b>OS</b>
-      </span>
+      <span className="logo-mark" aria-hidden="true">✦</span>
+      <span className="logo-wordmark">lingua<span className="logo-dot">.</span><small>{isPortuguese ? 'PORTUGUÊS' : 'ENGLISH'}</small></span>
     </div>
   );
 }
