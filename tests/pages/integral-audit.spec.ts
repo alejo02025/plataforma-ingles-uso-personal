@@ -290,7 +290,7 @@ for (const pt of [false, true])
       await page
         .locator('html')
         .evaluate((el) => getComputedStyle(el).getPropertyValue('--bg').trim()),
-    ).toBe(pt ? '#f7f4ec' : '#f6f4ef');
+    ).toBe(pt ? '#fbfaf6' : '#f8f8fc');
     const measure = () =>
       page.evaluate(() => {
         const style = getComputedStyle(document.documentElement);

@@ -1,5 +1,6 @@
 'use client';
 import { StudyCopy, SpanishTranslation } from './study-copy';
+import { spanishCopy } from '@/lib/study-copy';
 
 import { useEffect, useRef, useState } from 'react';
 import {
@@ -222,11 +223,16 @@ export function Classes({
             <h2>
               {journey.nextLesson?.title || (isPortuguese ? 'Rever e aplicar' : 'Review and apply')}
             </h2>
-            <p>
+            <p lang={isPortuguese ? 'pt-BR' : 'en'}>
               {journey.nextLesson?.goal ||
                 (isPortuguese
                   ? 'Complete as práticas conectadas antes de avançar.'
                   : 'Complete the connected practice before moving on.')}
+            </p>
+            <p className="course-current-es" lang="es">
+              {journey.nextLesson?.goal && spanishCopy(journey.nextLesson.goal)
+                ? spanishCopy(journey.nextLesson.goal)
+                : 'Aprendé cómo se usa esta estructura, practicá y después aplicala a tu vida.'}
             </p>
             <button
               className="button"
@@ -235,6 +241,18 @@ export function Classes({
               {isPortuguese ? 'Abrir aula' : 'Open class'} <ArrowRight size={17} />
             </button>
           </div>
+          <section className="course-guide-shortcut">
+            <span className="course-guide-symbol" aria-hidden="true">🧩</span>
+            <div className="course-guide-copy">
+              <span className="course-guide-kicker">{isPortuguese ? 'GUIA DE GRAMÁTICA' : 'GRAMMAR MADE SIMPLE'}</span>
+              <h3>{isPortuguese ? 'Como formar frases' : 'How to build sentences'}</h3>
+              <p lang={isPortuguese ? 'pt-BR' : 'en'}>{isPortuguese ? 'Sujeito, verbo e complemento. Explore perguntas, negativas e todos os tempos.' : 'Subject, verb and complement. Explore questions, negatives and every tense.'}</p>
+              <p className="study-spanish" lang="es">Aprendé cómo se construyen las oraciones, elegí verbos y compará presente, pasado, futuro y otros tiempos.</p>
+            </div>
+            <button className="course-guide-action" onClick={() => navigate('Language help')}>
+              {isPortuguese ? 'Abrir guia' : 'Open guide'} <ArrowRight size={17}/>
+            </button>
+          </section>
           <h2 className="list-heading">
             {level} · {isPortuguese ? 'Bloco' : 'Block'} {block + 1}
           </h2>
@@ -244,19 +262,21 @@ export function Classes({
               const latest = history.findLast((r) => attempt(r)!.lessonId === item.id);
               return (
                 <button
-                  className={`class-card ${pending.length ? 'is-locked' : ''}`}
+                  className={`class-card ${pending.length ? 'is-locked' : ''} ${latest ? 'is-complete' : ''}`}
                   aria-label={`${item.title}${pending.length ? ' · Locked' : ''}`}
                   key={item.id}
                   onClick={() => setSelected(item.id)}
                 >
                   <span className="class-card-top">
-                    <span>
+                    <span className="class-node-art" aria-hidden="true">{['💬', '🧩', '🎧', '✍️'][index % 4]}</span>
+                    <span className="class-node-meta">
                       {item.level} · <Clock3 size={13} /> 8 min
                     </span>
                     {pending.length ? <LockKeyhole size={23} /> : <BookOpen size={23} />}
                   </span>
                   <h2>{item.title}</h2>
-                  <p>{item.goal}</p>
+                  <p lang={isPortuguese ? 'pt-BR' : 'en'}>{item.goal}</p>
+                  <p className="class-card-spanish" lang="es">{spanishCopy(item.goal) || 'Leé la explicación, practicá y formá tus propias oraciones.'}</p>
                   <span className="class-card-bottom">
                     {pending.length ? (
                       <>
