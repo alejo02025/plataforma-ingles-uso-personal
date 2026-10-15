@@ -194,17 +194,16 @@ export function Dashboard({
       <Heading
         eyebrow={pt ? 'SEU ESPAÇO DE PORTUGUÊS' : 'YOUR ENGLISH SPACE'}
         title={`${greeting}, ${data.profile.name}.`}
-        description={
-          pt
-            ? 'Um passo útil para se comunicar com mais independência.'
-            : 'Build the English you can use with confidence.'
-        }
+        description={undefined}
       >
         <span className="date-chip">
           <CalendarDays size={16} />
           {dateLabel(data.day)}
         </span>
       </Heading>
+      <details className="audit-path-details">
+        <summary>{pt ? 'Sobre seu percurso e seu nível' : 'About your path and level'}</summary>
+        <div className="audit-path-details-inner">
       <div className="audit-home-context">
         <span className="pill neutral">
           {pt ? 'Português · Brasil' : 'English'} · {journey.level}{' '}
@@ -231,6 +230,8 @@ export function Dashboard({
           ? `Diagnóstico orientativo: ${placement.label}. Evalúa solo lectura, gramática y vocabulario. Tu recorrido sigue en ${journey.level}.`
           : `Recorrido actual: ${journey.level}. Realizá el diagnóstico para obtener una referencia inicial; avanzar de clase no certifica tu nivel.`}
       </StudyCopy>
+        </div>
+      </details>
       <section
         className="card audit-continue"
         aria-label={pt ? 'Continuar aprendendo' : 'Continue learning'}
