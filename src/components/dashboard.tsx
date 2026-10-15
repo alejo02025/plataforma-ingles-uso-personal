@@ -31,6 +31,7 @@ import {
   FileText,
   Target,
   Headphones,
+  ChevronRight,
 } from 'lucide-react';
 import type { Snapshot, Activity } from '@/lib/types';
 import { skillNames } from '@/lib/learning';
