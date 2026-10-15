@@ -1,0 +1,61 @@
+name: Validate and publish learning experience
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Check TypeScript
+        run: npm run typecheck
+      - name: Run unit tests
+        run: npm test
+      - name: Build both language sites
+        run: npm run build:pages
+      - name: Install browser for responsive smoke checks
+        run: npx playwright install --with-deps chromium
+      - name: Check both languages and key navigation
+        run: npm run test:pages -- --grep 'Learning-first navigation|Mobile menu'
+
+  publish:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Generate and stage GitHub Pages export
+        run: npm run publish:pages
+      - name: Commit updated static site only when changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "The published export is already current."
+          else
+            git commit -m "chore: rebuild language sites [skip ci]"
+            git push origin main
+          fi
