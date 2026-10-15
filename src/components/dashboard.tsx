@@ -128,7 +128,21 @@ export function Dashboard({
     }
   }, [data.day, data.profile.daily_minutes]);
   const budget = minutes ?? studyBudget(data.profile.daily_minutes);
-  const suggestion = studyRecommendation(data, budget);
+  const journey = learningJourney(data);
+  const [pausedRoutine, setPausedRoutine] = useState<RoutineDraft | null>(null);
+  useEffect(() => {
+    const check = () => {
+      try {
+        setPausedRoutine(readRoutineDraft({ level: journey.level, block: journey.block }) || null);
+      } catch {
+        setPausedRoutine(null);
+      }
+    };
+    check();
+    window.addEventListener('english-os:routine-paused', check);
+    return () => window.removeEventListener('english-os:routine-paused', check);
+  }, [data, journey.level, journey.block]);
+  const suggestion = studyRecommendation(data, budget, pausedRoutine);
   const allTasks = data.plan.activities.filter((a) => !a.payload.optional);
   const completed = allTasks.filter((a) => Boolean(a.completed_at)).length;
   const priorityActivityId = suggestion.action.kind === 'activity' ? suggestion.action.activity.id : '';
