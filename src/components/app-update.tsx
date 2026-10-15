@@ -20,6 +20,11 @@ export function AppUpdate() {
   const observedRefresh = useRef<string | null>(null);
   const update = useCallback(async (sharedToken?: string) => {
     if (updating.current) return;
+    if (document.querySelector('.oral-recording-active')) {
+      if (sharedToken) setNewVersion(true);
+      if (!sharedToken) setError('Stop the audio recording before updating.');
+      return;
+    }
     if (
       sharedToken &&
       (document.visibilityState !== 'visible' ||
@@ -45,6 +50,8 @@ export function AppUpdate() {
         throw new Error('Finish the AI response or download before updating.');
       }
       await new Promise((resolve) => setTimeout(resolve, 1200));
+      if (document.querySelector('.oral-recording-active'))
+        throw new Error('Stop the audio recording before updating.');
       // A dialog or draft may have been opened while preparing the update.
       if (
         sharedToken &&
@@ -65,6 +72,8 @@ export function AppUpdate() {
         const { prepareOfflineUpdate } = await import('@/lib/browser/offline');
         await prepareOfflineUpdate();
       }
+      if (document.querySelector('.oral-recording-active'))
+        throw new Error('Stop the audio recording before updating.');
       const token = sharedToken || String(Date.now());
       const url = new URL(window.location.href);
       url.searchParams.set('updated', token);

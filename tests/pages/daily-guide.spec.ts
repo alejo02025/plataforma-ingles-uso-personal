@@ -11,6 +11,7 @@ for (const pt of [false, true])
       .getByRole('dialog', { name: pt ? 'Palavra do dia' : 'Word of the Day' })
       .getByRole('button', { name: pt ? 'Fechar palavra do dia' : 'Close daily word' })
       .click();
+    await page.locator('.audit-explore-day > summary').click();
     const guide = page.locator('.daily-guide');
     await expect(guide).toContainText('Una sugerencia flexible');
     await expect(guide.locator('.daily-guide-steps > li')).toHaveCount(4);
@@ -34,6 +35,7 @@ for (const pt of [false, true])
     await expect(question).toBeVisible();
     await question.fill(pt ? 'Eu aprendo sobre o mundo.' : 'I learn about the world.');
     await page.reload();
+    await page.locator('.audit-explore-day > summary').click();
     await guide.locator('li').nth(2).locator('summary').click();
     await expect(question).toHaveValue(
       pt ? 'Eu aprendo sobre o mundo.' : 'I learn about the world.',
@@ -49,6 +51,7 @@ for (const pt of [false, true])
     await expect(page.getByRole('heading', { name: title, exact: true })).toBeVisible();
     // Mobile navigation labels differ across editions; use the visible bottom Home button.
     await page.locator('.mobile-bottom-nav').getByRole('button').first().click();
+    await page.locator('.audit-explore-day > summary').click();
     await guide.locator('li').nth(3).locator('summary').click();
     const words = await guide.locator('.guide-words span').allTextContents();
     await guide
@@ -57,6 +60,7 @@ for (const pt of [false, true])
     await expect(page.locator('.game-session')).toBeVisible();
     await expect(page.locator('.game-session')).toContainText(words[0]);
     await page.locator('.mobile-bottom-nav').getByRole('button').first().click();
+    await page.locator('.audit-explore-day > summary').click();
     await guide.locator('li').nth(0).locator('summary').click();
     await guide
       .getByRole('button', { name: pt ? 'Abrir leitura' : 'Open suggested reading', exact: true })

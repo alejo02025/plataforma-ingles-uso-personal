@@ -7476,6 +7476,30 @@ select {
   border-bottom: 0;
 }
 
+/* Study language first, followed by a quieter Spanish translation. */
+.study-native {
+  display: block;
+}
+.study-spanish {
+  display: block;
+  color: var(--muted);
+  font-size: 0.88em;
+  line-height: 1.6;
+  margin-top: 5px;
+  font-weight: 500;
+}
+.study-spanish + .study-native {
+  margin-top: 14px;
+}
+.routine-node-copy .study-native,
+.guide-summary-copy .study-native {
+  color: var(--text);
+}
+.routine-node-copy .study-spanish,
+.guide-summary-copy .study-spanish {
+  font-size: 11px;
+}
+
 /* A small daily streak and saved achievements, expanded only when requested. */
 .daily-rewards {
   margin: -6px 0 24px;

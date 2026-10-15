@@ -28,8 +28,31 @@ for (const pt of [false, true])
     const first = (pt ? portugueseClasses : englishClasses).find(
       (l) => l.level === (pt ? 'A1' : 'A2'),
     )!;
-    for (const [i, q] of first.checks.entries())
-      await page.locator('.lesson-check').nth(i).getByRole('radio').nth(q.answer).check();
+    await page
+      .getByRole('button', { name: pt ? 'Começar a prática' : 'Start the practice', exact: true })
+      .click();
+    for (const [i, q] of first.checks.entries()) {
+      await page.locator(`.lesson-check input[value="${q.answer}"]`).check();
+      await page
+        .getByRole('button', {
+          name: pt ? 'Conferir esta resposta' : 'Check this answer',
+          exact: true,
+        })
+        .click();
+      await page
+        .getByRole('button', {
+          name:
+            i + 1 < first.checks.length
+              ? pt
+                ? 'Próxima pergunta'
+                : 'Next question'
+              : pt
+                ? 'Aplicar à sua vida'
+                : 'Apply it to your life',
+          exact: true,
+        })
+        .click();
+    }
     await page
       .getByRole('button', {
         name: pt ? 'Conferir e salvar minha aula' : 'Check and save my class',
@@ -57,7 +80,9 @@ for (const pt of [false, true])
     await read(false);
     await read(false);
     await nav.getByRole('button', { name: pt ? 'Início' : 'Home', exact: true }).click();
-    await expect(page.locator('.daily-guide')).toContainText('Necesitás reforzar lectura');
+    await page.locator('.audit-explore-day > summary').click();
+    await expect(page.locator('.daily-guide')).toContainText('Hoy conviene reforzar');
+    await expect(page.locator('.home-routine')).toContainText('Necesitás reforzar lectura');
     await page
       .getByRole('button', {
         name: pt ? 'Escolher uma seção de estudo' : 'Choose a learning section',

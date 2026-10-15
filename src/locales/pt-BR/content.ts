@@ -8,6 +8,7 @@ export type Question = {
   answer: number;
   explanation: string;
   explanationLanguage?: 'es';
+  explanationSpanish?: string;
   band: 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2' | 'unrated';
 };
 
@@ -19,7 +20,7 @@ export const diagnosticQuestions: Question[] = [
     prompt: 'Eu ___ Jazmín.',
     options: ['é', 'sou', 'são'],
     answer: 1,
-    explanation: 'Con eu, ser se conjuga sou.',
+    explanation: 'Com eu, o verbo ser fica sou. Use é com você/ele/ela e são com vocês/eles/elas.',
   },
   {
     id: 'd-a1-v',
@@ -28,7 +29,7 @@ export const diagnosticQuestions: Question[] = [
     prompt: 'Onde você compra pão?',
     options: ['Na padaria', 'No banco', 'No hospital'],
     answer: 0,
-    explanation: 'Una panadería vende pan.',
+    explanation: 'Uma padaria vende pão.',
   },
   {
     id: 'd-a1-r',
@@ -37,7 +38,7 @@ export const diagnosticQuestions: Question[] = [
     prompt: '“Ana estuda de manhã e trabalha à tarde.” Quando ela estuda?',
     options: ['À noite', 'À tarde', 'De manhã'],
     answer: 2,
-    explanation: 'El texto dice que estudia por la mañana.',
+    explanation: 'O texto diz que Ana estuda de manhã e trabalha à tarde.',
   },
   {
     id: 'd1',
@@ -101,7 +102,8 @@ export const diagnosticQuestions: Question[] = [
     id: 'd7',
     skill: 'grammar',
     band: 'B2',
-    prompt: 'Se eu soubesse do atraso, ___ outro caminho.',
+    prompt:
+      'Eu não sabia do atraso e peguei esse caminho. Se eu tivesse sabido, ___ outro caminho.',
     options: ['escolherei', 'teria escolhido', 'escolho'],
     answer: 1,
     explanation:
@@ -130,6 +132,182 @@ export const diagnosticQuestions: Question[] = [
     explanation: 'Os resultados são positivos, mas a amostra limita as conclusões.',
   },
 ];
+// Edition 2 adds context and a second item per skill/band. Existing IDs and completed
+// assessments remain valid; no diagnosis changes course checkpoints or entry levels.
+diagnosticQuestions.push(
+  {
+    id: 'd-v2-a1-g',
+    skill: 'grammar',
+    band: 'A1',
+    prompt: 'Na padaria, Lia pede: “Eu quero ___ pão e duas bananas, por favor.”',
+    options: ['uma', 'um', 'umas'],
+    answer: 1,
+    explanation:
+      'Pão é um substantivo masculino singular: um pão. Duas bananas é outra parte do pedido e não muda a concordância de pão.',
+    explanationSpanish:
+      'Pão es masculino singular: um pão. No copies el género femenino de las bananas que aparecen después.',
+  },
+  {
+    id: 'd-v2-a1-v',
+    skill: 'vocabulary',
+    band: 'A1',
+    prompt: 'Você vai sair de casa e está chovendo muito. O que leva para não se molhar?',
+    options: ['Uma toalha de banho', 'Uma xícara', 'Um guarda-chuva'],
+    answer: 2,
+    explanation:
+      'O guarda-chuva protege da chuva quando você está na rua. A situação mostra a função do objeto.',
+    explanationSpanish:
+      'Guarda-chuva significa paraguas. La pista es salir a la calle con lluvia, no ducharse ni tomar café.',
+  },
+  {
+    id: 'd-v2-a1-r',
+    skill: 'reading',
+    band: 'A1',
+    prompt:
+      '“Oi, Leo. Suas chaves estão na mesa da cozinha. As minhas estão na bolsa. —Ana” Onde estão as chaves de Leo?',
+    options: ['Na mesa da cozinha', 'Na bolsa de Ana', 'Na bolsa de Leo'],
+    answer: 0,
+    explanation:
+      'Suas se refere a Leo, que recebe a mensagem. As minhas se refere às chaves de Ana.',
+    explanationSpanish:
+      'Suas se refiere a Leo, destinatario del mensaje; as minhas a Ana. Identificá de quién son las llaves antes de elegir la ubicación.',
+  },
+  {
+    id: 'd-v2-a2-g',
+    skill: 'grammar',
+    band: 'A2',
+    prompt: 'Ontem, Ana fez a receita inteira. Complete: “Ontem, eu ___ o bolo e lavei a louça.”',
+    options: ['faço', 'fazia', 'fiz'],
+    answer: 2,
+    explanation:
+      'Ontem e a ação concluída pedem pretérito perfeito. Com eu, o passado de fazer é fiz.',
+    explanationSpanish:
+      'La receta entera y luego lavar la vajilla forman acciones terminadas: fiz, pretérito perfeito. Faço es presente; fazia es un pasado en desarrollo o habitual, que no presenta por sí solo la receta como terminada.',
+  },
+  {
+    id: 'd-v2-a2-v',
+    skill: 'vocabulary',
+    band: 'A2',
+    prompt:
+      'Você comprou um sapato pequeno demais. A loja diz: “Traga o produto e o recibo. Vamos devolver seu dinheiro.” O que a loja oferece?',
+    options: ['Uma troca por outro tamanho', 'Um reembolso', 'Um desconto na próxima compra'],
+    answer: 1,
+    explanation:
+      'Reembolso é a devolução do dinheiro. Troca substitui o produto, e desconto reduz um preço.',
+    explanationSpanish:
+      'Reembolso es devolución del dinero. Troca es cambio del producto; desconto reduce un precio. La oferta del texto devuelve lo que pagaste.',
+  },
+  {
+    id: 'd-v2-a2-r',
+    skill: 'reading',
+    band: 'A2',
+    prompt:
+      '“O ônibus das 8h10 foi cancelado. O próximo sai às 8h40 e a viagem dura 25 minutos. O escritório abre às 9h.” Se você pegar o próximo ônibus, quando vai chegar?',
+    options: ['Às 9h', 'Às 8h35', 'Às 9h05'],
+    answer: 2,
+    explanation:
+      'O ônibus sai às 8h40. A viagem de 25 minutos termina às 9h05, cinco minutos depois da abertura.',
+    explanationSpanish:
+      'Separá salida, duración y apertura: 8:40 + 25 minutos = 9:05. La oficina no abre cuando vos salís.',
+  },
+  {
+    id: 'd-v2-b1-g',
+    skill: 'grammar',
+    band: 'B1',
+    prompt: 'Eu estava no meio de uma reunião quando as luzes ___ de repente.',
+    options: ['se apagaram', 'se apagavam', 'se apagarão'],
+    answer: 0,
+    explanation:
+      'O pretérito perfeito apresenta a interrupção concluída: se apagaram. Estava no meio da reunião apresenta o contexto em andamento.',
+    explanationSpanish:
+      'La reunión es el fondo en desarrollo y el corte es un hecho puntual: se apagaram. Se apagavam describe un proceso o repetición en el pasado; se apagarão un futuro. No confundas la acción interrumpida con la interrupción.',
+  },
+  {
+    id: 'd-v2-b1-v',
+    skill: 'vocabulary',
+    band: 'B1',
+    prompt:
+      'O relatório ainda não ficou pronto. A coordenadora diz: “Vamos adiar a reunião para segunda-feira.” O que ela propõe?',
+    options: [
+      'Realizar a reunião antes do previsto',
+      'Cancelar a reunião para sempre',
+      'Marcar a reunião para uma data posterior',
+    ],
+    answer: 2,
+    explanation:
+      'Adiar significa passar para mais tarde. Para segunda-feira informa a nova data, não um cancelamento definitivo.',
+    explanationSpanish:
+      'Adiar significa posponer. Para segunda-feira indica una nueva fecha, no una cancelación permanente.',
+  },
+  {
+    id: 'd-v2-b1-r',
+    skill: 'reading',
+    band: 'B1',
+    prompt:
+      '“O apartamento novo custa mais, mas fica perto do trabalho. Eu deixaria de gastar com ônibus, então estou comparando o custo mensal total antes de decidir.” Por que a pessoa ainda não decidiu?',
+    options: [
+      'O novo aluguel é menor',
+      'A economia no transporte pode mudar a comparação total',
+      'Ela já não trabalha fora de casa',
+    ],
+    answer: 1,
+    explanation:
+      'A pessoa compara aluguel e transporte juntos. Um aluguel maior não determina sozinho o custo total.',
+    explanationSpanish:
+      'El texto compara alquiler y transporte. La economía de viajes puede compensar el alquiler más caro; todavía no se decidió.',
+  },
+  {
+    id: 'd-v2-b2-g',
+    skill: 'grammar',
+    band: 'B2',
+    prompt:
+      'O horário da cliente ainda não está confirmado. Complete o pedido: “Quando ela ___, por favor, avise a equipe.”',
+    options: ['chegou', 'chegasse', 'chegar'],
+    answer: 2,
+    explanation:
+      'Quando apresenta uma chegada futura ainda não realizada. Aqui se usa o futuro do subjuntivo: quando ela chegar.',
+    explanationSpanish:
+      'Quando introduce una llegada futura que todavía no ocurrió. En esta construcción se usa futuro do subjuntivo: chegar; no el pasado.',
+  },
+  {
+    id: 'd-v2-b2-v',
+    skill: 'vocabulary',
+    band: 'B2',
+    prompt:
+      '“O teste deu certo, mas não podemos presumir que o resultado será igual em outro mercado.” O que a equipe deve evitar?',
+    options: [
+      'Comparar os mercados',
+      'Dar o mesmo sucesso como garantido',
+      'Registrar os resultados do teste',
+    ],
+    answer: 1,
+    explanation:
+      'Presumir é admitir algo sem comprovação suficiente. O sucesso de um teste não garante o mesmo resultado em outro contexto.',
+    explanationSpanish:
+      'Presumir es asumir sin evidencia suficiente. El texto pide evitar dar por garantizado el éxito, no dejar de comparar mercados o registrar resultados.',
+  },
+  {
+    id: 'd-v2-b2-r',
+    skill: 'reading',
+    band: 'B2',
+    prompt:
+      '“Uma pesquisa encontrou menos interrupções relatadas por quem trabalhava de casa. Porém, os participantes escolheram sua modalidade de trabalho e a carga de tarefas não foi medida. Os resultados justificam investigação adicional, não uma regra universal.” Qual conclusão é sustentada?',
+    options: [
+      'O trabalho remoto causa menos interrupções para todos',
+      'A carga de tarefas não influencia porque não foi medida',
+      'Os relatos merecem investigação, mas a seleção dos participantes e a carga de tarefas limitam conclusões causais',
+    ],
+    answer: 2,
+    explanation:
+      'A escolha da modalidade e a falta de dados sobre carga de tarefas limitam a interpretação causal. O texto recomenda investigar, não adotar uma regra universal.',
+    explanationSpanish:
+      'La modalidad fue elegida por los participantes y no se midió carga laboral. Hay una asociación que merece estudio, no una causa comprobada para todas las personas.',
+  },
+);
+const placementBandOrder = ['A1', 'A2', 'B1', 'B2'];
+diagnosticQuestions.sort(
+  (a, b) => placementBandOrder.indexOf(a.band) - placementBandOrder.indexOf(b.band),
+);
 for (const question of diagnosticQuestions) question.options.push('Ainda não sei.');
 
 export const grammarQuestions: Question[] = [

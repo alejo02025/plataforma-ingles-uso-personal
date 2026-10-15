@@ -35,6 +35,8 @@ export function saveLesson(
       correct: previous.correct,
       total: previous.total,
       feedback: saved.feedback,
+      responses: saved.responses,
+      practice: saved.practice || '',
       repeated: true,
     };
   }
@@ -104,5 +106,5 @@ export function saveLesson(
           date,
         );
   });
-  return { correct, total, feedback, repeated: false };
+  return { correct, total, feedback, responses: x.answers, practice: x.practice, repeated: false };
 }

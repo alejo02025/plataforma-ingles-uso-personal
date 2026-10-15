@@ -1,4 +1,5 @@
 'use client';
+import { StudyCopy } from './study-copy';
 import { Correction } from './correction';
 import { pdfWhy, pdfAnswerWhy, openAnswerNote } from '@/locales/es/answer-help';
 import { studyStorage, isPortuguese } from '@/lib/workspace';
@@ -118,10 +119,17 @@ export function PdfStudio({ data, refresh, onRead }: StudioProps) {
         <div>
           <span className="eyebrow">THE READING ROOM</span>
           <h1>Your PDF, step by step.</h1>
-          <p lang="es">
+          <StudyCopy
+            as="p"
+            native={
+              isPortuguese
+                ? 'Transforme seus PDFs em material de estudo: leia por partes, salve palavras e pratique com perguntas sobre o texto.'
+                : 'Turn your PDFs into study material: read in sections, save words and practise with questions about the text.'
+            }
+          >
             Esta sección convierte tus PDF en material de estudio: leés por partes, guardás palabras
             y practicás con preguntas sobre el texto.
-          </p>
+          </StudyCopy>
         </div>
         <span className="studio-local-pill">
           <Sparkles size={15} />
@@ -275,37 +283,72 @@ export function PdfStudio({ data, refresh, onRead }: StudioProps) {
       {!doc ? (
         <section className="card studio-first-steps">
           <h2>How to start</h2>
-          <ol lang="es">
-            <li>
+          <ol>
+            <StudyCopy
+              as="li"
+              native={
+                isPortuguese
+                  ? 'Envie um PDF. Toque em “Escolher PDFs”. Você pode adicionar vários arquivos, de até 10 MB cada.'
+                  : 'Upload a PDF. Select “Choose PDFs”. You can add several files, up to 10 MB each.'
+              }
+            >
               <strong>Subí un PDF.</strong> Tocá “{isPortuguese ? 'Escolher PDFs' : 'Choose PDFs'}”.
               Podés agregar varios, de hasta 10 MB cada uno.
-            </li>
-            <li>
+            </StudyCopy>
+            <StudyCopy
+              as="li"
+              native={
+                isPortuguese
+                  ? 'Leia uma parte. O texto é dividido em seções. Toque em uma palavra para consultar seu significado.'
+                  : 'Read a section. The text is divided into short sections. Tap a word to look up its meaning.'
+              }
+            >
               <strong>Leé una parte.</strong> El texto se divide en secciones. Tocá una palabra si
               necesitás su significado.
-            </li>
-            <li>
+            </StudyCopy>
+            <StudyCopy
+              as="li"
+              native={
+                isPortuguese
+                  ? 'Pratique. Abra as perguntas do documento. As respostas objetivas incluem explicações em português com apoio em espanhol.'
+                  : 'Practise. Open the document questions. Objective answers include explanations in English with Spanish support.'
+              }
+            >
               <strong>Practicá.</strong> Abrí las preguntas del documento. Las respuestas objetivas
-              incluyen una explicación en español.
-            </li>
+              incluyen una explicación en el idioma de estudio con apoyo en español.
+            </StudyCopy>
           </ol>
           <details>
             <summary>What happens to my PDFs?</summary>
-            <p lang="es">
+            <StudyCopy
+              as="p"
+              native={
+                isPortuguese
+                  ? 'Cada PDF mantém sua própria aba e suas respostas. Adicione outro sem substituir o anterior; remova ou restaure arquivos na lixeira. Os dados são salvos neste dispositivo; um backup do GitHub configurado pode fazer uma cópia privada. PDFs digitalizados como imagem precisam de reconhecimento de texto, ainda não disponível nesta versão.'
+                  : 'Each PDF keeps its own tab and answers. Add another without replacing the first; remove or restore files in Trash. Data is saved on this device; a configured GitHub backup can make a private copy. Image-only scanned PDFs need text recognition, which this version does not yet support.'
+              }
+            >
               Cada PDF queda en su pestaña con tus respuestas. Podés agregar otro sin reemplazar el
               anterior, quitarlo y restaurarlo desde la papelera. El guardado es local en este
               dispositivo; si activaste respaldo en GitHub, también puede respaldarse allí. Un PDF
               escaneado como imagen necesita reconocimiento de texto, que esta versión todavía no
               realiza.
-            </p>
+            </StudyCopy>
           </details>
           <details>
             <summary>Optional help with the text</summary>
-            <p lang="es">
+            <StudyCopy
+              as="p"
+              native={
+                isPortuguese
+                  ? 'O guia encontra trechos do documento sem baixar IA. A IA local é opcional e precisa de um download prévio; não é necessária para ler, salvar palavras ou responder perguntas.'
+                  : 'The reading guide finds passages without downloading AI. Local AI is optional and needs an initial download; it is not required to read, save words or answer questions.'
+              }
+            >
               La ayuda guiada encuentra pasajes del documento sin descargar IA. La IA local es
               opcional y requiere una descarga previa; no hace falta activarla para leer, guardar
               palabras o responder preguntas.
-            </p>
+            </StudyCopy>
           </details>
         </section>
       ) : (
@@ -425,6 +468,7 @@ function PdfWorkspace({ doc, data, refresh, onRead }: StudioProps & { doc: Docum
     setError('');
     setStream('');
     setDraft('');
+    let messageSaved = false;
     try {
       await api('tutor/message', {
         id: crypto.randomUUID(),
@@ -434,6 +478,7 @@ function PdfWorkspace({ doc, data, refresh, onRead }: StudioProps & { doc: Docum
         sources: [],
         mode: 'user',
       });
+      messageSaved = true;
       await refresh();
       let reply: { content: string; sources: Source[]; mode?: 'local' | 'guided' };
       if (local.state === 'ready') {
@@ -452,10 +497,13 @@ function PdfWorkspace({ doc, data, refresh, onRead }: StudioProps & { doc: Docum
       });
       await refresh();
     } catch (error) {
+      if (!messageSaved) setDraft(text);
       setError(
         error instanceof Error
           ? error.message
-          : 'The response could not be completed. Your message is saved.',
+          : messageSaved
+            ? 'The response could not be completed. Your message is saved.'
+            : 'The message could not be saved. Your draft has been restored.',
       );
     } finally {
       if (sequence === request.current) {
@@ -498,10 +546,15 @@ function PdfWorkspace({ doc, data, refresh, onRead }: StudioProps & { doc: Docum
           <FileText size={18} />
           <strong>{doc.title}</strong>
         </div>
-        <div className="tabs studio-tabs">
+        <div
+          className="tabs studio-tabs"
+          role="group"
+          aria-label={isPortuguese ? 'Ferramentas do documento' : 'Document tools'}
+        >
           {(['read', 'practice', 'chat'] as const).map((item) => (
             <button
               key={item}
+              aria-pressed={tab === item}
               className={tab === item ? 'active' : ''}
               onClick={() => setTab(item)}
             >
@@ -510,125 +563,130 @@ function PdfWorkspace({ doc, data, refresh, onRead }: StudioProps & { doc: Docum
           ))}
         </div>
       </div>
-      <div className="studio-workspace">
-        <aside className="studio-outline card">
-          <span className="eyebrow">IN THIS DOCUMENT</span>
-          <h3>{doc.title}</h3>
-          <p>
-            {doc.paragraphs.length} sections · about {doc.minutes} min
-          </p>
-          <div className="studio-sections">
-            {doc.paragraphs.map((paragraph, index) => (
-              <button
-                disabled={responding}
-                className={focus === index ? 'active' : ''}
-                key={index}
-                onClick={() => {
-                  setFocus(index);
-                  setRound(0);
-                  setFeedback({});
-                  setAnswers({});
-                }}
-              >
-                <span>{String(index + 1).padStart(2, '0')}</span>
-                {paragraph.slice(0, 65)}
-                {paragraph.length > 65 ? '…' : ''}
-              </button>
-            ))}
-          </div>
-          {doc.filename && (
-            <DownloadLink endpoint={`files/${doc.id}`}>Download original PDF</DownloadLink>
-          )}
-          <button className="text-link" onClick={() => onRead(doc)}>
-            Open full reader <ArrowRight size={14} />
-          </button>
-        </aside>
-        <section className="studio-content card">
-          <div className="studio-section-heading">
-            <span className="eyebrow">{sourceLabel(focus)}</span>
-            <span className="pill neutral">
-              {tab === 'chat'
-                ? 'Your conversation'
-                : tab === 'practice'
-                  ? 'Learn by doing'
-                  : 'Take your time'}
-            </span>
-          </div>
-          {tab === 'read' ? (
-            <>
-              <h2>{doc.title}</h2>
-              <div
-                className="studio-passage"
-                data-source-id={doc.id}
-                lang="en"
-                onPointerUp={() => {
-                  const selection = window.getSelection()?.toString().trim() || '';
-                  if (selection && selection.length <= 70)
-                    requestWordHelp(selection, doc.paragraphs[focus], doc.id);
-                }}
-              >
-                {doc.paragraphs[focus]}
-              </div>
-              {word && (
-                <div className="studio-selected-word">
-                  <span>{word}</span>
-                  <Speak text={word} />
+      <div className={`studio-workspace studio-dual-panel studio-mobile-${tab}`}>
+        <div className="studio-reading-pane">
+          <details className="studio-outline card">
+            <summary>{isPortuguese ? 'Navegar pelo documento' : 'Navigate your document'}</summary>
+            <span className="eyebrow">IN THIS DOCUMENT</span>
+            <h3>{doc.title}</h3>
+            <p>
+              {doc.paragraphs.length} sections · about {doc.minutes} min
+            </p>
+            <div className="studio-sections">
+              {doc.paragraphs.map((paragraph, index) => (
+                <button
+                  disabled={responding}
+                  className={focus === index ? 'active' : ''}
+                  key={index}
+                  onClick={() => {
+                    setFocus(index);
+                    setRound(0);
+                    // Question IDs include section and round: retain drafts when navigating.
+                  }}
+                >
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  {paragraph.slice(0, 65)}
+                  {paragraph.length > 65 ? '…' : ''}
+                </button>
+              ))}
+            </div>
+            {doc.filename && (
+              <DownloadLink endpoint={`files/${doc.id}`}>Download original PDF</DownloadLink>
+            )}
+            <button className="text-link" onClick={() => onRead(doc)}>
+              Open full reader <ArrowRight size={14} />
+            </button>
+          </details>
+          <section className="studio-content card studio-document-pane">
+            <div className="studio-section-heading">
+              <span className="eyebrow">{sourceLabel(focus)}</span>
+              <span className="pill neutral">
+                {tab === 'chat'
+                  ? 'Your conversation'
+                  : tab === 'practice'
+                    ? 'Learn by doing'
+                    : 'Take your time'}
+              </span>
+            </div>
+            {
+              <>
+                <h2>{doc.title}</h2>
+                <div
+                  className="studio-passage"
+                  data-source-id={doc.id}
+                  lang="en"
+                  onPointerUp={() => {
+                    const selection = window.getSelection()?.toString().trim() || '';
+                    if (selection && selection.length <= 70)
+                      requestWordHelp(selection, doc.paragraphs[focus], doc.id);
+                  }}
+                >
+                  {doc.paragraphs[focus]}
+                </div>
+                {word && (
+                  <div className="studio-selected-word">
+                    <span>{word}</span>
+                    <Speak text={word} />
+                    <Button
+                      secondary
+                      disabled={busy}
+                      onClick={async () => {
+                        setBusy(true);
+                        try {
+                          await api('word', {
+                            word,
+                            sourceId: doc.id,
+                            example: doc.paragraphs[focus].slice(0, 1500),
+                          });
+                          await refresh();
+                          setWord('');
+                        } catch (error) {
+                          setError((error as Error).message);
+                        } finally {
+                          setBusy(false);
+                        }
+                      }}
+                    >
+                      <BookmarkPlus size={16} />
+                      Save word
+                    </Button>
+                    <button
+                      className="icon-button"
+                      aria-label="Clear selection"
+                      onClick={() => setWord('')}
+                    >
+                      <X size={16} />
+                    </button>
+                  </div>
+                )}
+                <p className="fine-print">
+                  Select a word or phrase to save it. Your place and original PDF stay in your
+                  library.
+                </p>
+                <div className="studio-reading-actions">
+                  <Button secondary disabled={focus === 0} onClick={() => setFocus(focus - 1)}>
+                    <ArrowLeft size={16} />
+                    Previous
+                  </Button>
+                  <Button onClick={() => setTab('practice')}>
+                    Practice this section
+                    <Sparkles size={16} />
+                  </Button>
                   <Button
                     secondary
-                    disabled={busy}
-                    onClick={async () => {
-                      setBusy(true);
-                      try {
-                        await api('word', {
-                          word,
-                          sourceId: doc.id,
-                          example: doc.paragraphs[focus].slice(0, 1500),
-                        });
-                        await refresh();
-                        setWord('');
-                      } catch (error) {
-                        setError((error as Error).message);
-                      } finally {
-                        setBusy(false);
-                      }
-                    }}
+                    disabled={focus === doc.paragraphs.length - 1}
+                    onClick={() => setFocus(focus + 1)}
                   >
-                    <BookmarkPlus size={16} />
-                    Save word
+                    Next
+                    <ArrowRight size={16} />
                   </Button>
-                  <button
-                    className="icon-button"
-                    aria-label="Clear selection"
-                    onClick={() => setWord('')}
-                  >
-                    <X size={16} />
-                  </button>
                 </div>
-              )}
-              <p className="fine-print">
-                Select a word or phrase to save it. Your place and original PDF stay in your
-                library.
-              </p>
-              <div className="studio-reading-actions">
-                <Button secondary disabled={focus === 0} onClick={() => setFocus(focus - 1)}>
-                  <ArrowLeft size={16} />
-                  Previous
-                </Button>
-                <Button onClick={() => setTab('practice')}>
-                  Practice this section
-                  <Sparkles size={16} />
-                </Button>
-                <Button
-                  secondary
-                  disabled={focus === doc.paragraphs.length - 1}
-                  onClick={() => setFocus(focus + 1)}
-                >
-                  Next
-                  <ArrowRight size={16} />
-                </Button>
-              </div>
-            </>
-          ) : tab === 'practice' ? (
+              </>
+            }
+          </section>
+        </div>
+        <section className="studio-content card studio-tools-pane">
+          {tab === 'practice' ? (
             <>
               <h2>Between the lines.</h2>
               <p className="muted">
@@ -703,7 +761,7 @@ function PdfWorkspace({ doc, data, refresh, onRead }: StudioProps & { doc: Docum
                         />
                       ) : (
                         <>
-                          <p lang="es">{openAnswerNote}</p>
+                          <StudyCopy as="p">{openAnswerNote}</StudyCopy>
                           <p>{feedback[question.id].feedback}</p>
                         </>
                       )}
@@ -722,15 +780,14 @@ function PdfWorkspace({ doc, data, refresh, onRead }: StudioProps & { doc: Docum
               <Button
                 onClick={() => {
                   setRound(round + 1);
-                  setAnswers({});
-                  setFeedback({});
+                  // Keep earlier rounds and unfinished answers available on return.
                 }}
               >
                 Give me more questions
                 <Sparkles size={16} />
               </Button>
             </>
-          ) : (
+          ) : tab === 'chat' ? (
             <>
               <div className="studio-chat-header">
                 <div>
@@ -892,10 +949,47 @@ function PdfWorkspace({ doc, data, refresh, onRead }: StudioProps & { doc: Docum
                   </button>
                 )}
               </form>
-              <p className="fine-print">
-                Small local models can make mistakes. Use the cited passages to check each response.
-              </p>
+              <StudyCopy
+                className="fine-print studio-ai-boundary"
+                native={
+                  isPortuguese
+                    ? 'A IA local sugere respostas e pode inventar informações. Não avalia seu nível, sua escrita nem sua pronúncia. Confira os trechos citados; quando não houver evidência, a avaliação continua pendente.'
+                    : 'Local AI suggests replies and can invent information. It does not assess your level, writing or pronunciation. Check the cited passages; without reliable evidence, assessment remains pending.'
+                }
+              >
+                La IA local propone respuestas y puede inventar información. No evalúa tu nivel, tu
+                escritura ni tu pronunciación. Contrastá los pasajes citados; sin evidencia fiable,
+                la evaluación queda pendiente.
+              </StudyCopy>
             </>
+          ) : (
+            <div className="studio-tools-start">
+              <BookOpen size={28} />
+              <h2>{isPortuguese ? 'Da leitura à prática' : 'From reading to practice'}</h2>
+              <StudyCopy
+                native={
+                  isPortuguese
+                    ? 'Leia uma seção, consulte palavras e depois experimente as perguntas. Você pode voltar ao texto a qualquer momento.'
+                    : 'Read a section, look up words, then try the questions. You can return to the text at any time.'
+                }
+              >
+                Leé una sección, consultá palabras y después probá las preguntas. Podés volver al
+                texto en cualquier momento.
+              </StudyCopy>
+              <Button onClick={() => setTab('practice')}>
+                {isPortuguese ? 'Praticar esta seção' : 'Practice this section'}{' '}
+                <ArrowRight size={16} />
+              </Button>
+              <Button secondary onClick={() => setTab('chat')}>
+                {isPortuguese ? 'Consultar o guia' : 'Ask the reading guide'}
+              </Button>
+              <span className="fine-print">
+                {previous.length}{' '}
+                {isPortuguese
+                  ? 'respostas salvas neste documento'
+                  : 'saved answers in this document'}
+              </span>
+            </div>
           )}
         </section>
       </div>

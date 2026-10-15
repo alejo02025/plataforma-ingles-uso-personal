@@ -3,7 +3,7 @@ import { glossary as english } from '../../src/lib/content';
 import { glossary as portuguese } from '../../src/locales/pt-BR/content';
 import { makePdf } from '../pdf-fixture';
 for (const pt of [false, true])
-  test(`Incorrect answers explain why in Spanish before the target-language correction (${pt ? 'Portuguese' : 'English'})`, async ({
+  test(`Answers explain why in the study language with Spanish support and a target-language correction (${pt ? 'Portuguese' : 'English'})`, async ({
     page,
   }) => {
     const errors: string[] = [];
@@ -30,7 +30,7 @@ for (const pt of [false, true])
         await page
           .getByRole('button', { name: pt ? 'Verificar resposta' : 'Check answer', exact: true })
           .click();
-        await expect(page.locator('.game-feedback [lang="es"]')).toContainText(
+        await expect(page.locator('.game-feedback .answer-correction p[lang="es"]')).toContainText(
           'La definición corresponde',
         );
         await expect(page.locator('.game-feedback .answer-correction-model')).toContainText(
@@ -52,7 +52,7 @@ for (const pt of [false, true])
         await page
           .getByRole('button', { name: pt ? 'Verificar resposta' : 'Check answer', exact: true })
           .click();
-        await expect(page.locator('.game-feedback [lang="es"]')).toContainText(
+        await expect(page.locator('.game-feedback .answer-correction p[lang="es"]')).toContainText(
           'El orden no coincide',
         );
         await expect(page.locator('.game-feedback .answer-correction-model')).toContainText(
@@ -67,9 +67,11 @@ for (const pt of [false, true])
             .getByRole('button', { name: pt ? 'Verificar palavra' : 'Check word', exact: true })
             .click();
           if (i === 0) {
-            await expect(page.locator('.game-session [lang="es"]')).toContainText(
-              'Todavía no es la palabra',
-            );
+            await expect(
+              page
+                .locator('.game-session [lang="es"]')
+                .filter({ hasText: 'Todavía no es la palabra' }),
+            ).toContainText('Todavía no es la palabra');
             await expect(page.locator('.game-session .answer-correction')).toHaveCount(0);
           }
         }
@@ -94,7 +96,9 @@ for (const pt of [false, true])
     await page
       .getByRole('button', { name: pt ? 'Salvar resposta' : 'Save answer', exact: true })
       .click();
-    await expect(page.locator('.feedback [lang="es"]')).toContainText(pt ? 'Con “eu”' : 'Con “I”');
+    await expect(page.locator('.feedback .answer-correction p[lang="es"]')).toContainText(
+      pt ? 'Con “eu”' : 'Con “I”',
+    );
     await expect(page.locator('.feedback .answer-correction-model')).toContainText(
       pt ? 'sou' : 'am',
     );
@@ -102,15 +106,12 @@ for (const pt of [false, true])
       await page.goto('./portugues/');
       await page.getByRole('button', { name: 'Abrir aulas', exact: true }).click();
       await page.locator('.class-card').first().click();
-      await page.locator('.lesson-check').first().getByRole('radio').first().check();
-      await page.locator('.lesson-check').last().getByRole('radio').last().check();
-      await page.getByRole('button', { name: 'Conferir e salvar minha aula', exact: true }).click();
-      await expect(page.locator('.lesson-check').first().locator('[lang="es"]')).toContainText(
-        'Con “eu”',
-      );
-      await expect(
-        page.locator('.lesson-check').first().locator('.answer-correction-model'),
-      ).toContainText('sou');
+      await page.getByRole('button', { name: 'Começar a prática', exact: true }).click();
+      await page.locator('.lesson-check input[value="1"]').check();
+      await page.getByRole('button', { name: 'Conferir esta resposta', exact: true }).click();
+      await expect(page.locator('.lesson-feedback p.study-spanish')).toContainText('Con “eu”');
+      await expect(page.locator('.lesson-feedback .answer-correction-model')).toContainText('sou');
+      await expect(page.locator('.lesson-feedback p.study-native')).toBeVisible();
     }
     await page.goto(pt ? './portugues/' : './');
     await page

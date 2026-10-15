@@ -176,6 +176,7 @@ test('PDF tabs preserve each document, reading position, answers and chat drafts
   await expect(page.locator('.studio-question textarea')).toHaveValue(
     'Passengers use a timetable to plan their railway journey.',
   );
+  await page.locator('.studio-tabs').getByRole('button', { name: 'Read', exact: true }).click();
   await expect(page.getByText('Page 1 · Section 2', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Chat', exact: true }).click();
   await expect(page.locator('.studio-message.assistant')).toHaveCount(1);

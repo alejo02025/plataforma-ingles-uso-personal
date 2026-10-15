@@ -4,7 +4,7 @@ import { randomUUID } from 'node:crypto';
 import { DatabaseSync } from 'node:sqlite';
 import { initialize } from '../src/lib/schema';
 import { createLearningService } from '../src/lib/domain';
-import { makeRoutine, routineScore, routineRecord } from '../src/lib/routine';
+import { makeRoutine as makeCurrentRoutine, routineScore, routineRecord } from '../src/lib/routine';
 import { saveRoutine } from '../src/lib/routine-store';
 import {
   levelLessons,
@@ -17,6 +17,12 @@ import { saveLesson } from '../src/lib/lesson-store';
 import { classRevision } from '../src/lib/lessons';
 import { courseEvidence, checkLessonAccess } from '../src/lib/course-store';
 import { tables, merge, validate } from '../src/lib/browser/merge';
+const makeRoutine = (
+  mode: 'vocabulary' | 'grammar' | 'reading',
+  level: string,
+  block: number,
+  pt?: boolean,
+) => makeCurrentRoutine(mode, level, block, pt, { edition: 1 });
 for (const pt of [false, true])
   test(`All CEFR starters have native choices, Spanish feedback and stable sentence blocks (${pt ? 'PT' : 'EN'})`, () => {
     for (const level of ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'])
@@ -236,6 +242,132 @@ test('A paused sentence keeps its selected blocks and checked first answer throu
     assert.equal(readRoutineDraft(), undefined);
     writeRoutineDraft({ ...draft, picked: [0, 0] });
     assert.equal(readRoutineDraft(), undefined);
+  } finally {
+    Object.defineProperty(globalThis, 'localStorage', { configurable: true, value: previous });
+  }
+});
+
+for (const pt of [false, true])
+  test(`Contextual edition 2 has six valid varied exercises per session (${pt ? 'PT' : 'EN'})`, () => {
+    for (const level of ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'])
+      for (const mode of ['vocabulary', 'grammar', 'reading'] as const) {
+        const first = makeCurrentRoutine(mode, level, 0, pt),
+          second = makeCurrentRoutine(mode, level, 0, pt, { edition: 2, variant: 1 });
+        assert.equal(first.edition, 2);
+        assert.equal(first.rounds.length, 6);
+        assert.notDeepEqual(
+          first.rounds.map((q) => q.id),
+          second.rounds.map((q) => q.id),
+        );
+        for (const q of first.rounds) {
+          assert.ok(q.context || q.text);
+          assert.ok(q.explanationNative && q.why && q.spanish);
+          if (mode === 'grammar')
+            assert.equal(
+              q.choices.join(' ').split(' ').sort().join('|'),
+              q.solution.split(' ').sort().join('|'),
+            );
+          else assert.ok(q.choices.includes(q.solution));
+        }
+        assert.equal(
+          routineScore(
+            first,
+            first.rounds.map((q) => q.solution),
+          ),
+          6,
+        );
+        assert.deepEqual(first, makeCurrentRoutine(mode, level, 0, pt, { edition: 2, variant: 0 }));
+      }
+  });
+test('Edition 2 stores variant, enforces objective answers and preserves edition 1 evidence', () => {
+  const { db, service, plan } = setup();
+  try {
+    const legacy = input('vocabulary');
+    saveRoutine(db, legacy, plan);
+    const set = makeCurrentRoutine('reading', 'A2', 0, undefined, { edition: 2, variant: 2 });
+    const x = {
+      id: randomUUID(),
+      mode: 'reading',
+      level: 'A2',
+      block: 0,
+      edition: 2,
+      variant: 2,
+      answers: set.rounds.map((q) => q.solution),
+      seconds: 30,
+    };
+    assert.equal(saveRoutine(db, x, plan).correct, 6);
+    assert.equal(saveRoutine(db, x, plan).repeated, true);
+    assert.throws(() => saveRoutine(db, { ...x, variant: 3 }, plan), /otra actividad/);
+    const result = service.snapshot().results.find((r) => r.activity_id === `routine:${x.id}`)!;
+    assert.equal(routineRecord(result)?.variant, 2);
+    assert.equal(routineRecord(result)?.edition, 2);
+    assert.ok(service.snapshot().results.find((r) => r.activity_id === `routine:${legacy.id}`));
+    assert.equal(
+      integration(service.snapshot(), levelLessons('A2').slice(0, 4)).find(
+        (r) => r.id === 'reading',
+      )?.done,
+      true,
+    );
+    assert.throws(
+      () =>
+        saveRoutine(
+          db,
+          { ...x, id: randomUUID(), answers: ['invented', ...x.answers.slice(1)] },
+          plan,
+        ),
+      /opciones/,
+    );
+  } finally {
+    db.close();
+  }
+});
+test('Changing activity preserves an unrelated draft and resumes legacy content reproducibly', async () => {
+  const previous = globalThis.localStorage,
+    memory = new Map<string, string>();
+  Object.defineProperty(globalThis, 'localStorage', {
+    configurable: true,
+    value: {
+      getItem: (k: string) => memory.get(k) ?? null,
+      setItem: (k: string, v: string) => memory.set(k, v),
+    },
+  });
+  try {
+    const { readRoutineDraft, writeRoutineDraft, clearRoutineDraft } = await import(
+      '../src/lib/browser/routine-draft'
+    );
+    const base = {
+      id: randomUUID(),
+      mode: 'grammar' as const,
+      level: 'A2',
+      block: 0,
+      edition: 1 as const,
+      answers: [],
+      choice: '',
+      picked: [0],
+      checked: false,
+      helpUsed: false,
+      seconds: 2,
+    };
+    memory.set('routine-draft:v1', JSON.stringify(base));
+    assert.equal(readRoutineDraft()?.edition, 1);
+    const newer = {
+      ...base,
+      id: randomUUID(),
+      mode: 'reading' as const,
+      edition: 2 as const,
+      variant: 3,
+      picked: [],
+    };
+    writeRoutineDraft(newer);
+    assert.equal(readRoutineDraft({ mode: 'grammar' })?.id, base.id);
+    assert.equal(readRoutineDraft({ mode: 'reading' })?.id, newer.id);
+    clearRoutineDraft(newer.id);
+    assert.equal(readRoutineDraft()?.id, base.id);
+    assert.equal(
+      makeCurrentRoutine(base.mode, base.level, base.block, undefined, { edition: base.edition })
+        .rounds.length,
+      3,
+    );
   } finally {
     Object.defineProperty(globalThis, 'localStorage', { configurable: true, value: previous });
   }

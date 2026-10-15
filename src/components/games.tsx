@@ -1,4 +1,6 @@
 'use client';
+import { StudyCopy } from './study-copy';
+import { isPortuguese } from '@/lib/workspace';
 import { courseRoute } from '@/lib/course-route';
 import {
   readGameDraft,
@@ -212,10 +214,13 @@ function GameSession({
     [saved, setSaved] = useState(false),
     [error, setError] = useState('');
   useEffect(() => {
-    const lookedUp = () => setHelpUsed(true);
+    const lookedUp = () => {
+      // Checking vocabulary after locking an answer is feedback review, not test assistance.
+      if (!checked && answers.length < puzzle.rounds.length) setHelpUsed(true);
+    };
     window.addEventListener('study-word-looked-up', lookedUp);
     return () => window.removeEventListener('study-word-looked-up', lookedUp);
-  }, []);
+  }, [checked, answers.length, puzzle.rounds.length]);
   const seconds = useRef(initial?.seconds || 0),
     saving = useRef(false);
   const draftRef = useRef<GameDraft | undefined>(undefined),
@@ -408,9 +413,17 @@ function GameSession({
                 <Lightbulb size={16} /> How to play
               </summary>
               <p>{tips[puzzle.mode]}</p>
+              <span className="study-spanish" lang="es">
+                {puzzle.mode === 'match'
+                  ? 'Elegí la palabra que coincide con el significado y la situación. La pista cuenta como ayuda.'
+                  : puzzle.mode === 'sentence'
+                    ? 'Tocá los bloques en orden; tocá un bloque elegido para devolverlo. Usá todas las piezas, luego comprobá tu oración.'
+                    : 'Probá una palabra de cinco letras. Verde: letra y posición correctas; dorado: otra posición; gris: letra ausente. Tenés seis intentos.'}
+              </span>
             </details>
             <button
               className="text-link"
+              disabled={checked}
               onClick={() => {
                 setHint(true);
                 setHelpUsed(true);
@@ -454,7 +467,9 @@ function GameSession({
               </p>
               {guesses.length > 0 && (
                 <div role="status">
-                  <p lang="es">{trailWhy(letterMarks(round.solution, guesses.at(-1)!))}</p>
+                  <StudyCopy as="p">
+                    {trailWhy(letterMarks(round.solution, guesses.at(-1)!))}
+                  </StudyCopy>
                   <p className="answer-correction-model">
                     {Array.from(guesses.at(-1)!)
                       .map((letter, i) =>
@@ -481,7 +496,17 @@ function GameSession({
           ) : (
             <>
               {puzzle.mode === 'match' ? (
-                <p className="game-clue">{round.meaning}</p>
+                <>
+                  <p className="game-clue">{round.meaning}</p>
+                  {exampleWithGap(round) && (
+                    <div className="game-context">
+                      <span className="eyebrow">
+                        {isPortuguese ? 'UMA SITUAÇÃO REAL' : 'A REAL SITUATION'}
+                      </span>
+                      <p>{exampleWithGap(round)}</p>
+                    </div>
+                  )}
+                </>
               ) : (
                 <>
                   <p className="muted">
@@ -528,9 +553,17 @@ function GameSession({
                       ? 'You found it!'
                       : 'Keep this one for next time.'}
                   </strong>
-                  {normalizeAnswer(answer) === normalizeAnswer(round.solution) ? (
-                    <p>{round.solution}</p>
-                  ) : (
+                  <StudyCopy
+                    native={
+                      isPortuguese
+                        ? 'Confira o significado, a ordem das palavras e o contexto antes de continuar. Depois, mude um detalhe para aplicar a ideia à sua vida.'
+                        : 'Check meaning, word order and context before continuing. Then change one detail to use the idea in your own life.'
+                    }
+                  >
+                    Compará el significado, el orden de las palabras y el contexto antes de
+                    continuar. Después cambiá un detalle para usar la idea en tu vida.
+                  </StudyCopy>
+                  {
                     <Correction
                       explanation={
                         puzzle.mode === 'match'
@@ -539,7 +572,7 @@ function GameSession({
                       }
                       correction={round.solution}
                     />
-                  )}
+                  }
                   {puzzle.mode === 'match' && <p className="game-example">{round.example}</p>}
                   <Speak text={round.solution} />
                   <Button onClick={next}>

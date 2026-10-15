@@ -128,7 +128,7 @@ test('Jazmín has Brazilian Portuguese study content, independent PDFs, vocabula
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
   await page.screenshot({ path: '/tmp/portugues-jazmin-home.png', fullPage: true });
   await page.getByRole('button', { name: 'Descobrir meu ponto de partida', exact: true }).click();
-  await page.getByText('fui', { exact: true }).click();
+  await page.getByRole('radio', { name: 'sou', exact: true }).check();
   await page.getByRole('button', { name: 'Salvar resposta', exact: true }).click();
   await expect(page.getByText('Muito bem.', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Próxima', exact: true }).click();
@@ -150,7 +150,7 @@ test('Jazmín has Brazilian Portuguese study content, independent PDFs, vocabula
   await expect(page.getByRole('heading', { name: word, exact: true })).toHaveCount(0);
   await page.goto('./portugues/');
   await page.getByRole('button', { name: 'Descobrir meu ponto de partida', exact: true }).click();
-  await expect(page.getByText('1 de 9 salvas', { exact: true })).toBeVisible();
+  await expect(page.getByText('1 / 24 · respostas salvas', { exact: true })).toBeVisible();
   expect(errors).toEqual([]);
 });
 

@@ -553,8 +553,8 @@ export function conceptLessons(units: Unit[], pt: boolean): Lesson[] {
         examples: [cases[0][at], cases[1][at]],
         tip: 'La respuesta objetiva comprueba una estructura en contexto, no toda la competencia del nivel. Leé una fuente, explicá por qué elegiste esa forma y aplicala en tu escritura o conversación. Si dudás, compará sujeto, verbo, tiempo y alcance antes de mirar la corrección.',
         practice: pt
-          ? `Escreva uma situação real usando esta ideia. Compare com o modelo, justifique sua escolha e use-a em Speaking: ${correct}`
-          : `Write a real situation using this idea. Compare with the model, explain your choice and use it in Speaking: ${correct}`,
+          ? `Escreva uma situação real usando esta ideia. Compare com o modelo, justifique sua escolha e tente dizer sua frase em voz alta: ${correct}`
+          : `Write a real situation using this idea. Compare with the model, explain your choice and try saying your sentence aloud: ${correct}`,
         model: correct,
         checks: [
           {

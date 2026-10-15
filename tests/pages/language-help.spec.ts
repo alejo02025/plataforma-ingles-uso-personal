@@ -27,13 +27,15 @@ for (const pt of [false, true])
       .filter({ hasText: pt ? 'Ajuda com o idioma' : 'Language help' });
     await expect(category).toContainText(pt ? 'Sempre disponível' : 'Always available');
     await category.click();
-    await expect(page.locator('.toolkit-note')).toContainText('sin requisitos de nivel');
+    await expect(page.locator('.toolkit-note[lang="es"]')).toContainText('sin requisitos de nivel');
     await expect(page.locator('.sentence-shape')).toBeVisible();
     await expect(page.locator('.toolkit-guide li')).toHaveCount(3);
     await expect(page.locator('.foundation-day')).toHaveCount(0);
-    await expect(page.locator('.builder-why > p')).not.toBeVisible();
+    await expect(page.locator('.builder-why > p[lang="es"]')).not.toBeVisible();
     await page.locator('.builder-why > summary').click();
-    await expect(page.locator('.builder-why > p')).toContainText(pt ? 'você/ele/ela' : 'he/she/it');
+    await expect(page.locator('.builder-why > p[lang="es"]')).toContainText(
+      pt ? 'você/ele/ela' : 'he/she/it',
+    );
     await page.locator('.builder-why > summary').click();
     await page.screenshot({ path: `/tmp/language-guide-${pt ? 'pt' : 'en'}.png`, fullPage: true });
     await page.setViewportSize({ width: 1366, height: 900 });
@@ -147,7 +149,7 @@ for (const pt of [false, true])
     await expect(advanced.locator('.tense-body')).toContainText(
       pt ? 'Quando eu tiver terminado' : 'will have been studying',
     );
-    await expect(advanced.locator('.tense-tip')).toBeVisible();
+    await expect(advanced.locator('.tense-tip[lang="es"]')).toBeVisible();
     await page.getByRole('button', { name: pt ? '03 Verbos' : '03 Verbs', exact: true }).click();
     await expect(page.locator('.catalog-count')).toContainText(pt ? '2.415' : '7,100');
     await expect(page.locator('.verb-entry')).toHaveCount(30);
@@ -194,9 +196,11 @@ for (const pt of [false, true])
     await expect(page.locator('.sentence-shape')).toBeVisible();
     await expect(page.locator('.toolkit-guide li')).toHaveCount(3);
     await expect(page.locator('.foundation-day')).toHaveCount(0);
-    await expect(page.locator('.builder-why > p')).not.toBeVisible();
+    await expect(page.locator('.builder-why > p[lang="es"]')).not.toBeVisible();
     await page.locator('.builder-why > summary').click();
-    await expect(page.locator('.builder-why > p')).toContainText(pt ? 'você/ele/ela' : 'he/she/it');
+    await expect(page.locator('.builder-why > p[lang="es"]')).toContainText(
+      pt ? 'você/ele/ela' : 'he/she/it',
+    );
     await page.locator('.builder-why > summary').click();
     await page.screenshot({ path: `/tmp/language-guide-${pt ? 'pt' : 'en'}.png`, fullPage: true });
     await expect(page.locator('.foundation-draft textarea')).toHaveValue(

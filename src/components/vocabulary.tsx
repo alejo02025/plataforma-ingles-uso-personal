@@ -1,10 +1,33 @@
 'use client';
 import { recallBand } from '@/lib/games';
 import { categoryFor, wordCategories, wordDetails, type WordCategory } from '@/lib/daily-words';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { isPortuguese } from '@/lib/workspace';
+import { StudyCopy } from './study-copy';
 import { Bookmark, RefreshCw, Check } from 'lucide-react';
-import type { Snapshot } from '@/lib/types';
+import type { Snapshot, Word } from '@/lib/types';
+import { dailyWordSpanish } from '@/locales/es/daily-word-meanings';
 import { Button, Heading, Empty, Speak, api, dateLabel } from './ui';
+function WordMeaning({ item }: { item: Word }) {
+  const spanishNote = item.meaning.startsWith('ES:') ? item.meaning.slice(3).trim() : '';
+  const primary = spanishNote ? wordDetails(item.word)?.meaning : item.meaning;
+  const support = spanishNote || dailyWordSpanish[item.word.toLowerCase()];
+  return (
+    <>
+      <p className="word-meaning" lang={isPortuguese ? 'pt-BR' : 'en'}>
+        {primary ||
+          (isPortuguese
+            ? 'Ainda não há uma definição revisada. Confira a palavra no contexto.'
+            : 'No reviewed definition yet. Check the word in context.')}
+      </p>
+      {support && (
+        <p className="study-spanish" lang="es">
+          {support}
+        </p>
+      )}
+    </>
+  );
+}
 export function Vocabulary({
   data,
   refresh,
@@ -18,6 +41,7 @@ export function Vocabulary({
   const [collection, setCollection] = useState<'words' | 'sentences'>('words');
   const [category, setCategory] = useState<WordCategory>('All'),
     [search, setSearch] = useState('');
+  const [recall, setRecall] = useState('');
   const [revealed, setRevealed] = useState(false),
     [busy, setBusy] = useState(false),
     [error, setError] = useState('');
@@ -26,6 +50,16 @@ export function Vocabulary({
     (item === 'Expressions' ? word.includes(' ') : categoryFor(word, example) === item);
   const due = data.vocabulary.filter((w) => w.due_at <= new Date().toISOString());
   const current = due[0];
+  useEffect(() => {
+    setRevealed(false);
+    setRecall('');
+  }, [current?.id]);
+  const visibleWords = data.vocabulary.filter(
+    (word) =>
+      (strength === 'all' || recallBand(word, data.reviews) === strength) &&
+      matches(word.word, word.example, category) &&
+      `${word.word} ${word.meaning} ${word.example}`.toLowerCase().includes(search.toLowerCase()),
+  );
   async function review(known: boolean) {
     setBusy(true);
     setError('');
@@ -93,20 +127,51 @@ export function Vocabulary({
             </span>
             <span className="pill neutral">{due.length} due</span>
           </div>
-          <p className="muted">
-            Before looking: what does it mean? Think of a sentence where you would use it.
-          </p>
+          <StudyCopy
+            native={
+              isPortuguese
+                ? 'Antes de revelar: lembre o significado e imagine uma situação em que usaria a palavra.'
+                : 'Before revealing: recall the meaning and imagine a situation where you would use the word.'
+            }
+          >
+            Antes de revelar: recordá el significado e imaginá una situación en la que usarías la
+            palabra.
+          </StudyCopy>
           <div className="flash-word">
             <h2 lang="en">{current.word}</h2>
             <Speak text={current.word} />
           </div>
+          {!revealed && (
+            <label className="field vocabulary-recall-input">
+              {isPortuguese ? 'Sua tentativa (opcional)' : 'Your attempt (optional)'}
+              <span className="study-spanish" lang="es">
+                Tu intento (opcional). No se califica automáticamente.
+              </span>
+              <input
+                value={recall}
+                maxLength={500}
+                onChange={(event) => setRecall(event.target.value)}
+                placeholder={
+                  isPortuguese
+                    ? 'Uma ideia, um significado ou uma frase…'
+                    : 'An idea, a meaning or a sentence…'
+                }
+              />
+            </label>
+          )}
           {revealed ? (
             <>
-              <p className="word-meaning">
-                {current.meaning ||
-                  'You have not added a meaning yet. Check the original reading for context.'}
-              </p>
-              <blockquote lang="en">{current.example}</blockquote>
+              {recall && (
+                <p className="vocabulary-own-attempt">
+                  <strong>{isPortuguese ? 'Sua tentativa: ' : 'Your attempt: '}</strong>
+                  {recall}
+                </p>
+              )}
+              <WordMeaning item={current} />
+              <span className="vocabulary-pronunciation">
+                {current.pronunciation || wordDetails(current.word)?.pronunciation || ''}
+              </span>
+              <blockquote lang={isPortuguese ? 'pt-BR' : 'en'}>{current.example}</blockquote>
               <div className="button-row">
                 <Button secondary disabled={busy} onClick={() => review(false)}>
                   I need to see it again{' '}
@@ -186,49 +251,64 @@ export function Vocabulary({
               onChange={(event) => setSearch(event.target.value)}
             />
           </div>
-          {data.vocabulary
-            .filter(
-              (word) =>
-                (strength === 'all' || recallBand(word, data.reviews) === strength) &&
-                matches(word.word, word.example, category) &&
-                `${word.word} ${word.meaning} ${word.example}`
-                  .toLowerCase()
-                  .includes(search.toLowerCase()),
-            )
-            .map((w) => (
-              <div className="word-row" key={w.id}>
-                <span className="activity-icon vocabulary">
-                  <Bookmark size={17} />
+          {visibleWords.map((w) => (
+            <div className="word-row" key={w.id}>
+              <span className="activity-icon vocabulary">
+                <Bookmark size={17} />
+              </span>
+              <div>
+                <h3 lang="en">
+                  {collection === 'words'
+                    ? w.word
+                    : w.example || wordDetails(w.word)?.example || w.word}
+                </h3>
+                <span className="word-category">
+                  {collection === 'sentences' ? `${w.word} · ` : ''}
+                  {categoryFor(w.word, w.example)} · {w.word.includes(' ') ? 'Expression' : 'Word'}
                 </span>
-                <div>
-                  <h3 lang="en">
-                    {collection === 'words'
-                      ? w.word
-                      : w.example || wordDetails(w.word)?.example || w.word}
-                  </h3>
-                  <span className="word-category">
-                    {collection === 'sentences' ? `${w.word} · ` : ''}
-                    {categoryFor(w.word, w.example)} ·{' '}
-                    {w.word.includes(' ') ? 'Expression' : 'Word'}
+                <p>{w.meaning || 'Meaning not added yet'}</p>
+                {(w.pronunciation || wordDetails(w.word)?.pronunciation) && (
+                  <span className="vocabulary-pronunciation">
+                    {w.pronunciation || wordDetails(w.word)?.pronunciation}
                   </span>
-                  <p>{w.meaning || 'Meaning not added yet'}</p>
-                  <p className="word-example">
-                    “
-                    {w.example ||
-                      wordDetails(w.word)?.example ||
-                      'Add an example from your reading.'}
-                    ”
-                  </p>
-                  {wordDetails(w.word)?.usage && wordDetails(w.word)!.usage !== w.example && (
-                    <p className="fine-print">Try it today: {wordDetails(w.word)!.usage}</p>
-                  )}
-                  <span className="fine-print">
-                    {w.reviews} reviews · Next: {dateLabel(w.due_at.slice(0, 10), true)}
+                )}
+                <p className="word-example">
+                  “
+                  {w.example || wordDetails(w.word)?.example || 'Add an example from your reading.'}
+                  ”
+                </p>
+                {wordDetails(w.word)?.usage && wordDetails(w.word)!.usage !== w.example && (
+                  <p className="fine-print">Try it today: {wordDetails(w.word)!.usage}</p>
+                )}
+                <span className="fine-print">
+                  <span
+                    className={`vocabulary-review-status ${w.due_at <= new Date().toISOString() ? 'due' : ''}`}
+                  >
+                    {w.due_at <= new Date().toISOString()
+                      ? isPortuguese
+                        ? 'Revisão pendente'
+                        : 'Review due'
+                      : isPortuguese
+                        ? 'Agendada'
+                        : 'Scheduled'}
                   </span>
-                </div>
-                <Speak text={collection === 'sentences' ? w.example || w.word : w.word} />
+                  {' · '}
+                  {w.reviews} reviews · Next: {dateLabel(w.due_at.slice(0, 10), true)}
+                </span>
               </div>
-            ))}
+              <Speak text={collection === 'sentences' ? w.example || w.word : w.word} />
+            </div>
+          ))}
+          {!visibleWords.length && (
+            <Empty
+              title={isPortuguese ? 'Nenhuma palavra encontrada.' : 'No matching words.'}
+              detail={
+                isPortuguese
+                  ? 'Tente outra busca ou mostre todas as categorias.'
+                  : 'Try another search or show all categories.'
+              }
+            />
+          )}
         </section>
       )}
     </>

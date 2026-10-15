@@ -4,6 +4,7 @@ import { saveLesson } from '../lesson-store';
 import { cefrMutation } from '../cefr-store';
 import { isPortuguese } from '../workspace';
 import { voiceMutation } from '../voice-store';
+import { saveOralAttempt } from '../oral-store';
 import { saveGame } from '../game-store';
 import { documentMutation } from '../document-store';
 import { tutorMutation } from '../tutor-store';
@@ -53,6 +54,7 @@ async function dispatch(endpoint: string, input?: unknown): Promise<unknown> {
   if (endpoint.startsWith('cefr/') && isPortuguese) return cefrMutation(db(), endpoint, input);
   if (endpoint === 'state') return snapshot();
   if (endpoint === 'voice/message') return voiceMutation(db(), input);
+  if (endpoint === 'oral/attempt') return transaction(() => saveOralAttempt(db(), input));
   if (endpoint === 'course/writing') {
     dailyPlan();
     const plan = db().prepare('SELECT id FROM plans WHERE day=?').get(snapshot().day)!;

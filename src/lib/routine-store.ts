@@ -1,6 +1,6 @@
 import type { DatabaseSync } from 'node:sqlite';
 import { z } from 'zod';
-import { makeRoutine, routineScore, routineTitles, routineEdition } from './routine';
+import { makeRoutine, routineScore, routineTitles } from './routine';
 import { normalizeAnswer } from './games';
 import { learningJourney, levelLessons, blockSize } from './course-route';
 import { courseEvidence } from './course-store';
@@ -13,8 +13,9 @@ export function saveRoutine(db: Pick<DatabaseSync, 'prepare'>, input: unknown, p
       mode: z.enum(['vocabulary', 'grammar', 'reading']),
       level: z.enum(['A1', 'A2', 'B1', 'B2', 'C1', 'C2']),
       block: z.number().int().min(0).max(100),
-      edition: z.literal(routineEdition),
-      answers: z.array(z.string().min(1).max(1000)).max(3),
+      edition: z.union([z.literal(1), z.literal(2)]),
+      variant: z.number().int().min(0).max(1000).default(0),
+      answers: z.array(z.string().min(1).max(1000)).max(8),
       helpUsed: z.boolean().default(false),
       seconds: z.number().int().min(0).max(7200),
     })
@@ -23,7 +24,13 @@ export function saveRoutine(db: Pick<DatabaseSync, 'prepare'>, input: unknown, p
     previous = db.prepare('SELECT correct,total,answers FROM results WHERE activity_id=?').get(id);
   if (previous) {
     const p = JSON.parse(previous.answers as string);
-    if (p.mode !== x.mode || p.level !== x.level || p.block !== x.block || p.edition !== x.edition)
+    if (
+      p.mode !== x.mode ||
+      p.level !== x.level ||
+      p.block !== x.block ||
+      p.edition !== x.edition ||
+      (p.variant ?? 0) !== x.variant
+    )
       throw new AppError('Este intento pertenece a otra actividad.');
     return {
       correct: previous.correct,
@@ -44,7 +51,10 @@ export function saveRoutine(db: Pick<DatabaseSync, 'prepare'>, input: unknown, p
     );
   if (x.block >= Math.ceil(levelLessons(x.level).length / blockSize))
     throw new AppError('Bloque no disponible.');
-  const set = makeRoutine(x.mode, x.level, x.block);
+  const set = makeRoutine(x.mode, x.level, x.block, undefined, {
+    edition: x.edition,
+    variant: x.variant,
+  });
   if (x.answers.length !== set.rounds.length)
     throw new AppError('Completá todos los ejercicios antes de guardar.');
   for (let i = 0; i < x.answers.length; i++) {
@@ -64,6 +74,7 @@ export function saveRoutine(db: Pick<DatabaseSync, 'prepare'>, input: unknown, p
     id: q.id,
     correct: normalizeAnswer(x.answers[i]) === normalizeAnswer(q.solution),
     explanationSpanish: q.why,
+    explanationNative: q.explanationNative,
     correction: q.solution,
   }));
   db.prepare(
@@ -93,6 +104,7 @@ export function saveRoutine(db: Pick<DatabaseSync, 'prepare'>, input: unknown, p
       level: x.level,
       block: x.block,
       edition: x.edition,
+      variant: x.variant,
       responses: x.answers,
       helpUsed: x.helpUsed,
       feedback,

@@ -74,7 +74,7 @@ test('Pages: SQLite en navegador, persistencia, PDF y sincronización privada en
   await page.getByRole('button', { name: 'Save and leave', exact: true }).click();
   await page.reload();
   await page.getByRole('button', { name: 'Find my starting point' }).click();
-  await expect(page.getByText('1 / 12 · answers saved', { exact: true })).toBeVisible();
+  await expect(page.getByText('1 / 24 · answers saved', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Save and leave', exact: true }).click();
   await authorize(page);
   await page.getByRole('button', { name: 'Close preferences' }).click();

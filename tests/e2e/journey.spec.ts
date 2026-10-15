@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { makePdf } from '../pdf-fixture';
+import { diagnosticQuestions } from '../../src/lib/content';
 test('diagnóstico retomable, lectura, vocabulario, PDF, calendario y tema persistentes', async ({
   page,
   request,
@@ -30,23 +31,14 @@ test('diagnóstico retomable, lectura, vocabulario, PDF, calendario y tema persi
   await page.getByRole('button', { name: 'Save and leave', exact: true }).click();
   await page.reload();
   await page.getByRole('button', { name: 'Find my starting point' }).click();
-  await expect(page.getByText('1 / 12 · answers saved', { exact: true })).toBeVisible();
-  const answers = [
-    'a document to get on a plane',
-    'No, entry ends at five',
-    'have worked',
-    'reduce',
-    'They reached the meeting on time',
-    'would have chosen',
-    'gradually weaken',
-    'Further evidence is needed before firm conclusions',
-  ];
-  for (const answer of answers) {
-    await page.getByText(answer, { exact: true }).click();
+  await expect(page.getByText('1 / 24 · answers saved', { exact: true })).toBeVisible();
+  for (const question of diagnosticQuestions.slice(1)) {
+    await page.getByLabel(question.options![question.answer!], { exact: true }).check();
     await page.getByRole('button', { name: 'Save answer', exact: true }).click();
     await page.getByRole('button', { name: 'Next', exact: true }).click();
   }
-  await expect(page.getByText('Your starting point is saved.')).toBeVisible();
+  await expect(page.locator('.placement-result')).toBeVisible();
+  await expect(page.locator('.placement-result')).toContainText('24 / 24');
   await page.getByRole('button', { name: 'Go to my journey' }).click();
   await page.getByRole('navigation').getByRole('button', { name: 'Library' }).click();
   await page.locator('.document-card').filter({ hasText: 'The city you discover on foot' }).click();
@@ -92,7 +84,14 @@ test('diagnóstico retomable, lectura, vocabulario, PDF, calendario y tema persi
   await expect(page.getByRole('heading', { name: 'The city you discover on foot' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'My travel PDF' })).toBeVisible();
   await page.getByRole('navigation').getByRole('button', { name: 'Progress' }).click();
-  await expect(page.getByText('2/2 answers in activities; it is not a CEFR level.')).toBeVisible();
+  await expect(
+    page.locator('.audit-performance-skill').filter({ hasText: 'Reading' }),
+  ).toContainText('2/2');
+  await expect(
+    page.getByText('Respuestas correctas en estas tareas; no porcentaje de dominio.', {
+      exact: true,
+    }),
+  ).toBeVisible();
   await page.getByRole('button', { name: 'Switch to dark mode' }).click();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
   await page.reload();
@@ -136,6 +135,26 @@ test('diagnóstico retomable, lectura, vocabulario, PDF, calendario y tema persi
   } finally {
     await phone.close();
   }
+  const oral = {
+    id: crypto.randomUUID(),
+    kind: 'oral-v1',
+    mode: 'listening',
+    level: 'A2',
+    duration: 0,
+    answers: [0, 0],
+    heard: false,
+  };
+  const oralReply = await request.post('/api/oral/attempt', { data: oral });
+  expect(oralReply.ok()).toBe(true);
+  expect(await oralReply.json()).toMatchObject({
+    correct: 2,
+    total: 2,
+    evidence: { helpUsed: true },
+  });
+  const rejectedGrade = await request.post('/api/oral/attempt', {
+    data: { ...oral, id: crypto.randomUUID(), pronunciationScore: 95 },
+  });
+  expect(rejectedGrade.status()).toBe(400);
   const proxyLogin = await request.post('/api/login', {
     headers: { 'x-forwarded-proto': 'https' },
     data: { token: 'e2e-access-only' },

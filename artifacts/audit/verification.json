@@ -1,0 +1,69 @@
+{
+  "recordedAtUTC": "2026-10-15T02:59:39.060181+00:00",
+  "branch": "audit/integral-2026-10-14",
+  "build": "2026-10-15T02:55:59.866Z",
+  "published": false,
+  "checks": [
+    {
+      "name": "unit",
+      "passed": 94
+    },
+    {
+      "name": "pages-wide",
+      "passed": 54
+    },
+    {
+      "name": "pages-final",
+      "passed": 20
+    },
+    {
+      "name": "node-e2e",
+      "passed": 1
+    }
+  ],
+  "screenshots": [
+    "artifacts/audit/after/class-en-1440.png",
+    "artifacts/audit/after/class-en-375.png",
+    "artifacts/audit/after/class-en-390.png",
+    "artifacts/audit/after/class-en-768.png",
+    "artifacts/audit/after/class-pt-1440.png",
+    "artifacts/audit/after/class-pt-375.png",
+    "artifacts/audit/after/class-pt-390.png",
+    "artifacts/audit/after/class-pt-768.png",
+    "artifacts/audit/after/en-1440.png",
+    "artifacts/audit/after/en-375.png",
+    "artifacts/audit/after/en-390.png",
+    "artifacts/audit/after/en-768.png",
+    "artifacts/audit/after/en-dark-1440.png",
+    "artifacts/audit/after/en-home-viewport-390.png",
+    "artifacts/audit/after/oral-en-390.png",
+    "artifacts/audit/after/oral-pt-390.png",
+    "artifacts/audit/after/pt-1440.png",
+    "artifacts/audit/after/pt-375.png",
+    "artifacts/audit/after/pt-390.png",
+    "artifacts/audit/after/pt-768.png",
+    "artifacts/audit/after/pt-dark-1440.png",
+    "artifacts/audit/after/pt-home-viewport-390.png",
+    "artifacts/audit/after/routine-desktop-en.png",
+    "artifacts/audit/after/routine-desktop-pt.png",
+    "artifacts/audit/after/routine-mobile-en.png",
+    "artifacts/audit/after/routine-mobile-pt.png",
+    "artifacts/audit/after/studio-en-1440.png",
+    "artifacts/audit/after/studio-en-375.png",
+    "artifacts/audit/after/studio-en-390.png",
+    "artifacts/audit/after/studio-en-768.png",
+    "artifacts/audit/after/studio-pt-1440.png",
+    "artifacts/audit/after/studio-pt-375.png",
+    "artifacts/audit/after/studio-pt-390.png",
+    "artifacts/audit/after/studio-pt-768.png",
+    "artifacts/audit/before/en-1440.png",
+    "artifacts/audit/before/en-375.png",
+    "artifacts/audit/before/en-390.png",
+    "artifacts/audit/before/en-768.png",
+    "artifacts/audit/before/pt-1440.png",
+    "artifacts/audit/before/pt-375.png",
+    "artifacts/audit/before/pt-390.png",
+    "artifacts/audit/before/pt-768.png"
+  ],
+  "note": "The 54-case regression preceded the last oral/calendar integration. All 20 affected browser cases were rerun afterward; these are overlapping cases, not 74 unique browser tests."
+}

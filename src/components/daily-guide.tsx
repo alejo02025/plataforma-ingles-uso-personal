@@ -1,4 +1,5 @@
 'use client';
+import { StudyCopy } from './study-copy';
 import { useEffect, useState, type ReactNode } from 'react';
 import { ArrowRight, BookOpen, Clock3, Newspaper, Puzzle } from 'lucide-react';
 import { dailyGuide, type NewsStory } from '@/lib/daily-guide';
@@ -63,10 +64,17 @@ export function DailyGuide({
             {pt ? 'UM BOM JEITO DE COMEÇAR' : 'A GOOD PLACE TO START'}
           </span>
           <h2>{pt ? 'Por onde começar hoje?' : 'Where should you start today?'}</h2>
-          <p lang="es">
+          <StudyCopy
+            as="p"
+            native={
+              pt
+                ? 'Uma sugestão flexível para explorar. Para aprender passo a passo, siga as Atividades. Você não precisa começar lendo um artigo.'
+                : 'A flexible suggestion for exploring. To learn step by step, follow Activities. You do not need to start with an article.'
+            }
+          >
             Una sugerencia flexible para explorar. Para aprender paso a paso, seguí Actividades más
             abajo; no necesitás empezar leyendo un artículo.
-          </p>
+          </StudyCopy>
         </div>
         <span className="pill neutral">
           <Clock3 size={15} />
@@ -74,10 +82,18 @@ export function DailyGuide({
         </span>
       </div>
       {guide.journey.repairs.length > 0 && (
-        <p className="journey-next" lang="es">
+        <StudyCopy
+          as="p"
+          className="journey-next"
+          native={
+            pt
+              ? 'Hoje vale reforçar uma habilidade. Nas Atividades, você verá o que retomar e por quê.'
+              : 'Today is a good day to strengthen a skill. In Activities, you will see what to revisit and why.'
+          }
+        >
           Hoy conviene reforzar una competencia. En Actividades, más abajo, vas a ver qué retomar y
           por qué.
-        </p>
+        </StudyCopy>
       )}
       <ol className="daily-guide-steps">
         <GuideStep
@@ -90,6 +106,11 @@ export function DailyGuide({
           }
           first={false}
           reason="Reconocé palabras e ideas antes de usarlas."
+          nativeReason={
+            pt
+              ? 'Reconheça palavras e ideias antes de usá-las.'
+              : 'Notice words and ideas before using them.'
+          }
         >
           <strong>{guide.reading?.title || (pt ? 'Sua biblioteca' : 'Your library')}</strong>
           <p>
@@ -97,11 +118,22 @@ export function DailyGuide({
               ? 'Leia a introdução e um trecho. Toque em uma palavra que despertar sua curiosidade.'
               : 'Read the introduction and one passage. Tap a word that catches your attention.'}
           </p>
-          <p lang="es">
+          <StudyCopy
+            as="p"
+            native={
+              guide.pending
+                ? pt
+                  ? 'Retome esta leitura pendente. Suas respostas anteriores foram preservadas.'
+                  : 'Resume this unfinished reading. Your previous answers have been preserved.'
+                : pt
+                  ? `Escolhemos uma leitura do seu nível para observar o idioma antes de praticar “${guide.lesson.title}”.`
+                  : `We chose a reading at your study level to notice language before practising “${guide.lesson.title}”.`
+            }
+          >
             {guide.pending
               ? 'Primero retomá esta lectura pendiente: conserva tus respuestas anteriores.'
               : `Buscamos una lectura de tu nivel para observar el idioma antes de practicar «${guide.lesson.title}».`}
-          </p>
+          </StudyCopy>
           <Button
             secondary
             onClick={() =>
@@ -126,13 +158,25 @@ export function DailyGuide({
           }
           first={false}
           reason="Convertí una idea de la lectura en una oración propia."
+          nativeReason={
+            pt
+              ? 'Transforme uma ideia da leitura em uma frase sua.'
+              : 'Turn an idea from the reading into a sentence of your own.'
+          }
         >
           <strong>{guide.lesson.title}</strong>
           <p>{guide.lesson.goal}</p>
-          <p lang="es">
+          <StudyCopy
+            as="p"
+            native={
+              pt
+                ? 'Use o texto anterior como exemplo: encontre uma frase e compare-a com este modelo. Se faltam requisitos, reveja a explicação sem pular etapas.'
+                : 'Use the previous text as an example: find a sentence and compare it with this model. If requirements are still pending, review the explanation without skipping steps.'
+            }
+          >
             Usá el texto anterior como ejemplo: buscá una oración y comparala con este modelo. Si
             todavía hay requisitos pendientes, podés repasar la explicación sin saltar el recorrido.
-          </p>
+          </StudyCopy>
           <blockquote>{guide.lesson.examples[0]}</blockquote>
           <Button secondary onClick={() => onClass(guide.lesson.id)}>
             {pt ? 'Abrir aula sugerida' : 'Open suggested class'}
@@ -149,6 +193,11 @@ export function DailyGuide({
           }
           first={false}
           reason="Probá el idioma con una noticia real."
+          nativeReason={
+            pt
+              ? 'Pratique o idioma com uma notícia real.'
+              : 'Try the language with a real news story.'
+          }
         >
           {guide.story ? (
             <>
@@ -159,12 +208,26 @@ export function DailyGuide({
                   {new Date(guide.story.published).toLocaleDateString(pt ? 'pt-BR' : 'en-US')}
                 </time>
               </p>
-              <p lang="es">
+              <StudyCopy
+                as="p"
+                native={
+                  (guide.relatedStory
+                    ? pt
+                      ? 'Este título compartilha vocabulário com sua leitura ou aula.'
+                      : 'This headline shares vocabulary with your reading or class.'
+                    : pt
+                      ? 'Este título amplia a prática: use o modelo da aula em outra situação. O tema pode ser diferente.'
+                      : 'This headline broadens your practice: use the class model in another situation. The topic may differ.') +
+                  (pt
+                    ? ' A pergunta é aberta, sem nota automática.'
+                    : ' The question is open-ended, with no automatic score.')
+                }
+              >
                 {guide.relatedStory
                   ? 'Elegimos este titular porque comparte vocabulario con tu lectura o clase.'
                   : 'Este titular amplía la práctica: intentá hablar de otra situación usando el modelo de la clase. No necesariamente trata el mismo tema.'}{' '}
                 La pregunta es abierta y no recibe una nota automática.
-              </p>
+              </StudyCopy>
               <a className="text-link" href={guide.story.url} target="_blank" rel="noreferrer">
                 {pt ? 'Ler na fonte' : 'Read the source'} ↗
               </a>
@@ -188,18 +251,36 @@ export function DailyGuide({
                   }}
                 />
               </label>
-              <small lang="es">
+              <StudyCopy
+                as="small"
+                native={
+                  storageError
+                    ? pt
+                      ? 'Não foi possível salvar neste navegador. Guarde uma cópia da sua resposta.'
+                      : 'This browser could not save your response. Keep a copy.'
+                    : pt
+                      ? 'Sua reflexão é salva automaticamente neste dispositivo, sem nota. A fonte requer conexão.'
+                      : 'Your reflection is automatically saved on this device, without a score. Opening the source requires a connection.'
+                }
+              >
                 {storageError
                   ? 'No se pudo guardar en este navegador. Conservá una copia de tu respuesta.'
                   : 'Tu reflexión se guarda automáticamente en este dispositivo, sin nota. Abrir la fuente requiere conexión.'}
-              </small>
+              </StudyCopy>
             </>
           ) : (
             <>
-              <p lang="es">
+              <StudyCopy
+                as="p"
+                native={
+                  pt
+                    ? 'Não há notícia baixada disponível. Pule este passo ou abra Notícias com conexão; não inventamos títulos.'
+                    : 'There is no downloaded story available. Skip this step or open News while online; we do not invent headlines.'
+                }
+              >
                 No hay una noticia descargada disponible. Podés saltear este paso o abrir Noticias
                 con conexión; no inventamos un titular.
-              </p>
+              </StudyCopy>
               <Button secondary onClick={() => navigate('News')}>
                 {pt ? 'Ver notícias' : 'See news'}
               </Button>
@@ -216,14 +297,33 @@ export function DailyGuide({
           }
           first={false}
           reason="Recordá y reutilizá las palabras que viste."
+          nativeReason={
+            pt
+              ? 'Lembre e reutilize as palavras que viu.'
+              : 'Recall and reuse the words you noticed.'
+          }
         >
           <strong>{pt ? 'Combinar significados' : 'Meaning Match'}</strong>
-          <p lang="es">
+          <StudyCopy
+            as="p"
+            native={
+              (guide.linkedWords.length
+                ? pt
+                  ? `Este jogo recupera palavras do texto ou dos exemplos: ${guide.linkedWords.join(', ')}. Tente lembrar antes de consultar a ajuda.`
+                  : `This game revisits words from the text or examples: ${guide.linkedWords.join(', ')}. Try to recall them before using help.`
+                : pt
+                  ? 'Este jogo revisa palavras do seu nível. Depois, escolha uma e escreva uma frase sobre o que leu.'
+                  : 'This game reviews words at your level. Then choose one and write a sentence about what you read.') +
+              (pt
+                ? ' Uma partida pendente é retomada primeiro para preservá-la.'
+                : 'An unfinished game is resumed first to preserve it.')
+            }
+          >
             {guide.linkedWords.length
               ? `Este juego recupera vocabulario del texto o de los ejemplos: ${guide.linkedWords.join(', ')}. Intentá recordar antes de mirar la ayuda.`
               : 'Este juego repasa palabras de tu nivel. Después, elegí una y escribí una oración sobre lo que leíste.'}{' '}
             Si tenés una partida pendiente, se retoma primero para conservarla.
-          </p>
+          </StudyCopy>
           <div className="guide-words">
             {guide.puzzle.rounds.map((r) => (
               <span key={r.word}>{r.word}</span>
@@ -235,10 +335,18 @@ export function DailyGuide({
           </Button>
         </GuideStep>
       </ol>
-      <p className="guide-closing" lang="es">
+      <StudyCopy
+        as="p"
+        className="guide-closing"
+        native={
+          pt
+            ? 'Dica: comece com uma atividade curta do percurso. A ordem é uma sugestão; as aulas mantêm seus requisitos.'
+            : 'Tip: start with a short path activity. The order is a suggestion; classes still respect their requirements.'
+        }
+      >
         Tip: si estás empezando, probá primero una actividad corta del recorrido de abajo. El orden
         es una sugerencia; abrir una clase sigue respetando sus requisitos.
-      </p>
+      </StudyCopy>
     </section>
   );
 }
@@ -248,12 +356,14 @@ function GuideStep({
   title,
   first,
   reason,
+  nativeReason,
   children,
 }: {
   number: string;
   title: ReactNode;
   first: boolean;
   reason: string;
+  nativeReason: string;
   children: ReactNode;
 }) {
   return (
@@ -263,7 +373,9 @@ function GuideStep({
           <span className="guide-number">{number}</span>
           <span className="guide-summary-copy">
             <h3>{title}</h3>
-            <small lang="es">{reason}</small>
+            <StudyCopy as="small" native={nativeReason}>
+              {reason}
+            </StudyCopy>
           </span>
         </summary>
         <div className="guide-step-body">{children}</div>

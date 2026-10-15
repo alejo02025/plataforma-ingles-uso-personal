@@ -21,6 +21,13 @@ export function questionFeedback(id: string) {
         .map((t) => ({ id: `cefr:${unit.level}:${t.id}`, task: t })),
     )
     .find((t) => t.id === id)?.task;
+  if (diagnosticQuestions.some((q) => q.id === id) && question) {
+    return {
+      explanation: question.explanationSpanish || answerWhy(id),
+      explanationNative: question.explanation,
+      correction: question.options[question.answer],
+    };
+  }
   return {
     explanation: id.startsWith('course-reading:')
       ? question?.explanation || answerWhy(id)

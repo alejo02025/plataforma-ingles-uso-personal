@@ -1,4 +1,5 @@
 'use client';
+import { StudyCopy } from './study-copy';
 import { useState } from 'react';
 import { Compass, ArrowRight } from 'lucide-react';
 import { isPortuguese } from '@/lib/workspace';
@@ -26,12 +27,12 @@ export function FirstSteps({ onTest, onDone }: { onTest: () => void; onDone: () 
       </span>
       <h2>{isPortuguese ? 'Vamos começar juntos.' : 'Let’s start together.'}</h2>
       <span className="pill neutral">{step + 1} / 3</span>
-      <h3 lang="es">{pages[step].title}</h3>
-      <p lang="es">{pages[step].body}</p>
-      <p className="fine-print" lang="es">
+      <StudyCopy as="h3">{pages[step].title}</StudyCopy>
+      <StudyCopy as="p">{pages[step].body}</StudyCopy>
+      <StudyCopy as="p" className="fine-print">
         Tus respuestas se guardan automáticamente. Podés pausar el test y retomarlo; no hace falta
         configurar GitHub para guardar en este dispositivo.
-      </p>
+      </StudyCopy>
       <div className="welcome-actions">
         <Button onClick={onTest}>
           Start the level check <ArrowRight size={15} />

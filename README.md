@@ -12,7 +12,7 @@ El repositorio público contiene el código y el sitio generado; tu historial y 
 
 ## Dos espacios de estudio
 
-La página principal permite elegir **Alejo · English** o **Jazmín · Português · Brasil**. [El espacio de Jazmín](https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/) tiene la misma experiencia de PDFs, preguntas, conversación local, palabras del día, vocabulario, calendario y gráfico de constancia, con interfaz y contenido original en portugués brasileño. Incluye seis lecturas, nueve preguntas de evaluación inicial, ejercicios de gramática y 56 palabras y expresiones con ejemplos cotidianos. La voz solicita `pt-BR` al navegador.
+La página principal permite elegir **Alejo · English** o **Jazmín · Português · Brasil**. [El espacio de Jazmín](https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/) tiene la misma experiencia de PDFs, preguntas, conversación local, palabras del día, vocabulario, calendario y gráfico de constancia, con interfaz y contenido original en portugués brasileño. Incluye seis lecturas, 24 preguntas de diagnóstico orientativo, ejercicios de gramática y 56 palabras y expresiones con ejemplos cotidianos. La voz solicita `pt-BR` al navegador.
 
 Los datos de cada espacio se guardan por separado. Los respaldos llevan un identificador de idioma y no permiten combinar los dos historiales. Si se conecta GitHub, el inglés usa `english-os/` y el portugués `portuguese-os/`, incluso dentro de un mismo repositorio privado. Cada espacio necesita su autorización en memoria; cambiar de espacio recarga la página y requiere volver a conectar para sincronizar. El estudio local sigue disponible sin esa autorización.
 
@@ -24,7 +24,7 @@ Alejo comienza en **A2** y Jazmín en **A1**. **Classes / Aulas** y la entrada *
 
 Cada idioma tiene **131 clases originales**: presentación, hábitos, verbos y oraciones en presente/pasado/futuro, experiencias, narración, condiciones, consejos, relativas, argumentos, discurso indirecto, pasiva, concesión, registro, inferencias y síntesis. Son prácticas orientadas al MCER, no un curso validado que certifique por sí solo todas las competencias de A1–C2.
 
-Para abrir la clase siguiente se requiere al menos **80 %** en la anterior. Cada bloque de hasta cuatro clases se conecta con evidencia registrada desde la primera clase aprobada de ese bloque: lectura del nivel con al menos **60 %** o una respuesta objetiva correcta sobre un PDF; tres palabras distintas recordadas o un juego con al menos **75 %** sin ayudas; escritura guardada de al menos 30 caracteres. La conversación oral con IA ya no forma parte de las clases ni de sus requisitos. Escribir o declarar práctica no demuestra calidad de escritura ni pronunciación; no se les inventa una nota. La siguiente etapa requiere todos los bloques del nivel. Las lecturas pendientes del último día planificado y las iniciadas anteriormente deben retomarse antes de abrir una clase nueva. Una clase ya aprobada sigue disponible para repaso.
+Para abrir la clase siguiente se requiere al menos **80 %** en la anterior. Cada bloque de hasta cuatro clases se conecta con evidencia registrada desde la primera rutina guardada o clase aprobada de ese bloque: lectura del nivel con al menos **60 %** o una respuesta objetiva correcta sobre un PDF; tres palabras distintas recordadas o un juego con al menos **75 %** sin ayudas; escritura guardada de al menos 30 caracteres. La conversación oral con IA ya no forma parte de las clases ni de sus requisitos. Escribir o declarar práctica no demuestra calidad de escritura ni pronunciación; no se les inventa una nota. La siguiente etapa requiere todos los bloques del nivel. Las lecturas pendientes del último día planificado y las iniciadas anteriormente deben retomarse antes de abrir una clase nueva. Una clase ya aprobada sigue disponible para repaso.
 
 Los requisitos muestran el porqué en español y enlazan con la tarea. La escritura complementaria también está disponible si el plan diario es de cinco minutos. Los espacios mantienen sus evidencias separadas y se sincronizan mediante el respaldo privado de cada idioma. Las prácticas iniciales MCER antiguas y sus respuestas se conservan, pero sus cuatro tareas ya no permiten saltar un nivel del recorrido completo.
 
@@ -32,7 +32,7 @@ Los hitos completados se guardan en `course_checkpoints` mediante una migración
 
 ## Audio y conversación oral
 
-La charla oral con IA se retiró de la interfaz. Los mensajes y borradores anteriores permanecen en el almacenamiento y las copias para no perder historial. El módulo disponible usa reconocimiento de voz del navegador para transcribir, y el modelo local es de texto; no proporciona una evaluación fiable del audio o la pronunciación. No se presenta esa transcripción como una corrección de audio. Se conserva la reproducción de ejemplos y palabras con las voces del dispositivo.
+La charla oral con IA se retiró de la interfaz. Los mensajes y borradores anteriores permanecen en el almacenamiento y las copias para no perder historial. Oral practice / Prática oral permite grabar hasta dos minutos, reproducir el audio y guardar notas o una transcripción manual opcional. No activa reconocimiento automático ni utiliza la IA local para calificar el audio. La práctica auditiva usa mensajes de voz sintética y dos preguntas objetivas: mostrar el texto cuenta como ayuda y excluye el intento de los resultados independientes. No se asignan notas de pronunciación, fluidez o nivel MCER a las grabaciones. Se conserva la reproducción de ejemplos y palabras con las voces del dispositivo.
 
 ## Clases guiadas
 
@@ -94,7 +94,7 @@ La primera visita permite empezar el diagnóstico. Cada respuesta se guarda; pod
 ## Qué funciona
 
 - Dashboard con actividades, tiempo activo, continuidad y vocabulario pendiente, sin estadísticas ficticias.
-- Diagnóstico retomable de nueve situaciones: reading, grammar y vocabulary. Línea de base por competencia; confianza baja, sin certificar MCER.
+- Diagnóstico retomable de 24 situaciones: reading, grammar y vocabulary. Línea de base por competencia; confianza baja, sin certificar MCER.
 - Plan diario persistente y acceso a la última actividad pendiente, incluso de un día anterior.
 - Seis lecturas originales A2–B2 sobre viajes, finanzas, historia, tecnología, trabajo y vida cotidiana. Preguntas corregidas con explicaciones; en GitHub Pages se evalúan en el navegador.
 - Lector por fragmentos, posición y respuestas guardadas, selección de palabras y expresiones, glosario inicial y pronunciación con la voz disponible en el navegador.
@@ -187,15 +187,15 @@ Inicio muestra únicamente el saludo y un itinerario opcional compacto. Sólo el
 
 ## Ayudas siempre disponibles
 
-Language help / Ajuda com o idioma aparece en el menú principal y en la bandera. Es una sección independiente, sin bloqueos ni requisitos: tablas de verbos, armado interactivo de afirmaciones/negativas/preguntas, tiempos presentes/pasados/futuros y fichas de consulta para acciones en curso, experiencias y pedidos corteses. Las explicaciones están en español y los modelos en el idioma del espacio. Reutiliza el borrador existente y funciona sin señal después de guardar la app; no acredita clases ni altera su acceso.
+Language help / Ajuda com o idioma aparece en el menú principal y en la bandera. Es una sección independiente, sin bloqueos ni requisitos: tablas de verbos, armado interactivo de afirmaciones/negativas/preguntas, tiempos presentes/pasados/futuros y fichas de consulta para acciones en curso, experiencias y pedidos corteses. Las explicaciones aparecen en el idioma de estudio con apoyo español debajo; los modelos conservan el idioma del espacio. Reutiliza el borrador existente y funciona sin señal después de guardar la app; no acredita clases ni altera su acceso.
 
 Las notas de las 131 clases del idioma, de A1 a C2, también se pueden consultar libremente por nivel y búsqueda desde Study notes / Notas de estudo. Esto permite leer teoría y ejemplos sin abrir ejercicios bloqueados ni registrar aprobaciones ficticias.
 
-El menú agrupa las secciones principales en accesos compactos y las complementarias en “More sections / Mais seções”, plegado en celular. PDF Studio explica su propósito y sus pasos en español. Progreso muestra primero objetivos del nivel, clases y bloques aprobados, requisitos y refuerzos; los detalles anteriores siguen disponibles en un desplegable. Los objetivos orientan el estudio y no reemplazan una evaluación validada de las competencias MCER.
+El menú agrupa las secciones principales en accesos compactos y las complementarias en “More sections / Mais seções”, plegado en celular. PDF Studio explica su propósito y sus pasos en el idioma de estudio con apoyo español. Progreso muestra primero objetivos del nivel, clases y bloques aprobados, requisitos y refuerzos; los detalles anteriores siguen disponibles en un desplegable. Los objetivos orientan el estudio y no reemplazan una evaluación validada de las competencias MCER.
 
 ## Primer día y test orientativo
 
-El tutorial de primera entrada explica en español cómo empezar: test, guía del día, clases y ayudas. Se recuerda por espacio y dispositivo; se puede volver a abrir con How to start / Como começar. El test contiene 12 situaciones (tres por tramo A1–B2) y una opción de desconocimiento, sin límite de tiempo. Cada respuesta se guarda al confirmarla y se puede retomar. El resultado muestra una referencia conservadora, resultados por lectura/gramática/vocabulario y un primer foco. Es un cuestionario guiado pequeño, no una certificación, ni evalúa audio o escritura. No altera el nivel de clases ni saltea requisitos. Los diagnósticos anteriores ya terminados se muestran con sus respuestas originales, sin exigir nuevas preguntas ni borrar historial.
+El tutorial de primera entrada explica en el idioma de estudio, con apoyo español debajo, cómo empezar: test, guía del día, clases y ayudas. Se recuerda por espacio y dispositivo; se puede volver a abrir con How to start / Como começar. El test nuevo contiene 24 situaciones (seis por tramo A1–B2, dos por competencia y tramo) y una opción de desconocimiento, sin límite de tiempo. Cada respuesta se guarda al confirmarla y se puede retomar. El resultado muestra una referencia conservadora, resultados por lectura/gramática/vocabulario y un primer foco. Es un cuestionario guiado pequeño, no una certificación, ni evalúa audio o escritura. No altera el nivel de clases ni saltea requisitos. Los diagnósticos anteriores ya terminados se muestran con sus respuestas originales, sin exigir nuevas preguntas ni borrar historial.
 
 Language help is always unlocked and opens with sentence construction, followed
 by a full tense reference and a searchable offline verb catalogue. The catalogue
@@ -276,3 +276,13 @@ como clases distintas para sus logros; bloques y niveles usan los hitos ya
 persistidos del recorrido. Los logros no desbloquean ni sustituyen los requisitos
 MCER. No hay migración ni almacenamiento separado: el historial existente permite
 recuperar los contadores después de una actualización, un respaldo o sin señal.
+
+## Intervención integral en rama de auditoría
+
+La rama `audit/integral-2026-10-14` conserva las bases, checkpoints, IDs y borradores anteriores. No cambia automáticamente el inicio A2 de Alejo ni A1 de Jazmín. Los diagnósticos históricos cerrados conservan su banco de nueve/doce ítems; las sesiones nuevas usan 24. La nueva edición contextual de actividades mantiene reproducible la edición anterior, separa borradores por actividad y lleva al siguiente paso pendiente en lugar de repetir silenciosamente el anterior.
+
+Inicio muestra una recomendación accionable, el motivo y la duración, seguida por una semana resumida y habilidades con o sin evidencia. La analítica distingue constancia, resultados objetivos y competencias pendientes; una escritura guardada y una racha no equivalen a dominio. Las clases muestran una pregunta cada vez y conservan la primera respuesta. PDF Studio separa documento y herramientas en escritorio, y prioriza lectura con pestañas en móvil.
+
+El audio de práctica oral queda como Blob en IndexedDB, separado por idioma. Los respaldos de progreso incluyen sus metadatos y notas, **no los archivos de audio**; para conservarlos fuera del dispositivo se ofrece descarga. Se necesita permiso de micrófono para grabar y una voz instalada para reproducción sin señal. El guardado ocurre al detener la grabación; un cierre o fallo durante la grabación puede perder ese audio en curso.
+
+Informes: [auditoría integral](AUDITORIA_COMPLETA.md), [inglés](AUDITORIA_INGLES.md), [portugués](AUDITORIA_PORTUGUES.md), [visual](AUDITORIA_VISUAL.md), [plan](PLAN_IMPLEMENTACION.md), [sistema de diseño](DESIGN_SYSTEM.md) y [resultados reales de QA](RESULTADOS_QA.md). Son cambios de rama; no implican publicación ni fusión.

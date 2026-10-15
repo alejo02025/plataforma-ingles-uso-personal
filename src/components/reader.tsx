@@ -1,5 +1,7 @@
 'use client';
 import { DownloadLink } from './ui';
+import { isPortuguese } from '@/lib/workspace';
+import { StudyCopy } from './study-copy';
 import { useState } from 'react';
 import { ArrowLeft, ChevronLeft, ChevronRight, Check, BookOpen } from 'lucide-react';
 import type { Snapshot, Activity, Document } from '@/lib/types';
@@ -113,7 +115,7 @@ export function Reader({
             <Speak text={doc.paragraphs[paragraph]} />
           </div>
           <p
-            lang="en"
+            lang={isPortuguese ? 'pt-BR' : 'en'}
             className="reading-text"
             data-source-id={doc.id}
             onMouseUp={() => {
@@ -122,7 +124,7 @@ export function Reader({
             }}
           >
             {doc.paragraphs[paragraph].split(/(\s+)/).map((token, i) =>
-              /[a-zA-Z]/.test(token) ? (
+              /[\p{L}]/u.test(token) ? (
                 <button key={i} className="word-token" onClick={() => select(token)}>
                   {token}
                 </button>
@@ -223,7 +225,15 @@ export function Reader({
             <div className="word-empty">
               <BookOpen size={32} />
               <h3>Keep the words you discover.</h3>
-              <p>Tap a word for Spanish meaning, explanation, and an everyday example.</p>
+              <StudyCopy
+                native={
+                  isPortuguese
+                    ? 'Toque em uma palavra para ver seu significado, uma explicação e um exemplo de uso.'
+                    : 'Tap a word for its meaning, an explanation and an everyday example.'
+                }
+              >
+                Tocá una palabra para ver su significado, una explicación y un ejemplo de uso.
+              </StudyCopy>
             </div>
           </section>
           <section className="card quiet-card">

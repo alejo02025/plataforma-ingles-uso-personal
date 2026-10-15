@@ -2,7 +2,7 @@
 
 ## Decisiones
 
-Next.js App Router y TypeScript, API ejecutada en Node 24, SQLite con `node:sqlite` y migraciones versionadas. SQLite es una base transaccional persistente apropiada para un usuario; evita servicios adicionales y se puede migrar a PostgreSQL si aparece uso multiusuario. Los datos y archivos van en `data/` o `ENGLISH_DATA_DIR`, nunca en el navegador ni en el repositorio. La interfaz usa CSS propio con variables, componentes accesibles y tema claro/oscuro, sin dependencia de fuentes externas.
+Next.js App Router y TypeScript, con dos modos: servidor Node 24 y exportación estática dual para GitHub Pages. El servidor usa SQLite con `node:sqlite`; la edición publicada usa SQL.js en dos bases IndexedDB separadas, English OS y Português OS. SQLite es una base transaccional persistente apropiada para un usuario; evita servicios adicionales y se puede migrar a PostgreSQL si aparece uso multiusuario. En servidor, datos y archivos van en `data/` o `ENGLISH_DATA_DIR`. En GitHub Pages, quedan en el navegador y se respaldan opcionalmente en un repositorio privado; no se incorporan al repositorio público de código. La interfaz usa CSS propio con variables, componentes accesibles y tema claro/oscuro, sin dependencia de fuentes externas.
 
 Las rutas API validan entradas con Zod, usan consultas parametrizadas, verifican origen en escrituras y pueden protegerse con una contraseña de acceso y cookie HttpOnly firmada. La clave de IA solo se usa en el servidor hacia la API oficial de OpenAI. El contexto enviado incluye el nivel orientativo y patrones de errores, no documentos completos ni historial indiscriminado. Importar un PDF no lo envía a IA. El usuario decide solicitar una corrección.
 
@@ -20,4 +20,12 @@ Los planes se guardan por fecha de Buenos Aires y duración. Priorizan vocabular
 
 ## Límites deliberados del MVP
 
-Banco inicial editorial finito, no generación infinita de lecturas. IA para corrección real, opcional según credencial. PDFs escaneados necesitan OCR, pendiente. No speech-to-text ni listening en esta fase. Aplicación personal, no multiusuario. Respaldar volumen de datos antes de actualizar. El acceso público requiere token, HTTPS, límites de tráfico en el proxy y un volumen persistente; no desplegar como función efímera con disco descartable.
+Banco inicial editorial finito, no generación infinita de lecturas. IA para corrección real, opcional según credencial. PDFs escaneados necesitan OCR, pendiente. No hay speech-to-text automático ni evaluación validada de pronunciación. La rama de auditoría añade grabación local y comprensión de mensajes sintéticos con resultados limitados a dos preguntas; mostrar la transcripción cuenta como ayuda. Aplicación personal, no multiusuario. Respaldar volumen de datos antes de actualizar. El acceso público requiere token, HTTPS, límites de tráfico en el proxy y un volumen persistente; no desplegar como función efímera con disco descartable.
+
+## Auditoría integral: conservación y evidencia
+
+Los nuevos intentos de rutina usan edición 2; la edición 1 sigue reproducible para resultados anteriores. Los borradores se separan por tarea e intento. Los diagnósticos nuevos tienen 24 ítems; los históricos cerrados conservan sus respuestas. Ninguna de esas ampliaciones promueve el recorrido automáticamente.
+
+La práctica oral usa metadatos versionados `oral-v1` en la tabla de mensajes existente, separados del contenido PDF mediante el documento reservado de voz. Los archivos de audio se guardan como Blob en el almacén IndexedDB del idioma; el respaldo SQL contiene metadatos/notas, no esos archivos. No se agregan tablas ni migraciones destructivas. Audio, transcripción manual y resultados de escucha se muestran como evidencias diferentes.
+
+Los informes `AUDITORIA_*.md` y `RESULTADOS_QA.md` registran hechos, cambios y límites de esta rama; las fases anteriores no deben interpretarse como funciones todas implementadas o validadas.

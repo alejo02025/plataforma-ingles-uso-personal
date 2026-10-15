@@ -1,7 +1,8 @@
 'use client';
+import { StudyCopy } from './study-copy';
 import { useEffect, useRef, useState } from 'react';
 import { X, Check, RotateCcw } from 'lucide-react';
-import { makeRoutine, routineTitles, routineScore } from '@/lib/routine';
+import { makeRoutine, routineTitles, routineScore, routinePassThreshold } from '@/lib/routine';
 import { normalizeAnswer } from '@/lib/games';
 import { isPortuguese } from '@/lib/workspace';
 import {
@@ -10,16 +11,21 @@ import {
   type RoutineDraft,
 } from '@/lib/browser/routine-draft';
 import { Button, Speak, api } from './ui';
+import { RoutineScene } from './routine-scene';
 import { Correction } from './correction';
 import { useDialog } from './use-dialog';
 export function RoutineSession({
   initial,
   refresh,
   close,
+  onAdvance,
+  nextLabel,
 }: {
   initial: RoutineDraft;
   refresh: () => Promise<void>;
   close: () => void;
+  onAdvance: (independentPass: boolean) => void;
+  nextLabel: string;
 }) {
   const [draft, setDraft] = useState(initial),
     [error, setError] = useState(''),
@@ -36,7 +42,10 @@ export function RoutineSession({
     didSave = useRef(false),
     saving = useRef(false);
   current.current = draft;
-  const set = makeRoutine(initial.mode, initial.level, initial.block),
+  const set = makeRoutine(initial.mode, initial.level, initial.block, undefined, {
+      edition: initial.edition,
+      variant: initial.variant,
+    }),
     complete = draft.answers.length === set.rounds.length,
     round = set.rounds[Math.min(draft.answers.length, set.rounds.length - 1)],
     answer =
@@ -96,6 +105,7 @@ export function RoutineSession({
         level: initial.level,
         block: initial.block,
         edition: initial.edition,
+        variant: initial.variant ?? 0,
         answers: draft.answers,
         helpUsed: draft.helpUsed,
         seconds: seconds.current,
@@ -165,27 +175,53 @@ export function RoutineSession({
               {recordedScore?.correct ?? routineScore(set, draft.answers)} /{' '}
               {recordedScore?.total ?? set.rounds.length}
             </p>
-            <p lang="es">
+            <StudyCopy
+              as="p"
+              native={`${saved ? (isPortuguese ? 'Salvo no seu progresso.' : 'Saved in your progress.') : isPortuguese ? 'Salvando suas respostas.' : 'Saving your answers.'} ${draft.helpUsed ? (isPortuguese ? 'Você usou ajuda. Sua prática é registrada; tente outra sequência sem ajuda para cumprir o requisito.' : 'You used help. Your practice is recorded; try a new sequence without help to meet the requirement.') : (recordedScore?.correct ?? routineScore(set, draft.answers)) / (recordedScore?.total ?? set.rounds.length) >= routinePassThreshold(initial.mode) ? (isPortuguese ? 'Continue com a próxima etapa pendente.' : 'Continue with the next unfinished step.') : isPortuguese ? 'Reforce esta habilidade com outra sequência. Os erros continuam registrados.' : 'Reinforce this skill with a new sequence. Your errors remain recorded.'}`}
+            >
               {saved ? 'Guardado en tu progreso.' : 'Estamos guardando tus respuestas.'}{' '}
               {draft.helpUsed
                 ? 'Usaste la ayuda de palabras: la práctica se conserva, pero repetila sin ayudas para acreditar el requisito.'
                 : (recordedScore?.correct ?? routineScore(set, draft.answers)) /
                       (recordedScore?.total ?? set.rounds.length) >=
-                    0.8
+                    routinePassThreshold(initial.mode)
                   ? 'Ahora podés seguir con el siguiente paso del recorrido.'
                   : 'Volvé a practicar este paso: los errores se conservan para orientar el repaso.'}
-            </p>
+            </StudyCopy>
             <details>
               <summary>{isPortuguese ? 'Revisar respostas' : 'Review answers'}</summary>
               {set.rounds.map((q, i) => (
                 <div className="routine-review" key={q.id}>
                   <p lang={native}>{draft.answers[i]}</p>
-                  <Correction explanation={q.why} correction={q.solution} />
+                  <Correction
+                    explanation={q.why}
+                    explanationNative={q.explanationNative}
+                    correction={q.solution}
+                  />
                 </div>
               ))}
             </details>
+            {saved && !busy && (
+              <Button
+                onClick={() =>
+                  onAdvance(
+                    !draft.helpUsed &&
+                      (recordedScore?.correct ?? 0) / (recordedScore?.total ?? 1) >=
+                        routinePassThreshold(initial.mode),
+                  )
+                }
+              >
+                {!draft.helpUsed &&
+                (recordedScore?.correct ?? 0) / (recordedScore?.total ?? 1) >=
+                  routinePassThreshold(initial.mode)
+                  ? nextLabel
+                  : isPortuguese
+                    ? 'Reforçar com outra sequência'
+                    : 'Reinforce with a new sequence'}
+              </Button>
+            )}
             {saved && (
-              <Button onClick={close}>
+              <Button secondary disabled={busy} onClick={close}>
                 {isPortuguese ? 'Voltar ao percurso' : 'Back to the path'}
               </Button>
             )}
@@ -195,21 +231,56 @@ export function RoutineSession({
             <p className="fine-print">
               {draft.answers.length + 1} / {set.rounds.length}
             </p>
-            {set.text && (
+            {round.scene && <RoutineScene scene={round.scene} />}
+            {(round.text || set.text) && (
               <div className="routine-reading" lang={native}>
-                {set.text}
-                <Speak text={set.text} />
+                <p>{round.text || set.text}</p>
+                <Speak text={round.text || set.text || ''} />
+                {round.textSpanish && (
+                  <details
+                    onToggle={(e) => {
+                      if (e.currentTarget.open && !draft.checked)
+                        setDraft((d) => ({ ...d, helpUsed: true }));
+                    }}
+                  >
+                    <summary>
+                      {isPortuguese ? 'Tradução ao espanhol (ajuda)' : 'Spanish translation (help)'}
+                    </summary>
+                    <p lang="es">{round.textSpanish}</p>
+                  </details>
+                )}
+              </div>
+            )}
+            {round.context && (
+              <div className="routine-reading">
+                <p lang={native}>{round.context}</p>
+                <p lang="es" className="study-spanish">
+                  {round.contextSpanish}
+                </p>
+                <Speak text={round.context} />
               </div>
             )}
             <h3 lang={native}>{round.prompt}</h3>
             <p className="routine-spanish" lang="es">
               {round.spanish}
             </p>
-            <p className="fine-print" lang="es">
+            <StudyCopy
+              as="p"
+              className="fine-print"
+              native={
+                initial.mode === 'grammar'
+                  ? isPortuguese
+                    ? 'Toque nos blocos na ordem. Toque em um bloco escolhido para devolvê-lo.'
+                    : 'Tap the blocks in order. Tap a chosen block to put it back.'
+                  : isPortuguese
+                    ? 'Escolha uma opção e confira sua resposta.'
+                    : 'Choose an option and check your answer.'
+              }
+            >
               {initial.mode === 'grammar'
                 ? 'Tocá los bloques en orden. Podés tocar uno elegido para devolverlo.'
                 : 'Elegí una opción y comprobá tu respuesta.'}
-            </p>
+            </StudyCopy>
             {initial.mode === 'grammar' ? (
               <>
                 <div
@@ -282,7 +353,11 @@ export function RoutineSession({
                       ? 'Vamos entender.'
                       : 'Let’s understand.'}
                 </strong>
-                <Correction explanation={round.why} correction={round.solution} />
+                <Correction
+                  explanation={round.why}
+                  explanationNative={round.explanationNative}
+                  correction={round.solution}
+                />
                 <Button onClick={next}>{isPortuguese ? 'Continuar' : 'Continue'}</Button>
               </div>
             ) : (
@@ -296,17 +371,25 @@ export function RoutineSession({
                 {isPortuguese ? 'Conferir' : 'Check'}
               </Button>
             )}
-            <p className="fine-print" lang="es">
+            <StudyCopy
+              as="p"
+              className="fine-print"
+              native={
+                isPortuguese
+                  ? 'Você pode pausar: suas respostas e os blocos escolhidos ficam salvos neste dispositivo. O resultado usa a primeira resposta de cada exercício.'
+                  : 'You can pause: answers and chosen blocks are saved on this device. The result uses your first answer to each exercise.'
+              }
+            >
               Podés pausar: tus respuestas y los bloques elegidos quedan guardados en este
               dispositivo. La nota usa tu primera respuesta de cada ejercicio.
-            </p>
+            </StudyCopy>
           </>
         )}
         {storageError && (
-          <p className="error" role="alert" lang="es">
+          <StudyCopy as="p" className="error" role="alert">
             No se pudo guardar el borrador. Terminá esta actividad y verificá que diga guardado
             antes de salir.
-          </p>
+          </StudyCopy>
         )}
         {error && (
           <div role="alert" className="error">

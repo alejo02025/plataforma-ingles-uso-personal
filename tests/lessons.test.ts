@@ -69,10 +69,20 @@ test('Class attempts are graded from the catalog, save Spanish corrections, and 
     assert.equal(saved.total, 2);
     assert.equal(saved.feedback[0].explanationSpanish, lesson.checks[0].why);
     assert.equal(saved.feedback[0].correction, lesson.checks[0].correction);
-    assert.equal(
-      saveLesson(db, { ...input, answers: lesson.checks.map((q) => q.answer) }, plan).correct,
-      1,
+    const repeated = saveLesson(
+      db,
+      {
+        ...input,
+        answers: lesson.checks.map((q) => q.answer),
+        practice: 'This different retry must not overwrite the first recorded response.',
+      },
+      plan,
     );
+    assert.equal(repeated.correct, 1);
+    assert.equal(repeated.repeated, true);
+    assert.deepEqual(repeated.responses, input.answers);
+    assert.equal(repeated.practice, input.practice);
+    assert.deepEqual(saved.responses, input.answers);
     const after = service.snapshot();
     assert.equal(after.results.length, 1);
     assert.equal(after.results[0].active_seconds, 19);

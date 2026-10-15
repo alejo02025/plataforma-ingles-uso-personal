@@ -1,4 +1,5 @@
 'use client';
+import { StudyCopy } from './study-copy';
 import { useEffect, useMemo, useState } from 'react';
 import { assetBase, isPortuguese } from '@/lib/workspace';
 import { Speak } from './ui';
@@ -49,9 +50,9 @@ export function VerbCatalog() {
     <section className="verb-catalog">
       <div className="toolkit-intro">
         <h2>{isPortuguese ? 'Encontre seu verbo' : 'Find your verb'}</h2>
-        <p lang="es">
+        <StudyCopy as="p">
           Buscá en español o en el idioma que estudiás. Tocá un verbo para ver su significado.
-        </p>
+        </StudyCopy>
       </div>
       <label className="field verb-search">
         {isPortuguese ? 'Buscar verbos' : 'Search verbs'}
@@ -76,10 +77,10 @@ export function VerbCatalog() {
       </p>
       {error && (
         <div role="alert">
-          <p lang="es">
+          <StudyCopy as="p">
             No se pudo abrir el catálogo. Conectate una vez para descargarlo; después queda
             disponible sin señal cuando la app indique que está lista sin conexión.
-          </p>
+          </StudyCopy>
           <button onClick={() => setRetry((v) => v + 1)}>
             {isPortuguese ? 'Tentar novamente' : 'Try again'}
           </button>
@@ -96,9 +97,9 @@ export function VerbCatalog() {
               <Speak text={entry.word} />
               {entry.senses.map((sense, i) => (
                 <div key={sense.id}>
-                  <p lang="es">
+                  <StudyCopy as="p">
                     <strong>{i + 1}.</strong> {sense.es.join(' · ')}
-                  </p>
+                  </StudyCopy>
                   <details>
                     <summary>
                       {isPortuguese
@@ -109,19 +110,19 @@ export function VerbCatalog() {
                   </details>
                 </div>
               ))}
-              <p className="fine-print" lang="es">
+              <StudyCopy as="p" className="fine-print">
                 El significado depende del contexto. Para armar una oración, usá el constructor de
                 frases.
-              </p>
+              </StudyCopy>
             </div>
           </details>
         ))}
       </div>
       {entries.length > 0 && !matches.length && (
-        <p lang="es">
+        <StudyCopy as="p">
           No encontramos ese verbo. Probá el infinitivo o una palabra más corta, en español o en el
           idioma que estudiás.
-        </p>
+        </StudyCopy>
       )}
       {matches.length > size && (
         <nav
@@ -146,15 +147,17 @@ export function VerbCatalog() {
         <summary>
           {isPortuguese ? 'Conjugar verbos do dia a dia' : 'Conjugate everyday verbs'}
         </summary>
-        <p lang="es">Elegí un verbo, una persona y un tiempo para ver un modelo de uso.</p>
+        <StudyCopy as="p">
+          Elegí un verbo, una persona y un tiempo para ver un modelo de uso.
+        </StudyCopy>
         <Foundations mode="verbs" referenceOnly onOpenLesson={() => {}} />
       </details>
       <details className="catalog-sources">
         <summary>{isPortuguese ? 'Fontes do dicionário' : 'Dictionary sources'}</summary>
-        <p lang="es">
+        <StudyCopy as="p">
           Princeton WordNet 3.0, OpenWordnet-PT y Multilingual Central Repository, mediante Open
           Multilingual WordNet 1.4. Equivalencias alineadas por significado.
-        </p>
+        </StudyCopy>
         <a href={`${assetBase}/assets/verbs/NOTICE.md`} target="_blank" rel="noreferrer">
           WordNet / OMW · CC BY-SA 3.0 · Licencias y atribución
         </a>

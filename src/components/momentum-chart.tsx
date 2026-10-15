@@ -1,4 +1,8 @@
 'use client';
+import { StudyCopy } from './study-copy';
+import { OralEvidenceRecord } from './oral-evidence-record';
+import { oralEvidence } from '@/lib/oral-practice';
+import { isPortuguese } from '@/lib/workspace';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Activity, BookOpen, Check, Clock3, MessageCircle, Sparkles } from 'lucide-react';
 import type { Snapshot } from '@/lib/types';
@@ -10,6 +14,8 @@ import { pdfWhy } from '@/locales/es/answer-help';
 import { questions } from '@/lib/tutor';
 import { lessons } from '@/lib/lessons';
 export function MomentumChart({ data, compact = false }: { data: Snapshot; compact?: boolean }) {
+  const pt = isPortuguese;
+  const oral = new Map(oralEvidence(data).map((a) => [a.id, a]));
   const [length, setLength] = useState(14),
     [selected, setSelected] = useState<string | null>(null);
   const days = useMemo(() => practiceDays(data, length), [data, length]);
@@ -48,9 +54,17 @@ export function MomentumChart({ data, compact = false }: { data: Snapshot; compa
     <section className={`momentum-card card ${compact ? 'compact' : ''}`}>
       <div className="momentum-heading">
         <div>
-          <span className="eyebrow">SMALL STEPS, REAL CONSISTENCY</span>
-          <h2>Your practice momentum.</h2>
-          <p>Built from your saved practice. Tap a day to see what happened.</p>
+          <span className="eyebrow">{pt ? 'CONSTÂNCIA, NÃO NÍVEL' : 'CONSISTENCY, NOT LEVEL'}</span>
+          <h2>{pt ? 'Seu ritmo de prática.' : 'Your practice momentum.'}</h2>
+          <StudyCopy
+            native={
+              pt
+                ? 'Baseado nos seus registros. Toque em um dia para ver o que fez.'
+                : 'Built from your saved records. Tap a day to see what you did.'
+            }
+          >
+            Se construye con tus registros. Tocá un día para ver lo que hiciste.
+          </StudyCopy>
         </div>
         <div className="tabs">
           {[7, 14, 30].map((range) => (
@@ -62,7 +76,7 @@ export function MomentumChart({ data, compact = false }: { data: Snapshot; compa
                 setSelected(null);
               }}
             >
-              {range} days
+              {range} {pt ? 'dias' : 'days'}
             </button>
           ))}
         </div>
@@ -70,19 +84,25 @@ export function MomentumChart({ data, compact = false }: { data: Snapshot; compa
       <div className="momentum-legend">
         <span>
           <i />
-          Practice momentum
+          {pt ? 'Ritmo de prática' : 'Practice momentum'}
         </span>
         <span>
           <b />
-          Day with saved practice
+          {pt ? 'Dia com registros' : 'Day with saved records'}
         </span>
-        <small>0–100 consistency index · not a language score</small>
+        <small>
+          {pt
+            ? 'Índice de constância de 0 a 100 · não é uma nota de idioma'
+            : '0–100 consistency index · not a language score'}
+        </small>
       </div>
       <div className="momentum-graph" ref={graph}>
         <svg
           viewBox={`0 0 ${width} ${height}`}
           role="group"
-          aria-label="Interactive practice momentum chart"
+          aria-label={
+            pt ? 'Gráfico interativo de constância' : 'Interactive practice momentum chart'
+          }
           onPointerDown={(event) => {
             const bounds = event.currentTarget.getBoundingClientRect();
             choose(((event.clientX - bounds.left) / bounds.width) * width);
@@ -96,8 +116,8 @@ export function MomentumChart({ data, compact = false }: { data: Snapshot; compa
               y1="0"
               y2="1"
             >
-              <stop offset="0%" stopColor="#6382ff" stopOpacity=".22" />
-              <stop offset="100%" stopColor="#6382ff" stopOpacity=".02" />
+              <stop offset="0%" stopColor="var(--brand)" stopOpacity=".22" />
+              <stop offset="100%" stopColor="var(--brand)" stopOpacity=".02" />
             </linearGradient>
           </defs>
           {[0, 25, 50, 75, 100].map((value) => (
@@ -119,13 +139,19 @@ export function MomentumChart({ data, compact = false }: { data: Snapshot; compa
             </g>
           ))}
           <path d={area} fill={`url(#momentum-fill-${compact ? 'home' : 'progress'})`} />
-          <path d={line} fill="none" stroke="#7185ff" strokeWidth="2.5" strokeLinejoin="round" />
+          <path
+            d={line}
+            fill="none"
+            stroke="var(--brand)"
+            strokeWidth="2.5"
+            strokeLinejoin="round"
+          />
           <line
             x1={at.x}
             x2={at.x}
             y1={top}
             y2={height - bottom}
-            stroke="#7185ff"
+            stroke="var(--brand)"
             strokeDasharray="4 5"
             opacity=".5"
           />
@@ -137,12 +163,12 @@ export function MomentumChart({ data, compact = false }: { data: Snapshot; compa
                 r={point.day.day === item.day ? 6 : point.day.practised ? 4 : 2.5}
                 fill={
                   point.day.day === item.day
-                    ? '#7185ff'
+                    ? 'var(--brand)'
                     : point.day.practised
-                      ? '#f69b76'
+                      ? 'var(--orange)'
                       : 'var(--surface)'
                 }
-                stroke="#7185ff"
+                stroke="var(--brand)"
                 strokeWidth="1.5"
               />
               {(index === 0 ||
@@ -159,7 +185,7 @@ export function MomentumChart({ data, compact = false }: { data: Snapshot; compa
                 fill="transparent"
                 role="button"
                 tabIndex={0}
-                aria-label={`View practice on ${point.day.day}`}
+                aria-label={`${pt ? 'Ver prática em' : 'View practice on'} ${point.day.day}`}
                 onClick={() => setSelected(point.day.day)}
                 onKeyDown={(event) => {
                   if (event.key === 'Enter' || event.key === ' ') {
@@ -187,7 +213,7 @@ export function MomentumChart({ data, compact = false }: { data: Snapshot; compa
       <div className="momentum-details" aria-live="polite">
         <div className="momentum-day">
           <span className="eyebrow">
-            {item.day === data.day ? 'TODAY' : dateLabel(item.day).toUpperCase()}
+            {item.day === data.day ? (pt ? 'HOJE' : 'TODAY') : dateLabel(item.day).toUpperCase()}
           </span>
           <h3>
             {item.score}
@@ -195,10 +221,16 @@ export function MomentumChart({ data, compact = false }: { data: Snapshot; compa
           </h3>
           <p>
             {item.practised
-              ? 'You made room for English.'
+              ? pt
+                ? 'Você reservou um tempo para o idioma.'
+                : 'You made room for your language.'
               : item.day === data.day
-                ? 'No practice saved yet. Today is still open.'
-                : 'No practice saved on this day. Momentum eased down.'}
+                ? pt
+                  ? 'Ainda sem prática salva. O dia continua aberto.'
+                  : 'No practice saved yet. Today is still open.'
+                : pt
+                  ? 'Sem prática salva neste dia. O índice diminuiu.'
+                  : 'No practice saved on this day. Momentum eased down.'}
           </p>
         </div>
         <div className="momentum-records">
@@ -209,23 +241,23 @@ export function MomentumChart({ data, compact = false }: { data: Snapshot; compa
             </span>
             <span>
               <Check size={14} />
-              {item.activities.length} activities
+              {item.activities.length} {pt ? 'atividades' : 'activities'}
             </span>
             <span>
               <Sparkles size={14} />
-              {item.attempts.length} PDF answers
+              {item.attempts.length} {pt ? 'respostas de PDF' : 'PDF answers'}
             </span>
             <span>
               <BookOpen size={14} />
-              {item.words.length} new words
+              {item.words.length} {pt ? 'palavras novas' : 'new words'}
             </span>
             <span>
               <Activity size={14} />
-              {item.reviews.length} reviews
+              {item.reviews.length} {pt ? 'revisões' : 'reviews'}
             </span>
             <span>
               <MessageCircle size={14} />
-              {item.messages.length} messages
+              {item.messages.length} {pt ? 'mensagens' : 'messages'}
             </span>
           </div>
           {item.course.map((attempt) => (
@@ -239,23 +271,42 @@ export function MomentumChart({ data, compact = false }: { data: Snapshot; compa
               )}
               <p>
                 {attempt.correct === null
-                  ? 'Prática sem nota automática'
+                  ? pt
+                    ? 'Prática sem nota automática'
+                    : 'Practice without an automatic score'
                   : attempt.correct
-                    ? 'Resposta correta'
-                    : 'Prática para revisar'}
+                    ? pt
+                      ? 'Resposta correta'
+                      : 'Correct answer'
+                    : pt
+                      ? 'Prática para revisar'
+                      : 'Practice to review'}
               </p>
             </details>
           ))}
-          {item.assessment && <p className="momentum-entry">Starting assessment completed.</p>}
+          {item.assessment && (
+            <p className="momentum-entry">
+              {pt ? 'Diagnóstico inicial concluído.' : 'Starting assessment completed.'}
+            </p>
+          )}
           {item.activities.map((result) =>
             result.activity_id.startsWith('class:') ? (
               (() => {
-                const saved = JSON.parse(result.answers);
+                let saved: {
+                  lessonId?: string;
+                  practice?: string;
+                  feedback?: { correct: boolean; explanationSpanish: string; correction: string }[];
+                } = {};
+                try {
+                  saved = JSON.parse(result.answers);
+                } catch {
+                  /* Legacy or incomplete record: keep the activity visible. */
+                }
                 const lesson = lessons.find((lesson) => lesson.id === saved.lessonId);
                 return (
                   <details className="momentum-entry" key={result.id}>
                     <summary>
-                      Class · {result.title} · {result.correct}/{result.total}
+                      {pt ? 'Aula' : 'Class'} · {result.title} · {result.correct}/{result.total}
                     </summary>
                     {lesson && (
                       <p>
@@ -293,9 +344,9 @@ export function MomentumChart({ data, compact = false }: { data: Snapshot; compa
           {item.attempts.map((attempt) => (
             <details className="momentum-entry" key={attempt.id}>
               <summary>
-                PDF practice ·{' '}
+                {pt ? 'Prática com PDF' : 'PDF practice'} ·{' '}
                 {data.documents.find((doc) => doc.id === attempt.document_id)?.title ||
-                  'Your document'}
+                  (pt ? 'Seu documento' : 'Your document')}
               </summary>
               <p>{attempt.prompt}</p>
               <blockquote>{attempt.answer}</blockquote>
@@ -324,30 +375,45 @@ export function MomentumChart({ data, compact = false }: { data: Snapshot; compa
           ))}
           {item.words.length > 0 && (
             <p className="momentum-entry">
-              Words saved: {item.words.map((word) => word.word).join(', ')}
+              {pt ? 'Palavras salvas:' : 'Words saved:'}{' '}
+              {item.words.map((word) => word.word).join(', ')}
             </p>
           )}
           {item.reviews.length > 0 && (
             <p className="momentum-entry">
-              Reviewed: {item.reviews.map((review) => review.word).join(', ')}
+              {pt ? 'Revisadas:' : 'Reviewed:'}{' '}
+              {item.reviews.map((review) => review.word).join(', ')}
             </p>
           )}
-          {item.messages.map((message) => (
-            <details className="momentum-entry" key={message.id}>
-              <summary>
-                PDF conversation ·{' '}
-                {data.documents.find((doc) => doc.id === message.document_id)?.title ||
-                  'Your document'}
-              </summary>
-              <p>{message.content}</p>
-            </details>
-          ))}
+          {item.messages.map((message) =>
+            oral.has(message.id) ? (
+              <div className="momentum-entry" key={message.id}>
+                <OralEvidenceRecord attempt={oral.get(message.id)!} />
+              </div>
+            ) : (
+              <details className="momentum-entry" key={message.id}>
+                <summary>
+                  {pt ? 'Conversa sobre PDF' : 'PDF conversation'} ·{' '}
+                  {data.documents.find((doc) => doc.id === message.document_id)?.title ||
+                    (pt ? 'Seu documento' : 'Your document')}
+                </summary>
+                <p>{message.content}</p>
+              </details>
+            ),
+          )}
         </div>
       </div>
-      <p className="fine-print momentum-note">
-        Days with practice add momentum. Each completed day without practice reduces the previous
-        index by 8%. This tracks your habit, not a loss of English ability.
-      </p>
+      <StudyCopy
+        className="fine-print momentum-note"
+        native={
+          pt
+            ? 'Dias com registros aumentam este índice de hábito. Cada dia encerrado sem registros reduz o índice anterior em 8%. Isso não representa perda de capacidade no idioma.'
+            : 'Days with records add to this habit index. Each completed day without records reduces the previous index by 8%. This does not represent a loss of language ability.'
+        }
+      >
+        Los días con registros suman al índice de hábito. Cada día cerrado sin registros reduce el
+        índice anterior un 8 %. Eso no representa una pérdida de capacidad en el idioma.
+      </StudyCopy>
     </section>
   );
 }

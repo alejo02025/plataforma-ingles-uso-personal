@@ -71,3 +71,29 @@ test('momentum rises from saved practice, declines on completed inactive days, a
     'an unfinished day without records is not penalized yet',
   );
 });
+
+test('recorded oral practice contributes only its technical duration and a saved event to the habit graph', () => {
+  const snapshot = state();
+  const id = '67b72694-7aee-4d4a-92f1-2744b0b18897';
+  snapshot.tutorMessages.push({
+    id,
+    document_id: 'voice-room',
+    role: 'user',
+    mode: 'user',
+    sources: '[]',
+    created_at: '2026-10-13T15:00:00Z',
+    content: JSON.stringify({
+      id,
+      kind: 'oral-v1',
+      mode: 'recording',
+      level: 'A2',
+      duration: 60,
+      mime: 'audio/webm',
+    }),
+  });
+  const day = practiceDays(snapshot, 7).at(-1)!;
+  assert.equal(day.practised, true);
+  assert.equal(day.minutes, 1);
+  assert.equal(day.messages.length, 1);
+  assert.equal(day.activities.length, 0);
+});

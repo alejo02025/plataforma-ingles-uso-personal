@@ -46,8 +46,60 @@ for (const pt of [false, true])
     for (let i = 0; i < 4; i++) {
       await page.locator('.class-card').nth(i).click();
       await expect(page.locator('.lesson-step > p[lang="es"]').first()).toBeVisible();
-      for (const [j, q] of items[i].checks.entries())
-        await page.locator('.lesson-check').nth(j).getByRole('radio').nth(q.answer).check();
+      await page
+        .getByRole('button', { name: pt ? 'Começar a prática' : 'Start the practice', exact: true })
+        .click();
+      for (const [j, q] of items[i].checks.entries()) {
+        await expect(page.locator('.lesson-check')).toHaveCount(1);
+        await expect(page.locator('.lesson-check .study-spanish')).toHaveCount(0);
+        if (i === 0 && j === 0) {
+          for (const width of [375, 390, 768, 1440]) {
+            await page.setViewportSize({ width, height: 900 });
+            expect(
+              await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
+            ).toBe(true);
+            await page.screenshot({
+              path: `artifacts/audit/after/class-${pt ? 'pt' : 'en'}-${width}.png`,
+              fullPage: true,
+            });
+          }
+          await page.setViewportSize({ width: 1280, height: 900 });
+        }
+        await page.locator(`.lesson-check input[type=radio][value="${q.answer}"]`).check();
+        await page
+          .getByRole('button', {
+            name: pt ? 'Conferir esta resposta' : 'Check this answer',
+            exact: true,
+          })
+          .click();
+        await expect(page.locator('.lesson-feedback')).toBeVisible();
+        await expect(page.locator('[data-study-copy="missing"]:visible')).toHaveCount(0);
+        await expect(page.locator('.lesson-check').getByRole('radio').first()).toBeDisabled();
+        if (i === 0 && j === 0) {
+          await page.reload();
+          await classes();
+          await page.locator('.class-card').first().click();
+          await expect(page.locator('.lesson-check')).toHaveCount(1);
+          await expect(page.locator('.lesson-feedback')).toBeVisible();
+          await expect(page.locator('[data-study-copy="missing"]:visible')).toHaveCount(0);
+          await expect(
+            page.locator(`.lesson-check input[type=radio][value="${q.answer}"]`),
+          ).toBeChecked();
+        }
+        await page
+          .getByRole('button', {
+            name:
+              j + 1 < items[i].checks.length
+                ? pt
+                  ? 'Próxima pergunta'
+                  : 'Next question'
+                : pt
+                  ? 'Aplicar à sua vida'
+                  : 'Apply it to your life',
+            exact: true,
+          })
+          .click();
+      }
       await page.getByLabel(pt ? 'Sua prática da aula' : 'Your class practice').fill(practice);
       if (i === 0) {
         await page.reload();
@@ -63,7 +115,17 @@ for (const pt of [false, true])
           exact: true,
         })
         .click();
-      await expect(page.locator('.lesson-saved > p')).toContainText('2 / 2');
+      await expect(page.locator('.lesson-saved > p').first()).toContainText('2 / 2');
+      if (i === 0) {
+        await page
+          .getByRole('button', {
+            name: pt ? 'Continuar para a próxima aula' : 'Continue to the next class',
+            exact: true,
+          })
+          .click();
+        await expect(page.locator('.lesson-heading h2')).toHaveText(items[1].title);
+        await expect(page.locator('.lesson-heading h2')).not.toHaveText(items[0].title);
+      }
       await page
         .getByRole('button', { name: pt ? 'Voltar às aulas' : 'Back to classes', exact: true })
         .click();

@@ -42,7 +42,7 @@ for (const pt of [false, true])
     await expect(page.locator('.path-requirements')).toContainText('Pendiente:');
     await page
       .locator('.progress-path')
-      .getByText(pt ? 'Conquistas' : 'Achievements', { exact: true })
+      .getByText(pt ? 'Marcos de prática' : 'Practice milestones', { exact: true })
       .click();
     await expect(page.locator('.progress-path')).toContainText('Todavía no hay un nivel completo');
     await page.screenshot({ path: `/tmp/progress-simple-${pt ? 'pt' : 'en'}.png`, fullPage: true });
@@ -55,6 +55,6 @@ for (const pt of [false, true])
         exact: true,
       })
       .click();
-    await expect(page.locator('.toolkit-note')).toBeVisible();
+    await expect(page.locator('.toolkit-note[lang="es"]')).toBeVisible();
     expect(errors).toEqual([]);
   });

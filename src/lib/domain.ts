@@ -16,9 +16,10 @@ import type { Activity, Document, Word, Result, Snapshot } from './types';
 type Row = Record<string, unknown>;
 const now = () => new Date().toISOString();
 export function publicQuestion(q: Question) {
-  const { answer, explanation, ...rest } = q;
+  const { answer, explanation, explanationSpanish, ...rest } = q;
   void answer;
   void explanation;
+  void explanationSpanish;
   return rest;
 }
 export class AppError extends Error {
@@ -143,7 +144,12 @@ export function createLearningService({
             .run(plan.id as string);
         }
       }
-      return { correct: q.answer === answer, explanation: q.explanation, answer: q.answer };
+      return {
+        correct: q.answer === answer,
+        explanation: q.explanation,
+        explanationSpanish: q.explanationSpanish || answerWhy(q.id),
+        answer: q.answer,
+      };
     });
   }
   function dailyPlan() {

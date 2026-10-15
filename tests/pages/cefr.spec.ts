@@ -15,7 +15,12 @@ test('The Portuguese MCER entry opens the same connected route; future levels re
   await expect(page.locator('.course-connected')).toContainText('A1');
   await page.locator('.class-levels').getByRole('button', { name: /A2/ }).click();
   await page.locator('.class-card').first().click();
-  await expect(page.locator('.course-locked')).toContainText('nivel activo es A1');
+  await expect(
+    page.locator('.course-locked .study-native').filter({ hasText: 'Seu nível ativo é A1' }),
+  ).toContainText('Seu nível ativo é A1');
+  await expect(
+    page.locator('.course-locked .study-spanish').filter({ hasText: 'nivel activo es A1' }),
+  ).toContainText('nivel activo es A1');
   await expect(page.locator('.lesson-room')).toHaveCount(0);
   await page.reload();
   await expect(page.locator('.daily-guide')).toContainText('A1');

@@ -1,4 +1,5 @@
 'use client';
+import { StudyCopy } from './study-copy';
 import { useState, useEffect } from 'react';
 import { ArrowRight, Lightbulb, BookOpen } from 'lucide-react';
 import { isPortuguese, studyStorage } from '@/lib/workspace';
@@ -122,10 +123,10 @@ export function Foundations({
         {isPortuguese ? 'verbos para criar frases' : 'verbs for building sentences'}
       </p>
       {verbQuery && !matches.length && (
-        <p className="fine-print" lang="es">
+        <StudyCopy as="p" className="fine-print">
           No encontramos ese verbo en los modelos. Probá otra palabra o borrá la búsqueda. El
           diccionario completo sigue disponible en la pestaña de verbos.
-        </p>
+        </StudyCopy>
       )}
       <div className="foundation-selectors">
         <label className="field">
@@ -214,7 +215,7 @@ export function Foundations({
           <p lang="es">{sentence.translation}</p>
           <details className="builder-why">
             <summary>{isPortuguese ? 'Por que funciona assim?' : 'Why does it work?'}</summary>
-            <p lang="es">{sentence.explanation}</p>
+            <StudyCopy as="p">{sentence.explanation}</StudyCopy>
           </details>
           <details className="builder-comparison">
             <summary>
@@ -230,7 +231,7 @@ export function Foundations({
               );
               return (
                 <div className="builder-comparison-row" key={form}>
-                  <strong lang="es">
+                  <StudyCopy as="strong">
                     {
                       {
                         statement: 'Afirmación / modelo',
@@ -238,7 +239,7 @@ export function Foundations({
                         question: 'Pregunta',
                       }[form]
                     }
-                  </strong>
+                  </StudyCopy>
                   <div className="lesson-example">
                     <blockquote lang={isPortuguese ? 'pt-BR' : 'en'}>{model.text}</blockquote>
                     <Speak text={model.text} />
@@ -255,18 +256,18 @@ export function Foundations({
           <summary>
             <Lightbulb size={16} />A sentence has a shape
           </summary>
-          <p lang="es">
+          <StudyCopy as="p">
             El modelo combina sujeto, verbo y un complemento adecuado para ese verbo. En inglés, el
             sujeto normalmente se expresa; en portugués puede omitirse cuando está claro. En las
             preguntas, fijate dónde va el auxiliar o el verbo. La traducción usa voseo argentino;
             «you» puede referirse a vos o a ustedes, según el contexto.
-          </p>
-          <p lang="es">
+          </StudyCopy>
+          <StudyCopy as="p">
             No toda oración válida tiene exactamente el orden del modelo. Para portugués, el cuadro
             de pasado usa pretérito perfeito; los hábitos pasados también pueden necesitar
             imperfeito. Para inglés, «be» no sigue el mismo patrón de preguntas y negativas que un
             verbo de acción.
-          </p>
+          </StudyCopy>
         </details>
       )}
       <label className="field foundation-draft">
@@ -285,11 +286,11 @@ export function Foundations({
           placeholder={warning ? undefined : sentence.text}
         />
       </label>
-      <p className="fine-print" lang="es">
+      <StudyCopy as="p" className="fine-print">
         {referenceOnly
           ? 'Tu borrador se guarda automáticamente en este dispositivo. No se califica.'
           : 'Este borrador se conserva en este dispositivo sin nota automática. Para guardar un ejercicio en tu progreso, abrí la clase de práctica.'}
-      </p>
+      </StudyCopy>
       {!referenceOnly && isCourseVerb && ['present', 'past', 'future', 'plans'].includes(tense) && (
         <Button
           onClick={() =>

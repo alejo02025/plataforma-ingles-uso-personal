@@ -1,4 +1,5 @@
 'use client';
+import { StudyCopy } from './study-copy';
 import { useState } from 'react';
 import { BookOpen } from 'lucide-react';
 import { isPortuguese } from '@/lib/workspace';
@@ -25,9 +26,9 @@ export function LanguageHelp() {
         title="Language help."
         description="Choose a sentence, a tense or a verb."
       />
-      <p className="toolkit-note" lang="es">
+      <StudyCopy as="p" className="toolkit-note">
         Siempre disponible, sin requisitos de nivel.
-      </p>
+      </StudyCopy>
       <div className="toolkit-tabs" role="group" aria-label="Language help sections">
         <button
           className={mode === 'sentences' ? 'active' : ''}
@@ -48,10 +49,10 @@ export function LanguageHelp() {
         <section className="tense-reference">
           <div className="toolkit-intro">
             <h2>{isPortuguese ? 'Um mapa de todos os tempos' : 'A map of all tenses'}</h2>
-            <p lang="es">
+            <StudyCopy as="p">
               Elegí un grupo y abrí un ejemplo. Vas a ver cuándo usarlo y cómo afirmar, negar o
               preguntar.
-            </p>
+            </StudyCopy>
           </div>
           {Array.from(
             new Set((isPortuguese ? portugueseTenses : englishTenses).map((t) => t.group)),
@@ -64,15 +65,15 @@ export function LanguageHelp() {
                   <details className="tense-card card" key={t.name}>
                     <summary>
                       <strong>{t.name}</strong>
-                      <span lang="es">{t.use}</span>
+                      <StudyCopy as="span">{t.use}</StudyCopy>
                     </summary>
                     <div className="tense-body">
                       <code className="lesson-pattern">{t.pattern}</code>
                       {t.examples.map((text, i) => (
                         <div className="tense-example" key={text}>
-                          <span lang="es">
+                          <StudyCopy as="span">
                             {['Afirmación / modelo', 'Negativa', 'Pregunta'][i]}
-                          </span>
+                          </StudyCopy>
                           <div className="lesson-example">
                             <blockquote lang={isPortuguese ? 'pt-BR' : 'en'}>{text}</blockquote>
                             <Speak text={text} />
@@ -80,9 +81,9 @@ export function LanguageHelp() {
                           {i === 0 && <p lang="es">{t.translation}</p>}
                         </div>
                       ))}
-                      <p className="tense-tip" lang="es">
+                      <StudyCopy as="p" className="tense-tip">
                         {t.tip}
-                      </p>
+                      </StudyCopy>
                     </div>
                   </details>
                 ))}
@@ -100,7 +101,9 @@ export function LanguageHelp() {
                 <BookOpen size={18} />
                 {isPortuguese ? entry.pt : entry.en}
               </summary>
-              <p lang="es">{isPortuguese ? entry.explanationPT : entry.explanationEN}</p>
+              <StudyCopy as="p">
+                {isPortuguese ? entry.explanationPT : entry.explanationEN}
+              </StudyCopy>
               {(isPortuguese ? entry.modelPT : entry.modelEN).map((model) => (
                 <div className="lesson-example" key={model}>
                   <blockquote lang={isPortuguese ? 'pt-BR' : 'en'}>{model}</blockquote>
@@ -112,10 +115,10 @@ export function LanguageHelp() {
         </section>
       ) : mode === 'notes' ? (
         <section className="card grammar-reference study-notes">
-          <p lang="es">
+          <StudyCopy as="p">
             Estas explicaciones de A1 a C2 son de consulta libre. Los ejemplos y las notas no son
             una evaluación y no completan clases.
-          </p>
+          </StudyCopy>
           <div className="foundation-selectors">
             <label className="field">
               Reference level
@@ -144,7 +147,7 @@ export function LanguageHelp() {
                 {l.level} · {l.title}
               </summary>
               <p>{l.goal}</p>
-              <p lang="es">{l.explanation}</p>
+              <StudyCopy as="p">{l.explanation}</StudyCopy>
               <code className="lesson-pattern">{l.pattern}</code>
               {l.examples.map((model) => (
                 <div className="lesson-example" key={model}>
@@ -152,35 +155,35 @@ export function LanguageHelp() {
                   <Speak text={model} />
                 </div>
               ))}
-              <p lang="es">{l.tip}</p>
+              <StudyCopy as="p">{l.tip}</StudyCopy>
             </details>
           ))}
           {!notes.length && (
-            <p lang="es">
+            <StudyCopy as="p">
               No hay notas con ese texto. Probá otra palabra o cambiá el nivel de consulta.
-            </p>
+            </StudyCopy>
           )}
         </section>
       ) : (
         <div className="sentence-toolkit">
           <div className="sentence-shape toolkit-guide">
             <h2>{isPortuguese ? 'Comece por aqui' : 'Start here'}</h2>
-            <ol lang="es">
-              <li>
+            <ol>
+              <StudyCopy as="li">
                 <strong>Elegí cuándo.</strong> Presente para una rutina; pasado para algo que
                 terminó; futuro para un plan.
-              </li>
-              <li>
+              </StudyCopy>
+              <StudyCopy as="li">
                 <strong>Elegí la acción y quién la hace.</strong> Buscá un verbo y seleccioná la
                 persona.
-              </li>
-              <li>
+              </StudyCopy>
+              <StudyCopy as="li">
                 <strong>Mirá tu oración.</strong> Cambiala a negativa o pregunta y compará.
-              </li>
+              </StudyCopy>
             </ol>
-            <p className="guide-formula" lang="es">
+            <StudyCopy as="p" className="guide-formula">
               Sujeto + verbo + complemento.
-            </p>
+            </StudyCopy>
           </div>
           <Foundations mode="sentences" referenceOnly onOpenLesson={() => {}} />
         </div>

@@ -32,6 +32,7 @@ test('Both spaces reopen without a signal, retain vocabulary and PDFs, and rejec
   await page.reload();
   await expect(page.locator('.offline-status summary')).toContainText('Sem conexão');
   await expect(page.locator('.daily-guide')).toContainText('A1');
+  await page.locator('.audit-explore-day > summary').click();
   await expect(page.locator('.guide-closing[lang="es"]')).toBeVisible();
   await page
     .getByRole('navigation', { name: 'Navegação principal' })

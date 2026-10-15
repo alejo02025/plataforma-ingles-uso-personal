@@ -19,7 +19,7 @@ for (const pt of [false, true])
     const quick = page.getByRole('navigation', {
       name: pt ? 'Navegação rápida' : 'Quick navigation',
     });
-    await expect(page.locator('.guide-closing')).toContainText('Tip:');
+    await expect(page.locator('.guide-closing[lang="es"]')).toContainText('Tip:');
     await quick.getByRole('button', { name: pt ? 'Jogos' : 'Games', exact: true }).click();
     await page.screenshot({ path: `/tmp/playroom-${pt ? 'pt' : 'en'}-mobile.png`, fullPage: true });
     const dictionary = pt ? portuguese : english;

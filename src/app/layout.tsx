@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
+import '../styles/audit-design.css';
+import '../styles/audit-studio.css';
+import '../styles/oral-practice.css';
 import { isPortuguese, appName, assetBase } from '@/lib/workspace';
 const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
 export const metadata: Metadata = {
@@ -34,10 +37,14 @@ export const metadata: Metadata = {
   },
   appleWebApp: { capable: true, title: appName, statusBarStyle: 'default' },
 };
-export const viewport: Viewport = { themeColor: isPortuguese ? '#955168' : '#07856f' };
+export const viewport: Viewport = { themeColor: isPortuguese ? '#24845d' : '#16836b' };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={isPortuguese ? 'pt-BR' : 'en'} data-space={isPortuguese ? 'portuguese' : 'english'}>
+    <html
+      lang={isPortuguese ? 'pt-BR' : 'en'}
+      data-space={isPortuguese ? 'portuguese' : 'english'}
+      data-study-language={isPortuguese ? 'pt' : 'en'}
+    >
       <head>
         <link
           rel="preload"

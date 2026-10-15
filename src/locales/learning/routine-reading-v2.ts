@@ -1,0 +1,366 @@
+import { routineReadings, type RoutineReading } from './routine-content';
+const q = (
+  en: string,
+  pt: string,
+  es: string,
+  optionsEN: string[],
+  optionsPT: string[],
+  answer: number,
+  why: string,
+  whyEN: string,
+  whyPT: string,
+) => ({ en, pt, es, optionsEN, optionsPT, answer, why, whyEN, whyPT });
+export type ContextReading = Omit<RoutineReading, 'checks'> & {
+  es: string;
+  checks: ReturnType<typeof q>[];
+};
+export const contextualReadings: Record<string, ContextReading[]> = {
+  A1: [
+    {
+      en: 'At a café, Ana orders water. Bia orders coffee. The waiter puts a glass in front of Ana and a cup in front of Bia.',
+      pt: 'Em um café, Ana pede água. Bia pede café. O garçom coloca um copo na frente de Ana e uma xícara na frente de Bia.',
+      es: 'En una cafetería, Ana pide agua. Bia pide café. El mozo coloca un vaso frente a Ana y una taza frente a Bia.',
+      checks: [
+        q(
+          'Which drink is for Ana?',
+          'Qual bebida é para Ana?',
+          '¿Qué bebida es para Ana?',
+          ['Water', 'Coffee', 'Both drinks'],
+          ['Água', 'Café', 'As duas bebidas'],
+          0,
+          'Ana pidió agua; el café es de Bia. Relacioná el nombre con su pedido, no con el recipiente más cercano.',
+          'Ana orders water. Bia orders coffee. Match the person with her order.',
+          'Ana pede água. Bia pede café. Relacione a pessoa com seu pedido.',
+        ),
+        q(
+          'Bia needs to drink her coffee. Which object is hers?',
+          'Bia quer tomar seu café. Qual objeto é dela?',
+          'Bia quiere tomar su café. ¿Qué objeto es de ella?',
+          ['The glass', 'The cup', 'The book'],
+          ['O copo', 'A xícara', 'O livro'],
+          1,
+          'La taza está frente a Bia. No alcanza con saber que ambos objetos sirven para beber: buscá a quién se asignó cada uno.',
+          'The cup is in front of Bia; the glass is in front of Ana.',
+          'A xícara está na frente de Bia; o copo está na frente de Ana.',
+        ),
+      ],
+    },
+    {
+      en: 'Leo works in the afternoon. In the morning he studies at home. His book is on the table, next to a glass of water.',
+      pt: 'Leo trabalha à tarde. De manhã, ele estuda em casa. Seu livro está na mesa, ao lado de um copo de água.',
+      es: 'Leo trabaja por la tarde. Por la mañana estudia en casa. Su libro está en la mesa, junto a un vaso de agua.',
+      checks: [
+        q(
+          'When does Leo study?',
+          'Quando Leo estuda?',
+          '¿Cuándo estudia Leo?',
+          ['In the afternoon', 'In the morning', 'At night'],
+          ['À tarde', 'De manhã', 'À noite'],
+          1,
+          'La tarde corresponde al trabajo; la mañana, al estudio. Separá las dos actividades antes de elegir.',
+          'Afternoon is his working time. Morning is his study time.',
+          'À tarde ele trabalha. De manhã ele estuda.',
+        ),
+        q(
+          'Leo wants to read. Where should he look for his book?',
+          'Leo quer ler. Onde deve procurar seu livro?',
+          'Leo quiere leer. ¿Dónde debería buscar su libro?',
+          ['On the table', 'At the café', 'At work'],
+          ['Na mesa', 'No café', 'No trabalho'],
+          0,
+          'El libro está en la mesa. Usá la información de ubicación para resolver una necesidad cotidiana.',
+          'His book is on the table, so that is where he should look.',
+          'O livro está na mesa; é lá que ele deve procurar.',
+        ),
+      ],
+    },
+    {
+      en: 'Mia and Leo are friends. Mia has two books. Leo has one book. Today they study together at Mia’s house.',
+      pt: 'Mia e Leo são amigos. Mia tem dois livros. Leo tem um livro. Hoje eles estudam juntos na casa de Mia.',
+      es: 'Mia y Leo son amigos. Mia tiene dos libros. Leo tiene un libro. Hoy estudian juntos en la casa de Mia.',
+      checks: [
+        q(
+          'Who has more books?',
+          'Quem tem mais livros?',
+          '¿Quién tiene más libros?',
+          ['Mia', 'Leo', 'They have the same number'],
+          ['Mia', 'Leo', 'Eles têm a mesma quantidade'],
+          0,
+          'Mia tiene dos y Leo uno. Compará las cantidades asociadas a cada persona.',
+          'Mia has two books and Leo has one; two is more than one.',
+          'Mia tem dois livros e Leo tem um; dois é mais do que um.',
+        ),
+        q(
+          'Where are they studying today?',
+          'Onde eles estudam hoje?',
+          '¿Dónde estudian hoy?',
+          ['At Leo’s house', 'At Mia’s house', 'At school'],
+          ['Na casa de Leo', 'Na casa de Mia', 'Na escola'],
+          1,
+          'La última oración ubica la sesión de hoy en la casa de Mia; no deduzcas escuela solo por estudiar.',
+          'Today they study at Mia’s house. Studying does not mean they are at school.',
+          'Hoje estudam na casa de Mia. Estudar não significa estar na escola.',
+        ),
+      ],
+    },
+  ],
+  A2: [
+    {
+      en: 'Yesterday, Ana bought a train ticket for a work trip. She kept the receipt because her company needs proof of payment. Her ticket shows the departure time; the receipt shows the price.',
+      pt: 'Ontem, Ana comprou uma passagem de trem para uma viagem de trabalho. Ela guardou o recibo porque sua empresa precisa do comprovante de pagamento. A passagem mostra o horário de saída; o recibo mostra o preço.',
+      es: 'Ayer Ana compró un pasaje de tren para un viaje laboral. Guardó el recibo porque su empresa necesita un comprobante de pago. El pasaje muestra el horario de salida y el recibo el precio.',
+      checks: [
+        q(
+          'Why did Ana keep the receipt?',
+          'Por que Ana guardou o recibo?',
+          '¿Por qué guardó el recibo?',
+          ['To prove how much she paid', 'To find the train departure time', 'To book a hotel'],
+          [
+            'Para comprovar quanto pagou',
+            'Para descobrir o horário do trem',
+            'Para reservar um hotel',
+          ],
+          0,
+          'El recibo sirve para justificar el pago ante su empresa. No lo confundas con el pasaje, que informa el horario.',
+          'The company needs proof of payment. The receipt shows the price, not the departure time.',
+          'A empresa precisa de um comprovante do pagamento. O recibo mostra o preço, não o horário.',
+        ),
+        q(
+          'Ana wants to know when to arrive at the station. Which document should she check?',
+          'Ana quer saber quando chegar à estação. Qual documento deve consultar?',
+          'Ana quiere saber cuándo llegar a la estación. ¿Qué documento debería consultar?',
+          ['The receipt', 'The train ticket', 'Her hotel booking'],
+          ['O recibo', 'A passagem de trem', 'A reserva do hotel'],
+          1,
+          'La necesidad es conocer el horario. El texto asigna esa información al pasaje: aplicá lo leído a una decisión.',
+          'The ticket shows the departure time, so it helps her plan when to reach the station.',
+          'A passagem mostra o horário de saída, por isso ajuda a planejar a chegada à estação.',
+        ),
+      ],
+    },
+    {
+      en: 'Bruno usually walks to work. Today it is raining, so he is taking the bus. The bus stop is near his home, but the journey takes ten minutes longer than walking.',
+      pt: 'Bruno geralmente vai a pé ao trabalho. Hoje está chovendo, então ele vai de ônibus. O ponto fica perto de casa, mas a viagem demora dez minutos a mais do que a caminhada.',
+      es: 'Bruno suele ir caminando al trabajo. Hoy llueve, así que va en colectivo. La parada queda cerca de su casa, pero el viaje tarda diez minutos más que caminar.',
+      checks: [
+        q(
+          'Which sentence describes his usual routine?',
+          'Qual frase descreve a rotina habitual dele?',
+          '¿Qué frase describe su rutina habitual?',
+          ['He walks to work', 'He always takes the bus', 'He works from home'],
+          ['Ele vai a pé ao trabalho', 'Ele sempre vai de ônibus', 'Ele trabalha em casa'],
+          0,
+          'Usually/geralmente señala el hábito. Today/hoje marca una excepción, no una nueva rutina.',
+          'Usually introduces his routine. Today introduces an exception because of the rain.',
+          'Geralmente indica a rotina. Hoje apresenta uma exceção por causa da chuva.',
+        ),
+        q(
+          'He needs to arrive at his usual time. What should he allow for?',
+          'Ele precisa chegar no horário habitual. O que deve considerar?',
+          'Necesita llegar a la hora de siempre. ¿Qué debería considerar?',
+          [
+            'Ten minutes less travel time',
+            'Ten extra minutes for the journey',
+            'No change in travel time',
+          ],
+          [
+            'Dez minutos a menos de viagem',
+            'Dez minutos extras para a viagem',
+            'Nenhuma mudança no tempo de viagem',
+          ],
+          1,
+          'El colectivo tarda diez minutos más; para mantener la hora de llegada debe prever ese tiempo extra.',
+          'The bus journey is ten minutes longer, so he needs to allow ten extra minutes.',
+          'A viagem de ônibus demora dez minutos a mais, então ele precisa prever esse tempo extra.',
+        ),
+      ],
+    },
+    {
+      en: 'Lia has an appointment at ten. The nine o’clock bus arrives at 9:40; the next bus arrives at 10:15. She wants to be on time and has not decided which bus to take yet.',
+      pt: 'Lia tem um compromisso às dez. O ônibus das nove chega às 9h40; o próximo chega às 10h15. Ela quer chegar no horário e ainda não decidiu qual ônibus pegar.',
+      es: 'Lia tiene una cita a las diez. El colectivo de las nueve llega a las 9:40 y el siguiente a las 10:15. Quiere ser puntual y todavía no decidió cuál tomar.',
+      checks: [
+        q(
+          'What happens at ten?',
+          'O que acontece às dez?',
+          '¿Qué pasa a las diez?',
+          ['The first bus leaves', 'The appointment', 'The second bus arrives'],
+          ['O primeiro ônibus sai', 'O compromisso', 'O segundo ônibus chega'],
+          1,
+          'Separá la hora del compromiso de las horas de salida y llegada de los colectivos.',
+          'Ten is the appointment time. The first bus arrives earlier; the next arrives later.',
+          'Dez é o horário do compromisso. O primeiro ônibus chega antes; o próximo chega depois.',
+        ),
+        q(
+          'Which bus fits her plan to arrive on time?',
+          'Qual ônibus combina com o plano de chegar no horário?',
+          '¿Qué colectivo permite llegar a tiempo?',
+          ['The bus arriving at 9:40', 'The bus arriving at 10:15', 'Both buses'],
+          ['O que chega às 9h40', 'O que chega às 10h15', 'Os dois ônibus'],
+          0,
+          '9:40 es antes de las diez; 10:15 es después. Usá el horario para elegir, no solo para repetir un dato.',
+          '9:40 is before ten; 10:15 is after ten. Only the first arrival is on time.',
+          '9h40 é antes das dez; 10h15 é depois. Só a primeira chegada permite ser pontual.',
+        ),
+      ],
+    },
+  ],
+  B1: [
+    {
+      en: 'Nora has visited Brazil twice. On her last trip, she missed a bus after confusing its departure time with its arrival time. A local helped her find another route. She now checks both times before booking.',
+      pt: 'Nora já visitou o Brasil duas vezes. Na última viagem, perdeu um ônibus depois de confundir o horário de saída com o de chegada. Uma pessoa da região ajudou a encontrar outra rota. Agora ela verifica os dois horários antes de reservar.',
+      es: 'Nora visitó Brasil dos veces. En el último viaje perdió un colectivo al confundir la salida con la llegada. Una persona de la zona le ayudó a encontrar otra ruta. Ahora revisa ambos horarios antes de reservar.',
+      checks: [
+        q(
+          'What caused Nora’s original problem?',
+          'O que causou o problema inicial de Nora?',
+          '¿Qué causó su problema inicial?',
+          [
+            'She misunderstood two times',
+            'The bus company cancelled the route',
+            'The local gave incorrect directions',
+          ],
+          [
+            'Ela confundiu dois horários',
+            'A empresa cancelou a rota',
+            'A pessoa deu informações erradas',
+          ],
+          0,
+          'La confusión ocurrió antes de perder el colectivo. La ayuda vino después; no inviertas causa y solución.',
+          'She confused departure with arrival before missing the bus. The local helped afterwards.',
+          'Ela confundiu saída e chegada antes de perder o ônibus. A ajuda veio depois.',
+        ),
+        q(
+          'What does her new habit suggest?',
+          'O que o novo hábito dela sugere?',
+          '¿Qué sugiere su nuevo hábito?',
+          [
+            'She wants to avoid the same mistake',
+            'She no longer visits Brazil',
+            'She always travels with a local',
+          ],
+          [
+            'Ela quer evitar o mesmo erro',
+            'Ela não visita mais o Brasil',
+            'Ela sempre viaja com alguém da região',
+          ],
+          0,
+          'Revisar ambos horarios aborda la confusión inicial. Es una inferencia apoyada; no supone que abandone los viajes.',
+          'Checking both times addresses the earlier confusion. It suggests prevention, not an end to her travels.',
+          'Verificar os dois horários responde à confusão anterior. Sugere prevenção, não o fim das viagens.',
+        ),
+      ],
+    },
+    {
+      en: 'If the weather improves, Sam will walk to the meeting. Otherwise, he will take a taxi. Walking is cheaper, but the meeting matters more to him than saving money, so he has kept money for the taxi.',
+      pt: 'Se o tempo melhorar, Sam irá a pé à reunião. Caso contrário, pegará um táxi. Caminhar é mais barato, mas a reunião importa mais para ele do que economizar; por isso, guardou dinheiro para o táxi.',
+      es: 'Si mejora el clima, Sam irá caminando a la reunión. De lo contrario tomará un taxi. Caminar es más barato, pero la reunión le importa más que ahorrar, por eso reservó dinero para el taxi.',
+      checks: [
+        q(
+          'What determines his transport choice?',
+          'O que determina a escolha do transporte?',
+          '¿Qué determina su elección de transporte?',
+          [
+            'Whether the weather improves',
+            'Whether the meeting is free',
+            'Whether taxis are always cheaper',
+          ],
+          ['Se o tempo melhora', 'Se a reunião é gratuita', 'Se os táxis são sempre mais baratos'],
+          0,
+          'La condición if/se gobierna la elección. El precio explica su preferencia, pero no elimina el plan alternativo.',
+          'If introduces the condition for walking. Otherwise introduces the taxi alternative.',
+          'Se introduz a condição para caminhar. Caso contrário apresenta a alternativa do táxi.',
+        ),
+        q(
+          'Which priority is supported by his plan?',
+          'Qual prioridade é sustentada pelo plano?',
+          '¿Qué prioridad respalda su plan?',
+          [
+            'Avoid spending any money',
+            'Attend the meeting even if he must pay more',
+            'Walk regardless of the weather',
+          ],
+          [
+            'Não gastar dinheiro algum',
+            'Ir à reunião mesmo pagando mais',
+            'Caminhar independentemente do tempo',
+          ],
+          1,
+          'La reunión importa más que el ahorro y hay dinero reservado. Eso respalda asistir aunque deba pagar el taxi.',
+          'He values the meeting more than the saving and keeps taxi money, so attendance comes first.',
+          'Ele valoriza a reunião mais do que a economia e guarda dinheiro para o táxi; participar vem primeiro.',
+        ),
+      ],
+    },
+    {
+      en: 'I used to study alone. Now I meet a friend every week because explaining ideas helps me notice gaps in my understanding. We sometimes disagree, then check the source rather than simply guessing.',
+      pt: 'Eu estudava sozinho. Agora encontro um amigo toda semana porque explicar ideias me ajuda a perceber lacunas na compreensão. Às vezes discordamos; então consultamos a fonte, em vez de apenas adivinhar.',
+      es: 'Antes estudiaba solo. Ahora me encuentro con un amigo cada semana porque explicar ideas me ayuda a detectar lo que no entiendo. A veces discrepamos y entonces consultamos la fuente en lugar de adivinar.',
+      checks: [
+        q(
+          'Why did the writer change the study routine?',
+          'Por que o autor mudou a rotina de estudo?',
+          '¿Por qué cambió su rutina?',
+          [
+            'To identify gaps by explaining ideas',
+            'To avoid every disagreement',
+            'To finish without consulting sources',
+          ],
+          [
+            'Para perceber lacunas ao explicar ideias',
+            'Para evitar toda discordância',
+            'Para terminar sem consultar fontes',
+          ],
+          0,
+          'Because/porque introduce el beneficio de explicar. El texto no promete evitar discrepancias ni estudiar más rápido.',
+          'Explaining helps reveal gaps. The text does not say it prevents disagreement or saves time.',
+          'Explicar ajuda a perceber lacunas. O texto não diz que evita discordâncias ou economiza tempo.',
+        ),
+        q(
+          'What do they do when they disagree?',
+          'O que fazem quando discordam?',
+          '¿Qué hacen al discrepar?',
+          ['Choose the quickest guess', 'Check evidence in the source', 'Stop studying together'],
+          [
+            'Escolhem o palpite mais rápido',
+            'Verificam a informação na fonte',
+            'Param de estudar juntos',
+          ],
+          1,
+          'La fuente resuelve la discrepancia; no reemplazan la evidencia por la seguridad de una opinión.',
+          'They check the source instead of guessing. Confidence alone is not their evidence.',
+          'Consultam a fonte em vez de adivinhar. A confiança de uma opinião não basta como evidência.',
+        ),
+      ],
+    },
+  ],
+};
+// Advanced sources preserve carefully authored scope/qualification checks, with native feedback.
+const advancedSpanish: Record<string, string[]> = {
+  B2: [
+    'La propuesta podría ahorrar dinero, pero la estimación no incluye los costos de mantenimiento. Por lo tanto, el equipo pide más evidencia antes de decidir.',
+    'Aunque la prueba mejoró la asistencia, los participantes eligieron sumarse. Por lo tanto, el resultado puede reflejar la motivación además del programa.',
+    'Dos especialistas revisaron el informe. Sin embargo, ambos trabajaron en el proyecto original, así que todavía se recomienda una revisión independiente.',
+  ],
+  C1: [
+    'Un estudio pequeño sugiere un beneficio posible. Su muestra es demasiado limitada para justificar una recomendación general, aunque los resultados merecen más investigación.',
+    'La conclusión es plausible siempre que los supuestos se mantengan. Si no se mantienen, las mismas observaciones podrían respaldar otra interpretación.',
+    'La política aborda una limitación inmediata en lugar de la causa subyacente. Su éxito a corto plazo no debería tomarse como evidencia de una solución duradera.',
+  ],
+  C2: [
+    'No toda objeción fue un rechazo. Algunos participantes pidieron aclaraciones mientras seguían siendo, en general, favorables; otros no dieron respaldo explícito sin oponerse a la propuesta.',
+    'El cumplimiento es necesario, pero no suficiente para la aprobación. Una propuesta puede cumplir todas las reglas formales y aun así no demostrar que sus beneficios superan sus riesgos.',
+    'Un contraejemplo refuta la afirmación universal, pero no establece la afirmación universal opuesta. La conclusión debe restringirse, no simplemente invertirse.',
+  ],
+};
+for (const level of ['B2', 'C1', 'C2']) {
+  contextualReadings[level] = routineReadings[level].map((story, index) => ({
+    ...story,
+    es: advancedSpanish[level][index],
+    checks: story.checks.map((check) => ({
+      ...check,
+      whyEN: `The supported answer is “${check.optionsEN[check.answer]}”. Compare it with the wording of the passage; do not add a stronger claim that the writer has not made.`,
+      whyPT: `A resposta sustentada é “${check.optionsPT[check.answer]}”. Compare-a com a formulação do texto; não acrescente uma afirmação mais forte que o autor não fez.`,
+    })),
+  }));
+}

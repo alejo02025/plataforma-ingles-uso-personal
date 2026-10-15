@@ -1,4 +1,5 @@
 'use client';
+import { StudyCopy } from './study-copy';
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { ArrowRight, X, BookOpen, Newspaper, Plane, FileText, Bookmark } from 'lucide-react';
@@ -130,7 +131,7 @@ function Menu({
         {journey.next && (
           <div className="flag-next-step">
             <strong>Next guided step</strong>
-            <p lang="es">{journey.next.explanation}</p>
+            <StudyCopy as="p">{journey.next.explanation}</StudyCopy>
             <button className="button secondary" onClick={() => navigate('Classes')}>
               Open my learning path <ArrowRight size={16} />
             </button>

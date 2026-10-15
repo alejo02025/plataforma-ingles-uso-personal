@@ -7,6 +7,7 @@ export type Question = {
   answer: number;
   explanation: string;
   explanationLanguage?: 'es';
+  explanationSpanish?: string;
   band: 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2' | 'unrated';
 };
 export const diagnosticQuestions: Question[] = [
@@ -17,7 +18,7 @@ export const diagnosticQuestions: Question[] = [
     prompt: 'I ___ Alejo.',
     options: ['is', 'am', 'are'],
     answer: 1,
-    explanation: 'Con I, be se conjuga am.',
+    explanation: 'With I, be takes the form am. Use is with he/she/it and are with you/we/they.',
   },
   {
     id: 'd-a1-v',
@@ -26,7 +27,7 @@ export const diagnosticQuestions: Question[] = [
     prompt: 'Where do you buy bread?',
     options: ['At a bakery', 'At a bank', 'At a hospital'],
     answer: 0,
-    explanation: 'Una panadería vende pan.',
+    explanation: 'A bakery sells bread.',
   },
   {
     id: 'd-a1-r',
@@ -35,7 +36,7 @@ export const diagnosticQuestions: Question[] = [
     prompt: '“Ana studies in the morning and works in the afternoon.” When does she study?',
     options: ['At night', 'In the afternoon', 'In the morning'],
     answer: 2,
-    explanation: 'El texto dice que estudia por la mañana.',
+    explanation: 'The text says Ana studies in the morning and works in the afternoon.',
   },
   {
     id: 'd1',
@@ -104,7 +105,8 @@ export const diagnosticQuestions: Question[] = [
     prompt: 'If I had known about the delay, I ___ a different route.',
     options: ['would choose', 'would have chosen', 'had chosen'],
     answer: 1,
-    explanation: 'El tercer condicional expresa una alternativa irreal en el pasado.',
+    explanation:
+      'The third conditional imagines a different completed past: if + past perfect, would have + past participle.',
   },
   {
     id: 'd8',
@@ -130,6 +132,179 @@ export const diagnosticQuestions: Question[] = [
     explanation: 'The results are encouraging, but the small sample limits the conclusions.',
   },
 ];
+// Edition 2 adds context and a second item per skill/band. Existing IDs and completed
+// assessments remain valid; no diagnosis changes course checkpoints or entry levels.
+diagnosticQuestions.push(
+  {
+    id: 'd-v2-a1-g',
+    skill: 'grammar',
+    band: 'A1',
+    prompt:
+      'Maya is in a café. She wants one drink. Complete her order: “I would like ___ orange juice, please.”',
+    options: ['some', 'many', 'an'],
+    answer: 0,
+    explanation:
+      'Juice is uncountable here, so some is suitable. Use an with a countable noun such as an orange.',
+    explanationSpanish:
+      'En este pedido, juice (jugo) es incontable: some orange juice. Many acompaña plurales contables; an orange es una naranja, no el jugo.',
+  },
+  {
+    id: 'd-v2-a1-v',
+    skill: 'vocabulary',
+    band: 'A1',
+    prompt: 'You are leaving home in heavy rain. What do you take to keep dry?',
+    options: ['A towel for a shower', 'An umbrella', 'A cup for coffee'],
+    answer: 1,
+    explanation:
+      'An umbrella protects you from rain when you are outside. The situation identifies the useful object.',
+    explanationSpanish:
+      'Umbrella significa paraguas. Leé la situación antes de elegir: estás por salir bajo la lluvia, no por ducharte ni tomar café.',
+  },
+  {
+    id: 'd-v2-a1-r',
+    skill: 'reading',
+    band: 'A1',
+    prompt:
+      '“Hi Leo. Your keys are on the kitchen table. Mine are in my bag. —Ana” Where are Leo’s keys?',
+    options: ['In Ana’s bag', 'In Leo’s bag', 'On the kitchen table'],
+    answer: 2,
+    explanation: 'Your refers to Leo, the reader of the message. Mine refers to Ana’s own keys.',
+    explanationSpanish:
+      'Your se refiere a Leo, el destinatario. Mine se refiere a las llaves de Ana. No elijas la última ubicación mencionada sin identificar de quién se habla.',
+  },
+  {
+    id: 'd-v2-a2-g',
+    skill: 'grammar',
+    band: 'A2',
+    prompt:
+      'Every weekday, Luis drives to work. Today his car is at the garage, so he ___ the bus right now.',
+    options: ['takes', 'is taking', 'took'],
+    answer: 1,
+    explanation:
+      'Right now and today mark a temporary action in progress: is taking. Takes describes a usual routine.',
+    explanationSpanish:
+      'La rutina habitual usa present simple; la excepción de hoy, que está ocurriendo ahora, usa is taking. No decidas sólo por ver every weekday al comienzo.',
+  },
+  {
+    id: 'd-v2-a2-v',
+    skill: 'vocabulary',
+    band: 'A2',
+    prompt:
+      'The shoes are too small. The shop says: “Bring them back with the receipt and we will return your money.” What will you receive?',
+    options: ['An exchange for larger shoes', 'A discount on a future purchase', 'A refund'],
+    answer: 2,
+    explanation:
+      'A refund is money returned after a purchase. An exchange replaces the item, and a discount lowers its price.',
+    explanationSpanish:
+      'Refund es devolución del dinero; exchange cambia el producto; discount reduce el precio. Acá la tienda ofrece devolver el dinero, no cambiar los zapatos.',
+  },
+  {
+    id: 'd-v2-a2-r',
+    skill: 'reading',
+    band: 'A2',
+    prompt:
+      '“The 8:10 bus is cancelled. The next one leaves at 8:40 and takes 25 minutes. The office opens at 9:00.” If you take the next bus, when will you arrive?',
+    options: ['At 8:35', 'At 9:05', 'At 9:00'],
+    answer: 1,
+    explanation:
+      'The next bus leaves at 8:40. Add the 25-minute journey to get 9:05, five minutes after the office opens.',
+    explanationSpanish:
+      'Distinguí salida, duración y apertura: 8:40 + 25 minutos = 9:05. El horario de apertura no es el de llegada.',
+  },
+  {
+    id: 'd-v2-b1-g',
+    skill: 'grammar',
+    band: 'B1',
+    prompt: 'I was in the middle of a video call when the lights suddenly ___ out.',
+    options: ['have gone', 'were going', 'went'],
+    answer: 2,
+    explanation:
+      'Went names the completed interruption. Was in the middle of a call gives the background in progress.',
+    explanationSpanish:
+      'La llamada es el fondo de la historia y el corte es la interrupción puntual: went out. Were going cambiaría el enfoque a una acción en desarrollo.',
+  },
+  {
+    id: 'd-v2-b1-v',
+    skill: 'vocabulary',
+    band: 'B1',
+    prompt:
+      'The project is late. Sam says, “Let’s put off the launch until Monday, when the last tests will be ready.” What does Sam propose?',
+    options: ['Postpone the launch', 'Cancel the project permanently', 'Start the launch earlier'],
+    answer: 0,
+    explanation:
+      'Put off means postpone. Until Monday gives the later date; it does not suggest cancelling the project.',
+    explanationSpanish:
+      'Put off significa posponer. La fecha until Monday muestra que se cambia el momento; no que se abandona el proyecto.',
+  },
+  {
+    id: 'd-v2-b1-r',
+    skill: 'reading',
+    band: 'B1',
+    prompt:
+      '“The new flat costs more, but it is close to my office. I could stop paying for trains, so I’m checking the total monthly cost before deciding.” Why has the writer not decided yet?',
+    options: [
+      'The new flat is cheaper than the old one',
+      'The writer no longer has an office',
+      'Transport savings may change the overall comparison',
+    ],
+    answer: 2,
+    explanation:
+      'The writer is comparing rent and transport together. A higher rent alone does not determine the total monthly cost.',
+    explanationSpanish:
+      'La decisión depende del costo total: alquiler más transporte. El texto no dice que el nuevo alquiler sea más barato ni que ya haya tomado una decisión.',
+  },
+  {
+    id: 'd-v2-b2-g',
+    skill: 'grammar',
+    band: 'B2',
+    prompt:
+      'The client needs a complete report when she arrives at noon tomorrow. By then, our team ___ the analysis.',
+    options: ['will have finished', 'will be finishing', 'had finished'],
+    answer: 0,
+    explanation:
+      'By then sets a future deadline. Will have finished presents completion before that point; will be finishing describes an action still in progress, and had finished refers to an earlier past.',
+    explanationSpanish:
+      'By then marca un límite futuro. Will have finished expresa que ya habrá terminado; will be finishing indica que estará terminando; had finished corresponde a un pasado anterior a otro pasado. El cliente necesita el informe completo al llegar.',
+  },
+  {
+    id: 'd-v2-b2-v',
+    skill: 'vocabulary',
+    band: 'B2',
+    prompt:
+      '“The trial went well, but we should not take that for granted when we expand to a different market.” What should the team avoid?',
+    options: [
+      'Assuming the same success is guaranteed',
+      'Recording the trial’s outcome',
+      'Comparing the two markets',
+    ],
+    answer: 0,
+    explanation:
+      'Take something for granted means assume it is certain without checking. A successful trial does not guarantee the same outcome elsewhere.',
+    explanationSpanish:
+      'Take for granted es dar por sentado. Se pide evitar asumir el éxito sin comprobarlo, no evitar registrar o comparar datos.',
+  },
+  {
+    id: 'd-v2-b2-r',
+    skill: 'reading',
+    band: 'B2',
+    prompt:
+      '“A survey found that employees working remotely reported fewer interruptions. However, participants chose their work arrangement, and workload was not measured. The findings support further investigation rather than a universal policy.” Which conclusion is justified?',
+    options: [
+      'Remote work causes fewer interruptions for all employees',
+      'The reports are worth investigating, but selection and workload limit causal claims',
+      'Workload has no influence because it was not measured',
+    ],
+    answer: 1,
+    explanation:
+      'Self-selection and missing workload data limit a causal interpretation. The author supports investigation, not a policy proven to work for everyone.',
+    explanationSpanish:
+      'Una asociación reportada no prueba causalidad: los participantes eligieron modalidad y no se midió carga laboral. Reconocé qué afirma el texto y qué límites explicita.',
+  },
+);
+const placementBandOrder = ['A1', 'A2', 'B1', 'B2'];
+diagnosticQuestions.sort(
+  (a, b) => placementBandOrder.indexOf(a.band) - placementBandOrder.indexOf(b.band),
+);
 for (const question of diagnosticQuestions) question.options.push('I don’t know yet.');
 
 export const grammarQuestions: Question[] = [

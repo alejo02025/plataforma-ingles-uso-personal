@@ -1,5 +1,6 @@
 import type { Snapshot } from './types';
 import { localDay } from './learning';
+import { oralEvidence } from './oral-practice';
 export type PracticeDay = {
   day: string;
   score: number;
@@ -47,6 +48,8 @@ export function practiceDays(data: Snapshot, length = 30): PracticeDay[] {
       record(localDay(new Date(message.created_at))).messages.push(message);
   for (const attempt of data.cefr?.attempts || [])
     record(localDay(new Date(attempt.created_at))).course.push(attempt);
+  for (const oral of oralEvidence(data))
+    record(localDay(new Date(oral.created_at))).minutes += oral.duration / 60;
   for (const session of data.sessions)
     record(localDay(new Date(session.started_at))).minutes += session.active_seconds / 60;
   if (data.diagnostic.completed_at)

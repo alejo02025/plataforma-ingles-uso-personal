@@ -1,0 +1,327 @@
+{
+  "config": {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/workspace/plataforma-ingles-uso-personal/node_modules/.bin/playwright",
+      "test",
+      "--config",
+      "/tmp/audit-playwright.config.mjs",
+      "--list",
+      "tests/pages/integral-audit.spec.ts"
+    ],
+    "configFile": "/tmp/audit-playwright.config.mjs",
+    "rootDir": "/workspace/plataforma-ingles-uso-personal/tests/pages",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/workspace/plataforma-ingles-uso-personal/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "",
+        "name": "",
+        "testDir": "/workspace/plataforma-ingles-uso-personal/tests/pages",
+        "testIgnore": [],
+        "testMatch": ["**/*.@(spec|test).?(c|m)[jt]s?(x)"],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/workspace/plataforma-ingles-uso-personal/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "name": "",
+        "testDir": "/workspace/plataforma-ingles-uso-personal/tests/pages",
+        "snapshotDir": "/workspace/plataforma-ingles-uso-personal/tests/pages",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://127.0.0.1:3201/plataforma-ingles-uso-personal/",
+          "trace": "retain-on-failure",
+          "launchOptions": {
+            "executablePath": "/usr/bin/chromium",
+            "args": ["--no-sandbox"]
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      ["list", null],
+      [
+        "json",
+        {
+          "outputFile": "/workspace/plataforma-ingles-uso-personal/artifacts/audit/playwright-integral.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "integral-audit.spec.ts",
+      "file": "integral-audit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Integral: new English A2 across four screen widths",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "cdc1ece8c851f8553ebc-fb8e627122a5fafcd025",
+          "file": "integral-audit.spec.ts",
+          "line": 126,
+          "column": 3
+        },
+        {
+          "title": "Integral: new Portuguese A1 across four screen widths",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "cdc1ece8c851f8553ebc-369d373fd2c0c5367aa2",
+          "file": "integral-audit.spec.ts",
+          "line": 126,
+          "column": 3
+        },
+        {
+          "title": "Integral: English B1 with repeated grammar errors",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "cdc1ece8c851f8553ebc-2caa2a561af29d1ccbfa",
+          "file": "integral-audit.spec.ts",
+          "line": 170,
+          "column": 3
+        },
+        {
+          "title": "Integral: English B2 preserves prior checkpoints",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "cdc1ece8c851f8553ebc-d6b5aec1df20ff006bf0",
+          "file": "integral-audit.spec.ts",
+          "line": 170,
+          "column": 3
+        },
+        {
+          "title": "Integral: Portuguese A2 preserves prior checkpoints",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "cdc1ece8c851f8553ebc-ca8ea98cf633b606c1b7",
+          "file": "integral-audit.spec.ts",
+          "line": 170,
+          "column": 3
+        },
+        {
+          "title": "Integral: multiple PDFs, deletion, restoration and language isolation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "cdc1ece8c851f8553ebc-97e336b0d0042b8b4954",
+          "file": "integral-audit.spec.ts",
+          "line": 188,
+          "column": 1
+        },
+        {
+          "title": "Integral: failed GitHub authorization retains local data and forgets credentials",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "cdc1ece8c851f8553ebc-462158249eb5d15b7109",
+          "file": "integral-audit.spec.ts",
+          "line": 222,
+          "column": 1
+        },
+        {
+          "title": "Integral: unfinished EN sentence resumes offline without losing its tiles",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "cdc1ece8c851f8553ebc-5da762b463f62b21cddd",
+          "file": "integral-audit.spec.ts",
+          "line": 242,
+          "column": 3
+        },
+        {
+          "title": "Integral: unfinished PT sentence resumes offline without losing its tiles",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "cdc1ece8c851f8553ebc-c47f37894e0f37803808",
+          "file": "integral-audit.spec.ts",
+          "line": 242,
+          "column": 3
+        },
+        {
+          "title": "Integral: EN light and dark text tokens meet normal-text contrast",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "cdc1ece8c851f8553ebc-83781d9f899a5f508011",
+          "file": "integral-audit.spec.ts",
+          "line": 269,
+          "column": 3
+        },
+        {
+          "title": "Integral: PT light and dark text tokens meet normal-text contrast",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "cdc1ece8c851f8553ebc-24ea1701088dbf92edff",
+          "file": "integral-audit.spec.ts",
+          "line": 269,
+          "column": 3
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-14T22:14:24.236Z",
+    "duration": 258.879,
+    "expected": 0,
+    "skipped": 11,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

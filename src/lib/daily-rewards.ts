@@ -1,5 +1,6 @@
 import { localDay } from './learning';
 import { lessonRecord } from './course-route';
+import { oralEvidence } from './oral-practice';
 import type { Snapshot } from './types';
 
 export function offsetDay(day: string, offset: number) {
@@ -41,6 +42,7 @@ export function dailyRewards(data: Snapshot, today = data.day) {
       timestampDay(a.created_at) <= today,
   );
   pdf.forEach((a) => add(timestampDay(a.created_at)));
+  oralEvidence(data).forEach((a) => add(timestampDay(a.created_at)));
   for (const a of data.cefr?.attempts || []) if (a.answer.trim()) add(timestampDay(a.created_at));
   if (data.diagnostic.completed_at) add(timestampDay(data.diagnostic.completed_at));
   let bestStreak = 0,

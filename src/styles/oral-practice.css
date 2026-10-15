@@ -1,0 +1,138 @@
+.oral-room {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.oral-tabs {
+  margin: 22px 0;
+}
+.oral-tabs button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+}
+.oral-tabs button[aria-pressed='true'] {
+  background: var(--green-soft);
+  color: var(--green);
+}
+.oral-task,
+.oral-history {
+  padding: clamp(20px, 4vw, 36px);
+  margin: 24px 0;
+}
+.oral-task > * + * {
+  margin-top: 18px;
+}
+.oral-task h2 {
+  font-size: clamp(25px, 4vw, 34px);
+  font-weight: 800;
+  max-width: 650px;
+}
+.oral-task details {
+  padding: 16px;
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+.oral-task summary {
+  cursor: pointer;
+  font-weight: 800;
+}
+.oral-task blockquote {
+  margin: 16px 0;
+  line-height: 1.8;
+}
+.oral-controls {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.oral-recording-active .oral-controls > span {
+  color: var(--green);
+  font-weight: 800;
+}
+.oral-audio {
+  display: grid;
+  gap: 8px;
+}
+.oral-room audio {
+  max-width: 100%;
+  width: 100%;
+}
+.oral-question {
+  margin: 24px 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  min-width: 0;
+}
+.oral-question legend {
+  font-size: 16px;
+  font-weight: 800;
+  padding: 0 6px;
+}
+.oral-question label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  margin: 10px 0;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.oral-question label:has(input:checked) {
+  background: var(--green-soft);
+  border-color: var(--green);
+}
+.oral-question input {
+  accent-color: var(--green);
+  min-width: 17px;
+  height: 17px;
+}
+.oral-transcript {
+  border-left: 3px solid var(--green);
+  padding: 16px;
+  background: var(--surface-soft);
+}
+.oral-self-review li {
+  margin: 12px 0;
+  line-height: 1.6;
+}
+.oral-history article {
+  border-top: 1px solid var(--line);
+  padding: 20px 0;
+  margin-top: 18px;
+}
+.oral-history article > * + * {
+  margin-top: 10px;
+}
+.oral-history time {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+.oral-history blockquote {
+  margin: 0;
+  padding: 14px;
+  background: var(--surface-soft);
+  border-radius: 12px;
+  white-space: pre-wrap;
+}
+.oral-saved {
+  color: var(--green);
+  font-weight: 800;
+}
+@media (max-width: 600px) {
+  .oral-task .oral-controls .button {
+    width: 100%;
+  }
+  .oral-tabs {
+    gap: 6px;
+  }
+  .oral-tabs button {
+    font-size: 12px;
+  }
+}

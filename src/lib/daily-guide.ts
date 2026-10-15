@@ -41,14 +41,23 @@ export function dailyGuide(data: Snapshot, stories: NewsStory[] = []) {
       : [...items].reverse().find((l) => passedLesson(data, l.id)) || next || items.at(-1)!);
   const lessonText = `${lesson.goal} ${lesson.pattern} ${lesson.examples.join(' ')}`;
   const pending = data.backlog?.find((a) => a.kind === 'reading' && !a.completed_at);
+  const readDays = new Map<string, string>();
+  for (const result of data.results) {
+    if (result.skill !== 'reading' || !result.document_id) continue;
+    const previous = readDays.get(result.document_id) || '';
+    if (result.day > previous) readDays.set(result.document_id, result.day);
+  }
   const reading =
     data.documents.find((d) => d.id === pending?.document_id) ||
     data.documents
       .filter((d) => d.level === journey.level && !d.filename)
       .sort(
         (a, b) =>
+          Number(readDays.has(a.id)) - Number(readDays.has(b.id)) ||
+          (readDays.get(a.id) || '').localeCompare(readDays.get(b.id) || '') ||
           overlap(`${b.intro} ${b.paragraphs.join(' ')}`, lessonText) -
-            overlap(`${a.intro} ${a.paragraphs.join(' ')}`, lessonText) || a.id.localeCompare(b.id),
+            overlap(`${a.intro} ${a.paragraphs.join(' ')}`, lessonText) ||
+          a.id.localeCompare(b.id),
       )[0];
   const text = `${reading?.paragraphs.join(' ') || ''} ${lessonText}`;
   const candidates = Object.keys(glossary).filter((w) =>
@@ -62,7 +71,10 @@ export function dailyGuide(data: Snapshot, stories: NewsStory[] = []) {
   }
   const linkedWords = puzzle.rounds.filter((r) => candidates.includes(r.word)).map((r) => r.word);
   const ranked = [...stories].sort(
-    (a, b) => overlap(b.title, text) - overlap(a.title, text) || a.id.localeCompare(b.id),
+    (a, b) =>
+      overlap(b.title, text) - overlap(a.title, text) ||
+      b.published.localeCompare(a.published) ||
+      a.id.localeCompare(b.id),
   );
   const linkedStory = ranked.find((s) => overlap(s.title, text) > 0);
   const dayIndex = [...data.day].reduce((n, c) => n + c.charCodeAt(0), 0);

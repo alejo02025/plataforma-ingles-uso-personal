@@ -1,4 +1,5 @@
 'use client';
+import { StudyCopy } from './study-copy';
 import { useEffect, useState, useRef } from 'react';
 import { ArrowLeft, Check, Sparkles } from 'lucide-react';
 import type { Snapshot, Activity } from '@/lib/types';
@@ -131,7 +132,7 @@ export function WritingBox({
       {feedback && (
         <div className="ai-feedback">
           <span className="eyebrow">AI FEEDBACK · CHECK AND REVIEW</span>
-          <p lang="es">{feedback.feedback}</p>
+          <StudyCopy as="p">{feedback.feedback}</StudyCopy>
           <blockquote lang="en">{feedback.revised}</blockquote>
           {feedback.corrections.map((c, i) => (
             <div key={i} className="correction-item">

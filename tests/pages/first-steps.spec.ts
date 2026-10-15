@@ -49,7 +49,7 @@ for (const pt of [false, true])
         exact: true,
       })
       .click();
-    await expect(page.locator('.diagnostic-card')).toContainText('1 / 12');
+    await expect(page.locator('.diagnostic-card')).toContainText(`1 / ${questions.length}`);
     for (const q of questions.slice(1)) {
       // A1 correct; harder questions deliberately unknown: an honest beginner reference.
       const option = q.band === 'A1' ? q.options[q.answer] : q.options.at(-1)!;
@@ -60,7 +60,9 @@ for (const pt of [false, true])
       await page.getByRole('button', { name: pt ? 'Próxima' : 'Next', exact: true }).click();
     }
     await expect(page.locator('.placement-result h2')).toHaveText('A1');
-    await expect(page.locator('.placement-result')).toContainText('3 / 12');
+    await expect(page.locator('.placement-result')).toContainText(
+      `${questions.filter((q) => q.band === 'A1').length} / ${questions.length}`,
+    );
     await expect(page.locator('.placement-result')).toContainText(
       pt ? 'recorrido de clases sigue en A1' : 'recorrido de clases sigue en A2',
     );

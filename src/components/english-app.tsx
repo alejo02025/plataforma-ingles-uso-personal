@@ -1,6 +1,7 @@
 'use client';
 import { courseRoute } from '@/lib/course-route';
 import { CourseMenu } from './course-menu';
+import { OralPractice } from './oral-practice';
 import { DailyRewards } from './daily-rewards';
 import { EntryPhrase } from './entry-phrase';
 import { NewsBriefing } from './news-briefing';
@@ -34,6 +35,7 @@ import {
   Moon,
   Settings2,
   NotebookPen,
+  Headphones,
   Sun,
   X,
   ArrowUpRight,
@@ -61,6 +63,7 @@ const navigation = [
   { title: 'Classes', icon: BookOpen },
   { title: 'News', icon: BookOpen },
   { title: 'Language help', icon: Lightbulb },
+  { title: 'Oral practice', icon: Headphones },
 ];
 export function EnglishApp() {
   const [data, setData] = useState<Snapshot | null>(null),
@@ -80,6 +83,7 @@ export function EnglishApp() {
     const state = await api<Snapshot>('state');
     setData(state);
     document.documentElement.dataset.theme = state.profile.theme;
+    document.documentElement.dataset.studyLanguage = isPortuguese ? 'pt' : 'en';
   }, []);
   useEffect(() => {
     const onRemoteChange = () => {
@@ -93,6 +97,14 @@ export function EnglishApp() {
     return () => window.removeEventListener('english-data-changed', onRemoteChange);
   }, [refresh]);
   async function navigate(target: string) {
+    if (document.querySelector('.oral-recording-active')) {
+      setError(
+        isPortuguese
+          ? 'Pare a gravação antes de sair desta seção.'
+          : 'Stop the recording before leaving this section.',
+      );
+      return;
+    }
     setSuggestedClass('');
     setSuggestedGame('');
     setClassroomVisit((v) => v + 1);
@@ -216,6 +228,9 @@ export function EnglishApp() {
   const doc = data.documents.find((d) => d.id === active?.document_id);
   return (
     <div className="app-shell">
+      <a className="skip-learning-link" href="#main-content">
+        {isPortuguese ? 'Ir para o conteúdo' : 'Skip to learning'}
+      </a>
       {mobileMenu && (
         <button
           className="drawer-backdrop"
@@ -353,7 +368,7 @@ export function EnglishApp() {
             </button>
           </div>
         </header>
-        <main id="main-content">
+        <main id="main-content" tabIndex={-1}>
           <div id="app-updates" />
           {error && (
             <div role="alert" className="error global-error">
@@ -436,6 +451,8 @@ export function EnglishApp() {
                 </p>
               </div>
             </>
+          ) : view === 'Oral practice' ? (
+            <OralPractice data={data} refresh={refresh} />
           ) : view === 'Language help' ? (
             <LanguageHelp />
           ) : view === 'News' ? (

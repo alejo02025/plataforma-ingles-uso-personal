@@ -1,11 +1,12 @@
 import { studyStorage } from '../workspace';
-import { makeRoutine, routineEdition, type RoutineMode } from '../routine';
+import { makeRoutine, type RoutineMode } from '../routine';
 export type RoutineDraft = {
   id: string;
   mode: RoutineMode;
   level: string;
   block: number;
-  edition: 1;
+  edition: 1 | 2;
+  variant?: number;
   answers: string[];
   choice: string;
   picked: number[];
@@ -14,16 +15,28 @@ export type RoutineDraft = {
   seconds: number;
 };
 const key = 'routine-draft:v1';
-export function readRoutineDraft(): RoutineDraft | undefined {
+const indexKey = 'routine-drafts:v2';
+function storedIds(): string[] {
   try {
-    const raw = studyStorage.getItem(key);
+    const ids = JSON.parse(studyStorage.getItem(indexKey) || '[]');
+    return Array.isArray(ids)
+      ? ids.filter((id) => typeof id === 'string' && /^[0-9a-f-]{36}$/i.test(id))
+      : [];
+  } catch {
+    return [];
+  }
+}
+function validateDraft(raw: string | null): RoutineDraft | undefined {
+  try {
     if (!raw) return;
     const x = JSON.parse(raw);
     if (
       typeof x.id !== 'string' ||
       !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(x.id) ||
       !['vocabulary', 'grammar', 'reading'].includes(x.mode) ||
-      x.edition !== routineEdition ||
+      ![1, 2].includes(x.edition) ||
+      (x.variant !== undefined &&
+        (!Number.isInteger(x.variant) || x.variant < 0 || x.variant > 1000)) ||
       !Number.isInteger(x.block) ||
       x.block < 0 ||
       x.block > 100 ||
@@ -37,7 +50,10 @@ export function readRoutineDraft(): RoutineDraft | undefined {
       x.seconds > 7200
     )
       return;
-    const set = makeRoutine(x.mode, x.level, x.block);
+    const set = makeRoutine(x.mode, x.level, x.block, undefined, {
+      edition: x.edition,
+      variant: x.variant,
+    });
     if (
       x.answers.length > set.rounds.length ||
       x.answers.some((a: unknown) => typeof a !== 'string' || a.length > 1000)
@@ -72,9 +88,32 @@ export function readRoutineDraft(): RoutineDraft | undefined {
     return;
   }
 }
+export function readRoutineDraft(selector?: {
+  mode?: RoutineMode;
+  level?: string;
+  block?: number;
+}): RoutineDraft | undefined {
+  const drafts = [...storedIds()]
+    .reverse()
+    .map((id) => validateDraft(studyStorage.getItem(`routine-draft:v2:${id}`)));
+  drafts.push(validateDraft(studyStorage.getItem(key)));
+  return drafts.find(
+    (d) =>
+      d &&
+      (!selector ||
+        ((!selector.mode || d.mode === selector.mode) &&
+          (!selector.level || d.level === selector.level) &&
+          (selector.block === undefined || d.block === selector.block))),
+  );
+}
 export function writeRoutineDraft(value: RoutineDraft) {
-  studyStorage.setItem(key, JSON.stringify(value));
+  // The stable v1 key remains readable. New attempts are independent so changing activity never replaces an unfinished one.
+  studyStorage.setItem(`routine-draft:v2:${value.id}`, JSON.stringify(value));
+  const ids = storedIds().filter((id) => id !== value.id);
+  studyStorage.setItem(indexKey, JSON.stringify([...ids, value.id]));
 }
 export function clearRoutineDraft(id: string) {
-  if (readRoutineDraft()?.id === id) studyStorage.setItem(key, '');
+  studyStorage.setItem(`routine-draft:v2:${id}`, '');
+  studyStorage.setItem(indexKey, JSON.stringify(storedIds().filter((value) => value !== id)));
+  if (validateDraft(studyStorage.getItem(key))?.id === id) studyStorage.setItem(key, '');
 }

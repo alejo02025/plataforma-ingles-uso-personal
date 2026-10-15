@@ -113,6 +113,9 @@ for (const pt of [false, true])
       .getByRole('button', { name: pt ? 'A1' : 'A2', exact: true })
       .click();
     await page.locator('.class-card').first().click();
+    await page
+      .getByRole('button', { name: pt ? 'Começar a prática' : 'Start the practice', exact: true })
+      .click();
     const label = page.locator('.lesson-check').first().locator('label').first();
     await page
       .getByRole('button', { name: pt ? 'Ajuda com palavras' : 'Word help', exact: true })
