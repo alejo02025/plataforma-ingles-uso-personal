@@ -2,8 +2,6 @@
 import { courseRoute } from '@/lib/course-route';
 import { CourseMenu } from './course-menu';
 import { OralPractice } from './oral-practice';
-import { DailyRewards } from './daily-rewards';
-import { EntryPhrase } from './entry-phrase';
 import { NewsBriefing } from './news-briefing';
 import { OfflineStatus } from './offline-status';
 import { Games } from './games';
@@ -453,30 +451,16 @@ export function EnglishApp() {
           ) : view === 'PDF Studio' ? (
             <PdfStudio data={data} refresh={refresh} onRead={(doc) => void openDocument(doc)} />
           ) : view === 'My Day' ? (
-            <>
+            <div className="learning-path-view">
               <Heading
-                eyebrow="YOUR JOURNEY, READY"
-                title="A plan for today."
-                description={data.plan.reason}
-              >
-                <span className="pill neutral">{data.plan.minutes} suggested minutes</span>
-              </Heading>
-              <DailyRewards data={data} />
-              <details className="daily-thought">
-                <summary>A thought for today</summary>
-                <EntryPhrase />
-              </details>
+                eyebrow={isPortuguese ? 'PLANO DE ESTUDO' : 'STUDY PLAN'}
+                title={isPortuguese ? 'Todas as atividades' : 'All activities'}
+                description={isPortuguese ? 'Seu plano de atividades. Comece pela próxima tarefa pendente.' : 'Your full activity list. Start with the next unfinished task.'}
+              />
               <section className="card daily-card">
                 <ActivityList data={data} onStart={onStart} />
               </section>
-              <div className="evidence-banner">
-                <Check size={20} />
-                <p>
-                  Your plan stays the same throughout the day. Duration changes in Preferences apply
-                  to your next plan.{' '}
-                </p>
-              </div>
-            </>
+            </div>
           ) : view === 'Practice' ? (
             <div className="learning-path-view">
               <Heading
