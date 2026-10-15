@@ -72,10 +72,16 @@ for (const pt of [false, true])
     await enter(page, pt);
     await expect(page.locator('.today-duration select')).toHaveValue('20');
     await expect(main).toContainText(pt ? 'Você pausou' : 'You paused');
+    await page.getByRole('button', {
+      name: pt ? 'Abrir preferências' : 'Help and preferences', exact: true,
+    }).click();
     await expect(page.locator('.offline-status summary')).toContainText(
       pt ? 'Pronto sem conexão' : 'Ready offline',
       { timeout: 90000 },
     );
+    await page.getByRole('button', {
+      name: pt ? 'Fechar preferências' : 'Close preferences', exact: true,
+    }).click();
     await context.setOffline(true);
     await page.reload();
     await expect(main).toContainText(pt ? 'Você pausou' : 'You paused');
