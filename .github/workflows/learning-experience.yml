@@ -66,6 +66,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          # The briefing job can advance main while verification is running.
+          # pages-release serializes writers; fetch its current head after acquiring it.
+          ref: main
           persist-credentials: true
       - uses: actions/setup-node@v4
         with:
