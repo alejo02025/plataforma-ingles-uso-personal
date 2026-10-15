@@ -14,7 +14,7 @@ for (const pt of [false, true])
     const more = page.locator('.sidebar .nav-more');
     await more.locator('summary').click();
     await more.getByRole('button', { name: pt ? 'Praticar' : 'Practice', exact: true }).click();
-    await page.getByRole('button', { name: pt ? 'Abrir preferências' : 'Help and preferences', exact: true }).click();
+    await page.getByRole('button', { name: pt ? 'Ajuda e preferências' : 'Help and preferences', exact: true }).click();
     await expect(page.locator('.offline-status summary')).toContainText(
       pt ? 'Pronto sem conexão' : 'Ready offline',
       { timeout: 90000 },
@@ -92,6 +92,10 @@ for (const pt of [false, true])
     await pause();
     await context.setOffline(true);
     await page.reload();
+    // A reload returns to Today; reopen the detailed practice route.
+    await page.getByRole('button', { name: pt ? 'Abrir navegação' : 'Open navigation' }).click();
+    await page.locator('.sidebar .nav-more summary').click();
+    await page.locator('.sidebar .nav-more').getByRole('button', { name: pt ? 'Praticar' : 'Practice', exact: true }).click();
     // Starting reading no longer hijacks the unfinished grammar draft.
     await path.locator('.routine-node').nth(2).click();
     await expect(
