@@ -17,7 +17,7 @@ import { DailyWords } from './daily-words';
 import { AppUpdate } from './app-update';
 import { PdfStudio } from './pdf-studio';
 import { DownloadLink } from './ui';
-import { GitHubSync, GitHubSyncStatus } from './github-sync';
+import { GitHubSync } from './github-sync';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   BookOpen,
@@ -355,13 +355,6 @@ export function EnglishApp() {
             <AppUpdate />
             {view === 'Home' && !active && <span id="daily-word-slot" />}
             <div className="topbar-extra"><WordHelpCloud data={data} refresh={refresh} /></div>
-            {process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github' && (
-              <div className="topbar-extra"><GitHubSyncStatus onOpen={() => setSettings(true)} /></div>
-            )}
-            <span className="private-label topbar-extra">
-              <span className="status-dot" />
-              {data.protected ? 'Protected space' : 'Personal use'}
-            </span>
             <button
               className="icon-button topbar-extra"
               onClick={toggleTheme}
@@ -547,12 +540,7 @@ export function EnglishApp() {
               </section>
             </>
           )}
-          <footer className="app-footer">
-            <span>ENGLISH OS</span>
-            <p>Less planning. More discovering.</p>
-            <span>Your pace. Your journey.</span>
-          </footer>
-          <OfflineStatus />
+          {/* Account and offline technical details live in Preferences. */}
         </main>
       </div>
       <nav className="mobile-bottom-nav" aria-label="Quick navigation">
@@ -722,6 +710,7 @@ function Preferences({
           </Button>
         </form>
         {process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github' && <GitHubSync />}
+        <OfflineStatus />
         <div className="settings-info">
           <span className="eyebrow">PRIVACY AND DATA</span>
           <p>
