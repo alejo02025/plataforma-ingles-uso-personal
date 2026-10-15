@@ -1278,6 +1278,8 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,te
 .sentence-shape{background:var(--learning-tint);border:1px solid var(--border);border-radius:22px;padding:28px;}
 .sentence-shape h2{font-size:1.6rem;}
 .sentence-shape .guide-formula{font-weight:860;letter-spacing:-.025em;font-size:1.05rem;color:var(--accent);}
+.sentence-shape .guide-formula:not(.guide-formula-es){border-radius:12px 12px 0 0;margin-bottom:0;padding-bottom:5px;}
+.sentence-shape .guide-formula-es{border-radius:0 0 12px 12px;margin-top:0;padding-top:4px;font-size:.84rem;color:var(--muted);font-weight:620;}
 .foundations,.reference-builder{border-radius:22px;background:var(--surface);}
 .foundation-selectors select,.foundation-selectors input {border-radius:11px;}
 .grammar-reference-entry{border-radius:13px;overflow:hidden;}
@@ -1354,8 +1356,8 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,te
   .today-duration select{min-height:40px;padding:7px 11px;}
   .today-workspace{grid-template-columns:minmax(0,1fr);gap:16px;}
   .today-focus{min-height:332px;border-radius:23px;padding:27px 24px;}
-  .today-primary-art{right:22px;top:84px;font-size:40px;}
-  .today-focus h2{font-size:clamp(1.6rem,7vw,2.12rem);padding-right:20px;}
+  .today-primary-art{right:17px;top:86px;font-size:34px;}
+  .today-focus h2{font-size:clamp(1.6rem,7vw,2.12rem);padding-right:0;max-width:calc(100% - 53px);}
   .today-focus-meta{margin-bottom:18px;}
   .today-focus p{font-size:.92rem;}
   .today-next{border-radius:22px;padding:21px;}
