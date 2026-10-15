@@ -6,8 +6,7 @@ import {
   refreshEvent,
   isRefreshStorage,
 } from '@/lib/browser/app-refresh';
-import { siteRoot, spaceNames } from '@/lib/workspace';
-import { ArrowUpRight } from 'lucide-react';
+import { siteRoot, isPortuguese } from '@/lib/workspace';
 /** Same release across spaces, separate learning databases. */
 export function SpaceLink({ language }: { language: 'en' | 'pt' }) {
   const [token, setToken] = useState(process.env.NEXT_PUBLIC_APP_BUILD || '');
@@ -27,13 +26,18 @@ export function SpaceLink({ language }: { language: 'en' | 'pt' }) {
   const href = `${siteRoot}${language === 'pt' ? '/portugues/' : '/'}`;
   return (
     <a
+      className="language-choice"
+      aria-label={language === 'pt' ? '🇧🇷 Português brasileiro' : '🇬🇧 English'}
+      aria-current={(language === 'pt') === isPortuguese ? 'page' : undefined}
+      lang={language === 'pt' ? 'pt-BR' : 'en'}
       href={refreshedLink(href, token)}
       onClick={(event) => {
         const fresh = refreshedLink(href, readRefresh() || process.env.NEXT_PUBLIC_APP_BUILD || '');
         event.currentTarget.href = `${fresh}${fresh.includes('?') ? '&' : '?'}opened=${Date.now()}`;
       }}
     >
-      {spaceNames[language]} <ArrowUpRight size={14} />
+      <span className="language-flag" aria-hidden="true">{language === 'pt' ? '🇧🇷' : '🇬🇧'}</span>
+      <span className="language-name">{language === 'pt' ? 'Português' : 'English'}</span>
     </a>
   );
 }
