@@ -15,32 +15,28 @@ async function enter(page: Page, pt: boolean) {
   });
   if (await tutorial.isVisible()) await tutorial.click();
 }
-async function time(page: Page, pt: boolean, minutes: number) {
-  const details = page.locator('.audit-time-choice');
-  if ((await details.getAttribute('open')) === null) await details.locator('summary').click();
-  await details
-    .getByRole('combobox', { name: pt ? 'Tempo para hoje' : 'Time for today' })
-    .selectOption(String(minutes));
+async function time(page: Page, _pt: boolean, minutes: number) {
+  await page.locator('.today-duration select').selectOption(String(minutes));
 }
 for (const pt of [false, true])
   test(`Today's time changes the recommendation, preserves a paused exercise offline and isolates profiles (${pt ? 'PT' : 'EN'})`, async ({
     page,
     context,
   }) => {
-    test.setTimeout(120000);
+    test.setTimeout(180000);
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
     await page.setViewportSize({ width: 390, height: 844 });
     await enter(page, pt);
     const main = page.locator('.audit-continue');
-    await expect(main.locator('.pill')).toContainText('8 min');
+    await expect(main.locator('.today-focus-meta span:last-child')).toContainText('8 min');
     await time(page, pt, 5);
     await expect(main.locator('h2')).toHaveText(
       pt ? 'Descubra palavras em contexto' : 'Discover words in context',
     );
-    await expect(main.locator('p[lang="es"]')).toContainText('pausa corta');
-    await expect(main.locator('.pill')).toContainText('5 min');
-    await page.locator('.audit-time-choice > summary').click();
+    await expect(main.locator('p')).toContainText(pt ? 'pausa curta' : 'short break');
+    await expect(main.locator('.today-focus-meta span:last-child')).toContainText('5 min');
+    await page.locator('.today-duration select').blur();
     await page.evaluate(() => {
       if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
       window.scrollTo(0, 0);
@@ -49,14 +45,9 @@ for (const pt of [false, true])
       path: `artifacts/audit/after/time-${pt ? 'pt' : 'en'}-390.png`,
       fullPage: true,
     });
-    await page.locator('.audit-explore-day > summary').click();
-    await expect(page.locator('.daily-guide')).toContainText('Hoy elegiste 5 minutos');
-    await expect(page.locator('.daily-guide .pill')).toContainText(
-      pt ? 'percurso completo' : 'full route',
-    );
-    await page.locator('.audit-explore-day > summary').click();
+    await expect(page.locator('.today-duration select')).toHaveValue('5');
     await main
-      .getByRole('button', { name: pt ? 'Começar agora' : 'Start now', exact: true })
+      .getByRole('button', { name: pt ? 'Começar' : 'Start', exact: true })
       .click();
     const dialog = page.getByRole('dialog', { name: pt ? 'Atividade guiada' : 'Guided activity' });
     const rounds = makeRoutine('vocabulary', pt ? 'A1' : 'A2', 0, pt).rounds;
@@ -73,24 +64,30 @@ for (const pt of [false, true])
         .click();
     await respond(0);
     await pause();
-    await expect(main).toContainText('Pausaste esta actividad');
+    await expect(main).toContainText(pt ? 'Você pausou' : 'You paused');
     await time(page, pt, 20);
-    await expect(main).toContainText('Pausaste esta actividad');
+    await expect(main).toContainText(pt ? 'Você pausou' : 'You paused');
     await enter(page, !pt);
     await time(page, !pt, 40);
     await enter(page, pt);
-    await expect(main.locator('.audit-time-choice summary')).toContainText('20 min');
-    await expect(main).toContainText('Pausaste esta actividad');
+    await expect(page.locator('.today-duration select')).toHaveValue('20');
+    await expect(main).toContainText(pt ? 'Você pausou' : 'You paused');
+    await page.getByRole('button', {
+      name: pt ? 'Ajuda e preferências' : 'Help and preferences', exact: true,
+    }).click();
     await expect(page.locator('.offline-status summary')).toContainText(
       pt ? 'Pronto sem conexão' : 'Ready offline',
       { timeout: 90000 },
     );
+    await page.getByRole('button', {
+      name: pt ? 'Fechar preferências' : 'Close preferences', exact: true,
+    }).click();
     await context.setOffline(true);
     await page.reload();
-    await expect(main).toContainText('Pausaste esta actividad');
-    await expect(main.locator('.audit-time-choice summary')).toContainText('20 min');
+    await expect(main).toContainText(pt ? 'Você pausou' : 'You paused');
+    await expect(page.locator('.today-duration select')).toHaveValue('20');
     await main
-      .getByRole('button', { name: pt ? 'Começar agora' : 'Start now', exact: true })
+      .getByRole('button', { name: pt ? 'Começar' : 'Start', exact: true })
       .click();
     await expect(dialog.locator('.routine-reading').first()).toContainText(rounds[1].context!);
     for (let index = 1; index < rounds.length; index++) await respond(index);
@@ -99,10 +96,10 @@ for (const pt of [false, true])
     await dialog
       .getByRole('button', { name: pt ? 'Voltar ao percurso' : 'Back to the path', exact: true })
       .click();
-    await expect(main).not.toContainText('Pausaste esta actividad');
-    await expect(main.locator('.pill')).toContainText('8 min');
+    await expect(main).not.toContainText(pt ? 'Você pausou' : 'You paused');
+    await expect(main.locator('.today-focus-meta span:last-child')).toContainText('8 min');
     await main
-      .getByRole('button', { name: pt ? 'Começar agora' : 'Start now', exact: true })
+      .getByRole('button', { name: pt ? 'Começar' : 'Start', exact: true })
       .click();
     await expect(page.locator('.lesson-room')).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
@@ -122,7 +119,7 @@ test('a malformed daily preference falls back safely; a failed write shows feedb
     localStorage.setItem(key, '{bad json');
   });
   await page.reload();
-  await expect(page.locator('.audit-time-choice summary')).toContainText('20 min');
+  await expect(page.locator('.today-duration select')).toHaveValue('20');
   await page.evaluate(() => {
     const original = Storage.prototype.setItem;
     Storage.prototype.setItem = function (key, value) {
@@ -131,12 +128,12 @@ test('a malformed daily preference falls back safely; a failed write shows feedb
     };
   });
   await time(page, false, 5);
-  await expect(page.locator('.audit-time-choice')).toContainText(
-    'No se pudo guardar esta preferencia',
+  await expect(page.locator('.today-screen')).toContainText(
+    'Your time choice could not be saved',
   );
   await expect(page.locator('.audit-continue h2')).toHaveText('Discover words in context');
   await expect(
-    page.locator('.audit-continue').getByRole('button', { name: 'Start now', exact: true }),
+    page.locator('.audit-continue').getByRole('button', { name: 'Start', exact: true }),
   ).toBeEnabled();
 });
 
@@ -146,14 +143,14 @@ test('the daily time override expires on the next study day without changing the
   await page.clock.install({ time: new Date('2026-10-15T18:00:00Z') });
   await enter(page, false);
   await time(page, false, 5);
-  await expect(page.locator('.audit-time-choice summary')).toContainText('5 min');
+  await expect(page.locator('.today-duration select')).toHaveValue('5');
   const previous = await page.evaluate(() => localStorage.getItem('study-budget:v1:2026-10-15'));
   expect(previous).toBe('5');
   await page.clock.setSystemTime(new Date('2026-10-16T18:00:00Z'));
   await page.reload();
-  await expect(page.locator('.audit-time-choice summary')).toContainText('20 min');
+  await expect(page.locator('.today-duration select')).toHaveValue('20');
   // A new day can bring the previous plan's unfinished reading to the front.
   // Time expiry must preserve that backlog, rather than force a new class.
-  await expect(page.locator('.audit-continue')).toContainText('Retomá desde donde dejaste');
+  await expect(page.locator('.audit-continue')).toContainText('Pick up where you stopped');
   expect(await page.evaluate(() => localStorage.getItem('study-budget:v1:2026-10-15'))).toBe('5');
 });

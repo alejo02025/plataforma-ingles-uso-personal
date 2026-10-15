@@ -10,6 +10,11 @@ on:
 permissions:
   contents: write
 
+# New commits supersede outdated PR runs, without interrupting main releases.
+concurrency:
+  group: learning-experience-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   verify:
     runs-on: ubuntu-latest
@@ -30,7 +35,7 @@ jobs:
       - name: Install browser for responsive smoke checks
         run: npx playwright install --with-deps chromium
       - name: Check both languages and key navigation
-        run: npm run test:pages -- --grep 'Learning-first navigation|Mobile menu|Dashboard keeps course level|online update is not blocked'
+        run: npm run test:pages -- --grep 'Today-first navigation|Today presents oral practice|time changes the recommendation|Contextual routine moves forward|Mobile menu|online update is not blocked' --workers=2
 
   publish:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'

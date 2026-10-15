@@ -4,6 +4,7 @@ test('an older home page can update when its unloaded AI bundle is unavailable, 
   page,
 }) => {
   await page.goto('./');
+  await page.locator('.daily-word-launcher').click();
   const popup = page.getByRole('dialog', { name: 'Word of the Day' });
   const word = await popup.getByRole('heading').innerText();
   await popup.getByRole('button', { name: 'Save this word' }).click();
@@ -21,7 +22,7 @@ test('an older home page can update when its unloaded AI bundle is unavailable, 
   await expect(page).toHaveURL(/updated=/);
   expect(missing).toBeGreaterThan(0);
   await expect(
-    page.getByRole('heading', { name: /Good (morning|afternoon|evening), Alejo\./ }),
+    page.locator('.today-head h1'),
   ).toBeVisible();
   await page
     .getByRole('navigation')
@@ -35,12 +36,14 @@ test('Updating one space refreshes an idle second space and keeps both vocabular
   context,
 }) => {
   await page.goto('./');
+  await page.locator('.daily-word-launcher').click();
   const englishPopup = page.getByRole('dialog', { name: 'Word of the Day' });
   const englishWord = await englishPopup.getByRole('heading').innerText();
   await englishPopup.getByRole('button', { name: 'Save this word', exact: true }).click();
   await englishPopup.getByRole('button', { name: 'Close daily word' }).click();
   const pt = await context.newPage();
   await pt.goto('./portugues/');
+  await pt.locator('.daily-word-launcher').click();
   const ptPopup = pt.getByRole('dialog', { name: 'Palavra do dia' });
   const portugueseWord = await ptPopup.getByRole('heading').innerText();
   await ptPopup.getByRole('button', { name: 'Salvar esta palavra', exact: true }).click();
@@ -60,7 +63,7 @@ test('Updating one space refreshes an idle second space and keeps both vocabular
     .poll(() => new URL(pt.url()).searchParams.get('updated'), { timeout: 15000 })
     .toBe(token);
   await expect(
-    pt.getByRole('heading', { name: /(Bom dia|Boa tarde|Boa noite), Jazmín\./ }),
+    pt.locator('.today-head h1'),
   ).toBeVisible();
   await pt
     .getByRole('navigation', { name: 'Navegação principal' })
@@ -80,7 +83,7 @@ test('Updating one space refreshes an idle second space and keeps both vocabular
   await expect(page).toHaveURL(/portugues\/\?updated=.+opened=/);
   expect(new URL(page.url()).searchParams.get('updated')).toBe(token);
   await expect(
-    page.getByRole('heading', { name: /(Bom dia|Boa tarde|Boa noite), Jazmín\./ }),
+    page.locator('.today-head h1'),
   ).toBeVisible();
 });
 
@@ -89,10 +92,7 @@ test('a fresh explicit link does not replay an older refresh request', async ({ 
     localStorage.setItem('/plataforma-ingles-uso-personal:app-refresh', 'old-request'),
   );
   await page.goto('./?updated=fresh-link');
-  await page
-    .getByRole('dialog', { name: 'Word of the Day' })
-    .getByRole('button', { name: 'Close daily word' })
-    .click();
+  await expect(page.locator('.today-head h1')).toHaveText('Today');
   await page.waitForTimeout(5500);
   expect(new URL(page.url()).searchParams.get('updated')).toBe('fresh-link');
 });
@@ -100,9 +100,7 @@ test('a fresh explicit link does not replay an older refresh request', async ({ 
 
 test('online update is not blocked by a stalled offline pre-cache', async ({ page }) => {
   await page.goto('./');
-  await page.getByRole('dialog', { name: 'Word of the Day' })
-    .getByRole('button', { name: 'Close daily word' })
-    .click();
+  await expect(page.locator('.today-screen')).toBeVisible();
   // Mimic a slow or unresponsive service-worker update. The online app should
   // still reload while the offline cache catches up independently.
   await page.evaluate(() => {

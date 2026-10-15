@@ -2,8 +2,6 @@
 import { courseRoute } from '@/lib/course-route';
 import { CourseMenu } from './course-menu';
 import { OralPractice } from './oral-practice';
-import { DailyRewards } from './daily-rewards';
-import { EntryPhrase } from './entry-phrase';
 import { NewsBriefing } from './news-briefing';
 import { OfflineStatus } from './offline-status';
 import { Games } from './games';
@@ -17,7 +15,7 @@ import { DailyWords } from './daily-words';
 import { AppUpdate } from './app-update';
 import { PdfStudio } from './pdf-studio';
 import { DownloadLink } from './ui';
-import { GitHubSync, GitHubSyncStatus } from './github-sync';
+import { GitHubSync } from './github-sync';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   BookOpen,
@@ -42,6 +40,7 @@ import {
 } from 'lucide-react';
 import type { Snapshot, Activity, Document } from '@/lib/types';
 import { Dashboard, ActivityList } from './dashboard';
+import { HomeRoutine } from './home-routine';
 import { Diagnostic } from './diagnostic';
 import { Library } from './library';
 import { Reader } from './reader';
@@ -255,30 +254,37 @@ export function EnglishApp() {
         <nav aria-label="Main navigation">
           <div className="nav-primary">
             {appNavigation
-              .filter((item) => !['Library', 'Practice', 'Calendar', 'News'].includes(item.title))
+              .filter((item) => ['Home', 'Classes', 'Vocabulary', 'PDF Studio', 'Progress'].includes(item.title))
               .sort((a, b) =>
-                ['Home', 'My Day', 'Classes', 'PDF Studio', 'Vocabulary', 'Oral practice', 'Progress', 'Games', 'Language help'].indexOf(a.title) -
-                ['Home', 'My Day', 'Classes', 'PDF Studio', 'Vocabulary', 'Oral practice', 'Progress', 'Games', 'Language help'].indexOf(b.title),
+                ['Home', 'Classes', 'Vocabulary', 'PDF Studio', 'Progress'].indexOf(a.title) -
+                ['Home', 'Classes', 'Vocabulary', 'PDF Studio', 'Progress'].indexOf(b.title),
               )
               .map(({ title, icon: Icon }) => (
                 <button
                   key={title}
                   aria-label={title}
+                  aria-current={view === title && !active ? 'page' : undefined}
                   className={`nav-item ${view === title && !active ? 'active' : ''}`}
                   onClick={() => void navigate(title)}
                 >
                   <Icon size={19} />
-                  <span>{title}</span>
+                  <span>{
+                    title === 'Home' ? (isPortuguese ? 'Hoje' : 'Today') :
+                    title === 'Vocabulary' ? (isPortuguese ? 'Revisão' : 'Review') :
+                    title === 'PDF Studio' ? (isPortuguese ? 'Biblioteca' : 'Library') :
+                    title === 'Classes' ? (isPortuguese ? 'Aulas' : 'Classes') :
+                    (isPortuguese ? 'Progresso' : 'Progress')
+                  }</span>
                 </button>
               ))}
           </div>
           <details
             className="nav-more"
-            open={!mobileMenu || ['Library', 'Practice', 'Calendar', 'News'].includes(view)}
+            open={['Library', 'Practice', 'My Day', 'Games', 'Calendar', 'News', 'Language help', 'Oral practice'].includes(view)}
           >
-            <summary>More sections</summary>
+            <summary>{isPortuguese ? 'Outras ferramentas' : 'More tools'}</summary>
             {appNavigation
-              .filter((item) => ['Library', 'Practice', 'Calendar', 'News'].includes(item.title))
+              .filter((item) => ['Library', 'Practice', 'My Day', 'Games', 'Calendar', 'News', 'Language help', 'Oral practice'].includes(item.title))
               .map(({ title, icon: Icon }) => (
                 <button
                   key={title}
@@ -287,7 +293,13 @@ export function EnglishApp() {
                   onClick={() => void navigate(title)}
                 >
                   <Icon size={19} />
-                  {title}
+                  <span>{
+                    title === 'Library' ? (isPortuguese ? 'Leituras' : 'Readings') :
+                    title === 'My Day' ? (isPortuguese ? 'Todas as atividades' : 'All activities') :
+                    title === 'Practice' ? (isPortuguese ? 'Prática extra' : 'Extra practice') :
+                    title === 'Oral practice' ? (isPortuguese ? 'Fala' : 'Speaking') :
+                    title
+                  }</span>
                 </button>
               ))}
           </details>
@@ -340,20 +352,13 @@ export function EnglishApp() {
             </button>
             <span>My space</span>
             <ChevronRight size={14} />
-            <strong>{active ? 'Practice' : view === 'Assessment' ? 'Assessment' : view}</strong>
+            <strong>{active ? (isPortuguese ? 'Atividade' : 'Activity') : view === 'Home' ? (isPortuguese ? 'Hoje' : 'Today') : view === 'Assessment' ? (isPortuguese ? 'Diagnóstico' : 'Assessment') : view}</strong>
           </div>
           <div className="topbar-actions">
             <div className="topbar-course"><CourseMenu data={data} navigate={(target) => void navigate(target)} /></div>
             <AppUpdate />
             {view === 'Home' && !active && <span id="daily-word-slot" />}
             <div className="topbar-extra"><WordHelpCloud data={data} refresh={refresh} /></div>
-            {process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github' && (
-              <div className="topbar-extra"><GitHubSyncStatus onOpen={() => setSettings(true)} /></div>
-            )}
-            <span className="private-label topbar-extra">
-              <span className="status-dot" />
-              {data.protected ? 'Protected space' : 'Personal use'}
-            </span>
             <button
               className="icon-button topbar-extra"
               onClick={toggleTheme}
@@ -409,7 +414,8 @@ export function EnglishApp() {
           ) : view === 'Assessment' ? (
             <Diagnostic data={data} refresh={refresh} close={() => void navigate('Home')} />
           ) : view === 'Home' ? (
-            <Dashboard
+            <>
+              <Dashboard
               data={data}
               refresh={refresh}
               onStart={onStart}
@@ -427,34 +433,55 @@ export function EnglishApp() {
                 void navigate('Games');
                 setSuggestedGame(seed);
               }}
+              onRoutine={(mode) =>
+                window.dispatchEvent(
+                  new CustomEvent('english-os:routine-start', { detail: { mode } }),
+                )
+              }
             />
+            <HomeRoutine
+              data={data}
+              refresh={refresh}
+              onStart={onStart}
+              onClass={(id) => {
+                void navigate('Classes');
+                setSuggestedClass(id);
+              }}
+              onGame={(seed) => {
+                void navigate('Games');
+                setSuggestedGame(seed);
+              }}
+              compact
+            />
+            </>
           ) : view === 'PDF Studio' ? (
             <PdfStudio data={data} refresh={refresh} onRead={(doc) => void openDocument(doc)} />
           ) : view === 'My Day' ? (
-            <>
+            <div className="learning-path-view">
               <Heading
-                eyebrow="YOUR JOURNEY, READY"
-                title="A plan for today."
-                description={data.plan.reason}
-              >
-                <span className="pill neutral">{data.plan.minutes} suggested minutes</span>
-              </Heading>
-              <DailyRewards data={data} />
-              <details className="daily-thought">
-                <summary>A thought for today</summary>
-                <EntryPhrase />
-              </details>
+                eyebrow={isPortuguese ? 'PLANO DE ESTUDO' : 'STUDY PLAN'}
+                title={isPortuguese ? 'Todas as atividades' : 'All activities'}
+                description={isPortuguese ? 'Seu plano de atividades. Comece pela próxima tarefa pendente.' : 'Your full activity list. Start with the next unfinished task.'}
+              />
               <section className="card daily-card">
                 <ActivityList data={data} onStart={onStart} />
               </section>
-              <div className="evidence-banner">
-                <Check size={20} />
-                <p>
-                  Your plan stays the same throughout the day. Duration changes in Preferences apply
-                  to your next plan.{' '}
-                </p>
-              </div>
-            </>
+            </div>
+          ) : view === 'Practice' ? (
+            <div className="learning-path-view">
+              <Heading
+                eyebrow={isPortuguese ? 'PRÁTICA EXTRA' : 'EXTRA PRACTICE'}
+                title={isPortuguese ? 'Pratique no seu ritmo' : 'Practise at your pace'}
+                description={isPortuguese ? 'Atividades para reforçar o que você estudou.' : 'Extra activities to reinforce your learning.'}
+              />
+              <HomeRoutine
+                data={data}
+                refresh={refresh}
+                onStart={onStart}
+                onClass={(id) => { void navigate('Classes'); setSuggestedClass(id); }}
+                onGame={(seed) => { void navigate('Games'); setSuggestedGame(seed); }}
+              />
+            </div>
           ) : view === 'Oral practice' ? (
             <OralPractice data={data} refresh={refresh} />
           ) : view === 'Language help' ? (
@@ -503,16 +530,11 @@ export function EnglishApp() {
               </section>
             </>
           )}
-          <footer className="app-footer">
-            <span>ENGLISH OS</span>
-            <p>Less planning. More discovering.</p>
-            <span>Your pace. Your journey.</span>
-          </footer>
-          <OfflineStatus />
+          {/* Account and offline technical details live in Preferences. */}
         </main>
       </div>
       <nav className="mobile-bottom-nav" aria-label="Quick navigation">
-        {[navigation[0], navigation[1], navigation[5], navigation[6], navigation[7]].map(
+        {[navigation[0], navigation[9], navigation[6], navigation[1], navigation[7]].map(
           ({ title, icon: Icon }) => (
             <button
               key={title}
@@ -521,7 +543,7 @@ export function EnglishApp() {
             >
               <Icon size={20} />
               <span>
-                {title === 'PDF Studio' ? 'Read' : title === 'Vocabulary' ? 'Review' : title}
+                {title === 'Home' ? (isPortuguese ? 'Hoje' : 'Today') : title === 'Classes' ? (isPortuguese ? 'Aulas' : 'Classes') : title === 'PDF Studio' ? (isPortuguese ? 'Ler' : 'Read') : title === 'Vocabulary' ? (isPortuguese ? 'Revisar' : 'Review') : (isPortuguese ? 'Progresso' : title)}
               </span>
             </button>
           ),
@@ -678,6 +700,7 @@ function Preferences({
           </Button>
         </form>
         {process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github' && <GitHubSync />}
+        <OfflineStatus />
         <div className="settings-info">
           <span className="eyebrow">PRIVACY AND DATA</span>
           <p>

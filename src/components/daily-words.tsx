@@ -26,8 +26,10 @@ export function DailyWords({
   const entries = wordsForDay(data.day, courseRoute(data).level),
     entry = entries[index % entries.length],
     saved = data.vocabulary.some((word) => word.word.toLowerCase() === entry.word.toLowerCase());
+  // Learning starts with today's tasks. The optional daily word opens only
+  // when the learner chooses it, never as an interruption on entry.
   useEffect(() => {
-    setOpen(studyStorage.getItem('english-word-day') !== data.day);
+    setOpen(false);
   }, [data.day]);
   const close = () => {
     setOpen(false);
