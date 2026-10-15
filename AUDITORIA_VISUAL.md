@@ -29,6 +29,6 @@ Se regeneraron **92 capturas posteriores**, sin overflow ni excepciones en esas 
 
 La altura por sí sola no define calidad. La diferencia comprobada es que el catálogo se pagina, las herramientas se agrupan y la acción principal está en el primer viewport. El contenido sigue accesible. El CSS pasó de 9,957 líneas en ocho hojas a 2,834 líneas en dos hojas, con responsabilidades separadas.
 
-Las mediciones de interacción confirman Start dentro de la primera pantalla y el contador libre de la barra al desplazarse. Los tiempos observados son locales, sin throttling, no promesas sobre dispositivos físicos. La repetición contra la publicación real sigue pendiente hasta integrar y desplegar.
+Las mediciones de interacción confirman Start dentro de la primera pantalla y el contador libre de la barra al desplazarse. Los tiempos observados son locales, sin throttling, no promesas sobre dispositivos físicos. La repetición contra GitHub Pages terminó con 92 capturas públicas, sin overflow ni excepciones en esas visitas; el comparador ahora muestra esa publicación, no el candidato local. [Versión pública comprobada](artifacts/redesign/published/observations.json).
 
 Los estados de clase, lector, error de guardado y oralidad se capturan mediante pruebas funcionales en `artifacts/redesign/qa/`. Las capturas anteriores permanecen intactas.

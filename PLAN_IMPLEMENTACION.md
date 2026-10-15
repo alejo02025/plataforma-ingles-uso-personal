@@ -25,6 +25,8 @@ El estado ejecutado de pruebas, capturas, PR, integración y despliegue se regis
 
 La secuencia de entrega es: unitarias y TypeScript → builds EN/PT → regresión completa → build y recorrido autenticado Node → capturas comparativas → PR → checks → integración → regeneración estática → comprobación del sitio público y su versión.
 
+La entrega quedó integrada y publicada: PR #6 y #7, checks completos aprobados, 92 capturas públicas y dos recorridos reales de conservación/aislamiento. Se verificaron la versión servida y los recursos del worker; los límites de la comprobación están en QA.
+
 ## Conservación y reversibilidad
 
 No se modifica el esquema ni se borra información del estudiante. La agenda nueva es un payload opcional, exportable y sincronizable mediante los mecanismos existentes. Las preferencias históricas de 5/40 minutos se respetan. Si una agenda está dañada se conserva su contenido anterior dentro del mismo payload al reconstruirla.

@@ -30,4 +30,4 @@ El navegador ejecutó los HTML y recursos públicos reales. Un adaptador de red 
 
 ## Evidencia y cierre
 
-Las comprobaciones posteriores, diferencias visuales, PR y publicación se registrarán al ejecutarlas; este documento no atribuye resultados a acciones pendientes.
+Se integraron los PR #6 y #7 después de checks aprobados. La publicación 2026-10-15T20:50:09.219Z se verificó mediante 92 capturas públicas, dos recorridos de guardado/recarga/aislamiento y disponibilidad de los archivos del service worker. Los comandos, resultados, URLs de CI y límites están en [RESULTADOS_QA.md](../RESULTADOS_QA.md). El intento inicial de release se sustituyó al detectar la carrera con RSS; no se considera una publicación aprobada.

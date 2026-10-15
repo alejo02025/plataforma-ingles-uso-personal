@@ -1,0 +1,1032 @@
+{
+  "checkedAt": "2026-10-15T20:51:33.522Z",
+  "base": "https://alejo02025.github.io/plataforma-ingles-uso-personal/",
+  "priorBuild": "2026-10-15T18:10:11.952Z",
+  "publicBuild": "2026-10-15T20:50:09.219Z",
+  "serviceWorkerRelease": "2026-10-15T20:50:09.219Z",
+  "allListedAssetsAvailable": true,
+  "serviceWorkerInstalledInPublicBrowser": false,
+  "note": "TLS-verified Node fetch of actual public responses. Active-worker offline/update behavior is covered by local Playwright; this probe does not claim a physical PWA installation.",
+  "entries": [
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/",
+      "status": 200,
+      "bytes": 9681,
+      "sha256": "58673864f086dc77bc5401df105c9daea6c4b8e927091b09e99b8c95fb902cca",
+      "etag": "\"6ad13cc7-25d1\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT",
+      "linkedAssets": [
+        "/plataforma-ingles-uso-personal/_next/static/chunks/02y3knb0-qii4.css",
+        "/plataforma-ingles-uso-personal/_next/static/chunks/3333gs1h_w689.js",
+        "/plataforma-ingles-uso-personal/_next/static/chunks/2i69t8mw1uu8q.js",
+        "/plataforma-ingles-uso-personal/_next/static/chunks/3dmm3v_fq28gc.js",
+        "/plataforma-ingles-uso-personal/_next/static/chunks/turbopack-3dy7_zwpd8uap.js",
+        "/plataforma-ingles-uso-personal/_next/static/chunks/0umf92h1sb77c.js",
+        "/plataforma-ingles-uso-personal/_next/static/chunks/1l-0bl4zy9w6y.js",
+        "/plataforma-ingles-uso-personal/_next/static/chunks/0_zuoxm7s-7ec.js",
+        "/plataforma-ingles-uso-personal/_next/static/chunks/1_ejv32g9dggq.js",
+        "/plataforma-ingles-uso-personal/_next/static/chunks/0xd-o-5m53wst.js",
+        "/plataforma-ingles-uso-personal/_next/static/chunks/0cz1d0mv5g_q7.js"
+      ]
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/",
+      "status": 200,
+      "bytes": 10041,
+      "sha256": "861dbda417fcb8d092e3621ff4f0a7e685198b65307a9be21765132b0c6c7607",
+      "etag": "\"6ad13cc7-2739\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT",
+      "linkedAssets": [
+        "/plataforma-ingles-uso-personal/portugues/_next/static/chunks/02y3knb0-qii4.css",
+        "/plataforma-ingles-uso-personal/portugues/_next/static/chunks/3333gs1h_w689.js",
+        "/plataforma-ingles-uso-personal/portugues/_next/static/chunks/061tesabjjemg.js",
+        "/plataforma-ingles-uso-personal/portugues/_next/static/chunks/1p5oh2fin4q79.js",
+        "/plataforma-ingles-uso-personal/portugues/_next/static/chunks/turbopack-0scqvex_gfml0.js",
+        "/plataforma-ingles-uso-personal/portugues/_next/static/chunks/0umf92h1sb77c.js",
+        "/plataforma-ingles-uso-personal/portugues/_next/static/chunks/15it6k1k5oy92.js",
+        "/plataforma-ingles-uso-personal/portugues/_next/static/chunks/0v8tf4a-9j0n2.js",
+        "/plataforma-ingles-uso-personal/portugues/_next/static/chunks/3hmoexx1zbehm.js",
+        "/plataforma-ingles-uso-personal/portugues/_next/static/chunks/0zcl12x-knswk.js",
+        "/plataforma-ingles-uso-personal/portugues/_next/static/chunks/0cz1d0mv5g_q7.js"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/__next.__PAGE__.txt",
+      "status": 200,
+      "bytes": 4721,
+      "sha256": "8eef48e17d424d6d2bfe58ba6cb72820d3c483f1821f887dc44fbbaee6d50551",
+      "etag": "\"6ad13cc7-1271\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/__next._full.txt",
+      "status": 200,
+      "bytes": 5379,
+      "sha256": "f1625c185eecb1026610104e1b9f4f6ee4a20ebfd9b2c74361949853139f28f4",
+      "etag": "\"6ad13cc7-1503\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/__next._tree.txt",
+      "status": 200,
+      "bytes": 195,
+      "sha256": "d375086bb3c126f5eb692dbb04ae830b1028b3c4328f024f37f0a8b3082bf524",
+      "etag": "\"6ad13cc8-c3\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/_next/static/chunks/0_zuoxm7s-7ec.js",
+      "status": 200,
+      "bytes": 100080,
+      "sha256": "0606b86f3152efae80672ba391057ebd03d28ec7ff2ae41c061ee420d38f1d72",
+      "etag": "\"6ad13cc8-186f0\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/_next/static/chunks/02p0vr117b0t2.js",
+      "status": 200,
+      "bytes": 215,
+      "sha256": "2c92b58d3df5f4c23f747e124421ad03e75b01bac84748a9b07a6b4dc2088d03",
+      "etag": "\"6ad13cc8-d7\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/_next/static/chunks/02y3knb0-qii4.css",
+      "status": 200,
+      "bytes": 41126,
+      "sha256": "c09683ecc21dfac218543490c6acb90e8c814088205f8209d7327063a2327f71",
+      "etag": "\"6ad13cc8-a0a6\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/_next/static/chunks/08rxzudqa4fsy.js",
+      "status": 200,
+      "bytes": 38142,
+      "sha256": "a9782375f0ef01a34f69b4852339a05fe533bfc6f297adea4547dbc930e3961f",
+      "etag": "\"6ad13cc8-94fe\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/_next/static/chunks/0cz1d0mv5g_q7.js",
+      "status": 200,
+      "bytes": 112594,
+      "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+      "etag": "\"6ad13cc7-1b7d2\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/_next/static/chunks/0gka_839smbz2.js",
+      "status": 200,
+      "bytes": 5389,
+      "sha256": "46e193486c5a06eb23b422cbccc410585b05f504ce659f7f045138952b7c48d7",
+      "etag": "\"6ad13cc8-150d\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/_next/static/chunks/0umf92h1sb77c.js",
+      "status": 200,
+      "bytes": 13822,
+      "sha256": "c410d0f2543e080768fc14f73b2bd1fdf103e26956e9730390b5e41c4fb5ff8b",
+      "etag": "\"6ad13cc8-35fe\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/_next/static/chunks/0xd-o-5m53wst.js",
+      "status": 200,
+      "bytes": 339085,
+      "sha256": "693102fe5fbccd568ea538cd8fee0429cf849f9c702ac59d78cc554f2a4cd17d",
+      "etag": "\"6ad13cc8-52c8d\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/_next/static/chunks/1_ejv32g9dggq.js",
+      "status": 200,
+      "bytes": 526957,
+      "sha256": "d597e4f5419cf8cc18f6d4c493db777aa69b68f2bdb2f8f292a638e24f28ca99",
+      "etag": "\"6ad13cc8-80a6d\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/_next/static/chunks/1ktfbddtnwhdk.js",
+      "status": 200,
+      "bytes": 418321,
+      "sha256": "9ed21dfaef41c0e55655653c7f35b3e4c1d2dc15f350d2c0419ab5f645f667b3",
+      "etag": "\"6ad13cc8-66211\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/_next/static/chunks/1l-0bl4zy9w6y.js",
+      "status": 200,
+      "bytes": 14594,
+      "sha256": "24fc6e79912117cf7886c484e5cde5ff032c6224a9117d44093db5503540e08b",
+      "etag": "\"6ad13cc8-3902\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/_next/static/chunks/2i69t8mw1uu8q.js",
+      "status": 200,
+      "bytes": 182090,
+      "sha256": "37c3bdc5103e692645cf7bdd92e46ffc18159c37802ea631360dfcf003e672a6",
+      "etag": "\"6ad13cc8-2c74a\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/_next/static/chunks/3333gs1h_w689.js",
+      "status": 200,
+      "bytes": 20744,
+      "sha256": "f6336c96d8c18e4b5dc252c99b1304c07e339b0db5d9cf37806728cf6d57d9ce",
+      "etag": "\"6ad13cc7-5108\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/_next/static/chunks/3dmm3v_fq28gc.js",
+      "status": 200,
+      "bytes": 229820,
+      "sha256": "12c72318dee8d15a8fc5ea65c908da89cbbbfdc3ec455040db8b2fd3d2e7e0f8",
+      "etag": "\"6ad13cc7-381bc\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/_next/static/chunks/3rhz10b1r80p_.js",
+      "status": 200,
+      "bytes": 324963,
+      "sha256": "5080a1d6f724989f9a845a00af5c054ed78607ea2f09631cf58a9fb54c69ee78",
+      "etag": "\"6ad13cc7-4f563\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/_next/static/chunks/turbopack-3dy7_zwpd8uap.js",
+      "status": 200,
+      "bytes": 10061,
+      "sha256": "b7a72c7e0a97bccb1f7d2760ae50e308c2e1b3a0e6cf285a7ca121cf62d73569",
+      "etag": "\"6ad13cc8-274d\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/_next/static/YSpVz_NNfUnUh_A5CB4Fm/_buildManifest.js",
+      "status": 200,
+      "bytes": 219,
+      "sha256": "9476e0afd3f9da68a64e6ec58631191fd3eaca62c9f5a377e7517fe9a89e59ea",
+      "etag": "\"6ad13cc8-db\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/_next/static/YSpVz_NNfUnUh_A5CB4Fm/_clientMiddlewareManifest.js",
+      "status": 200,
+      "bytes": 96,
+      "sha256": "5483e3295dc35dfe29ea932efc85341c916f10ff78ff5b0e965e003710893a4a",
+      "etag": "\"6ad13cc8-60\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/_next/static/YSpVz_NNfUnUh_A5CB4Fm/_ssgManifest.js",
+      "status": 200,
+      "bytes": 80,
+      "sha256": "678f6ce2cb80b1fe72fc67e7412be6e2ab6ada083111b64f7c40d35e3cba5e00",
+      "etag": "\"6ad13cc8-50\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/_not-found/__next._full.txt",
+      "status": 200,
+      "bytes": 6017,
+      "sha256": "6bf21b08e129d95b5c61cf85627b5f2b4dac845e2deb253c7d7ecd0cc545a571",
+      "etag": "\"6ad13cc7-1781\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/_not-found/__next._not-found.__PAGE__.txt",
+      "status": 200,
+      "bytes": 5241,
+      "sha256": "2ea72deab5297fa945868d7798440b6f678742ecb6f52b4826da521d10bf34a2",
+      "etag": "\"6ad13cc7-1479\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/_not-found/__next._tree.txt",
+      "status": 200,
+      "bytes": 249,
+      "sha256": "fbfeccc5be1f6a842e24f0d513fa3c2112f5484ee1ea86033d1a94609bc55e9e",
+      "etag": "\"6ad13cc7-f9\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/_not-found/index.html",
+      "status": 200,
+      "bytes": 10159,
+      "sha256": "7577b0b13ad13350d0e4e2d6a8681d7cb2121dbac2230d57dffaa63392395fc6",
+      "etag": "\"6ad13cc7-27af\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/_not-found/index.txt",
+      "status": 200,
+      "bytes": 6017,
+      "sha256": "6bf21b08e129d95b5c61cf85627b5f2b4dac845e2deb253c7d7ecd0cc545a571",
+      "etag": "\"6ad13cc7-1781\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/404.html",
+      "status": 200,
+      "bytes": 10159,
+      "sha256": "7577b0b13ad13350d0e4e2d6a8681d7cb2121dbac2230d57dffaa63392395fc6",
+      "etag": "\"6ad13cc7-27af\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/404/index.html",
+      "status": 200,
+      "bytes": 10159,
+      "sha256": "7577b0b13ad13350d0e4e2d6a8681d7cb2121dbac2230d57dffaa63392395fc6",
+      "etag": "\"6ad13cc7-27af\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/app/apple-touch-icon-v1.png",
+      "status": 200,
+      "bytes": 9493,
+      "sha256": "d2b7aa45a40977d0f48c676e35587bc7f37bcc9fe4cba1cf7e6e4095a9c2cde4",
+      "etag": "\"6ad13cc7-2515\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/app/english-os-v1.svg",
+      "status": 200,
+      "bytes": 536,
+      "sha256": "3fd1de926a959ed96bc7da8091143b1d01b52ee20889b9b5d351cf7c0c9b3a03",
+      "etag": "\"6ad13cc7-218\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/app/favicon-v1.png",
+      "status": 200,
+      "bytes": 847,
+      "sha256": "994193480a31f241851ce3f44b2fef5373b52a816eea43a76425f593736923c0",
+      "etag": "\"6ad13cc8-34f\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/app/icon-192-v1.png",
+      "status": 200,
+      "bytes": 10083,
+      "sha256": "203dd15c76f60c0fcae08fd53f3f7814de00b3f811a4c300a1272413716a1b62",
+      "etag": "\"6ad13cc8-2763\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/app/icon-512-v1.png",
+      "status": 200,
+      "bytes": 95627,
+      "sha256": "26fb7a7d35a9415371134a8e0916cd8e41d3361a9979382f36fbf1bd56417832",
+      "etag": "\"6ad13cc7-1758b\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/app/portuguese-apple-touch-icon-v1.png",
+      "status": 200,
+      "bytes": 8915,
+      "sha256": "4534e5de2de22678dc0565d84a8f307e368cd0adcb38b8e4b45710ed8d160b0a",
+      "etag": "\"6ad13cc8-22d3\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/app/portuguese-favicon-v1.png",
+      "status": 200,
+      "bytes": 911,
+      "sha256": "a93991a4b0de588126a240cf552887a4464aee1329c0def93f74503b306c408a",
+      "etag": "\"6ad13cc7-38f\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/app/portuguese-icon-192-v1.png",
+      "status": 200,
+      "bytes": 8642,
+      "sha256": "2e77f70ece4bfca8af3fe9e406244b88d82b9ddfd1caa65648f99b91eb1d31ac",
+      "etag": "\"6ad13cc8-21c2\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/app/portuguese-icon-512-v1.png",
+      "status": 200,
+      "bytes": 78710,
+      "sha256": "9eeaf482d84ad0ba8a9340ede9cdf0ddd85a4e136cd4e241f4407de786e01563",
+      "etag": "\"6ad13cc7-13376\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/app/portuguese-os-v1.svg",
+      "status": 200,
+      "bytes": 539,
+      "sha256": "3408b1a63e53ce7506d13dbcecdcda9bd6d6d0c706d21793b68a30676b2bd3d8",
+      "etag": "\"6ad13cc7-21b\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/briefing.json",
+      "status": 200,
+      "bytes": 6829,
+      "sha256": "1091dc9e943a4501d2a60bf81d9ac17925ed2a1d93cf5528f958ee3b3c0e0def",
+      "etag": "\"6ad13cc8-1aad\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/fonts/NOTICE.md",
+      "status": 200,
+      "bytes": 215,
+      "sha256": "7bdc1d93b31b6e994bc03fdb6eb72101e028fac3c1472b737e9b473c1ccc1085",
+      "etag": "\"6ad13cc8-d7\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/fonts/Nunito.ttf",
+      "status": 200,
+      "bytes": 276932,
+      "sha256": "bb55a5ca5c2042335b3991af27c4d0705d0ef41cac6164ac737fd8f2a1e85207",
+      "etag": "\"6ad13cc7-439c4\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/fonts/OFL.txt",
+      "status": 200,
+      "bytes": 4385,
+      "sha256": "580df76c95a1ec5ab878ceb25bb3d85c6a076804e9c970c8c6972aea775fdf65",
+      "etag": "\"6ad13cc7-1121\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/pdf.worker.min.mjs",
+      "status": 200,
+      "bytes": 1046214,
+      "sha256": "dbcae78a691b3c501508f74b774c6066a57a14a76cefdc9e25ad86b651bb75d5",
+      "etag": "\"6ad13cc8-ff6c6\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/sql-wasm.wasm",
+      "status": 200,
+      "bytes": 658410,
+      "sha256": "38c14f6e379210bc942bdc4ebca44e7bfdb4318ecc1c72ca666a28fdce96670a",
+      "etag": "\"6ad13cc7-a0bea\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/verbs/en.json",
+      "status": 200,
+      "bytes": 2200348,
+      "sha256": "4cbcb3d2a351ce6b7a95d7f8a5e245460dac09aeef8836878e9463ce4b8dfb88",
+      "etag": "\"6ad13cc8-21931c\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/verbs/NOTICE.md",
+      "status": 200,
+      "bytes": 1439,
+      "sha256": "7fe349f85385008c5bce0b361c8c39bd044949f15e5528bad258cc07f027f1fd",
+      "etag": "\"6ad13cc7-59f\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/verbs/PORTUGUESE-LICENSE",
+      "status": 200,
+      "bytes": 1450,
+      "sha256": "4c7824c3cf3ca7d5fc68ee0473e16741361a67e242557c0661a0d6bd926ea297",
+      "etag": "\"6ad13cc7-5aa\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/verbs/pt.json",
+      "status": 200,
+      "bytes": 892960,
+      "sha256": "ef27605a6958028a0e631cd84c24533baa6ab593b394c228616c6ba634dbc873",
+      "etag": "\"6ad13cc7-da020\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/verbs/SPANISH-LICENSE",
+      "status": 200,
+      "bytes": 907,
+      "sha256": "ccbb7b96a812b37a88a9cb8dfda92dc251e61c5fca5225ff23f5fc3d33b32a70",
+      "etag": "\"6ad13cc8-38b\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/verbs/WORDNET-LICENSE",
+      "status": 200,
+      "bytes": 1625,
+      "sha256": "7731175a77952e259390b496fab905e57118b8d19ad3a8383c67eee724ff443f",
+      "etag": "\"6ad13cc7-659\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/version.json",
+      "status": 200,
+      "bytes": 37,
+      "sha256": "88a15566d68cd13bd61d4b51e83f90111a32e5c3ab676ca51f0d8f83cb17ccb0",
+      "etag": "\"6ad13cc7-25\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/word-help/COPYING",
+      "status": 200,
+      "bytes": 17982,
+      "sha256": "91df39d1816bfb17a4dda2d3d2c83b1f6f2d38d53e53e41e8f97ad5ac46a0cad",
+      "etag": "\"6ad13cc7-463e\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/word-help/en.json",
+      "status": 200,
+      "bytes": 259100,
+      "sha256": "f78368b8e9617f718d044356d555f88937251248c1f6cdd95bb4c90dd56cf643",
+      "etag": "\"6ad13cc7-3f41c\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/word-help/NOTICE.md",
+      "status": 200,
+      "bytes": 893,
+      "sha256": "e5dda82686cba36727a3a7b42fc34dca121c16d9fa7978c5d47155ba13c042a0",
+      "etag": "\"6ad13cc7-37d\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/assets/word-help/pt.json",
+      "status": 200,
+      "bytes": 475255,
+      "sha256": "fd5779a76fdc7ef66ee4e768056186d818caccc3cd5820e75ec2da60fc25516c",
+      "etag": "\"6ad13cc7-74077\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/index.html",
+      "status": 200,
+      "bytes": 9681,
+      "sha256": "58673864f086dc77bc5401df105c9daea6c4b8e927091b09e99b8c95fb902cca",
+      "etag": "\"6ad13cc8-25d1\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/index.txt",
+      "status": 200,
+      "bytes": 5379,
+      "sha256": "f1625c185eecb1026610104e1b9f4f6ee4a20ebfd9b2c74361949853139f28f4",
+      "etag": "\"6ad13cc8-1503\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/local-ai/compat.js",
+      "status": 200,
+      "bytes": 171615,
+      "sha256": "2649eeb408988841c372e54805adfa25aed5d02f850c09add78c2f3ac0f3fce1",
+      "etag": "\"6ad13cc7-29e5f\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/local-ai/compat.wasm",
+      "status": 200,
+      "bytes": 16005007,
+      "sha256": "2db3f67d0bcc19cdf8f14f129e46cab691bff898954808f8a2dc4c586eb5bb68",
+      "etag": "\"6ad13cc7-f4378f\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/local-ai/LICENSE.txt",
+      "status": 200,
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "etag": "\"6ad13cc7-2c5d\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/local-ai/MODEL_CARD.md",
+      "status": 200,
+      "bytes": 1462,
+      "sha256": "30169eab537e39378b0e7302c5e3132a8e23c5fbb180e32f4f6335e35d2f1a59",
+      "etag": "\"6ad13cc7-5b6\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/local-ai/model.json",
+      "status": 200,
+      "bytes": 858,
+      "sha256": "339e9478aa9dda877a1edca773e9eb84539ffc5c821d8687b8d4e08fdb52b9f5",
+      "etag": "\"6ad13cc7-35a\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/local-ai/WLLAMA-LICENSE.txt",
+      "status": 200,
+      "bytes": 1071,
+      "sha256": "5866e3bd7e3cbd3f7c8bea6efd8a1e7fa7cc8de68c30f428aff7c6584a0fb720",
+      "etag": "\"6ad13cc7-42f\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/local-ai/wllama.wasm",
+      "status": 200,
+      "bytes": 8763949,
+      "sha256": "551f13439366eff11e057b1b91fe46a7fdac29d56d67372d4c5f19a549dfe70c",
+      "etag": "\"6ad13cc7-85ba2d\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/manifest.webmanifest",
+      "status": 200,
+      "bytes": 720,
+      "sha256": "975e715f9198b185a6dfcb45b4ee193798a8da55d616be4bcea09f4b9920b239",
+      "etag": "\"6ad13cc7-2d0\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/__next.__PAGE__.txt",
+      "status": 200,
+      "bytes": 4893,
+      "sha256": "6c40c9235afc35552b620a02d404863ea20e998dd831ff7724a7e4b52d4e9590",
+      "etag": "\"6ad13cc7-131d\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/__next._full.txt",
+      "status": 200,
+      "bytes": 5561,
+      "sha256": "45c125d1ca5fb10da6a2f1119bf8b5cab2c7517138427127eed98aee297b06c0",
+      "etag": "\"6ad13cc8-15b9\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/__next._tree.txt",
+      "status": 200,
+      "bytes": 205,
+      "sha256": "7fafb1a822585474db5819280a873df1d43bc9152bacdf8856378edc7ea6de41",
+      "etag": "\"6ad13cc8-cd\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/_next/static/chunks/02y3knb0-qii4.css",
+      "status": 200,
+      "bytes": 41126,
+      "sha256": "c09683ecc21dfac218543490c6acb90e8c814088205f8209d7327063a2327f71",
+      "etag": "\"6ad13cc7-a0a6\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/_next/static/chunks/061tesabjjemg.js",
+      "status": 200,
+      "bytes": 182120,
+      "sha256": "57bf5d67d3e95a0c89b680d36d7276af624035f37052637230ae441d746a649a",
+      "etag": "\"6ad13cc7-2c768\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/_next/static/chunks/0cz1d0mv5g_q7.js",
+      "status": 200,
+      "bytes": 112594,
+      "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+      "etag": "\"6ad13cc7-1b7d2\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/_next/static/chunks/0lhgbhz20rn94.js",
+      "status": 200,
+      "bytes": 215,
+      "sha256": "f531c725aa39c51c507efedc762c099fc8fdd3525ad7018b0881b866a9750f0c",
+      "etag": "\"6ad13cc7-d7\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/_next/static/chunks/0pb0xdb7brdla.js",
+      "status": 200,
+      "bytes": 5462,
+      "sha256": "3d5c711fc9bfbdccbccf0a797096526ac2cf21bb41654e179fadb623490e8f39",
+      "etag": "\"6ad13cc7-1556\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/_next/static/chunks/0umf92h1sb77c.js",
+      "status": 200,
+      "bytes": 13822,
+      "sha256": "c410d0f2543e080768fc14f73b2bd1fdf103e26956e9730390b5e41c4fb5ff8b",
+      "etag": "\"6ad13cc7-35fe\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/_next/static/chunks/0v8tf4a-9j0n2.js",
+      "status": 200,
+      "bytes": 102620,
+      "sha256": "197fe4fefff74fc53e2adef6f416a0af8fe92e3cd4c4d5dc21e810b2678dcd45",
+      "etag": "\"6ad13cc7-190dc\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/_next/static/chunks/0zcl12x-knswk.js",
+      "status": 200,
+      "bytes": 339099,
+      "sha256": "2d1ec2ceca7c45da87d9d2d1e89dacb5d0d0dee8e73f88697b0812bbc3d513c2",
+      "etag": "\"6ad13cc7-52c9b\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/_next/static/chunks/15it6k1k5oy92.js",
+      "status": 200,
+      "bytes": 14929,
+      "sha256": "0466f9d3e444fd55982a29d082f8667d248885f8b4faa8ed1df856f4203a6764",
+      "etag": "\"6ad13cc7-3a51\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/_next/static/chunks/1j1mxkxrrdpe-.js",
+      "status": 200,
+      "bytes": 418331,
+      "sha256": "8226e62e1df49f9d356172aaec0e0524947b9b3054062e169bbf5676b07815ce",
+      "etag": "\"6ad13cc7-6621b\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/_next/static/chunks/1p5oh2fin4q79.js",
+      "status": 200,
+      "bytes": 229820,
+      "sha256": "d11589b3a3dfdefae04076de9647f6767cecbed74c0716a00310207385e21856",
+      "etag": "\"6ad13cc7-381bc\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/_next/static/chunks/3333gs1h_w689.js",
+      "status": 200,
+      "bytes": 20744,
+      "sha256": "f6336c96d8c18e4b5dc252c99b1304c07e339b0db5d9cf37806728cf6d57d9ce",
+      "etag": "\"6ad13cc7-5108\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/_next/static/chunks/358yfq6myzyvy.js",
+      "status": 200,
+      "bytes": 38379,
+      "sha256": "461b0006e27e79bbffd5c5af05b2b381eefdc5bab499eef4403f52fe1dd4b1d9",
+      "etag": "\"6ad13cc7-95eb\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/_next/static/chunks/3hmoexx1zbehm.js",
+      "status": 200,
+      "bytes": 523527,
+      "sha256": "609a2763f82e315e9c4bdc1ab72c5f6cebf815888c00d5a79a4f7d26397f1e35",
+      "etag": "\"6ad13cc8-7fd07\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/_next/static/chunks/3rhz10b1r80p_.js",
+      "status": 200,
+      "bytes": 324963,
+      "sha256": "5080a1d6f724989f9a845a00af5c054ed78607ea2f09631cf58a9fb54c69ee78",
+      "etag": "\"6ad13cc7-4f563\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/_next/static/chunks/turbopack-0scqvex_gfml0.js",
+      "status": 200,
+      "bytes": 10071,
+      "sha256": "5d0a77ef2c603a30b7cc19ded2c741c4c9266b2f3c2446b30be2492003a81940",
+      "etag": "\"6ad13cc8-2757\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/_next/static/oLpmhspUpPKWgOvKp1tPH/_buildManifest.js",
+      "status": 200,
+      "bytes": 219,
+      "sha256": "9476e0afd3f9da68a64e6ec58631191fd3eaca62c9f5a377e7517fe9a89e59ea",
+      "etag": "\"6ad13cc7-db\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/_next/static/oLpmhspUpPKWgOvKp1tPH/_clientMiddlewareManifest.js",
+      "status": 200,
+      "bytes": 96,
+      "sha256": "5483e3295dc35dfe29ea932efc85341c916f10ff78ff5b0e965e003710893a4a",
+      "etag": "\"6ad13cc8-60\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/_next/static/oLpmhspUpPKWgOvKp1tPH/_ssgManifest.js",
+      "status": 200,
+      "bytes": 80,
+      "sha256": "678f6ce2cb80b1fe72fc67e7412be6e2ab6ada083111b64f7c40d35e3cba5e00",
+      "etag": "\"6ad13cc7-50\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/_not-found/__next._full.txt",
+      "status": 200,
+      "bytes": 6120,
+      "sha256": "e5c0d4ee9cd333598859f0445546f61966d7f1352af63070d44caa0f7e27ef19",
+      "etag": "\"6ad13cc8-17e8\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/_not-found/__next._not-found.__PAGE__.txt",
+      "status": 200,
+      "bytes": 5334,
+      "sha256": "fe5d5b75c8b2919419cf7daa6b78870a4a509a9baad7f763802ea5fdc922b0cc",
+      "etag": "\"6ad13cc8-14d6\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/_not-found/__next._tree.txt",
+      "status": 200,
+      "bytes": 259,
+      "sha256": "3ef2db634797194106e60ce288b31cc84e61587d534f2fa8211ab00e7a5e53af",
+      "etag": "\"6ad13cc7-103\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/_not-found/index.html",
+      "status": 200,
+      "bytes": 10395,
+      "sha256": "8fff095f63523f54460ab8f75509e0b05a2c99e938a2c288b9f8e5e3dcaab26e",
+      "etag": "\"6ad13cc8-289b\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/_not-found/index.txt",
+      "status": 200,
+      "bytes": 6120,
+      "sha256": "e5c0d4ee9cd333598859f0445546f61966d7f1352af63070d44caa0f7e27ef19",
+      "etag": "\"6ad13cc8-17e8\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/404.html",
+      "status": 200,
+      "bytes": 10395,
+      "sha256": "8fff095f63523f54460ab8f75509e0b05a2c99e938a2c288b9f8e5e3dcaab26e",
+      "etag": "\"6ad13cc7-289b\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/404/index.html",
+      "status": 200,
+      "bytes": 10395,
+      "sha256": "8fff095f63523f54460ab8f75509e0b05a2c99e938a2c288b9f8e5e3dcaab26e",
+      "etag": "\"6ad13cc7-289b\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/assets/app/apple-touch-icon-v1.png",
+      "status": 200,
+      "bytes": 9493,
+      "sha256": "d2b7aa45a40977d0f48c676e35587bc7f37bcc9fe4cba1cf7e6e4095a9c2cde4",
+      "etag": "\"6ad13cc7-2515\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/assets/app/english-os-v1.svg",
+      "status": 200,
+      "bytes": 536,
+      "sha256": "3fd1de926a959ed96bc7da8091143b1d01b52ee20889b9b5d351cf7c0c9b3a03",
+      "etag": "\"6ad13cc8-218\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/assets/app/favicon-v1.png",
+      "status": 200,
+      "bytes": 847,
+      "sha256": "994193480a31f241851ce3f44b2fef5373b52a816eea43a76425f593736923c0",
+      "etag": "\"6ad13cc7-34f\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/assets/app/icon-192-v1.png",
+      "status": 200,
+      "bytes": 10083,
+      "sha256": "203dd15c76f60c0fcae08fd53f3f7814de00b3f811a4c300a1272413716a1b62",
+      "etag": "\"6ad13cc8-2763\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/assets/app/icon-512-v1.png",
+      "status": 200,
+      "bytes": 95627,
+      "sha256": "26fb7a7d35a9415371134a8e0916cd8e41d3361a9979382f36fbf1bd56417832",
+      "etag": "\"6ad13cc7-1758b\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/assets/app/portuguese-apple-touch-icon-v1.png",
+      "status": 200,
+      "bytes": 8915,
+      "sha256": "4534e5de2de22678dc0565d84a8f307e368cd0adcb38b8e4b45710ed8d160b0a",
+      "etag": "\"6ad13cc7-22d3\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/assets/app/portuguese-favicon-v1.png",
+      "status": 200,
+      "bytes": 911,
+      "sha256": "a93991a4b0de588126a240cf552887a4464aee1329c0def93f74503b306c408a",
+      "etag": "\"6ad13cc7-38f\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/assets/app/portuguese-icon-192-v1.png",
+      "status": 200,
+      "bytes": 8642,
+      "sha256": "2e77f70ece4bfca8af3fe9e406244b88d82b9ddfd1caa65648f99b91eb1d31ac",
+      "etag": "\"6ad13cc7-21c2\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/assets/app/portuguese-icon-512-v1.png",
+      "status": 200,
+      "bytes": 78710,
+      "sha256": "9eeaf482d84ad0ba8a9340ede9cdf0ddd85a4e136cd4e241f4407de786e01563",
+      "etag": "\"6ad13cc7-13376\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/assets/app/portuguese-os-v1.svg",
+      "status": 200,
+      "bytes": 539,
+      "sha256": "3408b1a63e53ce7506d13dbcecdcda9bd6d6d0c706d21793b68a30676b2bd3d8",
+      "etag": "\"6ad13cc7-21b\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/assets/briefing.json",
+      "status": 200,
+      "bytes": 6829,
+      "sha256": "1091dc9e943a4501d2a60bf81d9ac17925ed2a1d93cf5528f958ee3b3c0e0def",
+      "etag": "\"6ad13cc8-1aad\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/assets/fonts/NOTICE.md",
+      "status": 200,
+      "bytes": 215,
+      "sha256": "7bdc1d93b31b6e994bc03fdb6eb72101e028fac3c1472b737e9b473c1ccc1085",
+      "etag": "\"6ad13cc7-d7\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/assets/fonts/Nunito.ttf",
+      "status": 200,
+      "bytes": 276932,
+      "sha256": "bb55a5ca5c2042335b3991af27c4d0705d0ef41cac6164ac737fd8f2a1e85207",
+      "etag": "\"6ad13cc8-439c4\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/assets/fonts/OFL.txt",
+      "status": 200,
+      "bytes": 4385,
+      "sha256": "580df76c95a1ec5ab878ceb25bb3d85c6a076804e9c970c8c6972aea775fdf65",
+      "etag": "\"6ad13cc7-1121\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/assets/verbs/en.json",
+      "status": 200,
+      "bytes": 2200348,
+      "sha256": "4cbcb3d2a351ce6b7a95d7f8a5e245460dac09aeef8836878e9463ce4b8dfb88",
+      "etag": "\"6ad13cc7-21931c\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/assets/verbs/NOTICE.md",
+      "status": 200,
+      "bytes": 1439,
+      "sha256": "7fe349f85385008c5bce0b361c8c39bd044949f15e5528bad258cc07f027f1fd",
+      "etag": "\"6ad13cc7-59f\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/assets/verbs/PORTUGUESE-LICENSE",
+      "status": 200,
+      "bytes": 1450,
+      "sha256": "4c7824c3cf3ca7d5fc68ee0473e16741361a67e242557c0661a0d6bd926ea297",
+      "etag": "\"6ad13cc8-5aa\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/assets/verbs/pt.json",
+      "status": 200,
+      "bytes": 892960,
+      "sha256": "ef27605a6958028a0e631cd84c24533baa6ab593b394c228616c6ba634dbc873",
+      "etag": "\"6ad13cc8-da020\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/assets/verbs/SPANISH-LICENSE",
+      "status": 200,
+      "bytes": 907,
+      "sha256": "ccbb7b96a812b37a88a9cb8dfda92dc251e61c5fca5225ff23f5fc3d33b32a70",
+      "etag": "\"6ad13cc7-38b\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/assets/verbs/WORDNET-LICENSE",
+      "status": 200,
+      "bytes": 1625,
+      "sha256": "7731175a77952e259390b496fab905e57118b8d19ad3a8383c67eee724ff443f",
+      "etag": "\"6ad13cc7-659\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/assets/word-help/COPYING",
+      "status": 200,
+      "bytes": 17982,
+      "sha256": "91df39d1816bfb17a4dda2d3d2c83b1f6f2d38d53e53e41e8f97ad5ac46a0cad",
+      "etag": "\"6ad13cc7-463e\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/assets/word-help/en.json",
+      "status": 200,
+      "bytes": 259100,
+      "sha256": "f78368b8e9617f718d044356d555f88937251248c1f6cdd95bb4c90dd56cf643",
+      "etag": "\"6ad13cc7-3f41c\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/assets/word-help/NOTICE.md",
+      "status": 200,
+      "bytes": 893,
+      "sha256": "e5dda82686cba36727a3a7b42fc34dca121c16d9fa7978c5d47155ba13c042a0",
+      "etag": "\"6ad13cc8-37d\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/assets/word-help/pt.json",
+      "status": 200,
+      "bytes": 475255,
+      "sha256": "fd5779a76fdc7ef66ee4e768056186d818caccc3cd5820e75ec2da60fc25516c",
+      "etag": "\"6ad13cc7-74077\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/index.html",
+      "status": 200,
+      "bytes": 10041,
+      "sha256": "861dbda417fcb8d092e3621ff4f0a7e685198b65307a9be21765132b0c6c7607",
+      "etag": "\"6ad13cc8-2739\"",
+      "modified": "Thu, 15 Oct 2026 20:51:20 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/index.txt",
+      "status": 200,
+      "bytes": 5561,
+      "sha256": "45c125d1ca5fb10da6a2f1119bf8b5cab2c7517138427127eed98aee297b06c0",
+      "etag": "\"6ad13cc7-15b9\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    },
+    {
+      "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/manifest.webmanifest",
+      "status": 200,
+      "bytes": 790,
+      "sha256": "6421ca1efb0dfbb37fc8e80b45823e2bcdcd45521ccfdb3dc0acc02b84ca5721",
+      "etag": "\"6ad13cc7-316\"",
+      "modified": "Thu, 15 Oct 2026 20:51:19 GMT"
+    }
+  ]
+}

@@ -48,6 +48,7 @@ Completar una tarea significa guardar práctica. Aprobarla significa cumplir su 
 - Un repaso futuro dentro del mismo día no genera una tarea vacía.
 - Planes de 15 minutos con vocabulario pendiente conservan duraciones positivas para lectura, gramática y escritura.
 - El diagnóstico no elimina una agenda diaria preservada al terminar.
+- Repaso conserva el acceso a borradores de bloques y niveles anteriores; avanzar no oculta una práctica pendiente.
 
 ## Auditoría pedagógica: límites de la revisión
 
