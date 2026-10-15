@@ -7,20 +7,18 @@ for (const pt of [false, true])
     page.on('pageerror', (e) => errors.push(e.message));
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(pt ? './portugues/' : './');
-    await page
-      .getByRole('dialog', { name: pt ? 'Palavra do dia' : 'Word of the Day' })
-      .getByRole('button', { name: pt ? 'Fechar palavra do dia' : 'Close daily word' })
-      .click();
+    await expect(page.locator('.today-screen')).toBeVisible();
     await page
       .getByRole('button', { name: pt ? 'Abrir navegação' : 'Open navigation', exact: true })
       .click();
     await expect(page.locator('.nav-more')).not.toHaveAttribute('open', '');
-    await expect(
-      page
-        .locator('.nav-primary')
-        .getByRole('button', { name: pt ? 'Ajuda com o idioma' : 'Language help', exact: true }),
-    ).toBeVisible();
+    await expect(page.locator('.nav-primary').getByRole('button')).toHaveCount(5);
     await page.locator('.nav-more summary').click();
+    await expect(
+      page.locator('.nav-more').getByRole('button', {
+        name: pt ? 'Ajuda com o idioma' : 'Language help', exact: true,
+      }),
+    ).toBeVisible();
     await expect(
       page
         .locator('.nav-more')
@@ -29,7 +27,7 @@ for (const pt of [false, true])
     await page
       .getByRole('button', { name: pt ? 'Fechar menu' : 'Close menu', exact: true })
       .click();
-    await page.locator('.mobile-bottom-nav').getByRole('button').nth(1).click();
+    await page.locator('.mobile-bottom-nav').getByRole('button').nth(3).click();
     await expect(page.locator('.studio-first-steps')).toContainText('Subí un PDF');
     await expect(page.locator('.studio-intro-grid')).toHaveCount(0);
     await page.screenshot({ path: `/tmp/pdf-simple-${pt ? 'pt' : 'en'}.png`, fullPage: true });
