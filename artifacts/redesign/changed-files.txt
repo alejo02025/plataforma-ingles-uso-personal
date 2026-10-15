@@ -1,328 +1,330 @@
-M	.github/workflows/briefing.yml
-M	.github/workflows/learning-experience.yml
-M	AUDITORIA_COMPLETA.md
-M	AUDITORIA_INGLES.md
-M	AUDITORIA_PORTUGUES.md
-M	AUDITORIA_VISUAL.md
-M	DESIGN_SYSTEM.md
-M	PLAN_IMPLEMENTACION.md
-M	README.md
-M	RESULTADOS_QA.md
-A	artifacts/redesign/after/en-calendar-1440.png
-A	artifacts/redesign/after/en-calendar-390.png
-A	artifacts/redesign/after/en-classes-1280.png
-A	artifacts/redesign/after/en-classes-1440.png
-A	artifacts/redesign/after/en-classes-375.png
-A	artifacts/redesign/after/en-classes-390.png
-A	artifacts/redesign/after/en-classes-768.png
-A	artifacts/redesign/after/en-games-1440.png
-A	artifacts/redesign/after/en-games-390.png
-A	artifacts/redesign/after/en-lesson-1440.png
-A	artifacts/redesign/after/en-lesson-390.png
-A	artifacts/redesign/after/en-library-1280.png
-A	artifacts/redesign/after/en-library-1440.png
-A	artifacts/redesign/after/en-library-375.png
-A	artifacts/redesign/after/en-library-390.png
-A	artifacts/redesign/after/en-library-768.png
-A	artifacts/redesign/after/en-news-1440.png
-A	artifacts/redesign/after/en-news-390.png
-A	artifacts/redesign/after/en-oral-1440.png
-A	artifacts/redesign/after/en-oral-390.png
-A	artifacts/redesign/after/en-practice-1440.png
-A	artifacts/redesign/after/en-practice-390.png
-A	artifacts/redesign/after/en-progress-1280.png
-A	artifacts/redesign/after/en-progress-1440.png
-A	artifacts/redesign/after/en-progress-375.png
-A	artifacts/redesign/after/en-progress-390.png
-A	artifacts/redesign/after/en-progress-768.png
-A	artifacts/redesign/after/en-readings-1440.png
-A	artifacts/redesign/after/en-readings-390.png
-A	artifacts/redesign/after/en-reference-1440.png
-A	artifacts/redesign/after/en-reference-390.png
-A	artifacts/redesign/after/en-review-1280.png
-A	artifacts/redesign/after/en-review-1440.png
-A	artifacts/redesign/after/en-review-375.png
-A	artifacts/redesign/after/en-review-390.png
-A	artifacts/redesign/after/en-review-768.png
-A	artifacts/redesign/after/en-settings-1280.png
-A	artifacts/redesign/after/en-settings-1440.png
-A	artifacts/redesign/after/en-settings-375.png
-A	artifacts/redesign/after/en-settings-390.png
-A	artifacts/redesign/after/en-settings-768.png
-A	artifacts/redesign/after/en-today-1280.png
-A	artifacts/redesign/after/en-today-1440.png
-A	artifacts/redesign/after/en-today-375.png
-A	artifacts/redesign/after/en-today-390.png
-A	artifacts/redesign/after/en-today-768.png
-A	artifacts/redesign/after/observations.json
-A	artifacts/redesign/after/pt-calendar-1440.png
-A	artifacts/redesign/after/pt-calendar-390.png
-A	artifacts/redesign/after/pt-classes-1280.png
-A	artifacts/redesign/after/pt-classes-1440.png
-A	artifacts/redesign/after/pt-classes-375.png
-A	artifacts/redesign/after/pt-classes-390.png
-A	artifacts/redesign/after/pt-classes-768.png
-A	artifacts/redesign/after/pt-games-1440.png
-A	artifacts/redesign/after/pt-games-390.png
-A	artifacts/redesign/after/pt-lesson-1440.png
-A	artifacts/redesign/after/pt-lesson-390.png
-A	artifacts/redesign/after/pt-library-1280.png
-A	artifacts/redesign/after/pt-library-1440.png
-A	artifacts/redesign/after/pt-library-375.png
-A	artifacts/redesign/after/pt-library-390.png
-A	artifacts/redesign/after/pt-library-768.png
-A	artifacts/redesign/after/pt-news-1440.png
-A	artifacts/redesign/after/pt-news-390.png
-A	artifacts/redesign/after/pt-oral-1440.png
-A	artifacts/redesign/after/pt-oral-390.png
-A	artifacts/redesign/after/pt-practice-1440.png
-A	artifacts/redesign/after/pt-practice-390.png
-A	artifacts/redesign/after/pt-progress-1280.png
-A	artifacts/redesign/after/pt-progress-1440.png
-A	artifacts/redesign/after/pt-progress-375.png
-A	artifacts/redesign/after/pt-progress-390.png
-A	artifacts/redesign/after/pt-progress-768.png
-A	artifacts/redesign/after/pt-readings-1440.png
-A	artifacts/redesign/after/pt-readings-390.png
-A	artifacts/redesign/after/pt-reference-1440.png
-A	artifacts/redesign/after/pt-reference-390.png
-A	artifacts/redesign/after/pt-review-1280.png
-A	artifacts/redesign/after/pt-review-1440.png
-A	artifacts/redesign/after/pt-review-375.png
-A	artifacts/redesign/after/pt-review-390.png
-A	artifacts/redesign/after/pt-review-768.png
-A	artifacts/redesign/after/pt-settings-1280.png
-A	artifacts/redesign/after/pt-settings-1440.png
-A	artifacts/redesign/after/pt-settings-375.png
-A	artifacts/redesign/after/pt-settings-390.png
-A	artifacts/redesign/after/pt-settings-768.png
-A	artifacts/redesign/after/pt-today-1280.png
-A	artifacts/redesign/after/pt-today-1440.png
-A	artifacts/redesign/after/pt-today-375.png
-A	artifacts/redesign/after/pt-today-390.png
-A	artifacts/redesign/after/pt-today-768.png
-A	artifacts/redesign/before/en-activities-1440.png
-A	artifacts/redesign/before/en-activities-390.png
-A	artifacts/redesign/before/en-calendar-1440.png
-A	artifacts/redesign/before/en-calendar-390.png
-A	artifacts/redesign/before/en-classes-1280.png
-A	artifacts/redesign/before/en-classes-1440.png
-A	artifacts/redesign/before/en-classes-375.png
-A	artifacts/redesign/before/en-classes-390.png
-A	artifacts/redesign/before/en-classes-768.png
-A	artifacts/redesign/before/en-games-1440.png
-A	artifacts/redesign/before/en-games-390.png
-A	artifacts/redesign/before/en-library-1280.png
-A	artifacts/redesign/before/en-library-1440.png
-A	artifacts/redesign/before/en-library-375.png
-A	artifacts/redesign/before/en-library-390.png
-A	artifacts/redesign/before/en-library-768.png
-A	artifacts/redesign/before/en-news-1440.png
-A	artifacts/redesign/before/en-news-390.png
-A	artifacts/redesign/before/en-oral-1440.png
-A	artifacts/redesign/before/en-oral-390.png
-A	artifacts/redesign/before/en-practice-1440.png
-A	artifacts/redesign/before/en-practice-390.png
-A	artifacts/redesign/before/en-progress-1280.png
-A	artifacts/redesign/before/en-progress-1440.png
-A	artifacts/redesign/before/en-progress-375.png
-A	artifacts/redesign/before/en-progress-390.png
-A	artifacts/redesign/before/en-progress-768.png
-A	artifacts/redesign/before/en-readings-1440.png
-A	artifacts/redesign/before/en-readings-390.png
-A	artifacts/redesign/before/en-reference-1440.png
-A	artifacts/redesign/before/en-reference-390.png
-A	artifacts/redesign/before/en-review-1280.png
-A	artifacts/redesign/before/en-review-1440.png
-A	artifacts/redesign/before/en-review-375.png
-A	artifacts/redesign/before/en-review-390.png
-A	artifacts/redesign/before/en-review-768.png
-A	artifacts/redesign/before/en-settings-1280.png
-A	artifacts/redesign/before/en-settings-1440.png
-A	artifacts/redesign/before/en-settings-375.png
-A	artifacts/redesign/before/en-settings-390.png
-A	artifacts/redesign/before/en-settings-768.png
-A	artifacts/redesign/before/en-today-1280.png
-A	artifacts/redesign/before/en-today-1440.png
-A	artifacts/redesign/before/en-today-375.png
-A	artifacts/redesign/before/en-today-390.png
-A	artifacts/redesign/before/en-today-768.png
-A	artifacts/redesign/before/observations.json
-A	artifacts/redesign/before/pt-activities-1440.png
-A	artifacts/redesign/before/pt-activities-390.png
-A	artifacts/redesign/before/pt-calendar-1440.png
-A	artifacts/redesign/before/pt-calendar-390.png
-A	artifacts/redesign/before/pt-classes-1280.png
-A	artifacts/redesign/before/pt-classes-1440.png
-A	artifacts/redesign/before/pt-classes-375.png
-A	artifacts/redesign/before/pt-classes-390.png
-A	artifacts/redesign/before/pt-classes-768.png
-A	artifacts/redesign/before/pt-games-1440.png
-A	artifacts/redesign/before/pt-games-390.png
-A	artifacts/redesign/before/pt-library-1280.png
-A	artifacts/redesign/before/pt-library-1440.png
-A	artifacts/redesign/before/pt-library-375.png
-A	artifacts/redesign/before/pt-library-390.png
-A	artifacts/redesign/before/pt-library-768.png
-A	artifacts/redesign/before/pt-news-1440.png
-A	artifacts/redesign/before/pt-news-390.png
-A	artifacts/redesign/before/pt-oral-1440.png
-A	artifacts/redesign/before/pt-oral-390.png
-A	artifacts/redesign/before/pt-practice-1440.png
-A	artifacts/redesign/before/pt-practice-390.png
-A	artifacts/redesign/before/pt-progress-1280.png
-A	artifacts/redesign/before/pt-progress-1440.png
-A	artifacts/redesign/before/pt-progress-375.png
-A	artifacts/redesign/before/pt-progress-390.png
-A	artifacts/redesign/before/pt-progress-768.png
-A	artifacts/redesign/before/pt-readings-1440.png
-A	artifacts/redesign/before/pt-readings-390.png
-A	artifacts/redesign/before/pt-reference-1440.png
-A	artifacts/redesign/before/pt-reference-390.png
-A	artifacts/redesign/before/pt-review-1280.png
-A	artifacts/redesign/before/pt-review-1440.png
-A	artifacts/redesign/before/pt-review-375.png
-A	artifacts/redesign/before/pt-review-390.png
-A	artifacts/redesign/before/pt-review-768.png
-A	artifacts/redesign/before/pt-settings-1280.png
-A	artifacts/redesign/before/pt-settings-1440.png
-A	artifacts/redesign/before/pt-settings-375.png
-A	artifacts/redesign/before/pt-settings-390.png
-A	artifacts/redesign/before/pt-settings-768.png
-A	artifacts/redesign/before/pt-today-1280.png
-A	artifacts/redesign/before/pt-today-1440.png
-A	artifacts/redesign/before/pt-today-375.png
-A	artifacts/redesign/before/pt-today-390.png
-A	artifacts/redesign/before/pt-today-768.png
-A	artifacts/redesign/comparison.html
-A	artifacts/redesign/design-metrics.json
-A	artifacts/redesign/interaction-metrics.json
-A	artifacts/redesign/pedagogy.json
-A	artifacts/redesign/qa/build-pages.log
-A	artifacts/redesign/qa/build-server.log
-A	artifacts/redesign/qa/class-en-1440.png
-A	artifacts/redesign/qa/class-en-375.png
-A	artifacts/redesign/qa/class-en-390.png
-A	artifacts/redesign/qa/class-en-768.png
-A	artifacts/redesign/qa/class-pt-1440.png
-A	artifacts/redesign/qa/class-pt-375.png
-A	artifacts/redesign/qa/class-pt-390.png
-A	artifacts/redesign/qa/class-pt-768.png
-A	artifacts/redesign/qa/en-1440.png
-A	artifacts/redesign/qa/en-375.png
-A	artifacts/redesign/qa/en-390.png
-A	artifacts/redesign/qa/en-768.png
-A	artifacts/redesign/qa/en-dark-1440.png
-A	artifacts/redesign/qa/oral-en-390.png
-A	artifacts/redesign/qa/oral-pt-390.png
-A	artifacts/redesign/qa/pt-1440.png
-A	artifacts/redesign/qa/pt-375.png
-A	artifacts/redesign/qa/pt-390.png
-A	artifacts/redesign/qa/pt-768.png
-A	artifacts/redesign/qa/pt-dark-1440.png
-A	artifacts/redesign/qa/save-error-en-390.png
-A	artifacts/redesign/qa/save-error-pt-390.png
-A	artifacts/redesign/qa/server-regression.log
-A	artifacts/redesign/qa/static-regression.log
-A	artifacts/redesign/qa/studio-en-1440.png
-A	artifacts/redesign/qa/studio-en-375.png
-A	artifacts/redesign/qa/studio-en-390.png
-A	artifacts/redesign/qa/studio-en-768.png
-A	artifacts/redesign/qa/studio-pt-1440.png
-A	artifacts/redesign/qa/studio-pt-375.png
-A	artifacts/redesign/qa/studio-pt-390.png
-A	artifacts/redesign/qa/studio-pt-768.png
-A	artifacts/redesign/qa/typecheck.log
-A	artifacts/redesign/qa/unit.log
-A	artifacts/redesign/verification.json
-A	docs/REDISENO_DEFINITIVO.md
-A	docs/audit-2026-10-14/AUDITORIA_COMPLETA.md
-A	docs/audit-2026-10-14/AUDITORIA_INGLES.md
-A	docs/audit-2026-10-14/AUDITORIA_PORTUGUES.md
-A	docs/audit-2026-10-14/AUDITORIA_VISUAL.md
-A	docs/audit-2026-10-14/DESIGN_SYSTEM.md
-A	docs/audit-2026-10-14/PLAN_IMPLEMENTACION.md
-A	docs/audit-2026-10-14/README.md
-A	docs/audit-2026-10-14/RESULTADOS_QA.md
-A	scripts/audit-curriculum.ts
-A	scripts/redesign-capture.mjs
-A	scripts/redesign-metrics.mjs
-M	scripts/serve-pages.mjs
-M	src/app/api/[...path]/route.ts
-M	src/app/globals.css
-M	src/app/layout.tsx
-M	src/components/analytics.tsx
-M	src/components/app-update.tsx
-D	src/components/cefr-path.tsx
-D	src/components/classes.css
-M	src/components/classes.tsx
-D	src/components/course-menu.tsx
-D	src/components/daily-guide.tsx
-D	src/components/dashboard.tsx
-M	src/components/english-app.tsx
-D	src/components/entry-phrase.tsx
-D	src/components/first-steps.tsx
-M	src/components/foundations.tsx
-M	src/components/github-sync.tsx
-D	src/components/home-routine.tsx
-M	src/components/language-help.tsx
-D	src/components/learning-tip.tsx
-M	src/components/library.tsx
-D	src/components/momentum-chart.tsx
-M	src/components/news-briefing.tsx
-M	src/components/pdf-studio.tsx
-A	src/components/routine-practice.tsx
-A	src/components/space-link.tsx
-D	src/components/study-spaces.tsx
-A	src/components/today.tsx
-M	src/components/ui.tsx
-M	src/components/vocabulary.tsx
-D	src/components/voice-room.tsx
-M	src/components/word-help.tsx
-M	src/lib/browser/api.ts
-A	src/lib/daily-study-store.ts
-A	src/lib/daily-study.ts
-M	src/lib/domain.ts
-M	src/lib/evidence-summary.ts
-M	src/lib/study-recommendation.ts
-M	src/lib/types.ts
-M	src/lib/workspace.ts
-D	src/styles/audit-design.css
-D	src/styles/audit-studio.css
-D	src/styles/learning-experience.css
-D	src/styles/oral-practice.css
-D	src/styles/os-next.css
-A	src/styles/study-modules.css
-D	src/styles/today-first.css
-A	tests/daily-study.test.ts
-M	tests/e2e/journey.spec.ts
-M	tests/pages/adaptive-path.spec.ts
-M	tests/pages/audit-studio.spec.ts
-M	tests/pages/cefr.spec.ts
-M	tests/pages/classes.spec.ts
-M	tests/pages/communicative-home.spec.ts
-A	tests/pages/daily-completion.spec.ts
-M	tests/pages/daily-guide.spec.ts
-M	tests/pages/daily-rewards.spec.ts
-M	tests/pages/durable-save.spec.ts
-M	tests/pages/experience-refinement.spec.ts
-M	tests/pages/feedback.spec.ts
-M	tests/pages/first-steps.spec.ts
-M	tests/pages/game-draft.spec.ts
-M	tests/pages/games.spec.ts
-M	tests/pages/home-routine.spec.ts
-M	tests/pages/integral-audit.spec.ts
-M	tests/pages/language-help.spec.ts
-A	tests/pages/navigation.ts
-M	tests/pages/offline.spec.ts
-M	tests/pages/oral-practice.spec.ts
-M	tests/pages/pages.spec.ts
-M	tests/pages/pdf-tabs.spec.ts
-M	tests/pages/portuguese.spec.ts
-M	tests/pages/simple-sections.spec.ts
-M	tests/pages/studio.spec.ts
-M	tests/pages/study-time.spec.ts
-M	tests/pages/update.spec.ts
-M	tests/pages/voice.spec.ts
-M	tests/pages/word-help.spec.ts
-M	tests/study-recommendation.test.ts
+.github/workflows/briefing.yml
+.github/workflows/learning-experience.yml
+AUDITORIA_COMPLETA.md
+AUDITORIA_INGLES.md
+AUDITORIA_PORTUGUES.md
+AUDITORIA_VISUAL.md
+DESIGN_SYSTEM.md
+PLAN_IMPLEMENTACION.md
+README.md
+RESULTADOS_QA.md
+artifacts/redesign/after/en-calendar-1440.png
+artifacts/redesign/after/en-calendar-390.png
+artifacts/redesign/after/en-classes-1280.png
+artifacts/redesign/after/en-classes-1440.png
+artifacts/redesign/after/en-classes-375.png
+artifacts/redesign/after/en-classes-390.png
+artifacts/redesign/after/en-classes-768.png
+artifacts/redesign/after/en-games-1440.png
+artifacts/redesign/after/en-games-390.png
+artifacts/redesign/after/en-lesson-1440.png
+artifacts/redesign/after/en-lesson-390.png
+artifacts/redesign/after/en-library-1280.png
+artifacts/redesign/after/en-library-1440.png
+artifacts/redesign/after/en-library-375.png
+artifacts/redesign/after/en-library-390.png
+artifacts/redesign/after/en-library-768.png
+artifacts/redesign/after/en-news-1440.png
+artifacts/redesign/after/en-news-390.png
+artifacts/redesign/after/en-oral-1440.png
+artifacts/redesign/after/en-oral-390.png
+artifacts/redesign/after/en-practice-1440.png
+artifacts/redesign/after/en-practice-390.png
+artifacts/redesign/after/en-progress-1280.png
+artifacts/redesign/after/en-progress-1440.png
+artifacts/redesign/after/en-progress-375.png
+artifacts/redesign/after/en-progress-390.png
+artifacts/redesign/after/en-progress-768.png
+artifacts/redesign/after/en-readings-1440.png
+artifacts/redesign/after/en-readings-390.png
+artifacts/redesign/after/en-reference-1440.png
+artifacts/redesign/after/en-reference-390.png
+artifacts/redesign/after/en-review-1280.png
+artifacts/redesign/after/en-review-1440.png
+artifacts/redesign/after/en-review-375.png
+artifacts/redesign/after/en-review-390.png
+artifacts/redesign/after/en-review-768.png
+artifacts/redesign/after/en-settings-1280.png
+artifacts/redesign/after/en-settings-1440.png
+artifacts/redesign/after/en-settings-375.png
+artifacts/redesign/after/en-settings-390.png
+artifacts/redesign/after/en-settings-768.png
+artifacts/redesign/after/en-today-1280.png
+artifacts/redesign/after/en-today-1440.png
+artifacts/redesign/after/en-today-375.png
+artifacts/redesign/after/en-today-390.png
+artifacts/redesign/after/en-today-768.png
+artifacts/redesign/after/observations.json
+artifacts/redesign/after/pt-calendar-1440.png
+artifacts/redesign/after/pt-calendar-390.png
+artifacts/redesign/after/pt-classes-1280.png
+artifacts/redesign/after/pt-classes-1440.png
+artifacts/redesign/after/pt-classes-375.png
+artifacts/redesign/after/pt-classes-390.png
+artifacts/redesign/after/pt-classes-768.png
+artifacts/redesign/after/pt-games-1440.png
+artifacts/redesign/after/pt-games-390.png
+artifacts/redesign/after/pt-lesson-1440.png
+artifacts/redesign/after/pt-lesson-390.png
+artifacts/redesign/after/pt-library-1280.png
+artifacts/redesign/after/pt-library-1440.png
+artifacts/redesign/after/pt-library-375.png
+artifacts/redesign/after/pt-library-390.png
+artifacts/redesign/after/pt-library-768.png
+artifacts/redesign/after/pt-news-1440.png
+artifacts/redesign/after/pt-news-390.png
+artifacts/redesign/after/pt-oral-1440.png
+artifacts/redesign/after/pt-oral-390.png
+artifacts/redesign/after/pt-practice-1440.png
+artifacts/redesign/after/pt-practice-390.png
+artifacts/redesign/after/pt-progress-1280.png
+artifacts/redesign/after/pt-progress-1440.png
+artifacts/redesign/after/pt-progress-375.png
+artifacts/redesign/after/pt-progress-390.png
+artifacts/redesign/after/pt-progress-768.png
+artifacts/redesign/after/pt-readings-1440.png
+artifacts/redesign/after/pt-readings-390.png
+artifacts/redesign/after/pt-reference-1440.png
+artifacts/redesign/after/pt-reference-390.png
+artifacts/redesign/after/pt-review-1280.png
+artifacts/redesign/after/pt-review-1440.png
+artifacts/redesign/after/pt-review-375.png
+artifacts/redesign/after/pt-review-390.png
+artifacts/redesign/after/pt-review-768.png
+artifacts/redesign/after/pt-settings-1280.png
+artifacts/redesign/after/pt-settings-1440.png
+artifacts/redesign/after/pt-settings-375.png
+artifacts/redesign/after/pt-settings-390.png
+artifacts/redesign/after/pt-settings-768.png
+artifacts/redesign/after/pt-today-1280.png
+artifacts/redesign/after/pt-today-1440.png
+artifacts/redesign/after/pt-today-375.png
+artifacts/redesign/after/pt-today-390.png
+artifacts/redesign/after/pt-today-768.png
+artifacts/redesign/before/en-activities-1440.png
+artifacts/redesign/before/en-activities-390.png
+artifacts/redesign/before/en-calendar-1440.png
+artifacts/redesign/before/en-calendar-390.png
+artifacts/redesign/before/en-classes-1280.png
+artifacts/redesign/before/en-classes-1440.png
+artifacts/redesign/before/en-classes-375.png
+artifacts/redesign/before/en-classes-390.png
+artifacts/redesign/before/en-classes-768.png
+artifacts/redesign/before/en-games-1440.png
+artifacts/redesign/before/en-games-390.png
+artifacts/redesign/before/en-library-1280.png
+artifacts/redesign/before/en-library-1440.png
+artifacts/redesign/before/en-library-375.png
+artifacts/redesign/before/en-library-390.png
+artifacts/redesign/before/en-library-768.png
+artifacts/redesign/before/en-news-1440.png
+artifacts/redesign/before/en-news-390.png
+artifacts/redesign/before/en-oral-1440.png
+artifacts/redesign/before/en-oral-390.png
+artifacts/redesign/before/en-practice-1440.png
+artifacts/redesign/before/en-practice-390.png
+artifacts/redesign/before/en-progress-1280.png
+artifacts/redesign/before/en-progress-1440.png
+artifacts/redesign/before/en-progress-375.png
+artifacts/redesign/before/en-progress-390.png
+artifacts/redesign/before/en-progress-768.png
+artifacts/redesign/before/en-readings-1440.png
+artifacts/redesign/before/en-readings-390.png
+artifacts/redesign/before/en-reference-1440.png
+artifacts/redesign/before/en-reference-390.png
+artifacts/redesign/before/en-review-1280.png
+artifacts/redesign/before/en-review-1440.png
+artifacts/redesign/before/en-review-375.png
+artifacts/redesign/before/en-review-390.png
+artifacts/redesign/before/en-review-768.png
+artifacts/redesign/before/en-settings-1280.png
+artifacts/redesign/before/en-settings-1440.png
+artifacts/redesign/before/en-settings-375.png
+artifacts/redesign/before/en-settings-390.png
+artifacts/redesign/before/en-settings-768.png
+artifacts/redesign/before/en-today-1280.png
+artifacts/redesign/before/en-today-1440.png
+artifacts/redesign/before/en-today-375.png
+artifacts/redesign/before/en-today-390.png
+artifacts/redesign/before/en-today-768.png
+artifacts/redesign/before/observations.json
+artifacts/redesign/before/pt-activities-1440.png
+artifacts/redesign/before/pt-activities-390.png
+artifacts/redesign/before/pt-calendar-1440.png
+artifacts/redesign/before/pt-calendar-390.png
+artifacts/redesign/before/pt-classes-1280.png
+artifacts/redesign/before/pt-classes-1440.png
+artifacts/redesign/before/pt-classes-375.png
+artifacts/redesign/before/pt-classes-390.png
+artifacts/redesign/before/pt-classes-768.png
+artifacts/redesign/before/pt-games-1440.png
+artifacts/redesign/before/pt-games-390.png
+artifacts/redesign/before/pt-library-1280.png
+artifacts/redesign/before/pt-library-1440.png
+artifacts/redesign/before/pt-library-375.png
+artifacts/redesign/before/pt-library-390.png
+artifacts/redesign/before/pt-library-768.png
+artifacts/redesign/before/pt-news-1440.png
+artifacts/redesign/before/pt-news-390.png
+artifacts/redesign/before/pt-oral-1440.png
+artifacts/redesign/before/pt-oral-390.png
+artifacts/redesign/before/pt-practice-1440.png
+artifacts/redesign/before/pt-practice-390.png
+artifacts/redesign/before/pt-progress-1280.png
+artifacts/redesign/before/pt-progress-1440.png
+artifacts/redesign/before/pt-progress-375.png
+artifacts/redesign/before/pt-progress-390.png
+artifacts/redesign/before/pt-progress-768.png
+artifacts/redesign/before/pt-readings-1440.png
+artifacts/redesign/before/pt-readings-390.png
+artifacts/redesign/before/pt-reference-1440.png
+artifacts/redesign/before/pt-reference-390.png
+artifacts/redesign/before/pt-review-1280.png
+artifacts/redesign/before/pt-review-1440.png
+artifacts/redesign/before/pt-review-375.png
+artifacts/redesign/before/pt-review-390.png
+artifacts/redesign/before/pt-review-768.png
+artifacts/redesign/before/pt-settings-1280.png
+artifacts/redesign/before/pt-settings-1440.png
+artifacts/redesign/before/pt-settings-375.png
+artifacts/redesign/before/pt-settings-390.png
+artifacts/redesign/before/pt-settings-768.png
+artifacts/redesign/before/pt-today-1280.png
+artifacts/redesign/before/pt-today-1440.png
+artifacts/redesign/before/pt-today-375.png
+artifacts/redesign/before/pt-today-390.png
+artifacts/redesign/before/pt-today-768.png
+artifacts/redesign/changed-files.txt
+artifacts/redesign/comparison.html
+artifacts/redesign/design-metrics.json
+artifacts/redesign/interaction-metrics.json
+artifacts/redesign/pedagogy.json
+artifacts/redesign/qa/build-pages.log
+artifacts/redesign/qa/build-server.log
+artifacts/redesign/qa/class-en-1440.png
+artifacts/redesign/qa/class-en-375.png
+artifacts/redesign/qa/class-en-390.png
+artifacts/redesign/qa/class-en-768.png
+artifacts/redesign/qa/class-pt-1440.png
+artifacts/redesign/qa/class-pt-375.png
+artifacts/redesign/qa/class-pt-390.png
+artifacts/redesign/qa/class-pt-768.png
+artifacts/redesign/qa/en-1440.png
+artifacts/redesign/qa/en-375.png
+artifacts/redesign/qa/en-390.png
+artifacts/redesign/qa/en-768.png
+artifacts/redesign/qa/en-dark-1440.png
+artifacts/redesign/qa/legacy-draft-regression.log
+artifacts/redesign/qa/oral-en-390.png
+artifacts/redesign/qa/oral-pt-390.png
+artifacts/redesign/qa/pt-1440.png
+artifacts/redesign/qa/pt-375.png
+artifacts/redesign/qa/pt-390.png
+artifacts/redesign/qa/pt-768.png
+artifacts/redesign/qa/pt-dark-1440.png
+artifacts/redesign/qa/save-error-en-390.png
+artifacts/redesign/qa/save-error-pt-390.png
+artifacts/redesign/qa/server-regression.log
+artifacts/redesign/qa/static-regression.log
+artifacts/redesign/qa/studio-en-1440.png
+artifacts/redesign/qa/studio-en-375.png
+artifacts/redesign/qa/studio-en-390.png
+artifacts/redesign/qa/studio-en-768.png
+artifacts/redesign/qa/studio-pt-1440.png
+artifacts/redesign/qa/studio-pt-375.png
+artifacts/redesign/qa/studio-pt-390.png
+artifacts/redesign/qa/studio-pt-768.png
+artifacts/redesign/qa/typecheck.log
+artifacts/redesign/qa/unit.log
+artifacts/redesign/verification.json
+docs/REDISENO_DEFINITIVO.md
+docs/audit-2026-10-14/AUDITORIA_COMPLETA.md
+docs/audit-2026-10-14/AUDITORIA_INGLES.md
+docs/audit-2026-10-14/AUDITORIA_PORTUGUES.md
+docs/audit-2026-10-14/AUDITORIA_VISUAL.md
+docs/audit-2026-10-14/DESIGN_SYSTEM.md
+docs/audit-2026-10-14/PLAN_IMPLEMENTACION.md
+docs/audit-2026-10-14/README.md
+docs/audit-2026-10-14/RESULTADOS_QA.md
+scripts/audit-curriculum.ts
+scripts/redesign-capture.mjs
+scripts/redesign-metrics.mjs
+scripts/serve-pages.mjs
+src/app/api/[...path]/route.ts
+src/app/globals.css
+src/app/layout.tsx
+src/components/analytics.tsx
+src/components/app-update.tsx
+src/components/cefr-path.tsx
+src/components/classes.css
+src/components/classes.tsx
+src/components/course-menu.tsx
+src/components/daily-guide.tsx
+src/components/dashboard.tsx
+src/components/english-app.tsx
+src/components/entry-phrase.tsx
+src/components/first-steps.tsx
+src/components/foundations.tsx
+src/components/github-sync.tsx
+src/components/home-routine.tsx
+src/components/language-help.tsx
+src/components/learning-tip.tsx
+src/components/library.tsx
+src/components/momentum-chart.tsx
+src/components/news-briefing.tsx
+src/components/pdf-studio.tsx
+src/components/routine-practice.tsx
+src/components/space-link.tsx
+src/components/study-spaces.tsx
+src/components/today.tsx
+src/components/ui.tsx
+src/components/vocabulary.tsx
+src/components/voice-room.tsx
+src/components/word-help.tsx
+src/lib/browser/api.ts
+src/lib/daily-study-store.ts
+src/lib/daily-study.ts
+src/lib/domain.ts
+src/lib/evidence-summary.ts
+src/lib/study-recommendation.ts
+src/lib/types.ts
+src/lib/workspace.ts
+src/styles/audit-design.css
+src/styles/audit-studio.css
+src/styles/learning-experience.css
+src/styles/oral-practice.css
+src/styles/os-next.css
+src/styles/study-modules.css
+src/styles/today-first.css
+tests/daily-study.test.ts
+tests/e2e/journey.spec.ts
+tests/pages/adaptive-path.spec.ts
+tests/pages/audit-studio.spec.ts
+tests/pages/cefr.spec.ts
+tests/pages/classes.spec.ts
+tests/pages/communicative-home.spec.ts
+tests/pages/daily-completion.spec.ts
+tests/pages/daily-guide.spec.ts
+tests/pages/daily-rewards.spec.ts
+tests/pages/durable-save.spec.ts
+tests/pages/experience-refinement.spec.ts
+tests/pages/feedback.spec.ts
+tests/pages/first-steps.spec.ts
+tests/pages/game-draft.spec.ts
+tests/pages/games.spec.ts
+tests/pages/home-routine.spec.ts
+tests/pages/integral-audit.spec.ts
+tests/pages/language-help.spec.ts
+tests/pages/navigation.ts
+tests/pages/offline.spec.ts
+tests/pages/oral-practice.spec.ts
+tests/pages/pages.spec.ts
+tests/pages/pdf-tabs.spec.ts
+tests/pages/portuguese.spec.ts
+tests/pages/simple-sections.spec.ts
+tests/pages/studio.spec.ts
+tests/pages/study-time.spec.ts
+tests/pages/update.spec.ts
+tests/pages/voice.spec.ts
+tests/pages/word-help.spec.ts
+tests/study-recommendation.test.ts

@@ -1,0 +1,292 @@
+{
+  "pullRequests": [
+    "https://github.com/alejo02025/plataforma-ingles-uso-personal/pull/6",
+    "https://github.com/alejo02025/plataforma-ingles-uso-personal/pull/7"
+  ],
+  "runs": [
+    {
+      "id": 38801876358,
+      "url": "https://github.com/alejo02025/plataforma-ingles-uso-personal/actions/runs/38801876358",
+      "conclusion": "success",
+      "head": "93a2558eecd94ac923e3116391229408d86df799",
+      "jobs": [
+        {
+          "name": "verify",
+          "conclusion": "success",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run npm ci",
+              "conclusion": "success"
+            },
+            {
+              "name": "Check TypeScript",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run unit tests",
+              "conclusion": "success"
+            },
+            {
+              "name": "Build both language sites",
+              "conclusion": "success"
+            },
+            {
+              "name": "Install browser for responsive smoke checks",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run the complete static regression suite",
+              "conclusion": "success"
+            },
+            {
+              "name": "Build the server edition",
+              "conclusion": "success"
+            },
+            {
+              "name": "Verify authenticated server persistence",
+              "conclusion": "success"
+            },
+            {
+              "name": "Retain browser evidence",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "name": "publish",
+          "conclusion": "skipped",
+          "steps": []
+        }
+      ]
+    },
+    {
+      "id": 38803022409,
+      "url": "https://github.com/alejo02025/plataforma-ingles-uso-personal/actions/runs/38803022409",
+      "conclusion": "success",
+      "head": "cbd5be48abd421f2787d07dfd59b9a8a0f466292",
+      "jobs": [
+        {
+          "name": "verify",
+          "conclusion": "success",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run npm ci",
+              "conclusion": "success"
+            },
+            {
+              "name": "Check TypeScript",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run unit tests",
+              "conclusion": "success"
+            },
+            {
+              "name": "Build both language sites",
+              "conclusion": "success"
+            },
+            {
+              "name": "Install browser for responsive smoke checks",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run the complete static regression suite",
+              "conclusion": "success"
+            },
+            {
+              "name": "Build the server edition",
+              "conclusion": "success"
+            },
+            {
+              "name": "Verify authenticated server persistence",
+              "conclusion": "success"
+            },
+            {
+              "name": "Retain browser evidence",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "name": "publish",
+          "conclusion": "skipped",
+          "steps": []
+        }
+      ]
+    },
+    {
+      "id": 38804119301,
+      "url": "https://github.com/alejo02025/plataforma-ingles-uso-personal/actions/runs/38804119301",
+      "conclusion": "success",
+      "head": "f21e3f837e302303a5e1b1219f19fa7cb3d9e710",
+      "jobs": [
+        {
+          "name": "verify",
+          "conclusion": "success",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run npm ci",
+              "conclusion": "success"
+            },
+            {
+              "name": "Check TypeScript",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run unit tests",
+              "conclusion": "success"
+            },
+            {
+              "name": "Build both language sites",
+              "conclusion": "success"
+            },
+            {
+              "name": "Install browser for responsive smoke checks",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run the complete static regression suite",
+              "conclusion": "success"
+            },
+            {
+              "name": "Build the server edition",
+              "conclusion": "success"
+            },
+            {
+              "name": "Verify authenticated server persistence",
+              "conclusion": "success"
+            },
+            {
+              "name": "Retain browser evidence",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "name": "publish",
+          "conclusion": "success",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run npm ci",
+              "conclusion": "success"
+            },
+            {
+              "name": "Generate and stage GitHub Pages export",
+              "conclusion": "success"
+            },
+            {
+              "name": "Commit updated static site only when changed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Request Pages deployment for the generated commit",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "pages": {
+    "status": "built",
+    "commit": "7b059bb81a882cc6e8d45b6ab2b7a30a72a34bc9",
+    "created_at": "2026-10-15T20:50:30Z",
+    "updated_at": "2026-10-15T20:51:20Z"
+  }
+}

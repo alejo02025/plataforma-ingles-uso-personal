@@ -3,7 +3,7 @@
   "origin": "http://127.0.0.1:3300/plataforma-ingles-uso-personal/",
   "live": false,
   "tlsRelay": null,
-  "capturedAt": "2026-10-15T20:08:11.237Z",
+  "capturedAt": "2026-10-15T20:31:01.112Z",
   "results": [
     {
       "language": "en",
@@ -15,16 +15,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         }
       ],
-      "h1": [
-        "Today"
-      ],
+      "h1": ["Today"],
       "visibleButtons": 10
     },
     {
@@ -37,16 +35,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         }
       ],
-      "h1": [
-        "Classes"
-      ],
+      "h1": ["Classes"],
       "visibleButtons": 18
     },
     {
@@ -59,16 +55,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         }
       ],
-      "h1": [
-        "Review"
-      ],
+      "h1": ["Review"],
       "visibleButtons": 12
     },
     {
@@ -81,16 +75,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         }
       ],
-      "h1": [
-        "Library"
-      ],
+      "h1": ["Library"],
       "visibleButtons": 11
     },
     {
@@ -103,16 +95,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         }
       ],
-      "h1": [
-        "Progress"
-      ],
+      "h1": ["Progress"],
       "visibleButtons": 21
     },
     {
@@ -125,16 +115,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         }
       ],
-      "h1": [
-        "Library"
-      ],
+      "h1": ["Library"],
       "visibleButtons": 21
     },
     {
@@ -147,16 +135,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         }
       ],
-      "h1": [
-        "Review"
-      ],
+      "h1": ["Review"],
       "visibleButtons": 15
     },
     {
@@ -169,16 +155,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         }
       ],
-      "h1": [
-        "Review"
-      ],
+      "h1": ["Review"],
       "visibleButtons": 14
     },
     {
@@ -191,16 +175,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         }
       ],
-      "h1": [
-        "Progress"
-      ],
+      "h1": ["Progress"],
       "visibleButtons": 42
     },
     {
@@ -213,16 +195,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         }
       ],
-      "h1": [
-        "Library"
-      ],
+      "h1": ["Library"],
       "visibleButtons": 10
     },
     {
@@ -235,16 +215,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         }
       ],
-      "h1": [
-        "Classes"
-      ],
+      "h1": ["Classes"],
       "visibleButtons": 19
     },
     {
@@ -257,16 +235,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         }
       ],
-      "h1": [
-        "Review"
-      ],
+      "h1": ["Review"],
       "visibleButtons": 16
     },
     {
@@ -279,16 +255,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         }
       ],
-      "h1": [
-        "Classes"
-      ],
+      "h1": ["Classes"],
       "visibleButtons": 13
     },
     {
@@ -301,16 +275,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 212
+          "milliseconds": 112
         }
       ],
-      "h1": [
-        "Settings"
-      ],
+      "h1": ["Settings"],
       "visibleButtons": 11
     },
     {
@@ -328,16 +300,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 232
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 232
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Today"
-      ],
+      "h1": ["Today"],
       "visibleButtons": 10
     },
     {
@@ -350,16 +320,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 232
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 232
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Classes"
-      ],
+      "h1": ["Classes"],
       "visibleButtons": 18
     },
     {
@@ -372,16 +340,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 232
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 232
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Review"
-      ],
+      "h1": ["Review"],
       "visibleButtons": 12
     },
     {
@@ -394,16 +360,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 232
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 232
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Library"
-      ],
+      "h1": ["Library"],
       "visibleButtons": 11
     },
     {
@@ -416,16 +380,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 232
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 232
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Progress"
-      ],
+      "h1": ["Progress"],
       "visibleButtons": 21
     },
     {
@@ -438,16 +400,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 232
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 232
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Settings"
-      ],
+      "h1": ["Settings"],
       "visibleButtons": 11
     },
     {
@@ -465,16 +425,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 116
+          "milliseconds": 124
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 116
+          "milliseconds": 124
         }
       ],
-      "h1": [
-        "Today"
-      ],
+      "h1": ["Today"],
       "visibleButtons": 10
     },
     {
@@ -487,16 +445,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 116
+          "milliseconds": 124
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 116
+          "milliseconds": 124
         }
       ],
-      "h1": [
-        "Classes"
-      ],
+      "h1": ["Classes"],
       "visibleButtons": 18
     },
     {
@@ -509,16 +465,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 116
+          "milliseconds": 124
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 116
+          "milliseconds": 124
         }
       ],
-      "h1": [
-        "Review"
-      ],
+      "h1": ["Review"],
       "visibleButtons": 12
     },
     {
@@ -531,16 +485,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 116
+          "milliseconds": 124
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 116
+          "milliseconds": 124
         }
       ],
-      "h1": [
-        "Library"
-      ],
+      "h1": ["Library"],
       "visibleButtons": 11
     },
     {
@@ -553,16 +505,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 116
+          "milliseconds": 124
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 116
+          "milliseconds": 124
         }
       ],
-      "h1": [
-        "Progress"
-      ],
+      "h1": ["Progress"],
       "visibleButtons": 21
     },
     {
@@ -575,16 +525,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 116
+          "milliseconds": 124
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 116
+          "milliseconds": 124
         }
       ],
-      "h1": [
-        "Settings"
-      ],
+      "h1": ["Settings"],
       "visibleButtons": 11
     },
     {
@@ -602,16 +550,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Today"
-      ],
+      "h1": ["Today"],
       "visibleButtons": 10
     },
     {
@@ -624,16 +570,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Classes"
-      ],
+      "h1": ["Classes"],
       "visibleButtons": 18
     },
     {
@@ -646,16 +590,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Review"
-      ],
+      "h1": ["Review"],
       "visibleButtons": 12
     },
     {
@@ -668,16 +610,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Library"
-      ],
+      "h1": ["Library"],
       "visibleButtons": 11
     },
     {
@@ -690,16 +630,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Progress"
-      ],
+      "h1": ["Progress"],
       "visibleButtons": 21
     },
     {
@@ -712,16 +650,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Library"
-      ],
+      "h1": ["Library"],
       "visibleButtons": 21
     },
     {
@@ -734,16 +670,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Review"
-      ],
+      "h1": ["Review"],
       "visibleButtons": 15
     },
     {
@@ -756,16 +690,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Review"
-      ],
+      "h1": ["Review"],
       "visibleButtons": 14
     },
     {
@@ -778,16 +710,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Progress"
-      ],
+      "h1": ["Progress"],
       "visibleButtons": 42
     },
     {
@@ -800,16 +730,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Library"
-      ],
+      "h1": ["Library"],
       "visibleButtons": 10
     },
     {
@@ -822,16 +750,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Classes"
-      ],
+      "h1": ["Classes"],
       "visibleButtons": 19
     },
     {
@@ -844,16 +770,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Review"
-      ],
+      "h1": ["Review"],
       "visibleButtons": 16
     },
     {
@@ -866,16 +790,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Classes"
-      ],
+      "h1": ["Classes"],
       "visibleButtons": 13
     },
     {
@@ -888,16 +810,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 208
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Settings"
-      ],
+      "h1": ["Settings"],
       "visibleButtons": 11
     },
     {
@@ -915,16 +835,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 232
+          "milliseconds": 112
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 232
+          "milliseconds": 112
         }
       ],
-      "h1": [
-        "Today"
-      ],
+      "h1": ["Today"],
       "visibleButtons": 10
     },
     {
@@ -937,16 +855,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 232
+          "milliseconds": 112
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 232
+          "milliseconds": 112
         }
       ],
-      "h1": [
-        "Classes"
-      ],
+      "h1": ["Classes"],
       "visibleButtons": 18
     },
     {
@@ -959,16 +875,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 232
+          "milliseconds": 112
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 232
+          "milliseconds": 112
         }
       ],
-      "h1": [
-        "Review"
-      ],
+      "h1": ["Review"],
       "visibleButtons": 12
     },
     {
@@ -981,16 +895,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 232
+          "milliseconds": 112
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 232
+          "milliseconds": 112
         }
       ],
-      "h1": [
-        "Library"
-      ],
+      "h1": ["Library"],
       "visibleButtons": 11
     },
     {
@@ -1003,16 +915,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 232
+          "milliseconds": 112
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 232
+          "milliseconds": 112
         }
       ],
-      "h1": [
-        "Progress"
-      ],
+      "h1": ["Progress"],
       "visibleButtons": 21
     },
     {
@@ -1025,16 +935,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 232
+          "milliseconds": 112
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 232
+          "milliseconds": 112
         }
       ],
-      "h1": [
-        "Settings"
-      ],
+      "h1": ["Settings"],
       "visibleButtons": 11
     },
     {
@@ -1052,16 +960,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         }
       ],
-      "h1": [
-        "Hoje"
-      ],
+      "h1": ["Hoje"],
       "visibleButtons": 10
     },
     {
@@ -1074,16 +980,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         }
       ],
-      "h1": [
-        "Aulas"
-      ],
+      "h1": ["Aulas"],
       "visibleButtons": 18
     },
     {
@@ -1096,16 +1000,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         }
       ],
-      "h1": [
-        "Revisão"
-      ],
+      "h1": ["Revisão"],
       "visibleButtons": 12
     },
     {
@@ -1118,16 +1020,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         }
       ],
-      "h1": [
-        "Biblioteca"
-      ],
+      "h1": ["Biblioteca"],
       "visibleButtons": 11
     },
     {
@@ -1140,16 +1040,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         }
       ],
-      "h1": [
-        "Progresso"
-      ],
+      "h1": ["Progresso"],
       "visibleButtons": 21
     },
     {
@@ -1162,16 +1060,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         }
       ],
-      "h1": [
-        "Biblioteca"
-      ],
+      "h1": ["Biblioteca"],
       "visibleButtons": 19
     },
     {
@@ -1184,16 +1080,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         }
       ],
-      "h1": [
-        "Revisão"
-      ],
+      "h1": ["Revisão"],
       "visibleButtons": 15
     },
     {
@@ -1206,16 +1100,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         }
       ],
-      "h1": [
-        "Revisão"
-      ],
+      "h1": ["Revisão"],
       "visibleButtons": 14
     },
     {
@@ -1228,16 +1120,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         }
       ],
-      "h1": [
-        "Progresso"
-      ],
+      "h1": ["Progresso"],
       "visibleButtons": 42
     },
     {
@@ -1250,16 +1140,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         }
       ],
-      "h1": [
-        "Biblioteca"
-      ],
+      "h1": ["Biblioteca"],
       "visibleButtons": 10
     },
     {
@@ -1272,16 +1160,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         }
       ],
-      "h1": [
-        "Aulas"
-      ],
+      "h1": ["Aulas"],
       "visibleButtons": 19
     },
     {
@@ -1294,16 +1180,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         }
       ],
-      "h1": [
-        "Revisão"
-      ],
+      "h1": ["Revisão"],
       "visibleButtons": 16
     },
     {
@@ -1316,16 +1200,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         }
       ],
-      "h1": [
-        "Aulas"
-      ],
+      "h1": ["Aulas"],
       "visibleButtons": 13
     },
     {
@@ -1338,16 +1220,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 152
+          "milliseconds": 92
         }
       ],
-      "h1": [
-        "Ajustes"
-      ],
+      "h1": ["Ajustes"],
       "visibleButtons": 11
     },
     {
@@ -1365,16 +1245,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 196
+          "milliseconds": 84
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 196
+          "milliseconds": 84
         }
       ],
-      "h1": [
-        "Hoje"
-      ],
+      "h1": ["Hoje"],
       "visibleButtons": 10
     },
     {
@@ -1387,16 +1265,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 196
+          "milliseconds": 84
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 196
+          "milliseconds": 84
         }
       ],
-      "h1": [
-        "Aulas"
-      ],
+      "h1": ["Aulas"],
       "visibleButtons": 18
     },
     {
@@ -1409,16 +1285,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 196
+          "milliseconds": 84
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 196
+          "milliseconds": 84
         }
       ],
-      "h1": [
-        "Revisão"
-      ],
+      "h1": ["Revisão"],
       "visibleButtons": 12
     },
     {
@@ -1431,16 +1305,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 196
+          "milliseconds": 84
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 196
+          "milliseconds": 84
         }
       ],
-      "h1": [
-        "Biblioteca"
-      ],
+      "h1": ["Biblioteca"],
       "visibleButtons": 11
     },
     {
@@ -1453,16 +1325,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 196
+          "milliseconds": 84
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 196
+          "milliseconds": 84
         }
       ],
-      "h1": [
-        "Progresso"
-      ],
+      "h1": ["Progresso"],
       "visibleButtons": 21
     },
     {
@@ -1475,16 +1345,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 196
+          "milliseconds": 84
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 196
+          "milliseconds": 84
         }
       ],
-      "h1": [
-        "Ajustes"
-      ],
+      "h1": ["Ajustes"],
       "visibleButtons": 11
     },
     {
@@ -1502,16 +1370,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 292
+          "milliseconds": 100
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 292
+          "milliseconds": 100
         }
       ],
-      "h1": [
-        "Hoje"
-      ],
+      "h1": ["Hoje"],
       "visibleButtons": 10
     },
     {
@@ -1524,16 +1390,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 292
+          "milliseconds": 100
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 292
+          "milliseconds": 100
         }
       ],
-      "h1": [
-        "Aulas"
-      ],
+      "h1": ["Aulas"],
       "visibleButtons": 18
     },
     {
@@ -1546,16 +1410,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 292
+          "milliseconds": 100
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 292
+          "milliseconds": 100
         }
       ],
-      "h1": [
-        "Revisão"
-      ],
+      "h1": ["Revisão"],
       "visibleButtons": 12
     },
     {
@@ -1568,16 +1430,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 292
+          "milliseconds": 100
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 292
+          "milliseconds": 100
         }
       ],
-      "h1": [
-        "Biblioteca"
-      ],
+      "h1": ["Biblioteca"],
       "visibleButtons": 11
     },
     {
@@ -1590,16 +1450,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 292
+          "milliseconds": 100
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 292
+          "milliseconds": 100
         }
       ],
-      "h1": [
-        "Progresso"
-      ],
+      "h1": ["Progresso"],
       "visibleButtons": 21
     },
     {
@@ -1612,16 +1470,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 292
+          "milliseconds": 100
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 292
+          "milliseconds": 100
         }
       ],
-      "h1": [
-        "Ajustes"
-      ],
+      "h1": ["Ajustes"],
       "visibleButtons": 11
     },
     {
@@ -1639,16 +1495,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         }
       ],
-      "h1": [
-        "Hoje"
-      ],
+      "h1": ["Hoje"],
       "visibleButtons": 10
     },
     {
@@ -1661,16 +1515,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         }
       ],
-      "h1": [
-        "Aulas"
-      ],
+      "h1": ["Aulas"],
       "visibleButtons": 18
     },
     {
@@ -1683,16 +1535,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         }
       ],
-      "h1": [
-        "Revisão"
-      ],
+      "h1": ["Revisão"],
       "visibleButtons": 12
     },
     {
@@ -1705,16 +1555,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         }
       ],
-      "h1": [
-        "Biblioteca"
-      ],
+      "h1": ["Biblioteca"],
       "visibleButtons": 11
     },
     {
@@ -1727,16 +1575,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         }
       ],
-      "h1": [
-        "Progresso"
-      ],
+      "h1": ["Progresso"],
       "visibleButtons": 21
     },
     {
@@ -1749,16 +1595,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         }
       ],
-      "h1": [
-        "Biblioteca"
-      ],
+      "h1": ["Biblioteca"],
       "visibleButtons": 19
     },
     {
@@ -1771,16 +1615,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         }
       ],
-      "h1": [
-        "Revisão"
-      ],
+      "h1": ["Revisão"],
       "visibleButtons": 15
     },
     {
@@ -1793,16 +1635,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         }
       ],
-      "h1": [
-        "Revisão"
-      ],
+      "h1": ["Revisão"],
       "visibleButtons": 14
     },
     {
@@ -1815,16 +1655,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         }
       ],
-      "h1": [
-        "Progresso"
-      ],
+      "h1": ["Progresso"],
       "visibleButtons": 42
     },
     {
@@ -1837,16 +1675,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         }
       ],
-      "h1": [
-        "Biblioteca"
-      ],
+      "h1": ["Biblioteca"],
       "visibleButtons": 10
     },
     {
@@ -1859,16 +1695,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         }
       ],
-      "h1": [
-        "Aulas"
-      ],
+      "h1": ["Aulas"],
       "visibleButtons": 19
     },
     {
@@ -1881,16 +1715,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         }
       ],
-      "h1": [
-        "Revisão"
-      ],
+      "h1": ["Revisão"],
       "visibleButtons": 16
     },
     {
@@ -1903,16 +1735,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         }
       ],
-      "h1": [
-        "Aulas"
-      ],
+      "h1": ["Aulas"],
       "visibleButtons": 13
     },
     {
@@ -1925,16 +1755,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 176
+          "milliseconds": 100
         }
       ],
-      "h1": [
-        "Ajustes"
-      ],
+      "h1": ["Ajustes"],
       "visibleButtons": 11
     },
     {
@@ -1952,16 +1780,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 152
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 152
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Hoje"
-      ],
+      "h1": ["Hoje"],
       "visibleButtons": 10
     },
     {
@@ -1974,16 +1800,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 152
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 152
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Aulas"
-      ],
+      "h1": ["Aulas"],
       "visibleButtons": 18
     },
     {
@@ -1996,16 +1820,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 152
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 152
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Revisão"
-      ],
+      "h1": ["Revisão"],
       "visibleButtons": 12
     },
     {
@@ -2018,16 +1840,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 152
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 152
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Biblioteca"
-      ],
+      "h1": ["Biblioteca"],
       "visibleButtons": 11
     },
     {
@@ -2040,16 +1860,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 152
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 152
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Progresso"
-      ],
+      "h1": ["Progresso"],
       "visibleButtons": 21
     },
     {
@@ -2062,16 +1880,14 @@
       "paints": [
         {
           "name": "first-paint",
-          "milliseconds": 152
+          "milliseconds": 108
         },
         {
           "name": "first-contentful-paint",
-          "milliseconds": 152
+          "milliseconds": 108
         }
       ],
-      "h1": [
-        "Ajustes"
-      ],
+      "h1": ["Ajustes"],
       "visibleButtons": 11
     },
     {

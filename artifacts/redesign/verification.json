@@ -1,14 +1,14 @@
 {
   "baseCommit": "4d78acfb017f8097b02090d4afe1d18f5591771a",
   "branch": "redesign/study-first-2026-10-15",
-  "candidateBuild": "2026-10-15T20:00:31.303Z",
+  "candidateBuild": "2026-10-15T20:24:28.129Z",
   "unit": {
     "passed": 111,
     "failed": 0,
     "skipped": 0
   },
   "staticRegression": {
-    "passed": 75,
+    "passed": 77,
     "failed": 0,
     "skipped": 0
   },
@@ -19,6 +19,19 @@
   "beforeScreens": 92,
   "afterScreens": 92,
   "publicVerification": {
-    "status": "pending"
-  }
+    "status": "verified",
+    "checkedAt": "2026-10-15T20:51:33.522Z",
+    "build": "2026-10-15T20:50:09.219Z",
+    "serviceWorkerRelease": "2026-10-15T20:50:09.219Z",
+    "assetsAvailable": 122,
+    "screens": 92,
+    "functionalJourneys": 2,
+    "pageErrors": 0,
+    "horizontalOverflows": 0,
+    "pagesCommit": "7b059bb81a882cc6e8d45b6ab2b7a30a72a34bc9",
+    "ci": "https://github.com/alejo02025/plataforma-ingles-uso-personal/actions/runs/38804119301"
+  },
+  "sourceHead": "93a2558eecd94ac923e3116391229408d86df799",
+  "pullRequest": "https://github.com/alejo02025/plataforma-ingles-uso-personal/pull/6",
+  "releasePullRequest": "https://github.com/alejo02025/plataforma-ingles-uso-personal/pull/7"
 }
