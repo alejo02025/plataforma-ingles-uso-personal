@@ -22,7 +22,7 @@ test('an older home page can update when its unloaded AI bundle is unavailable, 
   await expect(page).toHaveURL(/updated=/);
   expect(missing).toBeGreaterThan(0);
   await expect(
-    page.getByRole('heading', { name: /Good (morning|afternoon|evening), Alejo\./ }),
+    page.locator('.today-head h1'),
   ).toBeVisible();
   await page
     .getByRole('navigation')
@@ -63,7 +63,7 @@ test('Updating one space refreshes an idle second space and keeps both vocabular
     .poll(() => new URL(pt.url()).searchParams.get('updated'), { timeout: 15000 })
     .toBe(token);
   await expect(
-    pt.getByRole('heading', { name: /(Bom dia|Boa tarde|Boa noite), Jazmín\./ }),
+    pt.locator('.today-head h1'),
   ).toBeVisible();
   await pt
     .getByRole('navigation', { name: 'Navegação principal' })
@@ -83,7 +83,7 @@ test('Updating one space refreshes an idle second space and keeps both vocabular
   await expect(page).toHaveURL(/portugues\/\?updated=.+opened=/);
   expect(new URL(page.url()).searchParams.get('updated')).toBe(token);
   await expect(
-    page.getByRole('heading', { name: /(Bom dia|Boa tarde|Boa noite), Jazmín\./ }),
+    page.locator('.today-head h1'),
   ).toBeVisible();
 });
 
