@@ -19,7 +19,7 @@ export const diagnosticQuestions: Question[] = [
     prompt: 'Eu ___ Jazmín.',
     options: ['é', 'sou', 'são'],
     answer: 1,
-    explanation: 'Con eu, ser se conjuga sou.',
+    explanation: 'Com o pronome “eu”, usamos “sou” como forma do verbo “ser”.',
   },
   {
     id: 'd-a1-v',
@@ -28,7 +28,7 @@ export const diagnosticQuestions: Question[] = [
     prompt: 'Onde você compra pão?',
     options: ['Na padaria', 'No banco', 'No hospital'],
     answer: 0,
-    explanation: 'Una panadería vende pan.',
+    explanation: 'Uma padaria é um estabelecimento onde compramos pão.',
   },
   {
     id: 'd-a1-r',
@@ -37,7 +37,7 @@ export const diagnosticQuestions: Question[] = [
     prompt: '“Ana estuda de manhã e trabalha à tarde.” Quando ela estuda?',
     options: ['À noite', 'À tarde', 'De manhã'],
     answer: 2,
-    explanation: 'El texto dice que estudia por la mañana.',
+    explanation: 'O texto informa que Ana estuda de manhã.',
   },
   {
     id: 'd1',
