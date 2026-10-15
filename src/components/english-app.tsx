@@ -256,6 +256,10 @@ export function EnglishApp() {
           <div className="nav-primary">
             {appNavigation
               .filter((item) => !['Library', 'Practice', 'Calendar', 'News'].includes(item.title))
+              .sort((a, b) =>
+                ['Home', 'My Day', 'Classes', 'PDF Studio', 'Vocabulary', 'Oral practice', 'Progress', 'Games', 'Language help'].indexOf(a.title) -
+                ['Home', 'My Day', 'Classes', 'PDF Studio', 'Vocabulary', 'Oral practice', 'Progress', 'Games', 'Language help'].indexOf(b.title),
+              )
               .map(({ title, icon: Icon }) => (
                 <button
                   key={title}
