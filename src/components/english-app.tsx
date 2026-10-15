@@ -255,7 +255,11 @@ export function EnglishApp() {
         <nav aria-label="Main navigation">
           <div className="nav-primary">
             {appNavigation
-              .filter((item) => ['Home', 'My Day', 'Classes', 'PDF Studio', 'Games', 'Vocabulary', 'Progress'].includes(item.title))
+              .filter((item) => !['Library', 'Practice', 'Calendar', 'News'].includes(item.title))
+              .sort((a, b) =>
+                ['Home', 'My Day', 'Classes', 'PDF Studio', 'Vocabulary', 'Oral practice', 'Progress', 'Games', 'Language help'].indexOf(a.title) -
+                ['Home', 'My Day', 'Classes', 'PDF Studio', 'Vocabulary', 'Oral practice', 'Progress', 'Games', 'Language help'].indexOf(b.title),
+              )
               .map(({ title, icon: Icon }) => (
                 <button
                   key={title}
@@ -270,11 +274,11 @@ export function EnglishApp() {
           </div>
           <details
             className="nav-more"
-            open={!mobileMenu || ['Library', 'Practice', 'Calendar', 'News', 'Language help', 'Oral practice'].includes(view)}
+            open={!mobileMenu || ['Library', 'Practice', 'Calendar', 'News'].includes(view)}
           >
             <summary>More sections</summary>
             {appNavigation
-              .filter((item) => ['Library', 'Practice', 'Calendar', 'News', 'Language help', 'Oral practice'].includes(item.title))
+              .filter((item) => ['Library', 'Practice', 'Calendar', 'News'].includes(item.title))
               .map(({ title, icon: Icon }) => (
                 <button
                   key={title}
@@ -508,7 +512,7 @@ export function EnglishApp() {
         </main>
       </div>
       <nav className="mobile-bottom-nav" aria-label="Quick navigation">
-        {[navigation[0], navigation[9], navigation[1], navigation[6], navigation[7]].map(
+        {[navigation[0], navigation[1], navigation[5], navigation[6], navigation[7]].map(
           ({ title, icon: Icon }) => (
             <button
               key={title}
