@@ -79,7 +79,8 @@ export function Foundations({
       )}
       <div className="foundation-selectors builder-time-options">
         <label className="field">
-          Time
+          {isPortuguese ? 'Tempo verbal' : 'Tense'}
+          <span className="builder-label-es" lang="es">Tiempo verbal</span>
           <select
             aria-label="Choose a time"
             value={tense}
@@ -99,7 +100,8 @@ export function Foundations({
           </select>
         </label>
         <label className="field">
-          Sentence type
+          {isPortuguese ? 'Tipo de frase' : 'Sentence type'}
+          <span className="builder-label-es" lang="es">Afirmativa, negativa o pregunta</span>
           <select
             aria-label="Choose a sentence type"
             value={kind}
@@ -132,7 +134,8 @@ export function Foundations({
       )}
       <div className="foundation-selectors">
         <label className="field">
-          Verb
+          {isPortuguese ? 'Verbo' : 'Verb'}
+          <span className="builder-label-es" lang="es">La acción de la oración</span>
           <select
             aria-label="Choose a verb"
             value={verbId}
@@ -151,7 +154,8 @@ export function Foundations({
           </select>
         </label>
         <label className="field">
-          Subject
+          {isPortuguese ? 'Sujeito' : 'Subject'}
+          <span className="builder-label-es" lang="es">¿Quién hace la acción?</span>
           <select
             aria-label="Choose a subject"
             value={effectiveSubject.id}
@@ -209,7 +213,7 @@ export function Foundations({
         </div>
       ) : (
         <div className="foundation-model">
-          <span className="eyebrow">YOUR SENTENCE</span>
+          <span className="eyebrow">{isPortuguese ? 'SUA FRASE' : 'YOUR SENTENCE'} · ✨</span>
           <div className="section-heading">
             <h3 lang={isPortuguese ? 'pt-BR' : 'en'}>{sentence.text}</h3>
             <Speak text={sentence.text} />
