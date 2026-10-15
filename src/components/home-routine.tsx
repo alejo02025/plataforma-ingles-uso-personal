@@ -33,12 +33,14 @@ export function HomeRoutine({
   onStart,
   onClass,
   onGame,
+  compact = false,
 }: {
   data: Snapshot;
   refresh: () => Promise<void>;
   onStart: (a: Activity) => void;
   onClass: (id: string) => void;
   onGame: (seed: string) => void;
+  compact?: boolean;
 }) {
   const journey = learningJourney(data),
     [preview, setPreview] = useState(''),
@@ -234,6 +236,27 @@ export function HomeRoutine({
         C1: 'Express complex ideas precisely and adapt your register.',
         C2: 'Interpret nuances and formulate precise arguments with carefully controlled scope.',
       };
+  if (compact) {
+    return session ? (
+      <RoutineSession
+        key={session.id}
+        initial={session}
+        refresh={refresh}
+        close={() => {
+          setSession(null);
+          window.dispatchEvent(new Event('english-os:routine-paused'));
+        }}
+        onAdvance={advance}
+        nextLabel={
+          following
+            ? `${isPortuguese ? 'Próxima etapa' : 'Next step'}: ${following.name}`
+            : isPortuguese
+              ? 'Concluir por hoje'
+              : 'Finish for today'
+        }
+      />
+    ) : null;
+  }
   return (
     <section
       className="home-routine card"
