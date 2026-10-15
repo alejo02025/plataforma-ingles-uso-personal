@@ -31,9 +31,11 @@ export function placementSummary(data: Pick<Snapshot, 'questions' | 'diagnostic'
       ).length,
     };
   });
+  // Do not classify an untested skill as a weakness merely because it has no answers.
+  const measuredSkills = skills.filter((skill) => skill.total > 0);
   const focus =
-    [...skills].sort(
-      (a, b) => a.correct / Math.max(a.total, 1) - b.correct / Math.max(b.total, 1),
+    [...measuredSkills].sort(
+      (a, b) => a.correct / a.total - b.correct / b.total,
     )[0]?.skill || 'reading';
   return {
     label,
