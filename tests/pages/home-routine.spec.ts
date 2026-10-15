@@ -153,6 +153,9 @@ for (const pt of [false, true])
     await page.locator('.sidebar .nav-more').getByRole('button', { name: pt ? 'Praticar' : 'Practice', exact: true }).click();
     await expect(path.locator('.routine-node.done')).toHaveCount(3);
     await page.reload();
+    await page.getByRole('button', { name: pt ? 'Abrir navegação' : 'Open navigation' }).click();
+    await page.locator('.sidebar .nav-more summary').click();
+    await page.locator('.sidebar .nav-more').getByRole('button', { name: pt ? 'Praticar' : 'Practice', exact: true }).click();
     await expect(path.locator('.routine-node.done')).toHaveCount(3);
     await expect(path.locator('.routine-node').nth(0)).toContainText(pt ? 'Revisar' : 'Review');
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
