@@ -456,3 +456,6 @@ pages-full-66-current
 node-e2e-current
   ✓  1 tests/e2e/journey.spec.ts:4:1 › diagnóstico retomable, lectura, vocabulario, PDF, calendario y tema persistentes (11.5s)
   1 passed (12.8s)
+
+
+Authorized publication: built 487265b; public release 2026-10-15T12:24:08.581Z. Both HTML, 34 assets and service worker match via HTTPS with certificate verification. Public Chromium smoke blocked by environment proxy CA; not counted as passed. See deployment.json.

@@ -4,6 +4,8 @@
 
 Rama aislada `audit/integral-2026-10-14`; conservar arquitectura, IDs, borradores, intentos, PDFs y checkpoints. No publicar ni fusionar. No migraciones destructivas, secretos frontend ni nuevas plataformas obligatorias.
 
+Autorización posterior del usuario: «publicar». El despliegue autorizado y sus verificaciones se registran en [PUBLICACION.md](PUBLICACION.md); la condición de no publicar anterior se aplicó durante la auditoría.
+
 ## P0
 
 1. Reproducir la repetición de actividades al elegir siguiente y distinguir reanudar de iniciar otra tarea.

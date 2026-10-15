@@ -1,6 +1,6 @@
 # Resultados de QA
 
-Fecha de cierre: 15/10/2026. Rama `audit/integral-2026-10-14`. Build estático final `2026-10-15T12:24:08.581Z`. **No publicado ni fusionado.** Se usaron perfiles y bases temporales, no datos personales existentes.
+Fecha de cierre: 15/10/2026. Rama `audit/integral-2026-10-14`. Build estático final `2026-10-15T12:24:08.581Z`. **Publicado en GitHub Pages tras la autorización del usuario «publicar».** Se usaron perfiles y bases temporales, no datos personales existentes.
 
 ## Informes y evidencia
 
@@ -96,3 +96,11 @@ Pendientes: validación psicométrica del diagnóstico, revisión pedagógica ex
 PDFs escaneados requieren OCR no implementado. El primer uso offline necesita una carga completa; las voces offline dependen del dispositivo. Los respaldos conservan notas/metadatos orales, **no los archivos de audio**, que se pueden descargar. Guardado local automático no equivale a sincronización entre dispositivos sin configurar autorización privada. El motor adaptativo usa reglas explicables; no es un modelo estadístico calibrado de dominio.
 
 No se cambiaron dependencias ni se realizaron migraciones destructivas. Los archivos publicados de raíz y el sitio público permanecen intactos.
+
+## Publicación autorizada
+
+El 15/10/2026 se publicó el commit `487265b93becf204fb761b4e80844f535e5ce80d`, conservando la compilación probada y las dos actualizaciones RSS que habían llegado a main. GitHub Pages confirmó `built`. Ambos HTML, 34 recursos referenciados y el service worker se descargaron por HTTPS y coincidieron con los archivos preparados. El marcador público devolvió `2026-10-15T12:24:08.581Z`.
+
+Los 66 recorridos funcionales se ejecutaron localmente sobre esa compilación. El intento adicional de navegador público no se completó porque Chromium no confía en el certificado del proxy de este entorno, incluso al preparar un almacén de confianza temporal. No se desactivó TLS ni se atribuye ese fallo al certificado público del sitio. La comprobación HTTPS de archivos sí se completó con validación de certificados.
+
+Enlaces y registro: [PUBLICACION.md](PUBLICACION.md) y [deployment.json](artifacts/audit/deployment.json). Las menciones anteriores a una rama sin publicar describen la fase de auditoría, previa a esa autorización.

@@ -2,7 +2,7 @@
   "recordedAtUTC": "2026-10-15T12:35:43.847843+00:00",
   "branch": "audit/integral-2026-10-14",
   "build": "2026-10-15T12:24:08.581Z",
-  "published": false,
+  "published": true,
   "checks": [
     {
       "name": "unit",
@@ -131,5 +131,28 @@
       ],
       "note": "Time-aware follow-up: 22 regression cases passed, followed by 4 study-time cases, three overlapping. There are 23 distinct pages cases in this follow-up; the full historical 54-case suite was not repeated. Eight recommendation cases also passed in PT configuration; these are the same eight included in the 102 project unit tests."
     }
-  ]
+  ],
+  "deployment": {
+    "checkedAtUTC": "2026-10-15T12:43:33.758906+00:00",
+    "commit": "487265b93becf204fb761b4e80844f535e5ce80d",
+    "build": "2026-10-15T12:24:08.581Z",
+    "pages": [
+      {
+        "language": "en",
+        "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/",
+        "status": 200,
+        "htmlMatchesRelease": true
+      },
+      {
+        "language": "pt-BR",
+        "url": "https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/",
+        "status": 200,
+        "htmlMatchesRelease": true
+      }
+    ],
+    "referencedAssetsChecked": 34,
+    "serviceWorkerMatchesRelease": true,
+    "tlsVerification": true,
+    "liveBrowserSmoke": "Not completed: environment Chromium rejects the egress proxy CA; no TLS bypass used. Functional regression: 66 local pages cases passed."
+  }
 }

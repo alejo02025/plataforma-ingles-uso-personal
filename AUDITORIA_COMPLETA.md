@@ -2,6 +2,8 @@
 
 Fecha: 14–15 de octubre de 2026. Rama de trabajo: `audit/integral-2026-10-14`.
 
+La auditoría se realizó antes de publicar. Después de la autorización expresa del usuario, se desplegó la versión verificada; el estado y las comprobaciones están en [PUBLICACION.md](PUBLICACION.md).
+
 ## Alcance y evidencia
 
 Se inspeccionaron arquitectura, almacenamiento, sincronización, motores de ejercicios, progresión, diagnóstico, feedback, PDF y componentes visuales. Se ejecutó un inventario estructural de **todas las 262 clases y sus 428 comprobaciones**. Esto verifica campos, identificadores, opciones y referencias; **no equivale a una validación pedagógica externa de cada descriptor o de cada ítem**. Las revisiones lingüísticas y los cambios se detallan en los informes por idioma.
