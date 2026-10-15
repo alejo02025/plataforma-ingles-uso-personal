@@ -1036,3 +1036,7 @@ h1,h2,h3 {letter-spacing:-.045em}
  .mobile-bottom-nav button[aria-current='page'] {color:var(--accent)}
 }
 @media(max-width:390px) {.masthead-controls .language-name {display:none}.masthead-controls .language-choice{min-width:46px}.today-head h1{font-size:2.2rem}}
+
+.active-language-indicator {display:inline-flex;align-items:center;gap:7px;font-size:.77rem;font-weight:750;color:var(--text);white-space:nowrap;padding:6px 8px}
+.active-language-indicator span[aria-hidden='true'] {font-size:1.45rem}
+@media(max-width:390px){.active-language-indicator span:last-child{display:none}}
