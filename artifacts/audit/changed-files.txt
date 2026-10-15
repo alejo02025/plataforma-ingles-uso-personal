@@ -43,6 +43,7 @@ artifacts/audit/after/studio-pt-1440.png
 artifacts/audit/after/studio-pt-375.png
 artifacts/audit/after/studio-pt-390.png
 artifacts/audit/after/studio-pt-768.png
+artifacts/audit/before/collection-only.json
 artifacts/audit/before/en-1440.png
 artifacts/audit/before/en-375.png
 artifacts/audit/before/en-390.png
@@ -54,7 +55,6 @@ artifacts/audit/before/pt-390.png
 artifacts/audit/before/pt-768.png
 artifacts/audit/capture.mjs
 artifacts/audit/changed-files.txt
-artifacts/audit/playwright-integral.json
 artifacts/audit/verification.json
 artifacts/audit/verification.txt
 docs/ARCHITECTURE.md

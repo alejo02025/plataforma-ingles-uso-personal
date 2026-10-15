@@ -18,3 +18,5 @@ npm run test:pages -- tests/pages/integral-audit.spec.ts
 Los fixtures de niveles B1/B2/A2 existen solamente dentro de contextos Playwright desechables. Una base SQLite real se abre y se verifica con `PRAGMA integrity_check` antes de reintroducirla en el IndexedDB de test. Los hitos simulan historia previa; **no son un mecanismo para desbloquear niveles en producción ni una certificación de dominio**.
 
 Las capturas `class-*`, `studio-*`, `routine-*`, `oral-*` y `*-dark-*` muestran estados adicionales **posteriores**; no se presenta una comparación anterior de esos estados cuando no se capturó. `*-home-viewport-390.png` muestra el primer viewport móvil, mientras que las capturas por ancho son de página completa. Los archivos de métricas identifican mediciones locales, no puntuaciones de rendimiento certificadas.
+
+`before/collection-only.json` conserva una recolección inicial de 11 casos omitidos, sin ejecución. No se contabiliza como QA aprobada. Los resultados ejecutados de cierre están en `verification.json` y `verification.txt`.
