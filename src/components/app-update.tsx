@@ -69,8 +69,17 @@ export function AppUpdate() {
         const { exclusive, load, persist } = await import('@/lib/browser/database');
         await load();
         await exclusive(persist);
+        if (!navigator.onLine) {
+          throw new Error('Connect to the internet before updating. Your saved progress is safe.');
+        }
         const { prepareOfflineUpdate } = await import('@/lib/browser/offline');
-        await prepareOfflineUpdate();
+        // Online navigation is network-first in our service worker. A stalled
+        // offline pre-cache must not prevent loading the newly published app.
+        // The background worker update may continue after this timeout.
+        await Promise.race([
+          prepareOfflineUpdate().catch(() => undefined),
+          new Promise<void>((resolve) => setTimeout(resolve, 3000)),
+        ]);
       }
       if (document.querySelector('.oral-recording-active'))
         throw new Error('Stop the audio recording before updating.');
