@@ -17,7 +17,7 @@ test('Jazmín has Brazilian Portuguese study content, independent PDFs, vocabula
     .setInputFiles({ name: 'Alejo only.pdf', mimeType: 'application/pdf', buffer: makePdf() });
   await expect(page.getByRole('tab', { name: 'Alejo only', exact: true })).toBeVisible();
   await page
-    .getByRole('link', { name: 'Português OS', exact: false })
+    .getByRole('link', { name: '🇧🇷 Português brasileiro', exact: true })
     .filter({ visible: true })
     .click();
   await expect(page).toHaveURL(/\/portugues\/(?:\?|$)/);
@@ -130,7 +130,7 @@ test('Jazmín has Brazilian Portuguese study content, independent PDFs, vocabula
   await go(page, 'Settings');
   await page
     .locator('.settings-info')
-    .getByRole('link', { name: 'English OS', exact: false })
+    .getByRole('link', { name: '🇬🇧 English', exact: true })
     .click();
   await ready(page);
   await expect(page.getByRole('dialog', { name: 'Word of the Day' })).toHaveCount(0);
@@ -200,7 +200,7 @@ test('English and Portuguese sync to different folders even in the same private 
   expect(JSON.parse(Buffer.from(englishState, 'base64').toString()).workspace).toBe('en');
   await go(page, 'Home');
   await page
-    .getByRole('link', { name: 'Português OS', exact: false })
+    .getByRole('link', { name: '🇧🇷 Português brasileiro', exact: true })
     .filter({ visible: true })
     .click();
   await dailyWord(page);

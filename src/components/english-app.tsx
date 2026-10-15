@@ -307,14 +307,19 @@ export function EnglishApp() {
             {pt ? 'Ajustes' : 'Settings'}
           </button>
           <div className="space-switch">
-            <span>{data.profile.name}</span>
-            <SpaceLink language={pt ? 'en' : 'pt'} />
+            <span>{pt ? 'Trocar idioma' : 'Switch language'}</span>
+            <div className="language-pair">
+              <SpaceLink language="en" />
+              <SpaceLink language="pt" />
+            </div>
           </div>
         </div>
       </aside>
       <div className="main-shell">
         <div className="mobile-masthead">
           <Logo />
+          <div className="masthead-controls">
+            <SpaceLink language={pt ? 'en' : 'pt'} />
           <button
             className="icon-button"
             aria-label={pt ? 'Ajustes' : 'Settings'}
@@ -322,6 +327,7 @@ export function EnglishApp() {
           >
             <Settings2 size={19} />
           </button>
+          </div>
         </div>
         <main id="main-content" tabIndex={-1}>
           {error && (
