@@ -30,7 +30,7 @@ jobs:
       - name: Install browser for responsive smoke checks
         run: npx playwright install --with-deps chromium
       - name: Check both languages and key navigation
-        run: npm run test:pages -- --grep 'Learning-first navigation|Mobile menu|Dashboard keeps course level|online update is not blocked'
+        run: npm run test:pages -- --grep 'Today-first navigation|Today presents oral practice|Mobile menu|online update is not blocked'
 
   publish:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
