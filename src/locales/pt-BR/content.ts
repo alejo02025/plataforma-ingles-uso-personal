@@ -20,7 +20,7 @@ export const diagnosticQuestions: Question[] = [
     prompt: 'Eu ___ Jazmín.',
     options: ['é', 'sou', 'são'],
     answer: 1,
-    explanation: 'Com eu, o verbo ser fica sou. Use é com você/ele/ela e são com vocês/eles/elas.',
+    explanation: 'Com o pronome “eu”, usamos “sou”, forma do verbo “ser”. Use “é” com você/ele/ela e “são” com vocês/eles/elas.',
   },
   {
     id: 'd-a1-v',
