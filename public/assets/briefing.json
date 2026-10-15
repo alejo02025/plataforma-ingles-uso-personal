@@ -1,59 +1,68 @@
 {
-  "checkedAt": "2026-10-14T21:46:20.670357+00:00",
+  "checkedAt": "2026-10-15T11:38:01.781305+00:00",
   "stories": [
     {
-      "id": "eabcd42a819b6b05",
+      "id": "64e921aaa04cd034",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Musk says any limits on Ukraine's Starlink access down to US, not his firm",
-      "url": "https://www.bbc.co.uk/news/articles/c8wy9veedgygo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-14T20:55:24+00:00"
+      "title": "Ukraine to restart strikes on Russian oil refineries, Zelensky says",
+      "url": "https://www.bbc.co.uk/news/articles/cqwyrnwd9dw1o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T10:27:26+00:00"
     },
     {
-      "id": "056f4bacd70046a7",
+      "id": "6c74bc37416ac683",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Student protesters attack government buildings in Tirana",
-      "url": "https://www.bbc.co.uk/news/articles/cq80zk5k2ep4o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-14T20:29:05+00:00"
+      "title": "Two dead in Istanbul after heaviest rainfall in 84 years, governor says",
+      "url": "https://www.bbc.co.uk/news/articles/cq398x7j1lrwo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T10:05:29+00:00"
     },
     {
-      "id": "9658d95d216c968e",
+      "id": "5cd3d99956ee39d8",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Pope walking and recovering 'as expected' after surgery, doctors say",
-      "url": "https://www.bbc.co.uk/news/articles/cwx28r0zvm6lo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-14T15:12:46+00:00"
+      "title": "Eight crew missing after drone attack leaves tanker ablaze off Romania's coast",
+      "url": "https://www.bbc.co.uk/news/articles/c60qkgpp592yo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T11:12:54+00:00"
     },
     {
-      "id": "96faa508b0e30813",
+      "id": "4ed1aa2b2d85e0cf",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "US inflation rises more than expected - here's what is happening with prices",
-      "url": "https://www.bbc.co.uk/news/articles/cwy8lx3pg4k2o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-14T15:26:14+00:00"
+      "title": "White House defends new press secretary amid questions about her legal credentials",
+      "url": "https://www.bbc.co.uk/news/articles/ckqxne2evqreo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T08:41:04+00:00"
     },
     {
-      "id": "682415106c6cc7b9",
+      "id": "63493345091f6632",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Germany puts Ukrainian on trial accused of blowing up Nord Stream pipelines",
-      "url": "https://www.bbc.co.uk/news/articles/cw99zpmnxzmjo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-14T13:41:51+00:00"
+      "title": "Brazil's Congress approves shorter working week in win for Lula",
+      "url": "https://www.bbc.co.uk/news/articles/cmwy43pp08elo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T10:05:17+00:00"
     },
     {
-      "id": "24a07499117480c5",
+      "id": "966226156b3f1aca",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Australia's first-ever Michelin stars go to 11 restaurants in one state",
-      "url": "https://www.bbc.co.uk/news/articles/crje5we583qwo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-14T13:35:29+00:00"
+      "title": "Obama says drift towards extremism 'not inevitable'",
+      "url": "https://www.bbc.co.uk/news/articles/crwyd7vq3xw1o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T10:51:53+00:00"
+    },
+    {
+      "id": "0b7274ba05c98359",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "AI giant Anthropic woos potential investors ahead of stock market debut",
+      "url": "https://www.bbc.co.uk/news/articles/cqzjx448vxkgo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T11:34:55+00:00"
     },
     {
       "id": "f72fa532500caca1",
@@ -101,67 +110,58 @@
       "published": "2026-10-13T09:34:43+00:00"
     },
     {
-      "id": "46087bb9b492e6fa",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "AI minister warns 'likely' UK's cyber defences will be breached",
-      "url": "https://www.bbc.co.uk/news/articles/cr78pe09y05xo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-12T15:03:42+00:00"
-    },
-    {
-      "id": "1957a03b44623268",
+      "id": "8a68ae44c2e58478",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Governo da Colômbia assina decreto que criminaliza protestos sociais",
-      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-10/governo-da-colombia-assina-decreto-que-criminaliza-protestos-sociais",
-      "published": "2026-10-14T18:03:00-03:00"
+      "title": "ONU: inovação para enfrentar crise alimentar é tema de ação no Brasil",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-10/inovacao-para-enfrentar-crise-alimentar-e-tema-de-acao-no-brasil",
+      "published": "2026-10-15T07:32:00-03:00"
     },
     {
-      "id": "54258938e4426f1b",
+      "id": "26b2450e0d14bd7f",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Entenda o linfoma não Hodgkin, câncer que causou morte de Netinho",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-10/entenda-o-linfoma-nao-hodgkin-cancer-que-causou-morte-de-netinho",
-      "published": "2026-10-14T17:44:00-03:00"
+      "title": "Rádio Nacional transmite Estudiantes x Flamengo pela Libertadores",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/radio-nacional-transmite-estudiantes-x-flamengo-pela-libertadores",
+      "published": "2026-10-15T07:02:00-03:00"
     },
     {
-      "id": "3ad0bf3903e90ef6",
+      "id": "cf72182ef6525cbb",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Campanha de Lula vai ao TSE após IA da Meta restringir buscas",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/campanha-de-lula-vai-ao-tse-apos-ia-da-meta-restringir-buscas",
-      "published": "2026-10-14T17:05:00-03:00"
+      "title": "Canal Exército do Lula volta ao ar após registro no TSE",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/canal-exercito-do-lula-volta-ao-ar-apos-registro-no-tse",
+      "published": "2026-10-14T23:07:00-03:00"
     },
     {
-      "id": "33c7bb40019c6499",
+      "id": "982a1b7c3fc32f0b",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Corte amplo de gastos públicos afetaria área social, dizem economistas",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/corte-amplo-de-gastos-publicos-afetaria-area-social-dizem-economistas",
-      "published": "2026-10-14T16:20:00-03:00"
+      "title": "Fim da 6x1: saiba quando entra em vigor nova jornada de trabalho",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/fim-da-6x1-saiba-quando-entra-em-vigor-nova-jornada-de-trabalho",
+      "published": "2026-10-14T22:43:00-03:00"
     },
     {
-      "id": "4d51909cc1d2741b",
+      "id": "ba511626fdf05449",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Confiança da indústria sobe em outubro, mas setor segue pessimista",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/confianca-da-industria-sobe-em-outubro-mas-setor-segue-pessimista",
-      "published": "2026-10-14T15:59:00-03:00"
+      "title": "Senadores aprovam pedido para acelerar votação da PEC da Segurança",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/senadores-aprovam-pedido-para-acelerar-votacao-da-pec-da-seguranca",
+      "published": "2026-10-14T22:41:00-03:00"
     },
     {
-      "id": "9f83f063b19f7525",
+      "id": "eab72f8afdcf76a9",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Governo federal regulamenta Marco Legal dos Jogos Eletrônicos",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/governo-federal-regulamenta-marco-legal-dos-jogos-eletronicos",
-      "published": "2026-10-14T15:32:00-03:00"
+      "title": "Lula reforça compromisso com evangélicos; Flávio recebe apoio no RS",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/lula-reforca-compromisso-com-evangelicos-flavio-recebe-apoio-no-rs",
+      "published": "2026-10-14T22:27:00-03:00"
     }
   ],
   "unavailable": []
