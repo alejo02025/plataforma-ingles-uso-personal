@@ -343,19 +343,19 @@ export function EnglishApp() {
             <strong>{active ? 'Practice' : view === 'Assessment' ? 'Assessment' : view}</strong>
           </div>
           <div className="topbar-actions">
-            <CourseMenu data={data} navigate={(target) => void navigate(target)} />
+            <div className="topbar-course"><CourseMenu data={data} navigate={(target) => void navigate(target)} /></div>
             <AppUpdate />
             {view === 'Home' && !active && <span id="daily-word-slot" />}
-            <WordHelpCloud data={data} refresh={refresh} />
+            <div className="topbar-extra"><WordHelpCloud data={data} refresh={refresh} /></div>
             {process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github' && (
-              <GitHubSyncStatus onOpen={() => setSettings(true)} />
+              <div className="topbar-extra"><GitHubSyncStatus onOpen={() => setSettings(true)} /></div>
             )}
-            <span className="private-label">
+            <span className="private-label topbar-extra">
               <span className="status-dot" />
               {data.protected ? 'Protected space' : 'Personal use'}
             </span>
             <button
-              className="icon-button"
+              className="icon-button topbar-extra"
               onClick={toggleTheme}
               aria-label={
                 data.profile.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
