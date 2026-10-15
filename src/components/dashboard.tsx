@@ -14,6 +14,8 @@ import {
   studyRecommendation,
 } from '@/lib/study-recommendation';
 import { evidenceSummary } from '@/lib/evidence-summary';
+import { placementSummary } from '@/lib/placement';
+import { oralTask } from '@/lib/oral-practice';
 import { DailyGuide } from './daily-guide';
 import { useEffect, useState } from 'react';
 import { greetingForHour } from '@/lib/momentum';
@@ -159,6 +161,8 @@ export function Dashboard({
   const pt = isPortuguese;
   const journey = learningJourney(data);
   const summary = evidenceSummary(data);
+  const placement = placementSummary(data);
+  const oralPrompt = oralTask(journey.level, pt).prompt;
   const [pausedRoutine, setPausedRoutine] = useState<RoutineDraft | null>(null);
   useEffect(() => {
     const readPaused = () => {
@@ -214,14 +218,18 @@ export function Dashboard({
         as="small"
         className="audit-starting-context"
         native={
-          pt
-            ? 'Ponto de partida: A1. O percurso de aulas e sua capacidade avaliada são registros distintos.'
-            : 'Approximate starting point: B1, with A2 foundations to consolidate. Your course path does not certify a level.'
+          data.diagnostic.completed_at
+            ? pt
+              ? `Diagnóstico orientativo: ${placement.label}. Avalia apenas leitura, gramática e vocabulário; seu percurso permanece em ${journey.level}.`
+              : `Diagnostic reference: ${placement.label}. It covers reading, grammar and vocabulary only; your course path remains at ${journey.level}.`
+            : pt
+              ? `Percurso atual: ${journey.level}. Faça o diagnóstico para obter uma primeira referência; o percurso não certifica proficiência.`
+              : `Current course path: ${journey.level}. Take the diagnostic for an initial reference; completing classes does not certify proficiency.`
         }
       >
-        {pt
-          ? 'Punto de partida: A1. El recorrido de clases y tu capacidad evaluada son registros distintos.'
-          : 'Punto de partida aproximado: B1, con bases de A2 para consolidar. El recorrido de clases no certifica un nivel.'}
+        {data.diagnostic.completed_at
+          ? `Diagnóstico orientativo: ${placement.label}. Evalúa solo lectura, gramática y vocabulario. Tu recorrido sigue en ${journey.level}.`
+          : `Recorrido actual: ${journey.level}. Realizá el diagnóstico para obtener una referencia inicial; avanzar de clase no certifica tu nivel.`}
       </StudyCopy>
       <section
         className="card audit-continue"
@@ -355,6 +363,22 @@ export function Dashboard({
           ))}
         </div>
         <DailyRewards data={data} />
+      </section>
+      <section className="audit-speaking-step" aria-label={pt ? 'Prática oral sugerida' : 'Suggested speaking practice'}>
+        <span className="audit-speaking-icon"><Headphones size={23} aria-hidden="true" /></span>
+        <div className="audit-speaking-copy">
+          <span className="eyebrow">{pt ? 'COLOQUE EM PALAVRAS' : 'PUT IT INTO WORDS'}</span>
+          <h2>{pt ? 'Fale um pouco hoje' : 'Say something today'}</h2>
+          <p lang={pt ? 'pt-BR' : 'en'}>{oralPrompt}</p>
+          <small lang="es">
+            {pt
+              ? 'Practicá en voz alta y guardá una grabación si querés. La pronunciación todavía no se califica.'
+              : 'Practicá en voz alta y, si querés, guardá una grabación. No se asigna una nota de pronunciación.'}
+          </small>
+        </div>
+        <button className="button secondary" onClick={() => navigate('Oral practice')}>
+          {pt ? 'Praticar fala' : 'Practise speaking'} <ArrowRight size={16}/>
+        </button>
       </section>
       <section
         className="card audit-skills"
