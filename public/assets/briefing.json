@@ -1,59 +1,68 @@
 {
-  "checkedAt": "2026-10-15T11:38:01.781305+00:00",
+  "checkedAt": "2026-10-15T20:33:04.691896+00:00",
   "stories": [
+    {
+      "id": "89e7ce0e0402bd6a",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Trump calls off livestream of Fort Hood attacker's execution by firing squad",
+      "url": "https://www.bbc.co.uk/news/articles/crx23qlnj27qo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T17:47:22+00:00"
+    },
     {
       "id": "64e921aaa04cd034",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Ukraine to restart strikes on Russian oil refineries, Zelensky says",
+      "title": "Russia accuses Ukraine of attacking oil refinery after Zelensky says strikes to resume",
       "url": "https://www.bbc.co.uk/news/articles/cqwyrnwd9dw1o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-15T10:27:26+00:00"
+      "published": "2026-10-15T16:50:18+00:00"
     },
     {
-      "id": "6c74bc37416ac683",
+      "id": "fd2f4943d47bdbb7",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Two dead in Istanbul after heaviest rainfall in 84 years, governor says",
-      "url": "https://www.bbc.co.uk/news/articles/cq398x7j1lrwo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-15T10:05:29+00:00"
+      "title": "Maduro pleads not guilty to new torture-related charges in New York",
+      "url": "https://www.bbc.co.uk/news/articles/cqwyrn1l74zro?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T16:52:44+00:00"
     },
     {
-      "id": "5cd3d99956ee39d8",
+      "id": "d64e80c26203100f",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Eight crew missing after drone attack leaves tanker ablaze off Romania's coast",
-      "url": "https://www.bbc.co.uk/news/articles/c60qkgpp592yo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-15T11:12:54+00:00"
+      "title": "At least 33 pupils and teacher killed after school roof collapses in Pakistan",
+      "url": "https://www.bbc.co.uk/news/articles/cked326llddgo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T15:26:16+00:00"
     },
     {
-      "id": "4ed1aa2b2d85e0cf",
+      "id": "d52188897cfc6aff",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "White House defends new press secretary amid questions about her legal credentials",
-      "url": "https://www.bbc.co.uk/news/articles/ckqxne2evqreo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-15T08:41:04+00:00"
+      "title": "Houthi missile attack on Yemeni presidential palace kills two, minister says",
+      "url": "https://www.bbc.co.uk/news/articles/cm62y6lp73zdo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T17:18:49+00:00"
     },
     {
-      "id": "63493345091f6632",
+      "id": "d9e40c1e28588cff",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Brazil's Congress approves shorter working week in win for Lula",
-      "url": "https://www.bbc.co.uk/news/articles/cmwy43pp08elo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-15T10:05:17+00:00"
+      "title": "Was Neanderthal life violent? This wound suggests lethal fighting was more common",
+      "url": "https://www.bbc.co.uk/news/articles/c6jrwn3y3xe9o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T15:00:05+00:00"
     },
     {
-      "id": "966226156b3f1aca",
+      "id": "465bd43d1fcc239a",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Obama says drift towards extremism 'not inevitable'",
-      "url": "https://www.bbc.co.uk/news/articles/crwyd7vq3xw1o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-15T10:51:53+00:00"
+      "title": "GTA 6 - all you need to know about Rockstar's blockbuster game",
+      "url": "https://www.bbc.co.uk/news/articles/c9q20djz4wno?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T14:25:48+00:00"
     },
     {
       "id": "0b7274ba05c98359",
@@ -101,67 +110,58 @@
       "published": "2026-10-13T15:59:07+00:00"
     },
     {
-      "id": "a814e655ef43ac12",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Phase Eight and Hobbs owner hit by cyber-attack, as H&M probes separate hack claim",
-      "url": "https://www.bbc.co.uk/news/articles/cwly38gjkejko?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-13T09:34:43+00:00"
-    },
-    {
-      "id": "8a68ae44c2e58478",
+      "id": "70211e4c3dc865b2",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "ONU: inovação para enfrentar crise alimentar é tema de ação no Brasil",
-      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-10/inovacao-para-enfrentar-crise-alimentar-e-tema-de-acao-no-brasil",
-      "published": "2026-10-15T07:32:00-03:00"
+      "title": "De olho na liderança: dupla de Stefani vence estreia no WTA de Wuhan",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/de-olho-na-lideranca-dupla-de-stefani-vence-estreia-no-wta-de-wuhan",
+      "published": "2026-10-15T16:19:00-03:00"
     },
     {
-      "id": "26b2450e0d14bd7f",
+      "id": "42fade832916916f",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Rádio Nacional transmite Estudiantes x Flamengo pela Libertadores",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/radio-nacional-transmite-estudiantes-x-flamengo-pela-libertadores",
-      "published": "2026-10-15T07:02:00-03:00"
+      "title": "Participação do Brasil em pesquisas clínicas cresce após marco legal",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-10/participacao-do-brasil-em-pesquisas-clinicas-cresce-apos-marco-legal",
+      "published": "2026-10-15T16:17:00-03:00"
     },
     {
-      "id": "cf72182ef6525cbb",
+      "id": "66a7e729c75592ed",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Canal Exército do Lula volta ao ar após registro no TSE",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/canal-exercito-do-lula-volta-ao-ar-apos-registro-no-tse",
-      "published": "2026-10-14T23:07:00-03:00"
+      "title": "União quitou R$ 244 milhões para estados e municípios em setembro",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/uniao-quitou-r-244-milhoes-para-estados-e-municipios-em-setembro",
+      "published": "2026-10-15T14:56:00-03:00"
     },
     {
-      "id": "982a1b7c3fc32f0b",
+      "id": "f77d09bb0f530ccf",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Fim da 6x1: saiba quando entra em vigor nova jornada de trabalho",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/fim-da-6x1-saiba-quando-entra-em-vigor-nova-jornada-de-trabalho",
-      "published": "2026-10-14T22:43:00-03:00"
+      "title": "Docentes usam inteligência artificial para inovar e engajar alunos",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-10/docentes-usam-inteligencia-artificial-para-inovar-e-engajar-alunos",
+      "published": "2026-10-15T14:45:00-03:00"
     },
     {
-      "id": "ba511626fdf05449",
+      "id": "05b272cdf7f3d4ea",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Senadores aprovam pedido para acelerar votação da PEC da Segurança",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/senadores-aprovam-pedido-para-acelerar-votacao-da-pec-da-seguranca",
-      "published": "2026-10-14T22:41:00-03:00"
+      "title": "Imprensa estrangeira vê vitória de Lula em aprovação do fim da 6x1",
+      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-10/imprensa-estrangeira-ve-vitoria-de-lula-em-aprovacao-do-fim-da-6x1",
+      "published": "2026-10-15T12:37:00-03:00"
     },
     {
-      "id": "eab72f8afdcf76a9",
+      "id": "b24eaab834bddabc",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Lula reforça compromisso com evangélicos; Flávio recebe apoio no RS",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/lula-reforca-compromisso-com-evangelicos-flavio-recebe-apoio-no-rs",
-      "published": "2026-10-14T22:27:00-03:00"
+      "title": "Fim da escala 6x1 traz esperança de mais tempo para família e saúde",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/fim-da-escala-6x1-traz-esperanca-de-mais-tempo-para-familia-e-saude",
+      "published": "2026-10-15T12:27:00-03:00"
     }
   ],
   "unavailable": []
