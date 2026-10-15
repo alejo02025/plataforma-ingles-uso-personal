@@ -7,11 +7,13 @@ for (const pt of [false, true]) {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(pt ? './portugues/' : './');
     const daily = page.getByRole('dialog', { name: pt ? 'Palavra do dia' : 'Word of the Day' });
-    if (await daily.isVisible()) {
-      await daily
-        .getByRole('button', { name: pt ? 'Fechar palavra do dia' : 'Close daily word' })
-        .click();
-    }
+    // The daily popup mounts asynchronously; waiting for it avoids a race where it
+    // opens during the later oral-practice click.
+    await expect(daily).toBeVisible();
+    await daily
+      .getByRole('button', { name: pt ? 'Fechar palavra do dia' : 'Close daily word' })
+      .click();
+    await expect(daily).toBeHidden();
     await expect(page.locator('.audit-starting-context')).toContainText(
       pt ? 'Percurso atual: A1' : 'Current course path: A2',
     );
@@ -25,6 +27,8 @@ for (const pt of [false, true]) {
         .toBe(true);
       await expect(oral.getByRole('button')).toBeVisible();
     }
+    await page.setViewportSize({ width: 390, height: 844 });
+    await oral.scrollIntoViewIfNeeded();
     await oral.getByRole('button', {
       name: pt ? 'Praticar fala' : 'Practise speaking',
     }).click();
