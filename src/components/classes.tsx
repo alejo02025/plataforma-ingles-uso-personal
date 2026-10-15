@@ -256,13 +256,14 @@ export function Classes({
               const latest = history.findLast((r) => attempt(r)!.lessonId === item.id);
               return (
                 <button
-                  className={`class-card ${pending.length ? 'is-locked' : ''}`}
+                  className={`class-card ${pending.length ? 'is-locked' : ''} ${latest ? 'is-complete' : ''}`}
                   aria-label={`${item.title}${pending.length ? ' · Locked' : ''}`}
                   key={item.id}
                   onClick={() => setSelected(item.id)}
                 >
                   <span className="class-card-top">
-                    <span>
+                    <span className="class-node-art" aria-hidden="true">{['💬', '🧩', '🎧', '✍️'][index % 4]}</span>
+                    <span className="class-node-meta">
                       {item.level} · <Clock3 size={13} /> 8 min
                     </span>
                     {pending.length ? <LockKeyhole size={23} /> : <BookOpen size={23} />}
