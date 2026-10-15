@@ -1,11 +1,6 @@
 'use client';
-import { StudyCopy } from './study-copy';
-import { HomeRoutine } from './home-routine';
-import { DailyRewards } from './daily-rewards';
-import { FirstSteps } from './first-steps';
-import { studyStorage } from '@/lib/workspace';
+import { studyStorage, isPortuguese } from '@/lib/workspace';
 import { readRoutineDraft, type RoutineDraft } from '@/lib/browser/routine-draft';
-import { isPortuguese } from '@/lib/workspace';
 import { learningJourney } from '@/lib/course-route';
 import {
   dailyBudgetKey,
@@ -14,28 +9,11 @@ import {
   studyRecommendation,
 } from '@/lib/study-recommendation';
 import { evidenceSummary } from '@/lib/evidence-summary';
-import { placementSummary } from '@/lib/placement';
-import { oralTask } from '@/lib/oral-practice';
-import { DailyGuide } from './daily-guide';
 import { useEffect, useState } from 'react';
-import { greetingForHour } from '@/lib/momentum';
-import {
-  ArrowRight,
-  ArrowUpRight,
-  BookOpen,
-  Check,
-  Feather,
-  Languages,
-  CalendarDays,
-  Clock3,
-  FileText,
-  Target,
-  Headphones,
-  ChevronRight,
-} from 'lucide-react';
+import { ArrowRight, ArrowUpRight, BookOpen, Check, Feather, Languages, Clock3, Headphones, ChevronRight } from 'lucide-react';
 import type { Snapshot, Activity } from '@/lib/types';
 import { skillNames } from '@/lib/learning';
-import { Heading, dateLabel } from './ui';
+import { dateLabel } from './ui';
 export const activityIcons = {
   reading: BookOpen,
   grammar: Languages,
