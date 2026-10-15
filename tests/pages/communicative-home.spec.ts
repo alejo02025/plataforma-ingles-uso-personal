@@ -28,7 +28,7 @@ for (const pt of [false, true]) {
       await expect(oral.getByRole('button')).toBeVisible();
     }
     await page.setViewportSize({ width: 390, height: 844 });
-    await oral.scrollIntoViewIfNeeded();
+    await oral.evaluate((element) => element.scrollIntoView({ block: 'center', behavior: 'instant' }));
     await oral.getByRole('button', {
       name: pt ? 'Praticar fala' : 'Practise speaking',
     }).click();
