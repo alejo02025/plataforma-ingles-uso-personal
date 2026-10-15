@@ -137,6 +137,10 @@ export function routineRecord(
   } catch {}
 }
 export function routineScore(set: RoutineSet, answers: string[]) {
-  return answers.filter((s, i) => normalizeAnswer(s) === normalizeAnswer(set.rounds[i].solution))
-    .length;
+  // Ignore surplus client answers instead of dereferencing a nonexistent round.
+  return set.rounds.filter(
+    (round, i) =>
+      typeof answers[i] === 'string' &&
+      normalizeAnswer(answers[i]) === normalizeAnswer(round.solution),
+  ).length;
 }
