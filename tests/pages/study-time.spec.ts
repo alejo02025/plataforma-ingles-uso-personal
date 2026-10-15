@@ -35,7 +35,7 @@ for (const pt of [false, true])
       pt ? 'Descubra palavras em contexto' : 'Discover words in context',
     );
     await expect(main.locator('p')).toContainText(pt ? 'pausa curta' : 'short break');
-    await expect(main.locator('.today-focus-meta span:last-child')).toHaveValue('5');
+    await expect(main.locator('.today-focus-meta span:last-child')).toContainText('5 min');
     await page.locator('.today-duration select').blur();
     await page.evaluate(() => {
       if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
@@ -45,7 +45,7 @@ for (const pt of [false, true])
       path: `artifacts/audit/after/time-${pt ? 'pt' : 'en'}-390.png`,
       fullPage: true,
     });
-    await expect(page.locator('.today-head')).toHaveValue('5');
+    await expect(page.locator('.today-duration select')).toHaveValue('5');
     await main
       .getByRole('button', { name: pt ? 'Começar' : 'Start', exact: true })
       .click();
@@ -145,6 +145,6 @@ test('the daily time override expires on the next study day without changing the
   await expect(page.locator('.today-duration select')).toHaveValue('20');
   // A new day can bring the previous plan's unfinished reading to the front.
   // Time expiry must preserve that backlog, rather than force a new class.
-  await expect(page.locator('.audit-continue')).toContainText('Retomá desde donde dejaste');
+  await expect(page.locator('.audit-continue')).toContainText('Pick up where you stopped');
   expect(await page.evaluate(() => localStorage.getItem('study-budget:v1:2026-10-15'))).toBe('5');
 });
