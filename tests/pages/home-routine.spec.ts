@@ -14,10 +14,12 @@ for (const pt of [false, true])
     const more = page.locator('.sidebar .nav-more');
     await more.locator('summary').click();
     await more.getByRole('button', { name: pt ? 'Praticar' : 'Practice', exact: true }).click();
+    await page.getByRole('button', { name: pt ? 'Abrir preferências' : 'Help and preferences', exact: true }).click();
     await expect(page.locator('.offline-status summary')).toContainText(
       pt ? 'Pronto sem conexão' : 'Ready offline',
       { timeout: 90000 },
     );
+    await page.getByRole('button', { name: pt ? 'Fechar preferências' : 'Close preferences', exact: true }).click();
     const path = page.locator('.home-routine'),
       level = pt ? 'A1' : 'A2';
     await expect(path.locator('.routine-path > li')).toHaveCount(5);
