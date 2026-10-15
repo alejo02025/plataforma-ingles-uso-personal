@@ -5,6 +5,7 @@ import '../styles/audit-studio.css';
 import '../styles/oral-practice.css';
 import '../styles/learning-experience.css';
 import '../styles/os-next.css';
+import '../styles/today-first.css';
 import { isPortuguese, appName, assetBase } from '@/lib/workspace';
 const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
 export const metadata: Metadata = {
