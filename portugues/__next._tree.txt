@@ -1,3 +1,3 @@
-:HL["/plataforma-ingles-uso-personal/portugues/_next/static/chunks/02y3knb0-qii4.css","style"]
+:HL["/plataforma-ingles-uso-personal/portugues/_next/static/chunks/03w47zgq72rdb.css","style"]
 1:[["children",{"s":"__PAGE__","h":160}]]
-0:{"b":"oLpmhspUpPKWgOvKp1tPH","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"Pn-HgR2hAF1ZaJMevOpz3","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
