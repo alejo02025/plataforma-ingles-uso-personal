@@ -1,59 +1,77 @@
 {
-  "checkedAt": "2026-10-14T10:37:03.715547+00:00",
+  "checkedAt": "2026-10-15T11:38:01.781305+00:00",
   "stories": [
     {
-      "id": "38baf772a938d90f",
+      "id": "64e921aaa04cd034",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Russian strikes leave 600,000 without power in Ukraine, as Starlink restrictions affect front line",
-      "url": "https://www.bbc.co.uk/news/articles/cm2d6e62p49do?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-14T10:04:28+00:00"
+      "title": "Ukraine to restart strikes on Russian oil refineries, Zelensky says",
+      "url": "https://www.bbc.co.uk/news/articles/cqwyrnwd9dw1o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T10:27:26+00:00"
     },
     {
-      "id": "4c4f3673e6e39a25",
+      "id": "6c74bc37416ac683",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Pope diagnosed with lung cancer but had successful surgery, Vatican says",
-      "url": "https://www.bbc.co.uk/news/articles/ck1wvd9dvv22o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-14T08:53:40+00:00"
+      "title": "Two dead in Istanbul after heaviest rainfall in 84 years, governor says",
+      "url": "https://www.bbc.co.uk/news/articles/cq398x7j1lrwo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T10:05:29+00:00"
     },
     {
-      "id": "682415106c6cc7b9",
+      "id": "5cd3d99956ee39d8",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Germany puts Ukrainian on trial accused of blowing up Nord Stream pipelines",
-      "url": "https://www.bbc.co.uk/news/articles/cw99zpmnxzmjo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-14T09:32:54+00:00"
+      "title": "Eight crew missing after drone attack leaves tanker ablaze off Romania's coast",
+      "url": "https://www.bbc.co.uk/news/articles/c60qkgpp592yo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T11:12:54+00:00"
     },
     {
-      "id": "994246342d5e43ad",
+      "id": "4ed1aa2b2d85e0cf",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Saudi employee charged with planting recording device in OpenAI office",
-      "url": "https://www.bbc.co.uk/news/articles/cwg5jq4vlddzo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-13T21:42:49+00:00"
+      "title": "White House defends new press secretary amid questions about her legal credentials",
+      "url": "https://www.bbc.co.uk/news/articles/ckqxne2evqreo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T08:41:04+00:00"
     },
     {
-      "id": "11f619156f457045",
+      "id": "63493345091f6632",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Turkish police raid opposition TV station, halting live broadcasts",
-      "url": "https://www.bbc.co.uk/news/articles/crx23y3d970vo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-14T10:07:02+00:00"
+      "title": "Brazil's Congress approves shorter working week in win for Lula",
+      "url": "https://www.bbc.co.uk/news/articles/cmwy43pp08elo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T10:05:17+00:00"
     },
     {
-      "id": "291095c2d1fdbb68",
+      "id": "966226156b3f1aca",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "MI5 chief warns of threats to UK from Russia, Iran and AI",
-      "url": "https://www.bbc.co.uk/news/articles/c60rl5vwpk02o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-13T15:52:15+00:00"
+      "title": "Obama says drift towards extremism 'not inevitable'",
+      "url": "https://www.bbc.co.uk/news/articles/crwyd7vq3xw1o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T10:51:53+00:00"
+    },
+    {
+      "id": "0b7274ba05c98359",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "AI giant Anthropic woos potential investors ahead of stock market debut",
+      "url": "https://www.bbc.co.uk/news/articles/cqzjx448vxkgo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-15T11:34:55+00:00"
+    },
+    {
+      "id": "f72fa532500caca1",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Toilet paper and secret recorders: What we know about the arrest of the Saudi OpenAI engineer",
+      "url": "https://www.bbc.co.uk/news/articles/cm04054ykqqqo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-14T15:54:04+00:00"
     },
     {
       "id": "d4f2375d084377be",
@@ -92,76 +110,58 @@
       "published": "2026-10-13T09:34:43+00:00"
     },
     {
-      "id": "46087bb9b492e6fa",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "AI minister warns 'likely' UK's cyber defences will be breached",
-      "url": "https://www.bbc.co.uk/news/articles/cr78pe09y05xo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-12T15:03:42+00:00"
-    },
-    {
-      "id": "1aff4bf29ee2a8bd",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "AI is less regulated than milk, says Microsoft president",
-      "url": "https://www.bbc.co.uk/news/articles/c6rmy7zmvx3lo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-12T07:47:37+00:00"
-    },
-    {
-      "id": "00320830dd5558ba",
+      "id": "8a68ae44c2e58478",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Libertadores: Rádio Nacional transmite Fluminense x Palmeiras",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/libertadores-radio-nacional-transmite-fluminense-x-palmeiras",
-      "published": "2026-10-14T06:45:00-03:00"
+      "title": "ONU: inovação para enfrentar crise alimentar é tema de ação no Brasil",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-10/inovacao-para-enfrentar-crise-alimentar-e-tema-de-acao-no-brasil",
+      "published": "2026-10-15T07:32:00-03:00"
     },
     {
-      "id": "277e0beff141914d",
+      "id": "26b2450e0d14bd7f",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Lula garante versão universitária do “Pé de Meia” caso seja reeleito",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/lula-garante-versao-universitaria-do-pe-de-meia-caso-seja-reeleito",
-      "published": "2026-10-13T22:16:00-03:00"
+      "title": "Rádio Nacional transmite Estudiantes x Flamengo pela Libertadores",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/radio-nacional-transmite-estudiantes-x-flamengo-pela-libertadores",
+      "published": "2026-10-15T07:02:00-03:00"
     },
     {
-      "id": "d03d480e378c0573",
+      "id": "cf72182ef6525cbb",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Flávio faz visita ao pai em prisão domiciliar e recebe apoios em SP",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/flavio-faz-visita-ao-pai-em-prisao-domiciliar-e-recebe-apoios-em-sp",
-      "published": "2026-10-13T22:15:00-03:00"
+      "title": "Canal Exército do Lula volta ao ar após registro no TSE",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/canal-exercito-do-lula-volta-ao-ar-apos-registro-no-tse",
+      "published": "2026-10-14T23:07:00-03:00"
     },
     {
-      "id": "29d19e2cb98e81a2",
+      "id": "982a1b7c3fc32f0b",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Perdão de dívidas de MEIs terá impacto fiscal, mas redução de custos",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/perdao-de-dividas-de-meis-tera-impacto-de-r-3-bilhoes",
-      "published": "2026-10-13T22:09:00-03:00"
+      "title": "Fim da 6x1: saiba quando entra em vigor nova jornada de trabalho",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/fim-da-6x1-saiba-quando-entra-em-vigor-nova-jornada-de-trabalho",
+      "published": "2026-10-14T22:43:00-03:00"
     },
     {
-      "id": "da90e877b15b15aa",
+      "id": "ba511626fdf05449",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Milhares de estudantes tomam a Esplanada em apoio a Lula",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/milhares-de-estudantes-tomam-esplanada-em-apoio-lula",
-      "published": "2026-10-13T21:50:00-03:00"
+      "title": "Senadores aprovam pedido para acelerar votação da PEC da Segurança",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/senadores-aprovam-pedido-para-acelerar-votacao-da-pec-da-seguranca",
+      "published": "2026-10-14T22:41:00-03:00"
     },
     {
-      "id": "72414084622b063b",
+      "id": "eab72f8afdcf76a9",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "TSE mantém veto a posts que ligam Lula e Flávio ao crime organizado",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/tse-mantem-veto-posts-que-ligam-lula-e-flavio-ao-crime-organizado",
-      "published": "2026-10-13T21:43:00-03:00"
+      "title": "Lula reforça compromisso com evangélicos; Flávio recebe apoio no RS",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/lula-reforca-compromisso-com-evangelicos-flavio-recebe-apoio-no-rs",
+      "published": "2026-10-14T22:27:00-03:00"
     }
   ],
   "unavailable": []
