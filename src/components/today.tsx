@@ -123,7 +123,7 @@ export function Today({
     <div className="today-screen" data-no-word-help>
       <header className="today-head">
         <div>
-          <h1>{pt ? 'Hoje' : 'Today'} <span className="today-title-spark" aria-hidden="true">✳</span></h1>
+          <h1>{pt ? 'Hoje' : 'Today'}</h1>
           <p>{dateLabel(data.day)}</p>
         </div>
         <label className="today-duration">
