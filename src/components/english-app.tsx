@@ -293,7 +293,13 @@ export function EnglishApp() {
                   onClick={() => void navigate(title)}
                 >
                   <Icon size={19} />
-                  {title}
+                  <span>{
+                    title === 'Library' ? (isPortuguese ? 'Leituras' : 'Readings') :
+                    title === 'My Day' ? (isPortuguese ? 'Todas as atividades' : 'All activities') :
+                    title === 'Practice' ? (isPortuguese ? 'Prática extra' : 'Extra practice') :
+                    title === 'Oral practice' ? (isPortuguese ? 'Fala' : 'Speaking') :
+                    title
+                  }</span>
                 </button>
               ))}
           </details>
