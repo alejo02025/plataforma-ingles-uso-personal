@@ -1,4 +1,5 @@
 'use client';
+import { isPortuguese } from '@/lib/workspace';
 import { courseRoute } from '@/lib/course-route';
 import { useState } from 'react';
 import { ArrowUpRight, BookOpen, FileText, Plus, Upload, X } from 'lucide-react';
@@ -21,12 +22,13 @@ export function Library({
     [showImport, setShowImport] = useState(false);
   const docs = data.documents.filter(
     (d) =>
-      (!levelOnly || d.level === currentLevel || d.filename) &&
+      !d.filename &&
+      (!levelOnly || d.level === currentLevel) &&
       (topic === 'All' || d.topic === topic) &&
       `${d.title} ${d.topic}`.toLowerCase().includes(search.toLowerCase()),
   );
   const continued = [...data.documents]
-    .filter((d) => d.updated_at)
+    .filter((d) => d.updated_at && !d.filename)
     .sort((a, b) => String(b.updated_at).localeCompare(String(a.updated_at)))[0];
   const progress = (d: Document) =>
     data.results.some((r) => r.skill === 'reading' && r.document_id === d.id)
@@ -38,12 +40,14 @@ export function Library({
     <>
       <Heading
         eyebrow="READ WITH PURPOSE"
-        title="Follow your curiosity."
-        description="Interesting ideas. English within reach. A space for your own texts."
+        title={isPortuguese ? 'Leituras' : 'Readings'}
+        description={
+          isPortuguese ? 'Escolha um texto ou adicione o seu.' : 'Choose a text or add your own.'
+        }
       >
         <Button onClick={() => setShowImport(true)}>
           <Plus size={17} />
-          Add material{' '}
+          {isPortuguese ? 'Adicionar texto' : 'Add text'}{' '}
         </Button>
       </Heading>
       {continued && (
@@ -142,10 +146,8 @@ export function Library({
   );
 }
 function ImportDialog({ refresh, close }: { refresh: () => Promise<void>; close: () => void }) {
-  const [mode, setMode] = useState('pdf'),
-    [title, setTitle] = useState(''),
+  const [title, setTitle] = useState(''),
     [text, setText] = useState(''),
-    [file, setFile] = useState<File | null>(null),
     [busy, setBusy] = useState(false),
     [error, setError] = useState('');
   const dialogRef = useDialog(close, busy);
@@ -156,8 +158,7 @@ function ImportDialog({ refresh, close }: { refresh: () => Promise<void>; close:
     try {
       const form = new FormData();
       form.set('title', title);
-      if (mode === 'pdf' && file) form.set('file', file);
-      else form.set('text', text);
+      form.set('text', text);
       await api('import', form);
       await refresh();
       close();
@@ -182,7 +183,7 @@ function ImportDialog({ refresh, close }: { refresh: () => Promise<void>; close:
         aria-labelledby="import-title"
       >
         <div className="section-heading">
-          <h2 id="import-title">Bring something that interests you.</h2>
+          <h2 id="import-title">{isPortuguese ? 'Adicionar um texto' : 'Add a text'}</h2>
           <button className="icon-button" aria-label="Close import" onClick={close} disabled={busy}>
             <X size={20} />
           </button>
@@ -191,14 +192,6 @@ function ImportDialog({ refresh, close }: { refresh: () => Promise<void>; close:
           The text is extracted and saved in your personal library. It is not automatically sent to
           an AI service.{' '}
         </p>
-        <div className="tabs">
-          <button className={mode === 'pdf' ? 'active' : ''} onClick={() => setMode('pdf')}>
-            PDF
-          </button>
-          <button className={mode === 'text' ? 'active' : ''} onClick={() => setMode('text')}>
-            Text{' '}
-          </button>
-        </div>
         <form onSubmit={upload}>
           <label className="field">
             Title{' '}
@@ -212,35 +205,17 @@ function ImportDialog({ refresh, close }: { refresh: () => Promise<void>; close:
               placeholder="For example: A weekend in Edinburgh"
             />
           </label>
-          {mode === 'pdf' ? (
-            <label className="upload-zone">
-              <Upload size={27} />
-              <strong>{file?.name || 'Choose a PDF'}</strong>
-              <span>Up to 10 MB · 150 pages · selectable text</span>
-              <input
-                type="file"
-                accept="application/pdf,.pdf"
-                required
-                onChange={(e) => {
-                  const f = e.target.files?.[0] || null;
-                  setFile(f);
-                  if (!title && f) setTitle(f.name.replace(/\.pdf$/i, ''));
-                }}
-              />
-            </label>
-          ) : (
-            <label className="field">
-              Text in English{' '}
-              <textarea
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-                required
-                minLength={80}
-                maxLength={100000}
-                placeholder="Paste an article or passage here…"
-              />
-            </label>
-          )}
+          <label className="field">
+            Text in English{' '}
+            <textarea
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              required
+              minLength={80}
+              maxLength={100000}
+              placeholder="Paste an article or passage here…"
+            />
+          </label>
           {error && (
             <p className="error" role="alert">
               {error}
@@ -252,8 +227,9 @@ function ImportDialog({ refresh, close }: { refresh: () => Promise<void>; close:
           </Button>
         </form>
         <p className="fine-print">
-          Scanned PDFs need OCR, which is not included yet. Personal texts start without an
-          estimated level.{' '}
+          {isPortuguese
+            ? 'Textos pessoais são salvos sem um nível estimado. Para PDFs, use Meus arquivos.'
+            : 'Personal texts are saved without an estimated level. For PDFs, use My files.'}
         </p>
       </section>
     </div>

@@ -24,7 +24,13 @@ export type Activity = {
   title: string;
   minutes: number;
   document_id: string | null;
-  payload: { questions?: PublicQuestion[]; prompt?: string; optional?: boolean; draft?: string };
+  payload: {
+    questions?: PublicQuestion[];
+    prompt?: string;
+    optional?: boolean;
+    draft?: string;
+    studyDay?: import('./daily-study').StudyDay;
+  };
   completed_at: string | null;
 };
 export type Word = {

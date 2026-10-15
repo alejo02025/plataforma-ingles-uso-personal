@@ -3,12 +3,14 @@ name: Validate and publish learning experience
 on:
   pull_request:
     branches: [main]
+    paths-ignore: ['**/*.md', 'artifacts/**']
   push:
     branches: [main]
+    paths-ignore: ['**/*.md', 'artifacts/**']
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 # New commits supersede outdated PR runs, without interrupting main releases.
 concurrency:
@@ -34,14 +36,33 @@ jobs:
         run: npm run build:pages
       - name: Install browser for responsive smoke checks
         run: npx playwright install --with-deps chromium
-      - name: Check both languages and key navigation
-        run: npm run test:pages -- --grep 'Today-first navigation|Today presents oral practice|time changes the recommendation|Contextual routine moves forward|Mobile menu|online update is not blocked' --workers=2
+      - name: Run the complete static regression suite
+        run: npm run test:pages -- --workers=2
+      - name: Build the server edition
+        run: npm run build
+      - name: Verify authenticated server persistence
+        run: npm run test:e2e
+      - name: Retain browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-evidence
+          path: |
+            test-results/
+            artifacts/redesign/qa/
+          retention-days: 14
 
   publish:
+    permissions:
+      contents: write
+      pages: write
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: verify
     runs-on: ubuntu-latest
     timeout-minutes: 35
+    concurrency:
+      group: pages-release
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
         with:
@@ -64,3 +85,17 @@ jobs:
             git commit -m "chore: rebuild language sites [skip ci]"
             git push origin main
           fi
+      - name: Request Pages deployment for the generated commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPOSITORY: ${{ github.repository }}
+        run: |
+          python3 - <<'PY'
+          import os, urllib.request
+          request = urllib.request.Request(
+              'https://api.github.com/repos/' + os.environ['GH_REPOSITORY'] + '/pages/builds',
+              data=b'{}', method='POST',
+              headers={'Authorization':'Bearer ' + os.environ['GH_TOKEN'], 'Accept':'application/vnd.github+json', 'X-GitHub-Api-Version':'2022-11-28'})
+          with urllib.request.urlopen(request, timeout=30) as response:
+              print('Pages build requested:', response.status)
+          PY

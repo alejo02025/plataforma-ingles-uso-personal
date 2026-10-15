@@ -1,3 +1,4 @@
+import { go, dailyWord, ready } from './navigation';
 import { test, expect } from '@playwright/test';
 import { glossary as english } from '../../src/lib/content';
 import { glossary as portuguese } from '../../src/locales/pt-BR/content';
@@ -9,14 +10,8 @@ for (const pt of [false, true])
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
     await page.goto(pt ? './portugues/' : './');
-    await page
-      .getByRole('dialog', { name: pt ? 'Palavra do dia' : 'Word of the Day' })
-      .getByRole('button', { name: pt ? 'Fechar palavra do dia' : 'Close daily word' })
-      .click();
-    await page
-      .getByRole('navigation')
-      .getByRole('button', { name: pt ? 'Jogos' : 'Games', exact: true })
-      .click();
+
+    await go(page, pt ? 'Jogos' : 'Games');
     const dictionary = pt ? portuguese : english;
     const lang = pt ? 'pt-BR' : 'en';
     for (const mode of ['match', 'sentence', 'trail']) {
@@ -86,12 +81,7 @@ for (const pt of [false, true])
         .click();
     }
     await page.goto(pt ? './portugues/' : './');
-    await page
-      .getByRole('button', {
-        name: pt ? 'Descobrir meu ponto de partida' : 'Find my starting point',
-        exact: true,
-      })
-      .click();
+    await go(page, 'Assessment');
     await page.getByRole('radio').first().check();
     await page
       .getByRole('button', { name: pt ? 'Salvar resposta' : 'Save answer', exact: true })
@@ -104,7 +94,7 @@ for (const pt of [false, true])
     );
     if (pt) {
       await page.goto('./portugues/');
-      await page.getByRole('button', { name: 'Abrir aulas', exact: true }).click();
+      await go(page, 'Classes');
       await page.locator('.class-card').first().click();
       await page.getByRole('button', { name: 'Começar a prática', exact: true }).click();
       await page.locator('.lesson-check input[value="1"]').check();
@@ -114,10 +104,7 @@ for (const pt of [false, true])
       await expect(page.locator('.lesson-feedback p.study-native')).toBeVisible();
     }
     await page.goto(pt ? './portugues/' : './');
-    await page
-      .getByRole('navigation')
-      .getByRole('button', { name: pt ? 'Estúdio de PDFs' : 'PDF Studio', exact: true })
-      .click();
+    await go(page, pt ? 'Estúdio de PDFs' : 'PDF Studio');
     const lines = pt
       ? [
           'Uma viagem curta pode ensinar muitas coisas sobre uma cidade.',
@@ -155,10 +142,7 @@ for (const pt of [false, true])
     await expect(q.locator('.answer-correction-model')).toHaveAttribute('lang', lang);
     const correction = await q.locator('.answer-correction-model').innerText();
     await page.reload();
-    await page
-      .getByRole('navigation')
-      .getByRole('button', { name: pt ? 'Estúdio de PDFs' : 'PDF Studio', exact: true })
-      .click();
+    await go(page, pt ? 'Estúdio de PDFs' : 'PDF Studio');
     await expect(
       page.locator('.studio-question').first().locator('.answer-correction-model'),
     ).toHaveText(correction);

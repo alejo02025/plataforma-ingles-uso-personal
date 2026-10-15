@@ -1,3 +1,4 @@
+import { go, dailyWord, ready } from './navigation';
 import { test, expect, type Page } from '@playwright/test';
 import { DatabaseSync } from 'node:sqlite';
 import { mkdtempSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
@@ -150,18 +151,16 @@ for (const pt of [false, true])
         if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
       });
       await page.screenshot({
-        path: `artifacts/audit/after/${pt ? 'pt' : 'en'}-${width}.png`,
+        path: `artifacts/redesign/qa/${pt ? 'pt' : 'en'}-${width}.png`,
         fullPage: true,
       });
     }
     await page.keyboard.press('Tab');
     expect(await page.evaluate(() => document.activeElement !== document.body)).toBe(true);
-    await nav(page, pt)
-      .getByRole('button', { name: pt ? 'Aulas' : 'Classes', exact: true })
-      .click();
-    await expect(page.locator('.class-levels [aria-pressed="true"]')).toContainText(
-      pt ? 'A1' : 'A2',
-    );
+    await go(page, pt ? 'Aulas' : 'Classes');
+    await expect(
+      page.getByLabel(pt ? 'Nível de estudo' : 'Study level', { exact: true }),
+    ).toHaveValue(pt ? 'A1' : 'A2');
     expect(errors).toEqual([]);
   });
 
@@ -175,22 +174,24 @@ for (const [pt, active, errors] of [
   }) => {
     await enter(page, pt);
     await historyFixture(page, pt, active, errors);
-    await nav(page, pt)
-      .getByRole('button', { name: pt ? 'Aulas' : 'Classes', exact: true })
-      .click();
-    await expect(page.locator('.class-levels [aria-pressed="true"]')).toContainText(active);
-    if (errors)
+    await go(page, pt ? 'Aulas' : 'Classes');
+    await expect(
+      page.getByLabel(pt ? 'Nível de estudo' : 'Study level', { exact: true }),
+    ).toHaveValue(active);
+    if (errors) {
+      await page.locator('.course-requirements > summary').click();
       await expect(page.locator('[data-requirement="reinforce:grammar"]').first()).toBeVisible();
+    }
     await page.reload();
-    await nav(page, pt)
-      .getByRole('button', { name: pt ? 'Aulas' : 'Classes', exact: true })
-      .click();
-    await expect(page.locator('.class-levels [aria-pressed="true"]')).toContainText(active);
+    await go(page, pt ? 'Aulas' : 'Classes');
+    await expect(
+      page.getByLabel(pt ? 'Nível de estudo' : 'Study level', { exact: true }),
+    ).toHaveValue(active);
   });
 
 test('Integral: multiple PDFs, deletion, restoration and language isolation', async ({ page }) => {
   await enter(page);
-  await nav(page, false).getByRole('button', { name: 'PDF Studio', exact: true }).click();
+  await go(page, 'PDF Studio');
   await page.getByLabel('Upload PDFs').setInputFiles([
     {
       name: 'Audit travel.pdf',
@@ -219,10 +220,10 @@ test('Integral: multiple PDFs, deletion, restoration and language isolation', as
 
   await expect(page.getByRole('tablist', { name: 'Saved PDFs' }).getByRole('tab')).toHaveCount(2);
   await enter(page, true);
-  await nav(page, true).getByRole('button', { name: 'Estúdio de PDFs', exact: true }).click();
+  await go(page, 'Estúdio de PDFs');
   await expect(page.getByRole('tab', { name: /Audit/ })).toHaveCount(0);
   await page.goto('./');
-  await nav(page, false).getByRole('button', { name: 'PDF Studio', exact: true }).click();
+  await go(page, 'PDF Studio');
   await expect(page.getByRole('tablist', { name: 'Saved PDFs' }).getByRole('tab')).toHaveCount(2);
 });
 
@@ -233,12 +234,12 @@ test('Integral: failed GitHub authorization retains local data and forgets crede
     route.fulfill({ status: 401, json: { message: 'Bad credentials' } }),
   );
   await enter(page);
-  await page.getByRole('button', { name: 'Help and preferences', exact: true }).click();
+  await go(page, 'Settings');
   await page.getByLabel('GitHub token').fill('audit-fake-token-never-real');
   await page.getByRole('button', { name: 'Connect GitHub', exact: true }).click();
   await expect(page.locator('p[role="alert"]')).toContainText(/Authorization|authorization/);
   await page.reload();
-  await page.getByRole('button', { name: 'Help and preferences', exact: true }).click();
+  await go(page, 'Settings');
   await expect(page.getByLabel('GitHub token')).toHaveValue('');
   expect(
     await page.evaluate(() => JSON.stringify(localStorage).includes('audit-fake-token-never-real')),
@@ -252,11 +253,13 @@ for (const pt of [false, true])
   }) => {
     test.setTimeout(180000);
     await enter(page, pt);
+    await go(page, 'Settings');
     await expect(page.locator('.offline-status summary')).toContainText(
       pt ? 'Pronto sem conexão' : 'Ready offline',
       { timeout: 90000 },
     );
-    await page.locator('.routine-node').nth(1).click();
+    await go(page, 'Practice');
+    await page.locator('.review-practice .activity-row').nth(1).click();
     const modal = page.locator('.routine-session');
     await modal.locator('.routine-tiles button').first().click();
     await expect(modal.locator('.routine-answer button')).toHaveCount(1);
@@ -265,8 +268,14 @@ for (const pt of [false, true])
       .click();
     await context.setOffline(true);
     await page.reload();
-    await page.locator('.routine-node').nth(1).click();
+    await go(page, 'Practice');
+    await page.locator('.review-practice .activity-row').nth(1).click();
     await expect(modal.locator('.routine-answer button')).toHaveCount(1);
+    await page
+      .locator('.routine-session')
+      .getByRole('button', { name: pt ? 'Pausar atividade' : 'Pause activity', exact: true })
+      .click();
+    await go(page, 'Settings');
     await expect(page.locator('.offline-status summary')).toContainText(
       pt ? 'Sem conexão' : 'Offline',
     );
@@ -281,7 +290,7 @@ for (const pt of [false, true])
       await page
         .locator('html')
         .evaluate((el) => getComputedStyle(el).getPropertyValue('--bg').trim()),
-    ).toBe(pt ? '#faf9f4' : '#f7f9f8');
+    ).toBe('#f6f7f9');
     const measure = () =>
       page.evaluate(() => {
         const style = getComputedStyle(document.documentElement);
@@ -304,17 +313,16 @@ for (const pt of [false, true])
       });
     for (const result of await measure())
       expect(result.ratio, result.token).toBeGreaterThanOrEqual(4.5);
+    await go(page, 'Settings');
+    await page.getByLabel(pt ? 'Aparência' : 'Appearance', { exact: true }).selectOption('dark');
     await page
-      .getByRole('button', {
-        name: pt ? 'Mudar para aparência escura' : 'Switch to dark mode',
-        exact: true,
-      })
+      .getByRole('button', { name: pt ? 'Salvar preferências' : 'Save preferences', exact: true })
       .click();
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
     for (const result of await measure())
       expect(result.ratio, result.token).toBeGreaterThanOrEqual(4.5);
     await page.screenshot({
-      path: `artifacts/audit/after/${pt ? 'pt' : 'en'}-dark-1440.png`,
+      path: `artifacts/redesign/qa/${pt ? 'pt' : 'en'}-dark-1440.png`,
       fullPage: true,
     });
   });

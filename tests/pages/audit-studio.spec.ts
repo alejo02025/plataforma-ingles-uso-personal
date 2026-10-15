@@ -1,3 +1,4 @@
+import { go, dailyWord, ready } from './navigation';
 import { test, expect } from '@playwright/test';
 import { makePdf } from '../pdf-fixture';
 
@@ -9,14 +10,8 @@ for (const pt of [false, true]) {
     page.on('pageerror', (error) => errors.push(error.message));
     await page.setViewportSize({ width: 1440, height: 1000 });
     await page.goto(pt ? './portugues/' : './');
-    await page
-      .getByRole('dialog', { name: pt ? 'Palavra do dia' : 'Word of the Day' })
-      .getByRole('button', { name: pt ? 'Fechar palavra do dia' : 'Close daily word' })
-      .click();
-    await page
-      .getByRole('navigation')
-      .getByRole('button', { name: pt ? 'Estúdio de PDFs' : 'PDF Studio', exact: true })
-      .click();
+
+    await go(page, pt ? 'Estúdio de PDFs' : 'PDF Studio');
     await page.getByLabel(pt ? 'Enviar PDFs' : 'Upload PDFs').setInputFiles({
       name: 'Context notebook.pdf',
       mimeType: 'application/pdf',
@@ -58,10 +53,7 @@ for (const pt of [false, true]) {
     await practice();
     await expect(page.locator('.studio-question textarea')).toHaveValue(draft);
     await page.reload();
-    await page
-      .getByRole('navigation')
-      .getByRole('button', { name: pt ? 'Estúdio de PDFs' : 'PDF Studio', exact: true })
-      .click();
+    await go(page, pt ? 'Estúdio de PDFs' : 'PDF Studio');
     await expect(page.locator('.studio-question textarea')).toHaveValue(draft);
     for (const width of [375, 390, 768, 1440]) {
       await page.setViewportSize({ width, height: 950 });
@@ -73,7 +65,7 @@ for (const pt of [false, true]) {
         true,
       );
       await page.screenshot({
-        path: `artifacts/audit/after/studio-${pt ? 'pt' : 'en'}-${width}.png`,
+        path: `artifacts/redesign/qa/studio-${pt ? 'pt' : 'en'}-${width}.png`,
         fullPage: true,
       });
       await practice();

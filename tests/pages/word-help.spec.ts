@@ -1,3 +1,4 @@
+import { go, dailyWord, ready } from './navigation';
 import { test, expect, type Page } from '@playwright/test';
 import { makePdf } from '../pdf-fixture';
 async function tapWord(page: Page, selector: string, word: string) {
@@ -27,18 +28,9 @@ for (const pt of [false, true])
     page.on('pageerror', (e) => errors.push(e.message));
     await page.setViewportSize({ width: 1440, height: 1000 });
     await page.goto(pt ? './portugues/' : './');
-    await page
-      .getByRole('dialog', { name: pt ? 'Palavra do dia' : 'Word of the Day' })
-      .getByRole('button', { name: pt ? 'Fechar palavra do dia' : 'Close daily word' })
-      .click();
-    await page
-      .getByRole('button', { name: pt ? 'Abrir aulas' : 'Open classes', exact: true })
-      .click();
-    await page
-      .locator('.foundation-tabs')
-      .getByRole('button', { name: pt ? 'Verbos' : 'Verbs', exact: true })
-      .click();
-    await expect(page.locator('.verb-table')).toContainText(pt ? 'estudou' : 'studied');
+
+    await go(page, 'Language help');
+
     await page
       .getByLabel(pt ? 'Escolher um sujeito' : 'Choose a subject')
       .selectOption(pt ? 'ela' : 'she');
@@ -57,7 +49,7 @@ for (const pt of [false, true])
       pt ? 'Ela vai estudar português?' : 'Will she study English?',
     );
     const cloud = page.getByRole('dialog', { name: pt ? 'Ajuda com palavras' : 'Word help' });
-    await page.locator('.verb-table tbody tr').first().locator('td button').nth(1).click();
+    await tapWord(page, '.foundation-model h3', pt ? 'estudar' : 'study');
     await expect(cloud).toBeVisible();
     await expect(cloud.locator('.word-cloud-meaning[lang="es"]')).toContainText('estudiar');
     await cloud
@@ -81,20 +73,11 @@ for (const pt of [false, true])
     await cloud
       .getByRole('button', { name: pt ? 'Fechar ajuda com palavras' : 'Close word help' })
       .click();
-    await page
-      .locator('.foundation-tabs')
-      .getByRole('button', { name: pt ? 'Frases' : 'Sentences', exact: true })
-      .click();
+    await go(page, 'Language help');
     const field = page.getByLabel(pt ? 'Minha frase do dia' : 'My daily sentence');
     await field.fill(pt ? 'Eu vou estudar amanhã.' : 'I will study tomorrow.');
     await page.reload();
-    await page
-      .getByRole('button', { name: pt ? 'Abrir aulas' : 'Open classes', exact: true })
-      .click();
-    await page
-      .locator('.foundation-tabs')
-      .getByRole('button', { name: pt ? 'Frases' : 'Sentences', exact: true })
-      .click();
+    await go(page, 'Language help');
     await expect(page.getByLabel(pt ? 'Minha frase do dia' : 'My daily sentence')).toHaveValue(
       pt ? 'Eu vou estudar amanhã.' : 'I will study tomorrow.',
     );
@@ -108,10 +91,7 @@ for (const pt of [false, true])
     await page
       .getByRole('button', { name: pt ? 'Voltar às aulas' : 'Back to classes', exact: true })
       .click();
-    await page
-      .locator('.class-levels')
-      .getByRole('button', { name: pt ? 'A1' : 'A2', exact: true })
-      .click();
+    await go(page, 'Classes');
     await page.locator('.class-card').first().click();
     await page
       .getByRole('button', { name: pt ? 'Começar a prática' : 'Start the practice', exact: true })
@@ -133,10 +113,7 @@ for (const pt of [false, true])
       .click();
     await label.click();
     await expect(label.getByRole('radio')).toBeChecked();
-    await page
-      .getByRole('navigation')
-      .getByRole('button', { name: pt ? 'Estúdio de PDFs' : 'PDF Studio', exact: true })
-      .click();
+    await go(page, pt ? 'Estúdio de PDFs' : 'PDF Studio');
     await page.getByLabel(pt ? 'Enviar PDFs' : 'Upload PDFs').setInputFiles({
       name: 'Words.pdf',
       mimeType: 'application/pdf',
@@ -194,10 +171,7 @@ for (const pt of [false, true])
     await cloud
       .getByRole('button', { name: pt ? 'Fechar ajuda com palavras' : 'Close word help' })
       .click();
-    await page
-      .getByRole('navigation', { name: pt ? 'Navegação rápida' : 'Quick navigation' })
-      .getByRole('button', { name: pt ? 'Início' : 'Home', exact: true })
-      .click();
+    await go(page, pt ? 'Início' : 'Home');
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
       true,
     );

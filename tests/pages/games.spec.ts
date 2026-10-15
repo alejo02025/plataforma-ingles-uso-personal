@@ -1,3 +1,4 @@
+import { go, dailyWord, ready, manifest } from './navigation';
 import { test, expect } from '@playwright/test';
 import { glossary as english } from '../../src/lib/content';
 import { glossary as portuguese } from '../../src/locales/pt-BR/content';
@@ -9,6 +10,7 @@ for (const pt of [false, true])
     page.on('pageerror', (e) => errors.push(e.message));
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(pt ? './portugues/' : './');
+    await dailyWord(page);
     const popup = page.getByRole('dialog', { name: pt ? 'Palavra do dia' : 'Word of the Day' });
     await popup
       .getByRole('button', { name: pt ? 'Salvar esta palavra' : 'Save this word', exact: true })
@@ -19,8 +21,8 @@ for (const pt of [false, true])
     const quick = page.getByRole('navigation', {
       name: pt ? 'Navegação rápida' : 'Quick navigation',
     });
-    await expect(page.locator('.guide-closing[lang="es"]')).toContainText('Tip:');
-    await quick.getByRole('button', { name: pt ? 'Jogos' : 'Games', exact: true }).click();
+    await expect(page.locator('.daily-guide')).toHaveCount(0);
+    await go(page, pt ? 'Jogos' : 'Games');
     await page.screenshot({ path: `/tmp/playroom-${pt ? 'pt' : 'en'}-mobile.png`, fullPage: true });
     const dictionary = pt ? portuguese : english;
     for (const mode of ['match', 'sentence', 'trail']) {
@@ -135,21 +137,23 @@ for (const pt of [false, true])
     await expect(page.locator('.game-history-row')).toHaveCount(3);
     await expect(page.locator('.assisted-label')).toHaveCount(3);
     await page.reload();
-    await quick.getByRole('button', { name: pt ? 'Jogos' : 'Games', exact: true }).click();
+    await go(page, pt ? 'Jogos' : 'Games');
     await expect(page.locator('.game-history-row')).toHaveCount(3);
-    await quick.getByRole('button', { name: pt ? 'Revisar' : 'Review', exact: true }).click();
-    await expect(page.locator('.recall-weak strong')).toHaveText('1');
+    await go(page, pt ? 'Revisar' : 'Review');
+    expect((await manifest(page, pt)).data.vocabulary[0].reviews).toBe(0);
     await page
       .getByRole('button', { name: pt ? 'Mostrar significado' : 'Show meaning', exact: true })
       .click();
     await page.getByRole('button', { name: pt ? 'Eu lembrei' : 'I remembered it' }).click();
-    await expect(page.locator('.recall-growing strong')).toHaveText('1');
-    await expect(page.locator('.recall-weak strong')).toHaveText('0');
+    expect((await manifest(page, pt)).data.vocabulary[0].reviews).toBe(1);
+    await expect(page.locator('.vocabulary-review-status')).toContainText(
+      pt ? 'Agendada' : 'Scheduled',
+    );
     await expect
       .poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth))
       .toBe(true);
     await page.screenshot({ path: `/tmp/recall-${pt ? 'pt' : 'en'}-mobile.png`, fullPage: true });
-    await quick.getByRole('button', { name: pt ? 'Progresso' : 'Progress', exact: true }).click();
+    await go(page, 'Calendar');
     await expect(
       page.getByText(pt ? 'Palavra e significado' : 'Meaning Match', { exact: true }).first(),
     ).toBeVisible();

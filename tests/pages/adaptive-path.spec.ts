@@ -1,3 +1,4 @@
+import { go, dailyWord, ready } from './navigation';
 import { test, expect } from '@playwright/test';
 import { englishClasses, portugueseClasses } from '../../src/locales/lessons/catalog';
 import { readings as enReadings } from '../../src/lib/content';
@@ -11,10 +12,7 @@ for (const pt of [false, true])
     const errors: string[] = [];
     page.on('pageerror', (e) => errors.push(e.message));
     await page.goto(pt ? './portugues/' : './');
-    await page
-      .getByRole('dialog', { name: pt ? 'Palavra do dia' : 'Word of the Day' })
-      .getByRole('button', { name: pt ? 'Fechar palavra do dia' : 'Close daily word' })
-      .click();
+
     const nav = page.getByRole('navigation', {
       name: pt ? 'Navegação principal' : 'Main navigation',
     });
@@ -60,7 +58,7 @@ for (const pt of [false, true])
       })
       .click();
     async function read(correct: boolean) {
-      await nav.getByRole('button', { name: pt ? 'Biblioteca' : 'Library', exact: true }).click();
+      await go(page, pt ? 'Biblioteca' : 'Library');
       const title = await page.locator('.document-card h2').first().innerText();
       const doc = [
         ...(pt ? ptReadings : enReadings),
@@ -79,37 +77,19 @@ for (const pt of [false, true])
     }
     await read(false);
     await read(false);
-    await nav.getByRole('button', { name: pt ? 'Início' : 'Home', exact: true }).click();
-    await page.locator('.audit-explore-day > summary').click();
-    await expect(page.locator('.daily-guide')).toContainText('Hoy conviene reforzar');
-    await expect(page.locator('.home-routine')).toContainText('Necesitás reforzar lectura');
-    await page
-      .getByRole('button', {
-        name: pt ? 'Escolher uma seção de estudo' : 'Choose a learning section',
-        exact: true,
-      })
-      .click();
-    const menu = page.getByRole('dialog', { name: pt ? 'Seções de estudo' : 'Learning sections' });
-    await expect(menu.locator('.flag-next-step')).toContainText('Necesitás reforzar lectura');
-    await expect(
-      menu
-        .locator('.course-category')
-        .filter({ hasText: pt ? 'Leitura para a vida real' : 'Reading for real life' }),
-    ).toContainText(pt ? 'Reforçar primeiro' : 'Reinforce first');
-    await expect(menu.getByRole('button', { name: /Speaking|Fala e pronúncia/ })).toHaveCount(0);
-    await menu
-      .getByRole('button', {
-        name: pt ? 'Abrir meu percurso' : 'Open my learning path',
-        exact: true,
-      })
-      .click();
+    await go(page, pt ? 'Início' : 'Home');
+    await classes();
+    await page.locator('.course-requirements > summary').click();
+    await expect(page.locator('[data-requirement="reinforce:reading"]')).toContainText(
+      'Necesitás reforzar lectura',
+    );
     await page.locator('.class-card').nth(1).click();
     await expect(page.locator('.course-locked')).toContainText('Necesitás reforzar lectura');
     await expect(page.locator('.lesson-room')).toHaveCount(0);
     await read(true);
     await classes();
     await expect(
-      page.locator('.course-connected [data-requirement="reinforce:reading"]'),
+      page.locator('.course-requirements [data-requirement="reinforce:reading"]'),
     ).toHaveCount(0);
     await page.locator('.class-card').nth(1).click();
     await expect(page.locator('.lesson-room')).toBeVisible();

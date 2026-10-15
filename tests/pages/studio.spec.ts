@@ -1,3 +1,4 @@
+import { go, dailyWord, ready } from './navigation';
 import { test, expect } from '@playwright/test';
 import { makePdf } from '../pdf-fixture';
 test('PDF Studio, daily words, real local AI, responsive views and update banner', async ({
@@ -14,11 +15,10 @@ test('PDF Studio, daily words, real local AI, responsive views and update banner
   });
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto('./');
-  await expect(
-    page.getByRole('heading', { name: /Good (morning|afternoon|evening), Alejo\./ }),
-  ).toBeVisible();
-  await expect(page.getByRole('dialog', { name: 'Word of the Day' })).toBeVisible();
+  await ready(page);
+  await expect(page.getByRole('dialog', { name: 'Word of the Day' })).toHaveCount(0);
   await page.screenshot({ path: '/tmp/english-os-home-desktop.png', fullPage: true });
+  await dailyWord(page);
   const daily = page.getByRole('dialog', { name: 'Word of the Day' });
   const word = await daily.getByRole('heading').innerText();
   const usage = (await daily.locator('blockquote').innerText()).replace(/[“”]/g, '');
@@ -28,19 +28,10 @@ test('PDF Studio, daily words, real local AI, responsive views and update banner
   await expect(page.getByRole('heading', { name: word, exact: true }).first()).toBeVisible();
   await page.getByRole('button', { name: 'Everyday sentences', exact: true }).click();
   await expect(page.locator('.word-library h3').filter({ hasText: usage })).toBeVisible();
-  await page.getByRole('navigation').getByRole('button', { name: 'Progress', exact: true }).click();
-  await page
-    .getByRole('group', { name: 'Interactive practice momentum chart' })
-    .getByRole('button', { name: /View practice on/ })
-    .first()
-    .click();
-  await expect(page.getByText('No practice saved on this day. Momentum eased down.')).toBeVisible();
-  await page
-    .getByRole('group', { name: 'Interactive practice momentum chart' })
-    .getByRole('button', { name: /View practice on/ })
-    .last()
-    .click();
-  await expect(page.locator('.momentum-records')).toContainText('Words saved:');
+  await go(page, 'Progress');
+  await expect(page.locator('.week-days button')).toHaveCount(7);
+  await page.locator('.week-days button').last().click();
+  await expect(page.locator('.day-detail')).toBeVisible();
   await page.setViewportSize({ width: 390, height: 844 });
   await expect
     .poll(() =>
@@ -52,7 +43,7 @@ test('PDF Studio, daily words, real local AI, responsive views and update banner
   );
   await page.screenshot({ path: '/tmp/english-os-home-mobile.png', fullPage: true });
   await page.setViewportSize({ width: 1440, height: 1000 });
-  await page.getByRole('navigation').getByRole('button', { name: 'PDF Studio' }).click();
+  await go(page, 'PDF Studio');
   await page
     .getByLabel('Upload PDFs')
     .setInputFiles({ name: 'Journey.pdf', mimeType: 'application/pdf', buffer: makePdf() });
@@ -126,8 +117,8 @@ test('PDF Studio, daily words, real local AI, responsive views and update banner
     .toBeLessThanOrEqual(1);
   await page.screenshot({ path: '/tmp/english-os-studio-mobile.png', fullPage: true });
   await page.reload();
-  await page.getByRole('button', { name: 'Open navigation' }).click();
-  await page.getByRole('navigation').getByRole('button', { name: 'PDF Studio' }).click();
+
+  await go(page, 'PDF Studio');
   await page.locator('.studio-tabs').getByRole('button', { name: 'Practice', exact: true }).click();
   await expect(page.getByText(/open answer has not been automatically graded/)).toBeVisible();
   await expect(page.locator('.studio-question textarea')).toHaveValue(
@@ -141,6 +132,7 @@ test('PDF Studio, daily words, real local AI, responsive views and update banner
     route.fulfill({ json: { build: 'a-future-test-build' } }),
   );
   await page.reload();
+  await go(page, 'Settings');
   await expect(page.locator('.app-update-banner')).toContainText(
     'A new version of the app is available.',
   );
@@ -149,8 +141,8 @@ test('PDF Studio, daily words, real local AI, responsive views and update banner
     .getByRole('button', { name: 'Update', exact: true })
     .click();
   await expect(page).toHaveURL(/updated=/);
-  await page.getByRole('button', { name: 'Open navigation' }).click();
-  await page.getByRole('navigation').getByRole('button', { name: 'PDF Studio' }).click();
+
+  await go(page, 'PDF Studio');
   await page.getByRole('button', { name: 'Chat', exact: true }).click();
   await expect(page.locator('.studio-message.assistant').last().locator('p')).toHaveText(
     answerText,
@@ -168,11 +160,8 @@ test('local AI compatibility engine stays on this site when JSPI is unavailable'
   const fetched: string[] = [];
   page.on('request', (request) => fetched.push(request.url()));
   await page.goto('./');
-  await page
-    .getByRole('dialog', { name: 'Word of the Day' })
-    .getByRole('button', { name: 'Close daily word' })
-    .click();
-  await page.getByRole('navigation').getByRole('button', { name: 'PDF Studio' }).click();
+
+  await go(page, 'PDF Studio');
   await page
     .getByLabel('Upload PDFs')
     .setInputFiles({ name: 'Journey.pdf', mimeType: 'application/pdf', buffer: makePdf() });

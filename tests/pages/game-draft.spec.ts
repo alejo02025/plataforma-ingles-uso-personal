@@ -1,3 +1,4 @@
+import { go, dailyWord, ready } from './navigation';
 import { test, expect } from '@playwright/test';
 import { glossary as en } from '../../src/lib/content';
 import { glossary as ptGlossary } from '../../src/locales/pt-BR/content';
@@ -6,15 +7,8 @@ for (const pt of [false, true])
     page,
   }) => {
     await page.goto(pt ? './portugues/' : './');
-    await page
-      .getByRole('dialog', { name: pt ? 'Palavra do dia' : 'Word of the Day' })
-      .getByRole('button', { name: pt ? 'Fechar palavra do dia' : 'Close daily word' })
-      .click();
-    const games = () =>
-      page
-        .getByRole('navigation', { name: pt ? 'Navegação principal' : 'Main navigation' })
-        .getByRole('button', { name: pt ? 'Jogos' : 'Games', exact: true })
-        .click();
+
+    const games = () => go(page, 'Games');
     await games();
     await page.locator('.game-match').click();
     await page
@@ -27,6 +21,7 @@ for (const pt of [false, true])
     await page
       .getByRole('button', { name: pt ? 'Verificar resposta' : 'Check answer', exact: true })
       .click();
+    await go(page, 'Settings');
     await page
       .getByRole('button', { name: pt ? 'Atualizar aplicativo' : 'Update app', exact: true })
       .click();

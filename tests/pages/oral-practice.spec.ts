@@ -1,8 +1,10 @@
+import { go, dailyWord, ready } from './navigation';
 import { test, expect } from '@playwright/test';
+import { existsSync } from 'node:fs';
 import { oralTask } from '../../src/lib/oral-practice';
 test.use({
   launchOptions: {
-    executablePath: '/usr/bin/chromium',
+    executablePath: existsSync('/usr/bin/chromium') ? '/usr/bin/chromium' : undefined,
     args: ['--no-sandbox', '--use-fake-device-for-media-stream', '--use-fake-ui-for-media-stream'],
   },
 });
@@ -16,13 +18,8 @@ for (const pt of [false, true])
     await page.setViewportSize({ width: 390, height: 844 });
     await context.grantPermissions(['microphone']);
     await page.goto(pt ? './portugues/' : './');
-    await page
-      .getByRole('button', { name: pt ? 'Fechar palavra do dia' : 'Close daily word', exact: true })
-      .click();
-    await page
-      .locator('.audit-shortcuts')
-      .getByRole('button', { name: pt ? 'Prática oral' : 'Oral practice', exact: true })
-      .click();
+
+    await go(page, 'Oral practice');
     const room = page.locator('.oral-room');
     await expect(room).toContainText('no equivale a evaluar tu pronunciación');
     await room
@@ -53,10 +50,7 @@ for (const pt of [false, true])
     await expect(room.locator('.oral-history article')).toHaveCount(1);
     await expect(room.locator('.oral-history audio')).toHaveAttribute('src', /^blob:/);
     await page.reload();
-    await page
-      .locator('.audit-shortcuts')
-      .getByRole('button', { name: pt ? 'Prática oral' : 'Oral practice', exact: true })
-      .click();
+    await go(page, 'Oral practice');
     await expect(room.locator('.oral-history audio')).toHaveAttribute('src', /^blob:/);
     await expect(room.locator('.oral-history')).toContainText(
       pt ? 'Pronúncia: não avaliada' : 'Pronunciation: not assessed',
@@ -81,38 +75,29 @@ for (const pt of [false, true])
     await expect(room.locator('.oral-history article')).toHaveCount(2);
     await expect(room.locator('.answer-correction .study-native')).toHaveCount(2);
     await page.screenshot({
-      path: `artifacts/audit/after/oral-${pt ? 'pt' : 'en'}-390.png`,
+      path: `artifacts/redesign/qa/oral-${pt ? 'pt' : 'en'}-390.png`,
       fullPage: true,
     });
     await page.locator('.mobile-bottom-nav').getByRole('button').last().click();
-    await expect(page.locator('.momentum-records .oral-evidence-record')).toHaveCount(2);
-    await expect(page.locator('.momentum-records')).not.toContainText('oral-v1');
-    await page
-      .getByRole('button', {
-        name: pt ? 'Abrir calendário interativo' : 'Open interactive calendar',
-        exact: true,
-      })
-      .click();
+    await page.locator('.progress-oral-history > summary').click();
+    await expect(page.locator('.progress-oral-history .oral-evidence-record')).toHaveCount(2);
+    await expect(page.locator('.progress-oral-history')).not.toContainText('oral-v1');
+    await go(page, 'Calendar');
     await expect(page.locator('.calendar-day.current')).toContainText(/./);
     await expect(page.locator('.calendar-day.current .day-dot')).toHaveCount(1);
     await expect(page.locator('.day-detail .oral-evidence-record')).toHaveCount(2);
     await expect(page.locator('.day-detail')).not.toContainText('oral-v1');
     await expect(page.locator('.day-detail .empty')).toHaveCount(0);
     await page.locator('.mobile-bottom-nav').getByRole('button').first().click();
-    await page
-      .locator('.audit-shortcuts')
-      .getByRole('button', { name: pt ? 'Prática oral' : 'Oral practice', exact: true })
-      .click();
+    await go(page, 'Oral practice');
+    await go(page, 'Settings');
     await expect(page.locator('.offline-status summary')).toContainText(
       pt ? 'Pronto sem conexão' : 'Ready offline',
       { timeout: 90000 },
     );
     await context.setOffline(true);
     await page.reload();
-    await page
-      .locator('.audit-shortcuts')
-      .getByRole('button', { name: pt ? 'Prática oral' : 'Oral practice', exact: true })
-      .click();
+    await go(page, 'Oral practice');
     await expect(room.locator('.oral-history article')).toHaveCount(2);
     await expect(room.locator('.oral-history audio')).toHaveAttribute('src', /^blob:/);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
@@ -124,6 +109,7 @@ for (const pt of [false, true])
 for (const pt of [false, true])
   test(`Oral: pending microphone permission blocks navigation and a concurrent update; denial recovers (${pt ? 'PT' : 'EN'})`, async ({
     page,
+    context,
   }) => {
     await page.addInitScript(() => {
       navigator.mediaDevices.getUserMedia = () =>
@@ -133,18 +119,9 @@ for (const pt of [false, true])
         });
     });
     await page.goto(pt ? './portugues/' : './');
-    await page
-      .getByRole('button', { name: pt ? 'Fechar palavra do dia' : 'Close daily word', exact: true })
-      .click();
-    await page
-      .locator('.audit-shortcuts')
-      .getByRole('button', { name: pt ? 'Prática oral' : 'Oral practice', exact: true })
-      .click();
+
+    await go(page, 'Oral practice');
     const room = page.locator('.oral-room');
-    // Start updating first: the audio guard must also run after the update's preparation delay.
-    await page
-      .getByRole('button', { name: pt ? 'Atualizar aplicativo' : 'Update app', exact: true })
-      .click();
     await room
       .getByRole('button', { name: pt ? 'Gravar áudio' : 'Record audio', exact: true })
       .click();
@@ -155,19 +132,21 @@ for (const pt of [false, true])
         exact: true,
       }),
     ).toBeDisabled();
-    await page
-      .getByRole('navigation', { name: pt ? 'Navegação principal' : 'Main navigation' })
-      .getByRole('button', { name: pt ? 'Início' : 'Home', exact: true })
-      .click();
+    await go(page, pt ? 'Início' : 'Home');
     await expect(room).toBeVisible();
-    await expect(page.locator('.app-update-error')).toContainText(
-      pt ? 'Pare a gravação' : 'Stop the audio recording',
+    await expect(page.locator('.global-error')).toContainText(
+      pt ? 'Pare a gravação' : 'Stop the recording',
     );
-    expect(page.url()).not.toContain('refresh=');
-    await page
-      .getByRole('button', { name: pt ? 'Atualizar aplicativo' : 'Update app', exact: true })
+    const other = await context.newPage();
+    await other.goto(pt ? './' : './portugues/');
+    await go(other, 'Settings');
+    await other
+      .getByRole('button', { name: pt ? 'Update app' : 'Atualizar aplicativo', exact: true })
       .click();
-    await expect(page.locator('.app-update-banner')).toHaveCount(0);
+    await expect(other).toHaveURL(/updated=/);
+    await page.bringToFront();
+    await expect(room).toHaveClass(/oral-recording-active/);
+    expect(page.url()).not.toContain('updated=');
     await page.evaluate(() =>
       (window as unknown as { rejectMicrophone: () => void }).rejectMicrophone(),
     );

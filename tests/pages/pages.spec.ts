@@ -1,13 +1,14 @@
+import { go, dailyWord, ready } from './navigation';
 import { test, expect, type Page, type BrowserContext } from '@playwright/test';
 import { makePdf } from '../pdf-fixture';
 async function preferences(page: Page) {
-  await page.getByRole('button', { name: 'Help and preferences' }).click();
+  await go(page, 'Settings');
 }
 async function authorize(page: Page) {
   await preferences(page);
   await page.getByLabel('GitHub token').fill('github-test-fixture-never-real');
   await page.getByRole('button', { name: 'Connect GitHub', exact: true }).click();
-  await expect(page.getByRole('status')).toContainText('Synced with GitHub');
+  await expect(page.locator('.github-sync [role="status"]')).toContainText('Synced with GitHub');
 }
 test('Pages: SQLite en navegador, persistencia, PDF y sincronización privada entre dos dispositivos', async ({
   page,
@@ -64,34 +65,35 @@ test('Pages: SQLite en navegador, persistencia, PDF y sincronización privada en
     });
   await mock(page.context());
   await page.goto('./');
-  await expect(
-    page.getByRole('heading', { name: /Good (morning|afternoon|evening), Alejo\./ }),
-  ).toBeVisible();
-  await page.getByRole('button', { name: 'Find my starting point' }).click();
+  await ready(page);
+  await go(page, 'Assessment');
   await page.getByText('am', { exact: true }).click();
   await page.getByRole('button', { name: 'Save answer', exact: true }).click();
   await page.getByRole('button', { name: 'Next', exact: true }).click();
   await page.getByRole('button', { name: 'Save and leave', exact: true }).click();
   await page.reload();
-  await page.getByRole('button', { name: 'Find my starting point' }).click();
+  await go(page, 'Assessment');
   await expect(page.getByText('1 / 24 · answers saved', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Save and leave', exact: true }).click();
   await authorize(page);
-  await page.getByRole('button', { name: 'Close preferences' }).click();
-  await page.getByRole('navigation').getByRole('button', { name: 'Library' }).click();
-  await page.getByRole('button', { name: 'Add material' }).click();
-  await page.getByLabel('Title', { exact: true }).fill('Private travel PDF');
+  await go(page, 'Home');
+  await go(page, 'PDF Studio');
   await page
-    .locator('input[type=file]')
-    .setInputFiles({ name: 'travel.pdf', mimeType: 'application/pdf', buffer: makePdf() });
-  await page.getByRole('button', { name: 'Add to my library' }).click();
-  await page.getByRole('button', { name: /Private travel PDF/ }).click();
+    .getByLabel('Upload PDFs')
+    .setInputFiles({
+      name: 'Private travel PDF.pdf',
+      mimeType: 'application/pdf',
+      buffer: makePdf(),
+    });
+  await page.getByRole('tab', { name: /Private travel PDF/ }).click();
+  await page.locator('.studio-outline summary').click();
+  await page.getByRole('button', { name: 'Open full reader', exact: true }).click();
   await expect(page.getByText(/Last summer I travelled/)).toBeVisible();
   await preferences(page);
   await page.getByRole('button', { name: 'Sync now' }).click();
-  await expect(page.getByRole('status')).toContainText('Synced with GitHub');
+  await expect(page.locator('.github-sync [role="status"]')).toContainText('Synced with GitHub');
   expect(files.size).toBe(1);
-  await page.getByRole('button', { name: 'Close preferences' }).click();
+  await go(page, 'Home');
   const phoneContext = await browser.newContext({ viewport: { width: 390, height: 844 } });
   await mock(phoneContext);
   const phone = await phoneContext.newPage();
@@ -101,25 +103,24 @@ test('Pages: SQLite en navegador, persistencia, PDF y sincronización privada en
   await phone.getByLabel('Your name').fill('Alejo sincronizado');
   conflictOnce = true;
   await phone.getByRole('button', { name: 'Save preferences', exact: true }).click();
-  await expect(
-    phone.getByRole('heading', { name: /Good (morning|afternoon|evening), Alejo\ sincronizado\./ }),
-  ).toBeVisible();
+  await preferences(phone);
+  await expect(phone.getByLabel('Your name', { exact: true })).toHaveValue('Alejo sincronizado');
   await preferences(phone);
   await phone.getByRole('button', { name: 'Sync now' }).click();
-  await expect(phone.getByRole('status')).toContainText('Synced with GitHub');
-  await phone.getByRole('button', { name: 'Close preferences' }).click();
+  await expect(phone.locator('.github-sync [role="status"]')).toContainText('Synced with GitHub');
+  await go(phone, 'Home');
   await preferences(page);
   await page.getByRole('button', { name: 'Sync now' }).click();
-  await expect(page.getByRole('status')).toContainText('Synced with GitHub');
-  await page.getByRole('button', { name: 'Close preferences' }).click();
-  await page.getByRole('navigation').getByRole('button', { name: 'Home', exact: true }).click();
-  await expect(
-    page.getByRole('heading', { name: /Good (morning|afternoon|evening), Alejo\ sincronizado\./ }),
-  ).toBeVisible();
-  await phone.getByRole('button', { name: 'Open navigation' }).click();
-  await phone.locator('.nav-more summary').click();
-  await phone.getByRole('navigation').getByRole('button', { name: 'Library' }).click();
-  await phone.getByRole('button', { name: /Private travel PDF/ }).click();
+  await expect(page.locator('.github-sync [role="status"]')).toContainText('Synced with GitHub');
+  await go(page, 'Home');
+  await go(page, 'Home');
+  await preferences(page);
+  await expect(page.getByLabel('Your name', { exact: true })).toHaveValue('Alejo sincronizado');
+  await go(phone, 'Library');
+  await go(phone, 'PDF Studio');
+  await phone.getByRole('tab', { name: /Private travel PDF/ }).click();
+  await phone.locator('.studio-outline summary').click();
+  await phone.getByRole('button', { name: 'Open full reader', exact: true }).click();
   await expect(phone.getByText(/Last summer I travelled/)).toBeVisible();
   const download = phone.waitForEvent('download');
   await phone.getByRole('link', { name: 'Download original PDF' }).click();
@@ -130,9 +131,8 @@ test('Pages: SQLite en navegador, persistencia, PDF y sincronización privada en
   await phone.getByLabel('Your name').fill('Alejo offline');
   await phone.getByRole('button', { name: 'Save preferences', exact: true }).click();
   await phone.reload();
-  await expect(
-    phone.getByRole('heading', { name: /Good (morning|afternoon|evening), Alejo\ offline\./ }),
-  ).toBeVisible();
+  await preferences(phone);
+  await expect(phone.getByLabel('Your name', { exact: true })).toHaveValue('Alejo offline');
   await preferences(phone);
   await expect(phone.getByLabel('GitHub token')).toHaveValue('');
   expect(await phone.evaluate(() => JSON.stringify(localStorage))).not.toContain(

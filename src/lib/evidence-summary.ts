@@ -23,10 +23,12 @@ export function evidenceSummary(data: Snapshot) {
     return day !== null && day >= first && day <= data.day;
   });
   const days = dailyRewards(data).week.filter((d) => d.done).length;
-  const due = data.vocabulary.filter((w) => {
-    const day = dayOf(w.due_at);
-    return day !== null && day <= data.day;
-  }).length;
+  const due = data.vocabulary.filter(
+    (w) =>
+      dayOf(w.due_at) !== null &&
+      dayOf(w.due_at)! <= data.day &&
+      Date.parse(w.due_at) <= Date.now(),
+  ).length;
   const skills = measuredSkills.map((skill) => {
     const scored = data.results.filter((r) => {
       if (

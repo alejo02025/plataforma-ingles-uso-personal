@@ -31,7 +31,15 @@ function atPoint(x: number, y: number) {
   if (x < rect.left - 3 || x > rect.right + 3 || y < rect.top || y > rect.bottom) return;
   return { word: text.slice(start, end), node };
 }
-export function WordHelpCloud({ data, refresh }: { data: Snapshot; refresh: () => Promise<void> }) {
+export function WordHelpCloud({
+  data,
+  refresh,
+  showLauncher = true,
+}: {
+  data: Snapshot;
+  refresh: () => Promise<void>;
+  showLauncher?: boolean;
+}) {
   const [lookup, setLookup] = useState<Lookup | null>(null),
     [entry, setEntry] = useState<WordHelp>(),
     [armed, setArmed] = useState(false),
@@ -211,6 +219,7 @@ export function WordHelpCloud({ data, refresh }: { data: Snapshot; refresh: () =
   return (
     <>
       <button
+        hidden={!showLauncher}
         className={`icon-button word-help-toggle ${armed ? 'active' : ''}`}
         ref={button}
         aria-label="Word help"

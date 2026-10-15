@@ -31,7 +31,7 @@ export function GitHubSync() {
     };
   }, []);
   return (
-    <section className="settings-info">
+    <section className="settings-info github-sync">
       <span className="eyebrow">YOUR DEVICES · GITHUB</span>
       <p role="status">
         {status.message}

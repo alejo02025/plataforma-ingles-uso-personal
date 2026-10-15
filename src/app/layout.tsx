@@ -1,11 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
-import '../styles/audit-design.css';
-import '../styles/audit-studio.css';
-import '../styles/oral-practice.css';
-import '../styles/learning-experience.css';
-import '../styles/os-next.css';
-import '../styles/today-first.css';
+import '../styles/study-modules.css';
 import { isPortuguese, appName, assetBase } from '@/lib/workspace';
 const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
 export const metadata: Metadata = {
@@ -48,16 +43,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       data-space={isPortuguese ? 'portuguese' : 'english'}
       data-study-language={isPortuguese ? 'pt' : 'en'}
     >
-      <head>
-        <link
-          rel="preload"
-          href={`${assetBase}/assets/fonts/Nunito.ttf`}
-          as="font"
-          type="font/ttf"
-          crossOrigin="anonymous"
-        />
-        <style>{`@font-face { font-family: 'Study Rounded'; src: url('${assetBase}/assets/fonts/Nunito.ttf') format('truetype'); font-weight: 200 900; font-style: normal; font-display: swap; }`}</style>
-      </head>
       <body>{children}</body>
     </html>
   );

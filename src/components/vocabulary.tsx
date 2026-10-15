@@ -205,7 +205,7 @@ export function Vocabulary({
           {error}
         </p>
       )}
-      {!embedded && data.vocabulary.length > 0 && (
+      {data.vocabulary.length > 0 && (
         <section className="card word-library">
           <div className="section-heading">
             <h2>All your words</h2>

@@ -1,0 +1,1071 @@
+{
+  "phase": "before",
+  "origin": "https://alejo02025.github.io/plataforma-ingles-uso-personal/",
+  "live": true,
+  "tlsRelay": "Requests retrieved with Node fetch and existing trusted proxy CA; no TLS verification disabled. Browser executes actual public HTML/assets.",
+  "capturedAt": "2026-10-15T19:25:05.493Z",
+  "results": [
+    {
+      "language": "en",
+      "screen": "today",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Today"
+      ],
+      "visibleButtons": 27
+    },
+    {
+      "language": "en",
+      "screen": "classes",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Learn it. Use it."
+      ],
+      "visibleButtons": 80
+    },
+    {
+      "language": "en",
+      "screen": "review",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Your vocabulary."
+      ],
+      "visibleButtons": 24
+    },
+    {
+      "language": "en",
+      "screen": "library",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Your PDF, step by step."
+      ],
+      "visibleButtons": 21
+    },
+    {
+      "language": "en",
+      "screen": "progress",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Your progress, made clear."
+      ],
+      "visibleButtons": 27
+    },
+    {
+      "language": "en",
+      "screen": "activities",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "All activities"
+      ],
+      "visibleButtons": 23
+    },
+    {
+      "language": "en",
+      "screen": "readings",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Follow your curiosity."
+      ],
+      "visibleButtons": 31
+    },
+    {
+      "language": "en",
+      "screen": "practice",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Practise at your pace"
+      ],
+      "visibleButtons": 32
+    },
+    {
+      "language": "en",
+      "screen": "games",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Play & learn."
+      ],
+      "visibleButtons": 23
+    },
+    {
+      "language": "en",
+      "screen": "calendar",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Your calendar."
+      ],
+      "visibleButtons": 53
+    },
+    {
+      "language": "en",
+      "screen": "news",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Your daily briefing."
+      ],
+      "visibleButtons": 20
+    },
+    {
+      "language": "en",
+      "screen": "reference",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Language help."
+      ],
+      "visibleButtons": 29
+    },
+    {
+      "language": "en",
+      "screen": "oral",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Oral practice"
+      ],
+      "visibleButtons": 25
+    },
+    {
+      "language": "en",
+      "screen": "settings",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Oral practice"
+      ],
+      "visibleButtons": 28
+    },
+    {
+      "language": "en",
+      "width": 1440,
+      "errors": []
+    },
+    {
+      "language": "en",
+      "screen": "today",
+      "width": 1280,
+      "height": 800,
+      "overflow": false,
+      "h1": [
+        "Today"
+      ],
+      "visibleButtons": 27
+    },
+    {
+      "language": "en",
+      "screen": "classes",
+      "width": 1280,
+      "height": 800,
+      "overflow": false,
+      "h1": [
+        "Learn it. Use it."
+      ],
+      "visibleButtons": 80
+    },
+    {
+      "language": "en",
+      "screen": "review",
+      "width": 1280,
+      "height": 800,
+      "overflow": false,
+      "h1": [
+        "Your vocabulary."
+      ],
+      "visibleButtons": 24
+    },
+    {
+      "language": "en",
+      "screen": "library",
+      "width": 1280,
+      "height": 800,
+      "overflow": false,
+      "h1": [
+        "Your PDF, step by step."
+      ],
+      "visibleButtons": 21
+    },
+    {
+      "language": "en",
+      "screen": "progress",
+      "width": 1280,
+      "height": 800,
+      "overflow": false,
+      "h1": [
+        "Your progress, made clear."
+      ],
+      "visibleButtons": 27
+    },
+    {
+      "language": "en",
+      "screen": "settings",
+      "width": 1280,
+      "height": 800,
+      "overflow": false,
+      "h1": [
+        "Your progress, made clear."
+      ],
+      "visibleButtons": 30
+    },
+    {
+      "language": "en",
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "language": "en",
+      "screen": "today",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "h1": [
+        "Today"
+      ],
+      "visibleButtons": 25
+    },
+    {
+      "language": "en",
+      "screen": "classes",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "h1": [
+        "Learn it. Use it."
+      ],
+      "visibleButtons": 78
+    },
+    {
+      "language": "en",
+      "screen": "review",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "h1": [
+        "Your vocabulary."
+      ],
+      "visibleButtons": 22
+    },
+    {
+      "language": "en",
+      "screen": "library",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "h1": [
+        "Your PDF, step by step."
+      ],
+      "visibleButtons": 19
+    },
+    {
+      "language": "en",
+      "screen": "progress",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "h1": [
+        "Your progress, made clear."
+      ],
+      "visibleButtons": 25
+    },
+    {
+      "language": "en",
+      "screen": "settings",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "h1": [
+        "Your progress, made clear."
+      ],
+      "visibleButtons": 28
+    },
+    {
+      "language": "en",
+      "width": 768,
+      "errors": []
+    },
+    {
+      "language": "en",
+      "screen": "today",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Today"
+      ],
+      "visibleButtons": 31
+    },
+    {
+      "language": "en",
+      "screen": "classes",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Learn it. Use it."
+      ],
+      "visibleButtons": 84
+    },
+    {
+      "language": "en",
+      "screen": "review",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Your vocabulary."
+      ],
+      "visibleButtons": 28
+    },
+    {
+      "language": "en",
+      "screen": "library",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Your PDF, step by step."
+      ],
+      "visibleButtons": 25
+    },
+    {
+      "language": "en",
+      "screen": "progress",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Your progress, made clear."
+      ],
+      "visibleButtons": 31
+    },
+    {
+      "language": "en",
+      "screen": "activities",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "All activities"
+      ],
+      "visibleButtons": 27
+    },
+    {
+      "language": "en",
+      "screen": "readings",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Follow your curiosity."
+      ],
+      "visibleButtons": 35
+    },
+    {
+      "language": "en",
+      "screen": "practice",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Practise at your pace"
+      ],
+      "visibleButtons": 36
+    },
+    {
+      "language": "en",
+      "screen": "games",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Play & learn."
+      ],
+      "visibleButtons": 27
+    },
+    {
+      "language": "en",
+      "screen": "calendar",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Your calendar."
+      ],
+      "visibleButtons": 57
+    },
+    {
+      "language": "en",
+      "screen": "news",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Your daily briefing."
+      ],
+      "visibleButtons": 24
+    },
+    {
+      "language": "en",
+      "screen": "reference",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Language help."
+      ],
+      "visibleButtons": 33
+    },
+    {
+      "language": "en",
+      "screen": "oral",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Oral practice"
+      ],
+      "visibleButtons": 29
+    },
+    {
+      "language": "en",
+      "screen": "settings",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Oral practice"
+      ],
+      "visibleButtons": 32
+    },
+    {
+      "language": "en",
+      "width": 390,
+      "errors": []
+    },
+    {
+      "language": "en",
+      "screen": "today",
+      "width": 375,
+      "height": 812,
+      "overflow": false,
+      "h1": [
+        "Today"
+      ],
+      "visibleButtons": 31
+    },
+    {
+      "language": "en",
+      "screen": "classes",
+      "width": 375,
+      "height": 812,
+      "overflow": false,
+      "h1": [
+        "Learn it. Use it."
+      ],
+      "visibleButtons": 84
+    },
+    {
+      "language": "en",
+      "screen": "review",
+      "width": 375,
+      "height": 812,
+      "overflow": false,
+      "h1": [
+        "Your vocabulary."
+      ],
+      "visibleButtons": 28
+    },
+    {
+      "language": "en",
+      "screen": "library",
+      "width": 375,
+      "height": 812,
+      "overflow": false,
+      "h1": [
+        "Your PDF, step by step."
+      ],
+      "visibleButtons": 25
+    },
+    {
+      "language": "en",
+      "screen": "progress",
+      "width": 375,
+      "height": 812,
+      "overflow": false,
+      "h1": [
+        "Your progress, made clear."
+      ],
+      "visibleButtons": 31
+    },
+    {
+      "language": "en",
+      "screen": "settings",
+      "width": 375,
+      "height": 812,
+      "overflow": false,
+      "h1": [
+        "Your progress, made clear."
+      ],
+      "visibleButtons": 34
+    },
+    {
+      "language": "en",
+      "width": 375,
+      "errors": []
+    },
+    {
+      "language": "pt-BR",
+      "screen": "today",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Hoje"
+      ],
+      "visibleButtons": 27
+    },
+    {
+      "language": "pt-BR",
+      "screen": "classes",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Entenda. Use."
+      ],
+      "visibleButtons": 65
+    },
+    {
+      "language": "pt-BR",
+      "screen": "review",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Seu vocabulário."
+      ],
+      "visibleButtons": 24
+    },
+    {
+      "language": "pt-BR",
+      "screen": "library",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Seu PDF, passo a passo."
+      ],
+      "visibleButtons": 21
+    },
+    {
+      "language": "pt-BR",
+      "screen": "progress",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Seu progresso, com clareza."
+      ],
+      "visibleButtons": 27
+    },
+    {
+      "language": "pt-BR",
+      "screen": "activities",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Todas as atividades"
+      ],
+      "visibleButtons": 23
+    },
+    {
+      "language": "pt-BR",
+      "screen": "readings",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Siga sua curiosidade."
+      ],
+      "visibleButtons": 29
+    },
+    {
+      "language": "pt-BR",
+      "screen": "practice",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Pratique no seu ritmo"
+      ],
+      "visibleButtons": 32
+    },
+    {
+      "language": "pt-BR",
+      "screen": "games",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Jogue e aprenda."
+      ],
+      "visibleButtons": 23
+    },
+    {
+      "language": "pt-BR",
+      "screen": "calendar",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Seu calendário."
+      ],
+      "visibleButtons": 53
+    },
+    {
+      "language": "pt-BR",
+      "screen": "news",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Seu briefing diário."
+      ],
+      "visibleButtons": 20
+    },
+    {
+      "language": "pt-BR",
+      "screen": "reference",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Ajuda com o idioma."
+      ],
+      "visibleButtons": 29
+    },
+    {
+      "language": "pt-BR",
+      "screen": "oral",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Prática oral"
+      ],
+      "visibleButtons": 25
+    },
+    {
+      "language": "pt-BR",
+      "screen": "settings",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "h1": [
+        "Prática oral"
+      ],
+      "visibleButtons": 28
+    },
+    {
+      "language": "pt-BR",
+      "width": 1440,
+      "errors": []
+    },
+    {
+      "language": "pt-BR",
+      "screen": "today",
+      "width": 1280,
+      "height": 800,
+      "overflow": false,
+      "h1": [
+        "Hoje"
+      ],
+      "visibleButtons": 27
+    },
+    {
+      "language": "pt-BR",
+      "screen": "classes",
+      "width": 1280,
+      "height": 800,
+      "overflow": false,
+      "h1": [
+        "Entenda. Use."
+      ],
+      "visibleButtons": 65
+    },
+    {
+      "language": "pt-BR",
+      "screen": "review",
+      "width": 1280,
+      "height": 800,
+      "overflow": false,
+      "h1": [
+        "Seu vocabulário."
+      ],
+      "visibleButtons": 24
+    },
+    {
+      "language": "pt-BR",
+      "screen": "library",
+      "width": 1280,
+      "height": 800,
+      "overflow": false,
+      "h1": [
+        "Seu PDF, passo a passo."
+      ],
+      "visibleButtons": 21
+    },
+    {
+      "language": "pt-BR",
+      "screen": "progress",
+      "width": 1280,
+      "height": 800,
+      "overflow": false,
+      "h1": [
+        "Seu progresso, com clareza."
+      ],
+      "visibleButtons": 27
+    },
+    {
+      "language": "pt-BR",
+      "screen": "settings",
+      "width": 1280,
+      "height": 800,
+      "overflow": false,
+      "h1": [
+        "Seu progresso, com clareza."
+      ],
+      "visibleButtons": 30
+    },
+    {
+      "language": "pt-BR",
+      "width": 1280,
+      "errors": []
+    },
+    {
+      "language": "pt-BR",
+      "screen": "today",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "h1": [
+        "Hoje"
+      ],
+      "visibleButtons": 25
+    },
+    {
+      "language": "pt-BR",
+      "screen": "classes",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "h1": [
+        "Entenda. Use."
+      ],
+      "visibleButtons": 63
+    },
+    {
+      "language": "pt-BR",
+      "screen": "review",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "h1": [
+        "Seu vocabulário."
+      ],
+      "visibleButtons": 22
+    },
+    {
+      "language": "pt-BR",
+      "screen": "library",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "h1": [
+        "Seu PDF, passo a passo."
+      ],
+      "visibleButtons": 19
+    },
+    {
+      "language": "pt-BR",
+      "screen": "progress",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "h1": [
+        "Seu progresso, com clareza."
+      ],
+      "visibleButtons": 25
+    },
+    {
+      "language": "pt-BR",
+      "screen": "settings",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "h1": [
+        "Seu progresso, com clareza."
+      ],
+      "visibleButtons": 28
+    },
+    {
+      "language": "pt-BR",
+      "width": 768,
+      "errors": []
+    },
+    {
+      "language": "pt-BR",
+      "screen": "today",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Hoje"
+      ],
+      "visibleButtons": 31
+    },
+    {
+      "language": "pt-BR",
+      "screen": "classes",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Entenda. Use."
+      ],
+      "visibleButtons": 69
+    },
+    {
+      "language": "pt-BR",
+      "screen": "review",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Seu vocabulário."
+      ],
+      "visibleButtons": 28
+    },
+    {
+      "language": "pt-BR",
+      "screen": "library",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Seu PDF, passo a passo."
+      ],
+      "visibleButtons": 25
+    },
+    {
+      "language": "pt-BR",
+      "screen": "progress",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Seu progresso, com clareza."
+      ],
+      "visibleButtons": 31
+    },
+    {
+      "language": "pt-BR",
+      "screen": "activities",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Todas as atividades"
+      ],
+      "visibleButtons": 27
+    },
+    {
+      "language": "pt-BR",
+      "screen": "readings",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Siga sua curiosidade."
+      ],
+      "visibleButtons": 33
+    },
+    {
+      "language": "pt-BR",
+      "screen": "practice",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Pratique no seu ritmo"
+      ],
+      "visibleButtons": 36
+    },
+    {
+      "language": "pt-BR",
+      "screen": "games",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Jogue e aprenda."
+      ],
+      "visibleButtons": 27
+    },
+    {
+      "language": "pt-BR",
+      "screen": "calendar",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Seu calendário."
+      ],
+      "visibleButtons": 57
+    },
+    {
+      "language": "pt-BR",
+      "screen": "news",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Seu briefing diário."
+      ],
+      "visibleButtons": 24
+    },
+    {
+      "language": "pt-BR",
+      "screen": "reference",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Ajuda com o idioma."
+      ],
+      "visibleButtons": 33
+    },
+    {
+      "language": "pt-BR",
+      "screen": "oral",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Prática oral"
+      ],
+      "visibleButtons": 29
+    },
+    {
+      "language": "pt-BR",
+      "screen": "settings",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "h1": [
+        "Prática oral"
+      ],
+      "visibleButtons": 32
+    },
+    {
+      "language": "pt-BR",
+      "width": 390,
+      "errors": []
+    },
+    {
+      "language": "pt-BR",
+      "screen": "today",
+      "width": 375,
+      "height": 812,
+      "overflow": false,
+      "h1": [
+        "Hoje"
+      ],
+      "visibleButtons": 31
+    },
+    {
+      "language": "pt-BR",
+      "screen": "classes",
+      "width": 375,
+      "height": 812,
+      "overflow": false,
+      "h1": [
+        "Entenda. Use."
+      ],
+      "visibleButtons": 69
+    },
+    {
+      "language": "pt-BR",
+      "screen": "review",
+      "width": 375,
+      "height": 812,
+      "overflow": false,
+      "h1": [
+        "Seu vocabulário."
+      ],
+      "visibleButtons": 28
+    },
+    {
+      "language": "pt-BR",
+      "screen": "library",
+      "width": 375,
+      "height": 812,
+      "overflow": false,
+      "h1": [
+        "Seu PDF, passo a passo."
+      ],
+      "visibleButtons": 25
+    },
+    {
+      "language": "pt-BR",
+      "screen": "progress",
+      "width": 375,
+      "height": 812,
+      "overflow": false,
+      "h1": [
+        "Seu progresso, com clareza."
+      ],
+      "visibleButtons": 31
+    },
+    {
+      "language": "pt-BR",
+      "screen": "settings",
+      "width": 375,
+      "height": 812,
+      "overflow": false,
+      "h1": [
+        "Seu progresso, com clareza."
+      ],
+      "visibleButtons": 34
+    },
+    {
+      "language": "pt-BR",
+      "width": 375,
+      "errors": []
+    }
+  ]
+}

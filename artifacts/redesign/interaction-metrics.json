@@ -1,0 +1,256 @@
+{
+  "checkedAt": "2026-10-15T20:14:49.091Z",
+  "scope": "Local Chromium, no throttling, temporary profiles. Not hardware mobile or production latency. Start measured at entry; completion text checked after instant scrolling, clear of fixed navigation.",
+  "results": [
+    {
+      "language": "en",
+      "width": 1440,
+      "height": 900,
+      "readyMs": 563,
+      "paint": [
+        {
+          "name": "first-paint",
+          "ms": 112
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 112
+        }
+      ],
+      "button": {
+        "top": 453.25,
+        "bottom": 499.046875
+      },
+      "navTop": 900,
+      "startAboveFold": true,
+      "overflow": false,
+      "countClearAfterScroll": true,
+      "errors": []
+    },
+    {
+      "language": "en",
+      "width": 1280,
+      "height": 800,
+      "readyMs": 620,
+      "paint": [
+        {
+          "name": "first-paint",
+          "ms": 84
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 84
+        }
+      ],
+      "button": {
+        "top": 441.453125,
+        "bottom": 487.25
+      },
+      "navTop": 800,
+      "startAboveFold": true,
+      "overflow": false,
+      "countClearAfterScroll": true,
+      "errors": []
+    },
+    {
+      "language": "en",
+      "width": 768,
+      "height": 1024,
+      "readyMs": 630,
+      "paint": [
+        {
+          "name": "first-paint",
+          "ms": 104
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 104
+        }
+      ],
+      "button": {
+        "top": 414.171875,
+        "bottom": 459.96875
+      },
+      "navTop": 961,
+      "startAboveFold": true,
+      "overflow": false,
+      "countClearAfterScroll": true,
+      "errors": []
+    },
+    {
+      "language": "en",
+      "width": 390,
+      "height": 844,
+      "readyMs": 578,
+      "paint": [
+        {
+          "name": "first-paint",
+          "ms": 100
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 100
+        }
+      ],
+      "button": {
+        "top": 414.171875,
+        "bottom": 459.96875
+      },
+      "navTop": 781,
+      "startAboveFold": true,
+      "overflow": false,
+      "countClearAfterScroll": true,
+      "errors": []
+    },
+    {
+      "language": "en",
+      "width": 375,
+      "height": 812,
+      "readyMs": 594,
+      "paint": [
+        {
+          "name": "first-paint",
+          "ms": 100
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 100
+        }
+      ],
+      "button": {
+        "top": 414.171875,
+        "bottom": 459.96875
+      },
+      "navTop": 749,
+      "startAboveFold": true,
+      "overflow": false,
+      "countClearAfterScroll": true,
+      "errors": []
+    },
+    {
+      "language": "pt-BR",
+      "width": 1440,
+      "height": 900,
+      "readyMs": 515,
+      "paint": [
+        {
+          "name": "first-paint",
+          "ms": 108
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 108
+        }
+      ],
+      "button": {
+        "top": 463.4375,
+        "bottom": 509.234375
+      },
+      "navTop": 900,
+      "startAboveFold": true,
+      "overflow": false,
+      "countClearAfterScroll": true,
+      "errors": []
+    },
+    {
+      "language": "pt-BR",
+      "width": 1280,
+      "height": 800,
+      "readyMs": 603,
+      "paint": [
+        {
+          "name": "first-paint",
+          "ms": 108
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 108
+        }
+      ],
+      "button": {
+        "top": 448.421875,
+        "bottom": 494.21875
+      },
+      "navTop": 800,
+      "startAboveFold": true,
+      "overflow": false,
+      "countClearAfterScroll": true,
+      "errors": []
+    },
+    {
+      "language": "pt-BR",
+      "width": 768,
+      "height": 1024,
+      "readyMs": 704,
+      "paint": [
+        {
+          "name": "first-paint",
+          "ms": 140
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 140
+        }
+      ],
+      "button": {
+        "top": 426.390625,
+        "bottom": 472.1875
+      },
+      "navTop": 961,
+      "startAboveFold": true,
+      "overflow": false,
+      "countClearAfterScroll": true,
+      "errors": []
+    },
+    {
+      "language": "pt-BR",
+      "width": 390,
+      "height": 844,
+      "readyMs": 662,
+      "paint": [
+        {
+          "name": "first-paint",
+          "ms": 120
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 120
+        }
+      ],
+      "button": {
+        "top": 426.390625,
+        "bottom": 472.1875
+      },
+      "navTop": 781,
+      "startAboveFold": true,
+      "overflow": false,
+      "countClearAfterScroll": true,
+      "errors": []
+    },
+    {
+      "language": "pt-BR",
+      "width": 375,
+      "height": 812,
+      "readyMs": 817,
+      "paint": [
+        {
+          "name": "first-paint",
+          "ms": 180
+        },
+        {
+          "name": "first-contentful-paint",
+          "ms": 180
+        }
+      ],
+      "button": {
+        "top": 426.390625,
+        "bottom": 472.1875
+      },
+      "navTop": 749,
+      "startAboveFold": true,
+      "overflow": false,
+      "countClearAfterScroll": true,
+      "errors": []
+    }
+  ]
+}
