@@ -235,6 +235,18 @@ export function Classes({
               {isPortuguese ? 'Abrir aula' : 'Open class'} <ArrowRight size={17} />
             </button>
           </div>
+          <section className="course-guide-shortcut">
+            <span className="course-guide-symbol" aria-hidden="true">🧩</span>
+            <div className="course-guide-copy">
+              <span className="course-guide-kicker">{isPortuguese ? 'GUIA DE GRAMÁTICA' : 'GRAMMAR MADE SIMPLE'}</span>
+              <h3>{isPortuguese ? 'Como formar frases' : 'How to build sentences'}</h3>
+              <p lang={isPortuguese ? 'pt-BR' : 'en'}>{isPortuguese ? 'Sujeito, verbo e complemento. Explore perguntas, negativas e todos os tempos.' : 'Subject, verb and complement. Explore questions, negatives and every tense.'}</p>
+              <p className="study-spanish" lang="es">Aprendé cómo se construyen las oraciones, elegí verbos y compará presente, pasado, futuro y otros tiempos.</p>
+            </div>
+            <button className="course-guide-action" onClick={() => navigate('Language help')}>
+              {isPortuguese ? 'Abrir guia' : 'Open guide'} <ArrowRight size={17}/>
+            </button>
+          </section>
           <h2 className="list-heading">
             {level} · {isPortuguese ? 'Bloco' : 'Block'} {block + 1}
           </h2>
