@@ -37,7 +37,7 @@ for (const pt of [false, true])
     await expect(rewards.locator('.streak-week .practised')).toHaveCount(0);
     await rewards.locator('.streak-stat').click();
     await go(page, 'Practice');
-    await page.locator('.review-practice .activity-row').first().click();
+    await page.locator('.review-practice .practice-options .activity-row').first().click();
     const dialog = page.getByRole('dialog', { name: pt ? 'Atividade guiada' : 'Guided activity' });
     for (const q of makeRoutine('vocabulary', pt ? 'A1' : 'A2', 0, pt).rounds) {
       // A saved incorrect answer still represents practice and counts toward a daily streak.

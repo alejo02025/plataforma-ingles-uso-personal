@@ -259,7 +259,7 @@ for (const pt of [false, true])
       { timeout: 90000 },
     );
     await go(page, 'Practice');
-    await page.locator('.review-practice .activity-row').nth(1).click();
+    await page.locator('.review-practice .practice-options .activity-row').nth(1).click();
     const modal = page.locator('.routine-session');
     await modal.locator('.routine-tiles button').first().click();
     await expect(modal.locator('.routine-answer button')).toHaveCount(1);
@@ -269,7 +269,7 @@ for (const pt of [false, true])
     await context.setOffline(true);
     await page.reload();
     await go(page, 'Practice');
-    await page.locator('.review-practice .activity-row').nth(1).click();
+    await page.locator('.review-practice .practice-options .activity-row').nth(1).click();
     await expect(modal.locator('.routine-answer button')).toHaveCount(1);
     await page
       .locator('.routine-session')
@@ -325,4 +325,26 @@ for (const pt of [false, true])
       path: `artifacts/redesign/qa/${pt ? 'pt' : 'en'}-dark-1440.png`,
       fullPage: true,
     });
+  });
+
+for (const pt of [false, true])
+  test(`A paused practice from a completed level remains accessible after progression (${pt ? 'PT' : 'EN'})`, async ({
+    page,
+  }) => {
+    await enter(page, pt);
+    await go(page, 'Practice');
+    await page.locator('.practice-options .activity-row').nth(1).click();
+    const modal = page.locator('.routine-session');
+    await modal.locator('.routine-tiles button').first().click();
+    const tile = await modal.locator('.routine-answer button').first().innerText();
+    await modal
+      .getByRole('button', { name: pt ? 'Pausar atividade' : 'Pause activity', exact: true })
+      .click();
+    await historyFixture(page, pt, pt ? 'A2' : 'B1');
+    await go(page, 'Practice');
+    await expect(page.locator('.paused-practice')).toContainText(pt ? 'A1' : 'A2');
+    await page.locator('.paused-practice').click();
+    await expect(modal.locator('.routine-answer button')).toHaveCount(1);
+    await expect(modal.locator('.routine-answer button').first()).toHaveText(tile);
+    await expect(modal.locator('.section-heading .pill')).toContainText(pt ? 'A1' : 'A2');
   });

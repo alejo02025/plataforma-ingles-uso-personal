@@ -121,6 +121,12 @@ export function RoutinePractice({
       }
     />
   );
+  let paused: RoutineDraft | undefined;
+  try {
+    paused = readRoutineDraft();
+    if (paused && data.results.some((r) => r.activity_id === `routine:${paused!.id}`))
+      paused = undefined;
+  } catch {}
   if (compact)
     return (
       <>
@@ -139,6 +145,18 @@ export function RoutinePractice({
           ? 'Uma prática curta para reforçar seu bloco atual.'
           : 'A short practice to strengthen your current block.'}
       </p>
+      {paused && (
+        <button className="activity-row paused-practice" onClick={() => setSession(paused!)}>
+          <span>
+            <strong>{isPortuguese ? 'Retomar prática salva' : 'Resume saved practice'}</strong>
+            <small>
+              {routineTitles[paused.mode]} · {paused.level} · {isPortuguese ? 'Bloco' : 'Block'}{' '}
+              {paused.block + 1}
+            </small>
+          </span>
+          <span aria-hidden>→</span>
+        </button>
+      )}
       <div className="practice-options">
         {(['vocabulary', 'grammar', 'reading'] as const).map((mode) => (
           <button className="activity-row" key={mode} onClick={() => open(mode)}>

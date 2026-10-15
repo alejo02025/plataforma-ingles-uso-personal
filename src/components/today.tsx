@@ -27,7 +27,10 @@ export function Today({
     setBusy(true);
     setError('');
     try {
-      const draft = readRoutineDraft();
+      let draft: ReturnType<typeof readRoutineDraft>;
+      try {
+        draft = readRoutineDraft();
+      } catch {}
       const saved = await api<StudyDay>('study-day', {
         minutes,
         paused: draft
