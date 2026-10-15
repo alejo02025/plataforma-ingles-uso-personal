@@ -1,0 +1,202 @@
+/* Experience refinement: one clear daily action, calm typography, simplified navigation.
+   All values derive from language-aware tokens in audit-design.css. */
+:root[data-study-language] {
+  --reading-width: 74ch;
+  --focus-surface: color-mix(in srgb, var(--surface) 93%, var(--brand) 7%);
+}
+html { scroll-behavior: smooth; }
+body { letter-spacing: -0.006em; }
+.main-shell main {
+  max-width: 1450px;
+  margin-inline: auto;
+}
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 24;
+  background: var(--bg);
+  border-bottom-color: var(--line);
+}
+.topbar .breadcrumb strong { font-weight: 750; }
+.sidebar { padding-inline: 16px; }
+.sidebar nav { gap: 10px; }
+.sidebar .nav-primary {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.sidebar .nav-primary .nav-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 13px;
+  min-height: 43px;
+  height: auto;
+  padding: 10px 14px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.sidebar .nav-primary .nav-item.active,
+.sidebar .nav-primary .nav-item[aria-current='page'] {
+  border-color: var(--line);
+  background: var(--green-soft);
+  color: var(--green);
+  font-weight: 800;
+}
+.sidebar .nav-primary .nav-item:hover:not(.active) {
+  background: var(--surface-soft);
+}
+.sidebar .nav-more {
+  border-top: 1px solid var(--line);
+  margin-top: 6px;
+  padding-top: 12px;
+}
+.sidebar .nav-more > summary {
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+.sidebar .nav-more > summary:hover { background: var(--surface-soft); }
+.sidebar .workspace-label { letter-spacing: .11em; }
+.page-heading { align-items: flex-start; }
+.page-heading .eyebrow { font-weight: 800; letter-spacing: .12em; }
+.page-heading h1 {
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+.page-heading p {
+  font-size: 14px;
+  line-height: 1.65;
+  max-width: var(--reading-width);
+}
+.audit-dashboard { gap: 22px; }
+.audit-dashboard .page-heading { gap: 12px; }
+.audit-home-context { margin-top: -8px; }
+.audit-starting-context { margin-top: -12px; }
+.audit-continue {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(135deg, var(--focus-surface), var(--surface) 70%);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--brand);
+  border-radius: 22px;
+  box-shadow: 0 15px 34px color-mix(in srgb, var(--brand-deep) 7%, transparent);
+  padding: clamp(24px, 3vw, 38px);
+  gap: 13px;
+}
+.audit-continue .eyebrow { letter-spacing: .1em; font-weight: 850; }
+.audit-continue h2 {
+  font-size: clamp(26px, 2.7vw, 36px);
+  line-height: 1.18;
+  max-width: 31ch;
+  text-wrap: balance;
+}
+.audit-continue .study-native { font-size: 15px; line-height: 1.65; }
+.audit-continue .study-spanish { font-size: 13px; line-height: 1.65; }
+.audit-continue > .button {
+  min-height: 51px;
+  border-radius: 12px;
+  padding-inline: 22px;
+  margin-top: 8px;
+  font-size: 15px;
+}
+.audit-continue > .button:hover { filter: brightness(1.06); }
+.audit-time-choice { margin-top: 7px; }
+.audit-week .section-heading,
+.audit-skills .section-heading { align-items: center; }
+.audit-week-stats { border-radius: 16px; }
+.audit-week-stats > div { padding: 17px 18px; }
+.audit-week-stats strong { letter-spacing: -.04em; }
+.audit-skills { border: 1px solid var(--line); border-radius: 20px; }
+.audit-skill-grid { gap: 18px 22px; }
+.audit-skill-grid > div {
+  background: var(--surface-soft);
+  border-radius: 13px;
+  padding: 16px;
+  gap: 6px;
+}
+.audit-skill-grid > div strong { font-size: 14px; }
+.audit-skill-grid > div span { line-height: 1.5; }
+.audit-shortcuts { gap: 10px; }
+.audit-shortcuts button {
+  min-height: 70px;
+  border-radius: 16px;
+  box-shadow: none;
+  transition: border-color .16s ease, background-color .16s ease, transform .16s ease;
+}
+.audit-shortcuts button:hover {
+  border-color: var(--brand);
+  background: var(--surface-soft);
+  transform: translateY(-1px);
+}
+.audit-explore-day > summary,
+.audit-welcome > summary {
+  padding-block: 6px;
+  font-size: 14px;
+}
+.audit-progress-section,
+.studio-reading-pane .studio-content,
+.studio-tools-pane { border-color: var(--line); }
+.studio-dual-panel .studio-passage,
+.reader-layout .reading-text {
+  max-width: var(--reading-width);
+  margin-inline: auto;
+  line-height: 1.85;
+}
+.studio-dual-panel .studio-content { border-radius: 18px; }
+.studio-tools-pane { border-radius: 18px; }
+.studio-tabs button[aria-selected='true'] { font-weight: 800; }
+.game-session,
+.classroom-layout { scroll-margin-top: 90px; }
+.interest-chip,
+.option,
+.game-choices button { transition: background-color .15s ease, border-color .15s ease; }
+button:focus-visible, a:focus-visible, summary:focus-visible,
+input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+@media (max-width: 900px) {
+  .topbar { min-height: 65px; height: auto; }
+  .audit-continue { padding: 25px; }
+  .audit-week-stats > div { padding: 15px; }
+}
+@media (max-width: 640px) {
+  .audit-dashboard { gap: 18px; }
+  .audit-dashboard > .page-heading h1 { font-size: clamp(29px, 8vw, 38px); }
+  .audit-home-context { margin-top: -5px; }
+  .audit-continue { padding: 23px 20px; border-radius: 19px; }
+  .audit-continue h2 { font-size: clamp(24px, 6.5vw, 30px); }
+  .audit-continue > .button { width: 100%; justify-content: center; }
+  .audit-week-stats > div { min-height: 100px; }
+  .audit-week-stats strong { font-size: 24px; }
+  .audit-skills { padding: 18px; }
+  .audit-skill-grid { gap: 9px; }
+  .audit-skill-grid > div { padding: 12px; }
+  .audit-shortcuts { gap: 9px; }
+  .audit-shortcuts button { min-height: 66px; padding: 12px; }
+  .mobile-bottom-nav {
+    padding: 7px 5px;
+    border-radius: 20px;
+  }
+  .mobile-bottom-nav button {
+    min-height: 50px;
+    border-radius: 12px;
+  }
+  .mobile-bottom-nav button[aria-current='page'] {
+    background: var(--green-soft);
+    color: var(--green);
+    font-weight: 800;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .audit-shortcuts button,
+  .interest-chip, .option, .game-choices button { transition: none; }
+  .audit-shortcuts button:hover { transform: none; }
+}
