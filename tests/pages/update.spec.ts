@@ -96,3 +96,19 @@ test('a fresh explicit link does not replay an older refresh request', async ({ 
   await page.waitForTimeout(5500);
   expect(new URL(page.url()).searchParams.get('updated')).toBe('fresh-link');
 });
+
+
+test('online update is not blocked by a stalled offline pre-cache', async ({ page }) => {
+  await page.goto('./');
+  await page.getByRole('dialog', { name: 'Word of the Day' })
+    .getByRole('button', { name: 'Close daily word' })
+    .click();
+  // Mimic a slow or unresponsive service-worker update. The online app should
+  // still reload while the offline cache catches up independently.
+  await page.evaluate(() => {
+    ServiceWorkerRegistration.prototype.update = () => new Promise<void>(() => {});
+  });
+  await page.getByRole('button', { name: 'Update app', exact: true }).click();
+  await expect(page).toHaveURL(/updated=/, { timeout: 12000 });
+  await expect(page.locator('.audit-continue > .button')).toBeVisible();
+});
