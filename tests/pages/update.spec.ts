@@ -106,7 +106,7 @@ test('online update is not blocked by a stalled offline pre-cache', async ({ pag
   // Mimic a slow or unresponsive service-worker update. The online app should
   // still reload while the offline cache catches up independently.
   await page.evaluate(() => {
-    ServiceWorkerRegistration.prototype.update = () => new Promise<void>(() => {});
+    ServiceWorkerRegistration.prototype.update = () => new Promise<ServiceWorkerRegistration>(() => {});
   });
   await page.getByRole('button', { name: 'Update app', exact: true }).click();
   await expect(page).toHaveURL(/updated=/, { timeout: 12000 });
