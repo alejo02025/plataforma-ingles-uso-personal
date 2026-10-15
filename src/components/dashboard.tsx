@@ -146,8 +146,23 @@ export function Dashboard({
   const allTasks = data.plan.activities.filter((a) => !a.payload.optional);
   const completed = allTasks.filter((a) => Boolean(a.completed_at)).length;
   const priorityActivityId = suggestion.action.kind === 'activity' ? suggestion.action.activity.id : '';
-  const otherTasks = allTasks.filter((a) => a.id !== priorityActivityId).slice(0, budget >= 20 ? 2 : 0);
   const due = evidenceSummary(data).due;
+  // A daily plan must fit the selected time budget. Suggestions never mark
+  // learning completed; they only link to actual saved activities.
+  let timeLeft = Math.max(0, budget - suggestion.sessionMinutes);
+  const showReview = due > 0 && suggestion.action.kind !== 'review' && timeLeft >= 4;
+  if (showReview) timeLeft -= 4;
+  const showSpeaking = budget >= 20 && timeLeft >= 3;
+  if (showSpeaking) timeLeft -= 3;
+  const otherTasks: Activity[] = [];
+  for (const activity of allTasks) {
+    if (activity.id === priorityActivityId || activity.completed_at) continue;
+    if (otherTasks.length >= 2) break;
+    if (activity.minutes <= timeLeft) {
+      otherTasks.push(activity);
+      timeLeft -= activity.minutes;
+    }
+  }
   const currentLevel = learningJourney(data).level;
   function changeBudget(value: number) {
     setMinutes(value);
@@ -218,7 +233,7 @@ export function Dashboard({
               </button>
             );
           })}
-          {due > 0 && (
+          {showReview && (
             <button className="today-task" onClick={() => navigate('Vocabulary')}>
               <span className="today-task-icon"><Feather size={18}/></span>
               <span className="today-task-text">
@@ -228,7 +243,7 @@ export function Dashboard({
               <ChevronRight size={18} className="today-task-arrow"/>
             </button>
           )}
-          {budget >= 20 && (
+          {showSpeaking && (
             <button className="today-task" onClick={() => navigate('Oral practice')}>
               <span className="today-task-icon"><Headphones size={18}/></span>
               <span className="today-task-text">
@@ -238,7 +253,7 @@ export function Dashboard({
               <ChevronRight size={18} className="today-task-arrow"/>
             </button>
           )}
-          {otherTasks.length === 0 && due === 0 && budget < 20 && (
+          {otherTasks.length === 0 && !showReview && !showSpeaking && (
             <p className="today-note">{pt ? 'Por enquanto, concentre-se na atividade acima.' : 'For now, focus on the activity above.'}</p>
           )}
         </div>
