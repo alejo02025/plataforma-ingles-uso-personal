@@ -151,7 +151,7 @@ export function Today({
         <div className="today-journey-progress" aria-label={pt ? 'Progresso do dia' : 'Daily progress'}>
           <div className="today-journey-copy">
             <span>{pt ? 'Seu ritmo de hoje' : "Today's progress"}</span>
-            <strong>{completed}/{total} <span lang="es">completadas</span></strong>
+            <strong>{completed}/{total} <span>{pt ? 'concluídas' : 'completed'}</span></strong>
           </div>
           <div className="today-journey-bar" role="progressbar" aria-valuemin={0} aria-valuemax={total} aria-valuenow={completed} aria-label={pt ? 'Atividades concluídas' : 'Completed activities'}>
             <span style={{ width: `${progress}%` }} />
