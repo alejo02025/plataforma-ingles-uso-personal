@@ -1,7 +1,7 @@
 {
-  "recordedAtUTC": "2026-10-15T12:14:13.981719+00:00",
+  "recordedAtUTC": "2026-10-15T12:35:43.847843+00:00",
   "branch": "audit/integral-2026-10-14",
-  "build": "2026-10-15T12:06:24.060Z",
+  "build": "2026-10-15T12:24:08.581Z",
   "published": false,
   "checks": [
     {
@@ -9,20 +9,28 @@
       "passed": 102
     },
     {
-      "name": "recommendation-pt-same-eight-cases",
+      "name": "pages-full",
+      "passed": 66
+    },
+    {
+      "name": "pages-durable-subset-of-full",
       "passed": 8
-    },
-    {
-      "name": "pages-followup-regression",
-      "passed": 22
-    },
-    {
-      "name": "pages-study-time-final",
-      "passed": 4
     },
     {
       "name": "node-e2e",
       "passed": 1
+    },
+    {
+      "name": "typecheck",
+      "status": "passed"
+    },
+    {
+      "name": "build-pages-en-pt",
+      "status": "passed"
+    },
+    {
+      "name": "build-node",
+      "status": "passed"
     }
   ],
   "screenshots": [
@@ -52,6 +60,8 @@
     "artifacts/audit/after/routine-desktop-pt.png",
     "artifacts/audit/after/routine-mobile-en.png",
     "artifacts/audit/after/routine-mobile-pt.png",
+    "artifacts/audit/after/save-error-en-390.png",
+    "artifacts/audit/after/save-error-pt-390.png",
     "artifacts/audit/after/studio-en-1440.png",
     "artifacts/audit/after/studio-en-375.png",
     "artifacts/audit/after/studio-en-390.png",
@@ -71,27 +81,55 @@
     "artifacts/audit/before/pt-390.png",
     "artifacts/audit/before/pt-768.png"
   ],
-  "note": "Time-aware follow-up: 22 regression cases passed, followed by 4 study-time cases, three overlapping. There are 23 distinct pages cases in this follow-up; the full historical 54-case suite was not repeated. Eight recommendation cases also passed in PT configuration; these are the same eight included in the 102 project unit tests.",
-  "historical": {
-    "build": "2026-10-15T02:55:59.866Z",
-    "checks": [
-      {
-        "name": "unit",
-        "passed": 94
-      },
-      {
-        "name": "pages-wide",
-        "passed": 54
-      },
-      {
-        "name": "pages-final",
-        "passed": 20
-      },
-      {
-        "name": "node-e2e",
-        "passed": 1
-      }
-    ],
-    "note": "The 54-case regression preceded the last oral/calendar integration. All 20 affected browser cases were rerun afterward; these are overlapping cases, not 74 unique browser tests."
-  }
+  "note": "The full 66-case pages suite passed on the durable-save build. The eight durable-save cases also passed separately; they are a subset of the 66, not 74 unique cases. Injected IndexedDB aborts/put exceptions and mocked GitHub responses do not represent real disk exhaustion or access to real credentials.",
+  "history": [
+    {
+      "build": "2026-10-15T02:55:59.866Z",
+      "checks": [
+        {
+          "name": "unit",
+          "passed": 94
+        },
+        {
+          "name": "pages-wide",
+          "passed": 54
+        },
+        {
+          "name": "pages-final",
+          "passed": 20
+        },
+        {
+          "name": "node-e2e",
+          "passed": 1
+        }
+      ],
+      "note": "The 54-case regression preceded the last oral/calendar integration. All 20 affected browser cases were rerun afterward; these are overlapping cases, not 74 unique browser tests."
+    },
+    {
+      "build": "2026-10-15T12:06:24.060Z",
+      "checks": [
+        {
+          "name": "unit",
+          "passed": 102
+        },
+        {
+          "name": "recommendation-pt-same-eight-cases",
+          "passed": 8
+        },
+        {
+          "name": "pages-followup-regression",
+          "passed": 22
+        },
+        {
+          "name": "pages-study-time-final",
+          "passed": 4
+        },
+        {
+          "name": "node-e2e",
+          "passed": 1
+        }
+      ],
+      "note": "Time-aware follow-up: 22 regression cases passed, followed by 4 study-time cases, three overlapping. There are 23 distinct pages cases in this follow-up; the full historical 54-case suite was not repeated. Eight recommendation cases also passed in PT configuration; these are the same eight included in the 102 project unit tests."
+    }
+  ]
 }

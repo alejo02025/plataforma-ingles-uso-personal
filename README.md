@@ -285,4 +285,6 @@ Inicio muestra una recomendación accionable, el motivo y la duración, seguida 
 
 El audio de práctica oral queda como Blob en IndexedDB, separado por idioma. Los respaldos de progreso incluyen sus metadatos y notas, **no los archivos de audio**; para conservarlos fuera del dispositivo se ofrece descarga. Se necesita permiso de micrófono para grabar y una voz instalada para reproducción sin señal. El guardado ocurre al detener la grabación; un cierre o fallo durante la grabación puede perder ese audio en curso.
 
+En la rama de auditoría, el progreso y sus metadatos de sincronización se confirman juntos en IndexedDB. Si falla una escritura, aparece un aviso en el idioma de estudio y español; se recupera el último estado confirmado en memoria y se permite reintentar. El guardado local sigue sin requerir GitHub. Esto no sustituye un respaldo externo frente al borrado del almacenamiento del navegador.
+
 Informes: [auditoría integral](AUDITORIA_COMPLETA.md), [inglés](AUDITORIA_INGLES.md), [portugués](AUDITORIA_PORTUGUES.md), [visual](AUDITORIA_VISUAL.md), [plan](PLAN_IMPLEMENTACION.md), [sistema de diseño](DESIGN_SYSTEM.md) y [resultados reales de QA](RESULTADOS_QA.md). Son cambios de rama; no implican publicación ni fusión.

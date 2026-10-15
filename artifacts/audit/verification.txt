@@ -257,3 +257,202 @@ pages-4-time-final (3 overlap with previous 22)
 node-e2e-followup
   ✓  1 tests/e2e/journey.spec.ts:4:1 › diagnóstico retomable, lectura, vocabulario, PDF, calendario y tema persistentes (11.3s)
   1 passed (12.5s)
+
+
+Durable-save follow-up; build 2026-10-15T12:24:08.581Z; not published.
+
+unit-102-current
+✔ Expanded builder verbs remain separate from graded class banks and every selected form is complete (774.059781ms)
+✔ Added English irregular and spelling-sensitive forms have correct Spanish equivalents (0.584951ms)
+✔ Added Portuguese AR, ER and IR models preserve orthography, irregular stems and participles (0.413994ms)
+✔ Every CEFR stage contains progressively different Portuguese reading, grammar, writing and speaking practices (1.361711ms)
+✔ Legacy starter tasks cannot bypass the connected course or unlock a future level (39.957815ms)
+✔ A stale device cannot move the CEFR route back after an advance (0.754647ms)
+✔ A2 is the English entry point, mistakes do not unlock the next class, and the API rejects locked levels (74.931842ms)
+✔ Block boundaries require real reading, vocabulary and writing in the block window; classes cannot substitute for reading (2.885216ms)
+✔ A previous-day reading is resumed with its original ID; update migrations keep drafts and completed checkpoints (62.249611ms)
+✔ An older backup gains the new table and a stale device does not remove course checkpoints (4.23576ms)
+✔ A full level unlocks only after every class block has cross-section evidence, and a completed checkpoint keeps the level after later catalog updates (31.72862ms)
+✔ Recent reading failures pause new classes everywhere, preserve earned checkpoints, and clear after a successful reading (1.979602ms)
+✔ PDF checks feed the same reading reinforcement, and an advanced optional reading does not falsely block an elementary learner (0.888629ms)
+✔ An English level change aligns untouched daily tasks while preserving an active reading and its draft (26.069435ms)
+✔ streaks count distinct days of saved practice, preserve yesterday until today ends, and restart after a gap (2.475568ms)
+✔ all-history streaks cross month, year and leap-day boundaries and award past milestones after pauses (1.259316ms)
+✔ saved words and session timers do not create a streak; failed reviews and genuine PDF answers do, in Argentina time (16.378019ms)
+✔ class badges count passed unique lessons and stored block/level checkpoints; rewards never bypass course gates (6.31968ms)
+✔ future, malformed and unfinished evidence does not light today or award achievements (0.391349ms)
+✔ Trash keeps a PDF, source references, reading progress and tutor history intact for restoration (66.100626ms)
+✔ a stale second device cannot bring a trashed PDF back, and a later restore keeps both devices history (1.644587ms)
+✔ observed accuracy excludes self-ratings, aided attempts and unscored writing without conflating effort with mastery (2.738485ms)
+✔ weekly records use Argentina study days, exclude future dates and do not treat saved words as completed study days (15.224762ms)
+✔ oral practice distinguishes recordings from scored synthetic listening and ignores helped scores (7.439866ms)
+✔ Sentence models distinguish auxiliaries, be, Brazilian future and formal future without inventing a grade (9.041188ms)
+✔ Word help gives curated Spanish support, loads the bundled dictionary and admits missing entries (28.112213ms)
+✔ Game drafts retain attempts and hints, reject malformed selections, and clear only the completed mode (5.828359ms)
+✔ Word Trail counts duplicate letters once and preserves accents (1.888324ms)
+✔ All games have solvable, deterministic rounds and match choices contain the correct word (1.764838ms)
+✔ Game saves are scored from the puzzle, idempotent and appear in real progress without changing the daily plan or spaced reviews (75.929265ms)
+✔ Recall categories reflect the last self rating and need three consecutive known ratings for strong (0.413132ms)
+✔ Hints give an initial letter or opening word, and everyday examples hide the target word (0.43804ms)
+✔ New game editions follow the active vocabulary band while legacy puzzles stay reproducible (0.481395ms)
+✔ fechas de Buenos Aires y repetición espaciada sin evaluar MCER por flashcards (19.14131ms)
+✔ diagnóstico parcial, estimación conservadora y persistencia al reabrir la base (47.028535ms)
+✔ lectura: checkpoints, resultado validado e idempotente, errores y tiempo real (35.78541ms)
+✔ vocabulario sin duplicados, historial y prevención de repaso duplicado (23.245362ms)
+✔ importación real de PDF, archivo privado y resumen sin nota inventada (2390.378268ms)
+✔ plan persistente, 5/40 minutos y adaptación al error registrado (33.251833ms)
+✔ retomar una actividad del día anterior conserva su sesión y borrador (63.837225ms)
+✔ contrato IA: validación, correcciones persistentes y preguntas de PDF con proveedor simulado (185.023804ms)
+✔ IA sin credencial falla de manera explícita sin guardar correcciones falsas (16.055072ms)
+✔ Both class catalogs cover A1–C2 with original explanations, spoken models and unambiguous choices (12.975834ms)
+✔ Class attempts are graded from the catalog, save Spanish corrections, and preserve daily plans and open practice without a fake grade (72.072806ms)
+✔ English migration preserves learner history, drafts and custom definitions on repeated startup (6.086558ms)
+✔ greetings change with the local hour, including afternoon and evening (0.89643ms)
+✔ momentum rises from saved practice, declines on completed inactive days, and preserves day details (14.207008ms)
+✔ recorded oral practice contributes only its technical duration and a saved event to the habit graph (4.115839ms)
+✔ listening answers are recomputed, assisted practice is separate, and repeated IDs retain the original responses (62.565747ms)
+✔ recordings preserve text metadata in existing backups, remain unassessed and never become class scores (18.492363ms)
+✔ oral tasks have original contextual progression in both languages and specific Spanish feedback (0.400763ms)
+✔ Placement uses context, covers skills evenly and does not skip weaker bands (EN) (19.352799ms)
+✔ A completed historical sample retains its original band rule; imports do not inflate scores (EN) (0.786494ms)
+✔ Placement uses context, covers skills evenly and does not skip weaker bands (PT) (2.160684ms)
+✔ A completed historical sample retains its original band rule; imports do not inflate scores (PT) (0.755218ms)
+✔ All CEFR starters have native choices, Spanish feedback and stable sentence blocks (EN) (11.755797ms)
+✔ All CEFR starters have native choices, Spanish feedback and stable sentence blocks (PT) (4.822654ms)
+✔ Starters save once, reject locked levels and integrate with reading/vocabulary/classes/writing in one block (116.863815ms)
+✔ Objective scores are recomputed, mistakes retained, and assisted practice cannot clear independent evidence (161.666654ms)
+✔ A paused sentence keeps its selected blocks and checked first answer through a reload (3.932543ms)
+✔ Contextual edition 2 has six valid varied exercises per session (EN) (3.608005ms)
+✔ Contextual edition 2 has six valid varied exercises per session (PT) (1.805419ms)
+✔ Edition 2 stores variant, enforces objective answers and preserves edition 1 evidence (36.626746ms)
+✔ Changing activity preserves an unrelated draft and resumes legacy content reproducibly (1.102982ms)
+✔ English builder places auxiliaries and irregular participles correctly across advanced tense families (2.140674ms)
+✔ Portuguese builder distinguishes personal infinitive from subjunctive and preserves irregular forms and Spanish explanations (1.129511ms)
+✔ Every builder choice supplies all sentence forms and keeps legacy course models unchanged (171.400745ms)
+✔ All class explanations, tips and answer rationales have authored native support (EN) (40.613496ms)
+✔ Level objectives and all grammar/tense reference guidance have native support (EN) (0.950532ms)
+✔ All class explanations, tips and answer rationales have authored native support (PT) (6.23392ms)
+✔ Level objectives and all grammar/tense reference guidance have native support (PT) (0.340944ms)
+✔ Combined JSX copy translates numbers, CEFR bands, punctuation and counted fragments (1.194119ms)
+✔ Templates translate known dynamic skills and optional aids but preserve quoted meanings (0.631441ms)
+✔ Unknown prose is never labeled translated by catch-all placeholders or partial word matches (4.11661ms)
+✔ StudyCopy keeps the native instruction first and Spanish support below in safe markup (12.223962ms)
+✔ The 24 diagnostic prompts and every review choice have Spanish support (EN) (4.756164ms)
+✔ The 24 diagnostic prompts and every review choice have Spanish support (PT) (1.503354ms)
+✔ a five-minute break selects a pending short practice while a full session keeps the next unlocked class (65.541317ms)
+✔ unfinished reading stays first even when the budget is shorter and vocabulary is due (16.721786ms)
+✔ a completed resume pointer does not send the learner back to the same exercise (23.925817ms)
+✔ repeated grammar errors keep their repair ahead of short practice, saved drafts and word reviews (43.397985ms)
+✔ due vocabulary remains ahead of an available class in both short and long sessions (22.511536ms)
+✔ a valid paused routine resumes its own mode instead of switching to the next class (19.71213ms)
+✔ a completed draft or a draft from another block or level never reopens through the main recommendation (19.295161ms)
+✔ daily budget keys expire by study day and malformed values fall back to the profile without mutation (35.397636ms)
+✔ sincronización combina cambios independientes de dos dispositivos y mantiene las finalizaciones (10.245222ms)
+✔ dos intentos offline conservan sus resultados y referencias al combinarse (0.623349ms)
+✔ el respaldo rechaza tablas y valores no compatibles sin ejecutar SQL remoto (0.383688ms)
+✔ los planes reemplazados después del diagnóstico no reaparecen desde un dispositivo atrasado (0.427634ms)
+✔ study spaces refuse cross-language backups and merges while preserving legacy English backups (0.363057ms)
+✔ PDF questions keep an unambiguous source and do not assign a score to open answers (15.07144ms)
+✔ question retrieval returns the relevant paragraph with the original page reference (0.961819ms)
+✔ PDF chunking keeps page numbers for each section (1.158706ms)
+✔ daily words are stable for the day and organized into practical categories (0.314093ms)
+✔ the local reply guard catches names introduced outside the document (3.071456ms)
+✔ factual local-model replies quote the source rather than repeat unsupported story details (0.972234ms)
+✔ Offline en verbs contain thousands of distinct sense-aligned entries (41.182488ms)
+✔ Offline pt verbs contain thousands of distinct sense-aligned entries (13.296457ms)
+✔ Tense reference covers twelve English combinations and Portuguese simple and compound moods (0.434975ms)
+✔ Voice history persists separately from PDFs and records real learner messages without an invented pronunciation grade (60.485763ms)
+✔ The AI tutor does not repeat fictional degrees or years of employment as real credentials (0.483558ms)
+✔ An echo or repetitive model reply becomes a labelled, well-formed practice prompt (1.266287ms)
+ℹ tests 102
+ℹ suites 0
+ℹ pass 102
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4270.327925
+
+pages-durable-eight-subset
+[1/8] tests/pages/durable-save.spec.ts:66:5 › Durable save: abort rolls back SQLite and metadata; the same diagnostic answer can retry (EN)
+[2/8] tests/pages/durable-save.spec.ts:66:5 › Durable save: throw rolls back SQLite and metadata; the same diagnostic answer can retry (EN)
+[3/8] tests/pages/durable-save.spec.ts:66:5 › Durable save: abort rolls back SQLite and metadata; the same diagnostic answer can retry (PT)
+[4/8] tests/pages/durable-save.spec.ts:66:5 › Durable save: throw rolls back SQLite and metadata; the same diagnostic answer can retry (PT)
+[5/8] tests/pages/durable-save.spec.ts:122:3 › Durable save: a failed startup commit can retry without reloading or losing existing history (EN)
+[6/8] tests/pages/durable-save.spec.ts:122:3 › Durable save: a failed startup commit can retry without reloading or losing existing history (PT)
+[7/8] tests/pages/durable-save.spec.ts:168:1 › Durable save: a transient opening error does not permanently reject startup
+[8/8] tests/pages/durable-save.spec.ts:190:1 › Durable save: a failed local sync commit preserves the device snapshot and can retry the remote merge
+  8 passed (13.9s)
+
+pages-full-66-current
+[1/66] tests/pages/adaptive-path.spec.ts:8:3 › The flag, home and classroom share a reading reinforcement gate; Speaking is removed (EN)
+[2/66] tests/pages/adaptive-path.spec.ts:8:3 › The flag, home and classroom share a reading reinforcement gate; Speaking is removed (PT)
+[3/66] tests/pages/audit-studio.spec.ts:5:3 › PDF reading/tools panels retain drafts through section navigation and responsive layouts (EN)
+[4/66] tests/pages/audit-studio.spec.ts:5:3 › PDF reading/tools panels retain drafts through section navigation and responsive layouts (PT)
+[5/66] tests/pages/cefr.spec.ts:2:1 › The Portuguese MCER entry opens the same connected route; future levels remain locked
+[6/66] tests/pages/classes.spec.ts:8:3 › Connected course starts at A2, retains attempts and requires cross-section evidence (EN)
+[7/66] tests/pages/classes.spec.ts:8:3 › Connected course starts at A1, retains attempts and requires cross-section evidence (PT)
+[8/66] tests/pages/daily-guide.spec.ts:3:3 › Suggested Home route is optional, opens exact activities and saves news reflection (EN)
+[9/66] tests/pages/daily-guide.spec.ts:3:3 › Suggested Home route is optional, opens exact activities and saves news reflection (PT)
+[10/66] tests/pages/daily-rewards.spec.ts:5:3 › Daily streak and achievements use saved practice, persist offline and stay separate (EN)
+[11/66] tests/pages/daily-rewards.spec.ts:5:3 › Daily streak and achievements use saved practice, persist offline and stay separate (PT)
+[12/66] tests/pages/durable-save.spec.ts:66:5 › Durable save: abort rolls back SQLite and metadata; the same diagnostic answer can retry (EN)
+[13/66] tests/pages/durable-save.spec.ts:66:5 › Durable save: throw rolls back SQLite and metadata; the same diagnostic answer can retry (EN)
+[14/66] tests/pages/durable-save.spec.ts:66:5 › Durable save: abort rolls back SQLite and metadata; the same diagnostic answer can retry (PT)
+[15/66] tests/pages/durable-save.spec.ts:66:5 › Durable save: throw rolls back SQLite and metadata; the same diagnostic answer can retry (PT)
+[16/66] tests/pages/durable-save.spec.ts:122:3 › Durable save: a failed startup commit can retry without reloading or losing existing history (EN)
+[17/66] tests/pages/durable-save.spec.ts:122:3 › Durable save: a failed startup commit can retry without reloading or losing existing history (PT)
+[18/66] tests/pages/durable-save.spec.ts:168:1 › Durable save: a transient opening error does not permanently reject startup
+[19/66] tests/pages/durable-save.spec.ts:190:1 › Durable save: a failed local sync commit preserves the device snapshot and can retry the remote merge
+[20/66] tests/pages/feedback.spec.ts:6:3 › Answers explain why in the study language with Spanish support and a target-language correction (English)
+[21/66] tests/pages/feedback.spec.ts:6:3 › Answers explain why in the study language with Spanish support and a target-language correction (Portuguese)
+[22/66] tests/pages/first-steps.spec.ts:5:3 › First tutorial explains the day and placement resumes without changing the course (EN)
+[23/66] tests/pages/first-steps.spec.ts:5:3 › First tutorial explains the day and placement resumes without changing the course (PT)
+[24/66] tests/pages/game-draft.spec.ts:5:3 › Updating preserves an unfinished game without crediting or duplicating it (EN)
+[25/66] tests/pages/game-draft.spec.ts:5:3 › Updating preserves an unfinished game without crediting or duplicating it (PT)
+[26/66] tests/pages/games.spec.ts:5:3 › Games persist real results and recall cards work on mobile (English)
+[27/66] tests/pages/games.spec.ts:5:3 › Games persist real results and recall cards work on mobile (Portuguese)
+[28/66] tests/pages/home-routine.spec.ts:4:3 › Contextual routine moves forward, varies retries and preserves separate paused drafts (EN)
+[29/66] tests/pages/home-routine.spec.ts:4:3 › Contextual routine moves forward, varies retries and preserves separate paused drafts (PT)
+[30/66] tests/pages/integral-audit.spec.ts:126:3 › Integral: new English A2 across four screen widths
+[31/66] tests/pages/integral-audit.spec.ts:126:3 › Integral: new Portuguese A1 across four screen widths
+[32/66] tests/pages/integral-audit.spec.ts:173:3 › Integral: English B1 with repeated grammar errors
+[33/66] tests/pages/integral-audit.spec.ts:173:3 › Integral: English B2 preserves prior checkpoints
+[34/66] tests/pages/integral-audit.spec.ts:173:3 › Integral: Portuguese A2 preserves prior checkpoints
+[35/66] tests/pages/integral-audit.spec.ts:191:1 › Integral: multiple PDFs, deletion, restoration and language isolation
+[36/66] tests/pages/integral-audit.spec.ts:229:1 › Integral: failed GitHub authorization retains local data and forgets credentials
+[37/66] tests/pages/integral-audit.spec.ts:249:3 › Integral: unfinished EN sentence resumes offline without losing its tiles
+[38/66] tests/pages/integral-audit.spec.ts:249:3 › Integral: unfinished PT sentence resumes offline without losing its tiles
+[39/66] tests/pages/integral-audit.spec.ts:276:3 › Integral: EN light and dark text tokens meet normal-text contrast
+[40/66] tests/pages/integral-audit.spec.ts:276:3 › Integral: PT light and dark text tokens meet normal-text contrast
+[41/66] tests/pages/language-help.spec.ts:3:3 › Language help and all-level notes stay unlocked without advancing the course (EN)
+[42/66] tests/pages/language-help.spec.ts:3:3 › Language help and all-level notes stay unlocked without advancing the course (PT)
+[43/66] tests/pages/offline.spec.ts:3:1 › Both spaces reopen without a signal, retain vocabulary and PDFs, and reject updates without deleting data
+[44/66] tests/pages/pages.spec.ts:12:1 › Pages: SQLite en navegador, persistencia, PDF y sincronización privada entre dos dispositivos
+[45/66] tests/pages/pdf-tabs.spec.ts:4:1 › PDF tabs preserve each document, reading position, answers and chat drafts across uploads and reloads
+[46/66] tests/pages/portuguese.spec.ts:4:1 › Jazmín has Brazilian Portuguese study content, independent PDFs, vocabulary, voice and progress
+[47/66] tests/pages/portuguese.spec.ts:157:1 › English and Portuguese sync to different folders even in the same private GitHub repository
+[48/66] tests/pages/simple-sections.spec.ts:3:3 › Mobile menu, PDF instructions and next-level progress are clear (EN)
+[49/66] tests/pages/simple-sections.spec.ts:3:3 › Mobile menu, PDF instructions and next-level progress are clear (PT)
+[50/66] tests/pages/studio.spec.ts:3:1 › PDF Studio, daily words, real local AI, responsive views and update banner
+[51/66] tests/pages/studio.spec.ts:161:1 › local AI compatibility engine stays on this site when JSPI is unavailable
+[52/66] tests/pages/study-time.spec.ts:26:3 › Today's time changes the recommendation, preserves a paused exercise offline and isolates profiles (EN)
+[53/66] tests/pages/study-time.spec.ts:26:3 › Today's time changes the recommendation, preserves a paused exercise offline and isolates profiles (PT)
+[54/66] tests/pages/study-time.spec.ts:114:1 › a malformed daily preference falls back safely; a failed write shows feedback without disabling Start
+[55/66] tests/pages/study-time.spec.ts:143:1 › the daily time override expires on the next study day without changing the usual study time
+[56/66] tests/pages/update.spec.ts:3:1 › an older home page can update when its unloaded AI bundle is unavailable, preserving saved words
+[57/66] tests/pages/update.spec.ts:33:1 › Updating one space refreshes an idle second space and keeps both vocabularies separate
+[58/66] tests/pages/update.spec.ts:87:1 › a fresh explicit link does not replay an older refresh request
+[59/66] tests/pages/voice.spec.ts:3:3 › Classes have no oral AI conversation controls (EN)
+[60/66] tests/pages/voice.spec.ts:3:3 › Classes have no oral AI conversation controls (PT)
+[61/66] tests/pages/word-help.spec.ts:23:3 › Word clouds work across classes, PDF text and answer options, with Spanish support and verb/sentence tools (English)
+[62/66] tests/pages/word-help.spec.ts:23:3 › Word clouds work across classes, PDF text and answer options, with Spanish support and verb/sentence tools (Portuguese)
+[63/66] tests/pages/oral-practice.spec.ts:10:3 › Oral: real browser audio container persists, manual transcript is not pronunciation, supported listening stays separate (EN)
+[64/66] tests/pages/oral-practice.spec.ts:10:3 › Oral: real browser audio container persists, manual transcript is not pronunciation, supported listening stays separate (PT)
+[65/66] tests/pages/oral-practice.spec.ts:125:3 › Oral: pending microphone permission blocks navigation and a concurrent update; denial recovers (EN)
+[66/66] tests/pages/oral-practice.spec.ts:125:3 › Oral: pending microphone permission blocks navigation and a concurrent update; denial recovers (PT)
+  66 passed (6.7m)
+
+node-e2e-current
+  ✓  1 tests/e2e/journey.spec.ts:4:1 › diagnóstico retomable, lectura, vocabulario, PDF, calendario y tema persistentes (11.5s)
+  1 passed (12.8s)

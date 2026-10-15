@@ -11,7 +11,7 @@ import { tutorMutation } from '../tutor-store';
 import { z } from 'zod';
 import { createLearningService, AppError } from '../domain';
 import { glossary } from '../content';
-import { db, load, persist, transaction, exclusive, capture } from './database';
+import { db, load, durable, transaction, exclusive, capture } from './database';
 import { importDocument } from './import';
 import { changed } from './sync';
 const randomUUID = () => crypto.randomUUID();
@@ -43,9 +43,10 @@ export async function browserApi(endpoint: string, input?: unknown): Promise<unk
   await load();
   return exclusive(async () => {
     const before = JSON.stringify(capture().data);
-    const result = await dispatch(endpoint, input);
-    const modified = before !== JSON.stringify(capture().data);
-    await persist();
+    const { result, modified } = await durable(async () => {
+      const result = await dispatch(endpoint, input);
+      return { result, modified: before !== JSON.stringify(capture().data) };
+    });
     if (modified) changed();
     return result;
   });

@@ -1,5 +1,5 @@
 import { syncFolder } from '../workspace';
-import { assertRestorable, capture, exclusive, load, persist, restore } from './database';
+import { assertRestorable, capture, exclusive, load, durable, restore } from './database';
 import { merge, validate, type Manifest } from './merge';
 import { read, write } from './storage';
 export type SyncStatus = {
@@ -214,8 +214,7 @@ async function synchronize(started: number) {
       const current = capture(),
         merged = merge(current, candidate);
       const dataChanged = JSON.stringify(current.data) !== JSON.stringify(merged.data);
-      restore(merged);
-      await persist();
+      await durable(() => restore(merged));
       if (dataChanged) window.dispatchEvent(new Event('english-data-changed'));
     });
     update({ message: 'Synced with GitHub', lastSync: new Date().toISOString() });

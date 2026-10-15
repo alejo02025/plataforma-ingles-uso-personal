@@ -29,3 +29,11 @@ Los nuevos intentos de rutina usan edición 2; la edición 1 sigue reproducible 
 La práctica oral usa metadatos versionados `oral-v1` en la tabla de mensajes existente, separados del contenido PDF mediante el documento reservado de voz. Los archivos de audio se guardan como Blob en el almacén IndexedDB del idioma; el respaldo SQL contiene metadatos/notas, no esos archivos. No se agregan tablas ni migraciones destructivas. Audio, transcripción manual y resultados de escucha se muestran como evidencias diferentes.
 
 Los informes `AUDITORIA_*.md` y `RESULTADOS_QA.md` registran hechos, cambios y límites de esta rama; las fases anteriores no deben interpretarse como funciones todas implementadas o validadas.
+
+## Confirmación del guardado local
+
+SQL.js trabaja en memoria. La confirmación durable escribe `database`, `manifest` y `device` en una sola transacción IndexedDB. Al iniciar, esas claves se leen también en una sola transacción para evitar combinar revisiones de lecturas separadas. No cambian la versión del almacén ni sus nombres por idioma.
+
+La API de navegador y la aplicación de un merge remoto usan `durable()` dentro de `exclusive()`. Solo después de completar la transacción se publica el nuevo estado a la interfaz/sincronización. Ante error de mutación o persistencia, la conexión en memoria vuelve a los bytes y metadatos de la última confirmación. Así, reintentar una respuesta no encuentra una respuesta fantasma que nunca llegó al almacenamiento. La inicialización fallida libera la conexión y permite volver a intentar la carga.
+
+`writeMany()` aborta explícitamente cuando un `put` posterior falla de forma síncrona; rechazar una promesa por sí solo no cancela escrituras anteriores dentro de la transacción. Los archivos PDF/audio usan claves separadas y no se eliminan al fallar un guardado de progreso. Esta garantía de atomicidad del snapshot no convierte todos los archivos en un único respaldo ni evita que el navegador expulse almacenamiento.

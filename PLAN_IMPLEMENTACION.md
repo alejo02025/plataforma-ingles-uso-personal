@@ -52,3 +52,12 @@ Implementado después de la revisión inicial:
 - El recorrido exploratorio distingue su duración completa del tiempo elegido hoy. Mantiene su carácter opcional.
 
 No introduce migraciones, puntuaciones nuevas ni requisitos más débiles. Las duraciones son estimaciones, no límites que corten una sesión. La preferencia diaria es local; no constituye sincronización entre dispositivos.
+
+## Seguimiento P0: persistencia ante fallos
+
+- Confirmar conjuntamente base SQL.js, manifiesto de sincronización e identificador del dispositivo.
+- Leer el snapshot inicial de forma coherente y permitir reintento tras fallo de apertura/inicialización.
+- Volver a la última revisión durable si una mutación o la confirmación de un merge remoto falla; anunciar cambios solo después de confirmar almacenamiento.
+- Comprobar abortos reales de transacción y errores síncronos de `put` en Chromium, respuesta diagnóstica reintentada, arranque recuperable y merge remoto simulado.
+
+Implementado en `storage.ts`, `database.ts`, `browser/api.ts` y `browser/sync.ts`, manteniendo nombres/claves/versiones del almacén. La regresión completa de páginas es necesaria porque el cambio afecta el guardado compartido por todos los módulos; el resultado ejecutado se registra en `RESULTADOS_QA.md`.

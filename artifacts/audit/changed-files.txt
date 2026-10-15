@@ -35,6 +35,8 @@ artifacts/audit/after/routine-desktop-en.png
 artifacts/audit/after/routine-desktop-pt.png
 artifacts/audit/after/routine-mobile-en.png
 artifacts/audit/after/routine-mobile-pt.png
+artifacts/audit/after/save-error-en-390.png
+artifacts/audit/after/save-error-pt-390.png
 artifacts/audit/after/studio-en-1440.png
 artifacts/audit/after/studio-en-375.png
 artifacts/audit/after/studio-en-390.png
@@ -93,8 +95,11 @@ src/components/verb-catalog.tsx
 src/components/vocabulary.tsx
 src/lib/answer-feedback.ts
 src/lib/browser/api.ts
+src/lib/browser/database.ts
 src/lib/browser/local-ai.ts
 src/lib/browser/routine-draft.ts
+src/lib/browser/storage.ts
+src/lib/browser/sync.ts
 src/lib/content.ts
 src/lib/daily-guide.ts
 src/lib/daily-rewards.ts
@@ -132,6 +137,7 @@ tests/pages/audit-studio.spec.ts
 tests/pages/cefr.spec.ts
 tests/pages/classes.spec.ts
 tests/pages/daily-guide.spec.ts
+tests/pages/durable-save.spec.ts
 tests/pages/feedback.spec.ts
 tests/pages/first-steps.spec.ts
 tests/pages/games.spec.ts

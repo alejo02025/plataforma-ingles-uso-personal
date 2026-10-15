@@ -22,3 +22,5 @@ Las capturas `class-*`, `studio-*`, `routine-*`, `oral-*` y `*-dark-*` muestran 
 `before/collection-only.json` conserva una recolección inicial de 11 casos omitidos, sin ejecución. No se contabiliza como QA aprobada. Los resultados ejecutados de cierre están en `verification.json` y `verification.txt`.
 
 `after/time-en-390.png` y `after/time-pt-390.png` muestran una recomendación para cinco minutos. Se reproducen con `npm run test:pages -- tests/pages/study-time.spec.ts`. La preferencia vale para ese día y espacio en el dispositivo; no modifica el plan ni sus requisitos. Ejecutar las suites estática y Node por separado: ambas usan por defecto `test-results`.
+
+`after/save-error-*-390.png` muestra un aborto de guardado simulado sobre IndexedDB real, conservando la respuesta elegida para reintentar. Se reproduce con `npm run test:pages -- tests/pages/durable-save.spec.ts`. No se usaron datos personales ni credenciales reales.

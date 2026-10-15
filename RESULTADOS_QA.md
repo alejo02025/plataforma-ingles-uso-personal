@@ -1,6 +1,6 @@
 # Resultados de QA
 
-Fecha de cierre: 15/10/2026. Rama `audit/integral-2026-10-14`. Build estático final `2026-10-15T12:06:24.060Z`. **No publicado ni fusionado.** Se usaron perfiles y bases temporales, no datos personales existentes.
+Fecha de cierre: 15/10/2026. Rama `audit/integral-2026-10-14`. Build estático final `2026-10-15T12:24:08.581Z`. **No publicado ni fusionado.** Se usaron perfiles y bases temporales, no datos personales existentes.
 
 ## Informes y evidencia
 
@@ -8,16 +8,15 @@ Fecha de cierre: 15/10/2026. Rama `audit/integral-2026-10-14`. Build estático f
 
 ## Comprobaciones ejecutadas
 
-| Comando / ámbito                                                                      | Resultado observado                                                |
-| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| `npm test` tras integrar recomendación por tiempo                                     | **102/102** unitarias aprobadas, sin omitidas                      |
-| `npm run typecheck`                                                                   | Aprobado; además ambos builds ejecutaron TypeScript                |
-| `npm run build:pages`                                                                 | Exportaciones English OS y Português OS aprobadas                  |
-| Regresión amplia previa `npm run test:pages -- --timeout=30000`                       | **54/54** casos aprobados en Chromium                              |
-| Revisión previa de calendario/gráfico oral, clases, perfiles, offline y actualización | **20/20** casos afectados aprobados tras integrar el registro oral |
-| `npm run build` y `npm run test:e2e`                                                  | Build Node aprobado y **1/1** recorrido con servidor aprobado      |
+| Comando / ámbito                                                                  | Resultado observado                                           |
+| --------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| `npm test` tras integrar guardado durable                                         | **102/102** unitarias aprobadas, sin omitidas                 |
+| `npm run typecheck`                                                               | Aprobado; además ambos builds ejecutaron TypeScript           |
+| `npm run build:pages`                                                             | Exportaciones English OS y Português OS aprobadas             |
+| Regresión completa actual `npm run test:pages -- --timeout=30000 --reporter=line` | **66/66** casos aprobados en Chromium, sin omitidos           |
+| `npm run build` y `npm run test:e2e`                                              | Build Node aprobado y **1/1** recorrido con servidor aprobado |
 
-La regresión de 54 casos y los 20 casos posteriores pertenecen a la revisión anterior (`2026-10-15T02:55:59.866Z`). Son pruebas solapadas: **no se suman como 74 casos diferentes**. El seguimiento por tiempo disponible se verifica por separado más abajo; no se afirma haber repetido toda la suite de páginas en ese seguimiento.
+La suite completa actual reúne 66 casos, incluidos los ocho nuevos de persistencia y los cuatro de tiempo diario. Las tandas anteriores de 54, 20 y 23 casos pertenecen a revisiones anteriores; no se suman a los 66. El seguimiento por tiempo disponible de la revisión anterior se conserva como historial más abajo.
 
 ## Seguimiento: tiempo disponible y actividad pausada
 
@@ -33,6 +32,14 @@ Se ejecutó: elegir cinco minutos → contestar la primera pregunta → pausar �
 Se verificaron preferencia corrupta, fallo simulado de escritura en almacenamiento y cambio al siguiente día de estudio. El ajuste de ayer no se aplica al nuevo día; la lectura pendiente mantiene su prioridad. Ninguna sugerencia modifica el plan existente ni desbloquea clases.
 
 En las primeras ejecuciones se corrigieron dos supuestos de prueba: el selector inexistente `.lesson-detail` y esperar una clase nueva cuando al cambiar de día corresponde retomar lectura pendiente. Una ejecución simultánea de las suites Node y estática produjo colisión en el directorio compartido `test-results`; ambas se repitieron por separado y pasaron. Un intento adicional no llegó a ejecutar pruebas porque seguía abierto el servidor temporal de capturas; se detuvo ese proceso propio antes de repetir. Esas ejecuciones no cuentan como aprobadas.
+
+## Seguimiento P0: confirmación del guardado
+
+Build `2026-10-15T12:24:08.581Z`: **102/102** unitarias, **66/66** páginas y compilaciones EN/PT/Node aprobadas. La suite completa de páginas terminó en 6,7 minutos.
+
+El seguimiento de persistencia agregó ocho recorridos sobre IndexedDB real: aborto en la segunda escritura y excepción síncrona de `put` en ambos idiomas, fallo del commit inicial recuperado sin recargar, apertura transitoria fallida y merge remoto con commit local fallido. Los ocho pasaron en una ejecución específica y después dentro de la regresión completa de 66 casos; no son 74 casos distintos. También se completó de nuevo el recorrido Node (1/1). Se comparan hash SHA-256 de la base, manifiesto y dispositivo antes/después del fallo, y se reintenta la misma respuesta diagnóstica antes de recargar. La prueba de GitHub usa respuesta/token sintéticos; no acredita acceso a una cuenta real.
+
+La primera tanda específica pasó cinco casos y falló tres por selectores de test: alerta de Next adicional y nombre portugués del botón de preferencias en otra región. Se corrigió el alcance de esos selectores sin eliminar comprobaciones. TypeScript detectó además un argumento de mensaje colocado en `toEqual` en vez de `expect`; se corrigió antes de la ejecución aprobada.
 
 ## Matriz solicitada
 
@@ -61,11 +68,11 @@ El gráfico y el calendario muestran la grabación y la escucha como registros d
 
 ## Pantallas, accesibilidad y rendimiento local
 
-- EN/PT a **375, 390, 768 y 1440 px**, inicio, PDF y primera actividad de clase; móvil y escritorio en rutina/oral. Se conservaron **44 capturas** entre antes y después.
-- Ocho capturas iniciales sobre los archivos publicados existentes, ocho posteriores de inicio en la misma situación y estados adicionales de clases, PDF, rutina, oral y temas oscuros. Las capturas adicionales de módulos no tienen un «antes» que no se haya tomado.
+- EN/PT a **375, 390, 768 y 1440 px**, inicio, PDF y primera actividad de clase; móvil y escritorio en rutina/oral. Se conservaron **46 capturas** entre antes y después.
+- Ocho capturas iniciales sobre los archivos publicados existentes, ocho posteriores de inicio en la misma situación y estados adicionales de clases, PDF, rutina, oral, fallos de guardado y temas oscuros. Las capturas adicionales de módulos no tienen un «antes» que no se haya tomado.
 - Ausencia de overflow horizontal y excepciones JavaScript en los recorridos que lo verifican; nombres de controles, tabulación básica, ayuda por teclado, selección/retoma y formularios ejercitados. No es una certificación WCAG.
 - Contraste de texto principal/secundario contra superficie medido en estilos computados EN/PT claro/oscuro: umbral **4,5:1** superado. No se extrapola a todas las imágenes, estados o combinaciones posibles.
-- Baseline local: ready visual 678–823 ms, DOMContentLoaded 38–114 ms, load 116–182 ms. Después: ready **740–865 ms**, DOMContentLoaded **36–70 ms**, load **133–232 ms**. Ready incluye espera visual/captura. Son muestras locales sin throttling, no Lighthouse, LCP, Core Web Vitals ni mediciones de teléfono físico; no se declara una mejora de rendimiento a partir de ellas.
+- Baseline local: ready visual 678–823 ms, DOMContentLoaded 38–114 ms, load 116–182 ms. Después: ready **784–943 ms**, DOMContentLoaded **35–65 ms**, load **113–219 ms**. Ready incluye espera visual/captura. Son muestras locales sin throttling, no Lighthouse, LCP, Core Web Vitals ni mediciones de teléfono físico; no se declara una mejora de rendimiento a partir de ellas.
 
 La primera métrica provisional de nombres usó `innerText` y contó cuatro controles dentro de detalles cerrados. Inspección confirmó nombres existentes; la medición posterior usa `textContent` y da cero controles sin texto/aria-label/title. No se presenta el conteo inicial como un defecto accesible confirmado.
 

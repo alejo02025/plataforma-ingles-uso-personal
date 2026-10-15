@@ -98,3 +98,9 @@ No se cambian dependencias ni archivos publicados de raíz. Los cambios de las f
 Se confirmó que el inicio anterior de esta rama ofrecía una clase de ocho minutos incluso con una preferencia habitual de cinco. Además, solo buscaba actividades generales pendientes: un ejercicio guiado pausado podía quedar relegado al recorrido inferior.
 
 `study-recommendation.ts` centraliza ahora esas decisiones sin mutar evidencia ni permisos. Usa tiempo habitual o ajuste local de hoy; conserva pendientes y refuerzos prioritarios, recupera el borrador guiado del bloque activo y descarta punteros completados. El recorrido opcional muestra explícitamente su duración completa. Los límites de validez pedagógica y de sincronización señalados en esta auditoría se mantienen: es una recomendación explicable mediante reglas, no una evaluación estadística de dominio.
+
+## Seguimiento P0: guardado durable
+
+La inspección del código confirmó dos escrituras separadas para la base exportada y el manifiesto, con avance del manifiesto en memoria antes de confirmar persistencia. La API tampoco recuperaba el estado anterior cuando fallaba esa escritura. Ese diseño permitía divergir entre memoria, base guardada y metadatos; no se afirma que un estudiante real haya sufrido pérdida de datos.
+
+Se sustituyó por una confirmación IndexedDB conjunta, lectura inicial coherente y recuperación de la última revisión durable para mutaciones locales y merges remotos. La inicialización puede reintentarse después de un fallo transitorio. Las pruebas inyectan aborto y excepción síncrona en la segunda escritura: verifican igualdad de los bytes/metadatos anteriores y reintentan la misma respuesta diagnóstica sin duplicados. No se migran ni borran tablas, perfiles o archivos.

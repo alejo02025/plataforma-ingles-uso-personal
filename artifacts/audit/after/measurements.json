@@ -2,7 +2,7 @@
   {
     "language": "en",
     "width": 375,
-    "readyMs": 843,
+    "readyMs": 919,
     "errors": [],
     "overflow": false,
     "headingCount": 1,
@@ -10,77 +10,77 @@
     "resources": [
       {
         "name": "Nunito.ttf",
-        "durationMs": 44,
+        "durationMs": 19,
         "transferSize": 277232
       },
       {
         "name": "28u065qz2-prl.css",
-        "durationMs": 37,
+        "durationMs": 18,
         "transferSize": 114413
       },
       {
-        "name": "31_gxm_btlhtf.css",
-        "durationMs": 37,
-        "transferSize": 16398
+        "name": "2gcsqefb5g7ii.css",
+        "durationMs": 18,
+        "transferSize": 16426
       },
       {
         "name": "3igueiwtgc6sc.css",
-        "durationMs": 36,
+        "durationMs": 16,
         "transferSize": 3379
       },
       {
         "name": "3333gs1h_w689.js",
-        "durationMs": 35,
+        "durationMs": 17,
         "transferSize": 21044
       },
       {
-        "name": "turbopack-3dy7_zwpd8uap.js",
-        "durationMs": 45,
-        "transferSize": 10361
-      },
-      {
         "name": "2i69t8mw1uu8q.js",
-        "durationMs": 37,
+        "durationMs": 21,
         "transferSize": 182390
       },
       {
+        "name": "turbopack-3dy7_zwpd8uap.js",
+        "durationMs": 19,
+        "transferSize": 10361
+      },
+      {
         "name": "3dmm3v_fq28gc.js",
-        "durationMs": 46,
+        "durationMs": 22,
         "transferSize": 230120
       },
       {
         "name": "0umf92h1sb77c.js",
-        "durationMs": 45,
+        "durationMs": 21,
         "transferSize": 14122
       },
       {
-        "name": "1pu-inny1in8k.js",
-        "durationMs": 45,
-        "transferSize": 14815
+        "name": "054ufezlcly80.js",
+        "durationMs": 22,
+        "transferSize": 14818
       },
       {
-        "name": "0wy0nfg8whihf.js",
-        "durationMs": 46,
-        "transferSize": 99347
+        "name": "0_zuoxm7s-7ec.js",
+        "durationMs": 22,
+        "transferSize": 100380
       },
       {
-        "name": "3rc9dbs1fmlw7.js",
-        "durationMs": 49,
-        "transferSize": 325010
-      },
-      {
-        "name": "2rlxk-qjtf4ds.js",
-        "durationMs": 49,
+        "name": "0pk8ctmzk3d-9.js",
+        "durationMs": 27,
         "transferSize": 595098
       },
       {
-        "name": "2hqm54s6ghkhy.js",
-        "durationMs": 7,
-        "transferSize": 36812
+        "name": "3rc9dbs1fmlw7.js",
+        "durationMs": 24,
+        "transferSize": 325010
+      },
+      {
+        "name": "4394xrfnrci5e.js",
+        "durationMs": 6,
+        "transferSize": 36858
       },
       {
         "name": "english-os-v1.svg",
-        "durationMs": 6,
+        "durationMs": 3,
         "transferSize": 836
       },
       {
@@ -89,27 +89,27 @@
         "transferSize": 658710
       },
       {
-        "name": "version.json?t=1792066328481",
-        "durationMs": 10,
+        "name": "version.json?t=1792067705297",
+        "durationMs": 4,
         "transferSize": 337
       },
       {
         "name": "briefing.json",
-        "durationMs": 10,
+        "durationMs": 3,
         "transferSize": 7030
       }
     ],
     "navigation": [
       {
-        "domContentLoadedMs": 70,
-        "loadMs": 232
+        "domContentLoadedMs": 45,
+        "loadMs": 219
       }
     ]
   },
   {
     "language": "en",
     "width": 390,
-    "readyMs": 832,
+    "readyMs": 863,
     "errors": [],
     "overflow": false,
     "headingCount": 1,
@@ -117,213 +117,106 @@
     "resources": [
       {
         "name": "Nunito.ttf",
-        "durationMs": 28,
-        "transferSize": 277232
-      },
-      {
-        "name": "28u065qz2-prl.css",
-        "durationMs": 25,
-        "transferSize": 114413
-      },
-      {
-        "name": "31_gxm_btlhtf.css",
-        "durationMs": 25,
-        "transferSize": 16398
-      },
-      {
-        "name": "3igueiwtgc6sc.css",
-        "durationMs": 24,
-        "transferSize": 3379
-      },
-      {
-        "name": "3333gs1h_w689.js",
-        "durationMs": 31,
-        "transferSize": 21044
-      },
-      {
-        "name": "2i69t8mw1uu8q.js",
-        "durationMs": 32,
-        "transferSize": 182390
-      },
-      {
-        "name": "3dmm3v_fq28gc.js",
-        "durationMs": 33,
-        "transferSize": 230120
-      },
-      {
-        "name": "turbopack-3dy7_zwpd8uap.js",
-        "durationMs": 31,
-        "transferSize": 10361
-      },
-      {
-        "name": "0umf92h1sb77c.js",
-        "durationMs": 31,
-        "transferSize": 14122
-      },
-      {
-        "name": "1pu-inny1in8k.js",
-        "durationMs": 31,
-        "transferSize": 14815
-      },
-      {
-        "name": "0wy0nfg8whihf.js",
-        "durationMs": 36,
-        "transferSize": 99347
-      },
-      {
-        "name": "2rlxk-qjtf4ds.js",
-        "durationMs": 37,
-        "transferSize": 595098
-      },
-      {
-        "name": "3rc9dbs1fmlw7.js",
-        "durationMs": 37,
-        "transferSize": 325010
-      },
-      {
-        "name": "2hqm54s6ghkhy.js",
-        "durationMs": 3,
-        "transferSize": 36812
-      },
-      {
-        "name": "english-os-v1.svg",
-        "durationMs": 3,
-        "transferSize": 836
-      },
-      {
-        "name": "sql-wasm.wasm",
-        "durationMs": 6,
-        "transferSize": 658710
-      },
-      {
-        "name": "version.json?t=1792066329454",
-        "durationMs": 3,
-        "transferSize": 337
-      },
-      {
-        "name": "briefing.json",
-        "durationMs": 3,
-        "transferSize": 7030
-      }
-    ],
-    "navigation": [
-      {
-        "domContentLoadedMs": 42,
-        "loadMs": 215
-      }
-    ]
-  },
-  {
-    "language": "en",
-    "width": 768,
-    "readyMs": 799,
-    "errors": [],
-    "overflow": false,
-    "headingCount": 1,
-    "buttonsWithoutName": 0,
-    "resources": [
-      {
-        "name": "Nunito.ttf",
-        "durationMs": 16,
-        "transferSize": 277232
-      },
-      {
-        "name": "28u065qz2-prl.css",
-        "durationMs": 17,
-        "transferSize": 114413
-      },
-      {
-        "name": "31_gxm_btlhtf.css",
-        "durationMs": 17,
-        "transferSize": 16398
-      },
-      {
-        "name": "3igueiwtgc6sc.css",
-        "durationMs": 17,
-        "transferSize": 3379
-      },
-      {
-        "name": "3333gs1h_w689.js",
         "durationMs": 18,
+        "transferSize": 277232
+      },
+      {
+        "name": "28u065qz2-prl.css",
+        "durationMs": 16,
+        "transferSize": 114413
+      },
+      {
+        "name": "2gcsqefb5g7ii.css",
+        "durationMs": 18,
+        "transferSize": 16426
+      },
+      {
+        "name": "3igueiwtgc6sc.css",
+        "durationMs": 17,
+        "transferSize": 3379
+      },
+      {
+        "name": "3333gs1h_w689.js",
+        "durationMs": 22,
         "transferSize": 21044
       },
       {
         "name": "2i69t8mw1uu8q.js",
-        "durationMs": 19,
+        "durationMs": 26,
         "transferSize": 182390
       },
       {
-        "name": "3dmm3v_fq28gc.js",
-        "durationMs": 22,
-        "transferSize": 230120
-      },
-      {
         "name": "turbopack-3dy7_zwpd8uap.js",
-        "durationMs": 21,
+        "durationMs": 26,
         "transferSize": 10361
       },
       {
+        "name": "3dmm3v_fq28gc.js",
+        "durationMs": 29,
+        "transferSize": 230120
+      },
+      {
         "name": "0umf92h1sb77c.js",
-        "durationMs": 21,
+        "durationMs": 27,
         "transferSize": 14122
       },
       {
-        "name": "1pu-inny1in8k.js",
-        "durationMs": 21,
-        "transferSize": 14815
+        "name": "054ufezlcly80.js",
+        "durationMs": 27,
+        "transferSize": 14818
       },
       {
-        "name": "0wy0nfg8whihf.js",
-        "durationMs": 22,
-        "transferSize": 99347
+        "name": "0_zuoxm7s-7ec.js",
+        "durationMs": 30,
+        "transferSize": 100380
       },
       {
-        "name": "2rlxk-qjtf4ds.js",
-        "durationMs": 25,
+        "name": "0pk8ctmzk3d-9.js",
+        "durationMs": 34,
         "transferSize": 595098
       },
       {
         "name": "3rc9dbs1fmlw7.js",
-        "durationMs": 21,
+        "durationMs": 32,
         "transferSize": 325010
       },
       {
         "name": "english-os-v1.svg",
-        "durationMs": 8,
+        "durationMs": 3,
         "transferSize": 836
       },
       {
-        "name": "2hqm54s6ghkhy.js",
-        "durationMs": 3,
-        "transferSize": 36812
+        "name": "4394xrfnrci5e.js",
+        "durationMs": 4,
+        "transferSize": 36858
       },
       {
         "name": "sql-wasm.wasm",
-        "durationMs": 6,
+        "durationMs": 5,
         "transferSize": 658710
       },
       {
-        "name": "version.json?t=1792066330376",
+        "name": "version.json?t=1792067706250",
         "durationMs": 3,
         "transferSize": 337
       },
       {
         "name": "briefing.json",
-        "durationMs": 2,
+        "durationMs": 1,
         "transferSize": 7030
       }
     ],
     "navigation": [
       {
-        "domContentLoadedMs": 47,
+        "domContentLoadedMs": 65,
         "loadMs": 134
       }
     ]
   },
   {
     "language": "en",
-    "width": 1440,
-    "readyMs": 852,
+    "width": 768,
+    "readyMs": 943,
     "errors": [],
     "overflow": false,
     "headingCount": 1,
@@ -331,22 +224,22 @@
     "resources": [
       {
         "name": "Nunito.ttf",
-        "durationMs": 27,
+        "durationMs": 12,
         "transferSize": 277232
       },
       {
         "name": "28u065qz2-prl.css",
-        "durationMs": 14,
+        "durationMs": 11,
         "transferSize": 114413
       },
       {
-        "name": "31_gxm_btlhtf.css",
-        "durationMs": 16,
-        "transferSize": 16398
+        "name": "2gcsqefb5g7ii.css",
+        "durationMs": 12,
+        "transferSize": 16426
       },
       {
         "name": "3igueiwtgc6sc.css",
-        "durationMs": 16,
+        "durationMs": 12,
         "transferSize": 3379
       },
       {
@@ -355,82 +248,189 @@
         "transferSize": 21044
       },
       {
-        "name": "3dmm3v_fq28gc.js",
-        "durationMs": 28,
-        "transferSize": 230120
-      },
-      {
         "name": "2i69t8mw1uu8q.js",
         "durationMs": 27,
         "transferSize": 182390
       },
       {
-        "name": "0umf92h1sb77c.js",
-        "durationMs": 24,
-        "transferSize": 14122
+        "name": "3dmm3v_fq28gc.js",
+        "durationMs": 29,
+        "transferSize": 230120
       },
       {
         "name": "turbopack-3dy7_zwpd8uap.js",
-        "durationMs": 24,
+        "durationMs": 23,
         "transferSize": 10361
       },
       {
-        "name": "1pu-inny1in8k.js",
-        "durationMs": 29,
-        "transferSize": 14815
+        "name": "0umf92h1sb77c.js",
+        "durationMs": 23,
+        "transferSize": 14122
       },
       {
-        "name": "0wy0nfg8whihf.js",
-        "durationMs": 33,
-        "transferSize": 99347
+        "name": "054ufezlcly80.js",
+        "durationMs": 23,
+        "transferSize": 14818
       },
       {
-        "name": "2rlxk-qjtf4ds.js",
-        "durationMs": 34,
+        "name": "0_zuoxm7s-7ec.js",
+        "durationMs": 24,
+        "transferSize": 100380
+      },
+      {
+        "name": "0pk8ctmzk3d-9.js",
+        "durationMs": 32,
         "transferSize": 595098
       },
       {
         "name": "3rc9dbs1fmlw7.js",
-        "durationMs": 34,
+        "durationMs": 31,
         "transferSize": 325010
       },
       {
+        "name": "4394xrfnrci5e.js",
+        "durationMs": 2,
+        "transferSize": 36858
+      },
+      {
         "name": "english-os-v1.svg",
-        "durationMs": 7,
+        "durationMs": 3,
         "transferSize": 836
       },
       {
-        "name": "2hqm54s6ghkhy.js",
-        "durationMs": 4,
-        "transferSize": 36812
-      },
-      {
         "name": "sql-wasm.wasm",
-        "durationMs": 7,
+        "durationMs": 4,
         "transferSize": 658710
       },
       {
-        "name": "version.json?t=1792066331315",
+        "name": "version.json?t=1792067707301",
         "durationMs": 3,
         "transferSize": 337
       },
       {
         "name": "briefing.json",
-        "durationMs": 3,
+        "durationMs": 2,
         "transferSize": 7030
       }
     ],
     "navigation": [
       {
         "domContentLoadedMs": 38,
-        "loadMs": 151
+        "loadMs": 200
+      }
+    ]
+  },
+  {
+    "language": "en",
+    "width": 1440,
+    "readyMs": 793,
+    "errors": [],
+    "overflow": false,
+    "headingCount": 1,
+    "buttonsWithoutName": 0,
+    "resources": [
+      {
+        "name": "Nunito.ttf",
+        "durationMs": 14,
+        "transferSize": 277232
+      },
+      {
+        "name": "28u065qz2-prl.css",
+        "durationMs": 13,
+        "transferSize": 114413
+      },
+      {
+        "name": "2gcsqefb5g7ii.css",
+        "durationMs": 13,
+        "transferSize": 16426
+      },
+      {
+        "name": "3igueiwtgc6sc.css",
+        "durationMs": 12,
+        "transferSize": 3379
+      },
+      {
+        "name": "3333gs1h_w689.js",
+        "durationMs": 17,
+        "transferSize": 21044
+      },
+      {
+        "name": "2i69t8mw1uu8q.js",
+        "durationMs": 20,
+        "transferSize": 182390
+      },
+      {
+        "name": "turbopack-3dy7_zwpd8uap.js",
+        "durationMs": 17,
+        "transferSize": 10361
+      },
+      {
+        "name": "3dmm3v_fq28gc.js",
+        "durationMs": 20,
+        "transferSize": 230120
+      },
+      {
+        "name": "0umf92h1sb77c.js",
+        "durationMs": 18,
+        "transferSize": 14122
+      },
+      {
+        "name": "054ufezlcly80.js",
+        "durationMs": 18,
+        "transferSize": 14818
+      },
+      {
+        "name": "0_zuoxm7s-7ec.js",
+        "durationMs": 27,
+        "transferSize": 100380
+      },
+      {
+        "name": "0pk8ctmzk3d-9.js",
+        "durationMs": 28,
+        "transferSize": 595098
+      },
+      {
+        "name": "3rc9dbs1fmlw7.js",
+        "durationMs": 28,
+        "transferSize": 325010
+      },
+      {
+        "name": "english-os-v1.svg",
+        "durationMs": 8,
+        "transferSize": 836
+      },
+      {
+        "name": "4394xrfnrci5e.js",
+        "durationMs": 6,
+        "transferSize": 36858
+      },
+      {
+        "name": "sql-wasm.wasm",
+        "durationMs": 6,
+        "transferSize": 658710
+      },
+      {
+        "name": "version.json?t=1792067708329",
+        "durationMs": 5,
+        "transferSize": 337
+      },
+      {
+        "name": "briefing.json",
+        "durationMs": 4,
+        "transferSize": 7030
+      }
+    ],
+    "navigation": [
+      {
+        "domContentLoadedMs": 35,
+        "loadMs": 113
       }
     ]
   },
   {
     "language": "pt",
     "width": 375,
-    "readyMs": 775,
+    "readyMs": 784,
     "errors": [],
     "overflow": false,
     "headingCount": 1,
@@ -438,68 +438,73 @@
     "resources": [
       {
         "name": "Nunito.ttf",
-        "durationMs": 25,
+        "durationMs": 27,
         "transferSize": 277232
       },
       {
-        "name": "3igueiwtgc6sc.css",
-        "durationMs": 20,
-        "transferSize": 3379
-      },
-      {
         "name": "28u065qz2-prl.css",
-        "durationMs": 21,
+        "durationMs": 20,
         "transferSize": 114413
       },
       {
-        "name": "31_gxm_btlhtf.css",
-        "durationMs": 21,
-        "transferSize": 16398
+        "name": "2gcsqefb5g7ii.css",
+        "durationMs": 19,
+        "transferSize": 16426
+      },
+      {
+        "name": "3igueiwtgc6sc.css",
+        "durationMs": 14,
+        "transferSize": 3379
       },
       {
         "name": "3333gs1h_w689.js",
-        "durationMs": 24,
+        "durationMs": 22,
         "transferSize": 21044
       },
       {
         "name": "061tesabjjemg.js",
-        "durationMs": 25,
+        "durationMs": 23,
         "transferSize": 182420
       },
       {
-        "name": "1p5oh2fin4q79.js",
-        "durationMs": 28,
-        "transferSize": 230120
-      },
-      {
-        "name": "0umf92h1sb77c.js",
-        "durationMs": 27,
-        "transferSize": 14122
-      },
-      {
         "name": "turbopack-0scqvex_gfml0.js",
-        "durationMs": 27,
+        "durationMs": 23,
         "transferSize": 10371
       },
       {
-        "name": "0nwf22op-t-ii.js",
-        "durationMs": 27,
-        "transferSize": 15150
+        "name": "1p5oh2fin4q79.js",
+        "durationMs": 25,
+        "transferSize": 230120
       },
       {
-        "name": "2atp1lij0apam.js",
-        "durationMs": 28,
-        "transferSize": 101837
+        "name": "1ynn8lib0zcun.js",
+        "durationMs": 23,
+        "transferSize": 15153
+      },
+      {
+        "name": "0umf92h1sb77c.js",
+        "durationMs": 22,
+        "transferSize": 14122
+      },
+      {
+        "name": "13dxoqwfxawyh.js",
+        "durationMs": 25,
+        "transferSize": 102870
+      },
+      {
+        "name": "39lvptx4mimbu.js",
+        "durationMs": 29,
+        "transferSize": 592099
       },
       {
         "name": "2l6qo16-df5ts.js",
-        "durationMs": 32,
+        "durationMs": 28,
         "transferSize": 325021
       },
       {
-        "name": "0pcjmliotj94n.js",
-        "durationMs": 31,
-        "transferSize": 592099
+        "name": "1grq9z7tdzq1p.js",
+        "durationMs": 4,
+        "transferSize": 37095
       },
       {
         "name": "portuguese-os-v1.svg",
@@ -507,250 +512,31 @@
         "transferSize": 839
       },
       {
-        "name": "03sakx7f860i1.js",
-        "durationMs": 2,
-        "transferSize": 37049
-      },
-      {
         "name": "sql-wasm.wasm",
-        "durationMs": 6,
+        "durationMs": 3,
         "transferSize": 658710
       },
       {
-        "name": "version.json?t=1792066332337",
-        "durationMs": 3,
+        "name": "version.json?t=1792067709326",
+        "durationMs": 6,
         "transferSize": 337
       },
       {
         "name": "briefing.json",
-        "durationMs": 2,
+        "durationMs": 6,
         "transferSize": 7030
       }
     ],
     "navigation": [
       {
-        "domContentLoadedMs": 50,
-        "loadMs": 162
+        "domContentLoadedMs": 42,
+        "loadMs": 200
       }
     ]
   },
   {
     "language": "pt",
     "width": 390,
-    "readyMs": 794,
-    "errors": [],
-    "overflow": false,
-    "headingCount": 1,
-    "buttonsWithoutName": 0,
-    "resources": [
-      {
-        "name": "Nunito.ttf",
-        "durationMs": 16,
-        "transferSize": 277232
-      },
-      {
-        "name": "28u065qz2-prl.css",
-        "durationMs": 15,
-        "transferSize": 114413
-      },
-      {
-        "name": "3igueiwtgc6sc.css",
-        "durationMs": 11,
-        "transferSize": 3379
-      },
-      {
-        "name": "31_gxm_btlhtf.css",
-        "durationMs": 11,
-        "transferSize": 16398
-      },
-      {
-        "name": "3333gs1h_w689.js",
-        "durationMs": 19,
-        "transferSize": 21044
-      },
-      {
-        "name": "turbopack-0scqvex_gfml0.js",
-        "durationMs": 20,
-        "transferSize": 10371
-      },
-      {
-        "name": "061tesabjjemg.js",
-        "durationMs": 21,
-        "transferSize": 182420
-      },
-      {
-        "name": "1p5oh2fin4q79.js",
-        "durationMs": 21,
-        "transferSize": 230120
-      },
-      {
-        "name": "0umf92h1sb77c.js",
-        "durationMs": 20,
-        "transferSize": 14122
-      },
-      {
-        "name": "0nwf22op-t-ii.js",
-        "durationMs": 21,
-        "transferSize": 15150
-      },
-      {
-        "name": "2atp1lij0apam.js",
-        "durationMs": 20,
-        "transferSize": 101837
-      },
-      {
-        "name": "2l6qo16-df5ts.js",
-        "durationMs": 22,
-        "transferSize": 325021
-      },
-      {
-        "name": "0pcjmliotj94n.js",
-        "durationMs": 21,
-        "transferSize": 592099
-      },
-      {
-        "name": "portuguese-os-v1.svg",
-        "durationMs": 3,
-        "transferSize": 839
-      },
-      {
-        "name": "03sakx7f860i1.js",
-        "durationMs": 2,
-        "transferSize": 37049
-      },
-      {
-        "name": "sql-wasm.wasm",
-        "durationMs": 4,
-        "transferSize": 658710
-      },
-      {
-        "name": "version.json?t=1792066333190",
-        "durationMs": 3,
-        "transferSize": 337
-      },
-      {
-        "name": "briefing.json",
-        "durationMs": 2,
-        "transferSize": 7030
-      }
-    ],
-    "navigation": [
-      {
-        "domContentLoadedMs": 36,
-        "loadMs": 144
-      }
-    ]
-  },
-  {
-    "language": "pt",
-    "width": 768,
-    "readyMs": 740,
-    "errors": [],
-    "overflow": false,
-    "headingCount": 1,
-    "buttonsWithoutName": 0,
-    "resources": [
-      {
-        "name": "Nunito.ttf",
-        "durationMs": 18,
-        "transferSize": 277232
-      },
-      {
-        "name": "28u065qz2-prl.css",
-        "durationMs": 17,
-        "transferSize": 114413
-      },
-      {
-        "name": "3igueiwtgc6sc.css",
-        "durationMs": 17,
-        "transferSize": 3379
-      },
-      {
-        "name": "31_gxm_btlhtf.css",
-        "durationMs": 17,
-        "transferSize": 16398
-      },
-      {
-        "name": "3333gs1h_w689.js",
-        "durationMs": 15,
-        "transferSize": 21044
-      },
-      {
-        "name": "061tesabjjemg.js",
-        "durationMs": 25,
-        "transferSize": 182420
-      },
-      {
-        "name": "turbopack-0scqvex_gfml0.js",
-        "durationMs": 24,
-        "transferSize": 10371
-      },
-      {
-        "name": "1p5oh2fin4q79.js",
-        "durationMs": 25,
-        "transferSize": 230120
-      },
-      {
-        "name": "0umf92h1sb77c.js",
-        "durationMs": 25,
-        "transferSize": 14122
-      },
-      {
-        "name": "2atp1lij0apam.js",
-        "durationMs": 31,
-        "transferSize": 101837
-      },
-      {
-        "name": "0nwf22op-t-ii.js",
-        "durationMs": 25,
-        "transferSize": 15150
-      },
-      {
-        "name": "0pcjmliotj94n.js",
-        "durationMs": 33,
-        "transferSize": 592099
-      },
-      {
-        "name": "2l6qo16-df5ts.js",
-        "durationMs": 32,
-        "transferSize": 325021
-      },
-      {
-        "name": "portuguese-os-v1.svg",
-        "durationMs": 5,
-        "transferSize": 839
-      },
-      {
-        "name": "03sakx7f860i1.js",
-        "durationMs": 2,
-        "transferSize": 37049
-      },
-      {
-        "name": "sql-wasm.wasm",
-        "durationMs": 5,
-        "transferSize": 658710
-      },
-      {
-        "name": "version.json?t=1792066334042",
-        "durationMs": 2,
-        "transferSize": 337
-      },
-      {
-        "name": "briefing.json",
-        "durationMs": 6,
-        "transferSize": 7030
-      }
-    ],
-    "navigation": [
-      {
-        "domContentLoadedMs": 49,
-        "loadMs": 133
-      }
-    ]
-  },
-  {
-    "language": "pt",
-    "width": 1440,
     "readyMs": 865,
     "errors": [],
     "overflow": false,
@@ -759,18 +545,18 @@
     "resources": [
       {
         "name": "Nunito.ttf",
-        "durationMs": 28,
+        "durationMs": 26,
         "transferSize": 277232
+      },
+      {
+        "name": "2gcsqefb5g7ii.css",
+        "durationMs": 20,
+        "transferSize": 16426
       },
       {
         "name": "28u065qz2-prl.css",
         "durationMs": 20,
         "transferSize": 114413
-      },
-      {
-        "name": "31_gxm_btlhtf.css",
-        "durationMs": 20,
-        "transferSize": 16398
       },
       {
         "name": "3igueiwtgc6sc.css",
@@ -779,58 +565,58 @@
       },
       {
         "name": "3333gs1h_w689.js",
-        "durationMs": 31,
+        "durationMs": 21,
         "transferSize": 21044
       },
       {
+        "name": "0umf92h1sb77c.js",
+        "durationMs": 25,
+        "transferSize": 14122
+      },
+      {
+        "name": "turbopack-0scqvex_gfml0.js",
+        "durationMs": 25,
+        "transferSize": 10371
+      },
+      {
         "name": "061tesabjjemg.js",
-        "durationMs": 37,
+        "durationMs": 25,
         "transferSize": 182420
       },
       {
         "name": "1p5oh2fin4q79.js",
-        "durationMs": 33,
+        "durationMs": 26,
         "transferSize": 230120
       },
       {
-        "name": "turbopack-0scqvex_gfml0.js",
-        "durationMs": 27,
-        "transferSize": 10371
+        "name": "1ynn8lib0zcun.js",
+        "durationMs": 32,
+        "transferSize": 15153
       },
       {
-        "name": "0umf92h1sb77c.js",
-        "durationMs": 27,
-        "transferSize": 14122
+        "name": "13dxoqwfxawyh.js",
+        "durationMs": 32,
+        "transferSize": 102870
       },
       {
-        "name": "0nwf22op-t-ii.js",
-        "durationMs": 27,
-        "transferSize": 15150
-      },
-      {
-        "name": "2atp1lij0apam.js",
-        "durationMs": 34,
-        "transferSize": 101837
-      },
-      {
-        "name": "0pcjmliotj94n.js",
-        "durationMs": 38,
+        "name": "39lvptx4mimbu.js",
+        "durationMs": 33,
         "transferSize": 592099
       },
       {
         "name": "2l6qo16-df5ts.js",
-        "durationMs": 37,
+        "durationMs": 33,
         "transferSize": 325021
       },
       {
-        "name": "portuguese-os-v1.svg",
-        "durationMs": 2,
-        "transferSize": 839
+        "name": "1grq9z7tdzq1p.js",
+        "durationMs": 3,
+        "transferSize": 37095
       },
       {
-        "name": "03sakx7f860i1.js",
-        "durationMs": 2,
-        "transferSize": 37049
+        "name": "portuguese-os-v1.svg",
+        "durationMs": 3,
+        "transferSize": 839
       },
       {
         "name": "sql-wasm.wasm",
@@ -838,20 +624,234 @@
         "transferSize": 658710
       },
       {
-        "name": "version.json?t=1792066334963",
-        "durationMs": 6,
+        "name": "version.json?t=1792067710283",
+        "durationMs": 4,
         "transferSize": 337
       },
       {
         "name": "briefing.json",
-        "durationMs": 6,
+        "durationMs": 3,
         "transferSize": 7030
       }
     ],
     "navigation": [
       {
-        "domContentLoadedMs": 45,
-        "loadMs": 139
+        "domContentLoadedMs": 55,
+        "loadMs": 204
+      }
+    ]
+  },
+  {
+    "language": "pt",
+    "width": 768,
+    "readyMs": 827,
+    "errors": [],
+    "overflow": false,
+    "headingCount": 1,
+    "buttonsWithoutName": 0,
+    "resources": [
+      {
+        "name": "Nunito.ttf",
+        "durationMs": 25,
+        "transferSize": 277232
+      },
+      {
+        "name": "28u065qz2-prl.css",
+        "durationMs": 31,
+        "transferSize": 114413
+      },
+      {
+        "name": "2gcsqefb5g7ii.css",
+        "durationMs": 31,
+        "transferSize": 16426
+      },
+      {
+        "name": "3igueiwtgc6sc.css",
+        "durationMs": 31,
+        "transferSize": 3379
+      },
+      {
+        "name": "3333gs1h_w689.js",
+        "durationMs": 32,
+        "transferSize": 21044
+      },
+      {
+        "name": "1p5oh2fin4q79.js",
+        "durationMs": 37,
+        "transferSize": 230120
+      },
+      {
+        "name": "061tesabjjemg.js",
+        "durationMs": 35,
+        "transferSize": 182420
+      },
+      {
+        "name": "turbopack-0scqvex_gfml0.js",
+        "durationMs": 39,
+        "transferSize": 10371
+      },
+      {
+        "name": "0umf92h1sb77c.js",
+        "durationMs": 39,
+        "transferSize": 14122
+      },
+      {
+        "name": "1ynn8lib0zcun.js",
+        "durationMs": 39,
+        "transferSize": 15153
+      },
+      {
+        "name": "13dxoqwfxawyh.js",
+        "durationMs": 39,
+        "transferSize": 102870
+      },
+      {
+        "name": "39lvptx4mimbu.js",
+        "durationMs": 44,
+        "transferSize": 592099
+      },
+      {
+        "name": "2l6qo16-df5ts.js",
+        "durationMs": 43,
+        "transferSize": 325021
+      },
+      {
+        "name": "portuguese-os-v1.svg",
+        "durationMs": 5,
+        "transferSize": 839
+      },
+      {
+        "name": "1grq9z7tdzq1p.js",
+        "durationMs": 2,
+        "transferSize": 37095
+      },
+      {
+        "name": "sql-wasm.wasm",
+        "durationMs": 9,
+        "transferSize": 658710
+      },
+      {
+        "name": "version.json?t=1792067711268",
+        "durationMs": 7,
+        "transferSize": 337
+      },
+      {
+        "name": "briefing.json",
+        "durationMs": 7,
+        "transferSize": 7030
+      }
+    ],
+    "navigation": [
+      {
+        "domContentLoadedMs": 64,
+        "loadMs": 147
+      }
+    ]
+  },
+  {
+    "language": "pt",
+    "width": 1440,
+    "readyMs": 858,
+    "errors": [],
+    "overflow": false,
+    "headingCount": 1,
+    "buttonsWithoutName": 0,
+    "resources": [
+      {
+        "name": "Nunito.ttf",
+        "durationMs": 26,
+        "transferSize": 277232
+      },
+      {
+        "name": "2gcsqefb5g7ii.css",
+        "durationMs": 27,
+        "transferSize": 16426
+      },
+      {
+        "name": "28u065qz2-prl.css",
+        "durationMs": 27,
+        "transferSize": 114413
+      },
+      {
+        "name": "3igueiwtgc6sc.css",
+        "durationMs": 27,
+        "transferSize": 3379
+      },
+      {
+        "name": "3333gs1h_w689.js",
+        "durationMs": 28,
+        "transferSize": 21044
+      },
+      {
+        "name": "061tesabjjemg.js",
+        "durationMs": 28,
+        "transferSize": 182420
+      },
+      {
+        "name": "1p5oh2fin4q79.js",
+        "durationMs": 29,
+        "transferSize": 230120
+      },
+      {
+        "name": "turbopack-0scqvex_gfml0.js",
+        "durationMs": 29,
+        "transferSize": 10371
+      },
+      {
+        "name": "0umf92h1sb77c.js",
+        "durationMs": 29,
+        "transferSize": 14122
+      },
+      {
+        "name": "1ynn8lib0zcun.js",
+        "durationMs": 30,
+        "transferSize": 15153
+      },
+      {
+        "name": "13dxoqwfxawyh.js",
+        "durationMs": 31,
+        "transferSize": 102870
+      },
+      {
+        "name": "2l6qo16-df5ts.js",
+        "durationMs": 35,
+        "transferSize": 325021
+      },
+      {
+        "name": "39lvptx4mimbu.js",
+        "durationMs": 37,
+        "transferSize": 592099
+      },
+      {
+        "name": "portuguese-os-v1.svg",
+        "durationMs": 4,
+        "transferSize": 839
+      },
+      {
+        "name": "1grq9z7tdzq1p.js",
+        "durationMs": 3,
+        "transferSize": 37095
+      },
+      {
+        "name": "sql-wasm.wasm",
+        "durationMs": 4,
+        "transferSize": 658710
+      },
+      {
+        "name": "version.json?t=1792067712243",
+        "durationMs": 6,
+        "transferSize": 337
+      },
+      {
+        "name": "briefing.json",
+        "durationMs": 5,
+        "transferSize": 7030
+      }
+    ],
+    "navigation": [
+      {
+        "domContentLoadedMs": 53,
+        "loadMs": 172
       }
     ]
   }

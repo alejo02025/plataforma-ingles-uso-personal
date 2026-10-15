@@ -1,4 +1,7 @@
 /* Shared adult learning system. Identity follows the active workspace, never the URL alone. */
+.error {
+  white-space: pre-line;
+}
 .skip-learning-link {
   position: fixed;
   left: 16px;
