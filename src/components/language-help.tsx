@@ -22,9 +22,9 @@ export function LanguageHelp({ onOpenLesson }: { onOpenLesson?: (id: string) => 
   return (
     <div className="language-desk">
       <Heading
-        eyebrow="ALWAYS HERE TO HELP"
-        title="Language help."
-        description="Choose a sentence, a tense or a verb."
+        eyebrow={isPortuguese ? 'ENTENDA E PRATIQUE' : 'LEARN THE PATTERN'}
+        title={isPortuguese ? 'Como formar frases' : 'Build your own sentences'}
+        description={isPortuguese ? 'Aprenda a estrutura e depois crie as suas frases.' : 'Understand the pattern, then make it your own.'}
       />
       <StudyCopy as="p" className="toolkit-note">
         Siempre disponible, sin requisitos de nivel.
@@ -40,7 +40,7 @@ export function LanguageHelp({ onOpenLesson }: { onOpenLesson?: (id: string) => 
           <span>02</span> {isPortuguese ? 'Todos os tempos' : 'All tenses'}
         </button>
         <button className={mode === 'verbs' ? 'active' : ''} onClick={() => setMode('verbs')}>
-          <span>03</span> Verbs
+          <span>03</span> {isPortuguese ? 'Verbos' : 'Verbs'}
         </button>
       </div>
       {mode === 'tenses' ? (
