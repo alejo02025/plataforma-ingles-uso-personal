@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   appleWebApp: { capable: true, title: appName, statusBarStyle: 'default' },
 };
-export const viewport: Viewport = { themeColor: isPortuguese ? '#955168' : '#07856f' };
+export const viewport: Viewport = { themeColor: isPortuguese ? '#24845d' : '#16836b' };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang={isPortuguese ? 'pt-BR' : 'en'} data-space={isPortuguese ? 'portuguese' : 'english'}>
