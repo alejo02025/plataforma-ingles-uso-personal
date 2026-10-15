@@ -42,6 +42,7 @@ import {
 } from 'lucide-react';
 import type { Snapshot, Activity, Document } from '@/lib/types';
 import { Dashboard, ActivityList } from './dashboard';
+import { HomeRoutine } from './home-routine';
 import { Diagnostic } from './diagnostic';
 import { Library } from './library';
 import { Reader } from './reader';
@@ -255,30 +256,37 @@ export function EnglishApp() {
         <nav aria-label="Main navigation">
           <div className="nav-primary">
             {appNavigation
-              .filter((item) => !['Library', 'Practice', 'Calendar', 'News'].includes(item.title))
+              .filter((item) => ['Home', 'Classes', 'Vocabulary', 'PDF Studio', 'Progress'].includes(item.title))
               .sort((a, b) =>
-                ['Home', 'My Day', 'Classes', 'PDF Studio', 'Vocabulary', 'Oral practice', 'Progress', 'Games', 'Language help'].indexOf(a.title) -
-                ['Home', 'My Day', 'Classes', 'PDF Studio', 'Vocabulary', 'Oral practice', 'Progress', 'Games', 'Language help'].indexOf(b.title),
+                ['Home', 'Classes', 'Vocabulary', 'PDF Studio', 'Progress'].indexOf(a.title) -
+                ['Home', 'Classes', 'Vocabulary', 'PDF Studio', 'Progress'].indexOf(b.title),
               )
               .map(({ title, icon: Icon }) => (
                 <button
                   key={title}
                   aria-label={title}
+                  aria-current={view === title && !active ? 'page' : undefined}
                   className={`nav-item ${view === title && !active ? 'active' : ''}`}
                   onClick={() => void navigate(title)}
                 >
                   <Icon size={19} />
-                  <span>{title}</span>
+                  <span>{
+                    title === 'Home' ? (isPortuguese ? 'Hoje' : 'Today') :
+                    title === 'Vocabulary' ? (isPortuguese ? 'Revisão' : 'Review') :
+                    title === 'PDF Studio' ? (isPortuguese ? 'Biblioteca' : 'Library') :
+                    title === 'Classes' ? (isPortuguese ? 'Aulas' : 'Classes') :
+                    (isPortuguese ? 'Progresso' : 'Progress')
+                  }</span>
                 </button>
               ))}
           </div>
           <details
             className="nav-more"
-            open={!mobileMenu || ['Library', 'Practice', 'Calendar', 'News'].includes(view)}
+            open={['Library', 'Practice', 'My Day', 'Games', 'Calendar', 'News', 'Language help', 'Oral practice'].includes(view)}
           >
-            <summary>More sections</summary>
+            <summary>{isPortuguese ? 'Outras ferramentas' : 'More tools'}</summary>
             {appNavigation
-              .filter((item) => ['Library', 'Practice', 'Calendar', 'News'].includes(item.title))
+              .filter((item) => ['Library', 'Practice', 'My Day', 'Games', 'Calendar', 'News', 'Language help', 'Oral practice'].includes(item.title))
               .map(({ title, icon: Icon }) => (
                 <button
                   key={title}
@@ -340,7 +348,7 @@ export function EnglishApp() {
             </button>
             <span>My space</span>
             <ChevronRight size={14} />
-            <strong>{active ? 'Practice' : view === 'Assessment' ? 'Assessment' : view}</strong>
+            <strong>{active ? (isPortuguese ? 'Atividade' : 'Activity') : view === 'Home' ? (isPortuguese ? 'Hoje' : 'Today') : view === 'Assessment' ? (isPortuguese ? 'Diagnóstico' : 'Assessment') : view}</strong>
           </div>
           <div className="topbar-actions">
             <div className="topbar-course"><CourseMenu data={data} navigate={(target) => void navigate(target)} /></div>
@@ -427,6 +435,25 @@ export function EnglishApp() {
                 void navigate('Games');
                 setSuggestedGame(seed);
               }}
+              onRoutine={(mode) =>
+                window.dispatchEvent(
+                  new CustomEvent('english-os:routine-start', { detail: { mode } }),
+                )
+              }
+            />
+            <HomeRoutine
+              data={data}
+              refresh={refresh}
+              onStart={onStart}
+              onClass={(id) => {
+                void navigate('Classes');
+                setSuggestedClass(id);
+              }}
+              onGame={(seed) => {
+                void navigate('Games');
+                setSuggestedGame(seed);
+              }}
+              compact
             />
           ) : view === 'PDF Studio' ? (
             <PdfStudio data={data} refresh={refresh} onRead={(doc) => void openDocument(doc)} />
@@ -455,6 +482,21 @@ export function EnglishApp() {
                 </p>
               </div>
             </>
+          ) : view === 'Practice' ? (
+            <div className="learning-path-view">
+              <Heading
+                eyebrow={isPortuguese ? 'PRÁTICA EXTRA' : 'EXTRA PRACTICE'}
+                title={isPortuguese ? 'Pratique no seu ritmo' : 'Practise at your pace'}
+                description={isPortuguese ? 'Atividades para reforçar o que você estudou.' : 'Extra activities to reinforce your learning.'}
+              />
+              <HomeRoutine
+                data={data}
+                refresh={refresh}
+                onStart={onStart}
+                onClass={(id) => { void navigate('Classes'); setSuggestedClass(id); }}
+                onGame={(seed) => { void navigate('Games'); setSuggestedGame(seed); }}
+              />
+            </div>
           ) : view === 'Oral practice' ? (
             <OralPractice data={data} refresh={refresh} />
           ) : view === 'Language help' ? (
@@ -512,7 +554,7 @@ export function EnglishApp() {
         </main>
       </div>
       <nav className="mobile-bottom-nav" aria-label="Quick navigation">
-        {[navigation[0], navigation[1], navigation[5], navigation[6], navigation[7]].map(
+        {[navigation[0], navigation[9], navigation[6], navigation[1], navigation[7]].map(
           ({ title, icon: Icon }) => (
             <button
               key={title}
@@ -521,7 +563,7 @@ export function EnglishApp() {
             >
               <Icon size={20} />
               <span>
-                {title === 'PDF Studio' ? 'Read' : title === 'Vocabulary' ? 'Review' : title}
+                {title === 'Home' ? (isPortuguese ? 'Hoje' : 'Today') : title === 'Classes' ? (isPortuguese ? 'Aulas' : 'Classes') : title === 'PDF Studio' ? (isPortuguese ? 'Ler' : 'Read') : title === 'Vocabulary' ? (isPortuguese ? 'Revisar' : 'Review') : (isPortuguese ? 'Progresso' : title)}
               </span>
             </button>
           ),
