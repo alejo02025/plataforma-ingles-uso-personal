@@ -3,4 +3,4 @@
 :HL["/plataforma-ingles-uso-personal/assets/fonts/Nunito.ttf","font",{"crossOrigin":"anonymous","type":"font/ttf"}]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"/_not-found","h":96,"c":"$Q2"}]]
-0:{"b":"KnIQdMARazg_yTtdgo0n9","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"yjonUU0L5gYGMTmZpHmDb","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
