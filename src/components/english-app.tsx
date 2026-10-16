@@ -363,7 +363,7 @@ export function EnglishApp() {
               {(area !== 'today' || active) && (
                 <h1>{active ? (pt ? 'Atividade' : 'Activity') : areaTitle}</h1>
               )}
-              <WordHelpCloud data={data} refresh={refresh} />
+              {area !== 'settings' && <WordHelpCloud data={data} refresh={refresh} />}
             </div>
             {groups[area] && (
               <nav className="section-tabs" aria-label={pt ? 'Seções' : 'Sections'}>
