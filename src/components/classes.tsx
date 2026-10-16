@@ -129,7 +129,7 @@ export function Classes({
             <StudyCopy as="p">{r.explanation}</StudyCopy>
             {!r.done && (
               <Button secondary onClick={() => void goTask(r)}>
-                Go to task <ArrowRight size={15} />
+                {isPortuguese ? 'Ir para a tarefa' : 'Go to task'} <ArrowRight size={15} />
               </Button>
             )}
           </div>
@@ -152,7 +152,7 @@ export function Classes({
         <section className="card course-locked">
           <Button secondary onClick={() => setSelected('')}>
             <ArrowLeft size={16} />
-            Back to classes
+            {isPortuguese ? 'Voltar às aulas' : 'Back to classes'}
           </Button>
           <LockKeyhole size={32} />
           <h2>{lesson.title}</h2>
@@ -212,13 +212,13 @@ export function Classes({
                 const passed=Boolean(passedLesson(data,item.id));
                 const current=item.id===journey.nextLesson?.id && level===journey.level && block===journey.block;
                 return <li className={`course-path-step ${passed?'is-passed':current?'is-current':pending.length?'is-locked':''}`} key={item.id}>
-                  <button className="course-path-button class-card" aria-label={`${item.title}${pending.length?' · Locked':''}`} onClick={()=>setSelected(item.id)}>
+                  <button className="course-path-button class-card" aria-label={`${item.title}${pending.length ? (isPortuguese ? ' · Bloqueada' : ' · Locked') : ''}`} onClick={()=>setSelected(item.id)}>
                     <span className="course-path-icon" aria-hidden="true">{passed?<Check size={27} strokeWidth={3}/>:pending.length?<LockKeyhole size={23}/>:['💬','🧩','🎧','✍️'][index%4]}</span>
                     <span className="course-path-body">
                       <strong>{item.title}</strong>
                       <span className="course-path-native" lang={isPortuguese?'pt-BR':'en'}>{item.goal}</span>
                       <span className="course-path-es" lang="es">{spanishCopy(item.goal)||'Leé la explicación y practicá cómo formar tus propias oraciones.'}</span>
-                      <span className="course-path-status">{passed?(isPortuguese?'Concluída':'Completed'):pending.length?(isPortuguese?'Ver requisitos':'View requirements'):current?(isPortuguese?'Próxima aula':'Next lesson'):(isPortuguese?'Abrir aula':'Open lesson')} · 8 min</span>
+                      <span className="course-path-status">{passed?(isPortuguese?'Concluída':'Completed'):pending.length?(isPortuguese?'Ver requisitos':'View requirements'):current?(isPortuguese?'Próxima aula':'Next lesson'):(isPortuguese?'Abrir aula':'Open lesson')}</span>
                     </span>
                     <ArrowRight className="course-path-chevron" size={19} aria-hidden="true"/>
                   </button>
@@ -258,7 +258,7 @@ export function Classes({
         </details>
       )}
       <details className="class-method card">
-        <summary>How these classes are designed</summary>
+        <summary>{isPortuguese ? 'Como estas aulas são organizadas' : 'How these classes are designed'}</summary>
         <StudyCopy as="p">
           Estas son clases originales con objetivos orientados al MCER, ejemplos explicados,
           práctica de recuperación, corrección y repaso espaciado. Esos métodos tienen respaldo en
@@ -522,7 +522,7 @@ function LessonRoom({
       <div className="section-heading">
         <Button secondary disabled={busy} onClick={close}>
           <ArrowLeft size={16} />
-          Back to classes
+          {isPortuguese ? 'Voltar às aulas' : 'Back to classes'}
         </Button>
         <span className="pill neutral">{lesson.level} · 8 min</span>
       </div>
