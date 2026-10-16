@@ -12,6 +12,7 @@ import {
   Lightbulb,
   RotateCcw,
   LockKeyhole,
+  X,
 } from 'lucide-react';
 import { lessons, classRevision, type Lesson } from '@/lib/lessons';
 import { cefrLevels } from '@/lib/cefr-curriculum';
@@ -381,6 +382,7 @@ function LessonRoom({
       ? initial.confirmed.map((value, i) => value === true && initial.answers[i] >= 0)
       : lesson.checks.map(() => false),
   );
+  const [tipDismissed, setTipDismissed] = useState<number[]>([]);
   const [busy, setBusy] = useState(false),
     [error, setError] = useState('');
   const seconds = useRef(
@@ -457,6 +459,7 @@ function LessonRoom({
     setId(crypto.randomUUID());
     setAnswers(lesson.checks.map(() => -1));
     setConfirmed(lesson.checks.map(() => false));
+    setTipDismissed([]);
     setQuestion(0);
     setStage('understand');
     setReview(undefined);
@@ -665,6 +668,18 @@ function LessonRoom({
             </div>
           </fieldset>
           <div className={`lesson-response-dock ${checked ? 'has-feedback' : ''}`}>
+          {checked && !tipDismissed.includes(question) && (
+            <aside className={`lesson-tip-popup ${correct ? 'is-success' : 'is-error'}`} role="status" aria-label={copy('Learning tip', 'Dica de estudo')}>
+              <div className="lesson-tip-popup-title">
+                <span aria-hidden="true">{correct ? <Check size={21}/> : <Lightbulb size={21}/>}</span>
+                <strong>{correct ? copy('Well done!', 'Muito bem!') : copy('A tip for next time', 'Uma dica para a próxima')}</strong>
+                <button type="button" onClick={() => setTipDismissed((v) => [...v, question])}
+                  aria-label={copy('Dismiss tip', 'Fechar dica')}><X size={18}/></button>
+              </div>
+              <p lang={isPortuguese ? 'pt-BR' : 'en'}>{correct ? current.correction : nativeCopy(current.why) || copy('Notice the subject and verb form. Compare your answer with the model below.', 'Observe o sujeito e a forma do verbo. Compare sua resposta com o modelo abaixo.')}</p>
+              <p lang="es">{current.why}</p>
+            </aside>
+          )}
           {checked && explanation(current, answers[question], correct)}
           {!checked ? (
             <Button
