@@ -1575,7 +1575,6 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,te
 
 
 /* Final focus pass: the exercise is the screen, not a card beneath the workspace header. */
-html[data-exercise-active='lesson'] .workspace-heading,
 html[data-exercise-active='lesson'] .skip-learning-link,
 html[data-exercise-active='lesson'] .class-method{display:none!important;}
 @media(max-width:800px){
@@ -1589,4 +1588,20 @@ html[data-exercise-active='lesson'] .class-method{display:none!important;}
  html[data-exercise-active='lesson'] .lesson-player-meter{margin:10px 0 23px;}
  html[data-exercise-active='lesson'] .lesson-heading{margin-bottom:18px;}
  html[data-exercise-active='lesson'] .lesson-player .lesson-heading h2{font-size:1.5rem;}
+}
+
+/* Keep word lookup accessible while removing bulky course chrome. */
+html[data-exercise-active='lesson'] .workspace-heading{
+ display:block!important;position:fixed;top:12px;right:14px;width:42px;height:42px;z-index:40;
+ margin:0;padding:0;background:transparent;border:0;pointer-events:none;
+}
+html[data-exercise-active='lesson'] .workspace-heading .workspace-kicker,
+html[data-exercise-active='lesson'] .workspace-heading h1,
+html[data-exercise-active='lesson'] .workspace-heading .section-tabs{display:none!important;}
+html[data-exercise-active='lesson'] .workspace-title-row{width:42px;min-height:42px;margin:0;padding:0;display:flex;justify-content:center;align-items:center;}
+html[data-exercise-active='lesson'] .workspace-heading .word-help-toggle{pointer-events:auto;}
+@media(max-width:800px){
+ html[data-exercise-active='lesson'] .mobile-bottom-nav{display:none!important;}
+ html[data-exercise-active='lesson'] .workspace-heading{top:calc(9px + env(safe-area-inset-top,0px));right:13px;}
+ html[data-exercise-active='lesson'] .lesson-player-top{padding-right:43px;}
 }
