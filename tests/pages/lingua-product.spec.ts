@@ -28,6 +28,16 @@ for (const pt of [false, true]) {
     await expect(page.locator('.course-path-step')).toHaveCount(4);
     await expect(page.locator('.course-path-es[lang="es"]').first()).toBeVisible();
     await expect(page.locator('.course-path-icon')).toHaveCount(4);
+    await page.locator('.course-path-step').first().getByRole('button').click();
+    await expect(page.locator('.lesson-player-meter[role="progressbar"]')).toBeVisible();
+    await expect(page.locator('.lesson-player-close')).toBeVisible();
+    await page.getByRole('button', { name: pt ? 'Começar a prática' : 'Start the practice' }).click();
+    await expect(page.locator('.lesson-check')).toHaveCount(1);
+    await expect(page.locator('.lesson-option-text')).toHaveCount(3);
+    await expect(page.locator('.lesson-prompt-es[lang="es"]')).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+    await page.screenshot({ path: `artifacts/redesign/qa/immersive-class-${pt ? 'pt' : 'en'}-390.png`, fullPage: true });
+    await page.locator('.lesson-player-close').click();
     await page.locator('.course-guide-inline').click();
     await expect(page.locator('.language-desk')).toBeVisible();
     await expect(page.locator('.sentence-shape')).toBeVisible();
