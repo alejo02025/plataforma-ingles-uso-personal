@@ -1572,3 +1572,21 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,te
  html[data-exercise-active='lesson'] .lesson-player fieldset{max-width:100%;min-width:0;}
  html[data-exercise-active='lesson'] .lesson-player legend{max-width:100%;white-space:normal;overflow-wrap:anywhere;}
 }
+
+
+/* Final focus pass: the exercise is the screen, not a card beneath the workspace header. */
+html[data-exercise-active='lesson'] .workspace-heading,
+html[data-exercise-active='lesson'] .skip-learning-link,
+html[data-exercise-active='lesson'] .class-method{display:none!important;}
+@media(max-width:800px){
+ html[data-exercise-active='lesson'] .mobile-masthead{display:none!important;}
+ html[data-exercise-active='lesson'] #main-content{
+   padding:calc(12px + env(safe-area-inset-top,0px)) 12px calc(28px + env(safe-area-inset-bottom,0px));
+ }
+ html[data-exercise-active='lesson'] .lesson-player{
+   margin:0;padding:12px 8px 104px;min-height:calc(100dvh - 32px - env(safe-area-inset-top,0px));
+ }
+ html[data-exercise-active='lesson'] .lesson-player-meter{margin:10px 0 23px;}
+ html[data-exercise-active='lesson'] .lesson-heading{margin-bottom:18px;}
+ html[data-exercise-active='lesson'] .lesson-player .lesson-heading h2{font-size:1.5rem;}
+}
