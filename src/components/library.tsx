@@ -52,7 +52,7 @@ export function Library({
       </Heading>
       {continued && (
         <section className="continue-reading">
-          <h2>Continue reading</h2>
+          <h2>{isPortuguese ? 'Continuar lendo' : 'Continue reading'}</h2>
           <button className="card continue-book" onClick={() => onOpen(continued)}>
             <span className="mini-book-cover">{continued.title}</span>
             <div>
@@ -63,10 +63,10 @@ export function Library({
               <progress
                 value={progress(continued)}
                 max={100}
-                aria-label="Reading sections visited"
+                aria-label={isPortuguese ? 'Seções visitadas' : 'Reading sections visited'}
               />
               <strong>{progress(continued)} %</strong>
-              <p>Continue · section {continued.paragraph + 1}</p>
+              <p>{isPortuguese ? 'Continuar · seção' : 'Continue · section'} {continued.paragraph + 1}</p>
             </div>
             <ArrowUpRight size={22} />
           </button>
@@ -79,21 +79,21 @@ export function Library({
             checked={levelOnly}
             onChange={(e) => setLevelOnly(e.target.checked)}
           />
-          My study level · {currentLevel}
+          {isPortuguese ? 'Meu nível de estudo' : 'My study level'} · {currentLevel}
         </label>
         <div className="tabs">
           {['All', 'Travel', 'Finance', 'History', 'Technology', 'Work', 'Your material'].map(
             (t) => (
               <button key={t} className={t === topic ? 'active' : ''} onClick={() => setTopic(t)}>
-                {t}
+                {isPortuguese ? ({ All: 'Todas', Travel: 'Viagens', Finance: 'Finanças', History: 'História', Technology: 'Tecnologia', Work: 'Trabalho', 'Your material': 'Seu material' } as Record<string,string>)[t] : t}
               </button>
             ),
           )}
         </div>
         <input
           className="search"
-          aria-label="Search readings"
-          placeholder="Find a reading…"
+          aria-label={isPortuguese ? 'Buscar leituras' : 'Search readings'}
+          placeholder={isPortuguese ? 'Encontre uma leitura…' : 'Find a reading…'}
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
