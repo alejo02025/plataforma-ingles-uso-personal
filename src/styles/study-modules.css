@@ -678,6 +678,11 @@
   font-size: 0.8rem;
   margin: 6px 0;
 }
+.builder-model-selection {
+  margin: 6px 0 12px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
 .builder-personal {
   margin-top: 20px;
 }

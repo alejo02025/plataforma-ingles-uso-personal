@@ -21,7 +21,7 @@ import {
   builderVerbWarning,
 } from '@/locales/learning/sentence-builder';
 import { englishBuilderVerbs, portugueseBuilderVerbs } from '@/locales/learning/builder-verbs';
-import { builderStructure } from '@/locales/learning/builder-structure';
+import { builderStructure, spanishBuilderStructure } from '@/locales/learning/builder-structure';
 import { requestWordHelp } from '@/lib/word-help';
 import { Button, Speak } from './ui';
 export function Foundations({
@@ -61,6 +61,7 @@ export function Foundations({
   const sentence = warning
     ? null
     : buildReferenceSentence(isPortuguese, verb, effectiveSubject, tense, kind);
+  const structure = builderStructure(isPortuguese, tense, kind, verb, effectiveSubject);
   useEffect(() => {
     try {
       setDraft(studyStorage.getItem('foundation-sentence-draft') || '');
@@ -100,7 +101,10 @@ export function Foundations({
   const form = (subjectId: string, tense: Tense) =>
     verbPart(isPortuguese, verb, subjects.find((s) => s.id === subjectId)!, tense);
   return (
-    <section className={`foundations card ${referenceOnly ? 'reference-builder' : ''}`}>
+    <section
+      translate="no"
+      className={`foundations card ${referenceOnly ? 'reference-builder' : ''}`}
+    >
       {!(referenceOnly && mode === 'sentences') && (
         <div className="foundation-heading">
           <BookOpen size={22} />
@@ -143,9 +147,9 @@ export function Foundations({
                 value={kind}
                 onChange={(e) => setKind(e.target.value as SentenceKind)}
               >
-                <option value="statement">Statement</option>
-                <option value="negative">Negative</option>
-                <option value="question">Question</option>
+                <option value="statement">{isPortuguese ? 'Afirmação' : 'Statement'}</option>
+                <option value="negative">{isPortuguese ? 'Negativa' : 'Negative'}</option>
+                <option value="question">{isPortuguese ? 'Pergunta' : 'Question'}</option>
               </select>
             </label>
           </div>
@@ -269,18 +273,33 @@ export function Foundations({
             </div>
           ) : (
             sentence && (
-              <div className="foundation-model">
+              <div className="foundation-model" aria-live="polite" aria-atomic="true">
                 <span className="eyebrow">{isPortuguese ? 'SUA FRASE' : 'YOUR SENTENCE'}</span>
+                <p className="builder-model-selection" translate="no">
+                  {tenses.find((t) => t.id === tense)?.label} ·{' '}
+                  {isPortuguese
+                    ? { statement: 'Afirmação', negative: 'Negativa', question: 'Pergunta' }[kind]
+                    : { statement: 'Statement', negative: 'Negative', question: 'Question' }[kind]}
+                </p>
                 <div className="section-heading">
-                  <h3 lang={isPortuguese ? 'pt-BR' : 'en'}>{sentence.text}</h3>
+                  <h3 translate="no" lang={isPortuguese ? 'pt-BR' : 'en'}>
+                    {sentence.text}
+                  </h3>
                   <Speak text={sentence.text} />
                 </div>
-                <p lang="es">{sentence.translation}</p>
+                <p lang="es" translate="no">
+                  {sentence.translation}
+                </p>
                 <div className="builder-structure">
                   <span className="tiny-label">
                     {isPortuguese ? 'Estrutura do modelo' : 'Model structure'}
                   </span>
-                  <p>{builderStructure(isPortuguese, tense, kind, verb)}</p>
+                  <p lang={isPortuguese ? 'pt-BR' : 'en'} translate="no">
+                    {structure}
+                  </p>
+                  <p className="study-spanish" lang="es" translate="no">
+                    {spanishBuilderStructure(structure)}
+                  </p>
                 </div>
                 <details className="builder-why">
                   <summary>
@@ -312,7 +331,9 @@ export function Foundations({
                           }
                         </StudyCopy>
                         <div className="lesson-example">
-                          <blockquote lang={isPortuguese ? 'pt-BR' : 'en'}>{model.text}</blockquote>
+                          <blockquote translate="no" lang={isPortuguese ? 'pt-BR' : 'en'}>
+                            {model.text}
+                          </blockquote>
                           <Speak text={model.text} />
                         </div>
                         <p lang="es">{model.translation}</p>

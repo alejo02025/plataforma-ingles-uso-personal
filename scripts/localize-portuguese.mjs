@@ -2,6 +2,38 @@ import ts from 'typescript';
 import { readFile, writeFile, readdir, cp } from 'node:fs/promises';
 import path from 'node:path';
 const normalized = (text) => text.replace(/\s+/g, ' ').trim();
+
+// Spanish is authored teaching support, not source UI to translate into Portuguese.
+function isSpanishSupport(node, source) {
+  for (let parent = node; parent; parent = parent.parent) {
+    if (ts.isJsxAttribute(parent) && parent.name.getText(source) === 'spanish') return true;
+    const opening = ts.isJsxElement(parent)
+      ? parent.openingElement
+      : ts.isJsxSelfClosingElement(parent)
+        ? parent
+        : null;
+    if (!opening) continue;
+    if (
+      opening.attributes.properties.some(
+        (attribute) =>
+          ts.isJsxAttribute(attribute) &&
+          attribute.name.getText(source) === 'lang' &&
+          attribute.initializer &&
+          ts.isStringLiteral(attribute.initializer) &&
+          /^es(?:-|$)/.test(attribute.initializer.text),
+      )
+    )
+      return true;
+    if (
+      ts.isJsxElement(parent) &&
+      opening.tagName.getText(source) === 'StudyCopy' &&
+      node.pos >= opening.end &&
+      node.end <= parent.closingElement.pos
+    )
+      return true;
+  }
+  return false;
+}
 export async function localizePortuguese(root) {
   const dictionary = JSON.parse(await readFile('src/locales/pt-BR/ui.json', 'utf8'));
   const files = [];
@@ -32,7 +64,7 @@ export async function localizePortuguese(root) {
         ts.isTemplateHead(node) ||
         ts.isTemplateMiddle(node) ||
         ts.isTemplateTail(node);
-      if (supported) {
+      if (supported && !isSpanishSupport(node, source)) {
         // Keyboard codes and directives are contracts, never translated labels.
         const parent = node.parent;
         const keyboard =
