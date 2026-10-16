@@ -1542,3 +1542,20 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,te
 .lesson-tip-popup-title button{border:0;background:transparent;padding:6px;border-radius:8px;color:var(--muted);min-height:35px;min-width:35px;}
 .lesson-tip-popup p{margin:0;font-size:.86rem;line-height:1.5;overflow-wrap:anywhere;}
 .lesson-tip-popup p[lang=es]{color:var(--muted);border-top:1px solid var(--border);padding-top:9px;}
+
+
+/* Handheld correction sheet: visible feedback, explanation and Continue in a single surface. */
+@media(max-width:800px){
+ .lesson-player .lesson-response-dock.has-feedback{
+   position:fixed;z-index:100;left:0;right:0;bottom:0;
+   margin:0;padding:18px 18px calc(16px + env(safe-area-inset-bottom));
+   border-radius:24px 24px 0 0;background:var(--surface);
+   box-shadow:0 -14px 55px rgba(16,24,42,.25);border:1px solid var(--border);
+   max-height:min(76dvh,650px);overflow-y:auto;overscroll-behavior:contain;
+ }
+ .lesson-player .lesson-feedback{gap:9px;}
+ .lesson-player .lesson-feedback>p:not(.answer-correction-model){font-size:.79rem;line-height:1.4;}
+ .lesson-player .lesson-feedback .answer-correction-model{font-size:.81rem;padding:10px;}
+ .lesson-player .lesson-tip-popup{padding:13px;border-radius:15px;gap:7px;}
+ .lesson-player .lesson-response-dock.has-feedback>button{position:sticky;bottom:0;z-index:1;box-shadow:0 0 0 9px var(--surface);}
+}
