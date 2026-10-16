@@ -112,3 +112,5 @@ Para respaldar el servidor, detenerlo y copiar todo el directorio de datos, incl
 [Auditoría completa](AUDITORIA_COMPLETA.md) · [Inglés](AUDITORIA_INGLES.md) · [Portugués](AUDITORIA_PORTUGUES.md) · [Auditoría visual](AUDITORIA_VISUAL.md) · [Plan](PLAN_IMPLEMENTACION.md) · [Sistema de diseño](DESIGN_SYSTEM.md) · [QA](RESULTADOS_QA.md).
 
 El workflow verifica TypeScript, unitarias, ambos builds estáticos, toda la regresión de Pages, build de servidor y recorrido autenticado. La publicación ocurre después de integrar un PR verificado en main. Se regeneran los estáticos, se solicita un build de Pages y se comprueban versión y capturas públicas. Un build local o un push no se presenta por sí solo como prueba de publicación.
+
+La [revisión del 16/10/2026](CORRECCIONES_2026-10-16.md) documenta la identidad cálida, selector de idiomas siempre visible, protección de grabaciones, requisitos desplegables y verificación pública del cambio.

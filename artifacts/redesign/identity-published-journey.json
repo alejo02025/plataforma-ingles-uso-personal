@@ -1,0 +1,32 @@
+{
+  "checkedAt": "2026-10-16T02:10:25.078Z",
+  "base": "https://alejo02025.github.io/plataforma-ingles-uso-personal/",
+  "disposableBrowserProfiles": true,
+  "serviceWorkers": "blocked for TLS relay; offline/update verified separately",
+  "results": [
+    {
+      "language": "en",
+      "startedFromToday": true,
+      "completedClass": "en-routine",
+      "countAfterSave": 1,
+      "retainedAfterReload": true,
+      "otherLanguageCount": 0,
+      "usedVisibleLanguageSelector": true,
+      "retainedAfterLanguageRoundTrip": true,
+      "nextClassTitle": "A story from yesterday",
+      "pageErrors": []
+    },
+    {
+      "language": "pt-BR",
+      "startedFromToday": true,
+      "completedClass": "pt-meet",
+      "countAfterSave": 1,
+      "retainedAfterReload": true,
+      "otherLanguageCount": 0,
+      "usedVisibleLanguageSelector": true,
+      "retainedAfterLanguageRoundTrip": true,
+      "nextClassTitle": "Um café, por favor",
+      "pageErrors": []
+    }
+  ]
+}
