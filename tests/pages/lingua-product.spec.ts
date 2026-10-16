@@ -34,6 +34,11 @@ for (const pt of [false, true]) {
     await page.getByRole('button', { name: pt ? 'Começar a prática' : 'Start the practice' }).click();
     await expect(page.locator('.lesson-check')).toHaveCount(1);
     await expect(page.locator('.lesson-option-text')).toHaveCount(3);
+    await page.locator('.lesson-check input[type="radio"]').first().check();
+    await page.getByRole('button', { name: pt ? 'Conferir esta resposta' : 'Check this answer' }).click();
+    await expect(page.locator('.lesson-tip-popup')).toBeVisible();
+    await page.getByRole('button', { name: pt ? 'Fechar dica' : 'Dismiss tip' }).click();
+    await expect(page.locator('.lesson-tip-popup')).toHaveCount(0);
     await expect(page.locator('.lesson-prompt-es[lang="es"]')).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     await page.screenshot({ path: `artifacts/redesign/qa/immersive-class-${pt ? 'pt' : 'en'}-390.png`, fullPage: true });
