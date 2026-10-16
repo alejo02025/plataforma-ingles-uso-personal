@@ -32,7 +32,7 @@ for (const pt of [false, true])
       )
       .toBeGreaterThan(0);
     const recordingUrl = page.url();
-    await page.locator('.language-switcher').getByRole('link').click();
+    await page.locator('.language-switcher a:not([aria-current])').click();
     await expect(page).toHaveURL(recordingUrl);
     await expect(room).toHaveClass(/oral-recording-active/);
     await expect(page.locator('.global-error')).toContainText(
@@ -134,7 +134,7 @@ for (const pt of [false, true])
       .click();
     await expect(room).toHaveClass(/oral-recording-active/);
     const pendingUrl = page.url();
-    await page.locator('.language-switcher').getByRole('link').click();
+    await page.locator('.language-switcher a:not([aria-current])').click();
     await expect(page).toHaveURL(pendingUrl);
     await expect(room).toHaveClass(/oral-recording-active/);
     await expect(

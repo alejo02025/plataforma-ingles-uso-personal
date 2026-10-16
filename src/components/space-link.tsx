@@ -6,17 +6,10 @@ import {
   refreshEvent,
   isRefreshStorage,
 } from '@/lib/browser/app-refresh';
-import { siteRoot, spaceNames } from '@/lib/workspace';
-import { ArrowUpRight } from 'lucide-react';
+import { siteRoot, isPortuguese } from '@/lib/workspace';
 export const blockedSpaceChangeEvent = 'study-space-change-blocked';
 /** Same release across spaces, separate learning databases. */
-export function SpaceLink({
-  language,
-  compact = false,
-}: {
-  language: 'en' | 'pt';
-  compact?: boolean;
-}) {
+export function SpaceLink({ language }: { language: 'en' | 'pt' }) {
   const [token, setToken] = useState(process.env.NEXT_PUBLIC_APP_BUILD || '');
   useEffect(() => {
     const check = () => setToken(readRefresh() || process.env.NEXT_PUBLIC_APP_BUILD || '');
@@ -32,12 +25,18 @@ export function SpaceLink({
     };
   }, []);
   const href = `${siteRoot}${language === 'pt' ? '/portugues/' : '/'}`;
-  const label = language === 'pt' ? 'Português' : 'English';
   return (
     <a
-      aria-label={compact ? `${label} — ${spaceNames[language]}` : spaceNames[language]}
+      className="language-choice"
+      aria-label={language === 'pt' ? '🇧🇷 Português brasileiro' : '🇬🇧 English'}
+      aria-current={(language === 'pt') === isPortuguese ? 'page' : undefined}
+      lang={language === 'pt' ? 'pt-BR' : 'en'}
       href={refreshedLink(href, token)}
       onClick={(event) => {
+        if ((language === 'pt') === isPortuguese) {
+          event.preventDefault();
+          return;
+        }
         if (document.querySelector('.oral-recording-active')) {
           event.preventDefault();
           window.dispatchEvent(new Event(blockedSpaceChangeEvent));
@@ -47,29 +46,23 @@ export function SpaceLink({
         event.currentTarget.href = `${fresh}${fresh.includes('?') ? '&' : '?'}opened=${Date.now()}`;
       }}
     >
-      <span aria-hidden>{language === 'pt' ? '🇧🇷' : '🇬🇧'}</span>
-      {compact ? label : spaceNames[language]}
-      {!compact && <ArrowUpRight size={14} />}
+      <span className="language-flag" aria-hidden="true">
+        {language === 'pt' ? '🇧🇷' : '🇬🇧'}
+      </span>
+      <span className="language-name">{language === 'pt' ? 'Português' : 'English'}</span>
     </a>
   );
 }
 
-/** Always visible: changing space never shares its learning database. */
 export function LanguageSwitcher({ portuguese }: { portuguese: boolean }) {
-  const current = (
-    <span className="language-current" aria-current="true">
-      <span aria-hidden>{portuguese ? '🇧🇷' : '🇬🇧'}</span>
-      {portuguese ? 'Português' : 'English'}
-    </span>
-  );
   return (
     <div
-      className="language-switcher"
+      className="language-switcher mobile-language-switch"
       role="group"
       aria-label={portuguese ? 'Idioma de estudo' : 'Study language'}
     >
-      {portuguese ? <SpaceLink language="en" compact /> : current}
-      {portuguese ? current : <SpaceLink language="pt" compact />}
+      <SpaceLink language="en" />
+      <SpaceLink language="pt" />
     </div>
   );
 }

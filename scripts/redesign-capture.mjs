@@ -161,7 +161,7 @@ try {
             .locator(
               {
                 today: '.today-focus .start-button, .today-finished',
-                classes: '.course-toolbar',
+                classes: '.course-toolbar, .course-level-bar',
                 review: 'main .empty, .review-card',
                 library: '.studio-drop',
                 progress: '.progress-week',

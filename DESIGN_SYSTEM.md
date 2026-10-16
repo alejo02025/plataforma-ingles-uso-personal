@@ -8,15 +8,15 @@ El diseño anterior no se conserva debajo de una capa de overrides. `globals.css
 
 ## Tokens efectivos
 
-| Token | Claro EN | Oscuro EN |
-| --- | --- | --- |
-| Fondo | `#faf8f2` | `#1c2723` |
-| Superficie | `#fffefb` | `#25332c` |
+| Token                 | Claro EN  | Oscuro EN |
+| --------------------- | --------- | --------- |
+| Fondo                 | `#faf8f2` | `#1c2723` |
+| Superficie            | `#fffefb` | `#25332c` |
 | Superficie secundaria | `#f0eee6` | `#2e3d35` |
-| Texto | `#293a32` | `#f4f2e9` |
-| Texto secundario | `#5c665a` | `#bec7bd` |
-| Acento | `#245b45` | `#cae5a1` |
-| Bloque de estudio | `#e1edb8` | `#344832` |
+| Texto                 | `#293a32` | `#f4f2e9` |
+| Texto secundario      | `#5c665a` | `#bec7bd` |
+| Acento                | `#245b45` | `#cae5a1` |
+| Bloque de estudio     | `#e1edb8` | `#344832` |
 
 Portugués comparte la tipografía, estructura y componentes. Acento ciruela `#6b478b`, bloque lavanda `#e9def2`; en oscuro, superficies ciruela y acento `#d6b8f1`. Sus colores no dependen de estereotipos culturales.
 

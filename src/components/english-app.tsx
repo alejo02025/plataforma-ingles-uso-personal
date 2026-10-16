@@ -353,6 +353,11 @@ export function EnglishApp() {
           <header hidden={area === 'today' && !active} className="workspace-heading">
             <div className="workspace-title-row">
               {(area !== 'today' || active) && (
+                <span className="workspace-kicker" aria-hidden>
+                  {destinations.find((d) => d.area === area)?.emoji || '⚙️'}
+                </span>
+              )}
+              {(area !== 'today' || active) && (
                 <h1>{active ? (pt ? 'Atividade' : 'Activity') : areaTitle}</h1>
               )}
               <WordHelpCloud data={data} refresh={refresh} />
@@ -479,7 +484,7 @@ export function EnglishApp() {
             aria-current={area === d.area ? 'page' : undefined}
             onClick={() => void navigate(d.target)}
           >
-            <span className="nav-emoji" aria-hidden>
+            <span className="nav-emoji bottom-emoji" aria-hidden>
               {d.emoji}
             </span>
             <span>{d.label}</span>
@@ -514,8 +519,9 @@ function Logo() {
         height="36"
         src={`${assetBase}/assets/app/${isPortuguese ? 'portuguese-os-v1' : 'english-os-v1'}.svg`}
       />
-      <span>
-        {isPortuguese ? 'Português' : 'English'} <b>OS</b>
+      <span className="logo-wordmark">
+        lingua<span className="logo-dot">.</span>
+        <small>{isPortuguese ? 'Português' : 'English'}</small>
       </span>
     </div>
   );

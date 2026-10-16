@@ -1,12 +1,34 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { ArrowRight, Check, Clock3 } from 'lucide-react';
+import { spanishCopy } from '@/lib/study-copy';
 import { isPortuguese, studyStorage } from '@/lib/workspace';
 import { readRoutineDraft } from '@/lib/browser/routine-draft';
 import { readStudyDay, studyTaskDone, type StudyDay, type StudyTask } from '@/lib/daily-study';
 import { studyBudgets, studyBudget, dailyBudgetKey } from '@/lib/study-recommendation';
 import type { Snapshot } from '@/lib/types';
 import { api, dateLabel } from './ui';
+/** Spanish is an intentionally authored learning aid, not a translation of user files. */
+function spanishTaskHelp(task: StudyTask): string {
+  const source = task.purpose;
+  if (/continue where you stopped|continue de onde parou/i.test(source))
+    return 'Retomá la actividad pendiente. Tus respuestas anteriores se conservaron.';
+  if (/needs reinforcement|precisa de reforço|revisit a point|reveja um ponto/i.test(source))
+    return 'Repasá el punto que necesitás reforzar antes de avanzar.';
+  if (task.action.kind === 'class')
+    return 'Aprendé una estructura, mirá ejemplos y usala en una situación real.';
+  if (task.action.kind === 'review')
+    return 'Recordá las palabras sin mirar la respuesta y después comprobá.';
+  if (task.action.kind === 'activity')
+    return 'Leé, comprendé y respondé las preguntas de esta actividad.';
+  return {
+    vocabulary: 'Recordá palabras útiles y practicá cómo usarlas en una oración.',
+    grammar: 'Observá cómo se forma la oración y después construí la tuya.',
+    reading: 'Leé una situación cotidiana y buscá la información importante.',
+    writing: 'Escribí tus propias oraciones con las estructuras que aprendiste.',
+  }[task.action.mode];
+}
+
 export function Today({
   data,
   onTask,
@@ -165,7 +187,10 @@ export function Today({
             <div className="today-focus-body">
               <div className="today-focus-copy">
                 <h2>{primary!.title}</h2>
-                <p>{primary!.purpose}</p>
+                <p lang={pt ? 'pt-BR' : 'en'}>{primary!.purpose}</p>
+                <p className="today-primary-spanish" lang="es">
+                  {spanishCopy(primary!.purpose) || spanishTaskHelp(primary!)}
+                </p>
               </div>
               <div className="study-cover" aria-hidden="true">
                 <span className="cover-word">{pt ? 'Olá.' : 'Hello.'}</span>
@@ -197,6 +222,9 @@ export function Today({
                         <span className="task-number">{String(i + 2).padStart(2, '0')}</span> ·{' '}
                         {task.minutes} min
                       </small>
+                      <small className="task-spanish" lang="es">
+                        {spanishCopy(task.purpose) || spanishTaskHelp(task)}
+                      </small>
                     </span>
                     <ArrowRight size={17} />
                   </button>
@@ -208,7 +236,14 @@ export function Today({
       )}
       {agenda && (
         <p className="today-completion" role="status">
-          <span className="completion-dots" aria-hidden>
+          <span
+            className="completion-dots today-journey-bar"
+            role="progressbar"
+            aria-label={pt ? 'Atividades concluídas' : 'Completed activities'}
+            aria-valuemin={0}
+            aria-valuemax={agenda.tasks.length}
+            aria-valuenow={completed}
+          >
             {agenda.tasks.map((task) => (
               <span key={task.id} className={studyTaskDone(task, agenda, data) ? 'done' : ''} />
             ))}

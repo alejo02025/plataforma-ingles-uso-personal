@@ -16,6 +16,10 @@
   --tile-mint: #e6eed5;
   --tile-rose: #f5dfd4;
   --tile-lilac: #e9e0f2;
+  --learning-tint: var(--tile-mint);
+  --review-tint: var(--tile-lilac);
+  --library-tint: var(--accent-soft);
+  --focus-tint: var(--tile-rose);
   --danger: #a52d35;
   --danger-soft: #fff1f1;
   --success: #19724e;
@@ -430,6 +434,26 @@ progress::-webkit-progress-value {
   height: 36px;
   border-radius: 12px;
 }
+.logo-wordmark {
+  position: relative;
+  display: block;
+  padding-bottom: 9px;
+  line-height: 1.05;
+}
+.logo-dot {
+  color: var(--accent);
+}
+.logo-wordmark small {
+  display: block;
+  font-size: 0.54rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: -4px;
+  left: 1px;
+  color: var(--muted);
+}
 .sidebar > .logo {
   margin: 0 9px 54px;
 }
@@ -525,7 +549,7 @@ progress::-webkit-progress-value {
   font-weight: 700;
 }
 .language-switcher a,
-.language-current {
+.language-switcher a[aria-current='page'] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -536,7 +560,7 @@ progress::-webkit-progress-value {
   color: var(--muted);
   text-decoration: none;
 }
-.language-current {
+.language-switcher a[aria-current='page'] {
   background: var(--surface);
   color: var(--text);
   box-shadow: 0 1px 4px #293a3210;
@@ -698,6 +722,14 @@ progress::-webkit-progress-value {
   max-width: 43ch;
   margin-bottom: 26px;
   font-size: 0.96rem;
+}
+.today-focus .today-primary-spanish {
+  font-size: 0.8rem;
+  margin-top: -12px;
+  margin-bottom: 24px;
+}
+.task-spanish {
+  line-height: 1.45;
 }
 .study-cover {
   position: relative;
@@ -1065,7 +1097,7 @@ progress::-webkit-progress-value {
     font-size: 0.78rem;
   }
   .language-switcher a,
-  .language-current {
+  .language-switcher a[aria-current='page'] {
     min-height: 34px;
     padding: 6px 13px;
   }

@@ -70,7 +70,7 @@ test('Updating one space refreshes an idle second space and keeps both vocabular
   await go(page, /^Vocabulary/);
   await expect(page.getByRole('heading', { name: englishWord, exact: true }).first()).toBeVisible();
   await page
-    .getByRole('link', { name: 'Português OS', exact: false })
+    .getByRole('link', { name: '🇧🇷 Português brasileiro', exact: true })
     .filter({ visible: true })
     .click();
   await expect(page).toHaveURL(/portugues\/\?updated=.+opened=/);
