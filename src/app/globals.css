@@ -1531,3 +1531,14 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,te
  .course-locked .course-checklist>div{grid-template-columns:22px minmax(0,1fr);}
  .course-locked .course-checklist>div>button{width:100%;justify-content:center;}
 }
+
+
+.lesson-tip-popup{display:grid;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:19px;padding:18px;box-shadow:0 9px 26px rgba(18,30,49,.08);margin:0 0 5px;}
+.lesson-tip-popup.is-success{border-top:4px solid var(--success);}
+.lesson-tip-popup.is-error{border-top:4px solid var(--accent);}
+.lesson-tip-popup-title{display:flex;align-items:center;gap:10px;}
+.lesson-tip-popup-title>span{display:grid;place-items:center;color:var(--accent);}
+.lesson-tip-popup-title strong{flex:1;font-size:1.05rem;}
+.lesson-tip-popup-title button{border:0;background:transparent;padding:6px;border-radius:8px;color:var(--muted);min-height:35px;min-width:35px;}
+.lesson-tip-popup p{margin:0;font-size:.86rem;line-height:1.5;overflow-wrap:anywhere;}
+.lesson-tip-popup p[lang=es]{color:var(--muted);border-top:1px solid var(--border);padding-top:9px;}
