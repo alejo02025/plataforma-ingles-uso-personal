@@ -1,6 +1,9 @@
 import { expect, type Page } from '@playwright/test';
 /** Exercise the real five-destination navigation and its grouped tools. */
 export async function go(page: Page, target: string | RegExp) {
+  // Close the active lesson through its back control before changing study area.
+  if (await page.locator('.lesson-player-close:visible').count())
+    await page.locator('.lesson-player-close').click();
   const pt = (await page.locator('html').getAttribute('lang')) === 'pt-BR';
   const key = typeof target === 'string' ? target : target.source.replace(/^\^/, '');
   const primary = page.locator('.sidebar .nav-primary:visible, .mobile-bottom-nav:visible');
