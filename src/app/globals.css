@@ -1461,3 +1461,114 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,te
   #main-content{padding-bottom:calc(92px + env(safe-area-inset-bottom));}
 }
 @media(max-width:390px){.mobile-bottom-nav{left:0;right:0;bottom:0;padding:6px 3px calc(7px + env(safe-area-inset-bottom));}}
+
+
+/* Immersive lesson player — an exercise is a focused screen, not a dashboard card. */
+.lesson-player{max-width:740px;width:100%;margin:0 auto;background:var(--surface);border-radius:24px;padding:clamp(18px,3vw,36px);min-width:0;}
+.lesson-player *{box-sizing:border-box;min-width:0;}
+.lesson-player-top{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.lesson-player-close{border:0;background:transparent;color:var(--text);display:inline-flex;gap:8px;align-items:center;font-size:.82rem;font-weight:750;padding:9px 0;min-height:44px;}
+.lesson-player-meta{display:flex;align-items:center;gap:7px;color:var(--muted);font-size:.75rem;white-space:nowrap;}
+.lesson-player-meta span:first-child{background:var(--surface-alt);border-radius:100px;padding:5px 10px;}
+.lesson-player-meter{height:8px;border-radius:99px;background:var(--surface-alt);overflow:hidden;margin:15px 0 22px;}
+.lesson-player-meter>span{height:100%;display:block;background:var(--success);border-radius:99px;transition:width .2s ease;}
+.lesson-player .lesson-heading{margin:0 0 20px;}
+.lesson-player .lesson-heading h2{font-size:clamp(1.45rem,4vw,2rem);line-height:1.12;margin:8px 0;letter-spacing:-.035em;overflow-wrap:anywhere;}
+.lesson-player .lesson-heading>p{font-size:.92rem;line-height:1.4;color:var(--muted);}
+.lesson-player .lesson-focus-content{margin:0 auto;max-width:600px;}
+.lesson-player .lesson-step{margin:0 0 18px;}
+.lesson-player .lesson-step-label{font-size:.8rem;font-weight:770;}
+.lesson-player .lesson-pattern{display:block;white-space:normal;overflow-wrap:anywhere;font-size:.9rem;line-height:1.6;}
+.lesson-player .lesson-example{padding:15px 17px;border-radius:16px;}
+.lesson-player .lesson-exercise-header{margin:0 0 7px;justify-content:space-between;}
+.lesson-player .progress-bar{display:none;}
+.lesson-player .lesson-context{margin:6px 0 19px;padding:0;border:0;background:none;font-size:.87rem;color:var(--muted);}
+.lesson-player .lesson-theory-inline{margin-bottom:18px;font-size:.82rem;}
+.lesson-player .lesson-check{border:0;padding:0;margin:0;}
+.lesson-player .lesson-check legend{font-size:clamp(1.3rem,4.5vw,1.75rem);font-weight:790;line-height:1.4;letter-spacing:-.028em;margin:0 0 6px;max-width:100%;overflow-wrap:anywhere;}
+.lesson-prompt-es{color:var(--muted);font-size:.81rem;line-height:1.5;margin:0 0 18px;}
+.lesson-player .options{display:grid;gap:11px;margin:15px 0 24px;}
+.lesson-player .option{display:flex;align-items:center;gap:13px;position:relative;min-height:60px;padding:15px;border-radius:15px;border:1.5px solid var(--border);background:var(--surface);font-weight:630;line-height:1.3;overflow-wrap:anywhere;box-shadow:none;}
+.lesson-player .option:hover{border-color:var(--accent);}
+.lesson-player .option.selected{background:var(--accent-soft);border-color:var(--accent);}
+.lesson-player .option input{accent-color:var(--accent);width:19px;height:19px;flex:0 0 19px;margin:0;}
+.lesson-option-text{flex:1;}
+.lesson-option-indicator{color:var(--accent);display:grid;place-items:center;flex:0 0 22px;}
+.lesson-response-dock{display:grid;gap:11px;}
+.lesson-response-dock>.button,.lesson-response-dock>button{width:100%;min-height:52px;border-radius:14px;font-weight:790;justify-content:center;}
+.lesson-response-dock.has-feedback{background:var(--surface-alt);border-radius:20px;padding:16px;}
+.lesson-player .lesson-feedback{margin:0;padding:0;background:transparent;border:0;display:grid;gap:10px;}
+.lesson-player .lesson-feedback>strong{font-size:1.03rem;}
+.lesson-player .lesson-feedback .lesson-response{margin:0;border:0;padding:0;color:var(--muted);}
+.lesson-player .lesson-feedback .answer-correction-model{margin:0;background:var(--surface);padding:14px;border-radius:12px;overflow-wrap:anywhere;}
+.lesson-player .lesson-own textarea{min-height:140px;font-size:16px;}
+.lesson-player .lesson-next-actions{display:grid;grid-template-columns:minmax(0,1fr);gap:9px;}
+.lesson-player .lesson-next-actions>button{width:100%;justify-content:center;}
+.lesson-player .lesson-saved>p:first-child{font-size:1.25rem;font-weight:780;}
+@media(max-width:800px){
+  /* Keep global navigation reachable during lessons; do not strand a paused session. */
+  .lesson-player{border:0;border-radius:0;padding:14px 16px 110px;background:var(--surface);min-height:calc(100dvh - 100px);margin:0;width:100%;max-width:100%;overflow-x:clip;}
+  .lesson-player-close span{font-size:.75rem;}
+  .lesson-player .lesson-heading{margin-bottom:18px;}
+  .lesson-player .lesson-heading h2{font-size:1.45rem;}
+  .lesson-player .lesson-heading>p{font-size:.8rem;}
+  .lesson-player .lesson-check legend{font-size:1.34rem;}
+  .lesson-player .lesson-response-dock.has-feedback{padding:14px;}
+  .lesson-player .lesson-tip,.lesson-player .lesson-example{padding:14px;}
+  .lesson-player .lesson-stage-list{display:none;}
+}
+@media(prefers-reduced-motion:reduce){.lesson-player-meter>span{transition:none;}}
+
+
+/* Requirement cards must never squeeze Spanish explanations beside their CTA. */
+.course-locked .course-checklist>div{display:grid;grid-template-columns:24px minmax(0,1fr);gap:10px 13px;align-items:start;padding:18px 0;border-bottom:1px solid var(--border);}
+.course-locked .course-checklist>div>p{grid-column:2;min-width:0;overflow-wrap:anywhere;line-height:1.55;margin:0;}
+.course-locked .course-checklist>div>button{grid-column:2;justify-self:start;min-height:44px;position:static;margin:0;max-width:100%;}
+.course-locked .course-checklist>div>svg{grid-column:1;margin-top:4px;}
+.course-locked{padding:clamp(18px,4vw,30px);overflow-wrap:anywhere;}
+.course-locked>h2{font-size:clamp(1.35rem,4vw,2rem);line-height:1.25;}
+@media(max-width:800px){
+ .course-locked .course-checklist>div{grid-template-columns:22px minmax(0,1fr);}
+ .course-locked .course-checklist>div>button{width:100%;justify-content:center;}
+}
+
+
+.lesson-tip-popup{display:grid;gap:10px;background:var(--surface);border:1px solid var(--border);border-radius:19px;padding:18px;box-shadow:0 9px 26px rgba(18,30,49,.08);margin:0 0 5px;}
+.lesson-tip-popup.is-success{border-top:4px solid var(--success);}
+.lesson-tip-popup.is-error{border-top:4px solid var(--accent);}
+.lesson-tip-popup-title{display:flex;align-items:center;gap:10px;}
+.lesson-tip-popup-title>span{display:grid;place-items:center;color:var(--accent);}
+.lesson-tip-popup-title strong{flex:1;font-size:1.05rem;}
+.lesson-tip-popup-title button{border:0;background:transparent;padding:6px;border-radius:8px;color:var(--muted);min-height:35px;min-width:35px;}
+.lesson-tip-popup p{margin:0;font-size:.86rem;line-height:1.5;overflow-wrap:anywhere;}
+.lesson-tip-popup p[lang=es]{color:var(--muted);border-top:1px solid var(--border);padding-top:9px;}
+
+
+/* Handheld correction sheet: visible feedback, explanation and Continue in a single surface. */
+@media(max-width:800px){
+ .lesson-player .lesson-response-dock.has-feedback{
+   position:fixed;z-index:100;left:0;right:0;bottom:0;
+   margin:0;padding:18px 18px calc(16px + env(safe-area-inset-bottom));
+   border-radius:24px 24px 0 0;background:var(--surface);
+   box-shadow:0 -14px 55px rgba(16,24,42,.25);border:1px solid var(--border);
+   max-height:min(76dvh,650px);overflow-y:auto;overscroll-behavior:contain;
+ }
+ .lesson-player .lesson-feedback{gap:9px;}
+ .lesson-player .lesson-feedback>p:not(.answer-correction-model){font-size:.79rem;line-height:1.4;}
+ .lesson-player .lesson-feedback .answer-correction-model{font-size:.81rem;padding:10px;}
+ .lesson-player .lesson-tip-popup{padding:13px;border-radius:15px;gap:7px;}
+ .lesson-player .lesson-response-dock.has-feedback>button{position:sticky;bottom:0;z-index:1;box-shadow:0 0 0 9px var(--surface);}
+}
+
+/* Guard against legacy long reference strings expanding the lesson viewport. */
+.lesson-player .lesson-focus-content,.lesson-player .lesson-step,.lesson-player .lesson-check,.lesson-player fieldset,.lesson-player legend,.lesson-player blockquote{max-width:100%;min-width:0;overflow-wrap:anywhere;}
+.lesson-player code,.lesson-player pre{white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%;}
+
+/* The lesson fits the device viewport; horizontal overflow is never part of its interaction. */
+@media(max-width:800px){
+ html[data-exercise-active='lesson'],html[data-exercise-active='lesson'] body{max-width:100%;overflow-x:clip;}
+ html[data-exercise-active='lesson'] #main-content{min-width:0;max-width:100%;overflow-x:clip;}
+ html[data-exercise-active='lesson'] .lesson-player{width:100%;max-width:100%;margin:0;padding:12px 12px 112px;overflow-wrap:anywhere;}
+ html[data-exercise-active='lesson'] .lesson-player fieldset{max-width:100%;min-width:0;}
+ html[data-exercise-active='lesson'] .lesson-player legend{max-width:100%;white-space:normal;overflow-wrap:anywhere;}
+}
