@@ -56,3 +56,11 @@ Chromium con viewports 320×700, 375×812, 390×844, 768×1024, 1024×768, 1280�
 El test nuevo de TTS simula voces y eventos: no escucha ni evalúa sonido humano. La prueba MediaRecorder usa el contenedor real de Chromium y un dispositivo de prueba; no acredita una grabación física en iPhone. No hay nota acústica de pronunciación, acento o fluidez. Escritura y respuestas abiertas no reconocidas se guardan con criterios o modelos, sin un corrector humano simulado.
 
 La revisión semántica completa de las 262 clases y de todos los verbos sigue pendiente; resolución de traducciones y comprobación estructural no la sustituyen. Las 24 situaciones nuevas son contenido editorial de práctica, no un examen MCER validado externamente. Más límites específicos en [auditoría general](AUDITORIA_COMPLETA.md).
+
+## Corrección posterior del estudio de gramática — 16 de octubre de 2026
+
+- PR #20 integrado: conjugaciones pt-BR y estructuras del constructor EN/PT corregidas; protección preventiva del apoyo español durante la compilación.
+- TypeScript, **127/127 unitarias**, **93/93 recorridos estáticos** y **1/1 recorrido de servidor** aprobados localmente, sin omisiones. Compilaciones EN/PT y servidor aprobadas. Validaciones de GitHub del PR y de main finalizadas con éxito.
+- Publicación verificada: **2026-10-16T23:46:24.747Z**, exportación `3101327`. Ambos idiomas comprobados en el sitio real, con recarga y tamaños 375/390/1440 px. Cero errores de consola y cero desbordamientos en esos recorridos. 133 recursos y ambos HTML de entrada coinciden con la exportación generada; el service worker corresponde a la misma versión.
+- Sin cambios de esquema, claves de borrador ni datos de curso. Las pruebas utilizan perfiles descartables; no se afirma haber exportado o inspeccionado el progreso real de los estudiantes.
+- Detalles, cobertura y límites: [Corrección de gramática](docs/GRAMMAR_FIX_20261016.md). Evidencia: [Verificación de publicación](artifacts/grammar-fix/release-verification.json) y capturas en `artifacts/grammar-fix/`.
