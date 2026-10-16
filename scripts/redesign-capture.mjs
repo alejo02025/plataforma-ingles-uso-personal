@@ -56,7 +56,7 @@ async function capture(page, name, pt, width, height) {
   await page.evaluate(async () => {
     await document.fonts.ready;
     document.activeElement?.blur();
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   });
   const measurements = await page.evaluate(() => ({
     overflow: document.documentElement.scrollWidth > innerWidth,

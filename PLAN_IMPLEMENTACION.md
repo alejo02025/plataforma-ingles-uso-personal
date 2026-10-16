@@ -14,7 +14,7 @@ Base `82c372d`, rama aislada `feat/language-studio-3`. El [historial anterior](d
 
 ## Verificación y entrega
 
-TypeScript y 122 unitarias pasaron. La regresión completa de navegador, edición Node, capturas candidatas, pull request, checks, integración y publicación se registran con su resultado real en [RESULTADOS_QA.md](RESULTADOS_QA.md). No se confunde compilar con publicar.
+TypeScript, 122 unitarias, 91 recorridos estáticos, build Node y su recorrido autenticado pasaron. Las capturas candidatas, pull request, checks, integración y publicación se registran con su resultado real en [RESULTADOS_QA.md](RESULTADOS_QA.md). No se confunde compilar con publicar.
 
 Orden: checks locales → build EN/PT → regresión → build y recorrido Node autenticado → revisión visual → PR → CI → integración autorizada → regeneración estática → verificación de assets/SW y recorridos públicos → capturas comparativas finales.
 

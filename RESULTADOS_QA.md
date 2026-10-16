@@ -1,25 +1,50 @@
 # QA — Language Studio 3.0
 
-Fecha: 16/10/2026. Base `82c372d`, rama `feat/language-studio-3`. Implementado; verificación integral y publicación en curso. Los resultados anteriores se conservan en [historial](docs/audit-before-os3/RESULTADOS_QA.md).
+Revisión del 16/10/2026, base `82c372d`, rama `feat/language-studio-3`, [PR #18](https://github.com/alejo02025/plataforma-ingles-uso-personal/pull/18). **Implementación y validación local terminadas; CI y publicación pendientes.** [Informes anteriores, conservados](docs/audit-before-os3/).
 
-## Ejecutado
+## Comprobaciones ejecutadas
 
-- TypeScript: aprobado.
-- Unitarias: 122 aprobadas, 0 fallos, 0 omitidas.
-- Exportaciones estáticas EN/PT y build Node: aprobados, misma instantánea de código para los dos idiomas.
-- Auditoría estructural: 262 clases / 428 comprobaciones, 0 incidencias estructurales; 12 muestras históricas manuales, sin afirmar revisión semántica completa.
-- Capturas públicas anteriores: 252, 7 tamaños y ambos idiomas, 0 excepciones JS / 0 overflow en esos estados.
-- Pruebas nuevas focalizadas: ocho recorridos 3.0 aprobados; cubren primera respuesta, ayudas, producción no calificada, borradores offline, edición 2 histórica, selector de idioma, teclado y listening sintético simulado. La guía se repitió tras precisar selectores de traducción y sus dos pruebas pasaron.
+| Comprobación                           | Resultado                                                                                                     |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| TypeScript                             | Aprobado                                                                                                      |
+| Unitarias                              | 122 aprobadas, 0 fallos, 0 omitidas                                                                           |
+| Build estático EN y PT                 | Ambos aprobados, misma instantánea de fuente                                                                  |
+| Build Node                             | Aprobado                                                                                                      |
+| Regresión estática Playwright          | 91 aprobadas, 0 fallos, 0 omitidas                                                                            |
+| Recorrido Node autenticado             | 1 aprobado, 0 fallos                                                                                          |
+| Capturas anteriores públicas           | 252; cero errores de consola/excepciones JS y cero overflow en los estados capturados                         |
+| Capturas candidatas                    | 252; cero errores de consola/excepciones JS y cero overflow                                                   |
+| Interacciones del player/cuaderno      | 36 capturas originales adicionales                                                                            |
+| Tema oscuro guardado desde Ajustes     | 4 capturas adicionales EN/PT, 390/1440 px                                                                     |
+| Entrada en siete tamaños y dos idiomas | 14 casos: Start visible al entrar, contador despejado tras desplazar, sin overflow                            |
+| Catálogo histórico                     | 262 clases y 428 comprobaciones sin defectos estructurales detectados; revisión manual limitada a 12 muestras |
 
-- Candidata: 252 capturas nuevas, con errores de consola y excepciones JS monitorizados; cero incidencias y cero overflow.
-- Interacciones adicionales: 36 capturas del player y cuaderno. Start y contador despejados en 14 casos de entrada (dos idiomas × siete tamaños).
-- Colores ambientales: movimiento, pausa persistente y reducción de movimiento comprobados. Contraste de solapamientos calculado desde las paradas CSS reales en ambos temas.
-- Comprobación específica posterior: vocabulario abierto no reconocido queda sin calificar; las dos pruebas de constancia conservan 0/3 resultados objetivos y tres respuestas pendientes, sin fabricar tres errores adicionales.
+[Registro local y commit probado](artifacts/redesign/os3-local-verification.json) · [logs y capturas](artifacts/redesign/os3-qa/) · [comparador](artifacts/redesign/os3-comparison.html).
 
-## En ejecución
+## Recorridos funcionales
 
-Regresión estática final de 91 pruebas, recorrido Node autenticado, PR y publicación. Este documento se actualizará con resultados ejecutados; no se marca como publicado por haber generado `out/`.
+Las pruebas ejecutan: estudiantes nuevos de inglés/A2 y portugués/A1, perfiles B1 con errores y B2/PT A2 con checkpoints previos; clases abandonadas y retomadas; primeras respuestas, consulta de palabra y pistas registradas; rutinas históricas de edición 2; producción abierta pendiente sin errores inventados; borradores recuperados offline; día finalizado que sigue finalizado tras recarga; PDFs múltiples, posición, preguntas, eliminación y restauración; vocabulario, calendario, temas; errores de autorización/sincronización y reintentos de guardado; cambio visible de idioma y aislamiento; actualización de dos espacios con vocabularios diferentes; permisos de micrófono y grabación en contenedor real del navegador; voz sintética y resultados de listening separados.
 
-## Alcance y límites
+Los dos recorridos nuevos de fondo comprueban movimiento efectivo, ausencia de interceptación de clics, pausa persistente y `prefers-reduced-motion`. El contraste se calcula con las paradas y opacidades CSS reales y sus combinaciones de solapamiento, en claro/oscuro y ambos idiomas: no se limita a tokens sobre una superficie plana.
 
-Chromium en esta máquina, viewports simulados, sin iPhone físico ni Safari. Los tests automáticos verifican flujos y datos; no certifican WCAG ni eficacia de aprendizaje. El test nuevo de TTS usa voz/eventos simulados, no escucha humana. El audio no recibe nota acústica. Las respuestas abiertas sin modelo quedan pendientes y la escritura usa rúbricas, no un corrector humano simulado.
+Los casos de vocabulario verifican que tres respuestas abiertas desconocidas no se conviertan en tres errores confirmados: conservan 0/3 resultados objetivos y tres pendientes. Las ayudas no se presentan como un intento independiente ni borran aprobaciones históricas.
+
+## Incidencias detectadas y resueltas
+
+La primera regresión obtuvo 88/89: al expandir el motivo de un acierto en clase se duplicaba el modelo. Se quitó la duplicación y se conservó la prueba que la detectó. La suite final, ampliada a 91, pasa íntegramente. Se corrigieron también la descripción antigua de escritura, el acceso contextual a palabras desde la rutina iniciada fuera de `main`, la evaluación literal de alternativas abiertas y el contraste tras añadir movimiento.
+
+Las capturas finales se toman desde arriba con desplazamiento instantáneo. Una captura durante el scroll suave podía dibujar elementos fijos fuera del viewport dentro del PNG completo; se corrigió el método de captura, sin ocultar el enlace accesible de salto ni modificar el contenido de la aplicación.
+
+## Publicación y CI
+
+El PR está en validación. No se presenta como publicado por generar `out/` o subir la rama. Tras integrar se comprobarán la versión pública, el worker, los hashes/bytes de recursos EN/PT, dos recorridos publicados y las capturas de ambas versiones. El resultado de esa comprobación se añadirá aquí.
+
+El PR #17, anterior y todavía abierto, propone una variante de chrome mediante overrides. Se inspeccionó su diff; no contiene datos ni migraciones. No se fusiona automáticamente sobre el sistema nuevo ni se elimina su rama.
+
+## Cobertura y límites
+
+Chromium con viewports 320×700, 375×812, 390×844, 768×1024, 1024×768, 1280×800 y 1440×900. Sin iPhone físico ni Safari. Contraste, foco, teclado, etiquetas y estados comprobados no constituyen certificación WCAG. Los tiempos de entrada son de esta máquina, sin throttling; no son Core Web Vitals de usuarios reales.
+
+El test nuevo de TTS simula voces y eventos: no escucha ni evalúa sonido humano. La prueba MediaRecorder usa el contenedor real de Chromium y un dispositivo de prueba; no acredita una grabación física en iPhone. No hay nota acústica de pronunciación, acento o fluidez. Escritura y respuestas abiertas no reconocidas se guardan con criterios o modelos, sin un corrector humano simulado.
+
+La revisión semántica completa de las 262 clases y de todos los verbos sigue pendiente; resolución de traducciones y comprobación estructural no la sustituyen. Las 24 situaciones nuevas son contenido editorial de práctica, no un examen MCER validado externamente. Más límites específicos en [auditoría general](AUDITORIA_COMPLETA.md).
