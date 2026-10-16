@@ -25,3 +25,5 @@ export const studyLanguage = isPortuguese ? 'Brazilian Portuguese' : 'English';
 
 // Product names are identifiers, not translatable UI labels.
 export const spaceNames = { en: 'English OS', pt: 'Português OS' };
+// Endonyms stay stable in the language selector in either workspace.
+export const studyLanguageNames = { en: 'English', pt: 'Português' };

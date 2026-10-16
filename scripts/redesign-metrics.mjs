@@ -1,6 +1,7 @@
 import { chromium } from 'playwright-core';
 import { writeFile } from 'node:fs/promises';
 const base = process.argv[2] || 'http://127.0.0.1:3300/plataforma-ingles-uso-personal/';
+const destination = process.argv[3] || 'artifacts/redesign/interaction-metrics.json';
 const browser = await chromium.launch({
   executablePath: '/usr/bin/chromium',
   args: ['--no-sandbox'],
@@ -55,7 +56,7 @@ try {
       await context.close();
     }
   await writeFile(
-    'artifacts/redesign/interaction-metrics.json',
+    destination,
     JSON.stringify(
       {
         checkedAt: new Date().toISOString(),
