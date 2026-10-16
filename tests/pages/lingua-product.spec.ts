@@ -24,10 +24,11 @@ for (const pt of [false, true]) {
     await page.screenshot({ path: `artifacts/redesign/qa/lingua-today-${pt ? 'pt' : 'en'}-390.png`, fullPage: true });
 
     await page.locator('.mobile-bottom-nav').getByRole('button').nth(1).click();
-    await expect(page.locator('.course-guide-shortcut')).toBeVisible();
-    await expect(page.locator('.course-guide-copy p[lang="es"]')).toBeVisible();
-    await expect(page.locator('.class-node-art')).toHaveCount(4);
-    await page.locator('.course-guide-action').click();
+    await expect(page.locator('.course-guide-inline')).toBeVisible();
+    await expect(page.locator('.course-path-step')).toHaveCount(4);
+    await expect(page.locator('.course-path-es[lang="es"]').first()).toBeVisible();
+    await expect(page.locator('.course-path-icon')).toHaveCount(4);
+    await page.locator('.course-guide-inline').click();
     await expect(page.locator('.language-desk')).toBeVisible();
     await expect(page.locator('.sentence-shape')).toBeVisible();
     await expect(page.locator('.builder-label-es[lang="es"]')).toHaveCount(4);
@@ -38,6 +39,12 @@ for (const pt of [false, true]) {
     await expect(page.locator('.review-tools')).toBeVisible();
     await page.locator('.mobile-bottom-nav').getByRole('button').nth(3).click();
     await expect(page.locator('.studio-drop')).toBeVisible();
+    await page.locator('.section-tabs').getByRole('button', { name: pt ? 'Leituras' : 'Readings' }).click();
+    await page.getByRole('button', { name: pt ? 'Adicionar texto' : 'Add text' }).click();
+    await expect(page.getByRole('dialog')).toBeVisible();
+    await expect(page.getByRole('dialog').getByText(pt ? 'Texto em português' : 'Text in English')).toBeVisible();
+    await expect(page.getByRole('dialog').getByRole('button', { name: pt ? 'Fechar importação' : 'Close import' })).toBeVisible();
+    await page.getByRole('dialog').getByRole('button', { name: pt ? 'Fechar importação' : 'Close import' }).click();
     await page.locator('.mobile-bottom-nav').getByRole('button').nth(4).click();
     await expect(page.locator('.progress-overview')).toBeVisible();
 
