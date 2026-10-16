@@ -28,12 +28,6 @@ function spanishTaskHelp(task: StudyTask): string {
     writing: 'Escribí tus propias oraciones con las estructuras que aprendiste.',
   }[task.action.mode];
 }
-function taskEmoji(task: StudyTask): string {
-  if (task.action.kind === 'class') return '📘';
-  if (task.action.kind === 'review') return '🧠';
-  if (task.action.kind === 'activity') return '📖';
-  return { vocabulary: '🗣️', grammar: '🧩', reading: '📚', writing: '✍️' }[task.action.mode];
-}
 
 export function Today({
   data,
@@ -117,8 +111,13 @@ export function Today({
       }) || [];
   const primary = remaining[0];
   const finished = !!agenda && remaining.length === 0;
-  const total = agenda?.tasks.length || 0;
-  const progress = total ? Math.round((completed / total) * 100) : 0;
+  const taskEmoji = (task: StudyTask) => {
+    const action = task.action;
+    if (action.kind === 'class') return '📚';
+    if (action.kind === 'review') return '🧠';
+    if (action.kind === 'activity') return '📖';
+    return { grammar: '🧩', vocabulary: '💬', reading: '📖', writing: '✍️' }[action.mode];
+  };
   return (
     <div className="today-screen" data-no-word-help>
       <header className="today-head">
@@ -147,17 +146,6 @@ export function Today({
           </select>
         </label>
       </header>
-      {agenda && (
-        <div className="today-journey-progress" aria-label={pt ? 'Progresso do dia' : 'Daily progress'}>
-          <div className="today-journey-copy">
-            <span>{pt ? 'Seu ritmo de hoje' : "Today's progress"}</span>
-            <strong>{completed}/{total} <span>{pt ? 'concluídas' : 'completed'}</span></strong>
-          </div>
-          <div className="today-journey-bar" role="progressbar" aria-valuemin={0} aria-valuemax={total} aria-valuenow={completed} aria-label={pt ? 'Atividades concluídas' : 'Completed activities'}>
-            <span style={{ width: `${progress}%` }} />
-          </div>
-        </div>
-      )}
       {error && (
         <p role="alert" className="error">
           {error}{' '}
@@ -172,7 +160,6 @@ export function Today({
         </div>
       ) : finished ? (
         <section className="today-finished">
-          <span className="finished-emoji" aria-hidden="true">🎉</span>
           <Check size={30} />
           <h2>{pt ? 'Você terminou por hoje.' : "You're done for today."}</h2>
           <div className="actions">
@@ -191,16 +178,26 @@ export function Today({
             aria-label={pt ? 'Atividade principal' : 'Main activity'}
           >
             <div className="today-focus-meta">
-              <span>{pt ? 'AGORA' : 'UP NEXT'}</span>
+              <span>{pt ? 'Sua próxima atividade' : 'Your next activity'}</span>
               <span>
                 <Clock3 size={15} />
                 {primary!.minutes} min
               </span>
             </div>
-            <span className="today-primary-art" aria-hidden="true">{taskEmoji(primary!)}</span>
-            <h2>{primary!.title}</h2>
-            <p lang={pt ? 'pt-BR' : 'en'}>{primary!.purpose}</p>
-            <p className="today-primary-spanish" lang="es">{spanishCopy(primary!.purpose) || spanishTaskHelp(primary!)}</p>
+            <div className="today-focus-body">
+              <div className="today-focus-copy">
+                <h2>{primary!.title}</h2>
+                <p lang={pt ? 'pt-BR' : 'en'}>{primary!.purpose}</p>
+                <p className="today-primary-spanish" lang="es">
+                  {spanishCopy(primary!.purpose) || spanishTaskHelp(primary!)}
+                </p>
+              </div>
+              <div className="study-cover" aria-hidden="true">
+                <span className="cover-word">{pt ? 'Olá.' : 'Hello.'}</span>
+                <span className="cover-emoji">{taskEmoji(primary!)}</span>
+                <span className="cover-lines" />
+              </div>
+            </div>
             <button
               className="button start-button"
               disabled={busy}
@@ -212,25 +209,45 @@ export function Today({
           </section>
           {remaining.length > 1 && (
             <section className="today-next" aria-labelledby="next-title">
-              <h2 id="next-title">{pt ? 'Depois' : 'Then'} <span aria-hidden="true">✨</span></h2>
-              <p className="today-next-subtitle" lang="es">Después de esta actividad, seguí con:</p>
-              {remaining.slice(1, 4).map((task, i) => (
-                <button className="today-task" key={task.id} onClick={() => onTask(task)}>
-                  <span className="task-number" aria-hidden="true">{taskEmoji(task)}</span>
-                  <span>
-                    <strong>{task.title}</strong>
-                    <small>{task.minutes} min</small>
-                    <small className="task-spanish" lang="es">{spanishCopy(task.purpose) || spanishTaskHelp(task)}</small>
-                  </span>
-                  <ArrowRight size={17} />
-                </button>
-              ))}
+              <h2 id="next-title">{pt ? 'Depois, no seu ritmo' : 'Then, at your own pace'}</h2>
+              <div className="today-task-list">
+                {remaining.slice(1, 4).map((task, i) => (
+                  <button className="today-task" key={task.id} onClick={() => onTask(task)}>
+                    <span className="task-emoji" aria-hidden>
+                      {taskEmoji(task)}
+                    </span>
+                    <span>
+                      <strong>{task.title}</strong>
+                      <small>
+                        <span className="task-number">{String(i + 2).padStart(2, '0')}</span> ·{' '}
+                        {task.minutes} min
+                      </small>
+                      <small className="task-spanish" lang="es">
+                        {spanishCopy(task.purpose) || spanishTaskHelp(task)}
+                      </small>
+                    </span>
+                    <ArrowRight size={17} />
+                  </button>
+                ))}
+              </div>
             </section>
           )}
         </div>
       )}
       {agenda && (
         <p className="today-completion" role="status">
+          <span
+            className="completion-dots today-journey-bar"
+            role="progressbar"
+            aria-label={pt ? 'Atividades concluídas' : 'Completed activities'}
+            aria-valuemin={0}
+            aria-valuemax={agenda.tasks.length}
+            aria-valuenow={completed}
+          >
+            {agenda.tasks.map((task) => (
+              <span key={task.id} className={studyTaskDone(task, agenda, data) ? 'done' : ''} />
+            ))}
+          </span>
           {pt
             ? `${completed} de ${agenda.tasks.length} atividades concluídas`
             : `${completed} of ${agenda.tasks.length} activities completed`}

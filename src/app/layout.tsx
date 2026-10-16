@@ -1,8 +1,15 @@
 import type { Metadata, Viewport } from 'next';
+import localFont from 'next/font/local';
 import './globals.css';
 import '../styles/study-modules.css';
 import { isPortuguese, appName, assetBase } from '@/lib/workspace';
 const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
+const studyFont = localFont({
+  src: '../../public/assets/fonts/Nunito.ttf',
+  variable: '--font-study',
+  weight: '200 1000',
+  display: 'swap',
+});
 export const metadata: Metadata = {
   title: isPortuguese
     ? 'Português OS · O espaço da Jazmín'
@@ -35,10 +42,11 @@ export const metadata: Metadata = {
   },
   appleWebApp: { capable: true, title: appName, statusBarStyle: 'default' },
 };
-export const viewport: Viewport = { themeColor: isPortuguese ? '#087b63' : '#5243d5' };
+export const viewport: Viewport = { themeColor: isPortuguese ? '#704b91' : '#245b45' };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
+      className={studyFont.variable}
       lang={isPortuguese ? 'pt-BR' : 'en'}
       data-space={isPortuguese ? 'portuguese' : 'english'}
       data-study-language={isPortuguese ? 'pt' : 'en'}

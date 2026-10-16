@@ -1,7 +1,8 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 const base = 'https://alejo02025.github.io/plataforma-ingles-uso-personal/';
-const expectedPrior = '2026-10-15T18:10:11.952Z';
+const expectedPrior = process.argv[2] || '2026-10-15T18:10:11.952Z';
+const destination = process.argv[3] || 'artifacts/redesign/published-assets.json';
 const get = async (url) => {
   const response = await fetch(url, {
     headers: { 'Cache-Control': 'no-cache', 'Accept-Encoding': 'identity' },
@@ -72,7 +73,7 @@ const result = {
   entries,
   assets: assets.sort((a, b) => a.url.localeCompare(b.url)),
 };
-await writeFile('artifacts/redesign/published-assets.json', JSON.stringify(result, null, 2) + '\n');
+await writeFile(destination, JSON.stringify(result, null, 2) + '\n');
 console.log(
   JSON.stringify({
     build: version.build,

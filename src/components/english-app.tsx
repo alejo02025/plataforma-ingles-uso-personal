@@ -1,18 +1,7 @@
 'use client';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import {
-  ArrowUpRight,
-  BookOpen,
-  ChartNoAxesCombined,
-  Check,
-  Languages,
-  LoaderCircle,
-  Home,
-  NotebookPen,
-  Settings2,
-  X,
-} from 'lucide-react';
-import { isPortuguese } from '@/lib/workspace';
+import { ArrowUpRight, Check, LoaderCircle, Settings2, X } from 'lucide-react';
+import { assetBase, isPortuguese } from '@/lib/workspace';
 import type { Snapshot, Activity, Document } from '@/lib/types';
 import type { StudyTask } from '@/lib/daily-study';
 import { Today } from './today';
@@ -31,7 +20,7 @@ import { Practice } from './practice';
 import { Progress, Calendar } from './analytics';
 import { GitHubSync } from './github-sync';
 import { OfflineStatus } from './offline-status';
-import { SpaceLink } from './space-link';
+import { blockedSpaceChangeEvent, LanguageSwitcher, SpaceLink } from './space-link';
 import { AppUpdate } from './app-update';
 import { DailyWords } from './daily-words';
 import { WordHelpCloud } from './word-help';
@@ -54,6 +43,12 @@ export function EnglishApp() {
     document.documentElement.dataset.studyLanguage = isPortuguese ? 'pt' : 'en';
   }, []);
   useEffect(() => {
+    const onBlockedSpaceChange = () =>
+      setError(
+        isPortuguese
+          ? 'Finalize ou cancele a gravação antes de trocar de idioma.'
+          : 'Finish or cancel the recording before changing language.',
+      );
     const onRemoteChange = () => {
       void refresh().catch((e) => setError(e.message));
     };
@@ -61,6 +56,7 @@ export function EnglishApp() {
       if (document.visibilityState === 'visible') onRemoteChange();
     };
     window.addEventListener('english-data-changed', onRemoteChange);
+    window.addEventListener(blockedSpaceChangeEvent, onBlockedSpaceChange);
     document.addEventListener('visibilitychange', onVisible);
     refresh().catch((e) => {
       if (e.message.includes('access key')) setLocked(true);
@@ -68,6 +64,7 @@ export function EnglishApp() {
     });
     return () => {
       window.removeEventListener('english-data-changed', onRemoteChange);
+      window.removeEventListener(blockedSpaceChangeEvent, onBlockedSpaceChange);
       document.removeEventListener('visibilitychange', onVisible);
     };
   }, [refresh]);
@@ -201,22 +198,20 @@ export function EnglishApp() {
               ? 'progress'
               : 'today';
   const destinations = [
-    { area: 'today', target: 'Home', label: pt ? 'Hoje' : 'Today', icon: Home, emoji: '☀️' },
-    { area: 'classes', target: 'Classes', label: pt ? 'Aulas' : 'Classes', icon: BookOpen, emoji: '📘' },
-    { area: 'review', target: 'Vocabulary', label: pt ? 'Revisão' : 'Review', icon: Languages, emoji: '🧠' },
+    { area: 'today', target: 'Home', label: pt ? 'Hoje' : 'Today', emoji: '☀️' },
+    { area: 'classes', target: 'Classes', label: pt ? 'Aulas' : 'Classes', emoji: '📚' },
+    { area: 'review', target: 'Vocabulary', label: pt ? 'Revisão' : 'Review', emoji: '🧠' },
     {
       area: 'library',
       target: 'PDF Studio',
       label: pt ? 'Biblioteca' : 'Library',
-      icon: NotebookPen,
-      emoji: '📚',
+      emoji: '📖',
     },
     {
       area: 'progress',
       target: 'Progress',
       label: pt ? 'Progresso' : 'Progress',
-      icon: ChartNoAxesCombined,
-      emoji: '📈',
+      emoji: '🌱',
     },
   ];
   const groups: Record<string, { target: string; label: string }[]> = {
@@ -295,7 +290,9 @@ export function EnglishApp() {
               aria-current={area === d.area ? 'page' : undefined}
               onClick={() => void navigate(d.target)}
             >
-              <span className="nav-emoji" aria-hidden="true">{d.emoji}</span>
+              <span className="nav-emoji" aria-hidden>
+                {d.emoji}
+              </span>
               <span>{d.label}</span>
             </button>
           ))}
@@ -308,31 +305,27 @@ export function EnglishApp() {
             <Settings2 size={18} />
             {pt ? 'Ajustes' : 'Settings'}
           </button>
-          <div className="space-switch">
-            <span>{pt ? 'Trocar idioma' : 'Switch language'}</span>
-            <div className="language-pair">
-              <SpaceLink language="en" />
-              <SpaceLink language="pt" />
-            </div>
+          <div className="space-owner">
+            <span className="owner-avatar" aria-hidden>
+              {data.profile.name.slice(0, 1).toLocaleUpperCase()}
+            </span>
+            <span>{data.profile.name}</span>
           </div>
         </div>
       </aside>
       <div className="main-shell">
-        <div className="mobile-masthead">
-          <Logo />
-          <div className="masthead-controls">
-            <div className="mobile-language-switch" aria-label={pt ? 'Escolher idioma' : 'Choose language'}>
-              <SpaceLink language="en" />
-              <SpaceLink language="pt" />
-            </div>
+        <div className="workspace-masthead">
+          <div className="mobile-brand">
+            <Logo />
+          </div>
+          <LanguageSwitcher portuguese={pt} />
           <button
-            className="icon-button"
+            className="icon-button mobile-settings"
             aria-label={pt ? 'Ajustes' : 'Settings'}
             onClick={() => void navigate('Settings')}
           >
             <Settings2 size={19} />
           </button>
-          </div>
         </div>
         <main id="main-content" tabIndex={-1}>
           {error && (
@@ -359,11 +352,15 @@ export function EnglishApp() {
           </div>
           <header hidden={area === 'today' && !active} className="workspace-heading">
             <div className="workspace-title-row">
-              <span className="workspace-kicker" aria-hidden="true">{area === 'classes' ? '📘' : area === 'review' ? '🧠' : area === 'library' ? '📚' : area === 'progress' ? '📈' : '⚙️'}</span>
+              {(area !== 'today' || active) && (
+                <span className="workspace-kicker" aria-hidden>
+                  {destinations.find((d) => d.area === area)?.emoji || '⚙️'}
+                </span>
+              )}
               {(area !== 'today' || active) && (
                 <h1>{active ? (pt ? 'Atividade' : 'Activity') : areaTitle}</h1>
               )}
-              {area !== 'settings' && <WordHelpCloud data={data} refresh={refresh} />}
+              <WordHelpCloud data={data} refresh={refresh} />
             </div>
             {groups[area] && (
               <nav className="section-tabs" aria-label={pt ? 'Seções' : 'Sections'}>
@@ -487,7 +484,9 @@ export function EnglishApp() {
             aria-current={area === d.area ? 'page' : undefined}
             onClick={() => void navigate(d.target)}
           >
-            <span className="bottom-emoji" aria-hidden="true">{d.emoji}</span>
+            <span className="nav-emoji bottom-emoji" aria-hidden>
+              {d.emoji}
+            </span>
             <span>{d.label}</span>
           </button>
         ))}
@@ -513,8 +512,17 @@ export function EnglishApp() {
 function Logo() {
   return (
     <div className="logo">
-      <span className="logo-mark" aria-hidden="true">✦</span>
-      <span className="logo-wordmark">lingua<span className="logo-dot">.</span><small>{isPortuguese ? 'PORTUGUÊS' : 'ENGLISH'}</small></span>
+      <img
+        className="logo-mark"
+        alt=""
+        width="36"
+        height="36"
+        src={`${assetBase}/assets/app/${isPortuguese ? 'portuguese-os-v1' : 'english-os-v1'}.svg`}
+      />
+      <span className="logo-wordmark">
+        lingua<span className="logo-dot">.</span>
+        <small>{isPortuguese ? 'Português' : 'English'}</small>
+      </span>
     </div>
   );
 }

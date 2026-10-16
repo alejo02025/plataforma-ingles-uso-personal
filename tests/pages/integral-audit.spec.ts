@@ -290,7 +290,7 @@ for (const pt of [false, true])
       await page
         .locator('html')
         .evaluate((el) => getComputedStyle(el).getPropertyValue('--bg').trim()),
-    ).toBe(pt ? '#fbfaf6' : '#f8f8fc');
+    ).toBe('#faf8f2');
     const measure = () =>
       page.evaluate(() => {
         const style = getComputedStyle(document.documentElement);
@@ -302,11 +302,16 @@ for (const pt of [false, true])
             .map((c) => (c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4));
           return rgb[0] * 0.2126 + rgb[1] * 0.7152 + rgb[2] * 0.0722;
         }
-        const surface = luminance(style.getPropertyValue('--surface'));
-        return ['--text', '--muted'].map((token) => {
+        return [
+          ['--surface', '--text'],
+          ['--surface', '--muted'],
+          ['--surface-alt', '--muted'],
+          ['--hero', '--hero-ink'],
+        ].map(([background, token]) => {
+          const surface = luminance(style.getPropertyValue(background));
           const foreground = luminance(style.getPropertyValue(token));
           return {
-            token,
+            token: `${token} on ${background}`,
             ratio: (Math.max(surface, foreground) + 0.05) / (Math.min(surface, foreground) + 0.05),
           };
         });

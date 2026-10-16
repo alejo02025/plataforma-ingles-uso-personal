@@ -31,6 +31,13 @@ for (const pt of [false, true])
         parseInt(await room.locator('.oral-controls [role="status"]').innerText(), 10),
       )
       .toBeGreaterThan(0);
+    const recordingUrl = page.url();
+    await page.locator('.language-switcher a:not([aria-current])').click();
+    await expect(page).toHaveURL(recordingUrl);
+    await expect(room).toHaveClass(/oral-recording-active/);
+    await expect(page.locator('.global-error')).toContainText(
+      pt ? 'trocar de idioma' : 'changing language',
+    );
     await room
       .getByRole('button', { name: pt ? 'Parar gravação' : 'Stop recording', exact: true })
       .click();
@@ -125,6 +132,10 @@ for (const pt of [false, true])
     await room
       .getByRole('button', { name: pt ? 'Gravar áudio' : 'Record audio', exact: true })
       .click();
+    await expect(room).toHaveClass(/oral-recording-active/);
+    const pendingUrl = page.url();
+    await page.locator('.language-switcher a:not([aria-current])').click();
+    await expect(page).toHaveURL(pendingUrl);
     await expect(room).toHaveClass(/oral-recording-active/);
     await expect(
       room.getByRole('button', {

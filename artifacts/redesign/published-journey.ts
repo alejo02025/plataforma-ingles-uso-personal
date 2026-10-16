@@ -1,9 +1,12 @@
 /** Execute real public HTML/assets with TLS-verified relay, using disposable browser data. */
 import { chromium } from 'playwright-core';
 import { strict as assert } from 'node:assert';
-import { writeFile } from 'node:fs/promises';
+import { mkdir, writeFile } from 'node:fs/promises';
 import { englishClasses, portugueseClasses } from '../../src/locales/lessons/catalog';
 const base = 'https://alejo02025.github.io/plataforma-ingles-uso-personal/';
+const phase = process.argv[2] || 'published';
+const output = `artifacts/redesign/${phase}`;
+await mkdir(output, { recursive: true });
 const browser = await chromium.launch({
   executablePath: '/usr/bin/chromium',
   args: ['--no-sandbox'],
@@ -101,7 +104,7 @@ try {
     await page.reload();
     await progress();
     await page.screenshot({
-      path: `artifacts/redesign/published/${pt ? 'pt' : 'en'}-saved-class.png`,
+      path: `${output}/${pt ? 'pt' : 'en'}-saved-class.png`,
       fullPage: true,
     });
     await page.goto(base + (pt ? '' : 'portugues/'));
@@ -131,7 +134,7 @@ try {
     await context.close();
   }
   await writeFile(
-    'artifacts/redesign/published-journey.json',
+    `artifacts/redesign/${phase}-journey.json`,
     JSON.stringify(
       {
         checkedAt: new Date().toISOString(),
