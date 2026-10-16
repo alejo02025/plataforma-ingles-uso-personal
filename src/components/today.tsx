@@ -89,6 +89,13 @@ export function Today({
       }) || [];
   const primary = remaining[0];
   const finished = !!agenda && remaining.length === 0;
+  const taskEmoji = (task: StudyTask) => {
+    const action = task.action;
+    if (action.kind === 'class') return '📚';
+    if (action.kind === 'review') return '🧠';
+    if (action.kind === 'activity') return '📖';
+    return { grammar: '🧩', vocabulary: '💬', reading: '📖', writing: '✍️' }[action.mode];
+  };
   return (
     <div className="today-screen" data-no-word-help>
       <header className="today-head">
@@ -149,14 +156,23 @@ export function Today({
             aria-label={pt ? 'Atividade principal' : 'Main activity'}
           >
             <div className="today-focus-meta">
-              <span>{pt ? 'AGORA' : 'UP NEXT'}</span>
+              <span>{pt ? 'Sua próxima atividade' : 'Your next activity'}</span>
               <span>
                 <Clock3 size={15} />
                 {primary!.minutes} min
               </span>
             </div>
-            <h2>{primary!.title}</h2>
-            <p>{primary!.purpose}</p>
+            <div className="today-focus-body">
+              <div className="today-focus-copy">
+                <h2>{primary!.title}</h2>
+                <p>{primary!.purpose}</p>
+              </div>
+              <div className="study-cover" aria-hidden="true">
+                <span className="cover-word">{pt ? 'Olá.' : 'Hello.'}</span>
+                <span className="cover-emoji">{taskEmoji(primary!)}</span>
+                <span className="cover-lines" />
+              </div>
+            </div>
             <button
               className="button start-button"
               disabled={busy}
@@ -168,23 +184,35 @@ export function Today({
           </section>
           {remaining.length > 1 && (
             <section className="today-next" aria-labelledby="next-title">
-              <h2 id="next-title">{pt ? 'Depois' : 'Then'}</h2>
-              {remaining.slice(1, 4).map((task, i) => (
-                <button className="today-task" key={task.id} onClick={() => onTask(task)}>
-                  <span className="task-number">{String(i + 2).padStart(2, '0')}</span>
-                  <span>
-                    <strong>{task.title}</strong>
-                    <small>{task.minutes} min</small>
-                  </span>
-                  <ArrowRight size={17} />
-                </button>
-              ))}
+              <h2 id="next-title">{pt ? 'Depois, no seu ritmo' : 'Then, at your own pace'}</h2>
+              <div className="today-task-list">
+                {remaining.slice(1, 4).map((task, i) => (
+                  <button className="today-task" key={task.id} onClick={() => onTask(task)}>
+                    <span className="task-emoji" aria-hidden>
+                      {taskEmoji(task)}
+                    </span>
+                    <span>
+                      <strong>{task.title}</strong>
+                      <small>
+                        <span className="task-number">{String(i + 2).padStart(2, '0')}</span> ·{' '}
+                        {task.minutes} min
+                      </small>
+                    </span>
+                    <ArrowRight size={17} />
+                  </button>
+                ))}
+              </div>
             </section>
           )}
         </div>
       )}
       {agenda && (
         <p className="today-completion" role="status">
+          <span className="completion-dots" aria-hidden>
+            {agenda.tasks.map((task) => (
+              <span key={task.id} className={studyTaskDone(task, agenda, data) ? 'done' : ''} />
+            ))}
+          </span>
           {pt
             ? `${completed} de ${agenda.tasks.length} atividades concluídas`
             : `${completed} of ${agenda.tasks.length} activities completed`}
