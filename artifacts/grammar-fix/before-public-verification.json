@@ -1,0 +1,33 @@
+{
+  "build": "2026-10-16T17:15:32.067Z",
+  "evidence": [
+    {
+      "language": "en",
+      "model": "Did she study English?",
+      "structure": "MODEL STRUCTURE\n\ndid + subject + base verb + complement + ?",
+      "spanishLabels": [
+        "Tiempo verbal",
+        "Afirmativa, negativa o pregunta",
+        "La acción de la oración",
+        "¿Quién hace la acción?"
+      ]
+    },
+    {
+      "language": "pt-BR",
+      "model": "Eu pagei a conta.",
+      "structure": "ESTRUTURA DO MODELO\n\nsujeito + verbo no pretérito perfeito + complemento",
+      "spanishLabels": [
+        "Tiempo verbal",
+        "Afirmativa, negativa o pregunta",
+        "La acción de la oración",
+        "¿Quién hace la acción?"
+      ]
+    },
+    {
+      "language": "en",
+      "case": "negative imperative, we",
+      "model": "Let's not study English.",
+      "structure": "MODEL STRUCTURE\n\ndo not + base verb + complement (we: let's; question: polite request)"
+    }
+  ]
+}

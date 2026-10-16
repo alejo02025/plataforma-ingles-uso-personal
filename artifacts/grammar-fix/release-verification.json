@@ -1,0 +1,50 @@
+{
+  "sourcePullRequest": "https://github.com/alejo02025/plataforma-ingles-uso-personal/pull/20",
+  "testedSource": "9cdb04388c26a0122785459b66ebbedd4b916499",
+  "integratedSource": "de47782e2bcc1d27fc5fe560482e1813187ffa0c",
+  "generatedExport": "310132799f56c3ad17b7423ec67996e387df93d5",
+  "publicBuild": "2026-10-16T23:46:24.747Z",
+  "pullRequestCI": {
+    "id": 38981575217,
+    "conclusion": "success"
+  },
+  "mainCI": {
+    "id": 38982252783,
+    "conclusion": "success",
+    "url": "https://github.com/alejo02025/plataforma-ingles-uso-personal/actions/runs/38982252783"
+  },
+  "localChecks": {
+    "typecheck": "passed",
+    "unit": {
+      "passed": 127,
+      "failed": 0,
+      "skipped": 0
+    },
+    "staticBrowser": {
+      "passed": 93,
+      "failed": 0,
+      "skipped": 0
+    },
+    "serverBrowser": {
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    "staticBuilds": ["en", "pt-BR"],
+    "serverBuild": "passed"
+  },
+  "publicChecks": {
+    "languages": ["en", "pt-BR"],
+    "widths": [375, 390, 1440],
+    "reloadPreserved": true,
+    "consoleErrors": 0,
+    "matchingAssetHashes": 133,
+    "matchingEntryPoints": 2,
+    "serviceWorkerReleaseMatches": true
+  },
+  "limits": [
+    "Disposable Chromium profiles, not access to actual student browser databases.",
+    "Public browser resources relayed unchanged through TLS-verified Node fetch; public workers blocked. Offline and update tests ran separately in local Playwright.",
+    "Targeted grammar corrections and regressions, not an exhaustive semantic review of every verb/time/subject combination."
+  ]
+}

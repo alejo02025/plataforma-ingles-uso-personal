@@ -1,0 +1,33 @@
+{
+  "checkedAt": "2026-10-16T23:48:36.458Z",
+  "base": "https://alejo02025.github.io/plataforma-ingles-uso-personal/",
+  "priorBuild": "2026-10-16T17:15:32.067Z",
+  "publicBuild": "2026-10-16T23:46:24.747Z",
+  "method": "Original public HTML/assets relayed through TLS-verified fetch; disposable Chromium profiles; public workers blocked. Offline/update behavior tested separately by local Playwright.",
+  "evidence": [
+    {
+      "language": "en",
+      "past": "She did not study English.",
+      "savedModel": "Has she studied English?",
+      "reloadPreserved": true,
+      "widths": [
+        375,
+        390,
+        1440
+      ],
+      "errors": []
+    },
+    {
+      "language": "pt-BR",
+      "past": "Eu não paguei a conta.",
+      "savedModel": "Nós construíamos uma casa?",
+      "reloadPreserved": true,
+      "widths": [
+        375,
+        390,
+        1440
+      ],
+      "errors": []
+    }
+  ]
+}
