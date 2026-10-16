@@ -1,4 +1,4 @@
-:HL["/plataforma-ingles-uso-personal/_next/static/chunks/0mg8hlbbig5em.css","style"]
-:HL["/plataforma-ingles-uso-personal/_next/static/media/Nunito-s.p.0mkk86a1tn5wo.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+:HL["/plataforma-ingles-uso-personal/_next/static/chunks/2k4c57573k2x1.css","style"]
+:HL["/plataforma-ingles-uso-personal/_next/static/media/InterVariable-s.p.2c0y96ae70xfx.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 1:[["children",{"s":"__PAGE__","h":160}]]
-0:{"b":"qZvYKszoxdz0Pk-KnrC9W","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"uSHrj9zbbyXUaZsmAtn8e","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
