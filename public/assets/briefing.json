@@ -1,50 +1,50 @@
 {
-  "checkedAt": "2026-10-16T11:32:03.510703+00:00",
+  "checkedAt": "2026-10-16T21:17:36.390943+00:00",
   "stories": [
     {
-      "id": "ef941bebd76cda1b",
+      "id": "76ac965f5c723a26",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Children aged 5, 8 and 11 killed in US school shooting before suspect shot by bystander",
-      "url": "https://www.bbc.co.uk/news/articles/cm89zp48k4kzo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-16T10:36:50+00:00"
+      "title": "Inside Ukrainian offensive pushing Russia back - with Starlink playing a key role",
+      "url": "https://www.bbc.co.uk/news/articles/cvx284w16z1po?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-16T16:00:30+00:00"
     },
     {
-      "id": "fae2286372c27358",
+      "id": "b41684a8072def39",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "'It's really hard to believe' - How Oregon primary school shooting unfolded",
-      "url": "https://www.bbc.co.uk/news/videos/cwe8r29mjd05o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-16T08:27:16+00:00"
+      "title": "Palestinians and US journalist injured by Israeli settlers in West Bank harvest attack",
+      "url": "https://www.bbc.co.uk/news/articles/c65ynk7212vqo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-16T14:31:04+00:00"
     },
     {
-      "id": "a06797f3d253aec3",
+      "id": "74e8f5bb1ee5ef06",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Ship attack reports near Hormuz reach record high as oil exports slow",
-      "url": "https://www.bbc.co.uk/news/articles/cmde8dpg8g0no?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-16T05:00:17+00:00"
+      "title": "Trump denies limiting Ukraine access to Starlink network",
+      "url": "https://www.bbc.co.uk/news/articles/ckz65g34wyd8o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-16T19:33:48+00:00"
     },
     {
-      "id": "3ef08d1596a4bfa1",
+      "id": "044b4bea2d1a4758",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Zelensky rallies EU support as Trump says Ukraine leader 'more difficult to deal with than Putin'",
-      "url": "https://www.bbc.co.uk/news/articles/c58jz174w89ro?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-16T10:37:47+00:00"
+      "title": "Pope pictured for first time since surgery and cancer diagnosis",
+      "url": "https://www.bbc.co.uk/news/articles/cw146ej00yn7o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-16T14:36:39+00:00"
     },
     {
-      "id": "ec09cceda66bc571",
+      "id": "6cc2f945a0a151e5",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "China tells Israel to stop 'forced establishment' of West Bank settlements",
-      "url": "https://www.bbc.co.uk/news/articles/cq1j3wdxy48ro?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-16T08:45:54+00:00"
+      "title": "India's 'cockroach' party founder detained ahead of protest",
+      "url": "https://www.bbc.co.uk/news/articles/cmx237n1y9lzo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-16T11:44:31+00:00"
     },
     {
       "id": "bbfd72c7e959fc3e",
@@ -53,7 +53,25 @@
       "source": "BBC News",
       "title": "Dad fined after son, 2, died in Cyprus hotel fall",
       "url": "https://www.bbc.co.uk/news/articles/cvj6j1klez88o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-16T10:28:56+00:00"
+      "published": "2026-10-16T14:21:32+00:00"
+    },
+    {
+      "id": "6a78c52774f4a4ed",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Toxic algorithms wouldn't let them go - now Australia wants an off switch",
+      "url": "https://www.bbc.co.uk/news/articles/cwr7y8er1n8vo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-16T18:11:29+00:00"
+    },
+    {
+      "id": "f1315209d972f617",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Russian man linked to deadly London hospitals hack arrested",
+      "url": "https://www.bbc.co.uk/news/articles/c9vgr61kml3mo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-16T15:31:33+00:00"
     },
     {
       "id": "a758244590b4247c",
@@ -92,76 +110,58 @@
       "published": "2026-10-15T14:25:48+00:00"
     },
     {
-      "id": "0b7274ba05c98359",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "AI giant Anthropic woos potential investors ahead of stock market debut",
-      "url": "https://www.bbc.co.uk/news/articles/cqzjx448vxkgo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-15T11:34:55+00:00"
-    },
-    {
-      "id": "f72fa532500caca1",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Toilet paper and secret recorders: What we know about the arrest of the Saudi OpenAI engineer",
-      "url": "https://www.bbc.co.uk/news/articles/cm04054ykqqqo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-14T15:54:04+00:00"
-    },
-    {
-      "id": "e52f7351b4575457",
+      "id": "0b592922a2fb2292",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Estreante, Cruzeiro será 15º brasileiro na Libertadores Feminina",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/estreante-cruzeiro-sera-15o-brasileiro-na-libertadores-feminina",
-      "published": "2026-10-16T07:02:00-03:00"
+      "title": "Brasil é 2º maior importador de pesticidas proibidos na UE, diz Oxfam",
+      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-10/brasil-e-2o-maior-importador-de-pesticidas-proibidos-na-ue-diz-oxfam",
+      "published": "2026-10-16T17:17:00-03:00"
     },
     {
-      "id": "8d31d6d3bf0e71a4",
+      "id": "54301ecb231fa50d",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Sem chutar a gol na Argentina, Flamengo sobrevive na Libertadores",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/sem-chutar-gol-na-argentina-flamengo-sobrevive-na-libertadores",
-      "published": "2026-10-16T06:45:00-03:00"
+      "title": "Desmatamento cai 41,8% na Amazônia e 23,8% no Cerrado em um ano",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/desmatamento-caiu-418-na-amazonia-e-238-no-cerrado-em-um-ano",
+      "published": "2026-10-16T17:09:00-03:00"
     },
     {
-      "id": "3a1f636dd4532284",
+      "id": "6dd1b33fe8c4b57e",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Lula defende redução da maioridade penal para crimes hediondos",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/lula-defende-reducao-da-maioridade-penal-para-crimes-hediondos",
-      "published": "2026-10-15T23:44:00-03:00"
+      "title": "TSE define regras para canais de WhatsApp durante a campanha",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/tse-define-regras-para-canais-de-whatsapp-durante-campanha",
+      "published": "2026-10-16T16:27:00-03:00"
     },
     {
-      "id": "c84dbc907545b6a6",
+      "id": "62767334287db48c",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Fluminense vence Flamengo e abre vantagem na Copa do Brasil Feminina",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/fluminense-vence-flamengo-e-abre-vantagem-na-copa-do-brasil-feminina",
-      "published": "2026-10-15T21:41:00-03:00"
+      "title": "Alcolumbre homenageia Paim no fim da 6x1; entenda motivo",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/alcolumbre-homenageia-paim-no-fim-da-6x1-entenda-motivo",
+      "published": "2026-10-16T15:44:00-03:00"
     },
     {
-      "id": "f836764c1f60645f",
+      "id": "bd78621d646eca3b",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Congresso aprova exame obrigatório para exercício da medicina",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-10/congresso-aprova-exame-obrigatorio-para-exercicio-da-medicina",
-      "published": "2026-10-15T21:41:00-03:00"
+      "title": "TSE nega pedido da campanha de Flávio para barrar posts de sindicatos",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/tse-nega-pedido-da-campanha-de-flavio-para-barrar-posts-de-sindicatos",
+      "published": "2026-10-16T15:20:00-03:00"
     },
     {
-      "id": "2e76c2f722788c83",
+      "id": "e058dc612c53f141",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Alcolumbre retira PEC da Segurança Pública da pauta do Senado",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/alcolumbre-retira-pec-da-seguranca-publica-da-pauta-do-senado",
-      "published": "2026-10-15T21:09:00-03:00"
+      "title": "Manaus é capital com maior poluição atmosférica do país nesta sexta",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/manaus-e-capital-com-maior-poluicao-atmosferica-do-pais-nesta-sexta",
+      "published": "2026-10-16T14:28:00-03:00"
     }
   ],
   "unavailable": []
