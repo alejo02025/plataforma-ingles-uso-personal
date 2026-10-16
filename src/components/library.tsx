@@ -103,7 +103,7 @@ export function Library({
           <button className="card document-card" key={d.id} onClick={() => onOpen(d)}>
             <div className={`document-art tone-${index % 4}`} aria-hidden="true">
               <span>
-                {d.source === 'editorial' ? 'ENGLISH OS / READINGS' : 'PERSONAL COLLECTION'}
+                {d.source === 'editorial' ? (isPortuguese ? 'PORTUGUÊS / LEITURAS' : 'ENGLISH OS / READINGS') : (isPortuguese ? 'COLEÇÃO PESSOAL' : 'PERSONAL COLLECTION')}
               </span>
               <strong className="book-cover-title">{d.title}</strong>
               {d.source === 'editorial' ? (
@@ -128,10 +128,10 @@ export function Library({
                 )}
               </div>
               <h2>{d.title}</h2>
-              <progress value={progress(d)} max={100} aria-label="Reading sections visited" />
+              <progress value={progress(d)} max={100} aria-label={isPortuguese ? 'Seções visitadas' : 'Reading sections visited'} />
               <p>{d.intro}</p>
               <span className="text-link">
-                {d.updated_at ? `Continue · section ${d.paragraph + 1}` : 'Open reading'}
+                {d.updated_at ? (isPortuguese ? `Continuar · seção ${d.paragraph + 1}` : `Continue · section ${d.paragraph + 1}`) : (isPortuguese ? 'Abrir leitura' : 'Open reading')}
                 <ArrowUpRight size={16} />
               </span>
             </div>
@@ -139,7 +139,7 @@ export function Library({
         ))}
       </div>
       {!docs.length && (
-        <Empty title="No readings here yet." detail="Try another topic or add your own material." />
+        <Empty title={isPortuguese ? 'Ainda não há leituras aqui.' : 'No readings here yet.'} detail={isPortuguese ? 'Experimente outro tema ou adicione seu próprio material.' : 'Try another topic or add your own material.'} />
       )}
       {showImport && <ImportDialog refresh={refresh} close={() => setShowImport(false)} />}
     </>
@@ -184,17 +184,16 @@ function ImportDialog({ refresh, close }: { refresh: () => Promise<void>; close:
       >
         <div className="section-heading">
           <h2 id="import-title">{isPortuguese ? 'Adicionar um texto' : 'Add a text'}</h2>
-          <button className="icon-button" aria-label="Close import" onClick={close} disabled={busy}>
+          <button className="icon-button" aria-label={isPortuguese ? 'Fechar importação' : 'Close import'} onClick={close} disabled={busy}>
             <X size={20} />
           </button>
         </div>
         <p className="muted">
-          The text is extracted and saved in your personal library. It is not automatically sent to
-          an AI service.{' '}
+          {isPortuguese ? 'O texto é extraído e salvo na sua biblioteca pessoal. Ele não é enviado automaticamente a um serviço de IA.' : 'The text is extracted and saved in your personal library. It is not automatically sent to an AI service.'}
         </p>
         <form onSubmit={upload}>
           <label className="field">
-            Title{' '}
+            {isPortuguese ? 'Título' : 'Title'}{' '}
             <input
               autoFocus
               value={title}
@@ -202,18 +201,18 @@ function ImportDialog({ refresh, close }: { refresh: () => Promise<void>; close:
               required
               minLength={3}
               maxLength={160}
-              placeholder="For example: A weekend in Edinburgh"
+              placeholder={isPortuguese ? 'Por exemplo: Um fim de semana em Salvador' : 'For example: A weekend in Edinburgh'}
             />
           </label>
           <label className="field">
-            Text in English{' '}
+            {isPortuguese ? 'Texto em português' : 'Text in English'}{' '}
             <textarea
               value={text}
               onChange={(e) => setText(e.target.value)}
               required
               minLength={80}
               maxLength={100000}
-              placeholder="Paste an article or passage here…"
+              placeholder={isPortuguese ? 'Cole um artigo ou trecho aqui…' : 'Paste an article or passage here…'}
             />
           </label>
           {error && (
@@ -222,7 +221,7 @@ function ImportDialog({ refresh, close }: { refresh: () => Promise<void>; close:
             </p>
           )}
           <Button type="submit" disabled={busy}>
-            {busy ? 'Reading and saving…' : 'Add to my library'}
+            {busy ? (isPortuguese ? 'Lendo e salvando…' : 'Reading and saving…') : (isPortuguese ? 'Adicionar à biblioteca' : 'Add to my library')}
             <ArrowUpRight size={16} />
           </Button>
         </form>
