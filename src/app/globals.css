@@ -139,6 +139,23 @@ body {
   animation-duration: 37s;
   animation-delay: -9s;
 }
+@media (max-width: 640px) {
+  /* Keep moving colour visible around the narrower study surfaces. */
+  .studio-orb {
+    width: 110vw;
+    top: -14%;
+    right: -38%;
+  }
+  .studio-orb:nth-child(2) {
+    top: 52%;
+    left: -45%;
+  }
+  .studio-orb:nth-child(3) {
+    top: auto;
+    bottom: -26%;
+    right: -35%;
+  }
+}
 @keyframes studio-drift {
   from {
     transform: translate3d(-7%, -3%, 0) scale(1);
