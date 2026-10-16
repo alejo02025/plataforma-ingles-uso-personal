@@ -18,10 +18,12 @@ Fecha: 16/10/2026. Capturas de Chromium con perfiles temporales, no dispositivos
 
 ## Validación
 
-Se captura la candidata completa en [os3-candidate](artifacts/redesign/os3-candidate/observations.json). La comparación final y las capturas públicas se enlazan al completar la publicación en [QA](RESULTADOS_QA.md). Hay pruebas de contraste de texto y superficies en ambos temas, foco, teclado, etiquetas, mensajes y acceso al botón principal. Esto no equivale a certificación WCAG de todos los estados.
+Se capturaron la candidata local y la web publicada: [252 pantallas públicas principales](artifacts/redesign/os3-published/observations.json), más 14 estados públicos del cuaderno con datos reales de prueba. [Comparación antes/después](artifacts/redesign/os3-comparison.html) y [QA](RESULTADOS_QA.md). Hay pruebas de contraste de texto y superficies en ambos temas, foco, teclado, etiquetas, mensajes y acceso al botón principal. Esto no equivale a certificación WCAG de todos los estados.
 
 Las medidas de inicio registran Start visible y contador despejado después de desplazar, a siete tamaños. Pinturas y tiempos corresponden a esta máquina sin throttling: no son mediciones de usuarios reales ni Lighthouse/Core Web Vitals de producción.
 
 El último pedido incorpora colores ambientales en movimiento detrás del contenido, compartiendo los acentos de cada idioma. Hay control de pausa persistente en Ajustes, pausa de pestaña oculta y soporte de movimiento reducido. Se repiten capturas y pruebas sobre esta versión; no se usa el resultado anterior de 89 pruebas como si incluyera el fondo nuevo.
 
 El fondo motivó una corrección adicional de contraste: texto secundario más oscuro en claro y menor intensidad ambiental en oscuro. La prueba mide las paradas reales del gradiente, su opacidad y las combinaciones de solapamiento; no se limita a comparar tokens sobre una superficie plana.
+
+La nueva pestaña de errores se comprueba además con un intento realmente guardado en los siete tamaños y ambos idiomas: 14 capturas adicionales, sin sustituirlas por un estado vacío. No existía un cuaderno equivalente en la versión anterior.

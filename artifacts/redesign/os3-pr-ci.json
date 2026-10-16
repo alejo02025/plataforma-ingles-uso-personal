@@ -1,0 +1,99 @@
+{
+  "run": {
+    "id": 38935706160,
+    "html_url": "https://github.com/alejo02025/plataforma-ingles-uso-personal/actions/runs/38935706160",
+    "head_sha": "47b949d8ce618ab9f1f64e842a1db59ec767b5c0",
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "jobs": [
+    {
+      "name": "verify",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Check TypeScript",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run unit tests",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build both language sites",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install browser for responsive smoke checks",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run the complete static regression suite",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build the server edition",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify authenticated server persistence",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Retain browser evidence",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "name": "publish",
+      "status": "completed",
+      "conclusion": "skipped",
+      "steps": []
+    }
+  ]
+}

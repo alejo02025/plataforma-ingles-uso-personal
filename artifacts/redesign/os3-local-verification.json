@@ -1,7 +1,7 @@
 {
-  "checkedAt": "2026-10-16T16:39:16.829685+00:00",
-  "sourceCommit": "f89913794ff82fafa0419121b06eb3ab2f3dade2",
-  "staticBuild": "2026-10-16T16:30:18.703Z",
+  "checkedAt": "2026-10-16T17:07:18.068941+00:00",
+  "sourceCommit": "47b949d8ce618ab9f1f64e842a1db59ec767b5c0",
+  "staticBuild": "2026-10-16T16:54:08.061Z",
   "checks": {
     "typescript": "passed",
     "unit": {
@@ -27,7 +27,9 @@
     "exerciseStates": 36,
     "entryViewportCases": 14,
     "candidateConsoleOrPageErrors": 0,
-    "candidateOverflows": 0
+    "candidateOverflows": 0,
+    "darkThemeStates": 4,
+    "errorNotebookViewportCases": 14
   },
   "method": "Chromium with configured viewports; no physical-device or acoustic assessment. Captures do not substitute functional assertions.",
   "captureCorrection": "Final comparisons scroll instantly to the document top before unretouched screenshots; no app style or content is replaced."

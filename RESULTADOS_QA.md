@@ -1,6 +1,6 @@
 # QA — Language Studio 3.0
 
-Revisión del 16/10/2026, base `82c372d`, rama `feat/language-studio-3`, [PR #18](https://github.com/alejo02025/plataforma-ingles-uso-personal/pull/18). **Implementación y validación local terminadas; CI y publicación pendientes.** [Informes anteriores, conservados](docs/audit-before-os3/).
+Revisión del 16/10/2026, base `82c372d`, rama `feat/language-studio-3`, [PR #18](https://github.com/alejo02025/plataforma-ingles-uso-personal/pull/18). **Publicado y verificado contra GitHub Pages.** [Informes anteriores, conservados](docs/audit-before-os3/).
 
 ## Comprobaciones ejecutadas
 
@@ -37,7 +37,15 @@ Las capturas finales se toman desde arriba con desplazamiento instantáneo. Una 
 
 ## Publicación y CI
 
-El PR está en validación. No se presenta como publicado por generar `out/` o subir la rama. Tras integrar se comprobarán la versión pública, el worker, los hashes/bytes de recursos EN/PT, dos recorridos publicados y las capturas de ambas versiones. El resultado de esa comprobación se añadirá aquí.
+El [PR #18](https://github.com/alejo02025/plataforma-ingles-uso-personal/pull/18) quedó integrado tras [CI aprobado](https://github.com/alejo02025/plataforma-ingles-uso-personal/actions/runs/38935706160). La [validación y publicación de main](https://github.com/alejo02025/plataforma-ingles-uso-personal/actions/runs/38937317892) también terminó aprobada. Exportación generada: `96f1812`, versión pública **`2026-10-16T17:15:32.067Z`**, anterior `2026-10-16T02:08:58.890Z`.
+
+Se compararon bytes y SHA-256 de los **133 recursos** contra los archivos generados de main, además del HTML de ambos accesos y el worker. El código de aplicación coincide con `47b949d`, que pasó las pruebas. Antes del despliegue, el verificador rechazó deliberadamente la versión antigua; no basta con que cambie una fecha.
+
+Se ejecutaron dos recorridos públicos: completar una clase desde Hoy, guardar, recargar, cambiar al otro idioma (sin heredar su resultado), volver y abrir una clase diferente. Ambos conservaron el contador y el avance guardado. También se capturaron las 252 pantallas principales y 14 estados del cuaderno público sin errores ni overflow.
+
+[Registro de publicación](artifacts/redesign/os3-public-verification.json) · [recursos y hashes](artifacts/redesign/os3-public-assets.json) · [recorridos publicados](artifacts/redesign/os3-published-journey.json) · [capturas reales](artifacts/redesign/os3-published/observations.json) · [comparación interactiva](artifacts/redesign/os3-comparison.html).
+
+El relay TLS ejecuta las respuestas públicas originales y no desactiva su verificación. Por ese mecanismo, el worker se bloquea en esos perfiles públicos; instalación activa, actualización, offline y conservación de datos se comprobaron por separado en la suite local. No se afirma una instalación física en iPhone.
 
 El PR #17, anterior y todavía abierto, propone una variante de chrome mediante overrides. Se inspeccionó su diff; no contiene datos ni migraciones. No se fusiona automáticamente sobre el sistema nuevo ni se elimina su rama.
 

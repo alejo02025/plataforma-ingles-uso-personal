@@ -1,0 +1,10 @@
+Expected negative control before publication: the verifier must reject the previous public release.
+file:///workspace/plataforma-ingles-uso-personal/artifacts/redesign/verify-public-assets.mjs:25
+  throw new Error('The previous public build is still being served');
+        ^
+
+Error: The previous public build is still being served
+    at file:///workspace/plataforma-ingles-uso-personal/artifacts/redesign/verify-public-assets.mjs:25:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+
+Node.js v24.19.0

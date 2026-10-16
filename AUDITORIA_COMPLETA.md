@@ -2,6 +2,8 @@
 
 Revisión del 16/10/2026. Base inspeccionada `82c372d`; rama `feat/language-studio-3`. [Informes raíz anteriores, conservados](docs/audit-before-os3/). Este informe distingue código implementado, pruebas ejecutadas y límites pendientes.
 
+**Estado: publicado y verificado.** PR #18 integrado; versión pública `2026-10-16T17:15:32.067Z`. Dos recorridos públicos y 133 recursos coinciden con la exportación generada. [Evidencia y límites](RESULTADOS_QA.md).
+
 ## Inspección real
 
 Se ejecutaron ambos espacios públicos antes de modificar y se capturaron 18 estados por idioma en siete viewports: 320×700, 375×812, 390×844, 768×1024, 1024×768, 1280×800 y 1440×900. Las 252 imágenes y medidas originales están en [os3-before](artifacts/redesign/os3-before/observations.json). Incluyen cinco áreas, Ajustes, herramientas de lectura, noticias, práctica, juegos, calendario, oralidad y los cuatro modos de la guía gramatical. Cero errores JavaScript y cero desbordamientos en esos estados; una captura no prueba guardado ni corrección semántica.
