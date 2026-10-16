@@ -61,6 +61,10 @@ test('diagnóstico retomable, lectura, vocabulario, PDF, calendario y tema persi
   await page.locator('.document-card').filter({ hasText: 'The city you discover on foot' }).click();
   await expect(page.getByText('SECTION 2 OF 3')).toBeVisible();
   await page.getByText('A map from the bookshop owner', { exact: true }).click();
+  await page
+    .locator('.question-player-navigation')
+    .getByRole('button', { name: 'Next question', exact: true })
+    .click();
   await page.getByText('Slow exploration can be valuable', { exact: true }).click();
   await page.getByRole('button', { name: 'Complete reading', exact: true }).click();
   await expect(page.getByText('2 of 2 correct answers')).toBeVisible();

@@ -251,7 +251,7 @@ for (const pt of [false, true])
   test(`Contextual edition 2 has six valid varied exercises per session (${pt ? 'PT' : 'EN'})`, () => {
     for (const level of ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'])
       for (const mode of ['vocabulary', 'grammar', 'reading'] as const) {
-        const first = makeCurrentRoutine(mode, level, 0, pt),
+        const first = makeCurrentRoutine(mode, level, 0, pt, { edition: 2, variant: 0 }),
           second = makeCurrentRoutine(mode, level, 0, pt, { edition: 2, variant: 1 });
         assert.equal(first.edition, 2);
         assert.equal(first.rounds.length, 6);

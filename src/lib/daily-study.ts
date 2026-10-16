@@ -3,18 +3,23 @@ import { learningJourney } from './course-route';
 import { studyBudget, studyRecommendation } from './study-recommendation';
 import { routineRecord } from './routine';
 import { isPortuguese } from './workspace';
+import { oralEvidence } from './oral-practice';
+import { localDay } from './learning';
+import { writingChallenge } from '@/locales/learning/writing-challenges';
 import type { Snapshot } from './types';
 
 export type StudyTask = {
   id: string;
   title: string;
   purpose: string;
+  purposeSpanish?: string;
   minutes: number;
   completed?: boolean;
   action:
     | { kind: 'activity'; id: string }
     | { kind: 'class'; id: string }
     | { kind: 'review'; words: string[] }
+    | { kind: 'oral'; mode: 'listening' }
     | {
         kind: 'routine';
         mode: 'vocabulary' | 'grammar' | 'reading' | 'writing';
@@ -40,12 +45,14 @@ const storedAgenda = z.object({
         id: z.string().min(1),
         title: z.string().min(1),
         purpose: z.string(),
+        purposeSpanish: z.string().optional(),
         minutes: z.number().int().min(1).max(45),
         completed: z.boolean().optional(),
         action: z.discriminatedUnion('kind', [
           z.object({ kind: z.literal('activity'), id: z.string().min(1) }),
           z.object({ kind: z.literal('class'), id: z.string().min(1) }),
           z.object({ kind: z.literal('review'), words: z.array(z.string()).min(1).max(3) }),
+          z.object({ kind: z.literal('oral'), mode: z.literal('listening') }),
           z.object({
             kind: z.literal('routine'),
             mode: z.enum(['vocabulary', 'grammar', 'reading', 'writing']),
@@ -74,6 +81,7 @@ export function makeStudyDay(
   data: Snapshot,
   requested: number,
   paused?: Parameters<typeof studyRecommendation>[2],
+  canListen = false,
 ): StudyDay {
   const minutes = studyBudget(requested),
     pt = isPortuguese;
@@ -85,7 +93,7 @@ export function makeStudyDay(
     .map((w) => w.id);
   const routine = (
     mode: 'vocabulary' | 'grammar' | 'reading' | 'writing',
-    duration = 4,
+    duration = mode === 'writing' ? writingChallenge(journey.level, pt).minutes : 4,
   ): StudyTask => ({
     id: `routine:${mode}`,
     minutes: duration,
@@ -106,8 +114,14 @@ export function makeStudyDay(
         ? 'Encontrar detalhes e compreender uma situação real.'
         : 'Find details and understand a real situation.',
       writing: pt
-        ? 'Aplicar uma ideia do bloco em duas frases pessoais.'
-        : 'Apply an idea from this block in two personal sentences.',
+        ? 'Produzir um texto pessoal com a proposta e os critérios do seu nível.'
+        : 'Produce a personal text using the brief and criteria for your level.',
+    }[mode],
+    purposeSpanish: {
+      vocabulary: 'Recuperá palabras útiles antes de ver la respuesta.',
+      grammar: 'Organizá ideas y practicá la estructura de oración de tu bloque actual.',
+      reading: 'Encontrá detalles y comprendé una situación real.',
+      writing: 'Escribí un texto personal con la consigna y los criterios de tu nivel.',
     }[mode],
     action: { kind: 'routine', mode, level: journey.level, block: journey.block },
   });
@@ -122,28 +136,8 @@ export function makeStudyDay(
             ? 'review'
             : `routine:${action.mode}`,
     title: recommendation.title,
-    purpose:
-      recommendation.priority === 'pending' || recommendation.priority === 'paused'
-        ? pt
-          ? 'Continue de onde parou; suas respostas estão guardadas.'
-          : 'Continue where you stopped; your answers are saved.'
-        : recommendation.priority === 'repair'
-          ? pt
-            ? 'Reveja um ponto que precisa de reforço.'
-            : 'Revisit a point that needs reinforcement.'
-          : action.kind === 'class'
-            ? pt
-              ? 'Aprenda um padrão e aplique-o em uma situação real.'
-              : 'Learn one pattern and apply it in a real situation.'
-            : action.kind === 'review'
-              ? pt
-                ? 'Recupere até três palavras prontas para revisão.'
-                : 'Recall up to three words due for review.'
-              : action.kind === 'routine'
-                ? routine(action.mode).purpose
-                : pt
-                  ? 'Leia e responda às perguntas do texto.'
-                  : 'Read and answer questions about the text.',
+    purpose: recommendation.reason,
+    purposeSpanish: recommendation.es,
     minutes: recommendation.sessionMinutes,
     action:
       action.kind === 'activity'
@@ -163,12 +157,33 @@ export function makeStudyDay(
             purpose: pt
               ? 'Recuperar até três palavras da memória.'
               : 'Recall up to three words from memory.',
+            purposeSpanish: 'Recuperá hasta tres palabras de la memoria.',
             minutes: 3,
             action: { kind: 'review' as const, words: due },
           },
         ]
       : []),
-    ...(['vocabulary', 'grammar', 'reading', 'writing'] as const)
+    ...(['vocabulary', 'writing'] as const)
+      .filter((mode) => !journey.tasks.find((t) => t.id === mode)?.done)
+      .map((mode) => routine(mode)),
+    ...(minutes >= 20 &&
+    canListen &&
+    !oralEvidence(data).some((r) => r.mode === 'listening' && r.level === journey.level)
+      ? [
+          {
+            id: 'oral:listening',
+            title: pt ? 'Ouça uma situação curta' : 'Listen to a short situation',
+            purpose: pt
+              ? 'Ouça uma voz sintética e responda a duas perguntas sobre o conteúdo.'
+              : 'Listen to a synthetic voice and answer two questions about its content.',
+            purposeSpanish:
+              'Escuchá una voz sintética y respondé dos preguntas sobre su contenido.',
+            minutes: 4,
+            action: { kind: 'oral' as const, mode: 'listening' as const },
+          },
+        ]
+      : []),
+    ...(['grammar', 'reading'] as const)
       .filter((mode) => !journey.tasks.find((t) => t.id === mode)?.done)
       .map((mode) => routine(mode)),
     routine('writing'),
@@ -180,6 +195,13 @@ export function makeStudyDay(
   for (const candidate of candidates) {
     if (tasks.length === 4 || remaining < 3) break;
     if (tasks.some((t) => t.id === candidate.id)) continue;
+    // A level-specific writing brief cannot be reduced to a three-minute filler.
+    if (
+      candidate.action.kind === 'routine' &&
+      candidate.action.mode === 'writing' &&
+      candidate.minutes > remaining
+    )
+      continue;
     const duration = Math.min(candidate.minutes, remaining);
     tasks.push({ ...candidate, minutes: duration });
     remaining -= duration;
@@ -194,6 +216,7 @@ export function makeStudyDay(
       ...data.reviews
         .filter((r) => r.day === data.day)
         .map((r) => `review:${r.word_id}:${r.reviewed_at}`),
+      ...oralEvidence(data).map((r) => `oral:${r.id}`),
     ],
   };
 }
@@ -228,6 +251,13 @@ export function studyTaskDone(task: StudyTask, plan: StudyDay, data: Snapshot): 
         return false;
       }
     });
+  if (a.kind === 'oral')
+    return oralEvidence(data).some(
+      (r) =>
+        r.mode === a.mode &&
+        localDay(new Date(r.created_at)) === plan.day &&
+        !plan.baseline.includes(`oral:${r.id}`),
+    );
   if (a.mode === 'writing') return fresh.some((r) => r.skill === 'writing');
   return fresh.some((r) => {
     const record = routineRecord(r);

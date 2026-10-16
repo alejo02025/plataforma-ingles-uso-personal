@@ -12,9 +12,11 @@ try {
     for (const [width, height] of [
       [1440, 900],
       [1280, 800],
+      [1024, 768],
       [768, 1024],
       [390, 844],
       [375, 812],
+      [320, 700],
     ]) {
       const context = await browser.newContext({ viewport: { width, height } }),
         page = await context.newPage();

@@ -2,8 +2,15 @@
 import { StudyCopy } from './study-copy';
 import { useEffect, useRef, useState } from 'react';
 import { X, Check, RotateCcw } from 'lucide-react';
-import { makeRoutine, routineTitles, routineScore, routinePassThreshold } from '@/lib/routine';
-import { normalizeAnswer } from '@/lib/games';
+import {
+  makeRoutine,
+  routineTitles,
+  routineScore,
+  routinePassThreshold,
+  routineFormat,
+  routineVerdict,
+  routineEvaluation,
+} from '@/lib/routine';
 import { isPortuguese } from '@/lib/workspace';
 import {
   clearRoutineDraft,
@@ -11,7 +18,9 @@ import {
   type RoutineDraft,
 } from '@/lib/browser/routine-draft';
 import { Button, Speak, api } from './ui';
-import { RoutineScene } from './routine-scene';
+import { ExerciseFrame, ChoiceOptions, SentenceTiles } from './exercise-player';
+import { LearningInsight } from './learning-insight';
+import { SpanishTranslation } from './study-copy';
 import { Correction } from './correction';
 import { useDialog } from './use-dialog';
 export function RoutineSession({
@@ -33,9 +42,11 @@ export function RoutineSession({
     [saved, setSaved] = useState(false),
     [busy, setBusy] = useState(false),
     [retry, setRetry] = useState(0);
-  const [recordedScore, setRecordedScore] = useState<{ correct: number; total: number } | null>(
-    null,
-  );
+  const [recordedScore, setRecordedScore] = useState<{
+    correct: number;
+    total: number;
+    unverified: number;
+  } | null>(null);
   const ref = useDialog(close, busy),
     seconds = useRef(initial.seconds),
     current = useRef(draft),
@@ -48,11 +59,29 @@ export function RoutineSession({
     }),
     complete = draft.answers.length === set.rounds.length,
     round = set.rounds[Math.min(draft.answers.length, set.rounds.length - 1)],
+    format = routineFormat(round, initial.mode),
     answer =
-      initial.mode === 'grammar'
-        ? draft.picked.map((i) => round.choices[i]).join(' ')
-        : draft.choice;
-  const isCorrect = normalizeAnswer(answer) === normalizeAnswer(round.solution);
+      format === 'tiles' ? draft.picked.map((i) => round.choices[i]).join(' ') : draft.choice;
+  const verdict = routineVerdict(round, answer);
+  const evaluation = recordedScore || routineEvaluation(set, draft.answers);
+  const independentPass =
+    !draft.helpUsed &&
+    !evaluation.unverified &&
+    evaluation.total === set.rounds.length &&
+    evaluation.correct / evaluation.total >= routinePassThreshold(initial.mode);
+  function markHelp(kind: 'hint' | 'translation' | 'word', step = 1) {
+    if (draft.checked) return;
+    setDraft((d) => ({
+      ...d,
+      helpUsed: true,
+      support: [
+        ...(d.support || []).filter(
+          (s) => !(s.questionId === round.id && s.kind === kind && s.step === step),
+        ),
+        { questionId: round.id, kind, step },
+      ],
+    }));
+  }
   function persist() {
     if (didSave.current) return;
     try {
@@ -79,7 +108,14 @@ export function RoutineSession({
     }, 1000);
     const lookedUp = () => {
       if (!current.current.checked && current.current.answers.length < set.rounds.length)
-        setDraft((d) => ({ ...d, helpUsed: true }));
+        setDraft((d) => ({
+          ...d,
+          helpUsed: true,
+          support: [
+            ...(d.support || []),
+            { questionId: set.rounds[d.answers.length].id, kind: 'word', step: 1 },
+          ].slice(-100) as NonNullable<RoutineDraft['support']>,
+        }));
     };
     window.addEventListener('study-word-looked-up', lookedUp);
     window.addEventListener('pagehide', flush);
@@ -97,23 +133,31 @@ export function RoutineSession({
     saving.current = true;
     setBusy(true);
     setError('');
-    void api<{ correct: number; total: number; responses: string[]; helpUsed: boolean }>(
-      'routine/result',
-      {
-        id: initial.id,
-        mode: initial.mode,
-        level: initial.level,
-        block: initial.block,
-        edition: initial.edition,
-        variant: initial.variant ?? 0,
-        answers: draft.answers,
-        helpUsed: draft.helpUsed,
-        seconds: seconds.current,
-      },
-    )
+    void api<{
+      correct: number;
+      total: number;
+      unverified: number;
+      responses: string[];
+      helpUsed: boolean;
+    }>('routine/result', {
+      id: initial.id,
+      mode: initial.mode,
+      level: initial.level,
+      block: initial.block,
+      edition: initial.edition,
+      variant: initial.variant ?? 0,
+      answers: draft.answers,
+      helpUsed: draft.helpUsed,
+      support: draft.support || [],
+      seconds: seconds.current,
+    })
       .then(async (result) => {
         didSave.current = true;
-        setRecordedScore({ correct: result.correct, total: result.total });
+        setRecordedScore({
+          correct: result.correct,
+          total: result.total,
+          unverified: result.unverified || 0,
+        });
         setDraft((d) => ({ ...d, answers: result.responses, helpUsed: result.helpUsed }));
         setSaved(true);
         try {
@@ -172,19 +216,26 @@ export function RoutineSession({
             <Check size={32} />
             <h3>{isPortuguese ? 'Uma etapa praticada.' : 'One step practised.'}</h3>
             <p className="routine-score">
-              {recordedScore?.correct ?? routineScore(set, draft.answers)} /{' '}
-              {recordedScore?.total ?? set.rounds.length}
+              {evaluation.correct} / {evaluation.total}{' '}
+              {isPortuguese ? 'respostas verificadas' : 'verified answers'}
             </p>
+            {evaluation.unverified > 0 && (
+              <StudyCopy
+                native={
+                  isPortuguese
+                    ? `${evaluation.unverified} respostas abertas aguardam revisão. Elas não foram marcadas como erros nem usadas para liberar o percurso.`
+                    : `${evaluation.unverified} open answers need review. They were not marked wrong or used to unlock the course.`
+                }
+              >{`${evaluation.unverified} respuestas abiertas quedan pendientes de revisión. No se marcaron como errores ni se usaron para desbloquear el recorrido.`}</StudyCopy>
+            )}
             <StudyCopy
               as="p"
-              native={`${saved ? (isPortuguese ? 'Salvo no seu progresso.' : 'Saved in your progress.') : isPortuguese ? 'Salvando suas respostas.' : 'Saving your answers.'} ${draft.helpUsed ? (isPortuguese ? 'Você usou ajuda. Sua prática é registrada; tente outra sequência sem ajuda para cumprir o requisito.' : 'You used help. Your practice is recorded; try a new sequence without help to meet the requirement.') : (recordedScore?.correct ?? routineScore(set, draft.answers)) / (recordedScore?.total ?? set.rounds.length) >= routinePassThreshold(initial.mode) ? (isPortuguese ? 'Continue com a próxima etapa pendente.' : 'Continue with the next unfinished step.') : isPortuguese ? 'Reforce esta habilidade com outra sequência. Os erros continuam registrados.' : 'Reinforce this skill with a new sequence. Your errors remain recorded.'}`}
+              native={`${saved ? (isPortuguese ? 'Salvo no seu progresso.' : 'Saved in your progress.') : isPortuguese ? 'Salvando suas respostas.' : 'Saving your answers.'} ${draft.helpUsed ? (isPortuguese ? 'Você usou ajuda. Sua prática é registrada; tente outra sequência sem ajuda para cumprir o requisito.' : 'You used help. Your practice is recorded; try a new sequence without help to meet the requirement.') : independentPass ? (isPortuguese ? 'Continue com a próxima etapa pendente.' : 'Continue with the next unfinished step.') : isPortuguese ? 'Reforce esta habilidade com outra sequência. Os erros continuam registrados.' : 'Reinforce this skill with a new sequence. Your errors remain recorded.'}`}
             >
               {saved ? 'Guardado en tu progreso.' : 'Estamos guardando tus respuestas.'}{' '}
               {draft.helpUsed
-                ? 'Usaste la ayuda de palabras: la práctica se conserva, pero repetila sin ayudas para acreditar el requisito.'
-                : (recordedScore?.correct ?? routineScore(set, draft.answers)) /
-                      (recordedScore?.total ?? set.rounds.length) >=
-                    routinePassThreshold(initial.mode)
+                ? 'Usaste ayuda durante la práctica: se conserva, pero repetila sin ayudas para acreditar el requisito.'
+                : independentPass
                   ? 'Ahora podés seguir con el siguiente paso del recorrido.'
                   : 'Volvé a practicar este paso: los errores se conservan para orientar el repaso.'}
             </StudyCopy>
@@ -196,24 +247,15 @@ export function RoutineSession({
                   <Correction
                     explanation={q.why}
                     explanationNative={q.explanationNative}
-                    correction={q.solution}
+                    correction={q.completedModel || q.solution}
+                    correctionSpanish={q.solutionSpanish}
                   />
                 </div>
               ))}
             </details>
             {saved && !busy && (
-              <Button
-                onClick={() =>
-                  onAdvance(
-                    !draft.helpUsed &&
-                      (recordedScore?.correct ?? 0) / (recordedScore?.total ?? 1) >=
-                        routinePassThreshold(initial.mode),
-                  )
-                }
-              >
-                {!draft.helpUsed &&
-                (recordedScore?.correct ?? 0) / (recordedScore?.total ?? 1) >=
-                  routinePassThreshold(initial.mode)
+              <Button onClick={() => onAdvance(independentPass)}>
+                {independentPass
                   ? nextLabel
                   : isPortuguese
                     ? 'Reforçar com outra sequência'
@@ -228,149 +270,185 @@ export function RoutineSession({
           </div>
         ) : (
           <>
-            <p className="fine-print">
-              {draft.answers.length + 1} / {set.rounds.length}
-            </p>
-            {round.scene && <RoutineScene scene={round.scene} />}
-            {(round.text || set.text) && (
-              <div className="routine-reading" lang={native}>
-                <p>{round.text || set.text}</p>
-                <Speak text={round.text || set.text || ''} />
-                {round.textSpanish && (
-                  <details
-                    onToggle={(e) => {
-                      if (e.currentTarget.open && !draft.checked)
-                        setDraft((d) => ({ ...d, helpUsed: true }));
-                    }}
-                  >
-                    <summary>
-                      {isPortuguese ? 'Tradução ao espanhol (ajuda)' : 'Spanish translation (help)'}
-                    </summary>
-                    <p lang="es">{round.textSpanish}</p>
-                  </details>
-                )}
-              </div>
-            )}
-            {round.context && (
-              <div className="routine-reading">
-                <p lang={native}>{round.context}</p>
-                <p lang="es" className="study-spanish">
-                  {round.contextSpanish}
-                </p>
-                <Speak text={round.context} />
-              </div>
-            )}
-            <h3 lang={native}>{round.prompt}</h3>
-            <p className="routine-spanish" lang="es">
-              {round.spanish}
-            </p>
-            <StudyCopy
-              as="p"
-              className="fine-print"
-              native={
-                initial.mode === 'grammar'
-                  ? isPortuguese
-                    ? 'Toque nos blocos na ordem. Toque em um bloco escolhido para devolvê-lo.'
-                    : 'Tap the blocks in order. Tap a chosen block to put it back.'
-                  : isPortuguese
-                    ? 'Escolha uma opção e confira sua resposta.'
-                    : 'Choose an option and check your answer.'
+            <ExerciseFrame
+              key={round.id}
+              count={draft.answers.length + 1}
+              total={set.rounds.length}
+              prompt={round.prompt}
+              spanish={round.spanish}
+              context={
+                <>
+                  {(round.text || set.text) && (
+                    <div className="routine-reading" lang={native}>
+                      <p>{round.text || set.text}</p>
+                      <Speak text={round.text || set.text || ''} />
+                      {round.textSpanish && (
+                        <details
+                          onToggle={(e) => {
+                            if (e.currentTarget.open) markHelp('translation');
+                          }}
+                        >
+                          <summary>
+                            {isPortuguese
+                              ? 'Tradução ao espanhol (ajuda)'
+                              : 'Spanish translation (help)'}
+                          </summary>
+                          <p lang="es">{round.textSpanish}</p>
+                        </details>
+                      )}
+                    </div>
+                  )}
+                  {round.context && (
+                    <>
+                      <p lang={native}>{round.context}</p>
+                      {round.contextSpanish && (
+                        <details
+                          className="exercise-context-help"
+                          onToggle={(e) => {
+                            if (e.currentTarget.open) markHelp('translation');
+                          }}
+                        >
+                          <summary>
+                            {isPortuguese
+                              ? 'Entender o contexto em espanhol (ajuda)'
+                              : 'Context in Spanish (help)'}
+                          </summary>
+                          <p lang="es">{round.contextSpanish}</p>
+                        </details>
+                      )}
+                    </>
+                  )}
+                </>
               }
             >
-              {initial.mode === 'grammar'
-                ? 'Tocá los bloques en orden. Podés tocar uno elegido para devolverlo.'
-                : 'Elegí una opción y comprobá tu respuesta.'}
-            </StudyCopy>
-            {initial.mode === 'grammar' ? (
-              <>
-                <div
-                  className="routine-answer"
-                  aria-label={isPortuguese ? 'Sua frase' : 'Your sentence'}
-                >
-                  {draft.picked.length ? (
-                    draft.picked.map((index, n) => (
-                      <button
-                        disabled={draft.checked}
-                        key={`${index}-${n}`}
-                        aria-label={`${isPortuguese ? 'Retirar bloco' : 'Remove block'} ${n + 1}`}
-                        onClick={() =>
-                          setDraft((d) => ({ ...d, picked: d.picked.filter((_, i) => i !== n) }))
-                        }
-                      >
-                        {round.choices[index]}
-                      </button>
-                    ))
-                  ) : (
-                    <span>
-                      {isPortuguese ? 'Sua frase aparece aqui.' : 'Your sentence appears here.'}
-                    </span>
-                  )}
-                </div>
-                <div className="routine-tiles">
-                  {round.choices.map((token, i) => (
-                    <button
-                      disabled={draft.checked || draft.picked.includes(i)}
-                      key={i}
-                      onClick={() => setDraft((d) => ({ ...d, picked: [...d.picked, i] }))}
-                    >
-                      {token}
-                    </button>
-                  ))}
-                </div>
-              </>
-            ) : (
-              <div
-                className={`routine-choices ${initial.mode === 'vocabulary' ? 'picture-choices' : ''}`}
-                role="group"
-                aria-label={isPortuguese ? 'Opções' : 'Choices'}
-              >
-                {round.choices.map((option) => (
-                  <button
-                    key={option}
-                    disabled={draft.checked}
-                    aria-pressed={draft.choice === option}
-                    className={draft.choice === option ? 'selected' : ''}
-                    onClick={() => setDraft((d) => ({ ...d, choice: option }))}
-                  >
-                    {round.illustrations?.[option] && (
-                      <span className="routine-picture" aria-hidden="true">
-                        {round.illustrations[option]}
-                      </span>
-                    )}
-                    <strong lang={native}>{option}</strong>
-                  </button>
-                ))}
-              </div>
-            )}
-            {draft.checked ? (
-              <div className={`routine-feedback ${isCorrect ? 'correct' : 'retry'}`}>
-                <strong>
-                  {isCorrect
-                    ? isPortuguese
-                      ? 'Isso mesmo!'
-                      : 'That’s right!'
-                    : isPortuguese
-                      ? 'Vamos entender.'
-                      : 'Let’s understand.'}
-                </strong>
-                <Correction
-                  explanation={round.why}
-                  explanationNative={round.explanationNative}
-                  correction={round.solution}
+              {round.source && (
+                <p className="exercise-stimulus" lang={native}>
+                  {round.source}
+                </p>
+              )}
+              {format === 'tiles' ? (
+                <SentenceTiles
+                  tokens={round.choices}
+                  picked={draft.picked}
+                  disabled={draft.checked}
+                  onChange={(picked) => setDraft((d) => ({ ...d, picked }))}
                 />
-                <Button onClick={next}>{isPortuguese ? 'Continuar' : 'Continue'}</Button>
-              </div>
-            ) : (
-              <Button
-                disabled={
-                  !answer ||
-                  (initial.mode === 'grammar' && draft.picked.length !== round.choices.length)
-                }
-                onClick={() => setDraft((d) => ({ ...d, checked: true }))}
-              >
-                {isPortuguese ? 'Conferir' : 'Check'}
-              </Button>
-            )}
+              ) : format === 'choice' ? (
+                <ChoiceOptions
+                  options={round.choices}
+                  value={round.choices.indexOf(draft.choice)}
+                  disabled={draft.checked}
+                  onChange={(value) => setDraft((d) => ({ ...d, choice: round.choices[value] }))}
+                />
+              ) : (
+                <label className="field exercise-text-answer">
+                  <span>{isPortuguese ? 'Sua resposta' : 'Your answer'}</span>
+                  <span className="field-hint" lang={native}>
+                    {format === 'gap'
+                      ? isPortuguese
+                        ? 'Escreva a forma que falta.'
+                        : 'Type the missing form.'
+                      : format === 'recall'
+                        ? isPortuguese
+                          ? 'Recupere a palavra sem opções.'
+                          : 'Recall the word without options.'
+                        : isPortuguese
+                          ? 'Escreva sua versão. Alternativas não verificáveis ficam pendentes de revisão.'
+                          : 'Write your version. Unverified alternatives remain pending review.'}
+                  </span>
+                  <span className="study-spanish" lang="es">
+                    {format === 'gap'
+                      ? 'Escribí la forma que falta.'
+                      : format === 'recall'
+                        ? 'Recuperá la palabra sin mirar opciones.'
+                        : 'Escribí tu versión. Las variantes no verificables quedan pendientes de revisión.'}
+                  </span>
+                  <input
+                    autoComplete="off"
+                    autoCapitalize="sentences"
+                    spellCheck={false}
+                    lang={native}
+                    value={draft.choice}
+                    maxLength={1000}
+                    disabled={draft.checked}
+                    onChange={(e) => setDraft((d) => ({ ...d, choice: e.target.value }))}
+                  />
+                </label>
+              )}
+              {!draft.checked && round.hints?.length && (
+                <details
+                  className="exercise-hint"
+                  onToggle={(e) => {
+                    if (e.currentTarget.open) markHelp('hint');
+                  }}
+                >
+                  <summary>{isPortuguese ? 'Uma pista (ajuda)' : 'A hint (help)'}</summary>
+                  <p lang={native}>{round.hints[0].native}</p>
+                  <p lang="es" className="study-spanish">
+                    {round.hints[0].spanish}
+                  </p>
+                </details>
+              )}
+              {draft.checked ? (
+                <div className="routine-feedback">
+                  {verdict === 'unverified' && (
+                    <StudyCopy
+                      native={
+                        isPortuguese
+                          ? 'Esta versão precisa de revisão. Pode haver outras respostas válidas; compare com o modelo. Ela fica salva sem uma nota automática de correção.'
+                          : 'This version needs review. Other answers may be valid; compare with the model. It is saved without an automatic correctness grade.'
+                      }
+                    >
+                      Esta versión necesita revisión. Puede haber otras respuestas válidas; compará
+                      con el modelo. Se conserva sin una nota automática de corrección.
+                    </StudyCopy>
+                  )}
+                  {verdict === 'correct' ? (
+                    <>
+                      <p className="exercise-correct-label">
+                        <Check size={17} />
+                        {isPortuguese ? 'Resposta conferida' : 'Answer checked'}
+                      </p>
+                      <p lang={native}>
+                        {round.completedModel || round.solution}
+                        <SpanishTranslation
+                          text={round.completedModel || round.solution}
+                          spanish={round.solutionSpanish}
+                        />
+                      </p>
+                      <details>
+                        <summary>{isPortuguese ? 'Por que essa forma?' : 'Why this form?'}</summary>
+                        <LearningInsight
+                          correct
+                          explanation={round.why}
+                          explanationNative={round.explanationNative}
+                        />
+                      </details>
+                    </>
+                  ) : (
+                    <LearningInsight
+                      correct={verdict === 'unverified' ? undefined : false}
+                      explanation={round.why}
+                      explanationNative={round.explanationNative}
+                      response={answer}
+                      model={round.completedModel || round.solution}
+                      modelSpanish={round.solutionSpanish}
+                    />
+                  )}
+                  <Button onClick={next}>{isPortuguese ? 'Continuar' : 'Continue'}</Button>
+                </div>
+              ) : (
+                <Button
+                  disabled={
+                    !answer.trim() ||
+                    (format === 'tiles' && draft.picked.length !== round.choices.length)
+                  }
+                  onClick={() => setDraft((d) => ({ ...d, checked: true }))}
+                >
+                  {isPortuguese ? 'Conferir' : 'Check'}
+                </Button>
+              )}
+            </ExerciseFrame>
             <StudyCopy
               as="p"
               className="fine-print"

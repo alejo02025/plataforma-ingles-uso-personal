@@ -48,6 +48,11 @@ export async function go(page: Page, target: string | RegExp) {
     await select(2);
     return;
   }
+  if (/^(Errors|My mistakes|Meus erros)$/.test(key)) {
+    await select(2);
+    await tab(pt ? 'Meus erros' : 'My mistakes');
+    return;
+  }
   if (/^(Practice|Praticar|Games|Jogos|Oral practice|Prática oral)$/.test(key)) {
     await select(2);
     await tab(
@@ -109,12 +114,24 @@ export async function finishRoutine(
   wrong = 0,
   start = 0,
 ) {
-  const { makeRoutine } = await import('../../src/lib/routine');
-  const set = makeRoutine(mode, pt ? 'A1' : 'A2', 0, pt, { edition: 2, variant });
+  const { makeRoutine, routineFormat } = await import('../../src/lib/routine');
+  const stored = await page.evaluate((pt) => {
+    const prefix = pt ? 'portuguese:' : '';
+    const ids = JSON.parse(localStorage.getItem(prefix + 'routine-drafts:v2') || '[]');
+    return JSON.parse(localStorage.getItem(prefix + 'routine-draft:v2:' + ids.at(-1)) || 'null');
+  }, pt);
+  expect(stored).toBeTruthy();
+  expect(stored.mode).toBe(mode);
+  expect(stored.variant ?? 0).toBe(variant);
+  const set = makeRoutine(mode, stored.level, stored.block, pt, {
+    edition: stored.edition,
+    variant,
+  });
   const dialog = page.locator('.routine-session');
   for (let i = start; i < set.rounds.length; i++) {
     const q = set.rounds[i];
-    if (mode === 'grammar') {
+    const format = routineFormat(q, mode);
+    if (format === 'tiles') {
       let remaining = q.solution;
       const available = [...q.choices];
       while (available.length) {
@@ -131,15 +148,17 @@ export async function finishRoutine(
         available.splice(available.indexOf(token), 1);
         remaining = remaining.slice(token.length).trimStart();
       }
+    } else if (format === 'choice') {
+      const answer = i < wrong ? q.choices.find((c) => c !== q.solution)! : q.solution;
+      await dialog.getByRole('radio', { name: answer, exact: true }).check();
     } else
       await dialog
-        .getByRole('button', {
-          name: i < wrong ? q.choices.find((c) => c !== q.solution)! : q.solution,
-          exact: true,
-        })
-        .click();
+        .locator('.exercise-text-answer input')
+        .fill(i < wrong ? 'incorrect-form' : q.solution);
     await dialog.getByRole('button', { name: pt ? 'Conferir' : 'Check', exact: true }).click();
-    await expect(dialog.locator('.answer-correction p[lang="es"]')).toBeVisible();
+    const why = dialog.getByText(pt ? 'Por que essa forma?' : 'Why this form?', { exact: true });
+    if (await why.isVisible()) await why.click();
+    await expect(dialog.locator('.learning-insight p[lang="es"]').first()).toBeVisible();
     await dialog.getByRole('button', { name: pt ? 'Continuar' : 'Continue', exact: true }).click();
   }
   await expect(dialog.locator('.routine-finish')).toContainText('Guardado en tu progreso.');

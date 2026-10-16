@@ -1,28 +1,23 @@
-# English OS: revisión pedagógica y de uso
+# English OS — revisión 3.0
 
-## Hechos verificados en esta revisión
+## Cobertura comprobada
 
-Banco conservado: 131 clases; A1 31, A2 46, B1 14, B2 14, C1 13, C2 13; 214 comprobaciones. El diagnóstico existente contiene 24 ítems A1–B2. El inventario automático valida IDs, opciones, índices de respuestas y presencia de explicación y corrección. No determina por sí solo naturalidad ni dificultad MCER.
+131 clases y 214 comprobaciones: A1 31, A2 46, B1 14, B2 14, C1 13, C2 13. Diagnóstico existente de 24 ítems A1–B2; orientativo, con incertidumbre, no certificado ni nuevo punto de partida automático. [Inventario reproducible](artifacts/redesign/os3-pedagogy.json).
 
-Se inspeccionaron manualmente `en-meet`, `en-routine`, `en-experiences`, `en-opinions`, `en-nuance` y `en-paraphrase`. Sus modelos de _be_, tercera persona, present perfect frente a fecha pasada, concesión y alcance de una afirmación son correctos. Las explicaciones distinguen estructura, motivo y corrección. Los distractores de varias muestras avanzadas son demasiado transparentes para medir C1/C2.
+Revisión manual histórica: `en-meet`, `en-routine`, `en-experiences`, `en-opinions`, `en-nuance`, `en-paraphrase`. Modelos revisados correctos; distractores avanzados demasiado transparentes para inferir C1/C2. No se afirma revisar manualmente las 131 clases.
 
-## Decisiones implementadas
+## Implementado
 
-- Hoy propone trabajo concreto y conserva su finalización; el estudiante no necesita montar su propia rutina entre trece destinos.
-- Clases mantiene objetivos, explicación, ejemplo, una pregunta a la vez, feedback, aplicación personal e historial. El catálogo muestra cuatro clases por bloque.
-- Repaso concentra recuperación de palabras, construcción de oraciones, lectura contextual, escritura, juegos y escucha/grabación.
-- La referencia de tiempos y verbos continúa libre de bloqueos. Las clases mantienen sus requisitos conectados con el resto del idioma.
-- Una respuesta incorrecta conserva la explicación en español y el modelo correcto en inglés; no se convierte en un acierto al revelar ayuda.
-- Progreso distingue tiempo/actividad, aciertos objetivos y habilidades pendientes de evaluación. Se conservan evidencias de textos, grabaciones, lecturas y repasos.
+- Doce situaciones nuevas de construcción contextual, dos por nivel. Cada secuencia combina bloques, hueco escrito, transformación, reparación de error, decisión contextual y transferencia a otra situación. Viajes, trabajo, decisiones y experiencias; C1/C2 contrastan alcance, modalidad y registro.
+- Comparación compartida entre cliente y guardado. Contracciones y variantes editoriales admitidas; una alternativa abierta desconocida queda sin calificar, en vez de marcarse incorrecta por diferir del modelo.
+- Primeras respuestas, ayudas y contexto se guardan. Los repasos de memoria subjetivos no acreditan por sí solos evidencia objetiva; los avances históricos permanecen.
+- Apoyo español explícito en objetivos, ejemplos, producción y correcciones de todas las clases. Las consignas evaluables no muestran una traducción de la solución antes de responder.
+- Grammar Studio siempre libre: tiempos, afirmativas/negativas/preguntas, auxiliares, be, formas irregulares y patrones de condicionales, modales, pasiva, reported speech, gerundios, infinitivos, relativas y conectores. Los patrones avanzados son referencia; no se simula generar libremente todas sus combinaciones.
+- Constructor con 182 verbos revisados para sus modelos; diccionario de 7.100 entradas consultables. No son 7.100 verbos conjugables de manera fiable ni se afirma haber revisado cada entrada.
+- Escritura A2: cuatro frases con hecho terminado, plan y pregunta. B1: experiencia conectada. B2: opinión, razón, ejemplo y contraargumento. C1/C2: evidencia, matiz y síntesis; criterios bilingües, sin nota de calidad inventada.
 
-## Nivel y migración
+## Progresión
 
-Se mantiene el punto de partida histórico A2 y cualquier checkpoint B1/B2 ya guardado. El objetivo personal B2 y la estimación B1 no justifican borrar práctica ni convertir automáticamente un resultado corto en dominio global. Los recorridos automatizados incluyen B1 con errores gramaticales y B2 con checkpoints previos.
+Se conserva A2 histórico y cualquier checkpoint posterior. El objetivo personal B2 y la estimación B1 orientan contenido, no justifican alterar el historial. Los recorridos de QA conservan perfiles B1 con errores y B2. Los resultados cerrados y constancia se distinguen de competencia; producción libre, listening auténtico e interacción requieren evidencia adicional.
 
-## Límites y siguientes mejoras pedagógicas
-
-La recuperación guiada sirve para consolidar vocabulario y patrones, pero no sustituye producción espontánea, comprensión de voces reales ni interacción humana. Es necesario ampliar la discriminación de tareas avanzadas mediante textos, contraste de argumentos, registro, reformulación y transferencia a situaciones nuevas, con una rúbrica válida para producción libre.
-
-Los objetivos son orientados al MCER, no una cobertura demostrada de todos sus descriptores. No se modificaron silenciosamente IDs, revisiones ni resultados históricos para aparentar una mejora de dominio. Las muestras avanzadas siguen siendo práctica, no prueba suficiente de C1/C2. El diagnóstico sigue orientativo, con incertidumbre.
-
-[Evidencia estructural y muestras](artifacts/redesign/pedagogy.json) · [QA](RESULTADOS_QA.md) · [Límites comunes](AUDITORIA_COMPLETA.md).
+Pendiente: revisión editorial exhaustiva de distractores avanzados, ampliación de contextos, audio humano, contraste completo con descriptores y evaluación válida de producción espontánea. [QA y límites](RESULTADOS_QA.md).

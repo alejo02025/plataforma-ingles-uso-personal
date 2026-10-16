@@ -74,6 +74,7 @@ for (const pt of [false, true])
       .getByRole('button', { name: pt ? 'Fechar ajuda com palavras' : 'Close word help' })
       .click();
     await go(page, 'Language help');
+    await page.locator('.builder-personal > summary').click();
     const field = page.getByLabel(pt ? 'Minha frase do dia' : 'My daily sentence');
     await field.fill(pt ? 'Eu vou estudar amanhã.' : 'I will study tomorrow.');
     await page.reload();

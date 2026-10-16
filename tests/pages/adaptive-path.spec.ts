@@ -65,12 +65,18 @@ for (const pt of [false, true])
         ...(pt ? cefrReadings : englishCourseReadings),
       ].find((d) => d.title === title)!;
       await page.locator('.document-card').first().click();
-      for (const q of doc.questions)
+      for (const [index, q] of doc.questions.entries()) {
         await page
           .getByLabel(q.options[correct ? q.answer : (q.answer + 1) % q.options.length], {
             exact: true,
           })
           .check();
+        if (index + 1 < doc.questions.length)
+          await page
+            .locator('.question-player-navigation')
+            .getByRole('button', { name: pt ? 'Próxima pergunta' : 'Next question', exact: true })
+            .click();
+      }
       await page
         .getByRole('button', { name: pt ? 'Concluir leitura' : 'Complete reading', exact: true })
         .click();

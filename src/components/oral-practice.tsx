@@ -37,10 +37,18 @@ const fresh = (level: OralInput['level']): Draft => ({
   duration: 0,
   mime: '',
 });
-export function OralPractice({ data, refresh }: { data: Snapshot; refresh: () => Promise<void> }) {
+export function OralPractice({
+  data,
+  refresh,
+  initialMode = 'recording',
+}: {
+  data: Snapshot;
+  refresh: () => Promise<void>;
+  initialMode?: 'recording' | 'listening';
+}) {
   const pt = isPortuguese,
     activeLevel = courseRoute(data).level;
-  const [draft, setDraft] = useState<Draft>(() => fresh(activeLevel));
+  const [draft, setDraft] = useState<Draft>(() => ({ ...fresh(activeLevel), mode: initialMode }));
   const [ready, setReady] = useState(false),
     [recording, setRecording] = useState(false),
     [audioPending, setAudioPending] = useState(false),

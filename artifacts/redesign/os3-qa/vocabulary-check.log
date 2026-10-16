@@ -1,0 +1,15 @@
+
+> english-os@0.1.0 test:pages
+> playwright test --config playwright.pages.config.ts tests/pages/daily-rewards.spec.ts --workers=2
+
+[WebServer] (node:310340) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:310352) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/pages/daily-rewards.spec.ts:6:3 › Daily streak and achievements use saved practice, persist offline and stay separate (EN) (7.3s)
+  ✓  2 tests/pages/daily-rewards.spec.ts:6:3 › Daily streak and achievements use saved practice, persist offline and stay separate (PT) (6.4s)
+
+  2 passed (14.6s)

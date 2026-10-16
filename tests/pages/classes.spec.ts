@@ -154,8 +154,14 @@ for (const pt of [false, true])
       ...(pt ? cefrReadings : englishCourseReadings),
     ].find((d) => d.title === title)!;
     await page.locator('.document-card').first().click();
-    for (const q of reading.questions)
+    for (const [index, q] of reading.questions.entries()) {
       await page.getByLabel(q.options[q.answer], { exact: true }).check();
+      if (index + 1 < reading.questions.length)
+        await page
+          .locator('.question-player-navigation')
+          .getByRole('button', { name: pt ? 'Próxima pergunta' : 'Next question', exact: true })
+          .click();
+    }
     await page
       .getByRole('button', { name: pt ? 'Concluir leitura' : 'Complete reading', exact: true })
       .click();

@@ -18,18 +18,18 @@ for (const pt of [false, true])
     await expect(practice.locator('.practice-options .activity-row')).toHaveCount(4);
     await practice.locator('.practice-options .activity-row').first().click();
     const dialog = page.locator('.routine-session');
-    await expect(dialog.locator('.picture-choices button')).toHaveCount(4);
-    await expect(dialog.locator('svg[viewBox="0 0 480 110"]')).toHaveCount(1);
+    await expect(dialog.locator('.exercise-options input[type=radio]')).toHaveCount(4);
+    await expect(dialog.locator('.exercise-context')).toBeVisible();
     await finishRoutine(page, pt, 'vocabulary', 0, 2);
-    await expect(dialog.locator('.routine-score')).toHaveText('4 / 6');
+    await expect(dialog.locator('.routine-score')).toContainText('4 / 6');
     await dialog
       .getByRole('button', {
         name: pt ? 'Reforçar com outra sequência' : 'Reinforce with a new sequence',
         exact: true,
       })
       .click();
-    const varied = makeRoutine('vocabulary', pt ? 'A1' : 'A2', 0, pt, { edition: 2, variant: 1 });
-    await expect(dialog.locator('.routine-reading').first()).toContainText(
+    const varied = makeRoutine('vocabulary', pt ? 'A1' : 'A2', 0, pt, { edition: 3, variant: 1 });
+    await expect(dialog.locator('.exercise-context').first()).toContainText(
       varied.rounds[0].context!,
     );
     await finishRoutine(page, pt, 'vocabulary', 1);

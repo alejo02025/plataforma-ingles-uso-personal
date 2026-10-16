@@ -54,12 +54,35 @@ for (const pt of [false, true])
     await expect(page.locator('.lesson-saved')).toBeVisible();
     await go(page, 'Home');
     await expect(page.locator('.today-completion')).toContainText(pt ? '1 de 4' : '1 of 4');
-    for (const [i, mode] of (['vocabulary', 'grammar', 'reading'] as const).entries()) {
+    const agenda = JSON.parse(
+      (await manifest(page, pt)).data.activities.find((a: any) => a.id.startsWith('study-day:'))
+        .payload,
+    ).studyDay;
+    for (const [i, task] of agenda.tasks.slice(1).entries()) {
       await page.locator('.start-button').click();
-      const dialog = await finishRoutine(page, pt, mode);
-      await dialog
-        .getByRole('button', { name: pt ? 'Voltar a hoje' : 'Back to today', exact: true })
-        .click();
+      if (task.action.kind === 'routine' && task.action.mode === 'writing') {
+        await page
+          .locator('.writing-box textarea')
+          .fill(
+            pt
+              ? 'Eu estudo de manhã. Ontem li um livro. Amanhã vou trabalhar. Você estuda à noite?'
+              : 'I study in the morning. Yesterday I read a book. Tomorrow I will work. Do you study at night?',
+          );
+        await page
+          .getByRole('button', {
+            name: pt ? 'Salvar e concluir' : 'Save and complete',
+            exact: true,
+          })
+          .click();
+        await expect(page.locator('.practice-card .feedback')).toBeVisible();
+        await go(page, 'Home');
+      } else if (task.action.kind === 'routine') {
+        const dialog = await finishRoutine(page, pt, task.action.mode);
+        await dialog
+          .getByRole('button', { name: pt ? 'Voltar a hoje' : 'Back to today', exact: true })
+          .click();
+      } else
+        throw new Error(`Unexpected task without a tested runner: ${JSON.stringify(task.action)}`);
       await expect(page.locator('.today-completion')).toContainText(
         pt ? `${i + 2} de 4` : `${i + 2} of 4`,
       );

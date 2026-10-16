@@ -1,49 +1,50 @@
-# Sistema de diseño: espacio de estudio
+# Sistema de diseño — Language Studio 3.0
 
-## Organización
+## Arquitectura
 
-Una arquitectura común para English OS y Português OS. Cinco áreas: Today/Hoje, Classes/Aulas, Review/Revisão, Library/Biblioteca y Progress/Progresso. Ajustes es secundario. El selector 🇬🇧 English / 🇧🇷 Português permanece visible en el encabezado de todas las áreas, también en móvil. Las pestañas de cada área agrupan herramientas; no son una segunda navegación global.
+Dos identidades y una implementación. `src/app/globals.css` contiene tokens, shell y controles; `src/styles/study-modules.css`, layouts de estudio. Se modificaron los estilos existentes; no se añadió una capa de overrides. Componentes compartidos: `ExerciseFrame`, `ChoiceOptions`, `SentenceTiles`, `LearningInsight`, `StudyCopy`, `SpanishTranslation`, `Correction` y controles base.
 
-El diseño anterior no se conserva debajo de una capa de overrides. `globals.css` contiene tokens, base, controles y shell; `study-modules.css` contiene layouts de herramientas. Se retiraron seis hojas superpuestas, `classes.css` y los componentes sin importadores activos comprobados.
+Cinco áreas: Today/Hoje, Classes/Aulas, Review/Revisão, Library/Biblioteca, Progress/Progresso. Settings/Ajustes es secundario. 🇬🇧 English / 🇧🇷 Português permanece visible; las pestañas internas agrupan herramientas sin competir con navegación global.
 
 ## Tokens efectivos
 
-| Token                 | Claro EN  | Oscuro EN |
+| Función               | Claro     | Oscuro    |
 | --------------------- | --------- | --------- |
-| Fondo                 | `#faf8f2` | `#1c2723` |
-| Superficie            | `#fffefb` | `#25332c` |
-| Superficie secundaria | `#f0eee6` | `#2e3d35` |
-| Texto                 | `#293a32` | `#f4f2e9` |
-| Texto secundario      | `#5c665a` | `#bec7bd` |
-| Acento                | `#245b45` | `#cae5a1` |
-| Bloque de estudio     | `#e1edb8` | `#344832` |
+| Fondo                 | `#F7F8F6` | `#171C1A` |
+| Superficie            | `#FFFFFF` | `#202724` |
+| Superficie secundaria | `#F2F3EF` | `#29312D` |
+| Texto                 | `#202725` | `#EDF1EC` |
+| Texto secundario      | `#4D5953` | `#B0BAB2` |
+| Borde                 | `#DFE4DF` | `#3D4841` |
+| Acento inglés         | `#167568` | `#8BD3BA` |
+| Acento portugués      | `#7652A6` | `#CCB0EE` |
+| Éxito                 | `#26784F` | `#8BD3A5` |
+| Error                 | `#B34443` | `#F2AAA5` |
 
-Portugués comparte la tipografía, estructura y componentes. Acento ciruela `#6b478b`, bloque lavanda `#e9def2`; en oscuro, superficies ciruela y acento `#d6b8f1`. Sus colores no dependen de estereotipos culturales.
+Estados usan texto, icono o etiqueta además del color. Los alias heredados remiten a estos tokens. Superficies de apoyo no crean identidades nuevas por herramienta.
 
-Los alias heredados que aún consumen herramientas apuntan a estos tokens; no definen una segunda paleta. Los colores de error y acierto acompañan texto o estado, no sustituyen la explicación. El juego de letras conserva su leyenda funcional y devolución textual.
+## Tipografía y espacio
 
-## Tipografía y composición
+Inter Variable 4.1, local, SIL OFL. `next/font/local`, sin descarga de fuente en tiempo de lectura. Procedencia y hash en `public/assets/fonts/NOTICE.md`; se conserva la fuente antigua por compatibilidad de recursos históricos, no se usa en el layout activo.
 
-Nunito variable, alojada localmente mediante `next/font/local`, con su licencia SIL OFL existente. Se precarga con el resto de la aplicación y se incluye en el caché offline. Cuerpo de 16 px y altura 1,65; títulos con peso 800 y portada de Hoy fluida de 43–59 px. La tipografía reemplaza la fuente genérica del sistema.
+Cuerpo 16 px, línea 1,6; encabezados 650 y letra ligeramente ajustada. H1 fluido 1,65–2,1 rem, h2 1,35 rem, h3 1,05 rem. Los ejemplos distinguen modelo, estructura y apoyo español secundario; no se rebaja el contraste para ocultar una traducción.
 
-El fondo cálido y las superficies claras se combinan con un bloque de estudio lima o lavanda. Una pequeña cubierta de cuaderno usa texto del idioma y el emoji de la actividad. Los emojis identifican secciones y tareas; están ocultos al lector de pantalla cuando son decorativos. Las etiquetas de navegación siguen siendo texto.
+Espacios recurrentes 6/8/12/16/20/24/32 px; radio principal 8 px. Sidebar 212 px. Hoy: dos columnas en escritorio y una en móvil; controles y resultados de Grammar Studio juntos. Móvil usa cinco destinos inferiores con safe-area y cabecera de una fila. No hay drawer global ni corrección fijada sobre el botón.
 
-Espaciados recurrentes: 6, 8, 12, 16, 20, 24, 32 y 48 px. Controles de 10–12 px de radio y superficies de 16–24 px. Sin degradados ni animaciones continuas. Las transiciones de controles duran 160 ms y respetan reducción de movimiento.
+## Interacción
 
-## Layouts
+Una pregunta por pantalla, progreso sobre ítems reales, comprobar antes de revelar, feedback inline y continuar. Primera respuesta inmutable; pistas graduadas y teoría identificadas como ayudas. Las respuestas abiertas no reconocidas muestran incertidumbre, no error inventado.
 
-- Escritorio: lateral de 236 px, 180 px en pantallas intermedias. Contenido hasta 1360 px y padding fluido.
-- Hoy: actividad principal amplia y una cola horizontal de hasta tres tareas; la cola pasa a lista vertical en móvil. Sin indicadores académicos, saludo o herramientas técnicas.
-- Hasta 800 px: navegación inferior de cinco destinos, sin drawer/hamburger. Padding de contenido y `env(safe-area-inset-bottom)` evitan tapar los controles finales.
-- Clases: bloque paginado de cuatro filas, objetivo actual y una sala de clase con teoría revisable y una pregunta principal.
-- PDF: lectura amplia y herramientas laterales. Hasta 980 px, pestañas para priorizar un panel; sin ocultar permanentemente las herramientas.
-- Progreso: semana, resultados concretos y límites de evidencia; requisitos, logros e historial en detalles secundarios.
-- Ajustes: formulario de preferencias y opciones de datos, con una columna en móvil.
+Foco al encabezado de la nueva pregunta, selección nativa con teclado, controles táctiles, Undo/Clear, pausa con borrador, nombres accesibles, status/alert y reintentos. Los diálogos conservan gestión de foco; LearningInsight usa una tarjeta inline que no secuestra el foco ni tapa la respuesta. Movimiento reducido respetado.
 
-## Interacción accesible
+La traducción es editorial o modelo explícito. `spanishCopy` devuelve null para prosa desconocida; no se fabrica una frase genérica como traducción literal. En evaluación se traduce la consigna y la explicación después de responder, no la solución antes de tiempo.
 
-Un encabezado principal por pantalla. Enlace para saltar al contenido, `aria-current`, nombres explícitos para selectores, foco visible, mensajes `status`/`alert`, estados vacíos accionables y reintentos. Se conserva el manejo de foco de los diálogos. El cambio de idioma también se bloquea mientras se graba o se espera permiso del micrófono, con aviso accesible. El texto solo para lectores de pantalla usa `.sr-only`/`.visually-hidden`.
+[Validación y límites de accesibilidad](RESULTADOS_QA.md).
 
-Los cambios de estado reducen la planificación manual: guardar una tarea actualiza el mismo contador; revelar ayuda no simula una respuesta independiente. La nube de traducción tiene una posición por defecto dentro del viewport y usa un panel inferior en móvil. Las animaciones respetan `prefers-reduced-motion`.
+## Fondo en movimiento solicitado al continuar
 
-Las pruebas de contraste cubren texto principal/secundario en superficies, superficie secundaria y texto del bloque de estudio en claro y oscuro. Esto no constituye una auditoría WCAG completa de todos los estados e imágenes.
+Tres manchas de color suaves detrás del contenido, con movimiento de 32–41 segundos mediante transformaciones CSS. Verde/azul en inglés, ciruela/rosa en portugués y apoyo cálido común. Las superficies de ejercicio siguen opacas. El fondo no recibe clics, queda oculto a tecnologías asistivas y no añade descargas, canvas ni bucles JavaScript por frame.
+
+Se detiene con `prefers-reduced-motion`, al ocultar la pestaña o mediante Ajustes → Moving background colours / Cores em movimento no fundo. La preferencia se guarda automáticamente por idioma en este navegador, sin modificar el esquema del alumno ni exigir GitHub. No se afirma medición energética en dispositivos físicos.
+
+El fondo motivó una corrección adicional de contraste: texto secundario más oscuro en claro y menor intensidad ambiental en oscuro. La prueba mide las paradas reales del gradiente, su opacidad y las combinaciones de solapamiento; no se limita a comparar tokens sobre una superficie plana.

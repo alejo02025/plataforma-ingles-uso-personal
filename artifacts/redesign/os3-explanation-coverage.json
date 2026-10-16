@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-10-16T11:45:37.089Z",
+  "scope": "Dictionary resolution, not semantic validation of translations",
+  "report": [
+    {
+      "language": "en",
+      "missing": []
+    },
+    {
+      "language": "pt-BR",
+      "missing": []
+    }
+  ]
+}

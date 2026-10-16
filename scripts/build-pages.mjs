@@ -12,9 +12,11 @@ for (const language of ['en', 'pt']) {
   const base = siteRoot + (language === 'pt' ? '/portugues' : '');
   await rm(target, { recursive: true, force: true });
   await mkdir(target, { recursive: true });
-  await cp('src', path.join(target, 'src'), { recursive: true });
-  await cp('public', path.join(target, 'public'), { recursive: true });
-  await rm(path.join(target, 'src/app/api'), { recursive: true });
+  // Both languages use the same frozen source snapshot, even during a local edit/build.
+  const source = language === 'en' ? root : path.join(root, '.pages-project');
+  await cp(path.join(source, 'src'), path.join(target, 'src'), { recursive: true });
+  await cp(path.join(source, 'public'), path.join(target, 'public'), { recursive: true });
+  await rm(path.join(target, 'src/app/api'), { recursive: true, force: true });
   if (language === 'pt') {
     await localizePortuguese(target);
     await rm(path.join(target, 'public/local-ai'), { recursive: true, force: true });

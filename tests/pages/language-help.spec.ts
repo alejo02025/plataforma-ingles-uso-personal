@@ -77,7 +77,7 @@ for (const pt of [false, true])
       await page.getByLabel('Escolher um sujeito').selectOption('eu');
     } else {
       await page.getByLabel('Choose a verb').selectOption('have');
-      await expect(page.locator('.foundation-model [role="status"]')).toContainText(
+      await expect(page.locator('.foundation-model[role="status"]')).toContainText(
         'expresa un estado',
       );
       await page.getByLabel('Choose a verb').selectOption('study');
@@ -119,6 +119,7 @@ for (const pt of [false, true])
     await page
       .getByLabel(pt ? 'Escolher um verbo' : 'Choose a verb')
       .selectOption(pt ? 'estudar' : 'study');
+    await page.locator('.builder-personal > summary').click();
     await page
       .locator('.foundation-draft textarea')
       .fill('A reference draft that must survive reload.');
@@ -150,19 +151,19 @@ for (const pt of [false, true])
     await breathe.locator('summary').first().click();
     await expect(breathe.locator('.verb-senses')).toContainText('respirar');
     await expect(page.locator('.course-locked')).toHaveCount(0);
-    await page.locator('.toolkit-extra > summary').click();
     await page
-      .getByRole('button', { name: pt ? 'Consulta rápida' : 'Quick reference', exact: true })
+      .getByRole('button', { name: pt ? '02 Todos os tempos' : '02 All tenses', exact: true })
       .click();
     await page.locator('.grammar-reference-entry').nth(6).locator('summary').click();
     await expect(
-      page.locator('.grammar-reference-entry').nth(6).locator('[lang="es"]'),
+      page.locator('.grammar-reference-entry').nth(6).locator('p.study-spanish'),
     ).toBeVisible();
     await expect(page.locator('.grammar-reference-entry').nth(6)).toContainText(
       pt ? 'tenho' : 'have/has',
     );
+    await page.locator('.toolkit-extra > summary').click();
     await page
-      .getByRole('button', { name: pt ? 'Notas de estudo' : 'Study notes', exact: true })
+      .getByRole('button', { name: pt ? 'Notas por nível' : 'Notes by level', exact: true })
       .click();
     await page.getByLabel(pt ? 'Nível de consulta' : 'Reference level').selectOption('C2');
     await page.locator('.study-notes details').first().locator('summary').click();
@@ -178,9 +179,7 @@ for (const pt of [false, true])
     await expect(page.locator('.foundation-day')).toHaveCount(0);
     await expect(page.locator('.builder-why > p[lang="es"]')).not.toBeVisible();
     await page.locator('.builder-why > summary').click();
-    await expect(page.locator('.builder-why > p[lang="es"]')).toContainText(
-      pt ? 'você/ele/ela' : 'he/she/it',
-    );
+    await expect(page.locator('.builder-why > p[lang="es"]')).toContainText(pt ? 'pasado' : 'did');
     await page.locator('.builder-why > summary').click();
     await page.screenshot({ path: `/tmp/language-guide-${pt ? 'pt' : 'en'}.png`, fullPage: true });
     await expect(page.locator('.foundation-draft textarea')).toHaveValue(

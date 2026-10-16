@@ -9,6 +9,7 @@ import {
 } from './daily-study';
 import type { Snapshot } from './types';
 const inputSchema = z.object({
+  canListen: z.boolean().default(false),
   minutes: z.union([
     z.literal(5),
     z.literal(15),
@@ -53,7 +54,7 @@ export function saveStudyDay(
       const next =
         done.length === saved.tasks.length
           ? { ...saved, minutes: x.minutes }
-          : makeStudyDay(data, x.minutes, x.paused);
+          : makeStudyDay(data, x.minutes, x.paused, x.canListen);
       if (done.length !== saved.tasks.length)
         next.tasks = [
           ...done,
@@ -68,7 +69,7 @@ export function saveStudyDay(
     return saved;
   }
   const planId = db.prepare('SELECT id FROM plans WHERE day=?').get(data.day)!.id as string;
-  const agenda = makeStudyDay(data, x.minutes, x.paused);
+  const agenda = makeStudyDay(data, x.minutes, x.paused, x.canListen);
   if (old) {
     db.prepare('UPDATE activities SET payload=? WHERE id=?').run(
       JSON.stringify({

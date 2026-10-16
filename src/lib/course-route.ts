@@ -33,6 +33,7 @@ export function passedLesson(data: CourseEvidence, id: string) {
   return data.results.find(
     (r) =>
       lessonRecord(r)?.lessonId === id &&
+      !body(r).helpUsed &&
       Number(r.total) > 0 &&
       Number(r.correct) / Number(r.total) >= 0.8,
   );
@@ -69,6 +70,7 @@ export function integration(data: CourseEvidence, block: Lesson[]): Requirement[
       return (
         r.skill === 'reading' &&
         !record?.helpUsed &&
+        !record?.needsReview &&
         Number(r.total) > 0 &&
         Number(r.correct) / Number(r.total) >= 0.6
       );
@@ -101,6 +103,7 @@ export function integration(data: CourseEvidence, block: Lesson[]): Requirement[
     return (
       r.skill === 'vocabulary' &&
       !record?.helpUsed &&
+      !record?.needsReview &&
       Number(r.total) > 0 &&
       Number(r.correct) / Number(r.total) >= 0.8
     );
@@ -133,9 +136,9 @@ export function integration(data: CourseEvidence, block: Lesson[]): Requirement[
     },
     {
       id: 'vocabulary',
-      done: reviews >= 3 || game || starterVocabulary,
+      done: game || starterVocabulary,
       explanation:
-        'Completá Descubrir palabras de este bloque con al menos 80 % sin ayudas, repasá correctamente tres palabras distintas o guardá un juego con al menos 75 % sin ayudas durante este bloque.',
+        'Completá Descubrir palabras de este bloque con al menos 80 % sin ayudas o guardá un juego con al menos 75 % sin ayudas durante este bloque. Los repasos autoevaluados programan memoria, pero no son una prueba objetiva.',
       view: 'Vocabulary',
     },
     {
@@ -264,6 +267,7 @@ export function reinforcement(data: CourseEvidence, level: string): Requirement[
   };
   const scored = recent
     .filter(atLevel)
+    .filter((r) => !routineRecord(r)?.needsReview)
     .filter(
       (r) =>
         !(

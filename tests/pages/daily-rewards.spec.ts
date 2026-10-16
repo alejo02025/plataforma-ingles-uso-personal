@@ -1,4 +1,4 @@
-import { go, dailyWord, ready, offlineReady } from './navigation';
+import { go, dailyWord, ready, offlineReady, finishRoutine } from './navigation';
 import { test, expect } from '@playwright/test';
 import { makeRoutine } from '../../src/lib/routine';
 
@@ -39,16 +39,10 @@ for (const pt of [false, true])
     await go(page, 'Practice');
     await page.locator('.review-practice .practice-options .activity-row').first().click();
     const dialog = page.getByRole('dialog', { name: pt ? 'Atividade guiada' : 'Guided activity' });
-    for (const q of makeRoutine('vocabulary', pt ? 'A1' : 'A2', 0, pt).rounds) {
-      // A saved incorrect answer still represents practice and counts toward a daily streak.
-      await dialog
-        .getByRole('button', { name: q.choices.find((c) => c !== q.solution)!, exact: true })
-        .click();
-      await dialog.getByRole('button', { name: pt ? 'Conferir' : 'Check', exact: true }).click();
-      await dialog
-        .getByRole('button', { name: pt ? 'Continuar' : 'Continue', exact: true })
-        .click();
-    }
+    // Incorrect choices and unverified recalls record study without inventing mastery/errors.
+    await finishRoutine(page, pt, 'vocabulary', 0, 6);
+    await expect(dialog.locator('.routine-score')).toContainText('0 / 3');
+    await expect(dialog.locator('.routine-finish')).toContainText('3 respuestas abiertas');
     await expect(dialog.locator('.routine-finish')).toContainText('Guardado en tu progreso.');
     await dialog
       .getByRole('button', { name: pt ? 'Pausar atividade' : 'Pause activity', exact: true })

@@ -1,5 +1,5 @@
 'use client';
-import { StudyCopy } from './study-copy';
+import { StudyCopy, SpanishTranslation } from './study-copy';
 import { useState } from 'react';
 import { BookOpen } from 'lucide-react';
 import { isPortuguese } from '@/lib/workspace';
@@ -10,29 +10,60 @@ import { lessons } from '@/lib/lessons';
 import { Foundations } from './foundations';
 import { Heading, Speak } from './ui';
 export function LanguageHelp({ onOpenLesson }: { onOpenLesson?: (id: string) => void } = {}) {
-  const [mode, setMode] = useState<'verbs' | 'sentences' | 'reference' | 'notes' | 'tenses'>(
-    'sentences',
-  );
+  const [mode, setMode] = useState<'verbs' | 'sentences' | 'notes' | 'tenses'>('sentences');
   const [band, setBand] = useState('A1');
   const [query, setQuery] = useState('');
   const notes = lessons.filter(
     (l) =>
       l.level === band && `${l.title} ${l.explanation}`.toLowerCase().includes(query.toLowerCase()),
   );
+  const patterns = (
+    <section className="grammar-reference">
+      <h2>{isPortuguese ? 'Estruturas para usar no dia a dia' : 'Patterns for everyday use'}</h2>
+      {grammarReference.map((entry, index) => (
+        <details key={entry.en} className="grammar-reference-entry">
+          <summary>
+            <span className="guide-number">{String(index + 1).padStart(2, '0')}</span>
+            {isPortuguese ? entry.pt : entry.en}
+          </summary>
+          <StudyCopy>{isPortuguese ? entry.explanationPT : entry.explanationEN}</StudyCopy>
+          {(isPortuguese ? entry.modelPT : entry.modelEN).map((model) => (
+            <div className="lesson-example" key={model}>
+              <blockquote lang={isPortuguese ? 'pt-BR' : 'en'}>
+                {model}
+                <SpanishTranslation text={model} />
+              </blockquote>
+              <Speak text={model} />
+            </div>
+          ))}
+        </details>
+      ))}
+    </section>
+  );
   return (
     <div className="language-desk">
       <Heading
         eyebrow={isPortuguese ? 'ENTENDA E PRATIQUE' : 'LEARN THE PATTERN'}
-        title={isPortuguese ? 'Como formar frases' : 'Build your own sentences'}
-        description={isPortuguese ? 'Aprenda a estrutura e depois crie as suas frases.' : 'Understand the pattern, then make it your own.'}
+        title={isPortuguese ? 'Estúdio de gramática' : 'Grammar studio'}
+        description={
+          isPortuguese
+            ? 'Monte uma frase. Compare as formas. Entenda o motivo.'
+            : 'Build a sentence. Compare the forms. Understand why.'
+        }
       />
       <p className="toolkit-note toolkit-note-native" lang={isPortuguese ? 'pt-BR' : 'en'}>
-        {isPortuguese ? 'Sempre disponível, sem requisitos de nível.' : 'Always available, at any level.'}
+        {isPortuguese
+          ? 'Sempre disponível, sem requisitos de nível.'
+          : 'Always available, at any level.'}
       </p>
       <p className="toolkit-note toolkit-note-es" lang="es">
         {'Siempre disponible, sin requisitos de nivel.'}
       </p>
-      <div className="toolkit-tabs" role="group" aria-label="Language help sections">
+      <div
+        className="toolkit-tabs"
+        role="group"
+        aria-label={isPortuguese ? 'Seções do guia de idioma' : 'Language help sections'}
+      >
         <button
           className={mode === 'sentences' ? 'active' : ''}
           onClick={() => setMode('sentences')}
@@ -79,7 +110,10 @@ export function LanguageHelp({ onOpenLesson }: { onOpenLesson?: (id: string) => 
                             <blockquote lang={isPortuguese ? 'pt-BR' : 'en'}>{text}</blockquote>
                             <Speak text={text} />
                           </div>
-                          {i === 0 && <p lang="es">{t.translation}</p>}
+                          <SpanishTranslation
+                            text={text}
+                            spanish={i === 0 ? t.translation : undefined}
+                          />
                         </div>
                       ))}
                       <StudyCopy as="p" className="tense-tip">
@@ -90,30 +124,10 @@ export function LanguageHelp({ onOpenLesson }: { onOpenLesson?: (id: string) => 
                 ))}
             </details>
           ))}
+          {patterns}
         </section>
       ) : mode === 'verbs' ? (
         <VerbCatalog />
-      ) : mode === 'reference' ? (
-        <section className="card grammar-reference">
-          {grammarReference.map((entry, index) => (
-            <details key={entry.en} className="grammar-reference-entry">
-              <summary>
-                <span className="guide-number">{String(index + 1).padStart(2, '0')}</span>
-                <BookOpen size={18} />
-                {isPortuguese ? entry.pt : entry.en}
-              </summary>
-              <StudyCopy as="p">
-                {isPortuguese ? entry.explanationPT : entry.explanationEN}
-              </StudyCopy>
-              {(isPortuguese ? entry.modelPT : entry.modelEN).map((model) => (
-                <div className="lesson-example" key={model}>
-                  <blockquote lang={isPortuguese ? 'pt-BR' : 'en'}>{model}</blockquote>
-                  <Speak text={model} />
-                </div>
-              ))}
-            </details>
-          ))}
-        </section>
       ) : mode === 'notes' ? (
         <section className="card grammar-reference study-notes">
           <StudyCopy as="p">
@@ -147,12 +161,18 @@ export function LanguageHelp({ onOpenLesson }: { onOpenLesson?: (id: string) => 
               <summary>
                 {l.level} · {l.title}
               </summary>
-              <p>{l.goal}</p>
+              <p>
+                {l.goal}
+                <SpanishTranslation text={l.goal} />
+              </p>
               <StudyCopy as="p">{l.explanation}</StudyCopy>
               <code className="lesson-pattern">{l.pattern}</code>
               {l.examples.map((model) => (
                 <div className="lesson-example" key={model}>
-                  <blockquote lang={isPortuguese ? 'pt-BR' : 'en'}>{model}</blockquote>
+                  <blockquote lang={isPortuguese ? 'pt-BR' : 'en'}>
+                    {model}
+                    <SpanishTranslation text={model} />
+                  </blockquote>
                   <Speak text={model} />
                 </div>
               ))}
@@ -167,8 +187,8 @@ export function LanguageHelp({ onOpenLesson }: { onOpenLesson?: (id: string) => 
         </section>
       ) : (
         <div className="sentence-toolkit">
-          <div className="sentence-shape toolkit-guide">
-            <h2>{isPortuguese ? 'Comece por aqui' : 'Start here'}</h2>
+          <details className="sentence-shape toolkit-guide">
+            <summary>{isPortuguese ? 'Como usar o construtor' : 'How to use the builder'}</summary>
             <ol>
               <StudyCopy as="li">
                 <strong>Elegí cuándo.</strong> Presente para una rutina; pasado para algo que
@@ -188,7 +208,7 @@ export function LanguageHelp({ onOpenLesson }: { onOpenLesson?: (id: string) => 
             <p className="guide-formula guide-formula-es" lang="es">
               {'Sujeto + verbo + complemento.'}
             </p>
-          </div>
+          </details>
           <Foundations
             mode="sentences"
             referenceOnly
@@ -200,14 +220,8 @@ export function LanguageHelp({ onOpenLesson }: { onOpenLesson?: (id: string) => 
       <details className="toolkit-extra">
         <summary>{isPortuguese ? 'Mais explicações' : 'More explanations'}</summary>
         <div className="tabs">
-          <button
-            className={mode === 'reference' ? 'active' : ''}
-            onClick={() => setMode('reference')}
-          >
-            Quick reference
-          </button>
           <button className={mode === 'notes' ? 'active' : ''} onClick={() => setMode('notes')}>
-            Study notes
+            {isPortuguese ? 'Notas por nível' : 'Notes by level'}
           </button>
         </div>
       </details>

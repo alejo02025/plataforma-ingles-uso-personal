@@ -21,6 +21,8 @@ import { nativeCopy } from '@/lib/study-copy';
 import type { Snapshot, Result } from '@/lib/types';
 import { Heading, Button, Speak, api } from './ui';
 import { Correction } from './correction';
+import { LearningInsight } from './learning-insight';
+import { ExerciseFrame, ChoiceOptions } from './exercise-player';
 
 import {
   blockSize,
@@ -37,6 +39,7 @@ type Review = {
   total: number;
   responses?: number[];
   practice?: string;
+  helpUsed?: boolean;
   feedback: { correct: boolean; explanationSpanish: string; correction: string }[];
 };
 type Attempt = Review & {
@@ -274,7 +277,7 @@ export function Classes({
                         ) : pending.length ? (
                           <LockKeyhole size={23} />
                         ) : (
-                          ['💬', '🧩', '🎧', '✍️'][index % 4]
+                          <BookOpen size={20} />
                         )}
                       </span>
                       <span className="course-path-body">
@@ -283,8 +286,7 @@ export function Classes({
                           {item.goal}
                         </span>
                         <span className="course-path-es" lang="es">
-                          {spanishCopy(item.goal) ||
-                            'Leé la explicación y practicá cómo formar tus propias oraciones.'}
+                          {spanishCopy(item.goal)}
                         </span>
                         <span className="course-path-status">
                           {passed
@@ -311,7 +313,7 @@ export function Classes({
               })}
               <li className="course-path-checkpoint">
                 <span className="course-path-checkpoint-icon" aria-hidden="true">
-                  🏁
+                  <Check size={22} />
                 </span>
                 <div>
                   <strong>{isPortuguese ? 'Revisão do capítulo' : 'Chapter checkpoint'}</strong>
@@ -335,7 +337,7 @@ export function Classes({
           </div>
           <button className="course-guide-inline" onClick={() => navigate('Language help')}>
             <span className="course-guide-inline-icon" aria-hidden="true">
-              🧩
+              <BookOpen size={20} />
             </span>
             <span>
               <strong>{isPortuguese ? 'Como formar frases' : 'How to build sentences'}</strong>
@@ -431,6 +433,8 @@ function LessonRoom({
     stage?: Stage;
     question?: number;
     confirmed?: boolean[];
+    helpUsed?: boolean;
+    support?: { questionId: string; kind: 'word' | 'theory'; step: number }[];
   };
   const storageKey = `class-draft:${classRevision}:${lesson.id}`;
   useEffect(() => {
@@ -491,14 +495,25 @@ function LessonRoom({
       ? initial.confirmed.map((value, i) => value === true && initial.answers[i] >= 0)
       : lesson.checks.map(() => false),
   );
-  const [tipDismissed, setTipDismissed] = useState<number[]>([]);
+  const [helpUsed, setHelpUsed] = useState(initial.helpUsed === true);
+  const [support, setSupport] = useState<NonNullable<Draft['support']>>(initial.support || []);
+  const [storageError, setStorageError] = useState(false);
   const [busy, setBusy] = useState(false),
     [error, setError] = useState('');
   const seconds = useRef(
     Number.isFinite(initial.seconds) ? Math.min(7200, Math.max(0, initial.seconds)) : 0,
   );
-  const latestDraft = useRef({ id, answers, practice, stage, question, confirmed });
-  latestDraft.current = { id, answers, practice, stage, question, confirmed };
+  const latestDraft = useRef({
+    id,
+    answers,
+    practice,
+    stage,
+    question,
+    confirmed,
+    helpUsed,
+    support,
+  });
+  latestDraft.current = { id, answers, practice, stage, question, confirmed, helpUsed, support };
   const reviewed = useRef(Boolean(review));
   reviewed.current = Boolean(review);
   useEffect(() => {
@@ -535,11 +550,16 @@ function LessonRoom({
           stage,
           question,
           confirmed,
+          helpUsed,
+          support,
           seconds: seconds.current,
         }),
       );
-    } catch {}
-  }, [id, answers, practice, stage, question, confirmed, storageKey]);
+      setStorageError(false);
+    } catch {
+      setStorageError(true);
+    }
+  }, [id, answers, practice, stage, question, confirmed, helpUsed, support, storageKey]);
   const copy = (en: string, pt: string) => (isPortuguese ? pt : en);
   async function save() {
     setBusy(true);
@@ -552,6 +572,8 @@ function LessonRoom({
         answers,
         practice,
         seconds: seconds.current,
+        helpUsed,
+        support,
       });
       if (result.responses) setAnswers(result.responses);
       if (result.practice !== undefined) setPractice(result.practice);
@@ -568,7 +590,8 @@ function LessonRoom({
     setId(crypto.randomUUID());
     setAnswers(lesson.checks.map(() => -1));
     setConfirmed(lesson.checks.map(() => false));
-    setTipDismissed([]);
+    setHelpUsed(false);
+    setSupport([]);
     setQuestion(0);
     setStage('understand');
     setReview(undefined);
@@ -598,47 +621,56 @@ function LessonRoom({
     copy('Result', 'Resultado'),
   ];
   const activeStep = ({ understand: 0, exercise: 1, personal: 2, summary: 3 } as const)[stage];
-  const stageProgress =
-    stage === 'understand'
-      ? 8
-      : stage === 'exercise'
-        ? Math.round(12 + (confirmed.filter(Boolean).length / lesson.checks.length) * 68)
-        : stage === 'personal'
-          ? 88
-          : 100;
+  const stageProgress = Math.round(
+    (100 *
+      (stage === 'understand'
+        ? 0
+        : stage === 'exercise'
+          ? 1 + confirmed.filter(Boolean).length
+          : stage === 'personal'
+            ? lesson.checks.length + 1
+            : lesson.checks.length + 2)) /
+      (lesson.checks.length + 2),
+  );
+  function markHelp(kind: 'word' | 'theory') {
+    if (stage !== 'exercise' || confirmed[question]) return;
+    setHelpUsed(true);
+    setSupport((previous) => [
+      ...previous.filter((s) => !(s.questionId === `${lesson.id}:${question}` && s.kind === kind)),
+      { questionId: `${lesson.id}:${question}`, kind, step: 1 },
+    ]);
+  }
+  useEffect(() => {
+    const lookedUp = () => markHelp('word');
+    window.addEventListener('study-word-looked-up', lookedUp);
+    return () => window.removeEventListener('study-word-looked-up', lookedUp);
+  }, [stage, question, confirmed]);
   function explanation(q: Lesson['checks'][number], response: number, scored: boolean) {
-    return (
-      <div className={`lesson-feedback ${scored ? 'correct' : ''}`} role="status">
-        <strong>
-          {scored
-            ? copy('That is the model for this situation.', 'Esse é o modelo para esta situação.')
-            : copy(
-                'Compare your choice with the situation.',
-                'Compare sua escolha com a situação.',
-              )}
-        </strong>
-        <p className="lesson-response" lang={isPortuguese ? 'pt-BR' : 'en'}>
-          {copy('Your choice: ', 'Sua escolha: ')}
-          {q.options[response]}
+    const insight = (
+      <LearningInsight
+        correct={scored}
+        explanation={q.why}
+        model={scored ? undefined : q.correction}
+        response={q.options[response]}
+      />
+    );
+    return scored ? (
+      <div className="lesson-feedback">
+        <p className="exercise-correct-label">
+          <Check size={16} />
+          {copy('Answer checked', 'Resposta conferida')}
         </p>
-        <StudyCopy
-          native={
-            nativeCopy(q.why) ||
-            copy(
-              'Check the subject, time and meaning. The corrected model below shows the form used in this situation. Read the explanation and try changing one detail in your own example.',
-              'Confira o sujeito, o tempo e o sentido. O modelo corrigido abaixo mostra a forma usada nesta situação. Leia a explicação e tente mudar um detalhe no seu próprio exemplo.',
-            )
-          }
-        >
-          {q.why}
-        </StudyCopy>
         <p className="answer-correction-model" lang={isPortuguese ? 'pt-BR' : 'en'}>
-          <strong>{copy('Model: ', 'Modelo: ')}</strong>
           {q.correction}
           <SpanishTranslation text={q.correction} />
         </p>
-        <Speak text={q.correction} />
+        <details>
+          <summary>{copy('Why this form?', 'Por que essa forma?')}</summary>
+          {insight}
+        </details>
       </div>
+    ) : (
+      <div className="lesson-feedback">{insight}</div>
     );
   }
   return (
@@ -676,6 +708,14 @@ function LessonRoom({
           <SpanishTranslation text={lesson.goal} />
         </p>
       </div>
+      {storageError && (
+        <p role="alert" className="error">
+          {copy(
+            'Draft could not be saved. Keep this tab open until your class result is saved.',
+            'Não foi possível salvar o rascunho. Mantenha esta aba aberta até salvar o resultado da aula.',
+          )}
+        </p>
+      )}
       {stage === 'understand' && (
         <div className="lesson-focus-content">
           <section className="lesson-step">
@@ -684,24 +724,23 @@ function LessonRoom({
             </span>
             <StudyCopy
               native={
-                nativeCopy(lesson.explanation) ||
-                copy(
-                  `Your goal: ${lesson.goal} Notice the subject, verb and time in this pattern, then compare the two examples.`,
-                  `Seu objetivo: ${lesson.goal} Observe o sujeito, o verbo e o tempo neste modelo e depois compare os dois exemplos.`,
-                )
+                nativeCopy(lesson.explanation)
+                  ? nativeCopy(lesson.explanation)!.split('. ')[0].replace(/\.$/, '') + '.'
+                  : undefined
               }
             >
-              {lesson.explanation}
+              {lesson.explanation.split('. ')[0].replace(/\.$/, '') + '.'}
             </StudyCopy>
+
             <code className="lesson-pattern" lang={isPortuguese ? 'pt-BR' : 'en'}>
               {lesson.pattern}
             </code>
           </section>
           <section className="lesson-step">
             <span className="lesson-step-label">
-              {copy('Hear a real example', 'Ouça um exemplo real')}
+              {copy('Hear the model · synthetic voice', 'Ouça o modelo · voz sintética')}
             </span>
-            {lesson.examples.map((example) => (
+            {lesson.examples.slice(0, 1).map((example) => (
               <div className="lesson-example" key={example}>
                 <blockquote lang={isPortuguese ? 'pt-BR' : 'en'}>
                   {example}
@@ -711,27 +750,26 @@ function LessonRoom({
               </div>
             ))}
           </section>
-          <details className="lesson-tip">
-            <summary>
-              <Lightbulb size={16} />
-              {copy('One useful detail', 'Uma dica importante')}
-            </summary>
-            <StudyCopy
-              native={
-                nativeCopy(lesson.tip) ||
-                copy(
-                  'Use the complete example as a pattern. Compare its meaning with the detail below before replacing words.',
-                  'Use o exemplo completo como modelo. Compare seu sentido com o detalhe abaixo antes de trocar palavras.',
-                )
-              }
-            >
-              {lesson.tip}
-            </StudyCopy>
-          </details>
           <Button onClick={() => setStage('exercise')}>
             {copy('Start the practice', 'Começar a prática')}
             <ArrowRight size={16} />
           </Button>
+          <details className="lesson-theory-inline">
+            <summary>
+              {copy('Full explanation and another example', 'Explicação completa e outro exemplo')}
+            </summary>
+            <StudyCopy>{lesson.explanation}</StudyCopy>
+            <StudyCopy>{lesson.tip}</StudyCopy>
+            {lesson.examples.slice(1).map((example) => (
+              <div className="lesson-example" key={example}>
+                <blockquote lang={isPortuguese ? 'pt-BR' : 'en'}>
+                  {example}
+                  <SpanishTranslation text={example} />
+                </blockquote>
+                <Speak text={example} />
+              </div>
+            ))}
+          </details>
           <StudyCopy
             native={copy(
               'You can reopen the explanation at any time. Each answer stays saved in your draft until you finish the class.',
@@ -759,98 +797,46 @@ function LessonRoom({
               }}
             />
           </div>
-          <p className="lesson-context" lang={isPortuguese ? 'pt-BR' : 'en'}>
-            {copy(
-              'Complete the sentence. Choose one answer.',
-              'Complete a frase. Escolha uma resposta.',
-            )}
-          </p>
-          <details className="lesson-theory-inline">
-            <summary>{copy('Review the explanation', 'Rever a explicação')}</summary>
-            <StudyCopy
-              native={
-                nativeCopy(lesson.explanation) ||
-                copy(
-                  `Compare the pattern: ${lesson.pattern}`,
-                  `Compare o modelo: ${lesson.pattern}`,
-                )
-              }
-            >
-              {lesson.explanation}
-            </StudyCopy>
+          <details
+            className="lesson-theory-inline"
+            onToggle={(event) => {
+              if (event.currentTarget.open) markHelp('theory');
+            }}
+          >
+            <summary>{copy('Review the explanation (help)', 'Rever a explicação (ajuda)')}</summary>
+            <StudyCopy>{lesson.explanation}</StudyCopy>
           </details>
-          <fieldset className="lesson-check" key={question}>
-            <legend lang={isPortuguese ? 'pt-BR' : 'en'}>{current.prompt}</legend>
-            <p className="lesson-prompt-es" lang="es">
-              {spanishCopy(current.prompt) ||
-                'Elegí la opción que completa correctamente la frase.'}
-            </p>
-            <div className="options">
-              {choiceOrder.map((choice) => {
-                const option = current.options[choice];
-                return (
-                  <label
-                    className={`option ${answers[question] === choice ? 'selected' : ''}`}
-                    key={option}
-                  >
-                    <input
-                      type="radio"
-                      name={`class-check-${question}`}
-                      value={choice}
-                      checked={answers[question] === choice}
-                      disabled={busy || checked}
-                      onChange={() =>
-                        setAnswers((previous) =>
-                          previous.map((answer, i) => (i === question ? choice : answer)),
-                        )
-                      }
-                    />
-                    <span className="lesson-option-text">{option}</span>
-                    <span className="lesson-option-indicator" aria-hidden="true">
-                      {answers[question] === choice && <Check size={18} />}
-                    </span>
-                    {checked && <SpanishTranslation text={option} />}
-                  </label>
-                );
-              })}
-            </div>
-          </fieldset>
-          <div className={`lesson-response-dock ${checked ? 'has-feedback' : ''}`}>
-            {checked && !tipDismissed.includes(question) && (
-              <aside
-                className={`lesson-tip-popup ${correct ? 'is-success' : 'is-error'}`}
-                role="status"
-                aria-label={copy('Learning tip', 'Dica de estudo')}
-              >
-                <div className="lesson-tip-popup-title">
-                  <span aria-hidden="true">
-                    {correct ? <Check size={21} /> : <Lightbulb size={21} />}
-                  </span>
-                  <strong>
-                    {correct
-                      ? copy('Well done!', 'Muito bem!')
-                      : copy('A tip for next time', 'Uma dica para a próxima')}
-                  </strong>
-                  <button
-                    type="button"
-                    onClick={() => setTipDismissed((v) => [...v, question])}
-                    aria-label={copy('Dismiss tip', 'Fechar dica')}
-                  >
-                    <X size={18} />
-                  </button>
-                </div>
-                <p lang={isPortuguese ? 'pt-BR' : 'en'}>
-                  {correct
-                    ? current.correction
-                    : nativeCopy(current.why) ||
-                      copy(
-                        'Notice the subject and verb form. Compare your answer with the model below.',
-                        'Observe o sujeito e a forma do verbo. Compare sua resposta com o modelo abaixo.',
-                      )}
-                </p>
-                <p lang="es">{current.why}</p>
-              </aside>
+          <ExerciseFrame
+            key={question}
+            count={question + 1}
+            total={lesson.checks.length}
+            prompt={copy(
+              'Choose the answer for this sentence or situation.',
+              'Escolha a resposta para esta frase ou situação.',
             )}
+            spanish="Elegí la respuesta que corresponde a esta oración o situación."
+          >
+            <fieldset className="lesson-check">
+              <legend lang={isPortuguese ? 'pt-BR' : 'en'}>{current.prompt}</legend>
+              {spanishCopy(current.prompt) && (
+                <p className="lesson-prompt-es" lang="es">
+                  {spanishCopy(current.prompt)}
+                </p>
+              )}
+              <ChoiceOptions
+                options={current.options}
+                value={answers[question]}
+                order={choiceOrder}
+                disabled={busy || checked}
+                onChange={(choice) =>
+                  setAnswers((previous) =>
+                    previous.map((answer, i) => (i === question ? choice : answer)),
+                  )
+                }
+              />
+            </fieldset>
+          </ExerciseFrame>
+          <div className={`lesson-response-dock ${checked ? 'has-feedback' : ''}`}>
             {checked && explanation(current, answers[question], correct)}
             {!checked ? (
               <Button
@@ -877,6 +863,14 @@ function LessonRoom({
               </Button>
             )}
           </div>
+          {helpUsed && (
+            <p className="fine-print">
+              {copy(
+                'Help used during practice. The result is saved separately from independent evidence.',
+                'Ajuda usada durante a prática. O resultado fica separado da evidência independente.',
+              )}
+            </p>
+          )}
           <StudyCopy
             native={copy(
               'The first checked answer counts. Feedback helps you learn; a later retry is a separate attempt.',
@@ -953,6 +947,17 @@ function LessonRoom({
             La puntuación corresponde sólo a estas preguntas objetivas. Tu producción personal se
             conserva sin nota; esta clase por sí sola no demuestra dominio de un nivel MCER.
           </StudyCopy>
+          {(review.helpUsed || helpUsed) && (
+            <StudyCopy
+              native={copy(
+                'Help was used during these questions. Your practice is saved; try again without help to unlock the next lesson.',
+                'Você usou ajuda durante estas questões. Sua prática está salva; tente novamente sem ajuda para liberar a próxima aula.',
+              )}
+            >
+              Usaste ayuda durante estas preguntas. La práctica se conserva; repetila sin ayuda para
+              habilitar la siguiente clase.
+            </StudyCopy>
+          )}
           <details className="lesson-answer-review">
             <summary>{copy('Review my answers', 'Rever minhas respostas')}</summary>
             {lesson.checks.map((q, i) => (
@@ -969,8 +974,14 @@ function LessonRoom({
             </details>
           )}
           <div className="lesson-next-actions">
-            <Button onClick={next}>
-              {copy('Continue to the next class', 'Continuar para a próxima aula')}
+            <Button
+              onClick={
+                review.correct / review.total >= 0.8 && !review.helpUsed && !helpUsed ? next : retry
+              }
+            >
+              {review.correct / review.total >= 0.8 && !review.helpUsed && !helpUsed
+                ? copy('Continue to the next class', 'Continuar para a próxima aula')
+                : copy('Practise again', 'Praticar novamente')}
               <ArrowRight size={16} />
             </Button>
             <Button secondary onClick={retry}>

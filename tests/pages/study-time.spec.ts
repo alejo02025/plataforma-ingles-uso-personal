@@ -18,7 +18,7 @@ for (const pt of [false, true])
     await page.locator('.today-task').first().click();
     const modal = page.locator('.routine-session');
     const q = makeRoutine('vocabulary', pt ? 'A1' : 'A2', 0, pt).rounds[0];
-    await modal.getByRole('button', { name: q.solution, exact: true }).click();
+    await modal.getByRole('radio', { name: q.solution, exact: true }).check();
     await modal.getByRole('button', { name: pt ? 'Conferir' : 'Check', exact: true }).click();
     await modal.getByRole('button', { name: pt ? 'Continuar' : 'Continue', exact: true }).click();
     await modal
@@ -40,7 +40,7 @@ for (const pt of [false, true])
     await page.reload();
     await ready(page);
     await page.locator('.start-button').click();
-    await expect(modal.locator('.routine-reading').first()).toContainText(
+    await expect(modal.locator('.exercise-context').first()).toContainText(
       makeRoutine('vocabulary', pt ? 'A1' : 'A2', 0, pt).rounds[1].context!,
     );
     await finishRoutine(page, pt, 'vocabulary', 0, 0, 1);

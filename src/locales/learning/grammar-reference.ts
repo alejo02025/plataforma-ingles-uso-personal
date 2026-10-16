@@ -1,3 +1,4 @@
+import grammarExtensions from './grammar-extensions.json';
 // Spanish explanations accompany native models. Reference access never awards course credit.
 export const grammarReference = [
   {
@@ -121,4 +122,5 @@ export const grammarReference = [
       'Se eu tivesse tempo, eu viajaria.',
     ],
   },
+  ...grammarExtensions,
 ];

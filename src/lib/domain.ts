@@ -1,6 +1,7 @@
 import { levelLessons, reinforcement } from './course-route';
 import { studyLevel, courseEvidence, preserveCourseProgress } from './course-store';
 import { isPortuguese } from './workspace';
+import { writingChallenge } from '@/locales/learning/writing-challenges';
 import { cefrCourse } from './cefr-curriculum';
 import { answerWhy } from '@/locales/es/answer-help';
 import type { db as nativeDb } from './db';
@@ -349,14 +350,15 @@ export function createLearningService({
               .prepare('UPDATE activities SET payload=? WHERE id=?')
               .run(JSON.stringify({ ...payload, questionIds: ids }), activity.id as string);
         } else if (activity.kind === 'writing') {
-          const focus = levelLessons(level)[0];
-          const prompt = isPortuguese
-            ? unit.tasks.find((task) => task.skill === 'writing')!.prompt
-            : focus.practice;
+          const brief = writingChallenge(level, isPortuguese);
+          const prompt = brief.prompt;
           if (payload.prompt !== prompt)
             db()
               .prepare('UPDATE activities SET payload=? WHERE id=?')
-              .run(JSON.stringify({ ...payload, prompt }), activity.id as string);
+              .run(
+                JSON.stringify({ ...payload, prompt, writingBrief: brief, writingLevel: level }),
+                activity.id as string,
+              );
         }
       }
     }

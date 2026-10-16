@@ -1,34 +1,27 @@
-# Auditoría visual de la reconstrucción definitiva
+# Auditoría visual — Language Studio 3.0
 
-## Antes: versión real vigente al comenzar
+Fecha: 16/10/2026. Capturas de Chromium con perfiles temporales, no dispositivos físicos. [Registro detallado de defectos](docs/OS3_AUDITORIA.md).
 
-Base `4d78acf`, sitio público. Se recorrieron todos los destinos anteriores en EN/PT y los cinco tamaños pedidos. [92 capturas y observaciones](artifacts/redesign/before/observations.json). La adquisición HTTPS se hizo con Node fetch usando la CA de confianza del proxy; Chromium ejecutó los HTML/assets públicos reales. No se desactivó TLS. El service worker se bloqueó solo durante estas capturas públicas; las pruebas offline se ejecutan por separado con worker activo.
+## Antes
 
-A 390 px, Clases medía 18.013 px en inglés y 13.797 px en portugués. Había trece destinos, catálogo completo de un nivel, referencia duplicada y controles móviles competidores. Inicio ya mostraba Today, pero todavía tenía diagnóstico, notas, enlaces y un contador desconectado de algunas recomendaciones. La reconstrucción parte de estos hechos, no de las pantallas de un intento anterior.
+252 capturas públicas: 18 estados × 7 viewports × 2 idiomas. [Originales y medidas](artifacts/redesign/os3-before/observations.json). Se observaron portada decorativa de Hoy, peso excesivo de la cabecera móvil, emojis repetidos, corrección móvil superpuesta, varias cajas sucesivas en referencia y ayudas duplicadas. No hubo overflow ni excepciones JS en las visitas; la ausencia de esos fallos no hacía adecuada la jerarquía.
 
-## Intervención visual y operativa
+## Reconstrucción implementada
 
-- Inicio sustituido por Hoy: fecha, tiempo, una tarea, hasta tres siguientes y contador de esas tareas.
-- Lateral de cinco áreas; Ajustes e idioma secundarios. Móvil con barra fija compacta y áreas seguras.
-- Clases reconstruida como bloque de cuatro lecciones, con próximo paso y requisitos plegables.
-- Repaso concentra recuperación y práctica; la colección guardada mantiene búsqueda, ejemplos y próximas revisiones.
-- Biblioteca integra archivos, lecturas y noticias, sin duplicar importadores PDF.
-- Progreso muestra semana, aciertos en ejercicios y lo pendiente de evaluación; el detalle no ocupa la portada.
-- Ajustes es una pantalla, no una ventana que compite con la navegación.
-- Nueva tipografía principal, composiciones, espaciado, estados, tablas y paneles. Sin overlays de los estilos anteriores.
+- Inter local reemplaza Nunito en el producto activo. Tipografía moderada, título compacto y cuerpos con medida de lectura; fuente y licencia incluidas offline.
+- Hoy utiliza una actividad principal y lista ordenada lateral en escritorio, lineal en móvil. Sin ilustración, porcentajes académicos ni saludos extensos.
+- Navegación con iconos funcionales y cinco destinos; cabecera móvil de una fila con selector de idiomas. Ajustes secundario. No se agregó otra barra global.
+- Clase enfocada sin repetir el título global; teoría breve, ejemplo, ejercicio, feedback inline y siguiente acción. Consulta de palabra disponible también dentro del ejercicio.
+- Grammar Studio coloca controles y modelo juntos; tiempos, patrones y verbos usan el mismo sistema. Instrucciones y notas extensas son desplegables.
+- Repaso incorpora errores reales con detalles progresivos; Biblioteca y Progreso consumen los mismos tokens, tipografía y controles.
+- Paleta neutra y un acento por idioma; radios 8 px, sombras contenidas, sin degradados en controles ni decoración emoji constante. Las banderas son identificadores funcionales.
 
-## Capturas posteriores
+## Validación
 
-Se regeneraron **92 capturas posteriores**, sin overflow ni excepciones en esas visitas. [Registro posterior](artifacts/redesign/after/observations.json) y [comparador de PNG originales](artifacts/redesign/comparison.html).
+Se captura la candidata completa en [os3-candidate](artifacts/redesign/os3-candidate/observations.json). La comparación final y las capturas públicas se enlazan al completar la publicación en [QA](RESULTADOS_QA.md). Hay pruebas de contraste de texto y superficies en ambos temas, foco, teclado, etiquetas, mensajes y acceso al botón principal. Esto no equivale a certificación WCAG de todos los estados.
 
-| Pantalla móvil de 390 px | Inglés antes → después | Portugués antes → después |
-| ------------------------ | ---------------------- | ------------------------- |
-| Clases                   | 18.013 → 1.511 px      | 13.797 → 1.532 px         |
-| Biblioteca / PDFs        | 1.227 → 844 px         | 1.301 → 844 px            |
-| Progreso                 | 5.393 → 1.753 px       | 5.479 → 1.757 px          |
+Las medidas de inicio registran Start visible y contador despejado después de desplazar, a siete tamaños. Pinturas y tiempos corresponden a esta máquina sin throttling: no son mediciones de usuarios reales ni Lighthouse/Core Web Vitals de producción.
 
-La altura por sí sola no define calidad. La diferencia comprobada es que el catálogo se pagina, las herramientas se agrupan y la acción principal está en el primer viewport. El contenido sigue accesible. El CSS pasó de 9,957 líneas en ocho hojas a 2,834 líneas en dos hojas, con responsabilidades separadas.
+El último pedido incorpora colores ambientales en movimiento detrás del contenido, compartiendo los acentos de cada idioma. Hay control de pausa persistente en Ajustes, pausa de pestaña oculta y soporte de movimiento reducido. Se repiten capturas y pruebas sobre esta versión; no se usa el resultado anterior de 89 pruebas como si incluyera el fondo nuevo.
 
-Las mediciones de interacción confirman Start dentro de la primera pantalla y el contador libre de la barra al desplazarse. Los tiempos observados son locales, sin throttling, no promesas sobre dispositivos físicos. La repetición contra GitHub Pages terminó con 92 capturas públicas, sin overflow ni excepciones en esas visitas; el comparador ahora muestra esa publicación, no el candidato local. [Versión pública comprobada](artifacts/redesign/published/observations.json).
-
-Los estados de clase, lector, error de guardado y oralidad se capturan mediante pruebas funcionales en `artifacts/redesign/qa/`. Las capturas anteriores permanecen intactas.
+El fondo motivó una corrección adicional de contraste: texto secundario más oscuro en claro y menor intensidad ambiental en oscuro. La prueba mide las paradas reales del gradiente, su opacidad y las combinaciones de solapamiento; no se limita a comparar tokens sobre una superficie plana.
