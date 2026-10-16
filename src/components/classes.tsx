@@ -325,6 +325,10 @@ function LessonRoom({
     confirmed?: boolean[];
   };
   const storageKey = `class-draft:${classRevision}:${lesson.id}`;
+  useEffect(() => {
+    document.documentElement.dataset.exerciseActive = 'lesson';
+    return () => { delete document.documentElement.dataset.exerciseActive; };
+  }, []);
   const [initial] = useState<Draft>(() => {
     try {
       const parsed = JSON.parse(studyStorage.getItem(storageKey) || 'null');
@@ -476,12 +480,13 @@ function LessonRoom({
   const checked = confirmed[question];
   const correct = answers[question] === current.answer;
   const steps = [
-    copy('Understand', 'Entender'),
-    copy('Practise', 'Praticar'),
-    copy('Make it yours', 'Aplicar'),
-    copy('Review', 'Rever'),
+    copy('Learn', 'Aprender'), copy('Practise', 'Praticar'),
+    copy('Use it', 'Usar'), copy('Result', 'Resultado'),
   ];
   const activeStep = ({ understand: 0, exercise: 1, personal: 2, summary: 3 } as const)[stage];
+  const stageProgress = stage === 'understand' ? 8 : stage === 'exercise'
+    ? Math.round(12 + (confirmed.filter(Boolean).length / lesson.checks.length) * 68)
+    : stage === 'personal' ? 88 : 100;
   function explanation(q: Lesson['checks'][number], response: number, scored: boolean) {
     return (
       <div className={`lesson-feedback ${scored ? 'correct' : ''}`} role="status">
@@ -518,38 +523,27 @@ function LessonRoom({
     );
   }
   return (
-    <section className="lesson-room card lesson-focus">
-      <div className="section-heading">
-        <Button secondary disabled={busy} onClick={close}>
-          <ArrowLeft size={16} />
-          {isPortuguese ? 'Voltar às aulas' : 'Back to classes'}
-        </Button>
-        <span className="pill neutral">{lesson.level} · 8 min</span>
+    <section className="lesson-room lesson-player" data-lesson-stage={stage}>
+      <div className="lesson-player-top">
+        <button className="lesson-player-close" disabled={busy} onClick={close}
+          aria-label={copy('Back to classes', 'Voltar às aulas')}>
+          <ArrowLeft size={19} /><span>{copy('Back to classes', 'Voltar às aulas')}</span>
+        </button>
+        <div className="lesson-player-meta"><span>{lesson.level}</span><span>{steps[activeStep]}</span></div>
+      </div>
+      <div className="lesson-player-meter" role="progressbar" aria-label={copy('Lesson progress', 'Progresso da aula')}
+        aria-valuemin={0} aria-valuemax={100} aria-valuenow={stageProgress}>
+        <span style={{ width: `${stageProgress}%` }} />
       </div>
       <div className="lesson-heading">
-        <span className="eyebrow">TODAY’S IDEA</span>
+        <span className="eyebrow">{copy('YOUR LESSON', 'SUA AULA')}</span>
         <h2>{lesson.title}</h2>
-        <p>
-          {lesson.goal}
-          <SpanishTranslation text={lesson.goal} />
-        </p>
+        <p lang={isPortuguese ? 'pt-BR' : 'en'}>{lesson.goal}<SpanishTranslation text={lesson.goal} /></p>
       </div>
-      <ol className="lesson-stage-list" aria-label={copy('Class stages', 'Etapas da aula')}>
-        {steps.map((title, index) => (
-          <li
-            key={title}
-            aria-current={index === activeStep ? 'step' : undefined}
-            className={index < activeStep ? 'done' : ''}
-          >
-            <span>{index < activeStep ? <Check size={14} /> : index + 1}</span>
-            {title}
-          </li>
-        ))}
-      </ol>
       {stage === 'understand' && (
         <div className="lesson-focus-content">
           <section className="lesson-step">
-            <span className="lesson-step-label">01 · Understand</span>
+            <span className="lesson-step-label">{copy('First, notice the pattern', 'Primeiro, observe a estrutura')}</span>
             <StudyCopy
               native={
                 nativeCopy(lesson.explanation) ||
@@ -566,7 +560,7 @@ function LessonRoom({
             </code>
           </section>
           <section className="lesson-step">
-            <span className="lesson-step-label">02 · Hear it in real life</span>
+            <span className="lesson-step-label">{copy('Hear a real example', 'Ouça um exemplo real')}</span>
             {lesson.examples.map((example) => (
               <div className="lesson-example" key={example}>
                 <blockquote lang={isPortuguese ? 'pt-BR' : 'en'}>
@@ -579,7 +573,7 @@ function LessonRoom({
           </section>
           <details className="lesson-tip">
             <summary>
-              <Lightbulb size={16} />A useful detail
+              <Lightbulb size={16} />{copy('One useful detail', 'Uma dica importante')}
             </summary>
             <StudyCopy
               native={
@@ -624,10 +618,7 @@ function LessonRoom({
               }}
             />
           </div>
-          <p className="lesson-context">
-            {lesson.goal}
-            <SpanishTranslation text={lesson.goal} />
-          </p>
+          <p className="lesson-context" lang={isPortuguese ? 'pt-BR' : 'en'}>{copy('Complete the sentence. Choose one answer.', 'Complete a frase. Escolha uma resposta.')}</p>
           <details className="lesson-theory-inline">
             <summary>{copy('Review the explanation', 'Rever a explicação')}</summary>
             <StudyCopy
@@ -643,10 +634,8 @@ function LessonRoom({
             </StudyCopy>
           </details>
           <fieldset className="lesson-check" key={question}>
-            <legend>
-              {question + 1}. {current.prompt}
-              <SpanishTranslation text={current.prompt} />
-            </legend>
+            <legend lang={isPortuguese ? 'pt-BR' : 'en'}>{current.prompt}</legend>
+            <p className="lesson-prompt-es" lang="es">{spanishCopy(current.prompt) || 'Elegí la opción que completa correctamente la frase.'}</p>
             <div className="options">
               {choiceOrder.map((choice) => {
                 const option = current.options[choice];
@@ -667,13 +656,15 @@ function LessonRoom({
                         )
                       }
                     />
-                    {option}
+                    <span className="lesson-option-text">{option}</span>
+                    <span className="lesson-option-indicator" aria-hidden="true">{answers[question] === choice && <Check size={18} />}</span>
                     {checked && <SpanishTranslation text={option} />}
                   </label>
                 );
               })}
             </div>
           </fieldset>
+          <div className={`lesson-response-dock ${checked ? 'has-feedback' : ''}`}>
           {checked && explanation(current, answers[question], correct)}
           {!checked ? (
             <Button
@@ -699,6 +690,7 @@ function LessonRoom({
               <ArrowRight size={16} />
             </Button>
           )}
+          </div>
           <StudyCopy
             native={copy(
               'The first checked answer counts. Feedback helps you learn; a later retry is a separate attempt.',
@@ -724,13 +716,13 @@ function LessonRoom({
             sobre tu escritura.
           </StudyCopy>
           <label className="field lesson-own">
-            <strong>Make it yours · optional</strong>
+            <strong>{copy('Write your example (optional)', 'Escreva seu exemplo (opcional)')}</strong>
             <span>
               {lesson.practice}
               <SpanishTranslation text={lesson.practice} />
             </span>
             <textarea
-              aria-label="Your class practice"
+              aria-label={copy('Your class practice', 'Sua prática da aula')}
               value={practice}
               disabled={busy}
               maxLength={2000}
@@ -739,7 +731,7 @@ function LessonRoom({
             />
           </label>
           <details className="lesson-model">
-            <summary>Show a model answer</summary>
+            <summary>{copy('See an example', 'Ver um exemplo')}</summary>
             <p lang={isPortuguese ? 'pt-BR' : 'en'}>
               {lesson.model}
               <SpanishTranslation text={lesson.model} />
@@ -752,7 +744,7 @@ function LessonRoom({
             }
             onClick={() => void save()}
           >
-            {busy ? 'Saving your class…' : 'Check and save my class'}
+            {busy ? copy('Saving your class…', 'Salvando sua aula…') : copy('Check and save my class', 'Conferir e salvar minha aula')}
           </Button>
         </div>
       )}
@@ -760,7 +752,7 @@ function LessonRoom({
         <div className="lesson-focus-content lesson-saved">
           <p>
             <Check size={18} />
-            {review.correct} / {review.total} · Class practice saved
+            {review.correct} / {review.total} · {copy('Class saved', 'Aula salva')}
           </p>
           <StudyCopy
             native={copy(
@@ -793,16 +785,16 @@ function LessonRoom({
             </Button>
             <Button secondary onClick={retry}>
               <RotateCcw size={16} />
-              Try again later
+              {copy('Try again later', 'Tentar novamente depois')}
             </Button>
             <Button secondary onClick={() => navigate('Language help')}>
-              Open language help
+              {copy('Open language help', 'Abrir o guia de idioma')}
               <ArrowRight size={16} />
             </Button>
           </div>
           <div className="lesson-return">
             <BookOpen size={18} />
-            <p>Come back tomorrow. Try remembering one example before reading it again.</p>
+            <p>{copy('Come back tomorrow. Try recalling one example before reading it again.', 'Volte amanhã. Tente lembrar um exemplo antes de ler novamente.')}</p>
           </div>
         </div>
       )}
