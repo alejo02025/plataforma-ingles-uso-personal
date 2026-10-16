@@ -1,0 +1,105 @@
+{
+  "checkedAt": "2026-10-16T17:04:57.839Z",
+  "origin": "http://127.0.0.1:3312/plataforma-ingles-uso-personal/",
+  "method": "Actual grammar submission with one wrong gap response; saved error opened through Review. Disposable data; no student history modified. Public TLS relay does not disable verification; public SW blocked and tested separately locally.",
+  "observations": [
+    {
+      "language": "en",
+      "width": 320,
+      "height": 700,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "language": "en",
+      "width": 375,
+      "height": 812,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "language": "en",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "language": "en",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "language": "en",
+      "width": 1024,
+      "height": 768,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "language": "en",
+      "width": 1280,
+      "height": 800,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "language": "en",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "language": "pt-BR",
+      "width": 320,
+      "height": 700,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "language": "pt-BR",
+      "width": 375,
+      "height": 812,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "language": "pt-BR",
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "language": "pt-BR",
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "language": "pt-BR",
+      "width": 1024,
+      "height": 768,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "language": "pt-BR",
+      "width": 1280,
+      "height": 800,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "language": "pt-BR",
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "errors": []
+    }
+  ]
+}

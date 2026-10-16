@@ -2,13 +2,13 @@
 > english-os@0.1.0 test:e2e
 > playwright test
 
-[WebServer] (node:316171) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (node:325377) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 [WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
 
 Running 1 test using 1 worker
 
-(node:316195) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(node:325393) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
-  ✓  1 tests/e2e/journey.spec.ts:5:1 › diagnóstico retomable, lectura, vocabulario, PDF, calendario y tema persistentes (13.7s)
+  ✓  1 tests/e2e/journey.spec.ts:5:1 › diagnóstico retomable, lectura, vocabulario, PDF, calendario y tema persistentes (13.1s)
 
-  1 passed (15.2s)
+  1 passed (14.3s)

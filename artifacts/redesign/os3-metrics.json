@@ -1,20 +1,20 @@
 {
-  "checkedAt": "2026-10-16T16:35:11.822Z",
+  "checkedAt": "2026-10-16T16:58:39.864Z",
   "scope": "Local Chromium, no throttling, temporary profiles. Not hardware mobile or production latency. Start measured at entry; completion text checked after instant scrolling, clear of fixed navigation.",
   "results": [
     {
       "language": "en",
       "width": 1440,
       "height": 900,
-      "readyMs": 2138,
+      "readyMs": 1328,
       "paint": [
         {
           "name": "first-paint",
-          "ms": 336
+          "ms": 304
         },
         {
           "name": "first-contentful-paint",
-          "ms": 336
+          "ms": 304
         }
       ],
       "button": {
@@ -31,15 +31,15 @@
       "language": "en",
       "width": 1280,
       "height": 800,
-      "readyMs": 2000,
+      "readyMs": 1931,
       "paint": [
         {
           "name": "first-paint",
-          "ms": 572
+          "ms": 460
         },
         {
           "name": "first-contentful-paint",
-          "ms": 572
+          "ms": 460
         }
       ],
       "button": {
@@ -56,15 +56,15 @@
       "language": "en",
       "width": 1024,
       "height": 768,
-      "readyMs": 1642,
+      "readyMs": 1104,
       "paint": [
         {
           "name": "first-paint",
-          "ms": 260
+          "ms": 256
         },
         {
           "name": "first-contentful-paint",
-          "ms": 260
+          "ms": 256
         }
       ],
       "button": {
@@ -81,15 +81,15 @@
       "language": "en",
       "width": 768,
       "height": 1024,
-      "readyMs": 1669,
+      "readyMs": 1601,
       "paint": [
         {
           "name": "first-paint",
-          "ms": 204
+          "ms": 212
         },
         {
           "name": "first-contentful-paint",
-          "ms": 204
+          "ms": 212
         }
       ],
       "button": {
@@ -106,15 +106,15 @@
       "language": "en",
       "width": 390,
       "height": 844,
-      "readyMs": 1181,
+      "readyMs": 1704,
       "paint": [
         {
           "name": "first-paint",
-          "ms": 212
+          "ms": 220
         },
         {
           "name": "first-contentful-paint",
-          "ms": 212
+          "ms": 220
         }
       ],
       "button": {
@@ -131,15 +131,15 @@
       "language": "en",
       "width": 375,
       "height": 812,
-      "readyMs": 1906,
+      "readyMs": 1591,
       "paint": [
         {
           "name": "first-paint",
-          "ms": 272
+          "ms": 200
         },
         {
           "name": "first-contentful-paint",
-          "ms": 272
+          "ms": 200
         }
       ],
       "button": {
@@ -156,15 +156,15 @@
       "language": "en",
       "width": 320,
       "height": 700,
-      "readyMs": 1669,
+      "readyMs": 1723,
       "paint": [
         {
           "name": "first-paint",
-          "ms": 200
+          "ms": 212
         },
         {
           "name": "first-contentful-paint",
-          "ms": 200
+          "ms": 212
         }
       ],
       "button": {
@@ -181,15 +181,15 @@
       "language": "pt-BR",
       "width": 1440,
       "height": 900,
-      "readyMs": 1903,
+      "readyMs": 1987,
       "paint": [
         {
           "name": "first-paint",
-          "ms": 400
+          "ms": 500
         },
         {
           "name": "first-contentful-paint",
-          "ms": 400
+          "ms": 500
         }
       ],
       "button": {
@@ -206,15 +206,15 @@
       "language": "pt-BR",
       "width": 1280,
       "height": 800,
-      "readyMs": 1825,
+      "readyMs": 1947,
       "paint": [
         {
           "name": "first-paint",
-          "ms": 424
+          "ms": 316
         },
         {
           "name": "first-contentful-paint",
-          "ms": 424
+          "ms": 316
         }
       ],
       "button": {
@@ -231,15 +231,15 @@
       "language": "pt-BR",
       "width": 1024,
       "height": 768,
-      "readyMs": 1895,
+      "readyMs": 1853,
       "paint": [
         {
           "name": "first-paint",
-          "ms": 268
+          "ms": 336
         },
         {
           "name": "first-contentful-paint",
-          "ms": 268
+          "ms": 336
         }
       ],
       "button": {
@@ -256,15 +256,15 @@
       "language": "pt-BR",
       "width": 768,
       "height": 1024,
-      "readyMs": 1025,
+      "readyMs": 1940,
       "paint": [
         {
           "name": "first-paint",
-          "ms": 256
+          "ms": 348
         },
         {
           "name": "first-contentful-paint",
-          "ms": 256
+          "ms": 348
         }
       ],
       "button": {
@@ -281,15 +281,15 @@
       "language": "pt-BR",
       "width": 390,
       "height": 844,
-      "readyMs": 1435,
+      "readyMs": 1913,
       "paint": [
         {
           "name": "first-paint",
-          "ms": 368
+          "ms": 272
         },
         {
           "name": "first-contentful-paint",
-          "ms": 368
+          "ms": 272
         }
       ],
       "button": {
@@ -306,15 +306,15 @@
       "language": "pt-BR",
       "width": 375,
       "height": 812,
-      "readyMs": 1884,
+      "readyMs": 1519,
       "paint": [
         {
           "name": "first-paint",
-          "ms": 424
+          "ms": 336
         },
         {
           "name": "first-contentful-paint",
-          "ms": 424
+          "ms": 336
         }
       ],
       "button": {
@@ -331,15 +331,15 @@
       "language": "pt-BR",
       "width": 320,
       "height": 700,
-      "readyMs": 1682,
+      "readyMs": 1687,
       "paint": [
         {
           "name": "first-paint",
-          "ms": 248
+          "ms": 236
         },
         {
           "name": "first-contentful-paint",
-          "ms": 248
+          "ms": 236
         }
       ],
       "button": {

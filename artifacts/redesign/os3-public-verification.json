@@ -1,0 +1,68 @@
+{
+  "checkedAt": "2026-10-16T17:24:54.326074+00:00",
+  "sourcePR": "https://github.com/alejo02025/plataforma-ingles-uso-personal/pull/18",
+  "sourceMergeCommit": "cbd00f13ee769ab7181f3b03a8dd558af8aed83b",
+  "testedApplicationCommit": "47b949d8ce618ab9f1f64e842a1db59ec767b5c0",
+  "publishedExportCommit": "96f18127c19b7c667152f1dbca771fd4949b8928",
+  "applicationSourceTree": "457ba2d67b031156b014f515fb77e47164a70f82",
+  "publicBuild": "2026-10-16T17:15:32.067Z",
+  "priorBuild": "2026-10-16T02:08:58.890Z",
+  "publicResourceBytesAndHashesMatchGeneratedExport": true,
+  "publicHtmlMatchesGeneratedExport": true,
+  "publicWorkerMatchesGeneratedExport": true,
+  "verifiedResources": 133,
+  "corePublicScreens": 252,
+  "additionalPublicErrorScreens": 14,
+  "publicSavedJourneys": [
+    {
+      "language": "en",
+      "startedFromToday": true,
+      "completedClass": "en-routine",
+      "countAfterSave": 1,
+      "retainedAfterReload": true,
+      "otherLanguageCount": 0,
+      "usedVisibleLanguageSelector": true,
+      "retainedAfterLanguageRoundTrip": true,
+      "nextClassTitle": "A story from yesterday",
+      "pageErrors": []
+    },
+    {
+      "language": "pt-BR",
+      "startedFromToday": true,
+      "completedClass": "pt-meet",
+      "countAfterSave": 1,
+      "retainedAfterReload": true,
+      "otherLanguageCount": 0,
+      "usedVisibleLanguageSelector": true,
+      "retainedAfterLanguageRoundTrip": true,
+      "nextClassTitle": "Um café, por favor",
+      "pageErrors": []
+    }
+  ],
+  "mainCI": {
+    "id": 38937317892,
+    "html_url": "https://github.com/alejo02025/plataforma-ingles-uso-personal/actions/runs/38937317892",
+    "head_sha": "cbd00f13ee769ab7181f3b03a8dd558af8aed83b",
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "jobs": [
+    {
+      "name": "verify",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "publish",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "pagesBuild": {
+    "status": "built",
+    "commit": "96f18127c19b7c667152f1dbca771fd4949b8928",
+    "created_at": "2026-10-16T17:16:02Z",
+    "updated_at": "2026-10-16T17:17:51Z"
+  },
+  "method": "Actual public HTML/assets through TLS-verified Node relay; source/content/styles not substituted. Public service worker blocked in relayed browsers; active worker offline/update verified separately in local Chromium. Temporary browser data only; not physical-device or acoustic assessment."
+}

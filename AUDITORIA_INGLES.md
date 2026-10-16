@@ -21,3 +21,5 @@ Revisión manual histórica: `en-meet`, `en-routine`, `en-experiences`, `en-opin
 Se conserva A2 histórico y cualquier checkpoint posterior. El objetivo personal B2 y la estimación B1 orientan contenido, no justifican alterar el historial. Los recorridos de QA conservan perfiles B1 con errores y B2. Los resultados cerrados y constancia se distinguen de competencia; producción libre, listening auténtico e interacción requieren evidencia adicional.
 
 Pendiente: revisión editorial exhaustiva de distractores avanzados, ampliación de contextos, audio humano, contraste completo con descriptores y evaluación válida de producción espontánea. [QA y límites](RESULTADOS_QA.md).
+
+Publicación 3.0 comprobada en [el espacio público](https://alejo02025.github.io/plataforma-ingles-uso-personal/): guardado, recarga y cambio de idioma conservan su resultado y no lo trasladan al otro espacio. [Evidencia ejecutada](artifacts/redesign/os3-published-journey.json).

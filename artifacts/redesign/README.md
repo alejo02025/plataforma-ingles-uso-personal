@@ -32,3 +32,5 @@ node --import tsx scripts/audit-curriculum.ts artifacts/redesign/os3-pedagogy.js
 ```
 
 No volver a ejecutar `os3-before` sobre una publicación nueva: ya no representaría la base auditada.
+
+La publicación 3.0 ya fue comprobada: `os3-public-verification.json`, `os3-public-assets.json`, `os3-published-journey.json` y `os3-published/` conservan evidencia real. Hay 252 estados públicos principales y 14 adicionales del cuaderno; `os3-comparison.html` usa los PNG públicos. La comprobación de recursos compara bytes y hashes con main, además de verificar versión y worker.

@@ -22,3 +22,5 @@ Portugués brasileño primero, español claramente secundario. Las explicaciones
 Acento ciruela y componentes compartidos con inglés. 🇧🇷 identifica pt-BR y 🇬🇧 inglés; ambos enlaces permanecen visibles. El guardado local es automático sin GitHub. Las dos bases siguen aisladas; actualización común y sincronización de datos son operaciones distintas.
 
 Se conservan grabaciones y reproducción. No se evalúa nasalización ni vocales abiertas/cerradas desde una transcripción. La comprensión con voz sintética no demuestra comprensión de brasileños en conversación real. Falta revisión editorial externa, contraste exhaustivo de descriptores MCER y evaluación humana de producción e interacción. [QA](RESULTADOS_QA.md).
+
+Publicación 3.0 comprobada en [el espacio público](https://alejo02025.github.io/plataforma-ingles-uso-personal/portugues/): guardado, recarga y cambio de idioma conservan su resultado y no lo trasladan al otro espacio. [Evidencia ejecutada](artifacts/redesign/os3-published-journey.json).

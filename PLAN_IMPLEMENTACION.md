@@ -25,3 +25,7 @@ No hay migración SQL ni reset de IndexedDB. Los campos opcionales nuevos se añ
 ## Pendientes reales
 
 Revisión semántica manual completa del catálogo, más contextos originales y distractores avanzados, audio humano, validación acústica si se incorpora tecnología apropiada, evaluación de producciones abiertas y contraste exhaustivo del currículo con descriptores. Ninguno se presenta como ya acreditado.
+
+## Entrega ejecutada
+
+PR #18 integrado; CI de PR y main aprobados; publicación generada en `96f1812` y comprobada en GitHub Pages. Versión `2026-10-16T17:15:32.067Z`: HTML/worker y 133 recursos comparados con la exportación, dos recorridos guardados y 266 estados públicos capturados. Los informes finales mantienen explícita la cobertura parcial de revisión semántica.

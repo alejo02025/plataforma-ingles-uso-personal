@@ -48,3 +48,5 @@ Tres manchas de color suaves detrás del contenido, con movimiento de 32–41 se
 Se detiene con `prefers-reduced-motion`, al ocultar la pestaña o mediante Ajustes → Moving background colours / Cores em movimento no fundo. La preferencia se guarda automáticamente por idioma en este navegador, sin modificar el esquema del alumno ni exigir GitHub. No se afirma medición energética en dispositivos físicos.
 
 El fondo motivó una corrección adicional de contraste: texto secundario más oscuro en claro y menor intensidad ambiental en oscuro. La prueba mide las paradas reales del gradiente, su opacidad y las combinaciones de solapamiento; no se limita a comparar tokens sobre una superficie plana.
+
+En teléfonos, las manchas de color usan una geometría propia para que sigan visibles alrededor de la tarjeta principal y la cola; no se reutilizan sin ajuste las posiciones de escritorio.

@@ -1,5 +1,6 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
+import { resolve, sep } from 'node:path';
 const base = 'https://alejo02025.github.io/plataforma-ingles-uso-personal/';
 const expectedPrior = process.argv[2] || '2026-10-15T18:10:11.952Z';
 const destination = process.argv[3] || 'artifacts/redesign/published-assets.json';
@@ -26,6 +27,8 @@ const generated = JSON.parse(await readFile('assets/version.json', 'utf8'));
 if (version.build !== generated.build)
   throw new Error('Public version does not match the generated main export');
 const worker = await get(base + 'sw.js');
+if (!worker.body.equals(await readFile('sw.js')))
+  throw new Error('Public service worker bytes differ from the generated main export');
 const source = worker.body.toString();
 const release = JSON.parse(source.match(/^const RELEASE=(.+);$/m)[1]);
 if (release !== version.build) throw new Error('Service worker release and public version differ');
@@ -41,8 +44,18 @@ await Promise.all(
   Array.from({ length: 6 }, async () => {
     while (index < paths.length) {
       const result = await get(new URL(paths[index++], base).href);
+      const pathname = decodeURIComponent(new URL(result.url).pathname);
+      const prefix = new URL(base).pathname;
+      if (!pathname.startsWith(prefix)) throw new Error('Asset is outside the app path');
+      const relative = pathname.slice(prefix.length) || 'index.html';
+      const localPath = resolve(relative);
+      if (!localPath.startsWith(resolve('.') + sep)) throw new Error('Unexpected asset path');
+      const expected = await readFile(localPath);
+      const expectedSha256 = createHash('sha256').update(expected).digest('hex');
+      if (result.bytes !== expected.length || result.sha256 !== expectedSha256)
+        throw new Error(`Public asset differs from the generated export: ${result.url}`);
       const { body, ...evidence } = result;
-      assets.push(evidence);
+      assets.push({ ...evidence, expectedSha256, matchesGeneratedExport: true });
     }
   }),
 );
@@ -50,6 +63,8 @@ const entries = [];
 for (const suffix of ['', 'portugues/']) {
   const result = await get(base + suffix);
   const html = result.body.toString();
+  if (!result.body.equals(await readFile(suffix + 'index.html')))
+    throw new Error(`Public HTML differs from generated export: ${result.url}`);
   const references = [...html.matchAll(/(?:src|href)="([^"]+)"/g)]
     .map((m) => m[1])
     .filter((p) => p.includes('/_next/static/'));
@@ -68,6 +83,7 @@ const result = {
   publicBuild: version.build,
   serviceWorkerRelease: release,
   allListedAssetsAvailable: true,
+  allAssetBytesAndHashesMatchGeneratedExport: true,
   serviceWorkerInstalledInPublicBrowser: false,
   note: 'TLS-verified Node fetch of actual public responses. Active-worker offline/update behavior is covered by local Playwright; this probe does not claim a physical PWA installation.',
   entries,
