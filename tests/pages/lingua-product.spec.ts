@@ -24,10 +24,11 @@ for (const pt of [false, true]) {
     await page.screenshot({ path: `artifacts/redesign/qa/lingua-today-${pt ? 'pt' : 'en'}-390.png`, fullPage: true });
 
     await page.locator('.mobile-bottom-nav').getByRole('button').nth(1).click();
-    await expect(page.locator('.course-guide-shortcut')).toBeVisible();
-    await expect(page.locator('.course-guide-copy p[lang="es"]')).toBeVisible();
-    await expect(page.locator('.class-node-art')).toHaveCount(4);
-    await page.locator('.course-guide-action').click();
+    await expect(page.locator('.course-guide-inline')).toBeVisible();
+    await expect(page.locator('.course-path-step')).toHaveCount(4);
+    await expect(page.locator('.course-path-es[lang="es"]').first()).toBeVisible();
+    await expect(page.locator('.course-path-icon')).toHaveCount(4);
+    await page.locator('.course-guide-inline').click();
     await expect(page.locator('.language-desk')).toBeVisible();
     await expect(page.locator('.sentence-shape')).toBeVisible();
     await expect(page.locator('.builder-label-es[lang="es"]')).toHaveCount(4);
