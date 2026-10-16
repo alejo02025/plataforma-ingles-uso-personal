@@ -1563,3 +1563,12 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,te
 /* Guard against legacy long reference strings expanding the lesson viewport. */
 .lesson-player .lesson-focus-content,.lesson-player .lesson-step,.lesson-player .lesson-check,.lesson-player fieldset,.lesson-player legend,.lesson-player blockquote{max-width:100%;min-width:0;overflow-wrap:anywhere;}
 .lesson-player code,.lesson-player pre{white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%;}
+
+/* The lesson fits the device viewport; horizontal overflow is never part of its interaction. */
+@media(max-width:800px){
+ html[data-exercise-active='lesson'],html[data-exercise-active='lesson'] body{max-width:100%;overflow-x:clip;}
+ html[data-exercise-active='lesson'] #main-content{min-width:0;max-width:100%;overflow-x:clip;}
+ html[data-exercise-active='lesson'] .lesson-player{width:100%;max-width:100%;margin:0;padding:12px 12px 112px;overflow-wrap:anywhere;}
+ html[data-exercise-active='lesson'] .lesson-player fieldset{max-width:100%;min-width:0;}
+ html[data-exercise-active='lesson'] .lesson-player legend{max-width:100%;white-space:normal;overflow-wrap:anywhere;}
+}
