@@ -22,6 +22,7 @@ import type { Skill } from '@/lib/content';
 import { localDay, skillNames } from '@/lib/learning';
 import { isPortuguese } from '@/lib/workspace';
 import { evidenceSummary } from '@/lib/evidence-summary';
+import { pendingProductions, mistakeReview } from '@/lib/mistake-review';
 import { Heading, Empty, dateLabel } from './ui';
 import { Correction } from './correction';
 import { questionFeedback } from '@/lib/answer-feedback';
@@ -101,6 +102,13 @@ export function Progress({ data, navigate }: { data: Snapshot; navigate: (view: 
             ? 'Acertos se referem a estes exercícios, sem ajuda. Não são uma certificação de nível.'
             : 'Correct answers refer to these exercises, without help. They are not a level certificate.'}
         </p>
+        {pendingProductions(data).length > 0 && (
+          <button className="text-link" onClick={() => navigate('Errors')}>
+            {pt
+              ? `${pendingProductions(data).length} respostas abertas aguardando revisão`
+              : `${pendingProductions(data).length} open answers awaiting review`}
+          </button>
+        )}
         <div className="evidence-table">
           {summary.skills.map((skill) => (
             <div key={skill.skill}>
@@ -191,9 +199,10 @@ export function Progress({ data, navigate }: { data: Snapshot; navigate: (view: 
               return (
                 <div className="pattern-row" key={pattern}>
                   <Correction
-                    explanation={
-                      m.correction_id ? m.explanation : questionFeedback(m.pattern).explanation
+                    explanationNative={
+                      mistakeReview(data).find((entry) => entry.id === pattern)?.explanationNative
                     }
+                    explanation={m.explanation || questionFeedback(m.pattern).explanation}
                     correction={m.corrected}
                   />
                   <span className="tag">

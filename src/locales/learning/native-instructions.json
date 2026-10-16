@@ -1619,5 +1619,9 @@
     "Current block: {v0}. Each block combines classes (80%), reading (60% or an objective PDF question), vocabulary (three remembered words or a game with 75% without help) and saved writing. Writing is recorded without automatically assessing its quality.",
     "Bloco atual: {v0}. Cada bloco combina aulas (80%), leitura (60% ou uma pergunta objetiva de PDF), vocabulário (três palavras lembradas ou um jogo com 75% sem ajuda) e escrita salva. A escrita é registrada sem avaliação automática da qualidade."
   ],
-  "Bloque": ["Block", "Bloco"]
+  "Bloque": ["Block", "Bloco"],
+  "Completá Descubrir palabras de este bloque con al menos 80 % sin ayudas o guardá un juego con al menos 75 % sin ayudas durante este bloque. Los repasos autoevaluados programan memoria, pero no son una prueba objetiva.": [
+    "Complete Discover words for this block with at least 80% without help, or save a game with at least 75% without help during this block. Self-rated reviews schedule memory practice, but are not an objective test.",
+    "Conclua Descobrir palavras deste bloco com pelo menos 80% sem ajuda ou salve um jogo com pelo menos 75% sem ajuda durante este bloco. Revisões autoavaliadas programam a prática de memória, mas não são uma prova objetiva."
+  ]
 }

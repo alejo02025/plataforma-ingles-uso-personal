@@ -1,14 +1,27 @@
 'use client';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { ArrowUpRight, Check, LoaderCircle, Settings2, X } from 'lucide-react';
+import {
+  ArrowUpRight,
+  BookOpen,
+  CalendarDays,
+  Check,
+  LibraryBig,
+  LoaderCircle,
+  RotateCcw,
+  Settings2,
+  TrendingUp,
+  X,
+} from 'lucide-react';
 import { assetBase, isPortuguese } from '@/lib/workspace';
 import type { Snapshot, Activity, Document } from '@/lib/types';
 import type { StudyTask } from '@/lib/daily-study';
 import { Today } from './today';
+import { BackgroundMotionControl } from './studio-atmosphere';
 import { RoutinePractice } from './routine-practice';
 import { Diagnostic } from './diagnostic';
 import { Classes } from './classes';
 import { Vocabulary } from './vocabulary';
+import { MistakeNotebook } from './mistake-notebook';
 import { Games } from './games';
 import { OralPractice } from './oral-practice';
 import { LanguageHelp } from './language-help';
@@ -30,6 +43,7 @@ export function EnglishApp() {
     [view, setView] = useState('Home');
   const [suggestedClass, setSuggestedClass] = useState('');
   const [suggestedGame, setSuggestedGame] = useState('');
+  const [suggestedOral, setSuggestedOral] = useState<'recording' | 'listening'>('recording');
   const [classroomVisit, setClassroomVisit] = useState(0);
   const [active, setActive] = useState<Activity | null>(null),
     [error, setError] = useState(''),
@@ -79,6 +93,7 @@ export function EnglishApp() {
     }
     setSuggestedClass('');
     setSuggestedGame('');
+    setSuggestedOral('recording');
     setClassroomVisit((v) => v + 1);
     setView(
       ['Speaking', 'Course practice'].includes(target)
@@ -190,7 +205,7 @@ export function EnglishApp() {
       ? 'settings'
       : ['Classes', 'Language help', 'MCER'].includes(view)
         ? 'classes'
-        : ['Vocabulary', 'Practice', 'Games', 'Oral practice'].includes(view)
+        : ['Vocabulary', 'Errors', 'Practice', 'Games', 'Oral practice'].includes(view)
           ? 'review'
           : ['PDF Studio', 'Library', 'News'].includes(view)
             ? 'library'
@@ -198,20 +213,20 @@ export function EnglishApp() {
               ? 'progress'
               : 'today';
   const destinations = [
-    { area: 'today', target: 'Home', label: pt ? 'Hoje' : 'Today', emoji: '☀️' },
-    { area: 'classes', target: 'Classes', label: pt ? 'Aulas' : 'Classes', emoji: '📚' },
-    { area: 'review', target: 'Vocabulary', label: pt ? 'Revisão' : 'Review', emoji: '🧠' },
+    { area: 'today', target: 'Home', label: pt ? 'Hoje' : 'Today', icon: CalendarDays },
+    { area: 'classes', target: 'Classes', label: pt ? 'Aulas' : 'Classes', icon: BookOpen },
+    { area: 'review', target: 'Vocabulary', label: pt ? 'Revisão' : 'Review', icon: RotateCcw },
     {
       area: 'library',
       target: 'PDF Studio',
       label: pt ? 'Biblioteca' : 'Library',
-      emoji: '📖',
+      icon: LibraryBig,
     },
     {
       area: 'progress',
       target: 'Progress',
       label: pt ? 'Progresso' : 'Progress',
-      emoji: '🌱',
+      icon: TrendingUp,
     },
   ];
   const groups: Record<string, { target: string; label: string }[]> = {
@@ -221,6 +236,7 @@ export function EnglishApp() {
     ],
     review: [
       { target: 'Vocabulary', label: pt ? 'Palavras' : 'Words' },
+      { target: 'Errors', label: pt ? 'Meus erros' : 'My mistakes' },
       { target: 'Practice', label: pt ? 'Prática' : 'Practice' },
       { target: 'Games', label: pt ? 'Jogos' : 'Games' },
       { target: 'Oral practice', label: pt ? 'Ouvir e gravar' : 'Listen & record' },
@@ -260,6 +276,9 @@ export function EnglishApp() {
         setClassroomVisit((v) => v + 1);
       } else if (action.kind === 'review') {
         void navigate('Vocabulary');
+      } else if (action.kind === 'oral') {
+        setSuggestedOral(action.mode);
+        setView('Oral practice');
       } else if (action.mode === 'writing') {
         const activity = await api<Activity>('course/writing', {});
         await refresh();
@@ -290,9 +309,7 @@ export function EnglishApp() {
               aria-current={area === d.area ? 'page' : undefined}
               onClick={() => void navigate(d.target)}
             >
-              <span className="nav-emoji" aria-hidden>
-                {d.emoji}
-              </span>
+              <d.icon className="nav-icon" size={19} aria-hidden="true" />
               <span>{d.label}</span>
             </button>
           ))}
@@ -319,6 +336,7 @@ export function EnglishApp() {
             <Logo />
           </div>
           <LanguageSwitcher portuguese={pt} />
+          <WordHelpCloud data={data} refresh={refresh} showLauncher={area !== 'today'} />
           <button
             className="icon-button mobile-settings"
             aria-label={pt ? 'Ajustes' : 'Settings'}
@@ -353,14 +371,8 @@ export function EnglishApp() {
           <header hidden={area === 'today' && !active} className="workspace-heading">
             <div className="workspace-title-row">
               {(area !== 'today' || active) && (
-                <span className="workspace-kicker" aria-hidden>
-                  {destinations.find((d) => d.area === area)?.emoji || '⚙️'}
-                </span>
-              )}
-              {(area !== 'today' || active) && (
                 <h1>{active ? (pt ? 'Atividade' : 'Activity') : areaTitle}</h1>
               )}
-              <WordHelpCloud data={data} refresh={refresh} />
             </div>
             {groups[area] && (
               <nav className="section-tabs" aria-label={pt ? 'Seções' : 'Sections'}>
@@ -429,6 +441,15 @@ export function EnglishApp() {
                   setClassroomVisit((v) => v + 1);
                 }}
               />
+            ) : view === 'Errors' ? (
+              <MistakeNotebook
+                data={data}
+                onLesson={(id) => {
+                  setView('Classes');
+                  setSuggestedClass(id);
+                  setClassroomVisit((v) => v + 1);
+                }}
+              />
             ) : view === 'Vocabulary' ? (
               <>
                 <div className="review-tools">
@@ -458,7 +479,7 @@ export function EnglishApp() {
             ) : view === 'Games' ? (
               <Games data={data} refresh={refresh} initialSeed={suggestedGame} />
             ) : view === 'Oral practice' ? (
-              <OralPractice data={data} refresh={refresh} />
+              <OralPractice data={data} refresh={refresh} initialMode={suggestedOral} />
             ) : view === 'Progress' ? (
               <Progress data={data} navigate={(target) => void navigate(target)} />
             ) : view === 'Calendar' ? (
@@ -484,9 +505,7 @@ export function EnglishApp() {
             aria-current={area === d.area ? 'page' : undefined}
             onClick={() => void navigate(d.target)}
           >
-            <span className="nav-emoji bottom-emoji" aria-hidden>
-              {d.emoji}
-            </span>
+            <d.icon className="nav-icon" size={21} aria-hidden="true" />
             <span>{d.label}</span>
           </button>
         ))}
@@ -662,6 +681,7 @@ function Preferences({
         {saved && (
           <p role="status">{isPortuguese ? 'Preferências salvas.' : 'Preferences saved.'}</p>
         )}
+        <BackgroundMotionControl />
       </div>
       <div className="settings-secondary">
         {process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github' && <GitHubSync />}

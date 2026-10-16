@@ -1,0 +1,102 @@
+[
+  {
+    "en": "Modal verbs and obligations",
+    "pt": "Possibilidade, conselho e obrigação",
+    "explanationEN": "Después de can, should y must va el verbo base, sin to. Should aconseja; must expresa una obligación fuerte. Have to cambia con el sujeto y el tiempo. No confundas must not (prohibición) con do not have to (falta de necesidad).",
+    "explanationPT": "Poder expresa posibilidad o permiso; deveria puede aconsejar; precisar de + sustantivo o precisar + infinitivo expresa necesidad. No copies un auxiliar inglés al portugués. La negación va antes del verbo conjugado.",
+    "modelEN": [
+      "You should take a break.",
+      "You must not share your password.",
+      "You do not have to pay today."
+    ],
+    "modelPT": [
+      "Você poderia me ajudar?",
+      "Você precisa trazer o documento.",
+      "Eu preciso de ajuda."
+    ]
+  },
+  {
+    "en": "Conditional sentences",
+    "pt": "Condições reais e hipóteses",
+    "explanationEN": "Una posibilidad futura puede usar if + presente y will + verbo. Una hipótesis sobre el presente usa if + pasado y would. Para un pasado que no ocurrió: if + had + participio, would have + participio. Elegí según el significado; no todos los if hablan del futuro.",
+    "explanationPT": "Para una posibilidad futura: se + futuro do subjuntivo (se tiver). Para una hipótesis sobre el presente: se + imperfeito do subjuntivo y futuro do pretérito (se tivesse, viajaria). Para un pasado distinto: se tivesse estudado, teria passado.",
+    "modelEN": [
+      "If I have time, I will call you.",
+      "If I had time, I would travel.",
+      "If I had studied, I would have passed."
+    ],
+    "modelPT": [
+      "Se eu tiver tempo, vou ligar para você.",
+      "Se eu tivesse tempo, viajaria.",
+      "Se eu tivesse estudado, teria passado."
+    ]
+  },
+  {
+    "en": "Passive voice",
+    "pt": "Voz passiva e concordância",
+    "explanationEN": "La pasiva pone en primer plano a quien recibe la acción: be conjugado + participio. El tiempo aparece en be; el participio conserva su forma. Podés agregar by para mencionar al agente, pero no siempre hace falta.",
+    "explanationPT": "La pasiva con ser usa ser conjugado + participio, que concuerda con el sujeto en género y número. Con ter en un tiempo compuesto, el participio no hace esa concordancia. Compará as cartas foram enviadas con ela tinha enviado as cartas.",
+    "modelEN": ["The report was written yesterday.", "The letters have been sent."],
+    "modelPT": ["As cartas foram enviadas ontem.", "Ela tinha enviado as cartas."]
+  },
+  {
+    "en": "Reported speech",
+    "pt": "Discurso indireto",
+    "explanationEN": "Al contar lo que alguien dijo, ajustá pronombres, referencias temporales y, cuando corresponda, tiempos verbales. Said no necesita persona inmediatamente después; told sí: told me. El cambio de tiempo depende del contexto, no de una sustitución automática.",
+    "explanationPT": "Para contar lo dicho, podés usar disse que o me disse que. Ajustá persona, tiempo y referencias como hoje/naquele dia según el contexto. No cambies de tiempo de forma mecánica si la información sigue vigente.",
+    "modelEN": ["She said that she was tired.", "They told me that they needed help."],
+    "modelPT": ["Ela disse que estava cansada.", "Eles me disseram que precisavam de ajuda."]
+  },
+  {
+    "en": "Gerunds and infinitives",
+    "pt": "Infinitivo e gerúndio",
+    "explanationEN": "Aprendé el complemento junto al verbo: enjoy + -ing, want + to + verbo. Después de una preposición suele ir -ing. Una forma -ing no constituye por sí sola un tiempo continuo: necesita el contexto o un auxiliar apropiado.",
+    "explanationPT": "Después de gostar de puede ir un infinitivo: gosto de ler. Para una acción en curso, en Brasil es habitual estar + gerúndio: estou lendo. No traslades automáticamente el infinitivo o el gerundio del inglés ni del español.",
+    "modelEN": ["I enjoy reading.", "I want to learn.", "Thank you for helping me."],
+    "modelPT": ["Eu gosto de ler.", "Estou lendo agora."]
+  },
+  {
+    "en": "Relative clauses",
+    "pt": "Orações relativas",
+    "explanationEN": "Una relativa agrega información sobre un sustantivo. Who suele referirse a personas; which, a cosas. That puede introducir relativas especificativas. Whose expresa posesión. Una relativa explicativa necesita comas y no usa that en este modelo.",
+    "explanationPT": "Que puede conectar una relativa con personas o cosas. Cujo expresa posesión y concuerda con lo poseído; no lleva un artículo inmediatamente después: cuja filha, no cuja a filha. Diferenciá información necesaria de un comentario explicativo.",
+    "modelEN": [
+      "This is the person who helped me.",
+      "The book that I bought is useful.",
+      "Ana, whose daughter lives here, called me."
+    ],
+    "modelPT": ["Esta é a pessoa que me ajudou.", "A mulher cuja filha mora aqui me ligou."]
+  },
+  {
+    "en": "Linking ideas",
+    "pt": "Conectar ideias",
+    "explanationEN": "Elegí el conector por la relación: because introduce una causa; however, un contraste; therefore, una consecuencia. Although va con una oración completa y despite, normalmente con un grupo nominal o -ing. Revisá también la puntuación.",
+    "explanationPT": "Porque introduce una causa; no entanto, un contraste; portanto, una consecuencia. Embora introduce una concesión y en estos modelos usa subjuntivo. Apesar de puede introducir un grupo nominal: apesar da chuva. Cambiar el conector puede exigir cambiar la estructura.",
+    "modelEN": ["Although it was raining, we went out.", "Despite the rain, we went out."],
+    "modelPT": ["Embora estivesse chovendo, saímos.", "Apesar da chuva, saímos."]
+  },
+  {
+    "en": "Phrasal verbs and word partners",
+    "pt": "Combinações naturais de palavras",
+    "explanationEN": "Aprendé combinaciones completas: make a decision, take a break y look after someone. El significado de un phrasal verb no siempre se deduce palabra por palabra. Las posibilidades de separar verbo y partícula dependen del verbo; no apliques una sola regla a todos.",
+    "explanationPT": "Aprendé combinaciones naturales completas: tomar uma decisão, fazer uma pausa, cuidar de alguém. Cuidar necesita de en este sentido. La combinación portuguesa no tiene por qué copiar el verbo ni la preposición del español.",
+    "modelEN": ["We need to make a decision.", "I look after my sister on Mondays."],
+    "modelPT": ["Precisamos tomar uma decisão.", "Eu cuido da minha irmã às segundas-feiras."]
+  },
+  {
+    "en": "Reference and possession",
+    "pt": "Pronomes e contrações",
+    "explanationEN": "Los pronombres señalan personas y cosas según su función: I/me, she/her, we/us. Los posesivos my/your/her acompañan un sustantivo; mine/yours/hers pueden reemplazarlo. Revisá a quién refiere cada pronombre en el contexto.",
+    "explanationPT": "Las contracciones combinan preposición y artículo: de + o = do, em + a = na. Con pronombres también hay combinaciones como comigo. Você usa tercera persona verbal; me puede aparecer antes del verbo en el habla brasileña. No confundas no portugués con la negación española.",
+    "modelEN": ["She sent me her report.", "This book is mine."],
+    "modelPT": ["Eu gosto do café desta padaria.", "Ela está na escola.", "Você pode falar comigo?"]
+  },
+  {
+    "en": "Being, having and existence",
+    "pt": "Ser, estar, ter e haver",
+    "explanationEN": "Be expresa identidad, estado o ubicación según el complemento. Have puede expresar posesión. There is/are introduce existencia, no posesión. No traduzcas tengo hambre como I have hunger: el modelo cotidiano es I am hungry.",
+    "explanationPT": "Ser suele expresar identidad y origen; estar, estados y ubicación. Ter expresa posesión y aparece en expresiones como ter fome. Para existencia, há es invariable; tem se usa mucho en el habla brasileña. Para escritura formal, preferí há en estos ejemplos.",
+    "modelEN": ["I am hungry.", "There are two chairs in the room."],
+    "modelPT": ["Eu sou argentina e estou em casa.", "Há duas cadeiras na sala.", "Estou com fome."]
+  }
+]

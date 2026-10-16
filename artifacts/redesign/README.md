@@ -18,3 +18,17 @@ node --use-env-proxy --import tsx artifacts/redesign/published-journey.ts
 ```
 
 Los recorridos usan perfiles efímeros; no modifican el progreso de los estudiantes. El verificador de recursos guarda estado, tamaño y SHA-256 de las respuestas públicas, no evalúa competencia lingüística ni acredita instalación de PWA.
+
+## Language Studio 3.0 — 16/10/2026
+
+La evidencia de esta intervención usa el prefijo `os3-`; no reemplaza capturas ni informes de versiones anteriores. `os3-before` y `os3-candidate`: 252 originales por fase, 18 estados de EN/PT en siete tamaños. `os3-qa/exercises.json`: 36 capturas adicionales tras interacciones reales con los formatos nuevos, corrección y cuaderno. `os3-metrics.json`: botón principal y contador despejados. `os3-pedagogy.json`: inventario estructural, con cobertura manual declarada. [Comparador](os3-comparison.html). Publicación y resultados definitivos en [QA](../../RESULTADOS_QA.md).
+
+```bash
+node --use-env-proxy scripts/redesign-capture.mjs os3-before
+node scripts/redesign-capture.mjs os3-candidate http://127.0.0.1:3312/plataforma-ingles-uso-personal/
+node --import tsx scripts/capture-studio-three.ts
+node scripts/redesign-metrics.mjs http://127.0.0.1:3312/plataforma-ingles-uso-personal/ artifacts/redesign/os3-metrics.json
+node --import tsx scripts/audit-curriculum.ts artifacts/redesign/os3-pedagogy.json
+```
+
+No volver a ejecutar `os3-before` sobre una publicación nueva: ya no representaría la base auditada.

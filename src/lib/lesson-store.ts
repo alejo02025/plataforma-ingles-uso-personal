@@ -17,6 +17,17 @@ export function saveLesson(
       answers: z.array(z.number().int().min(0).max(2)).max(6),
       practice: z.string().trim().max(2000).default(''),
       seconds: z.number().int().min(0).max(7200),
+      helpUsed: z.boolean().default(false),
+      support: z
+        .array(
+          z.object({
+            questionId: z.string().max(100),
+            kind: z.enum(['word', 'theory']),
+            step: z.number().int().min(0).max(8),
+          }),
+        )
+        .max(24)
+        .default([]),
     })
     .parse(input);
   const lesson = lessons.find((item) => item.id === x.lessonId);
@@ -37,10 +48,14 @@ export function saveLesson(
       feedback: saved.feedback,
       responses: saved.responses,
       practice: saved.practice || '',
+      helpUsed: saved.helpUsed === true,
       repeated: true,
     };
   }
   checkLessonAccess(connection, lesson.id);
+  if (x.support.some((s) => !lesson.checks.some((_, i) => s.questionId === `${lesson.id}:${i}`)))
+    throw new AppError('The help belongs to another exercise.');
+  const helpUsed = x.helpUsed || x.support.length > 0;
   const feedback = lesson.checks.map((q, i) => ({
     id: `${lesson.id}:${i}`,
     correct: x.answers[i] === q.answer,
@@ -82,6 +97,8 @@ export function saveLesson(
       revision: classRevision,
       responses: x.answers,
       practice: x.practice,
+      helpUsed,
+      support: x.support,
       feedback,
     }),
     date,
@@ -106,5 +123,13 @@ export function saveLesson(
           date,
         );
   });
-  return { correct, total, feedback, responses: x.answers, practice: x.practice, repeated: false };
+  return {
+    correct,
+    total,
+    feedback,
+    responses: x.answers,
+    practice: x.practice,
+    helpUsed,
+    repeated: false,
+  };
 }

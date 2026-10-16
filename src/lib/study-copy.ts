@@ -1,6 +1,8 @@
 import explanations from '@/locales/learning/native-explanations.json';
 import instructions from '@/locales/learning/native-instructions.json';
 import spanishTranslations from '@/locales/learning/native-to-spanish.json';
+import classTranslations from '@/locales/learning/class-spanish.json';
+import referenceTranslations from '@/locales/learning/reference-spanish.json';
 import { isPortuguese } from './workspace';
 
 /** Authored UI copy only: uploaded PDFs and personal writing are not machine translated. */
@@ -124,7 +126,9 @@ export function nativeCopy(input: string, pt = isPortuguese): string | null {
   return translate(input, pt);
 }
 const spanishLookup: Record<string, string> = Object.fromEntries(
-  Object.entries(spanishTranslations).map(([native, es]) => [normalizeCopy(native), es]),
+  Object.entries({ ...spanishTranslations, ...referenceTranslations, ...classTranslations }).map(
+    ([native, es]) => [normalizeCopy(native), es],
+  ),
 );
 export function spanishCopy(input: string, pt = isPortuguese): string | null {
   const text = normalizeCopy(input),

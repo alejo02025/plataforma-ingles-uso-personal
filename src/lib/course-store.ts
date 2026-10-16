@@ -1,5 +1,6 @@
 import { grammarQuestions } from './content';
 import { isPortuguese } from './workspace';
+import { writingChallenge } from '@/locales/learning/writing-challenges';
 import { cefrLevels } from './cefr-curriculum';
 import type { DatabaseSync } from 'node:sqlite';
 import type { Snapshot, Activity } from './types';
@@ -60,18 +61,19 @@ export function courseWriting(db: Connection, planId: string): Activity {
     .get(planId);
   if (existing) return { ...existing, payload: JSON.parse(existing.payload as string) } as Activity;
   const id = `course-writing:${crypto.randomUUID()}`;
+  const brief = writingChallenge(level, isPortuguese);
   const activity: Activity = {
     id,
     plan_id: planId,
     kind: 'writing',
     title: 'Use your class in real life',
-    minutes: 5,
+    minutes: brief.minutes,
     document_id: null,
     payload: {
       optional: true,
-      prompt: isPortuguese
-        ? `${level} · Escreva uma situação real usando uma ideia das suas aulas atuais. Inclua pelo menos duas frases e um detalhe concreto. Sua prática é salva sem nota automática.`
-        : `${level} · Write a real situation using an idea from your current classes. Include at least two sentences and a concrete detail. Your practice is saved without an automatic grade.`,
+      prompt: brief.prompt,
+      writingBrief: brief,
+      writingLevel: level,
     },
     completed_at: null,
   };

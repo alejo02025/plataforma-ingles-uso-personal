@@ -10,12 +10,13 @@ import {
 } from '@/locales/learning/routine-context';
 import { contextualReadings } from '@/locales/learning/routine-reading-v2';
 import { isPortuguese } from './workspace';
+import { sentenceWorkshop } from '@/locales/learning/sentence-workshop';
 import { normalizeAnswer } from './games';
 import type { Result } from './types';
 export type RoutineMode = 'vocabulary' | 'grammar' | 'reading';
 export const routinePassThreshold = (mode: RoutineMode) => (mode === 'reading' ? 0.6 : 0.8);
-export const routineEdition = 2;
-export type RoutineEdition = 1 | 2;
+export const routineEdition = 3;
+export type RoutineEdition = 1 | 2 | 3;
 export const routineTitles: Record<RoutineMode, string> = isPortuguese
   ? {
       vocabulary: 'Descobrir palavras',
@@ -42,6 +43,14 @@ export type RoutineQuestion = {
   scene?: 'home' | 'travel' | 'ideas';
   icon?: string;
   illustrations?: Record<string, string>;
+  format?: 'tiles' | 'choice' | 'gap' | 'transform' | 'correct' | 'recall';
+  source?: string;
+  solutionSpanish?: string;
+  completedModel?: string;
+  accepted?: string[];
+  incorrect?: string[];
+  category?: string;
+  hints?: { native: string; spanish: string }[];
 };
 export type RoutineSet = {
   mode: RoutineMode;
@@ -73,8 +82,39 @@ export function makeRoutine(
     throw new Error('Rutina no disponible.');
   const edition = options.edition ?? routineEdition;
   const variant = options.variant ?? 0;
-  if (![1, 2].includes(edition) || !Number.isInteger(variant) || variant < 0 || variant > 1000)
+  if (![1, 2, 3].includes(edition) || !Number.isInteger(variant) || variant < 0 || variant > 1000)
     throw new Error('Edición de rutina no disponible.');
+  if (edition === 3) {
+    if (mode === 'grammar')
+      return {
+        mode,
+        level,
+        block,
+        edition,
+        variant,
+        rounds: sentenceWorkshop(level, block, variant, pt),
+      };
+    const set = contextualRoutine(mode, level, block, pt, variant);
+    return {
+      ...set,
+      edition,
+      rounds: set.rounds.map((q, i) => ({
+        ...q,
+        ...(mode === 'vocabulary' && i >= 3
+          ? {
+              format: 'recall' as const,
+              prompt: pt
+                ? 'Recupere e escreva a palavra que falta.'
+                : 'Recall and type the missing word.',
+              spanish: 'Recuperá y escribí la palabra que falta. No hay opciones para elegir.',
+              choices: [],
+              why: q.why.split('. Las otras opciones significan:')[0].replace(/[.\s]+$/, '') + '.',
+              completedModel: q.context?.replace('___', q.solution),
+            }
+          : { format: 'choice' as const }),
+      })),
+    };
+  }
   if (edition === 2) return contextualRoutine(mode, level, block, pt, variant);
   const rounds: RoutineQuestion[] = [];
   let text: string | undefined;
@@ -140,13 +180,14 @@ export function routineRecord(r: Result):
       edition: number;
       variant: number;
       helpUsed: boolean;
+      needsReview: boolean;
     }
   | undefined {
   if (!r.activity_id.startsWith('routine:')) return;
   try {
     const x = JSON.parse(r.answers);
     if (
-      [1, 2].includes(x.edition) &&
+      [1, 2, 3].includes(x.edition) &&
       (x.variant === undefined ||
         (Number.isInteger(x.variant) && x.variant >= 0 && x.variant <= 1000)) &&
       ['vocabulary', 'grammar', 'reading'].includes(x.mode) &&
@@ -162,13 +203,101 @@ export function routineRecord(r: Result):
         edition: x.edition,
         variant: x.variant ?? 0,
         helpUsed: x.helpUsed === true,
+        needsReview: Number(x.unverified || 0) > 0,
       };
   } catch {}
 }
 export function routineScore(set: RoutineSet, answers: string[]) {
-  return answers.filter(
-    (s, i) => normalizeAnswer(s) === normalizeAnswer(set.rounds[i]?.solution ?? ''),
-  ).length;
+  return answers.filter((s, i) => set.rounds[i] && routineVerdict(set.rounds[i], s) === 'correct')
+    .length;
+}
+
+/** Deliberately bounded comparison: accents, negation and meaning are never stripped. */
+export function normalizeProduction(text: string): string {
+  const contractions: Record<string, string> = {
+    "i'm": 'i am',
+    "you're": 'you are',
+    "he's": 'he is',
+    "she's": 'she is',
+    "we're": 'we are',
+    "they're": 'they are',
+    "don't": 'do not',
+    "doesn't": 'does not',
+    "didn't": 'did not',
+    "isn't": 'is not',
+    "aren't": 'are not',
+    "wasn't": 'was not',
+    "weren't": 'were not',
+    "haven't": 'have not',
+    "hasn't": 'has not',
+    "hadn't": 'had not',
+    "won't": 'will not',
+    "wouldn't": 'would not',
+    "can't": 'cannot',
+    "couldn't": 'could not',
+  };
+  return normalizeAnswer(
+    text
+      .normalize('NFC')
+      .replace(/[‘’]/g, "'")
+      .replace(/[.!?]+\s*$/, '')
+      .replace(/,/g, ''),
+  ).replace(/\b[a-z]+(?:'[a-z]+)\b/g, (word) => contractions[word] || word);
+}
+export function routineFormat(q: RoutineQuestion, mode: RoutineMode) {
+  return q.format || (mode === 'grammar' ? 'tiles' : 'choice');
+}
+export function routineVerdict(
+  q: RoutineQuestion,
+  answer: string,
+): 'correct' | 'incorrect' | 'unverified' {
+  if (!q.format)
+    return normalizeAnswer(answer) === normalizeAnswer(q.solution) ? 'correct' : 'incorrect';
+  const normalized = normalizeProduction(answer);
+  if (
+    [q.solution, ...(q.accepted || [])].some((value) => normalizeProduction(value) === normalized)
+  ) {
+    // In pt-BR, an unchanged declarative word order needs a written question mark.
+    if (
+      q.solution.endsWith('?') &&
+      /^(Você|Poderíamos)/.test(q.solution) &&
+      !answer.trim().endsWith('?')
+    )
+      return 'unverified';
+    return 'correct';
+  }
+  if (q.format === 'transform' || q.format === 'correct' || q.format === 'recall') {
+    return q.incorrect?.some((value) => normalizeProduction(value) === normalized)
+      ? 'incorrect'
+      : 'unverified';
+  }
+  return 'incorrect';
+}
+export function routineEvaluation(set: RoutineSet, answers: string[]) {
+  const verdicts = set.rounds.map((q, i) => routineVerdict(q, answers[i] || ''));
+  const unverified = verdicts.filter((v) => v === 'unverified').length;
+  return {
+    correct: verdicts.filter((v) => v === 'correct').length,
+    total: verdicts.length - unverified,
+    unverified,
+    verdicts,
+  };
+}
+
+/** Input validity is separate from linguistic correctness; an error must still be saved. */
+export function validRoutineResponse(
+  q: RoutineQuestion,
+  mode: RoutineMode,
+  answer: string,
+): boolean {
+  const format = routineFormat(q, mode);
+  if (!answer.trim() || answer.length > 1000) return false;
+  if (format === 'tiles') {
+    const bag = (s: string) => normalizeAnswer(s).split(' ').sort().join('|');
+    return bag(answer) === bag(q.solution);
+  }
+  if (format === 'choice') return q.choices.includes(answer);
+  return true;
 }
 
 function contextualRoutine(
@@ -216,6 +345,8 @@ function contextualRoutine(
         context: pt ? context.pt : context.en,
         contextSpanish: context.es,
         solution,
+        solutionSpanish: context.es.replace('___', word.es),
+        completedModel: completed,
         choices: choices.map((w) => (pt ? w.pt : w.en)),
         illustrations: recognition
           ? Object.fromEntries(choices.map((w) => [pt ? w.pt : w.en, w.icon]))

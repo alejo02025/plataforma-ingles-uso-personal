@@ -1,7 +1,6 @@
 import type { DatabaseSync } from 'node:sqlite';
 import { z } from 'zod';
-import { makeRoutine, routineScore, routineTitles } from './routine';
-import { normalizeAnswer } from './games';
+import { makeRoutine, routineEvaluation, validRoutineResponse, routineTitles } from './routine';
 import { learningJourney, levelLessons, blockSize } from './course-route';
 import { courseEvidence } from './course-store';
 import { localDay } from './learning';
@@ -13,10 +12,20 @@ export function saveRoutine(db: Pick<DatabaseSync, 'prepare'>, input: unknown, p
       mode: z.enum(['vocabulary', 'grammar', 'reading']),
       level: z.enum(['A1', 'A2', 'B1', 'B2', 'C1', 'C2']),
       block: z.number().int().min(0).max(100),
-      edition: z.union([z.literal(1), z.literal(2)]),
+      edition: z.union([z.literal(1), z.literal(2), z.literal(3)]),
       variant: z.number().int().min(0).max(1000).default(0),
       answers: z.array(z.string().min(1).max(1000)).max(8),
       helpUsed: z.boolean().default(false),
+      support: z
+        .array(
+          z.object({
+            questionId: z.string().max(100),
+            kind: z.enum(['hint', 'translation', 'word']),
+            step: z.number().int().min(0).max(8),
+          }),
+        )
+        .max(100)
+        .default([]),
       seconds: z.number().int().min(0).max(7200),
     })
     .parse(input);
@@ -38,6 +47,7 @@ export function saveRoutine(db: Pick<DatabaseSync, 'prepare'>, input: unknown, p
       responses: p.responses,
       feedback: p.feedback,
       helpUsed: p.helpUsed === true,
+      unverified: p.unverified || 0,
       repeated: true,
     };
   }
@@ -60,19 +70,25 @@ export function saveRoutine(db: Pick<DatabaseSync, 'prepare'>, input: unknown, p
   for (let i = 0; i < x.answers.length; i++) {
     const answer = x.answers[i],
       round = set.rounds[i];
-    if (x.mode === 'grammar') {
-      const tokens = (s: string) => normalizeAnswer(s).split(' ').sort().join('|');
-      if (tokens(answer) !== tokens(round.solution))
-        throw new AppError('Usá todos los bloques de la oración, una sola vez.');
-    } else if (!round.choices.includes(answer))
-      throw new AppError('Elegí una de las opciones de la actividad.');
+    if (!validRoutineResponse(round, x.mode, answer))
+      throw new AppError(
+        x.mode === 'grammar' && !round.format
+          ? 'Usá todos los bloques de la oración, una sola vez.'
+          : 'Elegí una de las opciones de la actividad o escribí una respuesta válida.',
+      );
   }
-  const correct = routineScore(set, x.answers),
-    total = set.rounds.length,
+  if (x.support.some((item) => !set.rounds.some((q) => q.id === item.questionId)))
+    throw new AppError('La ayuda pertenece a otro ejercicio.');
+  const { correct, total, unverified, verdicts } = routineEvaluation(set, x.answers),
+    helpUsed = x.helpUsed || x.support.length > 0,
     date = new Date().toISOString();
   const feedback = set.rounds.map((q, i) => ({
     id: q.id,
-    correct: normalizeAnswer(x.answers[i]) === normalizeAnswer(q.solution),
+    correct: verdicts[i] === 'unverified' ? null : verdicts[i] === 'correct',
+    verdict: verdicts[i],
+    category: q.category || x.mode,
+    context: q.context || q.text || '',
+    source: q.source,
     explanationSpanish: q.why,
     explanationNative: q.explanationNative,
     correction: q.solution,
@@ -106,7 +122,9 @@ export function saveRoutine(db: Pick<DatabaseSync, 'prepare'>, input: unknown, p
       edition: x.edition,
       variant: x.variant,
       responses: x.answers,
-      helpUsed: x.helpUsed,
+      helpUsed,
+      support: x.support,
+      unverified,
       feedback,
     }),
     date,
@@ -121,12 +139,12 @@ export function saveRoutine(db: Pick<DatabaseSync, 'prepare'>, input: unknown, p
     date,
   );
   feedback.forEach((f, i) => {
-    if (!f.correct)
+    if (f.correct === false)
       db.prepare('INSERT INTO mistakes VALUES(?,?,?,?,?,?,?,?,?)').run(
         `${id}:${i}`,
         null,
         id,
-        x.mode,
+        f.category,
         x.answers[i],
         f.correction,
         f.explanationSpanish,
@@ -134,5 +152,5 @@ export function saveRoutine(db: Pick<DatabaseSync, 'prepare'>, input: unknown, p
         date,
       );
   });
-  return { correct, total, responses: x.answers, feedback, helpUsed: x.helpUsed, repeated: false };
+  return { correct, total, unverified, responses: x.answers, feedback, helpUsed, repeated: false };
 }

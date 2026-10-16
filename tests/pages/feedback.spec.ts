@@ -99,6 +99,7 @@ for (const pt of [false, true])
       await page.getByRole('button', { name: 'Começar a prática', exact: true }).click();
       await page.locator('.lesson-check input[value="1"]').check();
       await page.getByRole('button', { name: 'Conferir esta resposta', exact: true }).click();
+      await page.getByText('Por que essa forma?', { exact: true }).click();
       await expect(page.locator('.lesson-feedback p.study-spanish')).toContainText('Con “eu”');
       await expect(page.locator('.lesson-feedback .answer-correction-model')).toContainText('sou');
       await expect(page.locator('.lesson-feedback p.study-native')).toBeVisible();

@@ -24,7 +24,7 @@ for (const pt of [false, true]) {
       page.locator('.today-focus p[lang="' + (pt ? 'pt-BR' : 'en') + '"]'),
     ).toBeVisible();
     await expect(page.locator('.today-journey-bar[role="progressbar"]')).toBeVisible();
-    await expect(page.locator('.mobile-bottom-nav .bottom-emoji')).toHaveCount(5);
+    await expect(page.locator('.mobile-bottom-nav .nav-icon')).toHaveCount(5);
     await page.screenshot({
       path: `artifacts/redesign/qa/lingua-today-${pt ? 'pt' : 'en'}-390.png`,
       fullPage: true,
@@ -52,10 +52,13 @@ for (const pt of [false, true]) {
     await page
       .getByRole('button', { name: pt ? 'Conferir esta resposta' : 'Check this answer' })
       .click();
-    await expect(page.locator('.lesson-tip-popup')).toBeVisible();
-    await page.getByRole('button', { name: pt ? 'Fechar dica' : 'Dismiss tip' }).click();
-    await expect(page.locator('.lesson-tip-popup')).toHaveCount(0);
-    await expect(page.locator('.lesson-prompt-es[lang="es"]')).toBeVisible();
+    const why = page.getByText(pt ? 'Por que essa forma?' : 'Why this form?', { exact: true });
+    if (await why.isVisible()) await why.click();
+    await expect(page.locator('.learning-insight')).toBeVisible();
+    expect(
+      await page.locator('.learning-insight').evaluate((el) => getComputedStyle(el).position),
+    ).toBe('static');
+    await expect(page.locator('.exercise-instruction-es[lang="es"]')).toBeVisible();
     expect(
       await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
     ).toBe(true);
@@ -107,7 +110,7 @@ for (const pt of [false, true]) {
       ).toBe(true);
     }
     await page.setViewportSize({ width: 1440, height: 900 });
-    await expect(page.locator('.sidebar .nav-emoji')).toHaveCount(5);
+    await expect(page.locator('.sidebar .nav-icon')).toHaveCount(5);
     await expect(page.locator('.language-switcher a')).toHaveCount(2);
     await expect(page.locator('.language-switcher')).toBeInViewport();
     await page.locator('.sidebar .nav-primary').getByRole('button').first().click();

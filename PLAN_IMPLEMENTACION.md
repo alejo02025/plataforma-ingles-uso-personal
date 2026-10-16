@@ -1,38 +1,27 @@
-# Implementación de la reconstrucción definitiva
+# Plan de implementación — Language Studio 3.0
 
-Base: `4d78acf`. Rama: `redesign/study-first-2026-10-15`. Publicación autorizada por el usuario, después de PR y verificación.
+Base `82c372d`, rama aislada `feat/language-studio-3`. El [historial anterior](docs/audit-before-os3/PLAN_IMPLEMENTACION.md) permanece disponible.
 
-## Completado en código
+## Trabajo implementado
 
-- [x] Recorrer las aplicaciones públicas actuales y conservar 92 capturas previas.
-- [x] Sustituir dashboard y navegación por cinco áreas y Hoy con una única acción principal.
-- [x] Guardar una agenda finita por fecha dentro de la base existente, sin falsos resultados.
-- [x] Conectar su contador a clases, rutinas, lectura, escritura y repasos guardados.
-- [x] Preservar sesiones, borradores, IDs, IndexedDB, PDFs, vocabulario, checkpoints y sincronización opcional.
-- [x] Mantener finalizado el día tras recargar y cambiar duración.
-- [x] Agrupar herramientas en Clases, Repaso, Biblioteca, Progreso y Ajustes.
-- [x] Unificar entrada de PDFs y conservar importación de texto personal.
-- [x] Limitar catálogo de clases a un bloque de cuatro lecciones sin desactivar requisitos.
-- [x] Conservar guía gramatical libre, oralidad honesta, feedback y material avanzado.
-- [x] Reemplazar CSS acumulado por base compartida y estilos de herramientas.
-- [x] Retirar componentes sin uso comprobado; conservar bibliotecas de datos y pruebas relevantes.
-- [x] Corregir localización de navegación, ayudas fuera de pantalla, selectores y recuperación de agenda dañada.
-- [x] Ampliar el pipeline a toda la regresión estática y al recorrido del servidor.
+1. Inspección del código actual y ejecución pública EN/PT a siete tamaños; 252 capturas anteriores y registro de defectos.
+2. Tokens y tipografía Inter, Hoy, navegación, clases enfocadas, guía gramatical y componentes de interacción compartidos.
+3. Edición 3 de ejercicios, variantes explícitas, primera respuesta, ayudas y resultados no verificables separados.
+4. Traducciones editoriales, guía siempre disponible, consignas progresivas de escritura y cuaderno conectado de errores.
+5. Eliminación de una escena decorativa sin importadores; consolidación de estilos existentes, sin otra hoja CSS ni dependencias nuevas.
+6. Fondo ambiental solicitado durante la ejecución, sin interceptar acciones, con movimiento reducido y control persistente por idioma.
+7. Exportación bilingüe desde una misma instantánea de fuente; pruebas de datos históricos, aislamiento y actualización.
 
 ## Verificación y entrega
 
-El estado ejecutado de pruebas, capturas, PR, integración y despliegue se registra en [RESULTADOS_QA.md](RESULTADOS_QA.md). No se marca una publicación como verificada por haber compilado o subido archivos.
+TypeScript, 122 unitarias, 91 recorridos estáticos, build Node y su recorrido autenticado pasaron. Las capturas candidatas, pull request, checks, integración y publicación se registran con su resultado real en [RESULTADOS_QA.md](RESULTADOS_QA.md). No se confunde compilar con publicar.
 
-La secuencia de entrega es: unitarias y TypeScript → builds EN/PT → regresión completa → build y recorrido autenticado Node → capturas comparativas → PR → checks → integración → regeneración estática → comprobación del sitio público y su versión.
-
-La entrega quedó integrada y publicada: PR #6 y #7, checks completos aprobados, 92 capturas públicas y dos recorridos reales de conservación/aislamiento. Se verificaron la versión servida y los recursos del worker; los límites de la comprobación están en QA.
+Orden: checks locales → build EN/PT → regresión → build y recorrido Node autenticado → revisión visual → PR → CI → integración autorizada → regeneración estática → verificación de assets/SW y recorridos públicos → capturas comparativas finales.
 
 ## Conservación y reversibilidad
 
-No se modifica el esquema ni se borra información del estudiante. La agenda nueva es un payload opcional, exportable y sincronizable mediante los mecanismos existentes. Las preferencias históricas de 5/40 minutos se respetan. Si una agenda está dañada se conserva su contenido anterior dentro del mismo payload al reconstruirla.
+No hay migración SQL ni reset de IndexedDB. Los campos opcionales nuevos se añaden al JSON existente; rutinas 1/2 y borradores históricos conservan su edición. Checkpoints previos y duraciones históricas se respetan. Reenviar un resultado no sustituye la respuesta inicial. Las exportaciones y respaldos siguen disponibles. Revertir código no requiere borrar progreso.
 
-Una reversión de código no requiere resetear bases. Los checkpoints guardados no se reinterpretan como certificados MCER. El diagnóstico no fuerza un cambio de nivel. Las credenciales privadas no se trasladan al sitio estático.
+## Pendientes reales
 
-## Evolución posterior recomendada
-
-Revisión semántica extensa de los bancos avanzados, tareas de transferencia y rúbricas de producción; listening con voces reales; evaluación oral válida si se incorpora tecnología adecuada. Ninguna de esas capacidades se simula en esta reconstrucción.
+Revisión semántica manual completa del catálogo, más contextos originales y distractores avanzados, audio humano, validación acústica si se incorpora tecnología apropiada, evaluación de producciones abiertas y contraste exhaustivo del currículo con descriptores. Ninguno se presenta como ya acreditado.

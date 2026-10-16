@@ -1,0 +1,39 @@
+{
+  "checkedAt": "2026-10-16T16:45:51.553Z",
+  "origin": "http://127.0.0.1:3312/plataforma-ingles-uso-personal/",
+  "method": "Real Settings form and saved profile, disposable Chromium contexts; unretouched screenshots.",
+  "records": [
+    {
+      "language": "en",
+      "width": 1440,
+      "height": 900,
+      "theme": "dark",
+      "savedThroughSettings": true,
+      "errors": []
+    },
+    {
+      "language": "en",
+      "width": 390,
+      "height": 844,
+      "theme": "dark",
+      "savedThroughSettings": true,
+      "errors": []
+    },
+    {
+      "language": "pt-BR",
+      "width": 1440,
+      "height": 900,
+      "theme": "dark",
+      "savedThroughSettings": true,
+      "errors": []
+    },
+    {
+      "language": "pt-BR",
+      "width": 390,
+      "height": 844,
+      "theme": "dark",
+      "savedThroughSettings": true,
+      "errors": []
+    }
+  ]
+}

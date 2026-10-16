@@ -138,7 +138,7 @@ export function Vocabulary({
             palabra.
           </StudyCopy>
           <div className="flash-word">
-            <h2 lang="en">{current.word}</h2>
+            <h2 lang={isPortuguese ? 'pt-BR' : 'en'}>{current.word}</h2>
             <Speak text={current.word} />
           </div>
           {!revealed && (
@@ -200,6 +200,20 @@ export function Vocabulary({
           }
         />
       )}
+      <details className="review-policy">
+        <summary>{isPortuguese ? 'Como funciona esta revisão' : 'How this review works'}</summary>
+        <StudyCopy
+          native={
+            isPortuguese
+              ? 'Esta revisão usa sua autoavaliação de memória. Um acerto lembrado passa de 1 para 3 dias e depois amplia o intervalo; esquecer volta a 1 dia. A prática objetiva de palavras e frases fica separada e não é substituída por essa avaliação.'
+              : 'This review uses your own memory rating. Remembering moves the interval from 1 to 3 days and then extends it; forgetting returns it to 1 day. Objective word and sentence practice is recorded separately and is not replaced by this rating.'
+          }
+        >
+          Este repaso usa tu propia valoración de memoria. Recordar lleva el intervalo de 1 a 3 días
+          y después lo amplía; olvidar vuelve a 1 día. La práctica objetiva de palabras y oraciones
+          se registra aparte y no se reemplaza por esta valoración.
+        </StudyCopy>
+      </details>
       {error && (
         <p className="error" role="alert">
           {error}

@@ -1,0 +1,259 @@
+{
+  "checkedAt": "2026-10-16T16:34:40.361Z",
+  "origin": "http://127.0.0.1:3312/plataforma-ingles-uso-personal/",
+  "scope": "Local Chromium, real UI interactions, disposable profiles; one intentionally incorrect first response, no student data.",
+  "observations": [
+    {
+      "language": "en",
+      "screen": "1-tiles",
+      "width": 1440,
+      "height": 900,
+      "overflow": false
+    },
+    {
+      "language": "en",
+      "screen": "2-gap",
+      "width": 1440,
+      "height": 900,
+      "overflow": false
+    },
+    {
+      "language": "en",
+      "screen": "3-transform",
+      "width": 1440,
+      "height": 900,
+      "overflow": false
+    },
+    {
+      "language": "en",
+      "screen": "4-correct",
+      "width": 1440,
+      "height": 900,
+      "overflow": false
+    },
+    {
+      "language": "en",
+      "screen": "insight-error",
+      "width": 1440,
+      "height": 900,
+      "overflow": false
+    },
+    {
+      "language": "en",
+      "screen": "5-choice",
+      "width": 1440,
+      "height": 900,
+      "overflow": false
+    },
+    {
+      "language": "en",
+      "screen": "6-transform",
+      "width": 1440,
+      "height": 900,
+      "overflow": false
+    },
+    {
+      "language": "en",
+      "screen": "exercise-summary",
+      "width": 1440,
+      "height": 900,
+      "overflow": false
+    },
+    {
+      "language": "en",
+      "screen": "mistake-history",
+      "width": 1440,
+      "height": 900,
+      "overflow": false
+    },
+    {
+      "language": "en",
+      "screen": "1-tiles",
+      "width": 390,
+      "height": 844,
+      "overflow": false
+    },
+    {
+      "language": "en",
+      "screen": "2-gap",
+      "width": 390,
+      "height": 844,
+      "overflow": false
+    },
+    {
+      "language": "en",
+      "screen": "3-transform",
+      "width": 390,
+      "height": 844,
+      "overflow": false
+    },
+    {
+      "language": "en",
+      "screen": "4-correct",
+      "width": 390,
+      "height": 844,
+      "overflow": false
+    },
+    {
+      "language": "en",
+      "screen": "insight-error",
+      "width": 390,
+      "height": 844,
+      "overflow": false
+    },
+    {
+      "language": "en",
+      "screen": "5-choice",
+      "width": 390,
+      "height": 844,
+      "overflow": false
+    },
+    {
+      "language": "en",
+      "screen": "6-transform",
+      "width": 390,
+      "height": 844,
+      "overflow": false
+    },
+    {
+      "language": "en",
+      "screen": "exercise-summary",
+      "width": 390,
+      "height": 844,
+      "overflow": false
+    },
+    {
+      "language": "en",
+      "screen": "mistake-history",
+      "width": 390,
+      "height": 844,
+      "overflow": false
+    },
+    {
+      "language": "pt-BR",
+      "screen": "1-tiles",
+      "width": 1440,
+      "height": 900,
+      "overflow": false
+    },
+    {
+      "language": "pt-BR",
+      "screen": "2-gap",
+      "width": 1440,
+      "height": 900,
+      "overflow": false
+    },
+    {
+      "language": "pt-BR",
+      "screen": "3-transform",
+      "width": 1440,
+      "height": 900,
+      "overflow": false
+    },
+    {
+      "language": "pt-BR",
+      "screen": "4-correct",
+      "width": 1440,
+      "height": 900,
+      "overflow": false
+    },
+    {
+      "language": "pt-BR",
+      "screen": "insight-error",
+      "width": 1440,
+      "height": 900,
+      "overflow": false
+    },
+    {
+      "language": "pt-BR",
+      "screen": "5-choice",
+      "width": 1440,
+      "height": 900,
+      "overflow": false
+    },
+    {
+      "language": "pt-BR",
+      "screen": "6-transform",
+      "width": 1440,
+      "height": 900,
+      "overflow": false
+    },
+    {
+      "language": "pt-BR",
+      "screen": "exercise-summary",
+      "width": 1440,
+      "height": 900,
+      "overflow": false
+    },
+    {
+      "language": "pt-BR",
+      "screen": "mistake-history",
+      "width": 1440,
+      "height": 900,
+      "overflow": false
+    },
+    {
+      "language": "pt-BR",
+      "screen": "1-tiles",
+      "width": 390,
+      "height": 844,
+      "overflow": false
+    },
+    {
+      "language": "pt-BR",
+      "screen": "2-gap",
+      "width": 390,
+      "height": 844,
+      "overflow": false
+    },
+    {
+      "language": "pt-BR",
+      "screen": "3-transform",
+      "width": 390,
+      "height": 844,
+      "overflow": false
+    },
+    {
+      "language": "pt-BR",
+      "screen": "4-correct",
+      "width": 390,
+      "height": 844,
+      "overflow": false
+    },
+    {
+      "language": "pt-BR",
+      "screen": "insight-error",
+      "width": 390,
+      "height": 844,
+      "overflow": false
+    },
+    {
+      "language": "pt-BR",
+      "screen": "5-choice",
+      "width": 390,
+      "height": 844,
+      "overflow": false
+    },
+    {
+      "language": "pt-BR",
+      "screen": "6-transform",
+      "width": 390,
+      "height": 844,
+      "overflow": false
+    },
+    {
+      "language": "pt-BR",
+      "screen": "exercise-summary",
+      "width": 390,
+      "height": 844,
+      "overflow": false
+    },
+    {
+      "language": "pt-BR",
+      "screen": "mistake-history",
+      "width": 390,
+      "height": 844,
+      "overflow": false
+    }
+  ]
+}

@@ -109,7 +109,7 @@ export function WordHelpCloud({
         return;
       }
       if (
-        !target.closest('#main-content') ||
+        !target.closest('#main-content,.routine-session') ||
         target.closest(
           '[lang="es"],input,textarea,select,[contenteditable="true"],a,[data-no-word-help]',
         )
@@ -160,7 +160,7 @@ export function WordHelpCloud({
         if (
           !value ||
           value.length > 70 ||
-          !parent?.closest('#main-content') ||
+          !parent?.closest('#main-content,.routine-session') ||
           parent.closest('[lang="es"],.word-cloud,input,textarea') ||
           !/[\p{L}]/u.test(value)
         )

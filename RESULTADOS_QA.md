@@ -1,44 +1,50 @@
-# Resultados de QA: reconstrucción definitiva
+# QA — Language Studio 3.0
 
-Fecha: 15/10/2026. Rama `redesign/study-first-2026-10-15`, base `4d78acf`. Estado de publicación: **publicado y verificado contra GitHub Pages**. [QA de la revisión anterior, archivada](docs/audit-2026-10-14/RESULTADOS_QA.md).
+Revisión del 16/10/2026, base `82c372d`, rama `feat/language-studio-3`, [PR #18](https://github.com/alejo02025/plataforma-ingles-uso-personal/pull/18). **Implementación y validación local terminadas; CI y publicación pendientes.** [Informes anteriores, conservados](docs/audit-before-os3/).
 
-## Evidencia ejecutada
+## Comprobaciones ejecutadas
 
-- 92 capturas de las dos aplicaciones públicas anteriores en cinco viewports. Sin excepciones JavaScript ni overflow en esas visitas. Método y medidas: [observations.json](artifacts/redesign/before/observations.json).
-- TypeScript aprobado y exportaciones EN/PT compiladas tras la reconstrucción.
-- 111 pruebas unitarias aprobadas, sin omitidas, incluidas agendas finitas, evidencia real, cambio de tiempo, repaso futuro, reconstrucción no destructiva y planes de 15 minutos.
-- La primera regresión completa ejecutó 73 casos: 63 aprobados y 10 fallidos. Se corrigieron acceso a colección guardada, ayuda fuera del viewport, texto accesible visible a 320 px, espacios en etiquetas y recorridos que todavía buscaban controles retirados. Esa pasada no se presenta como aprobada.
-- **77/77** casos aprobados en la regresión completa posterior, sin omitidos. [Salida](artifacts/redesign/qa/static-regression.log).
-- Build de servidor aprobado y **1/1** recorrido autenticado aprobado, incluidos agenda idempotente, rechazo de duración inválida, diagnóstico, PDFs, lectura, exportación y persistencia. Se detectó y corrigió antes una doble lectura del cuerpo del nuevo endpoint; ese intento fallido no cuenta como aprobado. [Salida](artifacts/redesign/qa/server-regression.log).
-- Build estático del candidato: `2026-10-15T20:24:28.129Z`. [Compilación EN/PT](artifacts/redesign/qa/build-pages.log) y [servidor](artifacts/redesign/qa/build-server.log).
-- **92 capturas posteriores** de las áreas y herramientas, sin errores JavaScript ni overflow. [Registro](artifacts/redesign/after/observations.json).
-- En los diez casos idioma×viewport, Start quedó completamente dentro de la primera pantalla. Tras desplazar la página, el contador quedó libre de la barra inferior. La medición usa desplazamiento instantáneo para no tomar un fotograma intermedio de una animación. [Medidas](artifacts/redesign/interaction-metrics.json).
-- Verificación estructural de 262 clases/428 comprobaciones sin incidencias de estructura; revisión semántica manual limitada a doce muestras. [pedagogy.json](artifacts/redesign/pedagogy.json).
+| Comprobación                           | Resultado                                                                                                     |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| TypeScript                             | Aprobado                                                                                                      |
+| Unitarias                              | 122 aprobadas, 0 fallos, 0 omitidas                                                                           |
+| Build estático EN y PT                 | Ambos aprobados, misma instantánea de fuente                                                                  |
+| Build Node                             | Aprobado                                                                                                      |
+| Regresión estática Playwright          | 91 aprobadas, 0 fallos, 0 omitidas                                                                            |
+| Recorrido Node autenticado             | 1 aprobado, 0 fallos                                                                                          |
+| Capturas anteriores públicas           | 252; cero errores de consola/excepciones JS y cero overflow en los estados capturados                         |
+| Capturas candidatas                    | 252; cero errores de consola/excepciones JS y cero overflow                                                   |
+| Interacciones del player/cuaderno      | 36 capturas originales adicionales                                                                            |
+| Tema oscuro guardado desde Ajustes     | 4 capturas adicionales EN/PT, 390/1440 px                                                                     |
+| Entrada en siete tamaños y dos idiomas | 14 casos: Start visible al entrar, contador despejado tras desplazar, sin overflow                            |
+| Catálogo histórico                     | 262 clases y 428 comprobaciones sin defectos estructurales detectados; revisión manual limitada a 12 muestras |
 
-## Qué se prueba
+[Registro local y commit probado](artifacts/redesign/os3-local-verification.json) · [logs y capturas](artifacts/redesign/os3-qa/) · [comparador](artifacts/redesign/os3-comparison.html).
 
-Ambos espacios nuevos; inglés B1 con errores y B2 con checkpoints; portugués A2 con checkpoints; clases pausadas; primeros intentos; rutina con variantes; lectura, escritura, palabras y ayudas; múltiples PDFs, borrado/restauración; sincronización entre dispositivos simulados; autorización fallida; rollback de IndexedDB; arranque con fallo recuperable; offline; grabación del navegador; escucha con apoyo; actualización compartida y caché; controles y estados en móvil/escritorio.
+## Recorridos funcionales
 
-Se añadieron dos regresiones específicas para recuperar borradores de práctica de un nivel anterior después de avanzar: inglés A2→B1 y portugués A1→A2. Ambas se ejecutaron por separado y dentro de la batería completa.
+Las pruebas ejecutan: estudiantes nuevos de inglés/A2 y portugués/A1, perfiles B1 con errores y B2/PT A2 con checkpoints previos; clases abandonadas y retomadas; primeras respuestas, consulta de palabra y pistas registradas; rutinas históricas de edición 2; producción abierta pendiente sin errores inventados; borradores recuperados offline; día finalizado que sigue finalizado tras recarga; PDFs múltiples, posición, preguntas, eliminación y restauración; vocabulario, calendario, temas; errores de autorización/sincronización y reintentos de guardado; cambio visible de idioma y aislamiento; actualización de dos espacios con vocabularios diferentes; permisos de micrófono y grabación en contenedor real del navegador; voz sintética y resultados de listening separados.
 
-Las pruebas de audio usan un dispositivo simulado de Chromium para ejecutar MediaRecorder y comprobar contenedores y persistencia. No se realizó evaluación acústica ni prueba de un micrófono físico. Los servicios GitHub de sincronización se simulan en QA; la publicación del repositorio se verifica por separado contra GitHub real.
+Los dos recorridos nuevos de fondo comprueban movimiento efectivo, ausencia de interceptación de clics, pausa persistente y `prefers-reduced-motion`. El contraste se calcula con las paradas y opacidades CSS reales y sus combinaciones de solapamiento, en claro/oscuro y ambos idiomas: no se limita a tokens sobre una superficie plana.
 
-## Límites
+Los casos de vocabulario verifican que tres respuestas abiertas desconocidas no se conviertan en tres errores confirmados: conservan 0/3 resultados objetivos y tres pendientes. Las ayudas no se presentan como un intento independiente ni borran aprobaciones históricas.
 
-No hay certificación WCAG ni MCER. Se miden contraste de tokens y recorridos concretos, no todos los estados posibles. Los viewports no equivalen a hardware Safari/iPhone real. El tiempo de actividades es estimativo y los resultados de ejercicios no acreditan competencia global. Las pruebas usan bases temporales, no datos privados existentes.
+## Incidencias detectadas y resueltas
 
-Los intentos de descargar el Companion Volume y el buscador oficial fueron bloqueados por el proxy con 403; no se declara esa lectura como realizada. La revisión pedagógica distingue contraste conceptual, inventario automático y muestras inspeccionadas.
+La primera regresión obtuvo 88/89: al expandir el motivo de un acierto en clase se duplicaba el modelo. Se quitó la duplicación y se conservó la prueba que la detectó. La suite final, ampliada a 91, pasa íntegramente. Se corrigieron también la descripción antigua de escritura, el acceso contextual a palabras desde la rutina iniciada fuera de `main`, la evaluación literal de alternativas abiertas y el contraste tras añadir movimiento.
 
-## Publicación comprobada
+Las capturas finales se toman desde arriba con desplazamiento instantáneo. Una captura durante el scroll suave podía dibujar elementos fijos fuera del viewport dentro del PNG completo; se corrigió el método de captura, sin ocultar el enlace accesible de salto ni modificar el contenido de la aplicación.
 
-PR [#6](https://github.com/alejo02025/plataforma-ingles-uso-personal/pull/6) integrado después de la verificación completa; PR [#7](https://github.com/alejo02025/plataforma-ingles-uso-personal/pull/7) corrige la referencia del publicador frente a actualizaciones RSS concurrentes. El primer intento de release se canceló de forma deliberada y fue reemplazado; no se registra como despliegue exitoso.
+## Publicación y CI
 
-El [workflow final](https://github.com/alejo02025/plataforma-ingles-uso-personal/actions/runs/38804119301) aprobó verificación y publicación. Pages construyó el commit `7b059bb81a882cc6e8d45b6ab2b7a30a72a34bc9`. Versión realmente servida: `2026-10-15T20:50:09.219Z`, diferente de `2026-10-15T18:10:11.952Z`. El `RELEASE` del worker coincide. Se descargaron con TLS verificado los 122 archivos de su lista offline y los dos HTML de entrada, todos con respuesta correcta y referencias estáticas presentes. [Prueba de recursos](artifacts/redesign/published-assets.json).
+El PR está en validación. No se presenta como publicado por generar `out/` o subir la rama. Tras integrar se comprobarán la versión pública, el worker, los hashes/bytes de recursos EN/PT, dos recorridos publicados y las capturas de ambas versiones. El resultado de esa comprobación se añadirá aquí.
 
-Se ejecutaron **92 capturas sobre la web pública nueva** en los cinco tamaños, sin excepciones JavaScript ni overflow en esas visitas. [Observaciones](artifacts/redesign/published/observations.json) · [Comparador anterior/publicado](artifacts/redesign/comparison.html). Además, dos recorridos públicos completaron una clase real desde Hoy, comprobaron el contador, recargaron, cambiaron de idioma y confirmaron aislamiento y recuperación. El siguiente acceso abrió otra clase. [Resultados de los recorridos](artifacts/redesign/published-journey.json).
+El PR #17, anterior y todavía abierto, propone una variante de chrome mediante overrides. Se inspeccionó su diff; no contiene datos ni migraciones. No se fusiona automáticamente sobre el sistema nuevo ni se elimina su rama.
 
-Durante las capturas y recorridos públicos el worker permanece bloqueado para permitir el relay TLS del entorno. La disponibilidad de sus archivos sí se verifica contra la web pública; instalación, offline y actualización activa se ejecutaron en los tests locales de Chromium. No se afirma una instalación física de PWA o una evaluación acústica. [Registro de CI](artifacts/redesign/ci-release.json).
+## Cobertura y límites
 
-## Revisión de identidad y errores — 16/10/2026
+Chromium con viewports 320×700, 375×812, 390×844, 768×1024, 1024×768, 1280×800 y 1440×900. Sin iPhone físico ni Safari. Contraste, foco, teclado, etiquetas y estados comprobados no constituyen certificación WCAG. Los tiempos de entrada son de esta máquina, sin throttling; no son Core Web Vitals de usuarios reales.
 
-La última revisión conserva los PR #12/#13 y añade las correcciones del PR #14. TypeScript, 111 unitarias, 81 recorridos estáticos, un recorrido autenticado y dos recorridos públicos aprobados. Se verificaron 92 capturas públicas y todos los recursos del worker del release `2026-10-16T02:08:58.890Z`. [Informe de esta revisión y límites](CORRECCIONES_2026-10-16.md) · [Comparador actual](artifacts/redesign/identity-comparison.html). Las secciones anteriores documentan las entregas previas y no sustituyen esta comprobación.
+El test nuevo de TTS simula voces y eventos: no escucha ni evalúa sonido humano. La prueba MediaRecorder usa el contenedor real de Chromium y un dispositivo de prueba; no acredita una grabación física en iPhone. No hay nota acústica de pronunciación, acento o fluidez. Escritura y respuestas abiertas no reconocidas se guardan con criterios o modelos, sin un corrector humano simulado.
+
+La revisión semántica completa de las 262 clases y de todos los verbos sigue pendiente; resolución de traducciones y comprobación estructural no la sustituyen. Las 24 situaciones nuevas son contenido editorial de práctica, no un examen MCER validado externamente. Más límites específicos en [auditoría general](AUDITORIA_COMPLETA.md).

@@ -8,6 +8,8 @@ import { useStudySession } from './use-session';
 import { Vocabulary } from './vocabulary';
 import { Correction } from './correction';
 import { questionFeedback } from '@/lib/answer-feedback';
+import { isPortuguese } from '@/lib/workspace';
+import { SpanishTranslation } from './study-copy';
 type Feedback = {
   correct: number | null;
   total: number | null;
@@ -110,20 +112,72 @@ export function WritingBox({
         <span>
           {text.trim().split(/\s+/).filter(Boolean).length} words · {saveStatus}
         </span>
-        <Button
-          secondary
-          disabled={!aiAvailable || busy || text.trim().length < 30}
-          onClick={correct}
-        >
-          <Sparkles size={15} />
-          {busy ? 'Reviewing…' : 'Get feedback'}
-        </Button>
+        {aiAvailable && (
+          <Button
+            secondary
+            disabled={!aiAvailable || busy || text.trim().length < 30}
+            onClick={correct}
+          >
+            <Sparkles size={15} />
+            {busy ? 'Reviewing…' : 'Get feedback'}
+          </Button>
+        )}
       </div>
-      <p className="fine-print">
+      <p className="fine-print" hidden={!aiAvailable}>
         {aiAvailable
           ? 'Requesting feedback sends your text and up to five previous error patterns to the configured AI service. Pronunciation is not evaluated.'
           : 'Writing feedback is available with a configured server AI key. You can save your practice without a correction.'}
       </p>
+      {!aiAvailable && (
+        <StudyCopy
+          native={
+            isPortuguese
+              ? 'Seu texto é salvo sem uma nota automática de qualidade. Use os critérios para revisar a própria escrita.'
+              : 'Your text is saved without an automatic quality grade. Use the checklist to review your writing.'
+          }
+        >
+          Tu texto se guarda sin una nota automática de calidad. Usá los criterios para revisar tu
+          escritura.
+        </StudyCopy>
+      )}
+      <details className="writing-checklist">
+        <summary>{isPortuguese ? 'Revisar antes de concluir' : 'Review before finishing'}</summary>
+        <ul>
+          {(
+            activity.payload.writingBrief?.criteria || [
+              {
+                native: isPortuguese
+                  ? 'Respondi à tarefa e acrescentei um detalhe concreto?'
+                  : 'Did I answer the task and add a concrete detail?',
+                spanish: '¿Respondí la consigna y agregué un detalle concreto?',
+              },
+              {
+                native: isPortuguese
+                  ? 'Meus sujeitos, verbos e referências combinam?'
+                  : 'Do my subjects, verbs and references agree?',
+                spanish: '¿Concuerdan los sujetos, verbos y referencias?',
+              },
+              {
+                native: isPortuguese
+                  ? 'Posso explicar a escolha do tempo e dos conectores?'
+                  : 'Can I explain my choice of tense and linkers?',
+                spanish: '¿Puedo explicar por qué elegí esos tiempos y conectores?',
+              },
+            ]
+          ).map((c) => (
+            <li key={c.native}>
+              <StudyCopy as="span" native={c.native}>
+                {c.spanish}
+              </StudyCopy>
+            </li>
+          ))}
+        </ul>
+        <p className="fine-print">
+          {isPortuguese
+            ? 'Autoavaliação, sem nota de domínio.'
+            : 'Self-review, without a proficiency grade.'}
+        </p>
+      </details>
       {error && (
         <p className="error" role="alert">
           {error}
@@ -223,6 +277,12 @@ export function Practice({
           <>
             <div className="prompt" lang="en">
               {activity.payload.prompt}
+              {activity.payload.prompt && (
+                <SpanishTranslation
+                  text={activity.payload.prompt}
+                  spanish={activity.payload.writingBrief?.spanish}
+                />
+              )}
             </div>
             <WritingBox
               activity={activity}

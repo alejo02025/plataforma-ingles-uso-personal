@@ -8,6 +8,7 @@ import {
   type RoutineDraft,
 } from '@/lib/browser/routine-draft';
 import { isPortuguese } from '@/lib/workspace';
+import { writingChallenge } from '@/locales/learning/writing-challenges';
 import type { Snapshot, Activity } from '@/lib/types';
 import { api } from './ui';
 import { RoutineSession } from './routine-session';
@@ -175,7 +176,8 @@ export function RoutinePractice({
               {isPortuguese ? 'Escreva com suas palavras' : 'Write in your own words'}
             </strong>
             <small>
-              {isPortuguese ? '4 min · duas frases pessoais' : '4 min · two personal sentences'}
+              {writingChallenge(journey.level, isPortuguese).minutes} min ·{' '}
+              {isPortuguese ? 'proposta do seu nível' : 'a brief for your level'}
             </small>
           </span>
           <span aria-hidden>→</span>

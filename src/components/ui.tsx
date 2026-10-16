@@ -1,5 +1,8 @@
 'use client';
 import { useState, createContext, useContext } from 'react';
+import { isPortuguese } from '@/lib/workspace';
+import { ExerciseFrame, ChoiceOptions } from './exercise-player';
+import { SpanishTranslation } from './study-copy';
 const EmbeddedHeading = createContext(false);
 export function EmbeddedHeadings({ children }: { children: React.ReactNode }) {
   return <EmbeddedHeading.Provider value={true}>{children}</EmbeddedHeading.Provider>;
@@ -96,33 +99,68 @@ export function QuestionForm({
   onAnswer: (id: string, value: number) => void;
   disabled?: boolean;
 }) {
+  const [index, setIndex] = useState(() =>
+    Math.max(
+      0,
+      questions.findIndex((q) => answers[q.id] === undefined),
+    ),
+  );
+  const at = Math.min(index, Math.max(0, questions.length - 1));
+  const q = questions[at];
+  if (!q) return null;
   return (
-    <div className="questions">
-      {questions.map((q, i) => (
-        <fieldset key={q.id} disabled={disabled}>
+    <div className="questions question-player">
+      <ExerciseFrame
+        key={q.id}
+        count={at + 1}
+        total={questions.length}
+        prompt={
+          isPortuguese
+            ? 'Escolha uma resposta para esta situação.'
+            : 'Choose an answer for this situation.'
+        }
+        spanish="Elegí una respuesta para esta situación."
+      >
+        <fieldset disabled={disabled}>
           <legend>
-            <span className="question-number">{i + 1}</span>
             {q.prompt}
+            <SpanishTranslation text={q.prompt} />
           </legend>
-          <div className="options">
-            {q.options.map((option, index) => (
-              <label key={option} className={`option ${answers[q.id] === index ? 'selected' : ''}`}>
-                <input
-                  type="radio"
-                  name={q.id}
-                  checked={answers[q.id] === index}
-                  onChange={() => onAnswer(q.id, index)}
-                />
-                <span>{option}</span>
-                {answers[q.id] === index && <Check size={16} />}
-              </label>
-            ))}
-          </div>
+          <ChoiceOptions
+            options={q.options}
+            value={answers[q.id] ?? -1}
+            disabled={disabled}
+            onChange={(value) => onAnswer(q.id, value)}
+          />
         </fieldset>
-      ))}
+      </ExerciseFrame>
+      {questions.length > 1 && (
+        <div className="question-player-navigation">
+          <button
+            className="text-link"
+            disabled={at === 0}
+            onClick={() => setIndex((n) => Math.max(0, n - 1))}
+          >
+            {isPortuguese ? 'Pergunta anterior' : 'Previous question'}
+          </button>
+          <span className="fine-print">
+            {Object.keys(answers).filter((id) => questions.some((q) => q.id === id)).length} /{' '}
+            {questions.length} {isPortuguese ? 'respondidas' : 'answered'}
+          </span>
+          <button
+            className="text-link"
+            disabled={at === questions.length - 1 || answers[q.id] === undefined}
+            onClick={() => setIndex((n) => n + 1)}
+          >
+            {isPortuguese ? 'Próxima pergunta' : 'Next question'}
+            <ArrowRight size={15} />
+          </button>
+        </div>
+      )}
     </div>
   );
 }
+
 export function Speak({ text }: { text: string }) {
   return (
     <button

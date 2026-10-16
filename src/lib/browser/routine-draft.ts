@@ -1,11 +1,11 @@
 import { studyStorage } from '../workspace';
-import { makeRoutine, type RoutineMode } from '../routine';
+import { makeRoutine, routineFormat, validRoutineResponse, type RoutineMode } from '../routine';
 export type RoutineDraft = {
   id: string;
   mode: RoutineMode;
   level: string;
   block: number;
-  edition: 1 | 2;
+  edition: 1 | 2 | 3;
   variant?: number;
   answers: string[];
   choice: string;
@@ -13,6 +13,7 @@ export type RoutineDraft = {
   checked: boolean;
   helpUsed: boolean;
   seconds: number;
+  support?: { questionId: string; kind: 'hint' | 'translation' | 'word'; step: number }[];
 };
 const key = 'routine-draft:v1';
 const indexKey = 'routine-drafts:v2';
@@ -34,7 +35,7 @@ function validateDraft(raw: string | null): RoutineDraft | undefined {
       typeof x.id !== 'string' ||
       !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(x.id) ||
       !['vocabulary', 'grammar', 'reading'].includes(x.mode) ||
-      ![1, 2].includes(x.edition) ||
+      ![1, 2, 3].includes(x.edition) ||
       (x.variant !== undefined &&
         (!Number.isInteger(x.variant) || x.variant < 0 || x.variant > 1000)) ||
       !Number.isInteger(x.block) ||
@@ -62,11 +63,7 @@ function validateDraft(raw: string | null): RoutineDraft | undefined {
     for (let i = 0; i < x.answers.length; i++) {
       const q = set.rounds[i],
         answer = x.answers[i];
-      if (x.mode === 'grammar') {
-        const normalize = (value: string) =>
-          value.toLowerCase().trim().split(/\s+/).sort().join('|');
-        if (normalize(answer) !== normalize(q.solution)) return;
-      } else if (!q.choices.includes(answer)) return;
+      if (!validRoutineResponse(q, x.mode, answer)) return;
     }
     const round = set.rounds[Math.min(x.answers.length, set.rounds.length - 1)];
     if (
@@ -76,11 +73,28 @@ function validateDraft(raw: string | null): RoutineDraft | undefined {
       )
     )
       return;
-    if (x.choice && x.mode !== 'grammar' && !round.choices.includes(x.choice)) return;
+    const format = routineFormat(round, x.mode);
+    if (x.choice && format === 'choice' && !round.choices.includes(x.choice)) return;
+    if (x.choice.length > 1000) return;
+    if (
+      x.support !== undefined &&
+      (!Array.isArray(x.support) ||
+        x.support.length > 100 ||
+        x.support.some(
+          (s: { questionId?: unknown; kind?: unknown; step?: unknown }) =>
+            typeof s?.questionId !== 'string' ||
+            !set.rounds.some((q) => q.id === s.questionId) ||
+            !['hint', 'translation', 'word'].includes(String(s.kind)) ||
+            !Number.isInteger(s.step) ||
+            Number(s.step) < 0 ||
+            Number(s.step) > 8,
+        ))
+    )
+      return;
     if (
       x.checked &&
       x.answers.length < set.rounds.length &&
-      (x.mode === 'grammar' ? x.picked.length !== round.choices.length : !x.choice)
+      (format === 'tiles' ? x.picked.length !== round.choices.length : !x.choice.trim())
     )
       return;
     return x as RoutineDraft;

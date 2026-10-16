@@ -15,8 +15,8 @@ export default function manifest(): MetadataRoute.Manifest {
     scope: `${base}/`,
     display: 'standalone',
     lang: isPortuguese ? 'pt-BR' : 'en',
-    background_color: '#fffaf3',
-    theme_color: isPortuguese ? '#955168' : '#07856f',
+    background_color: '#f7f8f6',
+    theme_color: isPortuguese ? '#7652a6' : '#167568',
     icons: [
       {
         src: `${assetBase}/assets/app/${isPortuguese ? 'portuguese-' : ''}icon-192-v1.png`,

@@ -302,5 +302,85 @@
   "Un modelo básico es sujeto + verbo + complemento: Eu trabalho em casa. Para negar, poné não antes del verbo. Una pregunta de sí/no puede mantener ese orden y cambiar la entonación y el signo final; no hace falta agregar do como en inglés.": [
     "A basic pattern is subject + verb + complement: Eu trabalho em casa. For a negative, put não before the verb. A yes/no question can keep that order and change the intonation and final punctuation; you do not need to add “do” as in English.",
     "Um modelo básico é sujeito + verbo + complemento: Eu trabalho em casa. Para negar, coloque não antes do verbo. Uma pergunta de sim ou não pode manter essa ordem e mudar a entonação e a pontuação final; não é preciso acrescentar “do” como em inglês."
+  ],
+  "Después de can, should y must va el verbo base, sin to. Should aconseja; must expresa una obligación fuerte. Have to cambia con el sujeto y el tiempo. No confundas must not (prohibición) con do not have to (falta de necesidad).": [
+    "After can, should and must, use the base verb without to. Should gives advice; must expresses strong obligation. Have to changes with subject and tense. Must not prohibits; do not have to means there is no necessity.",
+    "Depois de can, should e must, use o verbo base sem to. Should dá um conselho; must expressa obrigação forte. Have to varia com sujeito e tempo. Must not proíbe; do not have to indica ausência de necessidade."
+  ],
+  "Poder expresa posibilidad o permiso; deveria puede aconsejar; precisar de + sustantivo o precisar + infinitivo expresa necesidad. No copies un auxiliar inglés al portugués. La negación va antes del verbo conjugado.": [
+    "Poder expresses possibility or permission; deveria can give advice; precisar de + noun or precisar + infinitive expresses necessity. Do not copy an English auxiliary into Portuguese. Negation precedes the conjugated verb.",
+    "Poder expressa possibilidade ou permissão; deveria pode dar um conselho; precisar de + nome ou precisar + infinitivo expressa necessidade. Não copie um auxiliar inglês para o português. A negação vem antes do verbo conjugado."
+  ],
+  "Una posibilidad futura puede usar if + presente y will + verbo. Una hipótesis sobre el presente usa if + pasado y would. Para un pasado que no ocurrió: if + had + participio, would have + participio. Elegí según el significado; no todos los if hablan del futuro.": [
+    "A possible future can use if + present and will + verb. A hypothetical present uses if + past and would. For an unreal past, use if + had + participle and would have + participle. Choose by meaning: not every if-clause refers to the future.",
+    "Uma possibilidade futura pode usar if + presente e will + verbo. Uma hipótese sobre o presente usa if + passado e would. Para um passado que não aconteceu, use if + had + particípio e would have + particípio. Escolha pelo sentido: nem todo if se refere ao futuro."
+  ],
+  "Para una posibilidad futura: se + futuro do subjuntivo (se tiver). Para una hipótesis sobre el presente: se + imperfeito do subjuntivo y futuro do pretérito (se tivesse, viajaria). Para un pasado distinto: se tivesse estudado, teria passado.": [
+    "For a future possibility, use se + future subjunctive: se tiver. For a hypothetical present, use se + imperfect subjunctive and future-in-the-past: se tivesse, viajaria. For a different past: se tivesse estudado, teria passado.",
+    "Para uma possibilidade futura, use se + futuro do subjuntivo: se tiver. Para uma hipótese sobre o presente, use se + imperfeito do subjuntivo e futuro do pretérito: se tivesse, viajaria. Para um passado diferente: se tivesse estudado, teria passado."
+  ],
+  "La pasiva pone en primer plano a quien recibe la acción: be conjugado + participio. El tiempo aparece en be; el participio conserva su forma. Podés agregar by para mencionar al agente, pero no siempre hace falta.": [
+    "The passive foregrounds the receiver of an action: a form of be + past participle. Be carries the tense; the participle keeps its form. By can introduce the agent, but the agent need not always be named.",
+    "A passiva destaca quem recebe a ação: be conjugado + particípio. O tempo é marcado em be; o particípio mantém sua forma. By pode introduzir o agente, mas nem sempre é necessário mencioná-lo."
+  ],
+  "La pasiva con ser usa ser conjugado + participio, que concuerda con el sujeto en género y número. Con ter en un tiempo compuesto, el participio no hace esa concordancia. Compará as cartas foram enviadas con ela tinha enviado as cartas.": [
+    "The passive with ser uses conjugated ser + a participle agreeing with the subject in gender and number. With ter in a compound tense, the participle does not make that agreement. Compare as cartas foram enviadas with ela tinha enviado as cartas.",
+    "A passiva com ser usa ser conjugado + particípio, que concorda com o sujeito em gênero e número. Com ter em um tempo composto, o particípio não faz essa concordância. Compare as cartas foram enviadas com ela tinha enviado as cartas."
+  ],
+  "Al contar lo que alguien dijo, ajustá pronombres, referencias temporales y, cuando corresponda, tiempos verbales. Said no necesita persona inmediatamente después; told sí: told me. El cambio de tiempo depende del contexto, no de una sustitución automática.": [
+    "When reporting speech, adjust pronouns, time references and tenses when appropriate. Said does not require an immediately following person; told does: told me. Tense change depends on context, not automatic substitution.",
+    "Ao relatar o que alguém disse, ajuste pronomes, referências temporais e, quando necessário, tempos verbais. Said não exige uma pessoa logo depois; told exige: told me. A mudança de tempo depende do contexto, não de uma substituição automática."
+  ],
+  "Para contar lo dicho, podés usar disse que o me disse que. Ajustá persona, tiempo y referencias como hoje/naquele dia según el contexto. No cambies de tiempo de forma mecánica si la información sigue vigente.": [
+    "To report speech, you can use disse que or me disse que. Adjust person, tense and references such as hoje/naquele dia to the context. Do not change tense mechanically when the information remains current.",
+    "Para relatar uma fala, use disse que ou me disse que. Ajuste pessoa, tempo e referências como hoje/naquele dia conforme o contexto. Não mude o tempo mecanicamente quando a informação continua válida."
+  ],
+  "Aprendé el complemento junto al verbo: enjoy + -ing, want + to + verbo. Después de una preposición suele ir -ing. Una forma -ing no constituye por sí sola un tiempo continuo: necesita el contexto o un auxiliar apropiado.": [
+    "Learn a verb together with its complement: enjoy + -ing, want + to + verb. A preposition is usually followed by -ing. An -ing form alone is not a continuous tense: it needs the appropriate context or auxiliary.",
+    "Aprenda o complemento junto com o verbo: enjoy + -ing, want + to + verbo. Depois de uma preposição, costuma vir -ing. Uma forma -ing sozinha não constitui um tempo contínuo: precisa de contexto ou de um auxiliar adequado."
+  ],
+  "Después de gostar de puede ir un infinitivo: gosto de ler. Para una acción en curso, en Brasil es habitual estar + gerúndio: estou lendo. No traslades automáticamente el infinitivo o el gerundio del inglés ni del español.": [
+    "Gostar de can take an infinitive: gosto de ler. In Brazil, estar + gerund is common for an ongoing action: estou lendo. Do not automatically transfer an English or Spanish infinitive or gerund into Portuguese.",
+    "Depois de gostar de pode vir um infinitivo: gosto de ler. Para uma ação em andamento, no Brasil é comum estar + gerúndio: estou lendo. Não copie automaticamente o infinitivo ou o gerúndio do inglês ou do espanhol."
+  ],
+  "Una relativa agrega información sobre un sustantivo. Who suele referirse a personas; which, a cosas. That puede introducir relativas especificativas. Whose expresa posesión. Una relativa explicativa necesita comas y no usa that en este modelo.": [
+    "A relative clause adds information about a noun. Who usually refers to people; which to things. That can introduce defining relatives. Whose expresses possession. A non-defining relative takes commas and does not use that in this pattern.",
+    "Uma relativa acrescenta informação sobre um nome. Who costuma se referir a pessoas; which, a coisas. That pode introduzir relativas restritivas. Whose expressa posse. Uma relativa explicativa leva vírgulas e não usa that neste modelo."
+  ],
+  "Que puede conectar una relativa con personas o cosas. Cujo expresa posesión y concuerda con lo poseído; no lleva un artículo inmediatamente después: cuja filha, no cuja a filha. Diferenciá información necesaria de un comentario explicativo.": [
+    "Que can connect a relative clause to people or things. Cujo expresses possession and agrees with what is possessed; it does not take an immediately following article: cuja filha, not cuja a filha. Distinguish necessary information from an explanatory comment.",
+    "Que pode ligar uma relativa a pessoas ou coisas. Cujo expressa posse e concorda com o que é possuído; não recebe artigo logo depois: cuja filha, não cuja a filha. Diferencie informação necessária de um comentário explicativo."
+  ],
+  "Elegí el conector por la relación: because introduce una causa; however, un contraste; therefore, una consecuencia. Although va con una oración completa y despite, normalmente con un grupo nominal o -ing. Revisá también la puntuación.": [
+    "Choose a linker by the relationship: because introduces a cause; however a contrast; therefore a consequence. Although takes a full clause and despite normally takes a noun phrase or -ing. Check punctuation too.",
+    "Escolha o conector pela relação: because apresenta causa; however, contraste; therefore, consequência. Although recebe uma oração completa; despite, normalmente um grupo nominal ou -ing. Confira também a pontuação."
+  ],
+  "Porque introduce una causa; no entanto, un contraste; portanto, una consecuencia. Embora introduce una concesión y en estos modelos usa subjuntivo. Apesar de puede introducir un grupo nominal: apesar da chuva. Cambiar el conector puede exigir cambiar la estructura.": [
+    "Porque introduces a cause; no entanto, a contrast; portanto, a consequence. Embora introduces a concession and takes the subjunctive in these models. Apesar de can introduce a noun phrase: apesar da chuva. Changing the linker may require changing the structure.",
+    "Porque apresenta uma causa; no entanto, um contraste; portanto, uma consequência. Embora introduz uma concessão e usa subjuntivo nestes modelos. Apesar de pode introduzir um grupo nominal: apesar da chuva. Trocar o conector pode exigir mudar a estrutura."
+  ],
+  "Aprendé combinaciones completas: make a decision, take a break y look after someone. El significado de un phrasal verb no siempre se deduce palabra por palabra. Las posibilidades de separar verbo y partícula dependen del verbo; no apliques una sola regla a todos.": [
+    "Learn whole combinations: make a decision, take a break and look after someone. A phrasal verb's meaning is not always predictable word by word. Whether verb and particle can be separated depends on the verb; there is no single rule for all of them.",
+    "Aprenda combinações completas: make a decision, take a break e look after someone. O sentido de um phrasal verb nem sempre pode ser deduzido palavra por palavra. A possibilidade de separar verbo e partícula depende do verbo; não aplique uma regra única a todos."
+  ],
+  "Aprendé combinaciones naturales completas: tomar uma decisão, fazer uma pausa, cuidar de alguém. Cuidar necesita de en este sentido. La combinación portuguesa no tiene por qué copiar el verbo ni la preposición del español.": [
+    "Learn natural whole combinations: tomar uma decisão, fazer uma pausa, cuidar de alguém. Cuidar requires de in this meaning. A Portuguese combination need not copy the verb or preposition from Spanish.",
+    "Aprenda combinações naturais completas: tomar uma decisão, fazer uma pausa, cuidar de alguém. Cuidar pede de nesse sentido. A combinação portuguesa não precisa copiar o verbo nem a preposição do espanhol."
+  ],
+  "Los pronombres señalan personas y cosas según su función: I/me, she/her, we/us. Los posesivos my/your/her acompañan un sustantivo; mine/yours/hers pueden reemplazarlo. Revisá a quién refiere cada pronombre en el contexto.": [
+    "Pronouns refer to people and things according to their role: I/me, she/her, we/us. Possessives my/your/her accompany a noun; mine/yours/hers can replace one. Check who or what each pronoun refers to in context.",
+    "Os pronomes indicam pessoas e coisas conforme sua função: I/me, she/her, we/us. My/your/her acompanham um nome; mine/yours/hers podem substituí-lo. Confira a quem ou a quê cada pronome se refere no contexto."
+  ],
+  "Las contracciones combinan preposición y artículo: de + o = do, em + a = na. Con pronombres también hay combinaciones como comigo. Você usa tercera persona verbal; me puede aparecer antes del verbo en el habla brasileña. No confundas no portugués con la negación española.": [
+    "Contractions combine a preposition and article: de + o = do, em + a = na. Pronouns also have combinations such as comigo. Você takes a third-person verb; me can precede the verb in Brazilian speech. Do not confuse Portuguese no with Spanish negation.",
+    "As contrações combinam preposição e artigo: de + o = do, em + a = na. Com pronomes há formas como comigo. Você usa terceira pessoa verbal; me pode aparecer antes do verbo na fala brasileira. Não confunda no em português com a negação em espanhol."
+  ],
+  "Be expresa identidad, estado o ubicación según el complemento. Have puede expresar posesión. There is/are introduce existencia, no posesión. No traduzcas tengo hambre como I have hunger: el modelo cotidiano es I am hungry.": [
+    "Be can express identity, state or location depending on its complement. Have can express possession. There is/are introduces existence, not possession. For tengo hambre, the everyday English pattern is I am hungry, not I have hunger.",
+    "Be expressa identidade, estado ou localização conforme o complemento. Have pode expressar posse. There is/are apresenta existência, não posse. Para tengo hambre, o modelo cotidiano é I am hungry, não I have hunger."
+  ],
+  "Ser suele expresar identidad y origen; estar, estados y ubicación. Ter expresa posesión y aparece en expresiones como ter fome. Para existencia, há es invariable; tem se usa mucho en el habla brasileña. Para escritura formal, preferí há en estos ejemplos.": [
+    "Ser usually expresses identity and origin; estar, states and location. Ter expresses possession and appears in expressions such as ter fome. For existence, há is invariant; tem is common in Brazilian speech. In formal writing, prefer há in these examples.",
+    "Ser costuma expressar identidade e origem; estar, estados e localização. Ter expressa posse e aparece em ter fome. Para existência, há é invariável; tem é muito usado na fala brasileira. Na escrita formal, prefira há nestes exemplos."
   ]
 }

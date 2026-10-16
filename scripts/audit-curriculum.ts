@@ -1,4 +1,5 @@
 import { writeFile, mkdir } from 'node:fs/promises';
+import { dirname } from 'node:path';
 import { englishClasses, portugueseClasses } from '../src/locales/lessons/catalog';
 const issues: string[] = [];
 const languages = Object.entries({ en: englishClasses, 'pt-BR': portugueseClasses }).map(
@@ -47,7 +48,8 @@ const report = {
   languages,
   issues,
 };
-await mkdir('artifacts/redesign', { recursive: true });
-await writeFile('artifacts/redesign/pedagogy.json', JSON.stringify(report, null, 2) + '\n');
+const destination = process.argv[2] || 'artifacts/redesign/pedagogy.json';
+await mkdir(dirname(destination), { recursive: true });
+await writeFile(destination, JSON.stringify(report, null, 2) + '\n');
 console.log(JSON.stringify(report));
 if (issues.length) process.exitCode = 1;

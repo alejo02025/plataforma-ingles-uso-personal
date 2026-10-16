@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { ArrowRight, Check, Clock3 } from 'lucide-react';
 import { spanishCopy } from '@/lib/study-copy';
+import { SpanishTranslation } from './study-copy';
 import { isPortuguese, studyStorage } from '@/lib/workspace';
 import { readRoutineDraft } from '@/lib/browser/routine-draft';
 import { readStudyDay, studyTaskDone, type StudyDay, type StudyTask } from '@/lib/daily-study';
@@ -21,6 +22,8 @@ function spanishTaskHelp(task: StudyTask): string {
     return 'Recordá las palabras sin mirar la respuesta y después comprobá.';
   if (task.action.kind === 'activity')
     return 'Leé, comprendé y respondé las preguntas de esta actividad.';
+  if (task.action.kind === 'oral')
+    return 'Escuchá el modelo y respondé sobre el contenido. La pronunciación no se califica.';
   return {
     vocabulary: 'Recordá palabras útiles y practicá cómo usarlas en una oración.',
     grammar: 'Observá cómo se forma la oración y después construí la tuya.',
@@ -55,6 +58,11 @@ export function Today({
       } catch {}
       const saved = await api<StudyDay>('study-day', {
         minutes,
+        canListen:
+          'speechSynthesis' in window &&
+          window.speechSynthesis
+            .getVoices()
+            .some((v) => v.lang.toLowerCase().startsWith(pt ? 'pt' : 'en')),
         paused: draft
           ? { id: draft.id, mode: draft.mode, level: draft.level, block: draft.block }
           : null,
@@ -111,13 +119,24 @@ export function Today({
       }) || [];
   const primary = remaining[0];
   const finished = !!agenda && remaining.length === 0;
-  const taskEmoji = (task: StudyTask) => {
-    const action = task.action;
-    if (action.kind === 'class') return '📚';
-    if (action.kind === 'review') return '🧠';
-    if (action.kind === 'activity') return '📖';
-    return { grammar: '🧩', vocabulary: '💬', reading: '📖', writing: '✍️' }[action.mode];
-  };
+  const support = (task: StudyTask) => task.purposeSpanish || spanishCopy(task.purpose);
+  const todayMistakes = data.mistakes.filter((m) =>
+    data.results.some((r) => r.day === data.day && r.id === m.result_id),
+  );
+  const practicedModel = data.results
+    .filter((r) => r.day === data.day && !agenda?.baseline.includes(r.id))
+    .flatMap((r) => {
+      try {
+        const feedback = JSON.parse(r.answers).feedback;
+        return Array.isArray(feedback)
+          ? feedback
+              .filter((f) => f.correct === true && typeof f.correction === 'string')
+              .map((f) => f.correction as string)
+          : [];
+      } catch {
+        return [];
+      }
+    })[0];
   return (
     <div className="today-screen" data-no-word-help>
       <header className="today-head">
@@ -162,6 +181,30 @@ export function Today({
         <section className="today-finished">
           <Check size={30} />
           <h2>{pt ? 'Você terminou por hoje.' : "You're done for today."}</h2>
+          <ul className="today-done-list">
+            {agenda.tasks.map((task) => (
+              <li key={task.id}>
+                <Check size={16} aria-hidden />
+                {task.title}
+              </li>
+            ))}
+          </ul>
+          {practicedModel && (
+            <div className="today-reflection">
+              <span>{pt ? 'Um modelo que você praticou' : 'A model you practised'}</span>
+              <p lang={pt ? 'pt-BR' : 'en'}>
+                {practicedModel}
+                <SpanishTranslation text={practicedModel} />
+              </p>
+            </div>
+          )}
+          {todayMistakes.length > 0 && (
+            <p className="today-reflection">
+              {pt
+                ? `${todayMistakes.length} respostas para retomar na revisão. Seus erros ficaram salvos.`
+                : `${todayMistakes.length} answers to revisit in review. Your mistakes are saved.`}
+            </p>
+          )}
           <div className="actions">
             <button className="button secondary" onClick={() => navigate('Practice')}>
               {pt ? 'Continuar praticando' : 'Keep practising'}
@@ -184,19 +227,12 @@ export function Today({
                 {primary!.minutes} min
               </span>
             </div>
-            <div className="today-focus-body">
-              <div className="today-focus-copy">
-                <h2>{primary!.title}</h2>
-                <p lang={pt ? 'pt-BR' : 'en'}>{primary!.purpose}</p>
-                <p className="today-primary-spanish" lang="es">
-                  {spanishCopy(primary!.purpose) || spanishTaskHelp(primary!)}
-                </p>
-              </div>
-              <div className="study-cover" aria-hidden="true">
-                <span className="cover-word">{pt ? 'Olá.' : 'Hello.'}</span>
-                <span className="cover-emoji">{taskEmoji(primary!)}</span>
-                <span className="cover-lines" />
-              </div>
+            <div className="today-focus-copy">
+              <h2>{primary!.title}</h2>
+              <p lang={pt ? 'pt-BR' : 'en'}>{primary!.purpose}</p>
+              <p className="today-primary-spanish" lang="es">
+                {support(primary!) || `Orientación: ${spanishTaskHelp(primary!)}`}
+              </p>
             </div>
             <button
               className="button start-button"
@@ -213,17 +249,14 @@ export function Today({
               <div className="today-task-list">
                 {remaining.slice(1, 4).map((task, i) => (
                   <button className="today-task" key={task.id} onClick={() => onTask(task)}>
-                    <span className="task-emoji" aria-hidden>
-                      {taskEmoji(task)}
+                    <span className="task-number" aria-hidden>
+                      {String(i + 2).padStart(2, '0')}
                     </span>
                     <span>
                       <strong>{task.title}</strong>
-                      <small>
-                        <span className="task-number">{String(i + 2).padStart(2, '0')}</span> ·{' '}
-                        {task.minutes} min
-                      </small>
+                      <small>{task.minutes} min</small>
                       <small className="task-spanish" lang="es">
-                        {spanishCopy(task.purpose) || spanishTaskHelp(task)}
+                        {support(task) || `Orientación: ${spanishTaskHelp(task)}`}
                       </small>
                     </span>
                     <ArrowRight size={17} />

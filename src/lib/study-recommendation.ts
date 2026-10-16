@@ -1,8 +1,10 @@
 import { learningJourney, lessonRequirements } from './course-route';
 import { evidenceSummary } from './evidence-summary';
 import { isPortuguese } from './workspace';
+import { nativeCopy } from './study-copy';
 import type { Activity, Snapshot } from './types';
 import { routineTitles, type RoutineMode } from './routine';
+import { writingChallenge } from '@/locales/learning/writing-challenges';
 
 export const studyBudgets = [15, 20, 30, 45] as const;
 const supportedBudgets = [5, 15, 20, 30, 40, 45] as const;
@@ -37,6 +39,7 @@ export function studyRecommendation(
     data.backlog?.find((a) => !a.completed_at) ||
     (data.resumeActivity && !data.resumeActivity.completed_at ? data.resumeActivity : null);
   const repair = journey.repairs[0];
+  const repairNative = repair ? nativeCopy(repair.explanation) : null;
   const nextClass = journey.nextLesson;
   const canOpenClass = nextClass && !lessonRequirements(data, nextClass).some((r) => !r.done);
   const resumable =
@@ -85,7 +88,7 @@ export function studyRecommendation(
       : mode === 'writing'
         ? 'Expresá una idea con tus palabras. El texto queda en tu historial, sin una nota automática de calidad.'
         : 'Conectá palabras, oraciones y comprensión. Es una práctica pendiente de tu bloque.',
-    minutes: 5,
+    minutes: mode === 'writing' ? writingChallenge(journey.level, pt).minutes : 5,
     action: { kind: 'routine', mode } as Action,
     priority: 'practice' as const,
   });
@@ -103,10 +106,14 @@ export function studyRecommendation(
     : repair
       ? {
           title: pt ? 'Reforce o que precisa de atenção' : 'Strengthen what needs attention',
-          reason: pt
-            ? 'Seus resultados recentes indicam que vale rever este ponto antes de uma aula nova.'
-            : 'Your recent results suggest revisiting this point before a new class.',
-          es: repair.explanation,
+          reason: repairNative
+            ? repairNative.split('. ')[0] + '.'
+            : pt
+              ? 'Seus resultados recentes indicam que vale rever este ponto antes de uma aula nova.'
+              : 'Your recent results suggest revisiting this point before a new class.',
+          es: repairNative
+            ? repair.explanation.split('. ')[0] + '.'
+            : 'Tus resultados recientes indican que conviene repasar este punto antes de una clase nueva.',
           minutes: repair.lessonId ? 8 : Math.max(1, repair.activity?.minutes || 5),
           action: (repair.lessonId
             ? { kind: 'class', id: repair.lessonId }

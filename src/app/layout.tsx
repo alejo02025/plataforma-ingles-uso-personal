@@ -1,13 +1,14 @@
 import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
+import { StudioAtmosphere } from '@/components/studio-atmosphere';
 import '../styles/study-modules.css';
 import { isPortuguese, appName, assetBase } from '@/lib/workspace';
 const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
 const studyFont = localFont({
-  src: '../../public/assets/fonts/Nunito.ttf',
+  src: '../../public/assets/fonts/InterVariable.woff2',
   variable: '--font-study',
-  weight: '200 1000',
+  weight: '100 900',
   display: 'swap',
 });
 export const metadata: Metadata = {
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
   },
   appleWebApp: { capable: true, title: appName, statusBarStyle: 'default' },
 };
-export const viewport: Viewport = { themeColor: isPortuguese ? '#704b91' : '#245b45' };
+export const viewport: Viewport = { themeColor: isPortuguese ? '#7652a6' : '#167568' };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
@@ -51,7 +52,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       data-space={isPortuguese ? 'portuguese' : 'english'}
       data-study-language={isPortuguese ? 'pt' : 'en'}
     >
-      <body>{children}</body>
+      <body>
+        <StudioAtmosphere />
+        {children}
+      </body>
     </html>
   );
 }

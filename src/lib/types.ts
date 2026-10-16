@@ -30,6 +30,10 @@ export type Activity = {
     optional?: boolean;
     draft?: string;
     studyDay?: import('./daily-study').StudyDay;
+    writingBrief?: ReturnType<
+      typeof import('../locales/learning/writing-challenges').writingChallenge
+    >;
+    writingLevel?: string;
   };
   completed_at: string | null;
 };

@@ -13,9 +13,11 @@ const browser = await chromium.launch({
 const sizes = [
   [1440, 900],
   [1280, 800],
+  [1024, 768],
   [768, 1024],
   [390, 844],
   [375, 812],
+  [320, 700],
 ];
 const results = [];
 const labels = {
@@ -54,7 +56,7 @@ async function capture(page, name, pt, width, height) {
   await page.evaluate(async () => {
     await document.fonts.ready;
     document.activeElement?.blur();
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   });
   const measurements = await page.evaluate(() => ({
     overflow: document.documentElement.scrollWidth > innerWidth,
@@ -103,6 +105,9 @@ try {
       const page = await context.newPage();
       const errors = [];
       page.on('pageerror', (e) => errors.push(e.message));
+      page.on('console', (message) => {
+        if (message.type() === 'error') errors.push(`Console: ${message.text()}`);
+      });
       await page.goto(origin + (pt ? 'portugues/' : ''), { timeout: 60000 });
       await page.locator('.app-shell').waitFor({ timeout: 60000 });
       const popup = page.locator('.daily-word-popup');
@@ -171,7 +176,7 @@ try {
             .waitFor();
           await capture(page, name, pt, width, height);
         }
-        if ([1440, 390].includes(width)) {
+        if (phase.startsWith('os3-') || [1440, 390].includes(width)) {
           const visit = async (index, tab) => {
             await page
               .getByRole('navigation', { name: pt ? 'Navegação principal' : 'Main navigation' })
@@ -197,6 +202,41 @@ try {
           for (const [name, index, tab] of tools) {
             await visit(index, tab);
             await capture(page, name, pt, width, height);
+            if (name === 'reference' && phase.startsWith('os3-')) {
+              await page.locator('.toolkit-tabs button').nth(1).click();
+              await page.locator('.tense-card').first().locator('summary').click();
+              await capture(page, 'reference-tenses', pt, width, height);
+              await page.locator('.toolkit-tabs button').nth(2).click();
+              await page.locator('.catalog-count').waitFor();
+              await page.locator('.verb-entry').first().waitFor();
+              await page.locator('.verb-entry').first().locator('summary').first().click();
+              await capture(page, 'reference-verbs', pt, width, height);
+              const extra = page.locator('.toolkit-extra');
+              if ((await extra.getAttribute('open')) === null)
+                await extra.locator(':scope > summary').click();
+              const quick = extra.getByRole('button', { name: /Quick reference|Consulta rápida/ });
+              if (await quick.count()) {
+                await quick.click();
+                await page.locator('.grammar-reference-entry').first().locator('summary').click();
+                await capture(page, 'reference-patterns', pt, width, height);
+              } else {
+                await page.locator('.toolkit-tabs button').nth(1).click();
+                await page.locator('.grammar-reference-entry').first().locator('summary').click();
+                await capture(page, 'reference-patterns', pt, width, height);
+              }
+              await extra
+                .getByRole('button', {
+                  name: /Study notes|Notes by level|Notas de estudo|Notas por nível/,
+                })
+                .click();
+              await page.locator('.study-notes select').selectOption('C2');
+              await page
+                .locator('.study-notes .grammar-reference-entry')
+                .first()
+                .locator('summary')
+                .click();
+              await capture(page, 'reference-notes', pt, width, height);
+            }
           }
           await visit(1);
           await page.locator('.class-card').first().click();
