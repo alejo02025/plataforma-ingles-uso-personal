@@ -107,12 +107,12 @@ try {
       path: `${output}/${pt ? 'pt' : 'en'}-saved-class.png`,
       fullPage: true,
     });
-    await page.goto(base + (pt ? '' : 'portugues/'));
+    await page.locator('.language-switcher a:not([aria-current])').click();
     await page
       .locator('.today-completion')
       .filter({ hasText: pt ? '0 of 4' : '0 de 4' })
       .waitFor();
-    await page.goto(base + (pt ? 'portugues/' : ''));
+    await page.locator('.language-switcher a:not([aria-current])').click();
     await progress();
     await nav().getByRole('button').nth(1).click();
     await page.locator('.class-card').nth(1).click();
@@ -127,6 +127,7 @@ try {
       countAfterSave: 1,
       retainedAfterReload: true,
       otherLanguageCount: 0,
+      usedVisibleLanguageSelector: true,
       retainedAfterLanguageRoundTrip: true,
       nextClassTitle: nextTitle,
       pageErrors: errors,

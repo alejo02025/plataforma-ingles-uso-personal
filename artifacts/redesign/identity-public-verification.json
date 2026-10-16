@@ -1,0 +1,55 @@
+{
+  "source": "fdda5a697fd8baf3533f97d0d5e761e19364f7b7",
+  "mergedSource": "2dcc8d7b6c77f1dd67f075ac0132fe2b89345b41",
+  "generatedCommit": "5ad0c3ea4ca5a06d0ed3e79f08481cb7c53c930f",
+  "build": "2026-10-16T02:08:58.890Z",
+  "priorBuild": "2026-10-16T01:54:51.451Z",
+  "unit": 111,
+  "staticRegression": 81,
+  "serverRegression": 1,
+  "publicLearningJourneys": 2,
+  "publicViews": 92,
+  "availableWorkerAssets": 124,
+  "publicPageErrors": 0,
+  "publicHorizontalOverflows": 0,
+  "checkedAt": "2026-10-16T02:10:19.348Z",
+  "ci": [
+    {
+      "id": 38837427438,
+      "url": "https://github.com/alejo02025/plataforma-ingles-uso-personal/actions/runs/38837427438",
+      "head": "fdda5a697fd8baf3533f97d0d5e761e19364f7b7",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "name": "verify",
+          "conclusion": "success"
+        },
+        {
+          "name": "publish",
+          "conclusion": "skipped"
+        }
+      ]
+    },
+    {
+      "id": 38838234311,
+      "url": "https://github.com/alejo02025/plataforma-ingles-uso-personal/actions/runs/38838234311",
+      "head": "2dcc8d7b6c77f1dd67f075ac0132fe2b89345b41",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "name": "verify",
+          "conclusion": "success"
+        },
+        {
+          "name": "publish",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "pages": {
+    "status": "built",
+    "commit": "5ad0c3ea4ca5a06d0ed3e79f08481cb7c53c930f",
+    "updated_at": "2026-10-16T02:10:11Z"
+  }
+}
