@@ -43,6 +43,12 @@ for (const pt of [false, true]) {
     await page.locator('.course-path-step').first().getByRole('button').click();
     await expect(page.locator('.lesson-player-meter[role="progressbar"]')).toBeVisible();
     await expect(page.locator('.lesson-player-close')).toBeVisible();
+    await expect(page.locator('.mobile-bottom-nav')).toBeHidden();
+    await expect(page.locator('.mobile-masthead')).toBeHidden();
+    await expect(page.locator('.workspace-heading h1')).toBeHidden();
+    await expect(page.locator('.workspace-heading .section-tabs')).toBeHidden();
+    await expect(page.locator('.skip-learning-link')).toBeHidden();
+    await expect(page.locator('.workspace-heading .word-help-toggle')).toBeVisible();
     await page
       .getByRole('button', { name: pt ? 'Começar a prática' : 'Start the practice' })
       .click();
