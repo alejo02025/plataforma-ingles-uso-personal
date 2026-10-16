@@ -177,128 +177,68 @@ export function Classes({
         />
       ) : (
         <>
-          <div className="course-toolbar">
-            <label>
-              {isPortuguese ? 'Nível de estudo' : 'Study level'}
-              <select
-                aria-label={isPortuguese ? 'Nível de estudo' : 'Study level'}
-                value={level}
-                onChange={(e) => {
-                  setLevel(e.target.value as typeof suggested);
-                  setBrowseBlock(0);
-                }}
-              >
-                {cefrLevels.map((item) => (
-                  <option
-                    key={item}
-                    value={item}
-                    disabled={item !== route.level && !route.completed.includes(item)}
-                  >
-                    {item}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label>
-              {isPortuguese ? 'Bloco' : 'Block'}
-              <select
-                aria-label={isPortuguese ? 'Bloco' : 'Block'}
-                value={block}
-                onChange={(e) => setBrowseBlock(Number(e.target.value))}
-              >
-                {Array.from({ length: Math.ceil(levelItems.length / blockSize) }, (_, i) => (
-                  <option key={i} value={i}>
-                    {i + 1} / {Math.ceil(levelItems.length / blockSize)}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <span>
-              {levelItems.filter((l) => passedLesson(data, l.id)).length} / {levelItems.length}{' '}
-              {isPortuguese ? 'aulas aprovadas' : 'classes passed'}
-            </span>
-          </div>
-          <div className="course-current">
-            <span className="eyebrow">{isPortuguese ? 'SEU PRÓXIMO PASSO' : 'YOUR NEXT STEP'}</span>
-            <h2>
-              {journey.nextLesson?.title || (isPortuguese ? 'Rever e aplicar' : 'Review and apply')}
-            </h2>
-            <p lang={isPortuguese ? 'pt-BR' : 'en'}>
-              {journey.nextLesson?.goal ||
-                (isPortuguese
-                  ? 'Complete as práticas conectadas antes de avançar.'
-                  : 'Complete the connected practice before moving on.')}
-            </p>
-            <p className="course-current-es" lang="es">
-              {journey.nextLesson?.goal && spanishCopy(journey.nextLesson.goal)
-                ? spanishCopy(journey.nextLesson.goal)
-                : 'Aprendé cómo se usa esta estructura, practicá y después aplicala a tu vida.'}
-            </p>
-            <button
-              className="button"
-              onClick={() => journey.nextLesson && setSelected(journey.nextLesson.id)}
-            >
-              {isPortuguese ? 'Abrir aula' : 'Open class'} <ArrowRight size={17} />
-            </button>
-          </div>
-          <section className="course-guide-shortcut">
-            <span className="course-guide-symbol" aria-hidden="true">🧩</span>
-            <div className="course-guide-copy">
-              <span className="course-guide-kicker">{isPortuguese ? 'GUIA DE GRAMÁTICA' : 'GRAMMAR MADE SIMPLE'}</span>
-              <h3>{isPortuguese ? 'Como formar frases' : 'How to build sentences'}</h3>
-              <p lang={isPortuguese ? 'pt-BR' : 'en'}>{isPortuguese ? 'Sujeito, verbo e complemento. Explore perguntas, negativas e todos os tempos.' : 'Subject, verb and complement. Explore questions, negatives and every tense.'}</p>
-              <p className="study-spanish" lang="es">Aprendé cómo se construyen las oraciones, elegí verbos y compará presente, pasado, futuro y otros tiempos.</p>
+          <div className="course-level-bar">
+            <div className="course-level-heading">
+              <span>{isPortuguese ? 'Seu percurso' : 'Your learning path'}</span>
+              <strong>{level}</strong>
             </div>
-            <button className="course-guide-action" onClick={() => navigate('Language help')}>
-              {isPortuguese ? 'Abrir guia' : 'Open guide'} <ArrowRight size={17}/>
-            </button>
-          </section>
-          <h2 className="list-heading">
-            {level} · {isPortuguese ? 'Bloco' : 'Block'} {block + 1}
-          </h2>
-          <div className="class-grid">
-            {filtered.map((item, index) => {
-              const pending = lessonRequirements(data, item).filter((r) => !r.done);
-              const latest = history.findLast((r) => attempt(r)!.lessonId === item.id);
-              return (
-                <button
-                  className={`class-card ${pending.length ? 'is-locked' : ''} ${latest ? 'is-complete' : ''}`}
-                  aria-label={`${item.title}${pending.length ? ' · Locked' : ''}`}
-                  key={item.id}
-                  onClick={() => setSelected(item.id)}
-                >
-                  <span className="class-card-top">
-                    <span className="class-node-art" aria-hidden="true">{['💬', '🧩', '🎧', '✍️'][index % 4]}</span>
-                    <span className="class-node-meta">
-                      {item.level} · <Clock3 size={13} /> 8 min
-                    </span>
-                    {pending.length ? <LockKeyhole size={23} /> : <BookOpen size={23} />}
-                  </span>
-                  <h2>{item.title}</h2>
-                  <p lang={isPortuguese ? 'pt-BR' : 'en'}>{item.goal}</p>
-                  <p className="class-card-spanish" lang="es">{spanishCopy(item.goal) || 'Leé la explicación, practicá y formá tus propias oraciones.'}</p>
-                  <span className="class-card-bottom">
-                    {pending.length ? (
-                      <>
-                        <LockKeyhole size={15} />
-                        View requirements
-                      </>
-                    ) : latest ? (
-                      <>
-                        <Check size={15} />
-                        {latest.correct} / {latest.total} ·{' '}
-                        {latest.correct === latest.total ? 'Practised' : 'Worth another look'}
-                      </>
-                    ) : (
-                      <>
-                        Open class <ArrowRight size={16} />
-                      </>
-                    )}
-                  </span>
-                </button>
-              );
-            })}
+            <div className="course-level-progress" role="progressbar" aria-label={isPortuguese ? 'Aulas aprovadas' : 'Classes passed'} aria-valuemin={0} aria-valuemax={levelItems.length} aria-valuenow={levelItems.filter((l) => passedLesson(data, l.id)).length}>
+              <span style={{width: `${levelItems.length ? levelItems.filter((l) => passedLesson(data, l.id)).length / levelItems.length * 100 : 0}%`}} />
+            </div>
+            <div className="course-level-controls">
+              <label>{isPortuguese ? 'Nível de estudo' : 'Study level'}
+                <select aria-label={isPortuguese ? 'Nível de estudo' : 'Study level'} value={level} onChange={(e) => { setLevel(e.target.value as typeof suggested); setBrowseBlock(0); }}>
+                  {cefrLevels.map((item) => <option key={item} value={item} disabled={item !== route.level && !route.completed.includes(item)}>{item}</option>)}
+                </select>
+              </label>
+              <label>{isPortuguese ? 'Bloco' : 'Block'}
+                <select aria-label={isPortuguese ? 'Bloco' : 'Block'} value={block} onChange={(e) => setBrowseBlock(Number(e.target.value))}>
+                  {Array.from({length:Math.ceil(levelItems.length / blockSize)},(_,i)=><option key={i} value={i}>{i+1} / {Math.ceil(levelItems.length / blockSize)}</option>)}
+                </select>
+              </label>
+              <small>{levelItems.filter((l) => passedLesson(data, l.id)).length} / {levelItems.length} {isPortuguese ? 'aulas aprovadas' : 'classes passed'}</small>
+            </div>
           </div>
+          <div className="course-chapter">
+            <div className="course-chapter-heading">
+              <span className="eyebrow">{isPortuguese ? 'CAPÍTULO' : 'CHAPTER'} {block+1}</span>
+              <h2>{level} · {isPortuguese ? 'Bloco' : 'Block'} {block+1}</h2>
+              <p lang="es">Avanzá una lección a la vez. Tu progreso se guarda automáticamente.</p>
+            </div>
+            <ol className="course-path">
+              {filtered.map((item,index)=>{
+                const pending=lessonRequirements(data,item).filter((r)=>!r.done);
+                const latest=history.findLast((r)=>attempt(r)!.lessonId===item.id);
+                const passed=Boolean(passedLesson(data,item.id));
+                const current=item.id===journey.nextLesson?.id && level===journey.level && block===journey.block;
+                return <li className={`course-path-step ${passed?'is-passed':current?'is-current':pending.length?'is-locked':''}`} key={item.id}>
+                  <button className="course-path-button class-card" aria-label={`${item.title}${pending.length?' · Locked':''}`} onClick={()=>setSelected(item.id)}>
+                    <span className="course-path-icon" aria-hidden="true">{passed?<Check size={27} strokeWidth={3}/>:pending.length?<LockKeyhole size={23}/>:['💬','🧩','🎧','✍️'][index%4]}</span>
+                    <span className="course-path-body">
+                      <strong>{item.title}</strong>
+                      <span className="course-path-native" lang={isPortuguese?'pt-BR':'en'}>{item.goal}</span>
+                      <span className="course-path-es" lang="es">{spanishCopy(item.goal)||'Leé la explicación y practicá cómo formar tus propias oraciones.'}</span>
+                      <span className="course-path-status">{passed?(isPortuguese?'Concluída':'Completed'):pending.length?(isPortuguese?'Ver requisitos':'View requirements'):current?(isPortuguese?'Próxima aula':'Next lesson'):(isPortuguese?'Abrir aula':'Open lesson')} · 8 min</span>
+                    </span>
+                    <ArrowRight className="course-path-chevron" size={19} aria-hidden="true"/>
+                  </button>
+                </li>;
+              })}
+              <li className="course-path-checkpoint">
+                <span className="course-path-checkpoint-icon" aria-hidden="true">🏁</span>
+                <div>
+                  <strong>{isPortuguese?'Revisão do capítulo':'Chapter checkpoint'}</strong>
+                  <p lang="es">Completá las lecciones y las prácticas de repaso para avanzar.</p>
+                  <button className="text-link" onClick={()=>document.querySelector('.course-requirements')?.scrollIntoView({behavior:'smooth'})}>{isPortuguese?'Ver requisitos':'View requirements'} <ArrowRight size={16}/></button>
+                </div>
+              </li>
+            </ol>
+          </div>
+          <button className="course-guide-inline" onClick={()=>navigate('Language help')}>
+            <span className="course-guide-inline-icon" aria-hidden="true">🧩</span>
+            <span><strong>{isPortuguese?'Como formar frases':'How to build sentences'}</strong><small lang="es">Sujeto, verbo, tiempos verbales, negaciones y preguntas. Ejemplos con traducción.</small></span>
+            <ArrowRight size={19} aria-hidden="true"/>
+          </button>
         </>
       )}
       {!lesson && (
