@@ -39,7 +39,7 @@ export function Library({
   return (
     <>
       <Heading
-        eyebrow="READ WITH PURPOSE"
+        eyebrow={isPortuguese ? 'LEIA COM PROPÓSITO' : 'READ WITH PURPOSE'}
         title={isPortuguese ? 'Leituras' : 'Readings'}
         description={
           isPortuguese ? 'Escolha um texto ou adicione o seu.' : 'Choose a text or add your own.'
