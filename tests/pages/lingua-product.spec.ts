@@ -39,6 +39,12 @@ for (const pt of [false, true]) {
     await expect(page.locator('.review-tools')).toBeVisible();
     await page.locator('.mobile-bottom-nav').getByRole('button').nth(3).click();
     await expect(page.locator('.studio-drop')).toBeVisible();
+    await page.locator('.section-tabs').getByRole('button', { name: pt ? 'Leituras' : 'Readings' }).click();
+    await page.getByRole('button', { name: pt ? 'Adicionar texto' : 'Add text' }).click();
+    await expect(page.getByRole('dialog')).toBeVisible();
+    await expect(page.getByRole('dialog').getByText(pt ? 'Texto em português' : 'Text in English')).toBeVisible();
+    await expect(page.getByRole('dialog').getByRole('button', { name: pt ? 'Fechar importação' : 'Close import' })).toBeVisible();
+    await page.getByRole('dialog').getByRole('button', { name: pt ? 'Fechar importação' : 'Close import' }).click();
     await page.locator('.mobile-bottom-nav').getByRole('button').nth(4).click();
     await expect(page.locator('.progress-overview')).toBeVisible();
 
