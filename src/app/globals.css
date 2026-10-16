@@ -1506,8 +1506,8 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,te
 .lesson-player .lesson-next-actions>button{width:100%;justify-content:center;}
 .lesson-player .lesson-saved>p:first-child{font-size:1.25rem;font-weight:780;}
 @media(max-width:800px){
-  :root[data-exercise-active='lesson'] .mobile-bottom-nav{display:none;}
-  .lesson-player{border:0;border-radius:0;padding:14px 16px 110px;background:var(--surface);min-height:calc(100dvh - 100px);margin:-4px -10px;width:calc(100% + 20px);}
+  /* Keep global navigation reachable during lessons; do not strand a paused session. */
+  .lesson-player{border:0;border-radius:0;padding:14px 16px 110px;background:var(--surface);min-height:calc(100dvh - 100px);margin:0;width:100%;max-width:100%;overflow-x:clip;}
   .lesson-player-close span{font-size:.75rem;}
   .lesson-player .lesson-heading{margin-bottom:18px;}
   .lesson-player .lesson-heading h2{font-size:1.45rem;}
@@ -1559,3 +1559,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,te
  .lesson-player .lesson-tip-popup{padding:13px;border-radius:15px;gap:7px;}
  .lesson-player .lesson-response-dock.has-feedback>button{position:sticky;bottom:0;z-index:1;box-shadow:0 0 0 9px var(--surface);}
 }
+
+/* Guard against legacy long reference strings expanding the lesson viewport. */
+.lesson-player .lesson-focus-content,.lesson-player .lesson-step,.lesson-player .lesson-check,.lesson-player fieldset,.lesson-player legend,.lesson-player blockquote{max-width:100%;min-width:0;overflow-wrap:anywhere;}
+.lesson-player code,.lesson-player pre{white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%;}
