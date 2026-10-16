@@ -221,7 +221,7 @@ function ImportDialog({ refresh, close }: { refresh: () => Promise<void>; close:
             </p>
           )}
           <Button type="submit" disabled={busy}>
-            {busy ? (isPortuguese ? 'Lendo e salvando…' : 'Reading and saving…') : (isPortuguese ? 'Adicionar à biblioteca' : 'Add to my library')}
+            {busy ? (isPortuguese ? 'Lendo e salvando…' : 'Reading and saving…') : (isPortuguese ? 'Adicionar à minha biblioteca' : 'Add to my library')}
             <ArrowUpRight size={16} />
           </Button>
         </form>
