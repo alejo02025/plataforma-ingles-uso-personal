@@ -198,6 +198,7 @@ const ptSpecial: Record<string, Partial<Verb>> = {
     subjunctive: ['repita', 'repita', 'repitamos', 'repitam'],
   },
   construir: {
+    imperfect: ['construía', 'construía', 'construíamos', 'construíam'],
     participle: 'construído',
     futureSubjunctive: ['construir', 'construir', 'construirmos', 'construírem'],
     personalInfinitive: ['construir', 'construir', 'construirmos', 'construírem'],
@@ -213,6 +214,10 @@ const ptSpecial: Record<string, Partial<Verb>> = {
     pastForms: ['saí', 'saiu', 'saímos', 'saíram'],
     subjunctive: ['saia', 'saia', 'saiamos', 'saiam'],
     imperfect: ['saía', 'saía', 'saíamos', 'saíam'],
+  },
+  odiar: {
+    present: ['odeio', 'odeia', 'odiamos', 'odeiam'],
+    subjunctive: ['odeie', 'odeie', 'odiemos', 'odeiem'],
   },
   dormir: {
     present: ['durmo', 'dorme', 'dormimos', 'dormem'],
@@ -283,7 +288,11 @@ function regularPT(word: string): Partial<Verb> {
       : ir
         ? ['i', 'iu', 'imos', 'iram']
         : ['i', 'eu', 'emos', 'eram']
-    ).map((e) => stem + e),
+    ).map(
+      (e, n) =>
+        (ar && n === 0 ? stem.replace(/c$/, 'qu').replace(/g$/, 'gu').replace(/ç$/, 'c') : stem) +
+        e,
+    ),
     formal: ['ei', 'á', 'emos', 'ão'].map((e) => word + e),
     subjunctive: (ar ? ['e', 'e', 'emos', 'em'] : ['a', 'a', 'amos', 'am']).map(
       (e) => subjRoot + e,

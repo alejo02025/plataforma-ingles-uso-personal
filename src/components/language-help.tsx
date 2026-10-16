@@ -41,7 +41,7 @@ export function LanguageHelp({ onOpenLesson }: { onOpenLesson?: (id: string) => 
     </section>
   );
   return (
-    <div className="language-desk">
+    <div className="language-desk" translate="no">
       <Heading
         eyebrow={isPortuguese ? 'ENTENDA E PRATIQUE' : 'LEARN THE PATTERN'}
         title={isPortuguese ? 'Estúdio de gramática' : 'Grammar studio'}
