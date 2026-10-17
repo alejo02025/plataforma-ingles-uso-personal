@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { ArrowRight, Check, Clock3 } from 'lucide-react';
 import { spanishCopy } from '@/lib/study-copy';
 import { SpanishTranslation } from './study-copy';
-import { isPortuguese, studyStorage } from '@/lib/workspace';
+import { isPortuguese, studyStorage, languageConfig } from '@/lib/workspace';
 import { readRoutineDraft } from '@/lib/browser/routine-draft';
 import { readStudyDay, studyTaskDone, type StudyDay, type StudyTask } from '@/lib/daily-study';
 import { studyBudgets, studyBudget, dailyBudgetKey } from '@/lib/study-recommendation';
@@ -142,8 +142,15 @@ export function Today({
       <header className="today-head">
         <div>
           <h1>{pt ? 'Seu plano de hoje' : 'Your plan for today'}</h1>
-          <p>{dateLabel(data.day)}</p>
-          <p className="today-intro" lang="es">Una actividad a la vez. Empezá por la primera y seguí a tu ritmo.</p>
+          <p>
+            {dateLabel(data.day)}{' '}
+            <span className="today-learning-goal">
+              · {pt ? 'Objetivo' : 'Goal'} {languageConfig.goal}
+            </span>
+          </p>
+          <p className="today-intro" lang="es">
+            Una actividad a la vez. Empezá por la primera y seguí a tu ritmo.
+          </p>
         </div>
         <label className="today-duration">
           <span>{pt ? 'Tempo disponível' : 'Time available'}</span>
@@ -229,7 +236,11 @@ export function Today({
               </span>
             </div>
             <div className="today-focus-copy">
-              <p className="today-session-count" role="status">{pt ? `${remaining.length} atividades restantes` : `${remaining.length} activities left`}</p>
+              <p className="today-session-count" role="status">
+                {pt
+                  ? `${remaining.length} atividades restantes`
+                  : `${remaining.length} activities left`}
+              </p>
               <h2>{primary!.title}</h2>
               <p lang={pt ? 'pt-BR' : 'en'}>{primary!.purpose}</p>
               <p className="today-primary-spanish" lang="es">
@@ -241,7 +252,13 @@ export function Today({
               disabled={busy}
               onClick={() => onTask(primary!)}
             >
-              {paused && primary?.action.kind === 'routine' ? (pt ? 'Retomar' : 'Resume') : (pt ? 'Começar agora' : 'Start now')}
+              {paused && primary?.action.kind === 'routine'
+                ? pt
+                  ? 'Retomar'
+                  : 'Resume'
+                : pt
+                  ? 'Começar agora'
+                  : 'Start now'}
               <ArrowRight size={19} />
             </button>
           </section>

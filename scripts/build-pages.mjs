@@ -3,13 +3,14 @@ import { cp, mkdir, writeFile, rm, symlink } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { localizePortuguese } from './localize-portuguese.mjs';
+import { languages } from '../src/locales/languages.ts';
 const build = new Date().toISOString(),
   root = process.cwd(),
   siteRoot = '/plataforma-ingles-uso-personal';
 await rm('out', { recursive: true, force: true });
-for (const language of ['en', 'pt']) {
+for (const [language, config] of Object.entries(languages)) {
   const target = path.join(root, language === 'en' ? '.pages-project' : '.pages-pt-project');
-  const base = siteRoot + (language === 'pt' ? '/portugues' : '');
+  const base = siteRoot + config.path;
   await rm(target, { recursive: true, force: true });
   await mkdir(target, { recursive: true });
   // Both languages use the same frozen source snapshot, even during a local edit/build.

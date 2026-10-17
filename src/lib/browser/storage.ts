@@ -1,11 +1,8 @@
-import { isPortuguese } from '../workspace';
+import { isPortuguese, languageConfig } from '../workspace';
 let opening: Promise<IDBDatabase> | undefined;
 function database() {
   return (opening ||= new Promise<IDBDatabase>((resolve, reject) => {
-    const request = indexedDB.open(
-      isPortuguese ? 'portuguese-os-private-v1' : 'english-os-private-v1',
-      1,
-    );
+    const request = indexedDB.open(languageConfig.database, 1);
     request.onupgradeneeded = () => request.result.createObjectStore('values');
     request.onsuccess = () => resolve(request.result);
     request.onerror = () => {

@@ -346,3 +346,54 @@ a {
     align-items: stretch;
   }
 }
+/* Keep the daily entry action visible before extended explanations on small screens. */
+@media (max-width: 800px) {
+  .today-focus {
+    display: flex;
+    flex-direction: column;
+  }
+  .today-focus-copy {
+    display: contents;
+  }
+  .today-focus-meta {
+    order: 0;
+  }
+  .today-focus .today-session-count {
+    order: 1;
+  }
+  .today-focus h2 {
+    order: 2;
+  }
+  .today-focus .start-button {
+    order: 3;
+    margin-top: 8px;
+    margin-bottom: 22px;
+  }
+  .today-focus-copy > p:not(.today-session-count) {
+    order: 4;
+  }
+  .today-focus-copy > .today-primary-spanish {
+    order: 5;
+  }
+}
+@media (max-width: 400px) {
+  .today-head h1 {
+    font-size: 1.65rem;
+  }
+  .today-head .today-intro {
+    font-size: 0.76rem !important;
+  }
+  .today-focus {
+    padding: 20px;
+  }
+  .today-focus-meta {
+    margin-bottom: 14px;
+  }
+  .today-focus h2 {
+    font-size: 1.55rem;
+    margin-bottom: 12px;
+  }
+  .today-focus .today-session-count {
+    margin-bottom: 8px !important;
+  }
+}
