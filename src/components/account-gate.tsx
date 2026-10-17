@@ -1,6 +1,6 @@
 'use client';
 import { useState, type FormEvent } from 'react';
-import { account, listLocalAccounts, loginLocal, logoutLocal, registerLocal } from '@/lib/browser/local-accounts';
+import { account, loginLocal, logoutLocal, registerLocal } from '@/lib/browser/local-accounts';
 import { EnglishApp } from './english-app';
 export function AccountGate() {
   const [current, setCurrent] = useState(account);
@@ -51,7 +51,6 @@ export function AccountGate() {
         {mode==='login'?'¿No tenés cuenta? Crear una':'Ya tengo cuenta'}
       </button>
       <p className="fine-print">El progreso principal y los PDFs se guardan cifrados en este dispositivo. Algunas preferencias de sesión pueden quedar almacenadas localmente. No se envían a una base de datos externa ni se sincronizan con otros dispositivos. Si borrás los datos del navegador, podés perder el progreso.</p>
-      {listLocalAccounts().length>0 && <p className="fine-print">Cuentas existentes en este navegador: {listLocalAccounts().length}</p>}
     </section>
   </main>;
 }
