@@ -1256,3 +1256,85 @@ html[data-exercise-active='lesson'] .workspace-heading {
 html[data-exercise-active='lesson'] .class-method {
   display: none;
 }
+
+
+/* Simplified personal workspace: focus on one next action, then optional tools. */
+.extra-tools {
+  margin: 18px 0 24px;
+  padding: 0 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.extra-tools summary {
+  min-height: 48px;
+  display: list-item;
+  padding: 12px 4px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.extra-tools-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 0 15px;
+}
+.extra-tools-links button {
+  min-height: 44px;
+  padding: 9px 14px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-weight: 600;
+}
+.extra-tools-links button[aria-current='page'] {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.today-focus {
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgb(20 38 32 / 4%);
+}
+.today-focus .start-button {
+  padding-inline: 24px;
+}
+.today-task {
+  border-radius: 8px;
+  padding-inline: 10px;
+}
+@media (max-width: 800px) {
+  .today-focus .start-button { width: 100%; }
+  .today-next { padding-inline: 2px; }
+  .mobile-bottom-nav button { line-height: 1.15; }
+  .extra-tools { margin-top: 12px; }
+}
+
+/* A single clear route through the daily session, including native-language guidance. */
+.today-intro {
+  max-width: 48ch;
+  margin-top: 8px !important;
+  color: var(--muted);
+  font-size: 0.9rem !important;
+  line-height: 1.5;
+}
+.today-session-count {
+  display: inline-flex;
+  width: fit-content;
+  margin: 0 0 12px !important;
+  padding: 4px 10px;
+  background: var(--accent-soft);
+  border-radius: 99px;
+  color: var(--accent);
+  font-size: 0.8rem !important;
+  font-weight: 650;
+}
+.today-focus-copy {
+  min-width: 0;
+}
+@media (max-width: 800px) {
+  .today-head { align-items: start; }
+  .today-intro { font-size: 0.8rem !important; }
+}
+
+
