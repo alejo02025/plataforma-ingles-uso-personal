@@ -22,6 +22,7 @@ export function AccountGate() {
       setError(failure instanceof Error ? failure.message : 'No se pudo ingresar.');
     } finally { setBusy(false); }
   }
+  if (process.env.NEXT_PUBLIC_DEPLOY_TARGET !== 'github') return <main className="auth-page"><section className="card auth-card"><h1>Acceso local no disponible</h1><p>Las cuentas personales sin servidor están habilitadas únicamente en la versión web estática de English OS. Esta edición requiere autenticación de servidor independiente para evitar que distintas personas compartan la base de datos.</p></section></main>;
   if (current)
     return <>
       <div className="local-account-bar" role="group" aria-label="Cuenta local">
@@ -49,7 +50,7 @@ export function AccountGate() {
       <button type="button" className="text-link" onClick={() => {setError('');setMode(mode==='login'?'register':'login');}}>
         {mode==='login'?'¿No tenés cuenta? Crear una':'Ya tengo cuenta'}
       </button>
-      <p className="fine-print">Los datos se guardan cifrados en este dispositivo. No se envían a una base de datos externa ni se sincronizan con otros dispositivos. Si borrás los datos del navegador, podés perder el progreso.</p>
+      <p className="fine-print">El progreso principal y los PDFs se guardan cifrados en este dispositivo. Algunas preferencias de sesión pueden quedar almacenadas localmente. No se envían a una base de datos externa ni se sincronizan con otros dispositivos. Si borrás los datos del navegador, podés perder el progreso.</p>
       {listLocalAccounts().length>0 && <p className="fine-print">Cuentas existentes en este navegador: {listLocalAccounts().length}</p>}
     </section>
   </main>;
