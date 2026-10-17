@@ -42,7 +42,7 @@
   border-right: 1px solid var(--border);
 }
 .logo-wordmark {
-  letter-spacing: -2px;
+  letter-spacing: -0.06em;
   font-weight: 750;
 }
 .logo-wordmark small {

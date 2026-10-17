@@ -18,7 +18,7 @@ for (const pt of [false, true])
     await page
       .getByLabel(pt ? 'Enviar PDFs' : 'Upload PDFs')
       .setInputFiles({ name: 'Personal-test.pdf', mimeType: 'application/pdf', buffer: makePdf() });
-    await expect(page.getByRole('tab', { name: /Personal-test/ })).toBeVisible();
+    await expect(page.getByRole('tab', { name: /Personal test/ })).toBeVisible();
     await go(page, 'Settings');
     const name = pt ? 'Seu nome' : 'Your name';
     await page.getByLabel(name, { exact: true }).fill('Backup fixture');
@@ -66,7 +66,7 @@ for (const pt of [false, true])
     await expect(phone.getByLabel(name, { exact: true })).toHaveValue('Backup fixture');
     await expect(phone.locator('input[type="password"]')).toHaveCount(0);
     await go(phone, 'PDF Studio');
-    await phone.getByRole('tab', { name: /Personal-test/ }).click();
+    await phone.getByRole('tab', { name: /Personal test/ }).click();
     await phone.locator('.studio-outline summary').click();
     await phone
       .getByRole('button', { name: pt ? 'Abrir leitor completo' : 'Open full reader', exact: true })

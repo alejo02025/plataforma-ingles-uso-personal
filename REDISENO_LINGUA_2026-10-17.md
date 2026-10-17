@@ -27,7 +27,7 @@ El respaldo `lingua-local-backup` incluye registros, PDFs y audio, separados por
 
 - Instalación de dependencias completada con Node 24.
 - TypeScript sin errores.
-- 130 pruebas unitarias sin fallos, incluida validación de respaldos.
+- 131 pruebas unitarias sin fallos, incluida validación de respaldos.
 - Tres pruebas de formato de respaldo también ejecutadas con el espacio de portugués.
 - Compilación estática de inglés y portugués y compilación de la edición histórica de servidor verificadas localmente.
 - La PR ejecuta la suite completa de 94 pruebas de navegador, más las pruebas de servidor. No se han desactivado suites para publicar; se actualizaron expectativas de navegación obsoletas y se sustituyeron los escenarios de sincronización retirada por restauración local, errores de guardado y rechazo entre idiomas.
