@@ -141,13 +141,13 @@ export function Today({
     <div className="today-screen" data-no-word-help>
       <header className="today-head">
         <div>
-          <h1>{pt ? 'Hoje' : 'Today'}</h1>
+          <h1>{pt ? 'Seu plano de hoje' : 'Your plan for today'}</h1>
           <p>{dateLabel(data.day)}</p>
         </div>
         <label className="today-duration">
-          <span>{pt ? 'Tempo de estudo' : 'Study time'}</span>
+          <span>{pt ? 'Tempo disponível' : 'Time available'}</span>
           <select
-            aria-label={pt ? 'Tempo de estudo' : 'Study time'}
+            aria-label={pt ? 'Tempo disponível' : 'Time available'}
             disabled={busy}
             value={agenda?.minutes || data.profile.daily_minutes}
             onChange={(e) => void load(Number(e.target.value))}
@@ -221,7 +221,7 @@ export function Today({
             aria-label={pt ? 'Atividade principal' : 'Main activity'}
           >
             <div className="today-focus-meta">
-              <span>{pt ? 'Sua próxima atividade' : 'Your next activity'}</span>
+              <span>{pt ? 'Comece por aqui' : 'Start here'}</span>
               <span>
                 <Clock3 size={15} />
                 {primary!.minutes} min
@@ -239,13 +239,13 @@ export function Today({
               disabled={busy}
               onClick={() => onTask(primary!)}
             >
-              {pt ? 'Começar' : 'Start'}
+              {pt ? 'Começar agora' : 'Start now'}
               <ArrowRight size={19} />
             </button>
           </section>
           {remaining.length > 1 && (
             <section className="today-next" aria-labelledby="next-title">
-              <h2 id="next-title">{pt ? 'Depois, no seu ritmo' : 'Then, at your own pace'}</h2>
+              <h2 id="next-title">{pt ? 'Próximos passos' : 'Up next'}</h2>
               <div className="today-task-list">
                 {remaining.slice(1, 4).map((task, i) => (
                   <button className="today-task" key={task.id} onClick={() => onTask(task)}>
