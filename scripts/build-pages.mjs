@@ -7,6 +7,8 @@ import { languages } from '../src/locales/languages.ts';
 const build = new Date().toISOString(),
   root = process.cwd(),
   siteRoot = '/plataforma-ingles-uso-personal';
+const sourceCommit =
+  spawnSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).stdout?.trim() || null;
 await rm('out', { recursive: true, force: true });
 for (const [language, config] of Object.entries(languages)) {
   const target = path.join(root, language === 'en' ? '.pages-project' : '.pages-pt-project');
@@ -33,7 +35,7 @@ for (const [language, config] of Object.entries(languages)) {
     await mkdir(path.join(target, 'public/assets'), { recursive: true });
     await writeFile(
       path.join(target, 'public/assets/version.json'),
-      JSON.stringify({ build }) + '\n',
+      JSON.stringify({ build, sourceCommit }) + '\n',
     );
     for (const [from, to] of [
       ['node_modules/@wllama/wllama/esm/wasm/wllama.wasm', 'local-ai/wllama.wasm'],

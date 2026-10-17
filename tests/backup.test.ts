@@ -12,7 +12,10 @@ function sample() {
     manifest: {
       version: 1,
       workspace: workspaceId,
-      data: Object.fromEntries(tables.map((t) => [t, []])),
+      data: {
+        ...Object.fromEntries(tables.map((t) => [t, []])),
+        profile: [{ id: 1, name: 'Fixture', theme: 'light', interests: '[]' }],
+      },
     },
     attachments: [
       { key: 'file:123-test.pdf', kind: 'bytes', mime: 'application/pdf', base64: 'JVBERg==' },
@@ -55,4 +58,17 @@ test('invalid versions, dangerous storage keys, corrupt base64 and duplicates ar
     parseLocalBackup({ ...backup, attachments: [backup.attachments[0], backup.attachments[0]] }),
   );
   assert.throws(() => parseLocalBackup({ ...backup, manifest: { version: 1, data: {} } }));
+});
+
+test('local restore refuses corrupt profile and JSON before any database changes', () => {
+  const backup = sample();
+  assert.throws(() =>
+    parseLocalBackup({
+      ...backup,
+      manifest: { ...backup.manifest, data: { ...backup.manifest.data, profile: [] } },
+    }),
+  );
+  const corrupt = structuredClone(backup);
+  corrupt.manifest.data.profile[0].interests = 'invalid-json';
+  assert.throws(() => parseLocalBackup(corrupt));
 });

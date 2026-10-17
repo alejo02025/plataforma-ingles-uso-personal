@@ -165,7 +165,7 @@ export function restore(input: unknown) {
 }
 let queue: Promise<unknown> = Promise.resolve();
 export function exclusive<T>(fn: () => Promise<T> | T): Promise<T> {
-  const next = queue.then(fn);
+  const next = queue.then(() => fn());
   queue = next.catch(() => {});
   return next;
 }

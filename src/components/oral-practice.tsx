@@ -9,6 +9,7 @@ import type { Snapshot } from '@/lib/types';
 import { api, Button, Heading, Speak } from './ui';
 import { StudyCopy } from './study-copy';
 import { Correction } from './correction';
+import { pronunciationNotes } from '@/locales/learning/pronunciation-notes';
 
 function Copy({ en, pt, es }: { en: string; pt: string; es: string }) {
   return <StudyCopy native={isPortuguese ? pt : en}>{es}</StudyCopy>;
@@ -693,6 +694,25 @@ export function OralPractice({
           </article>
         ))}
       </section>
+      <details className="pronunciation-guide">
+        <summary>{pt ? 'Sons para observar' : 'Sounds to notice'}</summary>
+        <p lang="es">
+          Escuchá un modelo local, grabá la misma frase y compará. Esta guía no evalúa tu
+          pronunciación.
+        </p>
+        {pronunciationNotes[pt ? 'pt' : 'en'].map((note) => (
+          <article key={note.title}>
+            <h3 lang={pt ? 'pt-BR' : 'en'}>{note.title}</h3>
+            <p lang={pt ? 'pt-BR' : 'en'}>{note.native}</p>
+            <p lang="es" className="study-spanish">
+              {note.spanish}
+            </p>
+            <blockquote lang={pt ? 'pt-BR' : 'en'}>
+              {note.example} <Speak text={note.example} />
+            </blockquote>
+          </article>
+        ))}
+      </details>
     </div>
   );
 }

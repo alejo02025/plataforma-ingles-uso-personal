@@ -87,6 +87,18 @@ for (const pt of [false, true])
       path: `artifacts/redesign/qa/lingua-${pt ? 'pt' : 'en'}-desktop.png`,
       fullPage: true,
     });
+    // A backup from the other language is rejected before replacement is offered.
+    await phone.locator('.language-switcher a:not([aria-current])').click();
+    await ready(phone);
+    await go(phone, 'Settings');
+    await phone
+      .getByLabel(!pt ? 'Restaurar cópia' : 'Restore backup', { exact: true })
+      .setInputFiles(path!);
+    await expect(phone.locator('.local-backup [role="alert"]')).toContainText('otro idioma');
+    await expect(phone.getByRole('dialog')).toHaveCount(0);
+    await expect(phone.getByLabel(!pt ? 'Seu nome' : 'Your name', { exact: true })).toHaveValue(
+      pt ? 'Alejo' : 'Jazmín',
+    );
     expect(external).toEqual([]);
     await context.close();
   });
