@@ -214,12 +214,12 @@ export function EnglishApp() {
               : 'today';
   const destinations = [
     { area: 'today', target: 'Home', label: pt ? 'Hoje' : 'Today', icon: CalendarDays },
-    { area: 'classes', target: 'Classes', label: pt ? 'Aulas' : 'Classes', icon: BookOpen },
-    { area: 'review', target: 'Vocabulary', label: pt ? 'Revisão' : 'Review', icon: RotateCcw },
+    { area: 'classes', target: 'Classes', label: pt ? 'Aprender' : 'Learn', icon: BookOpen },
+    { area: 'review', target: 'Practice', label: pt ? 'Praticar' : 'Practice', icon: RotateCcw },
     {
       area: 'library',
       target: 'PDF Studio',
-      label: pt ? 'Biblioteca' : 'Library',
+      label: pt ? 'Materiais' : 'Materials',
       icon: LibraryBig,
     },
     {
@@ -231,23 +231,21 @@ export function EnglishApp() {
   ];
   const groups: Record<string, { target: string; label: string }[]> = {
     classes: [
-      { target: 'Classes', label: pt ? 'Percurso' : 'Course' },
-      { target: 'Language help', label: pt ? 'Guia de idioma' : 'Language reference' },
+      { target: 'Classes', label: pt ? 'Minhas aulas' : 'My lessons' },
+      { target: 'Language help', label: pt ? 'Gramática e frases' : 'Grammar & phrases' },
     ],
     review: [
-      { target: 'Vocabulary', label: pt ? 'Palavras' : 'Words' },
-      { target: 'Errors', label: pt ? 'Meus erros' : 'My mistakes' },
-      { target: 'Practice', label: pt ? 'Prática' : 'Practice' },
-      { target: 'Games', label: pt ? 'Jogos' : 'Games' },
-      { target: 'Oral practice', label: pt ? 'Ouvir e gravar' : 'Listen & record' },
+      { target: 'Practice', label: pt ? 'Exercícios' : 'Exercises' },
+      { target: 'Oral practice', label: pt ? 'Falar e ouvir' : 'Speak & listen' },
+      { target: 'Vocabulary', label: pt ? 'Palavras' : 'Vocabulary' },
     ],
     library: [
-      { target: 'PDF Studio', label: pt ? 'Meus arquivos' : 'My files' },
+      { target: 'PDF Studio', label: pt ? 'Meus PDFs' : 'My PDFs' },
       { target: 'Library', label: pt ? 'Leituras' : 'Readings' },
       { target: 'News', label: pt ? 'Notícias' : 'News' },
     ],
     progress: [
-      { target: 'Progress', label: pt ? 'Visão geral' : 'Overview' },
+      { target: 'Progress', label: pt ? 'Minha evolução' : 'My progress' },
       { target: 'Calendar', label: pt ? 'Calendário' : 'Calendar' },
     ],
   };
@@ -389,6 +387,15 @@ export function EnglishApp() {
               </nav>
             )}
           </header>
+          {area === 'review' && !active && (
+            <details className="extra-tools">
+              <summary>{pt ? 'Mais opções de prática' : 'More practice options'}</summary>
+              <div className="extra-tools-links">
+                <button onClick={() => void navigate('Errors')} aria-current={view === 'Errors' ? 'page' : undefined}>{pt ? 'Meus erros' : 'My mistakes'}</button>
+                <button onClick={() => void navigate('Games')} aria-current={view === 'Games' ? 'page' : undefined}>{pt ? 'Jogos' : 'Games'}</button>
+              </div>
+            </details>
+          )}
           <EmbeddedHeadings>
             {active ? (
               active.kind === 'reading' && doc ? (
