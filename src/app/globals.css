@@ -1336,3 +1336,32 @@ html[data-exercise-active='lesson'] .class-method {
   .today-head { align-items: start; }
   .today-intro { font-size: 0.8rem !important; }
 }
+
+
+/* English-only local account entry. Does not affect the Portuguese workspace. */
+.local-account-login { max-width: 440px; }
+.local-account-login h1 { margin-top: 14px; }
+.local-account-login form { display: grid; gap: 4px; }
+.local-account-login .button { width: 100%; }
+.local-account-login .fine-print { line-height: 1.55; }
+.local-account-bar {
+  position: relative;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 7px 24px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  font-size: .76rem;
+}
+.local-account-bar span { overflow-wrap: anywhere; }
+.local-account-bar small { color: var(--muted); }
+.local-account-bar button { font-weight: 650; color: var(--accent); min-height: 32px; }
+.local-account-bar button:focus-visible { outline-offset: 1px; }
+@media(max-width:800px) {
+ .local-account-bar { padding: 6px 12px; font-size: .69rem; }
+ .local-account-login { padding: 20px; }
+}
