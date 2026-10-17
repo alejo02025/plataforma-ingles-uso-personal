@@ -92,8 +92,8 @@ for (const pt of [false, true]) {
     await offlineReady(page);
     await go(page, 'Home');
     await page
-      .getByLabel(pt ? 'Tempo de estudo' : 'Study time', { exact: true })
-      .selectOption('15');
+      .getByLabel(pt ? 'Tempo disponível' : 'Time available', { exact: true })
+      .selectOption('30');
     await page
       .locator('.today-task')
       .filter({ hasText: pt ? 'Construa frases' : 'Build sentences' })
