@@ -1309,3 +1309,30 @@ html[data-exercise-active='lesson'] .class-method {
   .mobile-bottom-nav button { line-height: 1.15; }
   .extra-tools { margin-top: 12px; }
 }
+
+/* A single clear route through the daily session, including native-language guidance. */
+.today-intro {
+  max-width: 48ch;
+  margin-top: 8px !important;
+  color: var(--muted);
+  font-size: 0.9rem !important;
+  line-height: 1.5;
+}
+.today-session-count {
+  display: inline-flex;
+  width: fit-content;
+  margin: 0 0 12px !important;
+  padding: 4px 10px;
+  background: var(--accent-soft);
+  border-radius: 99px;
+  color: var(--accent);
+  font-size: 0.8rem !important;
+  font-weight: 650;
+}
+.today-focus-copy {
+  min-width: 0;
+}
+@media (max-width: 800px) {
+  .today-head { align-items: start; }
+  .today-intro { font-size: 0.8rem !important; }
+}
