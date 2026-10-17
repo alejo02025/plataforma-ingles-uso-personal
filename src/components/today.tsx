@@ -143,6 +143,7 @@ export function Today({
         <div>
           <h1>{pt ? 'Seu plano de hoje' : 'Your plan for today'}</h1>
           <p>{dateLabel(data.day)}</p>
+          <p className="today-intro" lang="es">Una actividad a la vez. Empezá por la primera y seguí a tu ritmo.</p>
         </div>
         <label className="today-duration">
           <span>{pt ? 'Tempo disponível' : 'Time available'}</span>
@@ -228,6 +229,7 @@ export function Today({
               </span>
             </div>
             <div className="today-focus-copy">
+              <p className="today-session-count" role="status">{pt ? `${remaining.length} atividades restantes` : `${remaining.length} activities left`}</p>
               <h2>{primary!.title}</h2>
               <p lang={pt ? 'pt-BR' : 'en'}>{primary!.purpose}</p>
               <p className="today-primary-spanish" lang="es">
@@ -239,7 +241,7 @@ export function Today({
               disabled={busy}
               onClick={() => onTask(primary!)}
             >
-              {pt ? 'Começar agora' : 'Start now'}
+              {paused && primary?.action.kind === 'routine' ? (pt ? 'Retomar' : 'Resume') : (pt ? 'Começar agora' : 'Start now')}
               <ArrowRight size={19} />
             </button>
           </section>
