@@ -83,7 +83,7 @@ test('a fresh explicit link does not replay an older refresh request', async ({ 
     localStorage.setItem('/plataforma-ingles-uso-personal:app-refresh', 'old-request'),
   );
   await page.goto('./?updated=fresh-link');
-  await expect(page.locator('.today-head h1')).toHaveText('Today');
+  await expect(page.locator('.today-head h1')).toHaveText('Your plan for today');
   await page.waitForTimeout(5500);
   expect(new URL(page.url()).searchParams.get('updated')).toBe('fresh-link');
 });

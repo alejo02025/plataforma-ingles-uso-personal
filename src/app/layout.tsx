@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
-import { StudioAtmosphere } from '@/components/studio-atmosphere';
+
 import '../styles/study-modules.css';
+import '../styles/lingua.css';
 import { isPortuguese, appName, assetBase } from '@/lib/workspace';
 const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
 const studyFont = localFont({
@@ -13,10 +14,10 @@ const studyFont = localFont({
 });
 export const metadata: Metadata = {
   title: isPortuguese
-    ? 'Português OS · O espaço da Jazmín'
-    : 'English OS · Your English, every day',
+    ? 'lingua · Português brasileiro'
+    : 'lingua · English, every day',
   description: isPortuguese
-    ? 'O espaço da Jazmín para ler, conversar e aprender português do Brasil.'
+    ? 'Seu espaço pessoal para ler, praticar e aprender português do Brasil.'
     : 'Your personal space for reading, practice, and progress in English.',
   applicationName: appName,
   manifest: `${base}/manifest.webmanifest`,
@@ -53,7 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       data-study-language={isPortuguese ? 'pt' : 'en'}
     >
       <body>
-        <StudioAtmosphere />
+
         {children}
       </body>
     </html>
