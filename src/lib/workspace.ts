@@ -12,12 +12,14 @@ export const siteRoot =
   process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github'
     ? process.env.NEXT_PUBLIC_SITE_ROOT || '/plataforma-ingles-uso-personal'
     : 'https://alejo02025.github.io/plataforma-ingles-uso-personal';
+import { account } from './browser/local-accounts';
+const studyKey = (key: string) => isPortuguese ? `portuguese:${key}` : `english-account:${account()?.id || 'locked'}:${key}`;
 export const studyStorage = {
   getItem(key: string) {
-    return localStorage.getItem(isPortuguese ? `portuguese:${key}` : key);
+    return localStorage.getItem(studyKey(key));
   },
   setItem(key: string, value: string) {
-    localStorage.setItem(isPortuguese ? `portuguese:${key}` : key, value);
+    localStorage.setItem(studyKey(key), value);
   },
 };
 
