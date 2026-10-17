@@ -691,14 +691,14 @@ function Preferences({
         <BackgroundMotionControl />
       </div>
       <div className="settings-secondary">
-        {process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github' && <GitHubSync />}
+        {isPortuguese && process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github' && <GitHubSync />}
 
         <section className="settings-info">
           <h2>{isPortuguese ? 'Dados e privacidade' : 'Data & privacy'}</h2>
           <p>
             {isPortuguese
               ? 'O progresso é salvo neste navegador. A sincronização privada é opcional; para outro dispositivo, sincronize ou exporte seus dados.'
-              : 'Progress is saved in this browser. Private sync is optional; sync or export your data to use another device.'}
+              : 'Your progress is encrypted separately for each local account on this device. No external sync. Export a backup to preserve your history.'}
           </p>
           <DownloadLink endpoint="export">
             {isPortuguese ? 'Exportar histórico' : 'Export history'}
