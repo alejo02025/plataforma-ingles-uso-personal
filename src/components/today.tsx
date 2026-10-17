@@ -62,7 +62,7 @@ export function Today({
           'speechSynthesis' in window &&
           window.speechSynthesis
             .getVoices()
-            .some((v) => v.lang.toLowerCase().startsWith(pt ? 'pt' : 'en')),
+            .some((v) => v.localService && v.lang.toLowerCase().startsWith(pt ? 'pt' : 'en')),
         paused: draft
           ? { id: draft.id, mode: draft.mode, level: draft.level, block: draft.block }
           : null,

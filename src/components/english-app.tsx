@@ -16,7 +16,7 @@ import { assetBase, isPortuguese } from '@/lib/workspace';
 import type { Snapshot, Activity, Document } from '@/lib/types';
 import type { StudyTask } from '@/lib/daily-study';
 import { Today } from './today';
-import { BackgroundMotionControl } from './studio-atmosphere';
+
 import { RoutinePractice } from './routine-practice';
 import { Diagnostic } from './diagnostic';
 import { Classes } from './classes';
@@ -31,7 +31,7 @@ import { NewsBriefing } from './news-briefing';
 import { Reader } from './reader';
 import { Practice } from './practice';
 import { Progress, Calendar } from './analytics';
-import { GitHubSync } from './github-sync';
+import { LocalBackup } from './local-backup';
 import { OfflineStatus } from './offline-status';
 import { blockedSpaceChangeEvent, LanguageSwitcher, SpaceLink } from './space-link';
 import { AppUpdate } from './app-update';
@@ -391,8 +391,18 @@ export function EnglishApp() {
             <details className="extra-tools">
               <summary>{pt ? 'Mais opções de prática' : 'More practice options'}</summary>
               <div className="extra-tools-links">
-                <button onClick={() => void navigate('Errors')} aria-current={view === 'Errors' ? 'page' : undefined}>{pt ? 'Meus erros' : 'My mistakes'}</button>
-                <button onClick={() => void navigate('Games')} aria-current={view === 'Games' ? 'page' : undefined}>{pt ? 'Jogos' : 'Games'}</button>
+                <button
+                  onClick={() => void navigate('Errors')}
+                  aria-current={view === 'Errors' ? 'page' : undefined}
+                >
+                  {pt ? 'Meus erros' : 'My mistakes'}
+                </button>
+                <button
+                  onClick={() => void navigate('Games')}
+                  aria-current={view === 'Games' ? 'page' : undefined}
+                >
+                  {pt ? 'Jogos' : 'Games'}
+                </button>
               </div>
             </details>
           )}
@@ -493,6 +503,7 @@ export function EnglishApp() {
               <Calendar data={data} />
             ) : (
               <Preferences
+                key="preferences"
                 data={data}
                 refresh={refresh}
                 close={() => {}}
@@ -637,7 +648,10 @@ function Preferences({
           </p>
           <fieldset className="interests">
             <legend>{isPortuguese ? 'Seus interesses' : 'Your interests'}</legend>
-            {['Travel', 'Finance', 'History', 'Technology', 'Work', 'Everyday Life'].map((t) => (
+            {(isPortuguese
+              ? ['Viagens', 'Finanças', 'História', 'Tecnologia', 'Trabalho', 'Vida cotidiana']
+              : ['Travel', 'Finance', 'History', 'Technology', 'Work', 'Everyday Life']
+            ).map((t) => (
               <label
                 className={`interest-chip ${profile.interests.includes(t) ? 'active' : ''}`}
                 key={t}
@@ -688,20 +702,19 @@ function Preferences({
         {saved && (
           <p role="status">{isPortuguese ? 'Preferências salvas.' : 'Preferences saved.'}</p>
         )}
-        <BackgroundMotionControl />
       </div>
       <div className="settings-secondary">
-        {process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github' && <GitHubSync />}
+        {process.env.NEXT_PUBLIC_DEPLOY_TARGET === 'github' && <LocalBackup refresh={refresh} />}
 
         <section className="settings-info">
           <h2>{isPortuguese ? 'Dados e privacidade' : 'Data & privacy'}</h2>
           <p>
             {isPortuguese
-              ? 'O progresso é salvo neste navegador. A sincronização privada é opcional; para outro dispositivo, sincronize ou exporte seus dados.'
-              : 'Progress is saved in this browser. Private sync is optional; sync or export your data to use another device.'}
+              ? 'O progresso fica apenas neste navegador, separado por idioma. Não há contas nem sincronização automática. Limpar os dados do navegador, usar modo privado ou trocar de dispositivo pode deixar o histórico indisponível. Exporte uma cópia regularmente.'
+              : 'Progress stays in this browser, separately for each language. There are no accounts or automatic sync. Clearing browser data, private browsing or changing devices can make your history unavailable. Export a backup regularly.'}
           </p>
           <DownloadLink endpoint="export">
-            {isPortuguese ? 'Exportar histórico' : 'Export history'}
+            {isPortuguese ? 'Exportar somente histórico (JSON)' : 'Export history only (JSON)'}
           </DownloadLink>
         </section>
         <details className="settings-info">

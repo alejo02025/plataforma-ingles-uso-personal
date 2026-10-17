@@ -89,25 +89,24 @@ export function capture(): Manifest {
   } as Manifest;
   return stamp(current, previous, device);
 }
-export async function persist() {
+export async function persist(attachments: ReadonlyArray<readonly [string, unknown]> = []) {
   const next = capture();
   const bytes = connection.export();
   // sql.js export closes/reopens SQLite and resets connection pragmas.
   connection.exec('PRAGMA foreign_keys=ON');
-  await writeMany([
-    ['database', bytes],
-    ['manifest', next],
-    ['device', device],
-  ]);
+  await writeMany([['database', bytes], ['manifest', next], ['device', device], ...attachments]);
   previous = next;
   committed = { bytes, manifest: next };
 }
 
 /** Caller holds exclusive(). A failed mutation must leave memory at the last durable revision. */
-export async function durable<T>(operation: () => Promise<T> | T): Promise<T> {
+export async function durable<T>(
+  operation: () => Promise<T> | T,
+  attachments: ReadonlyArray<readonly [string, unknown]> = [],
+): Promise<T> {
   try {
     const result = await operation();
-    await persist();
+    await persist(attachments);
     return result;
   } catch (error) {
     if (committed) {

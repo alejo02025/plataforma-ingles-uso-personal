@@ -85,3 +85,23 @@ export async function readMany(keys: readonly string[]) {
     }
   });
 }
+
+/** One read transaction, including saved PDF originals and local recordings. */
+export async function readAttachments(): Promise<Array<[string, Uint8Array | Blob]>> {
+  const handle = await database();
+  return new Promise((resolve, reject) => {
+    const tx = handle.transaction('values');
+    const entries: Array<[string, Uint8Array | Blob]> = [];
+    const cursor = tx.objectStore('values').openCursor();
+    cursor.onsuccess = () => {
+      const item = cursor.result;
+      if (!item) return;
+      if (/^(file:|oral-audio:)/.test(String(item.key)))
+        entries.push([String(item.key), item.value]);
+      item.continue();
+    };
+    tx.oncomplete = () => resolve(entries);
+    tx.onerror = () => reject(tx.error);
+    tx.onabort = () => reject(tx.error);
+  });
+}

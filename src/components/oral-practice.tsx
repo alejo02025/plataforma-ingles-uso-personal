@@ -275,11 +275,11 @@ export function OralPractice({
       return;
     }
     const voices = speechSynthesis.getVoices().filter((v) => v.lang.startsWith(pt ? 'pt' : 'en'));
-    if (!navigator.onLine && !voices.some((v) => v.localService)) {
+    if (!voices.some((v) => v.localService)) {
       setError(
         native(
-          'No installed offline voice was found. Reveal the transcript, or try again with a connection.',
-          'Não foi encontrada uma voz offline instalada. Abra a transcrição ou tente novamente com conexão.',
+          'No local voice is installed. Open the transcript for supported practice, or install a device voice in system settings.',
+          'Nenhuma voz local está instalada. Abra a transcrição para praticar com apoio ou instale uma voz nas configurações do dispositivo.',
         ),
       );
       return;
@@ -288,7 +288,7 @@ export function OralPractice({
     const speech = new SpeechSynthesisUtterance(task.story);
     speech.lang = pt ? 'pt-BR' : 'en-US';
     speech.rate = 0.86;
-    speech.voice = voices.find((v) => v.localService) || voices[0] || null;
+    speech.voice = voices.find((v) => v.localService)!;
     speech.onstart = () => setPlaying(true);
     speech.onend = () => {
       setPlaying(false);
