@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-17T10:52:05.732748+00:00",
+  "checkedAt": "2026-10-17T20:40:58.784856+00:00",
   "stories": [
     {
       "id": "b677fdedabaf4479",
@@ -8,14 +8,14 @@
       "source": "BBC News",
       "title": "Trump waives several Russia sanctions as row with Zelensky intensifies",
       "url": "https://www.bbc.co.uk/news/articles/cxr5yvzv7rp0o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-17T09:42:13+00:00"
+      "published": "2026-10-17T19:19:19+00:00"
     },
     {
       "id": "2c85031267de3064",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Oregon teacher fought school attacker before armed dad shot suspect 'multiple times'",
+      "title": "Teacher fought US school attacker before armed dad shot suspect 'multiple times'",
       "url": "https://www.bbc.co.uk/news/articles/cv98zw1k8kp3o?at_medium=RSS&at_campaign=rss",
       "published": "2026-10-17T09:58:17+00:00"
     },
@@ -38,13 +38,13 @@
       "published": "2026-10-17T02:33:09+00:00"
     },
     {
-      "id": "94eab1f0bb1f57a5",
+      "id": "20938e43864dab7d",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Katie Zacharia leaving White House role less than five days into job",
-      "url": "https://www.bbc.co.uk/news/articles/c32l4ekpvzl8o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-17T09:14:10+00:00"
+      "title": "Nursery owner in China jailed for life after hundreds of children poisoned",
+      "url": "https://www.bbc.co.uk/news/articles/cqe9lx54g7x9o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-17T12:11:58+00:00"
     },
     {
       "id": "77b386c30370c768",
@@ -54,6 +54,15 @@
       "title": "Rare pink diamond goes on display in France 100 years after amateur heist",
       "url": "https://www.bbc.co.uk/news/articles/c61m4zkx47vlo?at_medium=RSS&at_campaign=rss",
       "published": "2026-10-17T10:46:41+00:00"
+    },
+    {
+      "id": "56e185745856c194",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "No further action against government adviser's wife over Palestine Action post, police say",
+      "url": "https://www.bbc.co.uk/news/articles/cv8ez40yz950o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-17T20:24:32+00:00"
     },
     {
       "id": "6a78c52774f4a4ed",
@@ -101,67 +110,58 @@
       "published": "2026-10-15T23:18:21+00:00"
     },
     {
-      "id": "465bd43d1fcc239a",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "GTA 6 - all you need to know about Rockstar's blockbuster game",
-      "url": "https://www.bbc.co.uk/news/articles/c9q20djz4wno?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-15T14:25:48+00:00"
-    },
-    {
-      "id": "f7e03faa1abf0d9a",
+      "id": "5000d2889a7e8ff3",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Em sabatina, Flávio não explica propostas e faz acusações sem provas",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/em-sabatina-flavio-nao-explica-propostas-e-faz-acusacoes-sem-provas",
-      "published": "2026-10-17T00:55:00-03:00"
+      "title": "Justiça Federal manda Meta restabelecer contas estudantis do RS",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/justica-federal-manda-meta-restabelecer-contas-estudantis-do-rs",
+      "published": "2026-10-17T16:46:00-03:00"
     },
     {
-      "id": "e3f016bdfc3f1a2e",
+      "id": "edcd398338869b77",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Lula faz campanha em MG e celebra fim da jornada 6x1",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/lula-faz-campanha-em-mg-e-celebra-fim-da-jornada-6x1",
-      "published": "2026-10-16T23:01:00-03:00"
+      "title": "Festival de Cinema valoriza produções de crianças e adolescentes",
+      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-10/festival-de-cinema-valoriza-producoes-de-criancas-e-adolescentes",
+      "published": "2026-10-17T16:20:00-03:00"
     },
     {
-      "id": "2280bf9d6d06b35d",
+      "id": "ae06bfda1d5be06a",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Com um a mais, Mirassol vence e complica Internacional no Brasileirão",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/com-um-mais-mirassol-vence-e-complica-internacional-no-brasileirao",
-      "published": "2026-10-16T22:18:00-03:00"
+      "title": "Organizações promovem ação de empregabilidade para refugiados",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-10/organizacoes-promovem-acao-de-empregabilidade-para-refugiados",
+      "published": "2026-10-17T16:04:00-03:00"
     },
     {
-      "id": "3f80ab34ac91f03d",
+      "id": "77015c4d4ae13cb6",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Copa do Brasil Feminina: Bahia vence São Paulo pelas quartas de final",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/copa-do-brasil-feminina-bahia-vence-sao-paulo-pelas-quartas-de-final",
-      "published": "2026-10-16T21:28:00-03:00"
+      "title": "Mais de 4 mil seções eleitorais tiveram locais de votação alterados",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/mais-de-4-mil-secoes-eleitorais-tiveram-locais-de-votacao-alterados",
+      "published": "2026-10-17T14:20:00-03:00"
     },
     {
-      "id": "c937edd132f605c4",
+      "id": "5c73208c10ba2ed6",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Defesa de Vorcaro pede investigação sobre vazamento de conversas",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/defesa-de-vorcaro-pede-investigacao-sobre-vazamento-de-conversas",
-      "published": "2026-10-16T21:18:00-03:00"
+      "title": "Rio: reserva marinha alia proteção ambiental com atividades econômicas",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/rio-reserva-marinha-alia-protecao-ambiental-com-atividades-economicas",
+      "published": "2026-10-17T13:30:00-03:00"
     },
     {
-      "id": "badacdb8a770d77e",
+      "id": "e8eaf2d1307f676f",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Anac estabelece regras mais restritivas para aviação em Congonhas (SP)",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/anac-estabelece-regras-mais-restritivas-para-aviacao-em-congonhas-sp",
-      "published": "2026-10-16T21:03:00-03:00"
+      "title": "José Sarney recebe alta hospitalar após nove dias de internação",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/jose-sarney-recebe-alta-hospitalar-apos-nove-dias-de-internacao",
+      "published": "2026-10-17T12:33:00-03:00"
     }
   ],
   "unavailable": []
