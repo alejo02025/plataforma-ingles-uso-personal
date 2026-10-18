@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-18T11:16:32.063463+00:00",
+  "checkedAt": "2026-10-18T20:50:41.598932+00:00",
   "stories": [
     {
       "id": "3371ebd718448660",
@@ -8,16 +8,34 @@
       "source": "BBC News",
       "title": "Burnt out cars and shattered glass on Paris streets after protests turn to riots and looting",
       "url": "https://www.bbc.co.uk/news/articles/c574pdzl0k4no?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-18T10:53:54+00:00"
+      "published": "2026-10-18T12:07:31+00:00"
     },
     {
-      "id": "15dda46e4ddf7538",
+      "id": "e5394eb93ed65f5c",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Photos show luxury boat with 50m pool and water slides near Kim Jong Un's summer retreat",
-      "url": "https://www.bbc.co.uk/news/articles/cmy4xnyyg1lyo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-17T22:09:50+00:00"
+      "title": "Macron calls for 'calm and order' after riots across France",
+      "url": "https://www.bbc.co.uk/news/articles/cw240zl08dm5o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-18T20:33:21+00:00"
+    },
+    {
+      "id": "670c82a8c9804676",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "What we know so far about deadly fire at Canadian military base",
+      "url": "https://www.bbc.co.uk/news/articles/cmgelrq8x92do?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-18T19:42:37+00:00"
+    },
+    {
+      "id": "cae4297ec407ec6a",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Oil facilities hit in deadly overnight attack on St Petersburg",
+      "url": "https://www.bbc.co.uk/news/articles/c3eweygrjzd7o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-18T15:46:10+00:00"
     },
     {
       "id": "0e4e8818e9343e50",
@@ -35,25 +53,7 @@
       "source": "BBC News",
       "title": "European diplomats attacked by Israeli settlers in West Bank",
       "url": "https://www.bbc.co.uk/news/articles/c962ydpmjm3zo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-17T23:52:38+00:00"
-    },
-    {
-      "id": "6bd483fb49bef24a",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Several dead or injured in major fire at Canada military base",
-      "url": "https://www.bbc.co.uk/news/articles/cr86z0w4lxdxo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-18T08:52:41+00:00"
-    },
-    {
-      "id": "b677fdedabaf4479",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Trump waives several Russia sanctions as row with Zelensky intensifies",
-      "url": "https://www.bbc.co.uk/news/articles/cxr5yvzv7rp0o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-18T01:10:25+00:00"
+      "published": "2026-10-18T12:16:14+00:00"
     },
     {
       "id": "56e185745856c194",
@@ -110,58 +110,58 @@
       "published": "2026-10-15T23:18:21+00:00"
     },
     {
-      "id": "e966d201bda6fbc1",
+      "id": "248c91eeefe3a613",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Partido Novo entra com ação no TSE contra atos musicais por democracia",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/partido-novo-entra-com-acao-no-tse-contra-atos-musicais-por-democracia",
-      "published": "2026-10-17T17:58:00-03:00"
+      "title": "Tensões voltam a crescer; França contabiliza custos de protestos",
+      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-10/tensoes-voltam-crescer-franca-contabiliza-custos-de-protestos",
+      "published": "2026-10-18T15:02:00-03:00"
     },
     {
-      "id": "5f80ec36e8b4959d",
+      "id": "b1de52afac824cb7",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Cortes em auxílios sociais podem gerar retração em cidades do interior",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/cortes-em-auxilios-sociais-podem-gerar-retracao-em-cidades-do-interior",
-      "published": "2026-10-17T17:29:00-03:00"
+      "title": "Mega-Sena acumula; prêmio pode chegar a R$ 185 milhões na terça-feira",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/mega-sena-acumula-premio-pode-chegar-r-185-milhoes-na-terca-feira",
+      "published": "2026-10-18T14:22:00-03:00"
     },
     {
-      "id": "5000d2889a7e8ff3",
+      "id": "e7e37e43267f4802",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Justiça Federal manda Meta restabelecer contas estudantis do RS",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/justica-federal-manda-meta-restabelecer-contas-estudantis-do-rs",
-      "published": "2026-10-17T16:46:00-03:00"
+      "title": "Eleitor sem biometria pode votar no segundo turno das eleições",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/eleitor-sem-biometria-pode-votar-no-segundo-turno-das-eleicoes",
+      "published": "2026-10-18T14:02:00-03:00"
     },
     {
-      "id": "edcd398338869b77",
+      "id": "0eb716bc1548072a",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Festival de Cinema valoriza produções de crianças e adolescentes",
-      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-10/festival-de-cinema-valoriza-producoes-de-criancas-e-adolescentes",
-      "published": "2026-10-17T16:20:00-03:00"
+      "title": "Termina neste domingo prazo escolher idioma da prova do Enem 2026",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-10/termina-neste-domingo-prazo-escolher-idioma-da-prova-do-enem-2026",
+      "published": "2026-10-18T13:15:00-03:00"
     },
     {
-      "id": "ae06bfda1d5be06a",
+      "id": "c40508739b13558a",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Organizações promovem ação de empregabilidade para refugiados",
-      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-10/organizacoes-promovem-acao-de-empregabilidade-para-refugiados",
-      "published": "2026-10-17T16:04:00-03:00"
+      "title": "Estudantes retomam protagonismo em momento decisivo no país, diz UNE",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/estudantes-retomam-protagonismo-em-momento-decisivo-no-pais-diz-une",
+      "published": "2026-10-18T12:45:00-03:00"
     },
     {
-      "id": "77015c4d4ae13cb6",
+      "id": "68e319644c1d9db0",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Mais de 4 mil seções eleitorais tiveram locais de votação alterados",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/mais-de-4-mil-secoes-eleitorais-tiveram-locais-de-votacao-alterados",
-      "published": "2026-10-17T14:20:00-03:00"
+      "title": "Eleições: quem não votou no primeiro turno pode participar do segundo",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/eleicoes-quem-nao-votou-no-primeiro-turno-pode-participar-do-segundo",
+      "published": "2026-10-18T11:38:00-03:00"
     }
   ],
   "unavailable": []
