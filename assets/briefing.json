@@ -1,59 +1,95 @@
 {
-  "checkedAt": "2026-10-18T20:50:41.598932+00:00",
+  "checkedAt": "2026-10-19T13:28:32.292281+00:00",
   "stories": [
     {
-      "id": "3371ebd718448660",
+      "id": "0de891a8c832204a",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Burnt out cars and shattered glass on Paris streets after protests turn to riots and looting",
-      "url": "https://www.bbc.co.uk/news/articles/c574pdzl0k4no?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-18T12:07:31+00:00"
+      "title": "Alberta heads to polls to decide whether to hold vote on separation from Canada",
+      "url": "https://www.bbc.co.uk/news/articles/cxvgd0ymgzgyo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-19T09:24:33+00:00"
     },
     {
-      "id": "e5394eb93ed65f5c",
+      "id": "0d1ca7925e7422f4",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Macron calls for 'calm and order' after riots across France",
-      "url": "https://www.bbc.co.uk/news/articles/cw240zl08dm5o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-18T20:33:21+00:00"
+      "title": "Kenya pastor accused of ordering parents to starve their children to death faces verdict",
+      "url": "https://www.bbc.co.uk/news/articles/ckd6d2l3dz4xo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-19T10:33:12+00:00"
     },
     {
-      "id": "670c82a8c9804676",
+      "id": "28713c2b0bca04ee",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "What we know so far about deadly fire at Canadian military base",
-      "url": "https://www.bbc.co.uk/news/articles/cmgelrq8x92do?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-18T19:42:37+00:00"
+      "title": "Funding shortages force World Food Programme to cut aid to Gaza",
+      "url": "https://www.bbc.co.uk/news/articles/cm79plrvpl4vo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-19T06:00:18+00:00"
     },
     {
-      "id": "cae4297ec407ec6a",
+      "id": "96a1d05f6574f4f5",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Oil facilities hit in deadly overnight attack on St Petersburg",
-      "url": "https://www.bbc.co.uk/news/articles/c3eweygrjzd7o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-18T15:46:10+00:00"
+      "title": "Trump says suspension of Russia sanctions is to keep peace negotiations going",
+      "url": "https://www.bbc.co.uk/news/articles/c9p8gz7zx4peo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-18T23:20:15+00:00"
     },
     {
-      "id": "0e4e8818e9343e50",
+      "id": "b3c5e879a09c087c",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "A wave of homemade, synthetic drugs sweeps US and deepens crisis",
-      "url": "https://www.bbc.co.uk/news/articles/cmx2wvyv5j17o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-18T05:04:31+00:00"
+      "title": "Personal attacks fire up debate before Brazil's run-off vote",
+      "url": "https://www.bbc.co.uk/news/articles/ck98zlzyqle3o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-19T11:41:24+00:00"
     },
     {
-      "id": "0bd6429ce4de8bfb",
+      "id": "999faf7151b53375",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "European diplomats attacked by Israeli settlers in West Bank",
-      "url": "https://www.bbc.co.uk/news/articles/c962ydpmjm3zo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-18T12:16:14+00:00"
+      "title": "Meloni calls emergency meeting after weekend of violent clashes",
+      "url": "https://www.bbc.co.uk/news/articles/c6j9kwxxmxydo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-19T11:23:36+00:00"
+    },
+    {
+      "id": "758ad43d3928c5df",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Uber wins bid to throw out £200m black cab claims",
+      "url": "https://www.bbc.co.uk/news/articles/cv5ynp1j45x2o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-19T12:58:39+00:00"
+    },
+    {
+      "id": "b93423fcf928cc5e",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Musk and Anthropic pledge public share giveaways",
+      "url": "https://www.bbc.co.uk/news/articles/cm2kez327gdko?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-19T09:38:25+00:00"
+    },
+    {
+      "id": "e5cad304e22ba059",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "China's growth accelerates as AI boom helps boost exports",
+      "url": "https://www.bbc.co.uk/news/articles/cm5yn098xz8lo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-19T06:08:02+00:00"
+    },
+    {
+      "id": "022ad7569a85a72f",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Don't fall for this - how to protect yourself from AI scams",
+      "url": "https://www.bbc.co.uk/news/articles/c60rl1xvjv89o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-18T23:24:59+00:00"
     },
     {
       "id": "56e185745856c194",
@@ -74,94 +110,58 @@
       "published": "2026-10-16T18:11:29+00:00"
     },
     {
-      "id": "f1315209d972f617",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Russian man linked to deadly London hospitals hack arrested",
-      "url": "https://www.bbc.co.uk/news/articles/c9vgr61kml3mo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-16T15:31:33+00:00"
-    },
-    {
-      "id": "a758244590b4247c",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Snapchat and Instagram grooming becoming 'easier'",
-      "url": "https://www.bbc.co.uk/news/articles/cq33xd6j1dv5o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-16T05:12:48+00:00"
-    },
-    {
-      "id": "4ef4b8a45d4caff2",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Porn showing choking or incest to be banned from early November, government says",
-      "url": "https://www.bbc.co.uk/news/articles/cmpqgepejr2ro?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-15T23:27:57+00:00"
-    },
-    {
-      "id": "2554deac31f8536b",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Living with a stink? Technology might help",
-      "url": "https://www.bbc.co.uk/news/articles/cr6240q1w136o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-15T23:18:21+00:00"
-    },
-    {
-      "id": "248c91eeefe3a613",
+      "id": "6901cffac0ed869e",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Tensões voltam a crescer; França contabiliza custos de protestos",
-      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-10/tensoes-voltam-crescer-franca-contabiliza-custos-de-protestos",
-      "published": "2026-10-18T15:02:00-03:00"
+      "title": "PF faz ação para prender 23 envolvidos com facção criminosa no Rio",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/pf-faz-acao-para-prender-23-envolvidos-com-faccao-criminosa-no-rio",
+      "published": "2026-10-19T09:44:00-03:00"
     },
     {
-      "id": "b1de52afac824cb7",
+      "id": "11afc15dc8c142d6",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Mega-Sena acumula; prêmio pode chegar a R$ 185 milhões na terça-feira",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/mega-sena-acumula-premio-pode-chegar-r-185-milhoes-na-terca-feira",
-      "published": "2026-10-18T14:22:00-03:00"
+      "title": "Chuvas ficam mais intensas no Norte, Centro-Oeste e Sudeste do país",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/chuvas-ficam-mais-intensas-no-norte-centro-oeste-e-sudeste-do-pais",
+      "published": "2026-10-19T09:02:00-03:00"
     },
     {
-      "id": "e7e37e43267f4802",
+      "id": "219c7388d546003f",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Eleitor sem biometria pode votar no segundo turno das eleições",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/eleitor-sem-biometria-pode-votar-no-segundo-turno-das-eleicoes",
-      "published": "2026-10-18T14:02:00-03:00"
+      "title": "Confira a agenda dos presidenciáveis nesta segunda-feira (19)",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/confira-agenda-dos-presidenciaveis-nesta-segunda-feira-19",
+      "published": "2026-10-19T08:40:00-03:00"
     },
     {
-      "id": "0eb716bc1548072a",
+      "id": "641ec0b484b1769e",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Termina neste domingo prazo escolher idioma da prova do Enem 2026",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-10/termina-neste-domingo-prazo-escolher-idioma-da-prova-do-enem-2026",
-      "published": "2026-10-18T13:15:00-03:00"
+      "title": "Força Nacional vai atuar por 90 dias na região de Belo Monte",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/forca-nacional-vai-atuar-por-90-dias-na-regiao-de-belo-monte",
+      "published": "2026-10-19T08:27:00-03:00"
     },
     {
-      "id": "c40508739b13558a",
+      "id": "c255213671d17b0a",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Estudantes retomam protagonismo em momento decisivo no país, diz UNE",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/estudantes-retomam-protagonismo-em-momento-decisivo-no-pais-diz-une",
-      "published": "2026-10-18T12:45:00-03:00"
+      "title": "Com ação Vida Além do Trabalho, ex-balconista mobilizou trabalhadores",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/ex-balconista-de-farmacia-mobilizou-trabalhadores-para-reduzir-jornada",
+      "published": "2026-10-19T08:19:00-03:00"
     },
     {
-      "id": "68e319644c1d9db0",
+      "id": "68ef13922a9c24a9",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Eleições: quem não votou no primeiro turno pode participar do segundo",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/eleicoes-quem-nao-votou-no-primeiro-turno-pode-participar-do-segundo",
-      "published": "2026-10-18T11:38:00-03:00"
+      "title": "Lula e Flávio fazem primeiro debate das eleições na TV Band",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/lula-e-flavio-fazem-primeiro-debate-das-eleicoes-na-band",
+      "published": "2026-10-19T08:07:00-03:00"
     }
   ],
   "unavailable": []
