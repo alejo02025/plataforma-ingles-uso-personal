@@ -1,59 +1,68 @@
 {
-  "checkedAt": "2026-10-19T13:28:32.292281+00:00",
+  "checkedAt": "2026-10-19T22:25:40.942318+00:00",
   "stories": [
     {
-      "id": "0de891a8c832204a",
+      "id": "c1ae638f5dee6fa9",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Alberta heads to polls to decide whether to hold vote on separation from Canada",
-      "url": "https://www.bbc.co.uk/news/articles/cxvgd0ymgzgyo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-19T09:24:33+00:00"
+      "title": "Ukrainians dying because US restricting intelligence sharing, Zelensky adviser tells BBC",
+      "url": "https://www.bbc.co.uk/news/articles/cmj47yx572z5o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-19T20:49:00+00:00"
     },
     {
       "id": "0d1ca7925e7422f4",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Kenya pastor accused of ordering parents to starve their children to death faces verdict",
+      "title": "Kenya cult leader who told parents to starve children guilty of 191 murders",
       "url": "https://www.bbc.co.uk/news/articles/ckd6d2l3dz4xo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-19T10:33:12+00:00"
+      "published": "2026-10-19T17:18:04+00:00"
     },
     {
-      "id": "28713c2b0bca04ee",
+      "id": "733cc19037e01703",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Ex-OpenAI worker accused of planting device had Saudi support, says court filing",
+      "url": "https://www.bbc.co.uk/news/articles/c6gel2dlyxvyo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-19T21:12:30+00:00"
+    },
+    {
+      "id": "92b35826394962f9",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Funding shortages force World Food Programme to cut aid to Gaza",
-      "url": "https://www.bbc.co.uk/news/articles/cm79plrvpl4vo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-19T06:00:18+00:00"
+      "title": "Tennis star Svitolina says emotional toll of Ukraine war led to Monfils separation",
+      "url": "https://www.bbc.co.uk/news/articles/ckd7qy12j148o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-19T21:02:33+00:00"
     },
     {
-      "id": "96a1d05f6574f4f5",
+      "id": "b1fd16c8275afd96",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Trump says suspension of Russia sanctions is to keep peace negotiations going",
-      "url": "https://www.bbc.co.uk/news/articles/c9p8gz7zx4peo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-18T23:20:15+00:00"
+      "title": "Exiled critic of Rwandan president found beheaded",
+      "url": "https://www.bbc.co.uk/news/articles/c3lylj78777do?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-19T13:42:41+00:00"
     },
     {
-      "id": "b3c5e879a09c087c",
+      "id": "921087729326736c",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Personal attacks fire up debate before Brazil's run-off vote",
-      "url": "https://www.bbc.co.uk/news/articles/ck98zlzyqle3o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-19T11:41:24+00:00"
+      "title": "Houthi missile strike on Yemen camp kills 50 security recruits, local authorities say",
+      "url": "https://www.bbc.co.uk/news/articles/cv0ld6lrr2zeo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-19T16:20:51+00:00"
     },
     {
-      "id": "999faf7151b53375",
+      "id": "c67da6c0eaa5eec1",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Meloni calls emergency meeting after weekend of violent clashes",
-      "url": "https://www.bbc.co.uk/news/articles/c6j9kwxxmxydo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-19T11:23:36+00:00"
+      "title": "US bans DeepSeek AI from government use as tech tension with China continues",
+      "url": "https://www.bbc.co.uk/news/articles/cjkgeq0k1wevo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-19T18:21:54+00:00"
     },
     {
       "id": "758ad43d3928c5df",
@@ -92,76 +101,58 @@
       "published": "2026-10-18T23:24:59+00:00"
     },
     {
-      "id": "56e185745856c194",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "No further action against government adviser's wife over Palestine Action post, police say",
-      "url": "https://www.bbc.co.uk/news/articles/cv8ez40yz950o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-17T20:24:32+00:00"
-    },
-    {
-      "id": "6a78c52774f4a4ed",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Toxic algorithms wouldn't let them go - now Australia wants an off switch",
-      "url": "https://www.bbc.co.uk/news/articles/cwr7y8er1n8vo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-16T18:11:29+00:00"
-    },
-    {
-      "id": "6901cffac0ed869e",
+      "id": "11143f84c3a6344c",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "PF faz ação para prender 23 envolvidos com facção criminosa no Rio",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/pf-faz-acao-para-prender-23-envolvidos-com-faccao-criminosa-no-rio",
-      "published": "2026-10-19T09:44:00-03:00"
+      "title": "TRE-RJ alterou apenas um local de votação no estado; confira",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/tre-rj-alterou-apenas-um-local-de-votacao-no-estado-confira",
+      "published": "2026-10-19T18:39:00-03:00"
     },
     {
-      "id": "11afc15dc8c142d6",
+      "id": "34b01c3c93bd369e",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Chuvas ficam mais intensas no Norte, Centro-Oeste e Sudeste do país",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/chuvas-ficam-mais-intensas-no-norte-centro-oeste-e-sudeste-do-pais",
-      "published": "2026-10-19T09:02:00-03:00"
+      "title": "Órgão Especial do TJRJ confirma Vasco x Boca Juniors no Maracanã",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/orgao-especial-do-tjrj-confirma-vasco-x-boca-juniors-no-maracana",
+      "published": "2026-10-19T18:20:00-03:00"
     },
     {
-      "id": "219c7388d546003f",
+      "id": "8122d40e64b6f432",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Confira a agenda dos presidenciáveis nesta segunda-feira (19)",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/confira-agenda-dos-presidenciaveis-nesta-segunda-feira-19",
-      "published": "2026-10-19T08:40:00-03:00"
+      "title": "Moradores da Maré se mobilizam para divulgar locais de votação",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/moradores-da-mare-se-mobilizam-para-divulgar-locais-de-votacao",
+      "published": "2026-10-19T17:56:00-03:00"
     },
     {
-      "id": "641ec0b484b1769e",
+      "id": "ab129bdcfd22fca7",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Força Nacional vai atuar por 90 dias na região de Belo Monte",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/forca-nacional-vai-atuar-por-90-dias-na-regiao-de-belo-monte",
-      "published": "2026-10-19T08:27:00-03:00"
+      "title": "Revalida 2026/2: divulgado resultado de casos de logística e de saúde",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-10/revalida-20262-divulgado-resultado-de-casos-de-logistica-e-de-saude",
+      "published": "2026-10-19T17:49:00-03:00"
     },
     {
-      "id": "c255213671d17b0a",
+      "id": "bcfae069500ad39b",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Com ação Vida Além do Trabalho, ex-balconista mobilizou trabalhadores",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/ex-balconista-de-farmacia-mobilizou-trabalhadores-para-reduzir-jornada",
-      "published": "2026-10-19T08:19:00-03:00"
+      "title": "Janones poderá ter alta em 48 horas, diz boletim médico",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/janones-podera-ter-alta-em-48-horas-diz-boletim-medico",
+      "published": "2026-10-19T17:25:00-03:00"
     },
     {
-      "id": "68ef13922a9c24a9",
+      "id": "1b46dae3952e99bd",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Lula e Flávio fazem primeiro debate das eleições na TV Band",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/lula-e-flavio-fazem-primeiro-debate-das-eleicoes-na-band",
-      "published": "2026-10-19T08:07:00-03:00"
+      "title": "DF e mais 4 estados não tiveram locais de votação alterados",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/df-e-outros-4-estados-nao-tiveram-locais-de-votacao-alterados",
+      "published": "2026-10-19T17:13:00-03:00"
     }
   ],
   "unavailable": []
