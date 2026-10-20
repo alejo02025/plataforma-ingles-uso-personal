@@ -1,68 +1,86 @@
 {
-  "checkedAt": "2026-10-20T11:46:29.626401+00:00",
+  "checkedAt": "2026-10-20T21:41:54.523201+00:00",
   "stories": [
     {
-      "id": "ef624b68b0213a9b",
+      "id": "c038aa98247b21af",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Zelensky prepares for Oslo talks with US envoys as Rubio denies withholding intelligence",
-      "url": "https://www.bbc.co.uk/news/articles/ck9qzn193lrlo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-20T11:30:59+00:00"
+      "title": "Zelensky says US intelligence sharing 'works now' after talks with Trump envoy in Oslo",
+      "url": "https://www.bbc.co.uk/news/articles/cq5ynkx3xy11o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-20T21:27:39+00:00"
+    },
+    {
+      "id": "43a9ac5811a2c5e2",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Marseille braces for more unrest after protests give way to 'apocalyptic' disorder",
+      "url": "https://www.bbc.co.uk/news/articles/cm5ynkk570pno?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-20T12:08:06+00:00"
     },
     {
       "id": "1245b6feb5631d67",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Man charged with attack on Australian MP as suspect's father says she is family friend",
+      "title": "Man charged with attack on Australia MP to face court",
       "url": "https://www.bbc.co.uk/news/articles/c678pnn9mpgno?at_medium=RSS&at_campaign=rss",
       "published": "2026-10-20T11:25:35+00:00"
     },
     {
-      "id": "a8903642cc44d53a",
+      "id": "6437763f391a5ef7",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Suspect arrested after historic town hall set alight during disorder - French media",
-      "url": "https://www.bbc.co.uk/news/articles/cw5yn5e8mezvo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-20T08:58:26+00:00"
+      "title": "Trump and Zelensky appear at loggerheads despite Oslo optimism",
+      "url": "https://www.bbc.co.uk/news/articles/ckrey51jrgnro?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-20T20:00:57+00:00"
     },
     {
-      "id": "d553e1b9af4185c5",
+      "id": "f2e797680b133350",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Seventh day of violent clashes between Albanian protesters and police",
-      "url": "https://www.bbc.co.uk/news/articles/cmy4xjlpqgd3o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-20T02:45:05+00:00"
+      "title": "'Great result for Canada', says Carney as Alberta votes to reject separatism",
+      "url": "https://www.bbc.co.uk/news/articles/cxr5yqqd7nlpo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-20T16:59:06+00:00"
     },
     {
-      "id": "a5adb4e1f5c543fc",
+      "id": "1b54169ee507fb5e",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Canadian tourist found guilty of animal cruelty after stealing Las Vegas flamingo from enclosure",
-      "url": "https://www.bbc.co.uk/news/articles/cq398rjewd1jo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-20T03:10:39+00:00"
+      "title": "Trump sued over Canadian tariffs in latest legal challenge",
+      "url": "https://www.bbc.co.uk/news/articles/cqrkyj13m588o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-20T19:30:05+00:00"
     },
     {
-      "id": "754bf5eeaea9794b",
+      "id": "8660bcdf866d0801",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Why Israeli Gen Z voters are drawn to the far right",
-      "url": "https://www.bbc.co.uk/news/articles/cmvg632xgndeo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-20T08:53:06+00:00"
+      "title": "OpenAI CEO Sam Altman wins dismissal of sister's lawsuit",
+      "url": "https://www.bbc.co.uk/news/articles/c94g1502el58o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-20T19:42:32+00:00"
     },
     {
       "id": "1a9bb903c0ede720",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "Revolut outage hits 'multiple services' as thousands of users report app issues",
+      "title": "Google resolves cloud outage affecting UK banks and websites",
       "url": "https://www.bbc.co.uk/news/articles/cxdd8mm6qy4mo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-20T08:46:00+00:00"
+      "published": "2026-10-20T18:03:19+00:00"
+    },
+    {
+      "id": "e2b1f409376e9208",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "UK asks Apple to widen access to its payment tech",
+      "url": "https://www.bbc.co.uk/news/articles/cqm26zzl0k12o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-20T12:29:24+00:00"
     },
     {
       "id": "733cc19037e01703",
@@ -92,76 +110,58 @@
       "published": "2026-10-19T12:58:39+00:00"
     },
     {
-      "id": "b93423fcf928cc5e",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Musk and Anthropic pledge public share giveaways",
-      "url": "https://www.bbc.co.uk/news/articles/cm2kez327gdko?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-19T09:38:25+00:00"
-    },
-    {
-      "id": "e5cad304e22ba059",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "China's growth accelerates as AI boom helps boost exports",
-      "url": "https://www.bbc.co.uk/news/articles/cm5yn098xz8lo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-19T06:08:02+00:00"
-    },
-    {
-      "id": "57250e3dfaf1000b",
+      "id": "53a9fac4692ebab4",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Secretário de Queimados, no Rio, morre baleado em abordagem da PM",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/secretario-de-queimados-no-rio-morre-baleado-em-abordagem-da-pm",
-      "published": "2026-10-20T08:04:00-03:00"
+      "title": "Justiça Eleitoral nega transporte, água e alimentação para indígenas",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/justica-eleitoral-nega-transporte-agua-e-alimentacao-para-indigenas",
+      "published": "2026-10-20T17:30:00-03:00"
     },
     {
-      "id": "452b0baaee3f8252",
+      "id": "360516c714ca42c4",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Ministério Público do Rio renova acordo para enfrentar criminalidade",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/ministerio-publico-do-rio-renova-acordo-para-enfrentar-criminalidade",
-      "published": "2026-10-20T08:02:00-03:00"
+      "title": "Futebol feminino: premiação revela finalistas a melhor técnico do ano",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/premio-tv-brasil-petrobras-para-elas-revela-melhores-tecnicos-do-ano",
+      "published": "2026-10-20T17:25:00-03:00"
     },
     {
-      "id": "21c0b009e09065c8",
+      "id": "04ba8557d92176f2",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Chuvas permanecem intensas nas regiões Norte e Nordeste",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/chuvas-permanecem-intensas-nas-regioes-norte-e-nordeste",
-      "published": "2026-10-20T08:00:00-03:00"
+      "title": "André Janones recebe alta e deixa hospital em São Paulo",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/andre-janones-recebe-alta-e-deixa-hospital-em-sao-paulo",
+      "published": "2026-10-20T17:07:00-03:00"
     },
     {
-      "id": "2ed23080b5e85cd1",
+      "id": "c87876db74270dd1",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Beneficiários com NIS de final 2 recebem Bolsa Família de outubro",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/beneficiarios-com-nis-de-final-2-recebem-bolsa-familia-de-outubro",
-      "published": "2026-10-20T07:30:00-03:00"
+      "title": "Eleições: saiba quais documentos são aceitos para votar no 2° turno",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/eleicoes-saiba-quais-documentos-sao-aceitos-para-votar-no-2deg-turno",
+      "published": "2026-10-20T17:00:00-03:00"
     },
     {
-      "id": "ebcc8628c3e4282c",
+      "id": "6c9db8949edfa16a",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Saiba como consultar o seu local de votação",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/saiba-como-consultar-o-seu-local-de-votacao",
-      "published": "2026-10-20T06:45:00-03:00"
+      "title": "Queda de desmatamento no Brasil gera R$ 1,16 trilhão à economia global",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/queda-de-desmatamento-no-brasil-gera-r-116-trilhao-economia-global",
+      "published": "2026-10-20T16:59:00-03:00"
     },
     {
-      "id": "c60bcb5964553e8c",
+      "id": "8e616310210f6ff3",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Justiça decreta fim da recuperação judicial da Americanas",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/justica-decreta-fim-da-recuperacao-judicial-da-americanas",
-      "published": "2026-10-19T22:26:00-03:00"
+      "title": "Repórter Tâmara Freire, da Agência Brasil, é finalista no Prêmio SBIm",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-10/reporter-tamara-freire-da-agencia-brasil-e-finalista-no-premio-sbim",
+      "published": "2026-10-20T16:53:00-03:00"
     }
   ],
   "unavailable": []
