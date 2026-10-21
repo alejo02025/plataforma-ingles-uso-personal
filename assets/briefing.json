@@ -1,41 +1,77 @@
 {
-  "checkedAt": "2026-10-21T11:58:40.254380+00:00",
+  "checkedAt": "2026-10-21T21:47:39.463344+00:00",
   "stories": [
     {
-      "id": "628236b1f71bbc8d",
+      "id": "3222098e24245dc2",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "US citizen Stephen Hubbard freed by Russia as Trump envoy meets Putin",
-      "url": "https://www.bbc.co.uk/news/articles/c6m24l9v3745o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-21T11:39:25+00:00"
+      "title": "Missiles hit Kyiv after Russia agrees to US call to resume Ukraine peace talks",
+      "url": "https://www.bbc.co.uk/news/articles/cq3djn5nxx12o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-21T21:27:41+00:00"
     },
     {
-      "id": "6437763f391a5ef7",
+      "id": "cb0db03c0b0da96d",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Trump and Zelensky appear at loggerheads despite new optimism",
-      "url": "https://www.bbc.co.uk/news/articles/ckrey51jrgnro?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-20T20:00:57+00:00"
+      "title": "Rosenberg: US diplomatic push offers little hope for imminent Ukraine peace",
+      "url": "https://www.bbc.co.uk/news/articles/cm98zn5j89kdo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-21T19:58:06+00:00"
     },
     {
-      "id": "2672f6d202bb6655",
+      "id": "051968e48f9db0b9",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Katya Adler: France divided over who to blame for riots and what to learn from them",
-      "url": "https://www.bbc.co.uk/news/articles/cq0me4g9p970o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-21T06:50:40+00:00"
+      "title": "Macron accuses foreign leaders of exploiting French riots",
+      "url": "https://www.bbc.co.uk/news/articles/ckjrw044ggxgo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-21T14:04:28+00:00"
     },
     {
-      "id": "431049d19bdcabd5",
+      "id": "ecc61938bb8bf986",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Australian MP loses both legs after alleged car attack, husband says",
-      "url": "https://www.bbc.co.uk/news/articles/ckwyqdqxw6d0o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-21T07:56:30+00:00"
+      "title": "Pope does not need further treatment after lung cancer surgery",
+      "url": "https://www.bbc.co.uk/news/articles/cqrly2dg5xzzo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-21T20:09:10+00:00"
+    },
+    {
+      "id": "057526649a868e9a",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "'Targeted' attack on much-loved MP leaves Australian town heartbroken",
+      "url": "https://www.bbc.co.uk/news/articles/cmgr8q88r5eqo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-21T18:10:42+00:00"
+    },
+    {
+      "id": "1a1863570fff41f8",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Family of prison officer killed by IRA receives state apology",
+      "url": "https://www.bbc.co.uk/news/articles/ck20rver1j31o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-21T16:58:16+00:00"
+    },
+    {
+      "id": "23d28394e263a1d4",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Websites taken down worldwide as critical cyber-security update issued",
+      "url": "https://www.bbc.co.uk/news/articles/cmly0lg3w5x2o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-21T19:54:57+00:00"
+    },
+    {
+      "id": "686a391ecfec514d",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Just Eat apologises for AI food mistakes after social media ridicule",
+      "url": "https://www.bbc.co.uk/news/articles/crz981p0klvgo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-21T17:04:13+00:00"
     },
     {
       "id": "3dc6f12e33fbdf3f",
@@ -45,15 +81,6 @@
       "title": "Elon Musk confirms he is considering merging Tesla and SpaceX",
       "url": "https://www.bbc.co.uk/news/articles/cmlyl09xjke4o?at_medium=RSS&at_campaign=rss",
       "published": "2026-10-21T08:42:49+00:00"
-    },
-    {
-      "id": "12ef0f78fb8c244b",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Pakistan arrests man wanted by US over $126m postage fraud case",
-      "url": "https://www.bbc.co.uk/news/articles/ckdd8m1z1z3yo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-21T05:46:33+00:00"
     },
     {
       "id": "8d22fc4debd39ff3",
@@ -83,76 +110,58 @@
       "published": "2026-10-20T19:42:32+00:00"
     },
     {
-      "id": "1a9bb903c0ede720",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Google resolves cloud outage affecting UK banks and websites",
-      "url": "https://www.bbc.co.uk/news/articles/cxdd8mm6qy4mo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-20T18:03:19+00:00"
-    },
-    {
-      "id": "e2b1f409376e9208",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "UK asks Apple to widen access to its payment tech",
-      "url": "https://www.bbc.co.uk/news/articles/cqm26zzl0k12o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-20T12:29:24+00:00"
-    },
-    {
-      "id": "e899faae780b617d",
+      "id": "a25eb60c366b1963",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Curso falso para sargentos da reserva era usado para compra de armas",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/curso-falso-para-sargentos-da-reserva-era-usado-para-compra-de-armas",
-      "published": "2026-10-21T08:22:00-03:00"
+      "title": "Flávio Bolsonaro impõe condições para liberar sigilos",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/flavio-bolsonaro-impoe-condicoes-para-liberar-sigilos",
+      "published": "2026-10-21T17:52:00-03:00"
     },
     {
-      "id": "13e8d715944dba9a",
+      "id": "21d46dd226b20b21",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "PF faz operação contra fraudes em concurso público no Rio",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/pf-faz-operacao-contra-fraudes-em-concurso-publico-no-rio",
-      "published": "2026-10-21T08:06:00-03:00"
+      "title": "Prêmio TV Brasil Petrobras Para Elas anuncia finalistas entre goleiras",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/premio-tv-brasil-petrobras-para-elas-anuncia-finalistas-entre-goleiras",
+      "published": "2026-10-21T17:48:00-03:00"
     },
     {
-      "id": "b9cc1e0157b40e95",
+      "id": "256fca69254c44ba",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Eleitores do DF voltam às urnas para escolher entre Celina e Grass",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/eleitores-do-df-voltam-urnas-para-escolher-entre-celina-e-grass",
-      "published": "2026-10-21T08:00:00-03:00"
+      "title": "STF decide que ISS não integra base de cálculo do PIS/Cofins",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/stf-decide-que-iss-nao-integra-base-de-calculo-do-piscofins",
+      "published": "2026-10-21T16:56:00-03:00"
     },
     {
-      "id": "79822627b550bcf9",
+      "id": "436f42c729053401",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Eleitores do Acre escolhem entre Mailza Assis e Alan Rick para governo",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/eleitores-do-acre-voltam-urnas-no-domingo-para-escolher-entre-mailza-assis-e-alan-rick-para%20governar-estado",
-      "published": "2026-10-21T08:00:00-03:00"
+      "title": "Justiça torna réus 12 denunciados por queda de avião da Voepass",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/justica-torna-reus-12-denunciados-por-queda-de-aviao-da-voepass",
+      "published": "2026-10-21T16:47:00-03:00"
     },
     {
-      "id": "cf367441421e8176",
+      "id": "1f2f79b69cfc8fd0",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "No Amazonas, eleitores vão escolher entre Aziz e Maria do Carmo",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/no-amazonas-eleitores-vao-escolher-entre-aziz-e-maria-do-carmo",
-      "published": "2026-10-21T08:00:00-03:00"
+      "title": "ONU aponta falta de isenção da Meta em eleição brasileira",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/onu-aponta-falta-de-isencao-da-meta-em-eleicao-brasileira",
+      "published": "2026-10-21T16:47:00-03:00"
     },
     {
-      "id": "caec4eb036d3b048",
+      "id": "7df7f8a299389fb5",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Municípios terão que prestar contas sobre gestão de praias",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/municipios-terao-que-prestar-contas-sobre-gestao-de-praias",
-      "published": "2026-10-21T07:45:00-03:00"
+      "title": "Negacionismo impulsiona sarampo nos EUA e representa ameaça ao Brasil",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-10/negacionismo-impulsiona-sarampo-nos-eua-e-representa-ameaca-ao-brasil",
+      "published": "2026-10-21T15:40:00-03:00"
     }
   ],
   "unavailable": []
