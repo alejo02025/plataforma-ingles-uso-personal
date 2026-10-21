@@ -1,59 +1,77 @@
 {
-  "checkedAt": "2026-10-20T21:41:54.523201+00:00",
+  "checkedAt": "2026-10-21T11:58:40.254380+00:00",
   "stories": [
     {
-      "id": "c038aa98247b21af",
+      "id": "628236b1f71bbc8d",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Zelensky says US intelligence sharing 'works now' after talks with Trump envoy in Oslo",
-      "url": "https://www.bbc.co.uk/news/articles/cq5ynkx3xy11o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-20T21:27:39+00:00"
-    },
-    {
-      "id": "43a9ac5811a2c5e2",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Marseille braces for more unrest after protests give way to 'apocalyptic' disorder",
-      "url": "https://www.bbc.co.uk/news/articles/cm5ynkk570pno?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-20T12:08:06+00:00"
-    },
-    {
-      "id": "1245b6feb5631d67",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Man charged with attack on Australia MP to face court",
-      "url": "https://www.bbc.co.uk/news/articles/c678pnn9mpgno?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-20T11:25:35+00:00"
+      "title": "US citizen Stephen Hubbard freed by Russia as Trump envoy meets Putin",
+      "url": "https://www.bbc.co.uk/news/articles/c6m24l9v3745o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-21T11:39:25+00:00"
     },
     {
       "id": "6437763f391a5ef7",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Trump and Zelensky appear at loggerheads despite Oslo optimism",
+      "title": "Trump and Zelensky appear at loggerheads despite new optimism",
       "url": "https://www.bbc.co.uk/news/articles/ckrey51jrgnro?at_medium=RSS&at_campaign=rss",
       "published": "2026-10-20T20:00:57+00:00"
     },
     {
-      "id": "f2e797680b133350",
+      "id": "2672f6d202bb6655",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "'Great result for Canada', says Carney as Alberta votes to reject separatism",
-      "url": "https://www.bbc.co.uk/news/articles/cxr5yqqd7nlpo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-20T16:59:06+00:00"
+      "title": "Katya Adler: France divided over who to blame for riots and what to learn from them",
+      "url": "https://www.bbc.co.uk/news/articles/cq0me4g9p970o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-21T06:50:40+00:00"
     },
     {
-      "id": "1b54169ee507fb5e",
+      "id": "431049d19bdcabd5",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Trump sued over Canadian tariffs in latest legal challenge",
-      "url": "https://www.bbc.co.uk/news/articles/cqrkyj13m588o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-20T19:30:05+00:00"
+      "title": "Australian MP loses both legs after alleged car attack, husband says",
+      "url": "https://www.bbc.co.uk/news/articles/ckwyqdqxw6d0o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-21T07:56:30+00:00"
+    },
+    {
+      "id": "3dc6f12e33fbdf3f",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Elon Musk confirms he is considering merging Tesla and SpaceX",
+      "url": "https://www.bbc.co.uk/news/articles/cmlyl09xjke4o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-21T08:42:49+00:00"
+    },
+    {
+      "id": "12ef0f78fb8c244b",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Pakistan arrests man wanted by US over $126m postage fraud case",
+      "url": "https://www.bbc.co.uk/news/articles/ckdd8m1z1z3yo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-21T05:46:33+00:00"
+    },
+    {
+      "id": "8d22fc4debd39ff3",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Why is Elon Musk plotting a mega-merger of SpaceX and Tesla?",
+      "url": "https://www.bbc.co.uk/news/articles/cr93z1e87e0do?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-21T06:36:39+00:00"
+    },
+    {
+      "id": "de99a1d351f8396a",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "The tech helping crack decades-old cold cases",
+      "url": "https://www.bbc.co.uk/news/articles/c370pzdkw77jo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-20T23:13:24+00:00"
     },
     {
       "id": "8660bcdf866d0801",
@@ -83,85 +101,58 @@
       "published": "2026-10-20T12:29:24+00:00"
     },
     {
-      "id": "733cc19037e01703",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Ex-OpenAI worker accused of planting bug had Saudi support, claims prosecutors",
-      "url": "https://www.bbc.co.uk/news/articles/c6gel2dlyxvyo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-19T21:12:30+00:00"
-    },
-    {
-      "id": "c67da6c0eaa5eec1",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "US bans China's DeepSeek from government in race for AI dominance",
-      "url": "https://www.bbc.co.uk/news/articles/cjkgeq0k1wevo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-19T18:21:54+00:00"
-    },
-    {
-      "id": "758ad43d3928c5df",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Uber wins bid to throw out £200m black cab claims",
-      "url": "https://www.bbc.co.uk/news/articles/cv5ynp1j45x2o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-19T12:58:39+00:00"
-    },
-    {
-      "id": "53a9fac4692ebab4",
+      "id": "e899faae780b617d",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Justiça Eleitoral nega transporte, água e alimentação para indígenas",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/justica-eleitoral-nega-transporte-agua-e-alimentacao-para-indigenas",
-      "published": "2026-10-20T17:30:00-03:00"
+      "title": "Curso falso para sargentos da reserva era usado para compra de armas",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/curso-falso-para-sargentos-da-reserva-era-usado-para-compra-de-armas",
+      "published": "2026-10-21T08:22:00-03:00"
     },
     {
-      "id": "360516c714ca42c4",
+      "id": "13e8d715944dba9a",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Futebol feminino: premiação revela finalistas a melhor técnico do ano",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/premio-tv-brasil-petrobras-para-elas-revela-melhores-tecnicos-do-ano",
-      "published": "2026-10-20T17:25:00-03:00"
+      "title": "PF faz operação contra fraudes em concurso público no Rio",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/pf-faz-operacao-contra-fraudes-em-concurso-publico-no-rio",
+      "published": "2026-10-21T08:06:00-03:00"
     },
     {
-      "id": "04ba8557d92176f2",
+      "id": "b9cc1e0157b40e95",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "André Janones recebe alta e deixa hospital em São Paulo",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/andre-janones-recebe-alta-e-deixa-hospital-em-sao-paulo",
-      "published": "2026-10-20T17:07:00-03:00"
+      "title": "Eleitores do DF voltam às urnas para escolher entre Celina e Grass",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/eleitores-do-df-voltam-urnas-para-escolher-entre-celina-e-grass",
+      "published": "2026-10-21T08:00:00-03:00"
     },
     {
-      "id": "c87876db74270dd1",
+      "id": "79822627b550bcf9",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Eleições: saiba quais documentos são aceitos para votar no 2° turno",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/eleicoes-saiba-quais-documentos-sao-aceitos-para-votar-no-2deg-turno",
-      "published": "2026-10-20T17:00:00-03:00"
+      "title": "Eleitores do Acre escolhem entre Mailza Assis e Alan Rick para governo",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/eleitores-do-acre-voltam-urnas-no-domingo-para-escolher-entre-mailza-assis-e-alan-rick-para%20governar-estado",
+      "published": "2026-10-21T08:00:00-03:00"
     },
     {
-      "id": "6c9db8949edfa16a",
+      "id": "cf367441421e8176",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Queda de desmatamento no Brasil gera R$ 1,16 trilhão à economia global",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/queda-de-desmatamento-no-brasil-gera-r-116-trilhao-economia-global",
-      "published": "2026-10-20T16:59:00-03:00"
+      "title": "No Amazonas, eleitores vão escolher entre Aziz e Maria do Carmo",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/no-amazonas-eleitores-vao-escolher-entre-aziz-e-maria-do-carmo",
+      "published": "2026-10-21T08:00:00-03:00"
     },
     {
-      "id": "8e616310210f6ff3",
+      "id": "caec4eb036d3b048",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Repórter Tâmara Freire, da Agência Brasil, é finalista no Prêmio SBIm",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-10/reporter-tamara-freire-da-agencia-brasil-e-finalista-no-premio-sbim",
-      "published": "2026-10-20T16:53:00-03:00"
+      "title": "Municípios terão que prestar contas sobre gestão de praias",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/municipios-terao-que-prestar-contas-sobre-gestao-de-praias",
+      "published": "2026-10-21T07:45:00-03:00"
     }
   ],
   "unavailable": []
