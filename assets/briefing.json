@@ -1,86 +1,104 @@
 {
-  "checkedAt": "2026-10-21T21:47:39.463344+00:00",
+  "checkedAt": "2026-10-22T12:00:18.358614+00:00",
   "stories": [
     {
-      "id": "3222098e24245dc2",
+      "id": "085e3f66326aa6a8",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Missiles hit Kyiv after Russia agrees to US call to resume Ukraine peace talks",
-      "url": "https://www.bbc.co.uk/news/articles/cq3djn5nxx12o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-21T21:27:41+00:00"
+      "title": "Police investigate Married at First Sight Australia after 'inappropriate' allegations",
+      "url": "https://www.bbc.co.uk/news/articles/cry83vyw3y4lo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-22T09:47:54+00:00"
     },
     {
-      "id": "cb0db03c0b0da96d",
+      "id": "7ee6f3ff99e550d0",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Rosenberg: US diplomatic push offers little hope for imminent Ukraine peace",
-      "url": "https://www.bbc.co.uk/news/articles/cm98zn5j89kdo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-21T19:58:06+00:00"
+      "title": "At least four dead after storm brings flooding to southern France",
+      "url": "https://www.bbc.co.uk/news/articles/cm5ynl4v4wgwo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-22T11:23:16+00:00"
     },
     {
-      "id": "051968e48f9db0b9",
+      "id": "85d8e8226b1152ce",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Macron accuses foreign leaders of exploiting French riots",
-      "url": "https://www.bbc.co.uk/news/articles/ckjrw044ggxgo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-21T14:04:28+00:00"
+      "title": "El Salvador's president threatens Haitian gangs over military hostages",
+      "url": "https://www.bbc.co.uk/news/articles/cq33xpjekve4o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-22T10:17:48+00:00"
     },
     {
-      "id": "ecc61938bb8bf986",
+      "id": "da2f7faf71297981",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Pope does not need further treatment after lung cancer surgery",
-      "url": "https://www.bbc.co.uk/news/articles/cqrly2dg5xzzo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-21T20:09:10+00:00"
+      "title": "Two European women held captive for more than a year in Niger freed in Libya",
+      "url": "https://www.bbc.co.uk/news/articles/cq62y0v7434yo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-22T11:13:12+00:00"
     },
     {
-      "id": "057526649a868e9a",
+      "id": "c289548e4451556b",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "'Targeted' attack on much-loved MP leaves Australian town heartbroken",
-      "url": "https://www.bbc.co.uk/news/articles/cmgr8q88r5eqo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-21T18:10:42+00:00"
+      "title": "Celebrity shark guided out of South Korea canal refuses to swim out to sea",
+      "url": "https://www.bbc.co.uk/news/articles/cr3wv99614deo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-22T10:16:35+00:00"
     },
     {
-      "id": "1a1863570fff41f8",
+      "id": "92aa4d57e32d6cfe",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Family of prison officer killed by IRA receives state apology",
-      "url": "https://www.bbc.co.uk/news/articles/ck20rver1j31o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-21T16:58:16+00:00"
+      "title": "Two killed in attack on airport in eastern Saudi Arabia, authorities say",
+      "url": "https://www.bbc.co.uk/news/articles/cqwy71ww156ro?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-22T09:14:48+00:00"
     },
     {
-      "id": "23d28394e263a1d4",
+      "id": "d035ec0b9f400855",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "Websites taken down worldwide as critical cyber-security update issued",
-      "url": "https://www.bbc.co.uk/news/articles/cmly0lg3w5x2o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-21T19:54:57+00:00"
+      "title": "What is PHP and why did it spark a global cyber-security scramble?",
+      "url": "https://www.bbc.co.uk/news/articles/c3qjnwye0ep5o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-22T11:15:58+00:00"
     },
     {
-      "id": "686a391ecfec514d",
+      "id": "08e8546be458afc5",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "Just Eat apologises for AI food mistakes after social media ridicule",
-      "url": "https://www.bbc.co.uk/news/articles/crz981p0klvgo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-21T17:04:13+00:00"
+      "title": "Zoe Kleinman: PHP is the cyber equivalent of an unexploded bomb",
+      "url": "https://www.bbc.co.uk/news/articles/cw98z6qlyvg3o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-22T10:17:26+00:00"
     },
     {
-      "id": "3dc6f12e33fbdf3f",
+      "id": "618affb72c516c4f",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "Elon Musk confirms he is considering merging Tesla and SpaceX",
-      "url": "https://www.bbc.co.uk/news/articles/cmlyl09xjke4o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-21T08:42:49+00:00"
+      "title": "'500 new vulnerabilities' found in government, says AI minister",
+      "url": "https://www.bbc.co.uk/news/videos/c6y8lvg2p50po?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-22T10:08:44+00:00"
+    },
+    {
+      "id": "2a375ccbde887f9c",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "UK working to identify exposure after global cyber-security warning",
+      "url": "https://www.bbc.co.uk/news/articles/cmx23d0k57d3o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-22T08:23:42+00:00"
+    },
+    {
+      "id": "b4c060cbae4bd6a4",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Trump's green card curbs test Indian tech workers' American dream",
+      "url": "https://www.bbc.co.uk/news/articles/cqj34j7dk771o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-21T23:06:37+00:00"
     },
     {
       "id": "8d22fc4debd39ff3",
@@ -89,79 +107,61 @@
       "source": "BBC News",
       "title": "Why is Elon Musk plotting a mega-merger of SpaceX and Tesla?",
       "url": "https://www.bbc.co.uk/news/articles/cr93z1e87e0do?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-21T06:36:39+00:00"
+      "published": "2026-10-21T23:04:03+00:00"
     },
     {
-      "id": "de99a1d351f8396a",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "The tech helping crack decades-old cold cases",
-      "url": "https://www.bbc.co.uk/news/articles/c370pzdkw77jo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-20T23:13:24+00:00"
-    },
-    {
-      "id": "8660bcdf866d0801",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "OpenAI CEO Sam Altman wins dismissal of sister's lawsuit",
-      "url": "https://www.bbc.co.uk/news/articles/c94g1502el58o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-20T19:42:32+00:00"
-    },
-    {
-      "id": "a25eb60c366b1963",
+      "id": "bb398f9dbc05f1ac",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Flávio Bolsonaro impõe condições para liberar sigilos",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/flavio-bolsonaro-impoe-condicoes-para-liberar-sigilos",
-      "published": "2026-10-21T17:52:00-03:00"
+      "title": "Eleitores do ES definem disputa para governo entre Ferraço e Pazolini",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/eleitores-do-es-definem-disputa-para-governo-entre-ferraco-e-pazolini",
+      "published": "2026-10-22T08:00:00-03:00"
     },
     {
-      "id": "21d46dd226b20b21",
+      "id": "9dc45369f031ba3b",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Prêmio TV Brasil Petrobras Para Elas anuncia finalistas entre goleiras",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/premio-tv-brasil-petrobras-para-elas-anuncia-finalistas-entre-goleiras",
-      "published": "2026-10-21T17:48:00-03:00"
+      "title": "RN: eleitores vão escolher entre Allyson e Cadu de Lula para governo",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/rn-eleitores-vao-escolher-entre-allyson-e-cadu-de-lula-para-governo",
+      "published": "2026-10-22T08:00:00-03:00"
     },
     {
-      "id": "256fca69254c44ba",
+      "id": "ad1ae2db32af27cc",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "STF decide que ISS não integra base de cálculo do PIS/Cofins",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/stf-decide-que-iss-nao-integra-base-de-calculo-do-piscofins",
-      "published": "2026-10-21T16:56:00-03:00"
+      "title": "TO: eleitores escolherão entre Professora Dorinha e Vicentinho Júnior",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/eleitores-escolherao-entre-professora-dorinha-e-vicentinho-junior",
+      "published": "2026-10-22T08:00:00-03:00"
     },
     {
-      "id": "436f42c729053401",
+      "id": "0d3d4d56ed0bf1a9",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Justiça torna réus 12 denunciados por queda de avião da Voepass",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/justica-torna-reus-12-denunciados-por-queda-de-aviao-da-voepass",
-      "published": "2026-10-21T16:47:00-03:00"
+      "title": "Papa não precisará de mais tratamento contra o câncer, dizem médicos",
+      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-10/papa-nao-precisara-de-mais-tratamento-contra-o-cancer-dizem-medicos",
+      "published": "2026-10-22T07:28:00-03:00"
     },
     {
-      "id": "1f2f79b69cfc8fd0",
+      "id": "232023c53d7818d7",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "ONU aponta falta de isenção da Meta em eleição brasileira",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/onu-aponta-falta-de-isencao-da-meta-em-eleicao-brasileira",
-      "published": "2026-10-21T16:47:00-03:00"
+      "title": "Rádio MEC transmite ao vivo concerto da Orquestra Filarmônica de Goiás",
+      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-10/radio-mec-transmite-ao-vivo-concerto-da-orquestra-filarmonica-de-goias",
+      "published": "2026-10-22T07:02:00-03:00"
     },
     {
-      "id": "7df7f8a299389fb5",
+      "id": "cefe25458f55e445",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Negacionismo impulsiona sarampo nos EUA e representa ameaça ao Brasil",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-10/negacionismo-impulsiona-sarampo-nos-eua-e-representa-ameaca-ao-brasil",
-      "published": "2026-10-21T15:40:00-03:00"
+      "title": "Flávio faz campanha em São Paulo; Lula teve ato em Belo Horizonte",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/flavio-faz-campanha-em-sao-paulo-lula-teve-ato-em-belo-horizonte",
+      "published": "2026-10-21T22:45:00-03:00"
     }
   ],
   "unavailable": []
