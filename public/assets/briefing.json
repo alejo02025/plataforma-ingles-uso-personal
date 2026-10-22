@@ -1,14 +1,50 @@
 {
-  "checkedAt": "2026-10-22T12:00:18.358614+00:00",
+  "checkedAt": "2026-10-22T21:42:02.459914+00:00",
   "stories": [
     {
-      "id": "085e3f66326aa6a8",
+      "id": "984ca83b8519cafc",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Police investigate Married at First Sight Australia after 'inappropriate' allegations",
-      "url": "https://www.bbc.co.uk/news/articles/cry83vyw3y4lo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-22T09:47:54+00:00"
+      "title": "Newborn twins fight for survival as conflict fuels Yemen's hunger crisis",
+      "url": "https://www.bbc.co.uk/news/articles/cr5ynl63v0pyo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-22T15:56:36+00:00"
+    },
+    {
+      "id": "3c6c6b81f250b96a",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Race to update services' computer systems after cyber-security flaw found",
+      "url": "https://www.bbc.co.uk/news/articles/c9j34zgmkxx1o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-22T17:12:51+00:00"
+    },
+    {
+      "id": "0590192a9dd6cd4a",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Trump ordered to answer questions under oath in BBC lawsuit",
+      "url": "https://www.bbc.co.uk/news/articles/cmy0ryjx7741o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-22T17:14:04+00:00"
+    },
+    {
+      "id": "8191b3eb919287e2",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Crowd of 50 beats foreigner to death in South Africa",
+      "url": "https://www.bbc.co.uk/news/articles/ck5yn9z3vnego?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-22T16:15:25+00:00"
+    },
+    {
+      "id": "ecf6562c63e86531",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Germany target of 'intensive' espionage, Merz says after suspected Russian spy arrest",
+      "url": "https://www.bbc.co.uk/news/articles/cmx28y5e04ggo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-22T17:07:03+00:00"
     },
     {
       "id": "7ee6f3ff99e550d0",
@@ -20,40 +56,13 @@
       "published": "2026-10-22T11:23:16+00:00"
     },
     {
-      "id": "85d8e8226b1152ce",
+      "id": "c1ff1ed6121ec732",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "El Salvador's president threatens Haitian gangs over military hostages",
-      "url": "https://www.bbc.co.uk/news/articles/cq33xpjekve4o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-22T10:17:48+00:00"
-    },
-    {
-      "id": "da2f7faf71297981",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Two European women held captive for more than a year in Niger freed in Libya",
-      "url": "https://www.bbc.co.uk/news/articles/cq62y0v7434yo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-22T11:13:12+00:00"
-    },
-    {
-      "id": "c289548e4451556b",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Celebrity shark guided out of South Korea canal refuses to swim out to sea",
-      "url": "https://www.bbc.co.uk/news/articles/cr3wv99614deo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-22T10:16:35+00:00"
-    },
-    {
-      "id": "92aa4d57e32d6cfe",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Two killed in attack on airport in eastern Saudi Arabia, authorities say",
-      "url": "https://www.bbc.co.uk/news/articles/cqwy71ww156ro?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-22T09:14:48+00:00"
+      "title": "Zuckerberg wins Meta deal to help him foot bill for possible California billionaire tax",
+      "url": "https://www.bbc.co.uk/news/articles/cky83vwnyglno?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-22T18:26:56+00:00"
     },
     {
       "id": "d035ec0b9f400855",
@@ -92,76 +101,58 @@
       "published": "2026-10-22T08:23:42+00:00"
     },
     {
-      "id": "b4c060cbae4bd6a4",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Trump's green card curbs test Indian tech workers' American dream",
-      "url": "https://www.bbc.co.uk/news/articles/cqj34j7dk771o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-21T23:06:37+00:00"
-    },
-    {
-      "id": "8d22fc4debd39ff3",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Why is Elon Musk plotting a mega-merger of SpaceX and Tesla?",
-      "url": "https://www.bbc.co.uk/news/articles/cr93z1e87e0do?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-21T23:04:03+00:00"
-    },
-    {
-      "id": "bb398f9dbc05f1ac",
+      "id": "682420484cd50bc9",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Eleitores do ES definem disputa para governo entre Ferraço e Pazolini",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/eleitores-do-es-definem-disputa-para-governo-entre-ferraco-e-pazolini",
-      "published": "2026-10-22T08:00:00-03:00"
+      "title": "Previsão de superávit no Orçamento de 2027 está mantida, diz Durigan",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/previsao-de-superavit-no-orcamento-de-2027-esta-mantida-diz-durigan",
+      "published": "2026-10-22T17:59:00-03:00"
     },
     {
-      "id": "9dc45369f031ba3b",
+      "id": "5814dfdf4d9de7cb",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "RN: eleitores vão escolher entre Allyson e Cadu de Lula para governo",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/rn-eleitores-vao-escolher-entre-allyson-e-cadu-de-lula-para-governo",
-      "published": "2026-10-22T08:00:00-03:00"
+      "title": "Indígenas do Vale do Javari terão transporte gratuito no 2º turno",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/indigenas-do-vale-do-javari-terao-transporte-gratuito-no-2o-turno",
+      "published": "2026-10-22T17:14:00-03:00"
     },
     {
-      "id": "ad1ae2db32af27cc",
+      "id": "2972591117f58007",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "TO: eleitores escolherão entre Professora Dorinha e Vicentinho Júnior",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/eleitores-escolherao-entre-professora-dorinha-e-vicentinho-junior",
-      "published": "2026-10-22T08:00:00-03:00"
+      "title": "Prêmio TV Brasil Petrobras Para Elas: as 3 melhores laterais-direitas",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/premio-tv-brasil-petrobras-para-elas-3-melhores-laterais-direitas",
+      "published": "2026-10-22T17:10:00-03:00"
     },
     {
-      "id": "0d3d4d56ed0bf1a9",
+      "id": "129fc03e6d6afb96",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Papa não precisará de mais tratamento contra o câncer, dizem médicos",
-      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-10/papa-nao-precisara-de-mais-tratamento-contra-o-cancer-dizem-medicos",
-      "published": "2026-10-22T07:28:00-03:00"
+      "title": "Presidente do TSE pede à Meta relatório sobre canal Exército do Lula",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/presidente-do-tse-pede-meta-relatorio-sobre-canal-exercito-do-lula",
+      "published": "2026-10-22T16:25:00-03:00"
     },
     {
-      "id": "232023c53d7818d7",
+      "id": "870eb832fc78b91f",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Rádio MEC transmite ao vivo concerto da Orquestra Filarmônica de Goiás",
-      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-10/radio-mec-transmite-ao-vivo-concerto-da-orquestra-filarmonica-de-goias",
-      "published": "2026-10-22T07:02:00-03:00"
+      "title": "Polícia Civil investiga distribuidora de bebidas em Guarulhos (SP)",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/policia-civil-investiga-distribuidora-de-bebidas-em-guarulhos-sp",
+      "published": "2026-10-22T16:13:00-03:00"
     },
     {
-      "id": "cefe25458f55e445",
+      "id": "669a0a94bc039dca",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Flávio faz campanha em São Paulo; Lula teve ato em Belo Horizonte",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/flavio-faz-campanha-em-sao-paulo-lula-teve-ato-em-belo-horizonte",
-      "published": "2026-10-21T22:45:00-03:00"
+      "title": "Campanha de Lula apresenta acordo com Flávio para abrir sigilos",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/campanha-de-lula-apresenta-acordo-com-flavio-para-abrir-sigilos",
+      "published": "2026-10-22T15:33:00-03:00"
     }
   ],
   "unavailable": []
