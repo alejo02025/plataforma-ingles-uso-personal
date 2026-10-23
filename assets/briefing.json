@@ -1,59 +1,68 @@
 {
-  "checkedAt": "2026-10-22T21:42:02.459914+00:00",
+  "checkedAt": "2026-10-23T11:46:27.060638+00:00",
   "stories": [
     {
-      "id": "984ca83b8519cafc",
+      "id": "2fc55096c931225c",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Newborn twins fight for survival as conflict fuels Yemen's hunger crisis",
-      "url": "https://www.bbc.co.uk/news/articles/cr5ynl63v0pyo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-22T15:56:36+00:00"
+      "title": "Ukraine says Starlink still restricted after Trump says limits lifted",
+      "url": "https://www.bbc.co.uk/news/articles/cq74pjpmx0e8o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-23T11:01:08+00:00"
     },
     {
-      "id": "3c6c6b81f250b96a",
+      "id": "69507617ea9517a6",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Five Israelis wounded and two suspected Palestinian attackers killed in West Bank shooting",
+      "url": "https://www.bbc.co.uk/news/articles/cq4g1p974wxko?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-23T10:26:06+00:00"
+    },
+    {
+      "id": "d3a44ec2b4dec1c0",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Hundreds of flights cancelled as Typhoon Champi shuts Taiwan",
+      "url": "https://www.bbc.co.uk/news/articles/cw98zn304zg7o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-23T08:45:58+00:00"
+    },
+    {
+      "id": "e097ac388c0ec7ec",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "At least one dead and four injured in Paris suburb shooting",
+      "url": "https://www.bbc.co.uk/news/articles/c6ev38dj1g8zo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-23T11:44:12+00:00"
+    },
+    {
+      "id": "47a139a5c1cd507b",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Cyprus police open investigation into financial affairs of Roman Abramovich",
+      "url": "https://www.bbc.co.uk/news/articles/c875p1yy90ryo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-23T10:14:37+00:00"
+    },
+    {
+      "id": "a0eb2965186242b6",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Hospitals deliberately targeted by Sudan's RSF fighters, BBC finds",
+      "url": "https://www.bbc.co.uk/news/articles/c54g1kxw4nvvo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-23T10:23:07+00:00"
+    },
+    {
+      "id": "8cd3bc33d6acae08",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "Race to update services' computer systems after cyber-security flaw found",
-      "url": "https://www.bbc.co.uk/news/articles/c9j34zgmkxx1o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-22T17:12:51+00:00"
-    },
-    {
-      "id": "0590192a9dd6cd4a",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Trump ordered to answer questions under oath in BBC lawsuit",
-      "url": "https://www.bbc.co.uk/news/articles/cmy0ryjx7741o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-22T17:14:04+00:00"
-    },
-    {
-      "id": "8191b3eb919287e2",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Crowd of 50 beats foreigner to death in South Africa",
-      "url": "https://www.bbc.co.uk/news/articles/ck5yn9z3vnego?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-22T16:15:25+00:00"
-    },
-    {
-      "id": "ecf6562c63e86531",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Germany target of 'intensive' espionage, Merz says after suspected Russian spy arrest",
-      "url": "https://www.bbc.co.uk/news/articles/cmx28y5e04ggo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-22T17:07:03+00:00"
-    },
-    {
-      "id": "7ee6f3ff99e550d0",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "At least four dead after storm brings flooding to southern France",
-      "url": "https://www.bbc.co.uk/news/articles/cm5ynl4v4wgwo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-22T11:23:16+00:00"
+      "title": "The Indian workers filming their work to train AI",
+      "url": "https://www.bbc.co.uk/news/articles/ckvgyml6pdm9o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-23T08:04:17+00:00"
     },
     {
       "id": "c1ff1ed6121ec732",
@@ -63,6 +72,15 @@
       "title": "Zuckerberg wins Meta deal to help him foot bill for possible California billionaire tax",
       "url": "https://www.bbc.co.uk/news/articles/cky83vwnyglno?at_medium=RSS&at_campaign=rss",
       "published": "2026-10-22T18:26:56+00:00"
+    },
+    {
+      "id": "3c6c6b81f250b96a",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Race to update services' computer systems after cyber-security flaw found",
+      "url": "https://www.bbc.co.uk/news/articles/c9j34zgmkxx1o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-22T17:12:51+00:00"
     },
     {
       "id": "d035ec0b9f400855",
@@ -92,67 +110,58 @@
       "published": "2026-10-22T10:08:44+00:00"
     },
     {
-      "id": "2a375ccbde887f9c",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "UK working to identify exposure after global cyber-security warning",
-      "url": "https://www.bbc.co.uk/news/articles/cmx23d0k57d3o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-22T08:23:42+00:00"
-    },
-    {
-      "id": "682420484cd50bc9",
+      "id": "a14456f3a56559b7",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Previsão de superávit no Orçamento de 2027 está mantida, diz Durigan",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/previsao-de-superavit-no-orcamento-de-2027-esta-mantida-diz-durigan",
-      "published": "2026-10-22T17:59:00-03:00"
+      "title": "Diretora é presa por desvio de alimentos em unidade prisional feminina",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/diretora-e-presa-por-desvio-de-alimentos-em-unidade-prisional-feminina",
+      "published": "2026-10-23T08:02:00-03:00"
     },
     {
-      "id": "5814dfdf4d9de7cb",
+      "id": "85fd448d5a75e035",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Indígenas do Vale do Javari terão transporte gratuito no 2º turno",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/indigenas-do-vale-do-javari-terao-transporte-gratuito-no-2o-turno",
-      "published": "2026-10-22T17:14:00-03:00"
+      "title": "Entidades estimulam domésticas a denunciar assédio eleitoral",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-10/entidades-estimulam-domesticas-denunciar-assedio-eleitoral",
+      "published": "2026-10-23T07:51:00-03:00"
     },
     {
-      "id": "2972591117f58007",
+      "id": "4f249421ef24e1f0",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Prêmio TV Brasil Petrobras Para Elas: as 3 melhores laterais-direitas",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/premio-tv-brasil-petrobras-para-elas-3-melhores-laterais-direitas",
-      "published": "2026-10-22T17:10:00-03:00"
+      "title": "Eleitores de Itaguaí, no Rio, votam domingo também para prefeito",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/eleitores-de-itaguai-no-rio-votam-domingo-tambem-para-prefeito",
+      "published": "2026-10-23T07:45:00-03:00"
     },
     {
-      "id": "129fc03e6d6afb96",
+      "id": "5e6b7c5a43d3906b",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Presidente do TSE pede à Meta relatório sobre canal Exército do Lula",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/presidente-do-tse-pede-meta-relatorio-sobre-canal-exercito-do-lula",
-      "published": "2026-10-22T16:25:00-03:00"
+      "title": "Eleitor que pediu voto em trânsito pode consultar local no e-Título",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/eleitor-que-pediu-voto-em-transito-pode-consultar-local-no-e-titulo",
+      "published": "2026-10-23T07:45:00-03:00"
     },
     {
-      "id": "870eb832fc78b91f",
+      "id": "13f980bcdb512428",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Polícia Civil investiga distribuidora de bebidas em Guarulhos (SP)",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/policia-civil-investiga-distribuidora-de-bebidas-em-guarulhos-sp",
-      "published": "2026-10-22T16:13:00-03:00"
+      "title": "Racismo e intolerância religiosa atravessam debate eleitoral no Brasil",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-10/racismo-e-intolerancia-religiosa-atravessam-debate-eleitoral-no-brasil",
+      "published": "2026-10-23T07:31:00-03:00"
     },
     {
-      "id": "669a0a94bc039dca",
+      "id": "2263018721cb51c6",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Campanha de Lula apresenta acordo com Flávio para abrir sigilos",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/campanha-de-lula-apresenta-acordo-com-flavio-para-abrir-sigilos",
-      "published": "2026-10-22T15:33:00-03:00"
+      "title": "Libertadores Feminina tem chance de final brasileira pela terceira vez",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/libertadores-feminina-tem-chance-de-final-brasileira-pela-terceira-vez",
+      "published": "2026-10-23T07:02:00-03:00"
     }
   ],
   "unavailable": []
