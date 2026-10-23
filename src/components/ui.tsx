@@ -171,7 +171,13 @@ export function Speak({ text }: { text: string }) {
         if (!('speechSynthesis' in window)) return;
         window.speechSynthesis.cancel();
         const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'en-US';
+        const voice = window.speechSynthesis.getVoices().find((v) => v.localService && v.lang.toLowerCase().startsWith(isPortuguese ? 'pt' : 'en'));
+        if (!voice) {
+          window.alert(isPortuguese ? 'Instale uma voz local de português nas configurações do dispositivo.' : 'Install a local English voice in your device settings.');
+          return;
+        }
+        utterance.voice = voice;
+        utterance.lang = isPortuguese ? 'pt-BR' : 'en-US';
         utterance.rate = 0.85;
         window.speechSynthesis.speak(utterance);
       }}

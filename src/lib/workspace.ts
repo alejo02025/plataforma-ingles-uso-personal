@@ -1,4 +1,8 @@
-export const isPortuguese = process.env.NEXT_PUBLIC_STUDY_LANGUAGE === 'pt';
+import { languages, type StudyLanguageCode } from '@/locales/languages';
+export const workspaceLanguage: StudyLanguageCode =
+  process.env.NEXT_PUBLIC_STUDY_LANGUAGE === 'pt' ? 'pt' : 'en';
+export const languageConfig = languages[workspaceLanguage];
+export const isPortuguese = workspaceLanguage === 'pt';
 export const workspaceId = isPortuguese ? 'pt' : 'en';
 export const defaultName = isPortuguese ? 'Jazmín' : 'Alejo';
 export const initialInterests = isPortuguese
@@ -14,10 +18,10 @@ export const siteRoot =
     : 'https://alejo02025.github.io/plataforma-ingles-uso-personal';
 export const studyStorage = {
   getItem(key: string) {
-    return localStorage.getItem(isPortuguese ? `portuguese:${key}` : key);
+    return localStorage.getItem(`${languageConfig.storagePrefix}${key}`);
   },
   setItem(key: string, value: string) {
-    localStorage.setItem(isPortuguese ? `portuguese:${key}` : key, value);
+    localStorage.setItem(`${languageConfig.storagePrefix}${key}`, value);
   },
 };
 
@@ -26,4 +30,4 @@ export const studyLanguage = isPortuguese ? 'Brazilian Portuguese' : 'English';
 // Product names are identifiers, not translatable UI labels.
 export const spaceNames = { en: 'English OS', pt: 'Português OS' };
 // Endonyms stay stable in the language selector in either workspace.
-export const studyLanguageNames = { en: 'English', pt: 'Português' };
+export const studyLanguageNames = { en: languages.en.label, pt: languages.pt.label };

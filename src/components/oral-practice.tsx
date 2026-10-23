@@ -9,6 +9,7 @@ import type { Snapshot } from '@/lib/types';
 import { api, Button, Heading, Speak } from './ui';
 import { StudyCopy } from './study-copy';
 import { Correction } from './correction';
+import { pronunciationNotes } from '@/locales/learning/pronunciation-notes';
 
 function Copy({ en, pt, es }: { en: string; pt: string; es: string }) {
   return <StudyCopy native={isPortuguese ? pt : en}>{es}</StudyCopy>;
@@ -275,11 +276,11 @@ export function OralPractice({
       return;
     }
     const voices = speechSynthesis.getVoices().filter((v) => v.lang.startsWith(pt ? 'pt' : 'en'));
-    if (!navigator.onLine && !voices.some((v) => v.localService)) {
+    if (!voices.some((v) => v.localService)) {
       setError(
         native(
-          'No installed offline voice was found. Reveal the transcript, or try again with a connection.',
-          'Não foi encontrada uma voz offline instalada. Abra a transcrição ou tente novamente com conexão.',
+          'No local voice is installed. Open the transcript for supported practice, or install a device voice in system settings.',
+          'Nenhuma voz local está instalada. Abra a transcrição para praticar com apoio ou instale uma voz nas configurações do dispositivo.',
         ),
       );
       return;
@@ -288,7 +289,7 @@ export function OralPractice({
     const speech = new SpeechSynthesisUtterance(task.story);
     speech.lang = pt ? 'pt-BR' : 'en-US';
     speech.rate = 0.86;
-    speech.voice = voices.find((v) => v.localService) || voices[0] || null;
+    speech.voice = voices.find((v) => v.localService)!;
     speech.onstart = () => setPlaying(true);
     speech.onend = () => {
       setPlaying(false);
@@ -693,6 +694,25 @@ export function OralPractice({
           </article>
         ))}
       </section>
+      <details className="pronunciation-guide">
+        <summary>{pt ? 'Sons para observar' : 'Sounds to notice'}</summary>
+        <p lang="es">
+          Escuchá un modelo local, grabá la misma frase y compará. Esta guía no evalúa tu
+          pronunciación.
+        </p>
+        {pronunciationNotes[pt ? 'pt' : 'en'].map((note) => (
+          <article key={note.title}>
+            <h3 lang={pt ? 'pt-BR' : 'en'}>{note.title}</h3>
+            <p lang={pt ? 'pt-BR' : 'en'}>{note.native}</p>
+            <p lang="es" className="study-spanish">
+              {note.spanish}
+            </p>
+            <blockquote lang={pt ? 'pt-BR' : 'en'}>
+              {note.example} <Speak text={note.example} />
+            </blockquote>
+          </article>
+        ))}
+      </details>
     </div>
   );
 }

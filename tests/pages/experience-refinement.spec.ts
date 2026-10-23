@@ -12,8 +12,8 @@ for (const pt of [false, true]) {
     ).toHaveCount(0);
     const nav = page.locator('.sidebar .nav-primary');
     const names = pt
-      ? ['Hoje', 'Aulas', 'Revisão', 'Biblioteca', 'Progresso']
-      : ['Today', 'Classes', 'Review', 'Library', 'Progress'];
+      ? ['Hoje', 'Aprender', 'Praticar', 'Materiais', 'Progresso']
+      : ['Today', 'Learn', 'Practice', 'Materials', 'Progress'];
     await expect(nav.getByRole('button')).toHaveCount(5);
     for (let i = 0; i < names.length; i++) {
       await expect(nav.getByRole('button').nth(i)).toContainText(names[i]);
