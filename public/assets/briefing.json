@@ -1,14 +1,32 @@
 {
-  "checkedAt": "2026-10-24T11:11:09.689470+00:00",
+  "checkedAt": "2026-10-24T20:55:35.254071+00:00",
   "stories": [
+    {
+      "id": "af154c8b7028fa6b",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Ukraine says Starlink connection 'now stable' after network limits",
+      "url": "https://www.bbc.co.uk/news/articles/cwkg5md14j8go?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-24T12:12:40+00:00"
+    },
+    {
+      "id": "3fcd6f10560124f9",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Palestinian families displaced as Israeli forces demolish Hebron homes",
+      "url": "https://www.bbc.co.uk/news/articles/cqd09k1k7532o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-24T17:21:42+00:00"
+    },
     {
       "id": "b63a73bec91ba1d8",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Arrest made after fire at Hitler's mountaintop Eagle's Nest retreat",
+      "title": "Man arrested after fire at Hitler's mountaintop Eagle's Nest retreat",
       "url": "https://www.bbc.co.uk/news/articles/cr93zwjw1k4qo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-24T10:22:34+00:00"
+      "published": "2026-10-24T15:21:44+00:00"
     },
     {
       "id": "316ed2d0479cf95c",
@@ -20,40 +38,22 @@
       "published": "2026-10-23T22:47:07+00:00"
     },
     {
-      "id": "03a27aa845611eb5",
+      "id": "6221b4b7de9023e0",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Student movement takes Serbia's Vučić to the wire in neck-and-neck election",
-      "url": "https://www.bbc.co.uk/news/articles/cm1dwz311476o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-23T23:08:23+00:00"
+      "title": "British woman dies after trying to rescue sons swept away at sea in the Bahamas",
+      "url": "https://www.bbc.co.uk/news/articles/cm86z5n0yvy6o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-24T17:11:56+00:00"
     },
     {
-      "id": "97c227bfaa084727",
+      "id": "9b1d1f14a9b8f9be",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "White House lifts tariffs on some Canadian goods as midterm elections loom",
-      "url": "https://www.bbc.co.uk/news/articles/c60qk573yzz8o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-24T00:36:47+00:00"
-    },
-    {
-      "id": "06c9309238102b21",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Australian MP's condition improves after alleged car attack",
-      "url": "https://www.bbc.co.uk/news/articles/c670pr1ryxyno?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-24T01:55:15+00:00"
-    },
-    {
-      "id": "fc2568292034cd45",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Woman, 65, becomes second patient to die of Ebola in Kenya",
-      "url": "https://www.bbc.co.uk/news/articles/c6x2355448eyo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-24T09:46:53+00:00"
+      "title": "Vanessa Trump says she is cancer-free six months after revealing diagnosis",
+      "url": "https://www.bbc.co.uk/news/articles/cm1dwzvn6227o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-24T19:12:51+00:00"
     },
     {
       "id": "3a411ea5e3414a5b",
@@ -110,58 +110,58 @@
       "published": "2026-10-22T17:12:51+00:00"
     },
     {
-      "id": "04d02368699121ea",
+      "id": "1ddb3a0d3b63641e",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Candidatos trocam acusações e defendem propostas em debate na Globo",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/candidatos-trocam-acusacoes-e-defendem-propostas-em-debate-na-globo",
-      "published": "2026-10-24T02:20:00-03:00"
+      "title": "Transporte de indígenas deve ser aprovado por juiz, diz Nunes Marques",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/nunes-marques-nega-autorizacao-para-transporte-de-eleitores-indigenas",
+      "published": "2026-10-24T16:32:00-03:00"
     },
     {
-      "id": "d24c446566037459",
+      "id": "70ee2524b4cc9457",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Moraes determina bloqueio de até R$ 6 bilhões do advogado Willer Tomaz",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/moraes-determina-bloqueio-de-ate-r-6-bilhoes-do-advogado-willer-tomaz",
-      "published": "2026-10-23T21:56:00-03:00"
+      "title": "Tribunais eleitorais definem urnas que serão auditadas no 2º turno",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/tribunais-eleitorais-definem-urnas-que-serao-auditadas-no-2o-turno",
+      "published": "2026-10-24T16:13:00-03:00"
     },
     {
-      "id": "a70893ac642d1d4e",
+      "id": "2b7252ccc38fefe7",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "MPT apura carta de supermercado a funcionários com teor eleitoral",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/mpt-apura-carta-de-supermercado-funcionarios-com-teor-eleitoral",
-      "published": "2026-10-23T21:42:00-03:00"
+      "title": "Saiba os direitos de idosos e pessoas com deficiência para votar",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/saiba-os-direitos-de-idosos-e-pessoas-com-deficiencia-para-votar",
+      "published": "2026-10-24T15:22:00-03:00"
     },
     {
-      "id": "a2ad4dc167580c1a",
+      "id": "4ef89dbf84837a94",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Ministra rejeita ação que pedia transporte interestadual na eleição",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/ministra-rejeita-acao-que-pedia-transporte-interestadual-na-eleicao",
-      "published": "2026-10-23T21:12:00-03:00"
+      "title": "Rebeca Andrade conquista o tri no Mundial de Ginástica na Holanda",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/rebeca-andrade-conquista-o-tri-no-mundial-de-ginastica-na-holanda",
+      "published": "2026-10-24T15:04:00-03:00"
     },
     {
-      "id": "f56195e5a52416bb",
+      "id": "5fdd1f4d7fe63ee9",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Meta diz ao TSE que Exército do Lula não viola políticas da plataforma",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/meta-diz-ao-tse-que-exercito-do-lula-nao-viola-politicas-da-plataforma",
-      "published": "2026-10-23T20:48:00-03:00"
+      "title": "Trabalhador tem direito de sair do serviço para votar; confira a lei",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/trabalhador-tem-direito-de-sair-do-servico-para-votar-confira-lei",
+      "published": "2026-10-24T14:30:00-03:00"
     },
     {
-      "id": "6727fe23edc6ac14",
+      "id": "3e0a29588ce12c49",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Chuva deve prevalecer no domingo de eleições no Rio",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/chuva-deve-prevalecer-no-domingo-de-eleicao-no-rio",
-      "published": "2026-10-23T20:44:00-03:00"
+      "title": "Bullying: cartórios têm recorde de atas que podem comprovar agressões",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/bullying-cartorios-tem-recorde-de-atas-que-podem-comprovar-agressoes",
+      "published": "2026-10-24T14:06:00-03:00"
     }
   ],
   "unavailable": []
