@@ -1,23 +1,50 @@
 {
-  "checkedAt": "2026-10-24T20:55:35.254071+00:00",
+  "checkedAt": "2026-10-25T11:40:38.656929+00:00",
   "stories": [
     {
-      "id": "af154c8b7028fa6b",
+      "id": "431f5566a31b29b4",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Ukraine says Starlink connection 'now stable' after network limits",
-      "url": "https://www.bbc.co.uk/news/articles/cwkg5md14j8go?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-24T12:12:40+00:00"
+      "title": "More than 1,300 arrested as clashes follow another day of mass protests across France",
+      "url": "https://www.bbc.co.uk/news/articles/c95ynd587ynzo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-25T10:38:15+00:00"
     },
     {
-      "id": "3fcd6f10560124f9",
+      "id": "ff00da6ff48d059a",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Palestinian families displaced as Israeli forces demolish Hebron homes",
-      "url": "https://www.bbc.co.uk/news/articles/cqd09k1k7532o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-24T17:21:42+00:00"
+      "title": "Israel to close West Bank crossings on election day as crackdown escalates",
+      "url": "https://www.bbc.co.uk/news/articles/c6y93ylpl5p2o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-25T05:15:52+00:00"
+    },
+    {
+      "id": "ee273e8d6d2effa2",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Voters in Brazil head to polls as Lula goes up against Bolsonaro's son",
+      "url": "https://www.bbc.co.uk/news/articles/cxp8g21j4648o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-25T11:00:26+00:00"
+    },
+    {
+      "id": "e764a5389607640e",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Musk says SpaceX restricted Ukraine's Starlink connection as service restored",
+      "url": "https://www.bbc.co.uk/news/articles/cvx28ljp8n4xo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-25T09:00:00+00:00"
+    },
+    {
+      "id": "35c67fdb10b3910b",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Gunmen kill at least 10 villagers and loot shops in north-east Nigeria",
+      "url": "https://www.bbc.co.uk/news/articles/cq1kdlm1ze7do?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-25T03:20:16+00:00"
     },
     {
       "id": "b63a73bec91ba1d8",
@@ -27,33 +54,6 @@
       "title": "Man arrested after fire at Hitler's mountaintop Eagle's Nest retreat",
       "url": "https://www.bbc.co.uk/news/articles/cr93zwjw1k4qo?at_medium=RSS&at_campaign=rss",
       "published": "2026-10-24T15:21:44+00:00"
-    },
-    {
-      "id": "316ed2d0479cf95c",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Father who killed Oregon school gunman describes anguish over children he couldn't save",
-      "url": "https://www.bbc.co.uk/news/articles/crgj9ndwvj9jo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-23T22:47:07+00:00"
-    },
-    {
-      "id": "6221b4b7de9023e0",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "British woman dies after trying to rescue sons swept away at sea in the Bahamas",
-      "url": "https://www.bbc.co.uk/news/articles/cm86z5n0yvy6o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-24T17:11:56+00:00"
-    },
-    {
-      "id": "9b1d1f14a9b8f9be",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Vanessa Trump says she is cancer-free six months after revealing diagnosis",
-      "url": "https://www.bbc.co.uk/news/articles/cm1dwzvn6227o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-24T19:12:51+00:00"
     },
     {
       "id": "3a411ea5e3414a5b",
@@ -110,58 +110,58 @@
       "published": "2026-10-22T17:12:51+00:00"
     },
     {
-      "id": "1ddb3a0d3b63641e",
+      "id": "f3e0fca7d48e280a",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Transporte de indígenas deve ser aprovado por juiz, diz Nunes Marques",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/nunes-marques-nega-autorizacao-para-transporte-de-eleitores-indigenas",
-      "published": "2026-10-24T16:32:00-03:00"
+      "title": "Consulte o local de votação antes de sair de casa; saiba como",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/consulte-o-local-de-votacao-antes-de-sair-de-casa-saiba-como",
+      "published": "2026-10-25T07:19:00-03:00"
     },
     {
-      "id": "70ee2524b4cc9457",
+      "id": "cdf2ab76dd417f53",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Tribunais eleitorais definem urnas que serão auditadas no 2º turno",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/tribunais-eleitorais-definem-urnas-que-serao-auditadas-no-2o-turno",
-      "published": "2026-10-24T16:13:00-03:00"
+      "title": "Mega-Sena acumula, e próximo prêmio será de R$ 300 milhões",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/mega-sena-acumula-e-proximo-premio-sera-de-r-300-milhoes",
+      "published": "2026-10-25T07:18:00-03:00"
     },
     {
-      "id": "2b7252ccc38fefe7",
+      "id": "35b285a8c77244ab",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Saiba os direitos de idosos e pessoas com deficiência para votar",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/saiba-os-direitos-de-idosos-e-pessoas-com-deficiencia-para-votar",
-      "published": "2026-10-24T15:22:00-03:00"
+      "title": "Antes da urna, papel e caneta: prepare sua colinha para votar",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/antes-da-urna-papel-e-caneta-prepare-sua-colinha-para-votar",
+      "published": "2026-10-25T07:15:00-03:00"
     },
     {
-      "id": "4ef89dbf84837a94",
+      "id": "72f7e7ae774149ad",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Rebeca Andrade conquista o tri no Mundial de Ginástica na Holanda",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/rebeca-andrade-conquista-o-tri-no-mundial-de-ginastica-na-holanda",
-      "published": "2026-10-24T15:04:00-03:00"
+      "title": "Confira horário de votação neste domingo, segundo turno das eleições",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/confira-horario-de-votacao-neste-domingo-segundo-turno-das-eleicoes",
+      "published": "2026-10-25T07:11:00-03:00"
     },
     {
-      "id": "5fdd1f4d7fe63ee9",
+      "id": "0a35a6112ac9b76b",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Trabalhador tem direito de sair do serviço para votar; confira a lei",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/trabalhador-tem-direito-de-sair-do-servico-para-votar-confira-lei",
-      "published": "2026-10-24T14:30:00-03:00"
+      "title": "Veja em tempo real a apuração do 2ª turno na Agência Brasil",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/veja-em-tempo-real-apuracao-do-2a-turno-na-agencia-brasil",
+      "published": "2026-10-25T07:11:00-03:00"
     },
     {
-      "id": "3e0a29588ce12c49",
+      "id": "b91d27a8cb153618",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Bullying: cartórios têm recorde de atas que podem comprovar agressões",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/bullying-cartorios-tem-recorde-de-atas-que-podem-comprovar-agressoes",
-      "published": "2026-10-24T14:06:00-03:00"
+      "title": "Eleitores vão às urnas hoje para escolher o presidente do país",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/eleitores-vao-urnas-neste-domingo-para-escolher-o-presidente-do-pais",
+      "published": "2026-10-25T06:45:00-03:00"
     }
   ],
   "unavailable": []
