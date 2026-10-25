@@ -1,14 +1,41 @@
 {
-  "checkedAt": "2026-10-25T11:40:38.656929+00:00",
+  "checkedAt": "2026-10-25T20:56:06.874364+00:00",
   "stories": [
     {
-      "id": "431f5566a31b29b4",
+      "id": "e764a5389607640e",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "More than 1,300 arrested as clashes follow another day of mass protests across France",
-      "url": "https://www.bbc.co.uk/news/articles/c95ynd587ynzo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-25T10:38:15+00:00"
+      "title": "Musk says SpaceX restricted Ukraine's Starlink connection as service restored",
+      "url": "https://www.bbc.co.uk/news/articles/cvx28ljp8n4xo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-25T09:00:00+00:00"
+    },
+    {
+      "id": "4f9596d87794c5b0",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Venezuelan opposition leader María Machado returns after months in exile",
+      "url": "https://www.bbc.co.uk/news/articles/cq8ez592pp0eo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-25T18:29:00+00:00"
+    },
+    {
+      "id": "0754330016c29494",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Early reports suggest record high turnout in Serbia elections",
+      "url": "https://www.bbc.co.uk/news/articles/c6jdmj1ej715o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-25T19:55:15+00:00"
+    },
+    {
+      "id": "f9e2e6b3702535ba",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Suspect in deadly Paris suburb shooting sent for psychiatric observation",
+      "url": "https://www.bbc.co.uk/news/articles/c6e3xek2457wo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-25T15:32:51+00:00"
     },
     {
       "id": "ff00da6ff48d059a",
@@ -20,40 +47,13 @@
       "published": "2026-10-25T05:15:52+00:00"
     },
     {
-      "id": "ee273e8d6d2effa2",
+      "id": "65053c0b0bf5eaa3",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Voters in Brazil head to polls as Lula goes up against Bolsonaro's son",
-      "url": "https://www.bbc.co.uk/news/articles/cxp8g21j4648o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-25T11:00:26+00:00"
-    },
-    {
-      "id": "e764a5389607640e",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Musk says SpaceX restricted Ukraine's Starlink connection as service restored",
-      "url": "https://www.bbc.co.uk/news/articles/cvx28ljp8n4xo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-25T09:00:00+00:00"
-    },
-    {
-      "id": "35c67fdb10b3910b",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Gunmen kill at least 10 villagers and loot shops in north-east Nigeria",
-      "url": "https://www.bbc.co.uk/news/articles/cq1kdlm1ze7do?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-25T03:20:16+00:00"
-    },
-    {
-      "id": "b63a73bec91ba1d8",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Man arrested after fire at Hitler's mountaintop Eagle's Nest retreat",
-      "url": "https://www.bbc.co.uk/news/articles/cr93zwjw1k4qo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-24T15:21:44+00:00"
+      "title": "Gabon says access to social media restored after eight-month ban",
+      "url": "https://www.bbc.co.uk/news/articles/c6x2w0ngejneo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-25T14:39:47+00:00"
     },
     {
       "id": "3a411ea5e3414a5b",
@@ -92,76 +92,58 @@
       "published": "2026-10-23T08:04:17+00:00"
     },
     {
-      "id": "c1ff1ed6121ec732",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Zuckerberg wins Meta deal to help him foot bill for possible California billionaire tax",
-      "url": "https://www.bbc.co.uk/news/articles/cky83vwnyglno?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-22T18:26:56+00:00"
-    },
-    {
-      "id": "3c6c6b81f250b96a",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Race to update services' computer systems after cyber-security flaw found",
-      "url": "https://www.bbc.co.uk/news/articles/c9j34zgmkxx1o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-22T17:12:51+00:00"
-    },
-    {
-      "id": "f3e0fca7d48e280a",
+      "id": "27f09f4f11038ea3",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Consulte o local de votação antes de sair de casa; saiba como",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/consulte-o-local-de-votacao-antes-de-sair-de-casa-saiba-como",
-      "published": "2026-10-25T07:19:00-03:00"
+      "title": "Salvador: Procon atualiza para 544 total de ônibus parados em garagens",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/salvador-procon-atualiza-para-544-total-de-onibus-parados-em-garagens",
+      "published": "2026-10-25T17:09:00-03:00"
     },
     {
-      "id": "cdf2ab76dd417f53",
+      "id": "4cb6a0a0951dd968",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Mega-Sena acumula, e próximo prêmio será de R$ 300 milhões",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/mega-sena-acumula-e-proximo-premio-sera-de-r-300-milhoes",
-      "published": "2026-10-25T07:18:00-03:00"
+      "title": "Zanin manda ampliar horário de votação até as 19h em todo o país",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/zanin-manda-ampliar-horario-de-votacao-ate-19h",
+      "published": "2026-10-25T17:07:00-03:00"
     },
     {
-      "id": "35b285a8c77244ab",
+      "id": "7b57b2e7b294f645",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Antes da urna, papel e caneta: prepare sua colinha para votar",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/antes-da-urna-papel-e-caneta-prepare-sua-colinha-para-votar",
-      "published": "2026-10-25T07:15:00-03:00"
+      "title": "Nunes Marques dá meia hora para TRE-BA responder sobre transporte",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/nunes-marques-da-meia-hora-para-tre-ba-responder-sobre-transporte",
+      "published": "2026-10-25T17:05:00-03:00"
     },
     {
-      "id": "72f7e7ae774149ad",
+      "id": "1dac7ec71ce0eda4",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Confira horário de votação neste domingo, segundo turno das eleições",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/confira-horario-de-votacao-neste-domingo-segundo-turno-das-eleicoes",
-      "published": "2026-10-25T07:11:00-03:00"
+      "title": "Campanha de Flávio pede votação até 19h por chuvas em alguns estados",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/campanha-de-flavio-pede-votacao-ate-19h-por-chuvas-em-alguns-estados",
+      "published": "2026-10-25T17:04:00-03:00"
     },
     {
-      "id": "0a35a6112ac9b76b",
+      "id": "91101ce4de500d1a",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Veja em tempo real a apuração do 2ª turno na Agência Brasil",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/veja-em-tempo-real-apuracao-do-2a-turno-na-agencia-brasil",
-      "published": "2026-10-25T07:11:00-03:00"
+      "title": "Campanha de Lula denuncia falta de transporte em nove estados",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/campanha-de-lula-denuncia-falta-de-transporte-em-nove-estados",
+      "published": "2026-10-25T17:01:00-03:00"
     },
     {
-      "id": "b91d27a8cb153618",
+      "id": "d8d9d58d326bede6",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Eleitores vão às urnas hoje para escolher o presidente do país",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/eleitores-vao-urnas-neste-domingo-para-escolher-o-presidente-do-pais",
-      "published": "2026-10-25T06:45:00-03:00"
+      "title": "Lula pede prorrogação de votação em cidades com falhas no transporte",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/lula-pede-prorrogacao-de-votacao-em-cidades-com-falhas-no-transporte",
+      "published": "2026-10-25T16:46:00-03:00"
     }
   ],
   "unavailable": []
