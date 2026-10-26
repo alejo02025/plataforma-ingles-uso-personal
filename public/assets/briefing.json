@@ -1,14 +1,14 @@
 {
-  "checkedAt": "2026-10-25T20:56:06.874364+00:00",
+  "checkedAt": "2026-10-26T13:12:56.275276+00:00",
   "stories": [
     {
-      "id": "e764a5389607640e",
+      "id": "389047118581412a",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Musk says SpaceX restricted Ukraine's Starlink connection as service restored",
-      "url": "https://www.bbc.co.uk/news/articles/cvx28ljp8n4xo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-25T09:00:00+00:00"
+      "title": "Celebrations in Serbia after veteran ruler Vučić loses election to student-led protest movement",
+      "url": "https://www.bbc.co.uk/news/articles/cw5yn3xlprpmo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-26T12:52:16+00:00"
     },
     {
       "id": "4f9596d87794c5b0",
@@ -17,43 +17,52 @@
       "source": "BBC News",
       "title": "Venezuelan opposition leader María Machado returns after months in exile",
       "url": "https://www.bbc.co.uk/news/articles/cq8ez592pp0eo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-25T18:29:00+00:00"
+      "published": "2026-10-26T05:20:19+00:00"
     },
     {
-      "id": "0754330016c29494",
+      "id": "a8fb3c457a70088a",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Early reports suggest record high turnout in Serbia elections",
-      "url": "https://www.bbc.co.uk/news/articles/c6jdmj1ej715o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-25T19:55:15+00:00"
+      "title": "Australian murderer loses bid to eat Vegemite in prison",
+      "url": "https://www.bbc.co.uk/news/articles/cvwy7wz9x12go?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-26T04:05:28+00:00"
     },
     {
-      "id": "f9e2e6b3702535ba",
+      "id": "64ebafba5677c6b6",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Suspect in deadly Paris suburb shooting sent for psychiatric observation",
-      "url": "https://www.bbc.co.uk/news/articles/c6e3xek2457wo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-25T15:32:51+00:00"
+      "title": "Nurse killed in attack while responding to Ebola alert in DR Congo",
+      "url": "https://www.bbc.co.uk/news/articles/crx2dyd24188o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-26T12:57:58+00:00"
     },
     {
-      "id": "ff00da6ff48d059a",
+      "id": "24f4e73ce7f92a36",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Israel to close West Bank crossings on election day as crackdown escalates",
-      "url": "https://www.bbc.co.uk/news/articles/c6y93ylpl5p2o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-25T05:15:52+00:00"
+      "title": "Eric Bauza, voice of Bugs Bunny and Daffy Duck, dies aged 46",
+      "url": "https://www.bbc.co.uk/news/articles/cwzd6q630vjeo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-26T06:16:15+00:00"
     },
     {
-      "id": "65053c0b0bf5eaa3",
+      "id": "9adeceb6fe7acda4",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Gabon says access to social media restored after eight-month ban",
-      "url": "https://www.bbc.co.uk/news/articles/c6x2w0ngejneo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-25T14:39:47+00:00"
+      "title": "Rapper Nicki Minaj joins Trump onstage at Michigan rally",
+      "url": "https://www.bbc.co.uk/news/articles/cqrmyl1mljppo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-25T23:33:19+00:00"
+    },
+    {
+      "id": "842f3b34c2cc681d",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Big, noisy and coming to a town near you - why the data centre backlash is growing",
+      "url": "https://www.bbc.co.uk/news/articles/cq2e9we7w2ejo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-25T23:44:34+00:00"
     },
     {
       "id": "3a411ea5e3414a5b",
@@ -65,85 +74,58 @@
       "published": "2026-10-24T00:05:45+00:00"
     },
     {
-      "id": "d035ec0b9f400855",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "What is PHP and why did it spark a global cyber-security scramble?",
-      "url": "https://www.bbc.co.uk/news/articles/c3qjnwye0ep5o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-23T12:24:17+00:00"
-    },
-    {
-      "id": "6bedddec950a647e",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "'It's been relentless' say IT workers on frontline of PHP cyber-security scramble",
-      "url": "https://www.bbc.co.uk/news/articles/cxnv025d8qpmo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-23T12:00:25+00:00"
-    },
-    {
-      "id": "8cd3bc33d6acae08",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "The Indian workers filming their work to train AI",
-      "url": "https://www.bbc.co.uk/news/articles/ckvgyml6pdm9o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-23T08:04:17+00:00"
-    },
-    {
-      "id": "27f09f4f11038ea3",
+      "id": "80bcdf671ae60181",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Salvador: Procon atualiza para 544 total de ônibus parados em garagens",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/salvador-procon-atualiza-para-544-total-de-onibus-parados-em-garagens",
-      "published": "2026-10-25T17:09:00-03:00"
+      "title": "Novo canal de umidade leva chuvas ao Norte, Centro-Oeste e Nordeste",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/novo-canal-de-umidade-leva-chuvas-ao-norte-centro-oeste-e-nordeste",
+      "published": "2026-10-26T08:58:00-03:00"
     },
     {
-      "id": "4cb6a0a0951dd968",
+      "id": "2eb095972f9d536c",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Zanin manda ampliar horário de votação até as 19h em todo o país",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/zanin-manda-ampliar-horario-de-votacao-ate-19h",
-      "published": "2026-10-25T17:07:00-03:00"
+      "title": "Força Nacional reforçará segurança na fronteira com a Colômbia",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/forca-nacional-reforcara-seguranca-na-fronteira-com-colombia",
+      "published": "2026-10-26T08:43:00-03:00"
     },
     {
-      "id": "7b57b2e7b294f645",
+      "id": "265b230af2a35117",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Nunes Marques dá meia hora para TRE-BA responder sobre transporte",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/nunes-marques-da-meia-hora-para-tre-ba-responder-sobre-transporte",
-      "published": "2026-10-25T17:05:00-03:00"
+      "title": "Em festa da vitória, Lula pede que público cante Hino da Independência",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/em-festa-da-vitoria-lula-pede-que-publico-cante-hino-da-independencia",
+      "published": "2026-10-26T07:02:00-03:00"
     },
     {
-      "id": "1dac7ec71ce0eda4",
+      "id": "448fd228dee08c2f",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Campanha de Flávio pede votação até 19h por chuvas em alguns estados",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/campanha-de-flavio-pede-votacao-ate-19h-por-chuvas-em-alguns-estados",
-      "published": "2026-10-25T17:04:00-03:00"
+      "title": "Lula agradece votos e diz que teve de vencer intromissão vinda de fora",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/lula-agradece-votos-e-diz-que-teve-de-vencer-intromissao-vinda-de-fora",
+      "published": "2026-10-25T23:49:00-03:00"
     },
     {
-      "id": "91101ce4de500d1a",
+      "id": "27a6cb70ebd6738f",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Campanha de Lula denuncia falta de transporte em nove estados",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/campanha-de-lula-denuncia-falta-de-transporte-em-nove-estados",
-      "published": "2026-10-25T17:01:00-03:00"
+      "title": "Flávio não reconhece vitória de Lula e tentará anulação do pleito",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/flavio-nao-reconhece-vitoria-de-lula-e-tentara-anulacao-do-pleito",
+      "published": "2026-10-25T23:39:00-03:00"
     },
     {
-      "id": "d8d9d58d326bede6",
+      "id": "de817fd1350aecee",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Lula pede prorrogação de votação em cidades com falhas no transporte",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/lula-pede-prorrogacao-de-votacao-em-cidades-com-falhas-no-transporte",
-      "published": "2026-10-25T16:46:00-03:00"
+      "title": "“Vamos mudar o jeito de governar este país”, diz Lula",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/vamos-mudar-o-jeito-de-governar-este-pais-diz-lula",
+      "published": "2026-10-25T23:35:00-03:00"
     }
   ],
   "unavailable": []
