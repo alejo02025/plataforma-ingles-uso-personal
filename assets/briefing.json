@@ -1,59 +1,68 @@
 {
-  "checkedAt": "2026-10-26T22:44:03.609298+00:00",
+  "checkedAt": "2026-10-27T12:21:00.726388+00:00",
   "stories": [
     {
-      "id": "d40554decfa031b4",
+      "id": "5dfba2a00b89e2fe",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Lula wins fourth term in dramatic Brazil election comeback",
-      "url": "https://www.bbc.co.uk/news/articles/ckm23y3mg1yyo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-26T21:02:47+00:00"
+      "title": "Turnout so far highest in decades as Israelis vote in pivotal election",
+      "url": "https://www.bbc.co.uk/news/articles/c3j47l4kdez4o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-27T11:11:33+00:00"
     },
     {
-      "id": "389047118581412a",
+      "id": "95695fd4f9f797a4",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Celebrations in Serbia after veteran ruler Vučić loses election to student-led protest movement",
-      "url": "https://www.bbc.co.uk/news/articles/cw5yn3xlprpmo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-26T14:34:52+00:00"
+      "title": "Lula's comeback in Brazil dents Trump's ambitions for Latin America",
+      "url": "https://www.bbc.co.uk/news/articles/cq62yg6rggj0o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-27T01:46:38+00:00"
     },
     {
-      "id": "be36d8aa05a04a0b",
+      "id": "8aa0deec5984dc49",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Trump administration illegally fired James Comey's daughter, judge rules",
-      "url": "https://www.bbc.co.uk/news/articles/ck78px6glw3lo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-26T19:27:21+00:00"
+      "title": "Truce begins in Ukraine city where residents ate weeds to survive",
+      "url": "https://www.bbc.co.uk/news/articles/ck20wjnv3w0jo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-27T11:53:57+00:00"
     },
     {
-      "id": "b7e0a7314df9ab09",
+      "id": "87222fd3ea56f85a",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Jordan carries out deadly strike in Syria in retaliation for church attack",
+      "url": "https://www.bbc.co.uk/news/articles/cq8ezg6dy6xlo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-27T02:40:17+00:00"
+    },
+    {
+      "id": "7f2710e2a2a9c413",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Ex-FBI chief James Comey faces federal charges for third time",
+      "url": "https://www.bbc.co.uk/news/articles/ckly0xqjnlwvo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-27T11:44:54+00:00"
+    },
+    {
+      "id": "ce05360d5d90600b",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Jay-Z to perform at Super Bowl half-time show",
+      "url": "https://www.bbc.co.uk/news/articles/cq8ezg4364epo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-27T05:05:15+00:00"
+    },
+    {
+      "id": "ce36f5af847f2b1a",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "Anthropic warns of 'catastrophic risk' to humankind ahead of blockbuster share listing",
-      "url": "https://www.bbc.co.uk/news/articles/cq398p1wd1evo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-26T16:27:17+00:00"
-    },
-    {
-      "id": "55a9edc815280797",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Catholic bishops apologise for 'exploited' Trump meeting",
-      "url": "https://www.bbc.co.uk/news/articles/cw8rz1d286v3o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-26T15:46:31+00:00"
-    },
-    {
-      "id": "1ee616a24c0ec358",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "US Marine indicted for murder and robbery of woman in Japan",
-      "url": "https://www.bbc.co.uk/news/articles/c3vgxjex1z9wo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-26T14:13:18+00:00"
+      "title": "Apple to replace iPhone Duos affected by screen problem",
+      "url": "https://www.bbc.co.uk/news/articles/c893zwlev2xpo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-27T09:37:55+00:00"
     },
     {
       "id": "59758e9da3af8b73",
@@ -65,6 +74,15 @@
       "published": "2026-10-26T19:57:23+00:00"
     },
     {
+      "id": "b7e0a7314df9ab09",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Anthropic warns of 'catastrophic risk' to humankind ahead of blockbuster share listing",
+      "url": "https://www.bbc.co.uk/news/articles/cq398p1wd1evo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-26T16:27:17+00:00"
+    },
+    {
       "id": "842f3b34c2cc681d",
       "language": "en",
       "topic": "Technology",
@@ -74,67 +92,58 @@
       "published": "2026-10-25T23:44:34+00:00"
     },
     {
-      "id": "3a411ea5e3414a5b",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "UK to invest £100m in 'world first' AI Biosecurity Lab",
-      "url": "https://www.bbc.co.uk/news/articles/cqdjv8xllvyyo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-24T00:05:45+00:00"
-    },
-    {
-      "id": "e04e2e4e2af5736d",
+      "id": "9689045f0c98640a",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Anvisa proíbe venda de picolé com melatonina e suplemento de proteína",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-10/anvisa-proibe-venda-de-picole-com-melatonina-e-suplemento-de-proteina",
-      "published": "2026-10-26T18:40:00-03:00"
+      "title": "Petrobras inova na produção sustentável de combustível de aviação",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/petrobras-inova-na-producao-sustentavel-de-combustivel-de-aviacao",
+      "published": "2026-10-27T07:32:00-03:00"
     },
     {
-      "id": "cb7556b09b9fb1c2",
+      "id": "25bb2eac52fc9d06",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Dengue: 3 milhões de adolescentes estão com vacinação incompleta",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-10/dengue-3-milhoes-de-adolescentes-estao-com-vacinacao-incompleta",
-      "published": "2026-10-26T18:34:00-03:00"
+      "title": "Um ano depois, mortes da Operação Contenção ainda são investigadas",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-10/um-ano-depois-mortes-da-operacao-contencao-ainda-sao-investigadas",
+      "published": "2026-10-27T07:05:00-03:00"
     },
     {
-      "id": "d77fee544ad29b41",
+      "id": "a31ee62301ba1a0e",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Líderes estrangeiros reconhecem vitória e parabenizam Lula",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/lideres-estrangeiros-reconhecem-vitoria-e-parabenizam-lula",
-      "published": "2026-10-26T18:33:00-03:00"
+      "title": "Gol nos acréscimos assegura Flamengo na liderança do Brasileirão",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/gol-nos-acrescimos-assegura-flamengo-na-lideranca-do-brasileirao",
+      "published": "2026-10-27T06:45:00-03:00"
     },
     {
-      "id": "f384479fd4af0be5",
+      "id": "5828bfdee2c5a277",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Dia do Servidor Público: ponto facultativo será na sexta-feira",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/dia-do-servidor-publico-ponto-facultativo-sera-na-sexta-feira",
-      "published": "2026-10-26T18:28:00-03:00"
+      "title": "Mega-Sena não tem ganhador; prêmio acumula para R$ 305 milhões",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/mega-sena-nao-tem-ganhador-premio-acumula-para-r-305-milhoes",
+      "published": "2026-10-26T22:08:00-03:00"
     },
     {
-      "id": "f31f661116b8ae28",
+      "id": "d8947f75720591ea",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "TRE-BA revoga ordem de prisão de secretário de Mobilidade de Salvador",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/tre-ba-revoga-ordem-de-prisao-de-secretario-de-mobilidade-de-salvador",
-      "published": "2026-10-26T18:13:00-03:00"
+      "title": "PL, partido de Flávio, reconhece vitória de Lula nas eleições",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/partido-de-flavio-pl-reconhece-vitoria-de-lula-nas-eleicoes",
+      "published": "2026-10-26T21:38:00-03:00"
     },
     {
-      "id": "f8eeaf46928b8207",
+      "id": "e26da78ec60a4b7c",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Moraes manda Flávio entregar passaporte e o proíbe de deixar o país",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/moraes-manda-flavio-entregar-passaporte-e-o-proibe-de-deixar-o-pais",
-      "published": "2026-10-26T17:55:00-03:00"
+      "title": "Harry Kane e Alexia Putellas vencem prêmio Bola de Ouro de 2026",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/harry-kane-e-alexia-putellas-vencem-premio-bola-de-ouro-de-2026",
+      "published": "2026-10-26T21:12:00-03:00"
     }
   ],
   "unavailable": []
