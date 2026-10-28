@@ -1,59 +1,77 @@
 {
-  "checkedAt": "2026-10-28T13:05:25.965836+00:00",
+  "checkedAt": "2026-10-28T22:39:55.311048+00:00",
   "stories": [
     {
-      "id": "6e78bdc037659a9d",
+      "id": "99093cee53b4403a",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Luxury cruise passengers stranded in Cambodia due to soaring fuel costs",
-      "url": "https://www.bbc.co.uk/news/articles/cwj342k62exyo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-28T10:31:22+00:00"
+      "title": "High-speed train crash kills at least 68 people in Spain",
+      "url": "https://www.bbc.co.uk/news/articles/c6p3g84kjqjlo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-28T21:38:54+00:00"
     },
     {
-      "id": "89b4637be678f2b0",
+      "id": "acb566103b1edafc",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Serbian shot dead after attacking officer outside Israeli embassy, minister says",
-      "url": "https://www.bbc.co.uk/news/articles/ck5ynj4eeyj2o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-28T10:17:54+00:00"
+      "title": "Bloodied, dazed and angry - how passengers' rail journey turned to disaster in Spain",
+      "url": "https://www.bbc.co.uk/news/articles/cm9qzd47ng98o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-28T21:24:41+00:00"
     },
     {
-      "id": "d1f3c1418be2c76d",
+      "id": "0fb97cbc377bdc7e",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Tanzania celebrates first natural gas discovery in more than 10 years",
-      "url": "https://www.bbc.co.uk/news/articles/c5m2dry2xwwvo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-28T10:18:40+00:00"
+      "title": "Flávio Bolsonaro denies fleeing Brazil after landing in Miami",
+      "url": "https://www.bbc.co.uk/news/articles/c6kglwe4lxwzo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-28T22:13:35+00:00"
     },
     {
-      "id": "579d44974574d963",
+      "id": "d1f92f29ac2ee13c",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Kenyan family protest extradition hearing delay of ex-British soldier accused of murdering kin",
-      "url": "https://www.bbc.co.uk/news/articles/cmly073ql392o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-28T08:28:39+00:00"
+      "title": "Netanyahu's bloc leading Israel election but short of majority, partial results show",
+      "url": "https://www.bbc.co.uk/news/articles/cmdx3knq1xexo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-28T20:24:39+00:00"
     },
     {
-      "id": "f1415d1a806a666b",
+      "id": "2ba00454c3d080a3",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Ceasefire extended across Ukraine's Kherson region, officials say",
-      "url": "https://www.bbc.co.uk/news/articles/c6lye1w9p2l8o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-27T22:11:08+00:00"
+      "title": "How could Israel break election deadlock? Here are four scenarios",
+      "url": "https://www.bbc.co.uk/news/articles/cm62y46d97wwo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-28T14:30:31+00:00"
     },
     {
-      "id": "04c238830b7b15b3",
+      "id": "881b52d1edde21e3",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "King acknowledges 'suffering of the past' as Caribbean tour begins",
-      "url": "https://www.bbc.co.uk/news/articles/cmwyv8ld22z1o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-28T04:32:36+00:00"
+      "title": "Girl seriously injured in wolf attack at German wildlife park",
+      "url": "https://www.bbc.co.uk/news/articles/c678prm55gzzo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-28T22:08:52+00:00"
+    },
+    {
+      "id": "e19bd8c686545cca",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Details of thousands of US immigration agents leaked in major hack",
+      "url": "https://www.bbc.co.uk/news/articles/cq8jzkpjr28vo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-28T22:12:43+00:00"
+    },
+    {
+      "id": "91124b3ea1c87698",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Elon Musk is a 'real genius', Putin says after satellite talks with SpaceX boss",
+      "url": "https://www.bbc.co.uk/news/articles/c63djl148n3eo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-28T19:15:58+00:00"
     },
     {
       "id": "2c43e290abc0f3c1",
@@ -92,76 +110,58 @@
       "published": "2026-10-26T16:27:17+00:00"
     },
     {
-      "id": "842f3b34c2cc681d",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Big, noisy and coming to a town near you - why the data centre backlash is growing",
-      "url": "https://www.bbc.co.uk/news/articles/cq2e9we7w2ejo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-25T23:44:34+00:00"
-    },
-    {
-      "id": "8346efbd8e2d19c7",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Tech Life",
-      "url": "https://www.bbc.co.uk/sounds/play/w3ct8jys?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-27T20:30:00+00:00"
-    },
-    {
-      "id": "08ece1bea6e59165",
+      "id": "6c39a98e01fcf64d",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Chuvas continuam favorecendo região do Matopiba no Nordeste",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/chuvas-continuam-favorecendo-regiao-do-matopiba-no-nordeste",
-      "published": "2026-10-28T09:13:00-03:00"
+      "title": "Brasil bate Polônia nos pênaltis e avança no Mundial Sub-17 Feminino",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/brasil-bate-polonia-nos-penaltis-e-avanca-no-mundial-sub-17-feminino",
+      "published": "2026-10-28T18:28:00-03:00"
     },
     {
-      "id": "bd5b7562084f70b2",
+      "id": "b8ced2cef81bb240",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "STF nega ter ordenado buscas em endereços de Flávio Bolsonaro",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/stf-nega-ter-ordenado-buscas-em-enderecos-de-flavio-bolsonaro",
-      "published": "2026-10-28T09:08:00-03:00"
+      "title": "Em carta golpista, Flávio agradece Milei e Trump por apoio para fuga",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/em-carta-golpista-flavio-agradece-milei-e-trump-por-apoio-para-fuga",
+      "published": "2026-10-28T18:22:00-03:00"
     },
     {
-      "id": "b13ff340de82dd84",
+      "id": "d3f9215cdd1532f6",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Avião com Flávio Bolsonaro e família segue para Miami",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/aviao-com-flavio-bolsonaro-e-familia-segue-para-miami",
-      "published": "2026-10-28T09:03:00-03:00"
+      "title": "Afastamentos por vício em jogos cresceram 5 vezes em três anos",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/afastamentos-por-vicio-em-jogos-cresceram-5-vezes-em-tres-anos",
+      "published": "2026-10-28T18:16:00-03:00"
     },
     {
-      "id": "774721a4899bda62",
+      "id": "455baced115e45f6",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Pelo menos 30 pessoas morrem na Espanha após colisão entre dois trens",
-      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-10/pelo-menos-30-pessoas-morrem-na-espanha-apos-colisao-entre-dois-trens",
-      "published": "2026-10-28T08:27:00-03:00"
+      "title": "Super-ricos geram mais poluição e lucram com desastres climáticos",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/super-ricos-geram-mais-poluicao-e-lucram-com-desastres-climaticos",
+      "published": "2026-10-28T18:06:00-03:00"
     },
     {
-      "id": "b3ec5ffb5afeec3b",
+      "id": "bd40c64da002531b",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Polícia faz ação contra de exploração sexual de adolescentes no Rio",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/policia-faz-acao-contra-de-exploracao-sexual-de-adolescentes-no-rio",
-      "published": "2026-10-28T07:38:00-03:00"
+      "title": "Justiça bloqueia R$ 327 mi do CV por venda ilegal de gás de cozinha",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/justica-bloqueia-r-327-mi-do-cv-por-venda-ilegal-de-gas-de-cozinha",
+      "published": "2026-10-28T17:41:00-03:00"
     },
     {
-      "id": "5d0c322ebee0b7f3",
+      "id": "6de350d58f57ea48",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Movimentos sociais no Rio lembram vítimas da Operação Contenção",
-      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-10/movimentos-sociais-no-rio-lembram-vitimas-da-operacao-contencao",
-      "published": "2026-10-28T07:20:00-03:00"
+      "title": "Governo reforçará investigações de violência política no segundo turno",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/governo-reforcara-investigacoes-de-violencia-politica-no-segundo-turno",
+      "published": "2026-10-28T17:34:00-03:00"
     }
   ],
   "unavailable": []
