@@ -1,14 +1,41 @@
 {
-  "checkedAt": "2026-10-27T22:20:50.160312+00:00",
+  "checkedAt": "2026-10-28T13:05:25.965836+00:00",
   "stories": [
     {
-      "id": "72a2d33b808a214b",
+      "id": "6e78bdc037659a9d",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Norway and Finland leaders hold rare call with Putin",
-      "url": "https://www.bbc.co.uk/news/articles/c6vgj813mlelo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-27T18:28:23+00:00"
+      "title": "Luxury cruise passengers stranded in Cambodia due to soaring fuel costs",
+      "url": "https://www.bbc.co.uk/news/articles/cwj342k62exyo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-28T10:31:22+00:00"
+    },
+    {
+      "id": "89b4637be678f2b0",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Serbian shot dead after attacking officer outside Israeli embassy, minister says",
+      "url": "https://www.bbc.co.uk/news/articles/ck5ynj4eeyj2o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-28T10:17:54+00:00"
+    },
+    {
+      "id": "d1f3c1418be2c76d",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Tanzania celebrates first natural gas discovery in more than 10 years",
+      "url": "https://www.bbc.co.uk/news/articles/c5m2dry2xwwvo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-28T10:18:40+00:00"
+    },
+    {
+      "id": "579d44974574d963",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Kenyan family protest extradition hearing delay of ex-British soldier accused of murdering kin",
+      "url": "https://www.bbc.co.uk/news/articles/cmly073ql392o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-28T08:28:39+00:00"
     },
     {
       "id": "f1415d1a806a666b",
@@ -20,40 +47,22 @@
       "published": "2026-10-27T22:11:08+00:00"
     },
     {
-      "id": "4fc5953b2bfdb1bd",
+      "id": "04c238830b7b15b3",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Mbappé sorry for 'ill-judged' Mao remark after backlash in China",
-      "url": "https://www.bbc.co.uk/news/articles/cv62yg0erp8zo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-27T13:25:54+00:00"
+      "title": "King acknowledges 'suffering of the past' as Caribbean tour begins",
+      "url": "https://www.bbc.co.uk/news/articles/cmwyv8ld22z1o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-28T04:32:36+00:00"
     },
     {
-      "id": "95695fd4f9f797a4",
+      "id": "2c43e290abc0f3c1",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Lula's comeback in Brazil dents Trump's ambitions for Latin America",
-      "url": "https://www.bbc.co.uk/news/articles/cq62yg6rggj0o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-27T01:46:38+00:00"
-    },
-    {
-      "id": "edea632a5379f83c",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Dutch zookeeper dies after being mauled by leopard",
-      "url": "https://www.bbc.co.uk/news/articles/crwyq90gwg8jo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-27T19:30:37+00:00"
-    },
-    {
-      "id": "7024b81b90b3eee2",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Ex-wife of Zimbabwe's vice-president freed after collapse of attempted murder case",
-      "url": "https://www.bbc.co.uk/news/articles/c6e3xgq11jqlo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-27T21:09:12+00:00"
+      "title": "'An annoying buzz': The search for stealthier drones",
+      "url": "https://www.bbc.co.uk/news/articles/ck1exgejq3xvo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-28T00:01:10+00:00"
     },
     {
       "id": "ce36f5af847f2b1a",
@@ -101,58 +110,58 @@
       "published": "2026-10-27T20:30:00+00:00"
     },
     {
-      "id": "d5891e98c36696c0",
+      "id": "08ece1bea6e59165",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Justiça proíbe deputada de incentivar demissão de opositores",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/justica-proibe-deputada-de-incentivar-demissao-de-opositores",
-      "published": "2026-10-27T18:13:00-03:00"
+      "title": "Chuvas continuam favorecendo região do Matopiba no Nordeste",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/chuvas-continuam-favorecendo-regiao-do-matopiba-no-nordeste",
+      "published": "2026-10-28T09:13:00-03:00"
     },
     {
-      "id": "c2adcef58f4dc8e7",
+      "id": "bd5b7562084f70b2",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Prêmio TV Brasil Petrobras Para Elas revela meio-campistas finalistas",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/premio-tv-brasil-petrobras-para-elas-revela-meio-campistas-finalistas",
-      "published": "2026-10-27T18:01:00-03:00"
+      "title": "STF nega ter ordenado buscas em endereços de Flávio Bolsonaro",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/stf-nega-ter-ordenado-buscas-em-enderecos-de-flavio-bolsonaro",
+      "published": "2026-10-28T09:08:00-03:00"
     },
     {
-      "id": "868d6dbde6024033",
+      "id": "b13ff340de82dd84",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Número de superendividados no Brasil cresceu 75% em cinco anos, diz BC",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/numero-de-superendividados-no-brasil-cresceu-75-em-cinco-anos-diz-bc",
-      "published": "2026-10-27T17:58:00-03:00"
+      "title": "Avião com Flávio Bolsonaro e família segue para Miami",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/aviao-com-flavio-bolsonaro-e-familia-segue-para-miami",
+      "published": "2026-10-28T09:03:00-03:00"
     },
     {
-      "id": "9d60a799ed699db8",
+      "id": "774721a4899bda62",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Assédio eleitoral: saiba como denunciar crime mesmo após eleições",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/assedio-eleitoral-saiba-como-denunciar-crime-mesmo-apos-elei%C3%A7oes",
-      "published": "2026-10-27T17:50:00-03:00"
+      "title": "Pelo menos 30 pessoas morrem na Espanha após colisão entre dois trens",
+      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-10/pelo-menos-30-pessoas-morrem-na-espanha-apos-colisao-entre-dois-trens",
+      "published": "2026-10-28T08:27:00-03:00"
     },
     {
-      "id": "19215eb6df7ebce1",
+      "id": "b3ec5ffb5afeec3b",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Investigações contra Flávio continuam no STF mesmo após fuga",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/entenda-investigacoes-contra-flavio-continuam-no-stf-apos-fuga",
-      "published": "2026-10-27T17:37:00-03:00"
+      "title": "Polícia faz ação contra de exploração sexual de adolescentes no Rio",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/policia-faz-acao-contra-de-exploracao-sexual-de-adolescentes-no-rio",
+      "published": "2026-10-28T07:38:00-03:00"
     },
     {
-      "id": "e705529ae59cc8ba",
+      "id": "5d0c322ebee0b7f3",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "TSE contabiliza 34,3 mil votos após as 17h no 2º turno das eleições",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/tse-contabiliza-menos-de-35-mil-votos-apos-as-17h-no-2-turno",
-      "published": "2026-10-27T17:13:00-03:00"
+      "title": "Movimentos sociais no Rio lembram vítimas da Operação Contenção",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-10/movimentos-sociais-no-rio-lembram-vitimas-da-operacao-contencao",
+      "published": "2026-10-28T07:20:00-03:00"
     }
   ],
   "unavailable": []
