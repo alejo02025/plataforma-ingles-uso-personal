@@ -1,23 +1,14 @@
 {
-  "checkedAt": "2026-10-28T22:39:55.311048+00:00",
+  "checkedAt": "2026-10-29T13:11:44.556069+00:00",
   "stories": [
     {
-      "id": "99093cee53b4403a",
+      "id": "927aa9df16c83934",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "High-speed train crash kills at least 68 people in Spain",
-      "url": "https://www.bbc.co.uk/news/articles/c6p3g84kjqjlo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-28T21:38:54+00:00"
-    },
-    {
-      "id": "acb566103b1edafc",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Bloodied, dazed and angry - how passengers' rail journey turned to disaster in Spain",
-      "url": "https://www.bbc.co.uk/news/articles/cm9qzd47ng98o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-28T21:24:41+00:00"
+      "title": "Audio reveals exchanges between control centre and drivers before deadly Spain train crash",
+      "url": "https://www.bbc.co.uk/news/articles/cmqxnl312v34o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-29T11:07:35+00:00"
     },
     {
       "id": "0fb97cbc377bdc7e",
@@ -26,7 +17,7 @@
       "source": "BBC News",
       "title": "Flávio Bolsonaro denies fleeing Brazil after landing in Miami",
       "url": "https://www.bbc.co.uk/news/articles/c6kglwe4lxwzo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-28T22:13:35+00:00"
+      "published": "2026-10-29T01:14:01+00:00"
     },
     {
       "id": "d1f92f29ac2ee13c",
@@ -35,25 +26,16 @@
       "source": "BBC News",
       "title": "Netanyahu's bloc leading Israel election but short of majority, partial results show",
       "url": "https://www.bbc.co.uk/news/articles/cmdx3knq1xexo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-28T20:24:39+00:00"
+      "published": "2026-10-29T11:22:18+00:00"
     },
     {
-      "id": "2ba00454c3d080a3",
+      "id": "e7072e643905d674",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "How could Israel break election deadlock? Here are four scenarios",
-      "url": "https://www.bbc.co.uk/news/articles/cm62y46d97wwo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-28T14:30:31+00:00"
-    },
-    {
-      "id": "881b52d1edde21e3",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Girl seriously injured in wolf attack at German wildlife park",
-      "url": "https://www.bbc.co.uk/news/articles/c678prm55gzzo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-28T22:08:52+00:00"
+      "title": "Carney to push for closer ties at Canada-EU summit in Montreal",
+      "url": "https://www.bbc.co.uk/news/articles/cq8ezj7jylrzo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-29T12:27:31+00:00"
     },
     {
       "id": "e19bd8c686545cca",
@@ -62,7 +44,34 @@
       "source": "BBC News",
       "title": "Details of thousands of US immigration agents leaked in major hack",
       "url": "https://www.bbc.co.uk/news/articles/cq8jzkpjr28vo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-28T22:12:43+00:00"
+      "published": "2026-10-29T01:30:43+00:00"
+    },
+    {
+      "id": "d4fb7d19c702c342",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Record number of purges as Xi emphasises 'party discipline' at China political gathering",
+      "url": "https://www.bbc.co.uk/news/articles/cq5ynw94k7kzo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-29T12:49:17+00:00"
+    },
+    {
+      "id": "b65ab71cbfefe664",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Ofcom outlines age check methods ahead of social media ban for under-16s",
+      "url": "https://www.bbc.co.uk/news/articles/c6ly3027820lo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-29T09:31:44+00:00"
+    },
+    {
+      "id": "6f0240bccdc0badf",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Microsoft profits soar days after announcing thousands of layoffs",
+      "url": "https://www.bbc.co.uk/news/articles/c6m24klyjr8no?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-29T01:27:40+00:00"
     },
     {
       "id": "91124b3ea1c87698",
@@ -92,76 +101,58 @@
       "published": "2026-10-27T09:37:55+00:00"
     },
     {
-      "id": "59758e9da3af8b73",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Anthropic's blockbuster share listing - 5 surprising things we now know",
-      "url": "https://www.bbc.co.uk/news/articles/cwn8d7g29vd9o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-26T19:57:23+00:00"
-    },
-    {
-      "id": "b7e0a7314df9ab09",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Anthropic warns of 'catastrophic risk' to humankind ahead of blockbuster share listing",
-      "url": "https://www.bbc.co.uk/news/articles/cq398p1wd1evo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-26T16:27:17+00:00"
-    },
-    {
-      "id": "6c39a98e01fcf64d",
+      "id": "36e7ee92d3bfddf9",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Brasil bate Polônia nos pênaltis e avança no Mundial Sub-17 Feminino",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/brasil-bate-polonia-nos-penaltis-e-avanca-no-mundial-sub-17-feminino",
-      "published": "2026-10-28T18:28:00-03:00"
+      "title": "Marisa Monte fará show beneficente para Instituto da Providência",
+      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-10/marisa-monte-fara-show-beneficente-para-instituto-da-providencia",
+      "published": "2026-10-29T09:30:00-03:00"
     },
     {
-      "id": "b8ced2cef81bb240",
+      "id": "19c6894496832cc4",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Em carta golpista, Flávio agradece Milei e Trump por apoio para fuga",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/em-carta-golpista-flavio-agradece-milei-e-trump-por-apoio-para-fuga",
-      "published": "2026-10-28T18:22:00-03:00"
+      "title": "Espanha: equipes fazem buscas na esperança de encontrar sobreviventes",
+      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-10/espanha-equipes-fazem-buscas-na-esperanca-de-encontrar-sobreviventes",
+      "published": "2026-10-29T08:43:00-03:00"
     },
     {
-      "id": "d3f9215cdd1532f6",
+      "id": "3a2e073a256206a3",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Afastamentos por vício em jogos cresceram 5 vezes em três anos",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/afastamentos-por-vicio-em-jogos-cresceram-5-vezes-em-tres-anos",
-      "published": "2026-10-28T18:16:00-03:00"
+      "title": "PF cumpre no Rio novos mandados da Operação Unha e Carne",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/pf-cumpre-no-rio-novos-mandados-da-operacao-unha-e-carne",
+      "published": "2026-10-29T07:58:00-03:00"
     },
     {
-      "id": "455baced115e45f6",
+      "id": "557582757fcb64f6",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Super-ricos geram mais poluição e lucram com desastres climáticos",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/super-ricos-geram-mais-poluicao-e-lucram-com-desastres-climaticos",
-      "published": "2026-10-28T18:06:00-03:00"
+      "title": "Economistas criticam usar corte de gastos para conter dívida pública",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/economistas-criticam-usar-corte-de-gastos-para-conter-divida-publica",
+      "published": "2026-10-29T07:36:00-03:00"
     },
     {
-      "id": "bd40c64da002531b",
+      "id": "7636175c65d2fe64",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Justiça bloqueia R$ 327 mi do CV por venda ilegal de gás de cozinha",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/justica-bloqueia-r-327-mi-do-cv-por-venda-ilegal-de-gas-de-cozinha",
-      "published": "2026-10-28T17:41:00-03:00"
+      "title": "Final brasileira garante 15º título do país na Libertadores Feminina",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/final-brasileira-garante-15o-titulo-do-pais-na-libertadores-feminina",
+      "published": "2026-10-29T07:02:00-03:00"
     },
     {
-      "id": "6de350d58f57ea48",
+      "id": "3ff318b66461e542",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Governo reforçará investigações de violência política no segundo turno",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/governo-reforcara-investigacoes-de-violencia-politica-no-segundo-turno",
-      "published": "2026-10-28T17:34:00-03:00"
+      "title": "Remo volta a vencer após 12 jogos e complica Botafogo no Brasileirão",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/remo-volta-vencer-apos-12-jogos-e-complica-botafogo-no-brasileirao",
+      "published": "2026-10-29T06:45:00-03:00"
     }
   ],
   "unavailable": []
