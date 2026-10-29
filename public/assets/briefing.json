@@ -1,59 +1,68 @@
 {
-  "checkedAt": "2026-10-29T13:11:44.556069+00:00",
+  "checkedAt": "2026-10-29T22:49:40.566930+00:00",
   "stories": [
+    {
+      "id": "0429e0fa053cab36",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Israeli opposition accuses Netanyahu of trying to 'delegitimise' election",
+      "url": "https://www.bbc.co.uk/news/articles/ckdd8qdl9e0eo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-29T20:21:54+00:00"
+    },
     {
       "id": "927aa9df16c83934",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Audio reveals exchanges between control centre and drivers before deadly Spain train crash",
+      "title": "Audio reveals exchanges between Spain train operators and drivers moments before deadly crash",
       "url": "https://www.bbc.co.uk/news/articles/cmqxnl312v34o?at_medium=RSS&at_campaign=rss",
       "published": "2026-10-29T11:07:35+00:00"
     },
     {
-      "id": "0fb97cbc377bdc7e",
+      "id": "6a9e1f4905d4ca71",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Flávio Bolsonaro denies fleeing Brazil after landing in Miami",
-      "url": "https://www.bbc.co.uk/news/articles/c6kglwe4lxwzo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-29T01:14:01+00:00"
+      "title": "'The city is alive': A brief peace in Kherson, but residents fear what comes next",
+      "url": "https://www.bbc.co.uk/news/articles/ck1l393pyrylo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-29T20:05:57+00:00"
     },
     {
-      "id": "d1f92f29ac2ee13c",
+      "id": "fab0cbed0e945e17",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Netanyahu's bloc leading Israel election but short of majority, partial results show",
-      "url": "https://www.bbc.co.uk/news/articles/cmdx3knq1xexo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-29T11:22:18+00:00"
+      "title": "Russian drone attack on Ukrainian train station kills at least 14, officials say",
+      "url": "https://www.bbc.co.uk/news/articles/c9p8gdlz1p2ko?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-29T14:17:35+00:00"
     },
     {
-      "id": "e7072e643905d674",
+      "id": "42b4ece9731dcdba",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Carney to push for closer ties at Canada-EU summit in Montreal",
-      "url": "https://www.bbc.co.uk/news/articles/cq8ezj7jylrzo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-29T12:27:31+00:00"
+      "title": "Flávio Bolsonaro calls himself 'leader of Brazil' after election loss",
+      "url": "https://www.bbc.co.uk/news/articles/c3x2w4109pj8o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-29T14:58:28+00:00"
     },
     {
-      "id": "e19bd8c686545cca",
+      "id": "8dd76e232746e9c2",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Philippine police obtain warrant to search Thomas Markle's devices",
+      "url": "https://www.bbc.co.uk/news/articles/cm0j06y3pn75o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-29T13:25:07+00:00"
+    },
+    {
+      "id": "2fa2c9ea33362800",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "Details of thousands of US immigration agents leaked in major hack",
-      "url": "https://www.bbc.co.uk/news/articles/cq8jzkpjr28vo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-29T01:30:43+00:00"
-    },
-    {
-      "id": "d4fb7d19c702c342",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Record number of purges as Xi emphasises 'party discipline' at China political gathering",
-      "url": "https://www.bbc.co.uk/news/articles/cq5ynw94k7kzo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-29T12:49:17+00:00"
+      "title": "Google value plunges by $500bn as AI fears rattle Wall Street",
+      "url": "https://www.bbc.co.uk/news/articles/cm9qzdqpxy48o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-29T22:17:52+00:00"
     },
     {
       "id": "b65ab71cbfefe664",
@@ -63,6 +72,15 @@
       "title": "Ofcom outlines age check methods ahead of social media ban for under-16s",
       "url": "https://www.bbc.co.uk/news/articles/c6ly3027820lo?at_medium=RSS&at_campaign=rss",
       "published": "2026-10-29T09:31:44+00:00"
+    },
+    {
+      "id": "e19bd8c686545cca",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Details of thousands of US immigration agents leaked in major hack",
+      "url": "https://www.bbc.co.uk/news/articles/cq8jzkpjr28vo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-29T01:30:43+00:00"
     },
     {
       "id": "6f0240bccdc0badf",
@@ -92,67 +110,58 @@
       "published": "2026-10-28T00:01:10+00:00"
     },
     {
-      "id": "ce36f5af847f2b1a",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Apple to replace iPhone Duos affected by screen problem",
-      "url": "https://www.bbc.co.uk/news/articles/c893zwlev2xpo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-27T09:37:55+00:00"
-    },
-    {
-      "id": "36e7ee92d3bfddf9",
+      "id": "0b6ff9b33316f8bb",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Marisa Monte fará show beneficente para Instituto da Providência",
-      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-10/marisa-monte-fara-show-beneficente-para-instituto-da-providencia",
-      "published": "2026-10-29T09:30:00-03:00"
+      "title": "EBC conquista mais R$ 23 milhões para investimento na TV 3.0 no Brasil",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/ebc-conquista-mais-r-23-milhoes-para-investimento-na-tv-30-no-brasil",
+      "published": "2026-10-29T18:41:00-03:00"
     },
     {
-      "id": "19c6894496832cc4",
+      "id": "abb86c38654df718",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Espanha: equipes fazem buscas na esperança de encontrar sobreviventes",
-      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-10/espanha-equipes-fazem-buscas-na-esperanca-de-encontrar-sobreviventes",
-      "published": "2026-10-29T08:43:00-03:00"
+      "title": "Republicação de conteúdos após período de defeso eleitoral é concluída",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/ebc-conclui-republicacao-de-conteudos-apos-periodo-de-defeso-eleitoral",
+      "published": "2026-10-29T18:26:00-03:00"
     },
     {
-      "id": "3a2e073a256206a3",
+      "id": "8c2c3ebfc940e198",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "PF cumpre no Rio novos mandados da Operação Unha e Carne",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/pf-cumpre-no-rio-novos-mandados-da-operacao-unha-e-carne",
-      "published": "2026-10-29T07:58:00-03:00"
+      "title": "Vorcaro diz que não fez nada errado e pede voto de confiança",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/vorcaro-diz-que-nao-fez-nada-errado-e-pede-voto-de-confianca",
+      "published": "2026-10-29T18:18:00-03:00"
     },
     {
-      "id": "557582757fcb64f6",
+      "id": "6659ba32782f61c7",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Economistas criticam usar corte de gastos para conter dívida pública",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/economistas-criticam-usar-corte-de-gastos-para-conter-divida-publica",
-      "published": "2026-10-29T07:36:00-03:00"
+      "title": "Temporada de cruzeiros começa na sexta com projeção de mais empregos",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/temporada-de-cruzeiros-comeca-na-sexta-com-projecao-de-mais-empregos",
+      "published": "2026-10-29T18:04:00-03:00"
     },
     {
-      "id": "7636175c65d2fe64",
+      "id": "eb2e24a4e1fa1abe",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Final brasileira garante 15º título do país na Libertadores Feminina",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/final-brasileira-garante-15o-titulo-do-pais-na-libertadores-feminina",
-      "published": "2026-10-29T07:02:00-03:00"
+      "title": "Operação Contenção: DPRJ pede R$ 50 milhões em reparação a moradores",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/operacao-contencao-dprj-pede-r-50-milhoes-em-reparacao-moradores",
+      "published": "2026-10-29T18:01:00-03:00"
     },
     {
-      "id": "3ff318b66461e542",
+      "id": "53454d5d83d9d52b",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Remo volta a vencer após 12 jogos e complica Botafogo no Brasileirão",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/remo-volta-vencer-apos-12-jogos-e-complica-botafogo-no-brasileirao",
-      "published": "2026-10-29T06:45:00-03:00"
+      "title": "Dívida Pública sobe 0,97% em setembro e encosta em R$ 9,4 trilhões",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/divida-publica-sobe-097-em-setembro-e-encosta-em-r-94-trilhoes",
+      "published": "2026-10-29T18:00:00-03:00"
     }
   ],
   "unavailable": []
