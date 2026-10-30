@@ -1,59 +1,68 @@
 {
-  "checkedAt": "2026-10-30T13:04:15.033812+00:00",
+  "checkedAt": "2026-10-30T22:26:19.952022+00:00",
   "stories": [
+    {
+      "id": "02ecd35b7079ec56",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Crypto giant Binance attempting to recover $6.3bn stolen in hack linked to North Korea",
+      "url": "https://www.bbc.co.uk/news/articles/cwe8lp7zy07zo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-30T21:13:14+00:00"
+    },
+    {
+      "id": "e901d507c9b3e341",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "US inmate Christa Pike says she woke up 'confused and in pain' after failed execution",
+      "url": "https://www.bbc.co.uk/news/articles/ck62ydn7dj9eo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-30T17:07:19+00:00"
+    },
     {
       "id": "d739e6ac886f7d18",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Residents leave devastated Russian-occupied Oleshky as evacuation corridor opens",
+      "title": "Hundreds evacuated from Russian-occupied Oleshky during rare Ukraine ceasefire",
       "url": "https://www.bbc.co.uk/news/articles/c60me298k1yeo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-30T12:25:53+00:00"
+      "published": "2026-10-30T16:26:11+00:00"
     },
     {
-      "id": "8d59b9f3c08d9e94",
+      "id": "736c0e058d642f6b",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Mushroom murderer fails to overturn convictions in Australian court challenge",
-      "url": "https://www.bbc.co.uk/news/articles/ck8dz8j5n993o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-30T01:35:40+00:00"
+      "title": "US approves sale of 500 Patriot missiles to Ukraine",
+      "url": "https://www.bbc.co.uk/news/articles/c3vgxznlx7jzo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-30T22:20:52+00:00"
     },
     {
-      "id": "29f7fd3ebb197df3",
+      "id": "a1794eefe13088e1",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Syrians struggle with soaring prices as crisis challenges post-Assad recovery",
-      "url": "https://www.bbc.co.uk/news/articles/cmn4egvez1yzo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-30T06:02:23+00:00"
+      "title": "Police deployed during stand-off over control of top Poland court",
+      "url": "https://www.bbc.co.uk/news/articles/crz9824d5e88o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-30T20:52:01+00:00"
     },
     {
-      "id": "3b249b3e23b9ae13",
+      "id": "8fef7464e6b80437",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "How Kenyans got caught in $130m US ghost student scam",
-      "url": "https://www.bbc.co.uk/news/articles/cxvgdzpy7241o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-30T08:32:35+00:00"
+      "title": "They strangled us, says founder of Russian newspaper shut under pressure from authorities",
+      "url": "https://www.bbc.co.uk/news/articles/cmewepdr109do?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-30T20:41:51+00:00"
     },
     {
-      "id": "43d3c4ff1e9f08c7",
+      "id": "0de680b82ffb0bb6",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Helicopter carrying six people crashes in northern Indian state",
-      "url": "https://www.bbc.co.uk/news/articles/cr93zxyn9eqeo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-30T10:07:58+00:00"
-    },
-    {
-      "id": "8db784f419fa5bf8",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Human rights lawyer couple sentenced to 10 years' prison in Pakistan",
-      "url": "https://www.bbc.co.uk/news/articles/crq5nplyvlg8o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-30T07:53:38+00:00"
+      "title": "US tech stocks see sharp falls as AI spending nears $1tn",
+      "url": "https://www.bbc.co.uk/news/articles/cvwy72e0n72yo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-30T20:34:46+00:00"
     },
     {
       "id": "2fa2c9ea33362800",
@@ -69,7 +78,7 @@
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "What we know so far about the Binance hack",
+      "title": "Who could be behind the Binance hack and what we know so far",
       "url": "https://www.bbc.co.uk/news/articles/cm5yn8eqg3npo?at_medium=RSS&at_campaign=rss",
       "published": "2026-10-30T11:57:33+00:00"
     },
@@ -101,67 +110,58 @@
       "published": "2026-10-30T07:45:00+00:00"
     },
     {
-      "id": "b65ab71cbfefe664",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Ofcom outlines age check methods ahead of social media ban for under-16s",
-      "url": "https://www.bbc.co.uk/news/articles/c6ly3027820lo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-29T09:31:44+00:00"
-    },
-    {
-      "id": "77d8313eae580d77",
+      "id": "047f151b17c61006",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Alunos da Escola de Música de Brasília se apresentam na Rádio MEC",
-      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-10/alunos-da-escola-de-musica-de-brasilia-se-apresentam-na-radio-mec",
-      "published": "2026-10-30T09:05:00-03:00"
+      "title": "Terceira edição do CNU pode ter até 3 mil vagas",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/terceira-edicao-do-cnu-pode-ter-ate-3-mil-vagas",
+      "published": "2026-10-30T18:30:00-03:00"
     },
     {
-      "id": "5936314684fac40d",
+      "id": "263aa7a3a284e69a",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Enade 2026: iniciantes devem preencher questionário até 18 de dezembro",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-10/enade-2026-iniciantes-devem-preencher-questionario-ate-18-de-dezembro",
-      "published": "2026-10-30T08:30:00-03:00"
+      "title": "Aneel mantém bandeira tarifária verde em novembro",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/aneel-mantem-bandeira-tarifaria-verde-em-novembro",
+      "published": "2026-10-30T17:50:00-03:00"
     },
     {
-      "id": "bf8d05b4ad85fb26",
+      "id": "e0c13a5d3c5c7882",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Chuvas fortes predominam nas regiões Sudeste e Centro-Oeste do país",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/chuvas-predominam-nas-regioes-sudeste-e-centro-oeste-do-pais",
-      "published": "2026-10-30T08:28:00-03:00"
+      "title": "Justiça manda Meta excluir posts sobre demissão por voto político",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/justica-manda-meta-excluir-posts-sobre-demissao-por-voto-politico",
+      "published": "2026-10-30T17:09:00-03:00"
     },
     {
-      "id": "c079b519230683f9",
+      "id": "0ee0ecb3efd4caf2",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Ato de estudantes da UFF deu pontapé em mobilização por virada de Lula",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/ato-de-estudantes-da-uff-deu-pontape-em-mobilizacao-por-virada-de-lula",
-      "published": "2026-10-30T08:20:00-03:00"
+      "title": "Caseiro explorado e usado como laranja no DF receberá pensão mensal",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/caseiro-explorado-eusado-como-laranja-no-df-recebera-pensao-mensal",
+      "published": "2026-10-30T16:49:00-03:00"
     },
     {
-      "id": "fd5dbdaacd4b3682",
+      "id": "11dfd807c6a06f75",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Série documental Ciência Flutuante estreia na TV Brasil nesta sexta",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/serie-documental-ciencia-flutuante-estreia-na-tv-brasil-nesta-sexta",
-      "published": "2026-10-30T08:02:00-03:00"
+      "title": "SUS detecta quase 10 mil testes positivos para HPV de alto risco",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-10/sus-detecta-quase-10-mil-testes-positivos-para-hpv-de-alto-risco",
+      "published": "2026-10-30T16:30:00-03:00"
     },
     {
-      "id": "4056d7e28fddc3c1",
+      "id": "e721eba0a861f094",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Prêmio TV Brasil Petrobras Para Elas destaca gol mais bonito de 2026",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/premio-tv-brasil-petrobras-para-elas-destaca-gol-mais-bonito-de-2026",
-      "published": "2026-10-30T08:01:00-03:00"
+      "title": "Pesca na foz do Rio Doce volta a ser liberada depois de dez anos",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/pesca-na-foz-do-rio-doce-volta-ser-liberada-depois-de-dez-anos",
+      "published": "2026-10-30T15:53:00-03:00"
     }
   ],
   "unavailable": []
