@@ -1,68 +1,104 @@
 {
-  "checkedAt": "2026-10-29T22:49:40.566930+00:00",
+  "checkedAt": "2026-10-30T13:04:15.033812+00:00",
   "stories": [
     {
-      "id": "0429e0fa053cab36",
+      "id": "d739e6ac886f7d18",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Israeli opposition accuses Netanyahu of trying to 'delegitimise' election",
-      "url": "https://www.bbc.co.uk/news/articles/ckdd8qdl9e0eo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-29T20:21:54+00:00"
+      "title": "Residents leave devastated Russian-occupied Oleshky as evacuation corridor opens",
+      "url": "https://www.bbc.co.uk/news/articles/c60me298k1yeo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-30T12:25:53+00:00"
     },
     {
-      "id": "927aa9df16c83934",
+      "id": "8d59b9f3c08d9e94",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Audio reveals exchanges between Spain train operators and drivers moments before deadly crash",
-      "url": "https://www.bbc.co.uk/news/articles/cmqxnl312v34o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-29T11:07:35+00:00"
+      "title": "Mushroom murderer fails to overturn convictions in Australian court challenge",
+      "url": "https://www.bbc.co.uk/news/articles/ck8dz8j5n993o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-30T01:35:40+00:00"
     },
     {
-      "id": "6a9e1f4905d4ca71",
+      "id": "29f7fd3ebb197df3",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "'The city is alive': A brief peace in Kherson, but residents fear what comes next",
-      "url": "https://www.bbc.co.uk/news/articles/ck1l393pyrylo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-29T20:05:57+00:00"
+      "title": "Syrians struggle with soaring prices as crisis challenges post-Assad recovery",
+      "url": "https://www.bbc.co.uk/news/articles/cmn4egvez1yzo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-30T06:02:23+00:00"
     },
     {
-      "id": "fab0cbed0e945e17",
+      "id": "3b249b3e23b9ae13",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Russian drone attack on Ukrainian train station kills at least 14, officials say",
-      "url": "https://www.bbc.co.uk/news/articles/c9p8gdlz1p2ko?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-29T14:17:35+00:00"
+      "title": "How Kenyans got caught in $130m US ghost student scam",
+      "url": "https://www.bbc.co.uk/news/articles/cxvgdzpy7241o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-30T08:32:35+00:00"
     },
     {
-      "id": "42b4ece9731dcdba",
+      "id": "43d3c4ff1e9f08c7",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Flávio Bolsonaro calls himself 'leader of Brazil' after election loss",
-      "url": "https://www.bbc.co.uk/news/articles/c3x2w4109pj8o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-29T14:58:28+00:00"
+      "title": "Helicopter carrying six people crashes in northern Indian state",
+      "url": "https://www.bbc.co.uk/news/articles/cr93zxyn9eqeo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-30T10:07:58+00:00"
     },
     {
-      "id": "8dd76e232746e9c2",
+      "id": "8db784f419fa5bf8",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Philippine police obtain warrant to search Thomas Markle's devices",
-      "url": "https://www.bbc.co.uk/news/articles/cm0j06y3pn75o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-29T13:25:07+00:00"
+      "title": "Human rights lawyer couple sentenced to 10 years' prison in Pakistan",
+      "url": "https://www.bbc.co.uk/news/articles/crq5nplyvlg8o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-30T07:53:38+00:00"
     },
     {
       "id": "2fa2c9ea33362800",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "Google value plunges by $500bn as AI fears rattle Wall Street",
+      "title": "Google value plunges by $500bn as its own AI search hits ad sales",
       "url": "https://www.bbc.co.uk/news/articles/cm9qzdqpxy48o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-29T22:17:52+00:00"
+      "published": "2026-10-30T12:04:02+00:00"
+    },
+    {
+      "id": "b051c885d738f4d9",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "What we know so far about the Binance hack",
+      "url": "https://www.bbc.co.uk/news/articles/cm5yn8eqg3npo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-30T11:57:33+00:00"
+    },
+    {
+      "id": "8f29bac19c4b28ce",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "From Bitcoin to Binance: Crypto terms and what they mean",
+      "url": "https://www.bbc.co.uk/news/articles/cy5w2k5k5ylo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-30T11:35:51+00:00"
+    },
+    {
+      "id": "8e8e4f8e579727c9",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Crypto giant Binance hit by $6.3bn hack suspected to be largest in history",
+      "url": "https://www.bbc.co.uk/news/articles/cwg7xp8kx4v5o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-30T09:33:51+00:00"
+    },
+    {
+      "id": "809b0a58997163d1",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "How video game remakes tap the power of nostalgia",
+      "url": "https://www.bbc.co.uk/news/articles/cm9qz428nnljo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-30T07:45:00+00:00"
     },
     {
       "id": "b65ab71cbfefe664",
@@ -74,94 +110,58 @@
       "published": "2026-10-29T09:31:44+00:00"
     },
     {
-      "id": "e19bd8c686545cca",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Details of thousands of US immigration agents leaked in major hack",
-      "url": "https://www.bbc.co.uk/news/articles/cq8jzkpjr28vo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-29T01:30:43+00:00"
-    },
-    {
-      "id": "6f0240bccdc0badf",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Microsoft profits soar days after announcing thousands of layoffs",
-      "url": "https://www.bbc.co.uk/news/articles/c6m24klyjr8no?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-29T01:27:40+00:00"
-    },
-    {
-      "id": "91124b3ea1c87698",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Elon Musk is a 'real genius', Putin says after satellite talks with SpaceX boss",
-      "url": "https://www.bbc.co.uk/news/articles/c63djl148n3eo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-28T19:15:58+00:00"
-    },
-    {
-      "id": "2c43e290abc0f3c1",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "'An annoying buzz': The search for stealthier drones",
-      "url": "https://www.bbc.co.uk/news/articles/ck1exgejq3xvo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-28T00:01:10+00:00"
-    },
-    {
-      "id": "0b6ff9b33316f8bb",
+      "id": "77d8313eae580d77",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "EBC conquista mais R$ 23 milhões para investimento na TV 3.0 no Brasil",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/ebc-conquista-mais-r-23-milhoes-para-investimento-na-tv-30-no-brasil",
-      "published": "2026-10-29T18:41:00-03:00"
+      "title": "Alunos da Escola de Música de Brasília se apresentam na Rádio MEC",
+      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-10/alunos-da-escola-de-musica-de-brasilia-se-apresentam-na-radio-mec",
+      "published": "2026-10-30T09:05:00-03:00"
     },
     {
-      "id": "abb86c38654df718",
+      "id": "5936314684fac40d",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Republicação de conteúdos após período de defeso eleitoral é concluída",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/ebc-conclui-republicacao-de-conteudos-apos-periodo-de-defeso-eleitoral",
-      "published": "2026-10-29T18:26:00-03:00"
+      "title": "Enade 2026: iniciantes devem preencher questionário até 18 de dezembro",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-10/enade-2026-iniciantes-devem-preencher-questionario-ate-18-de-dezembro",
+      "published": "2026-10-30T08:30:00-03:00"
     },
     {
-      "id": "8c2c3ebfc940e198",
+      "id": "bf8d05b4ad85fb26",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Vorcaro diz que não fez nada errado e pede voto de confiança",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/vorcaro-diz-que-nao-fez-nada-errado-e-pede-voto-de-confianca",
-      "published": "2026-10-29T18:18:00-03:00"
+      "title": "Chuvas fortes predominam nas regiões Sudeste e Centro-Oeste do país",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/chuvas-predominam-nas-regioes-sudeste-e-centro-oeste-do-pais",
+      "published": "2026-10-30T08:28:00-03:00"
     },
     {
-      "id": "6659ba32782f61c7",
+      "id": "c079b519230683f9",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Temporada de cruzeiros começa na sexta com projeção de mais empregos",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/temporada-de-cruzeiros-comeca-na-sexta-com-projecao-de-mais-empregos",
-      "published": "2026-10-29T18:04:00-03:00"
+      "title": "Ato de estudantes da UFF deu pontapé em mobilização por virada de Lula",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/ato-de-estudantes-da-uff-deu-pontape-em-mobilizacao-por-virada-de-lula",
+      "published": "2026-10-30T08:20:00-03:00"
     },
     {
-      "id": "eb2e24a4e1fa1abe",
+      "id": "fd5dbdaacd4b3682",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Operação Contenção: DPRJ pede R$ 50 milhões em reparação a moradores",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/operacao-contencao-dprj-pede-r-50-milhoes-em-reparacao-moradores",
-      "published": "2026-10-29T18:01:00-03:00"
+      "title": "Série documental Ciência Flutuante estreia na TV Brasil nesta sexta",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/serie-documental-ciencia-flutuante-estreia-na-tv-brasil-nesta-sexta",
+      "published": "2026-10-30T08:02:00-03:00"
     },
     {
-      "id": "53454d5d83d9d52b",
+      "id": "4056d7e28fddc3c1",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Dívida Pública sobe 0,97% em setembro e encosta em R$ 9,4 trilhões",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/divida-publica-sobe-097-em-setembro-e-encosta-em-r-94-trilhoes",
-      "published": "2026-10-29T18:00:00-03:00"
+      "title": "Prêmio TV Brasil Petrobras Para Elas destaca gol mais bonito de 2026",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/premio-tv-brasil-petrobras-para-elas-destaca-gol-mais-bonito-de-2026",
+      "published": "2026-10-30T08:01:00-03:00"
     }
   ],
   "unavailable": []
