@@ -1,23 +1,59 @@
 {
-  "checkedAt": "2026-10-31T12:42:29.861199+00:00",
+  "checkedAt": "2026-10-31T21:41:10.888420+00:00",
   "stories": [
+    {
+      "id": "2eb9ed0951b88425",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "'We came back from hell', say Ukrainians after years in Russia-occupied front-line city",
+      "url": "https://www.bbc.co.uk/news/articles/cqglw3k7djp1o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-31T19:22:26+00:00"
+    },
     {
       "id": "deefa82a83a2bcad",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Evacuees from Russia-occupied city where residents ate weeds on way to Ukraine",
+      "title": "Ukrainian evacuees reunite with family after years trapped in Russia-occupied city",
       "url": "https://www.bbc.co.uk/news/articles/cqx2818elrnzo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-31T12:05:04+00:00"
+      "published": "2026-10-31T17:53:35+00:00"
     },
     {
-      "id": "736c0e058d642f6b",
+      "id": "c1e60918b29464db",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "US approves sale of 500 Patriot missiles to Ukraine",
-      "url": "https://www.bbc.co.uk/news/articles/c3vgxznlx7jzo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-31T12:21:25+00:00"
+      "title": "Thousands demonstrate in Paris as protests spread across Europe",
+      "url": "https://www.bbc.co.uk/news/videos/ck0j0y87j303o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-31T21:29:01+00:00"
+    },
+    {
+      "id": "1620a9d27876be6c",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Crypto firm Binance covers 90% of losses after $6.3bn hack",
+      "url": "https://www.bbc.co.uk/news/articles/ckpdg3ql4169o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-31T16:32:08+00:00"
+    },
+    {
+      "id": "060a985d9c7f79f8",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "More than 5,000 die from Ebola in DR Congo's deadliest outbreak",
+      "url": "https://www.bbc.co.uk/news/articles/cj5ynryyep2yo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-31T15:16:20+00:00"
+    },
+    {
+      "id": "f1e04e3b7f91dcbe",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Ethiopian PM puts ministers through military training",
+      "url": "https://www.bbc.co.uk/news/articles/cmwyv2y7g9l8o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-31T14:28:15+00:00"
     },
     {
       "id": "d13e42607d018e9c",
@@ -27,33 +63,6 @@
       "title": "Why North Korea's 'elite' hackers are the prime suspect in major Binance hack",
       "url": "https://www.bbc.co.uk/news/articles/ck9dz3v7z7v3o?at_medium=RSS&at_campaign=rss",
       "published": "2026-10-31T02:12:19+00:00"
-    },
-    {
-      "id": "a1794eefe13088e1",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Police deployed during stand-off over control of top Poland court",
-      "url": "https://www.bbc.co.uk/news/articles/crz9824d5e88o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-31T01:11:43+00:00"
-    },
-    {
-      "id": "0783a78dc33abe0d",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Spain train disaster clouds Sánchez chances of re-election",
-      "url": "https://www.bbc.co.uk/news/articles/cmeweppr990qo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-31T05:44:21+00:00"
-    },
-    {
-      "id": "03f161c6332a2077",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "G20 'family photo' cancelled after protests over presence of Russian minister",
-      "url": "https://www.bbc.co.uk/news/articles/cmd6dp2y576do?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-30T22:11:52+00:00"
     },
     {
       "id": "0de680b82ffb0bb6",
@@ -101,58 +110,58 @@
       "published": "2026-10-30T09:33:51+00:00"
     },
     {
-      "id": "1306fe1519e1fe87",
+      "id": "3b4dcaad496811e1",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "\"Luto é permanente\", diz viúva 30 anos após acidente com Fokker da TAM",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/luto-e-permanente-diz-viuva-30-anos-apos-acidente-com-fokker-da-tam",
-      "published": "2026-10-31T08:01:00-03:00"
+      "title": "Aldeias Guarani Kaiowá vão receber proteção da Força Nacional",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-10/aldeias-guarani-kaiowa-vao-receber-protecao-da-forca-nacional",
+      "published": "2026-10-31T17:38:00-03:00"
     },
     {
-      "id": "1b42d0c4543eb553",
+      "id": "c7be1c555e6d1575",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Dólar fecha a R$ 5,44 e registra maior alta semanal desde 2008",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/dolar-fecha-r-544-e-registra-maior-alta-semanal-desde-2008",
-      "published": "2026-10-30T19:40:00-03:00"
+      "title": "Brasil avança às quartas da AmeriCup no basquete masculino 3x3",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/brasil-avanca-quartas-da-americup-no-basquete-masculino-3x3",
+      "published": "2026-10-31T17:10:00-03:00"
     },
     {
-      "id": "afe667251af0d982",
+      "id": "dddbe43316ec24e6",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Família denuncia agressão a Marielle em grupo de WhatsApp da PUC-Rio",
-      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-10/familia-denuncia-agressao-marielle-em-grupo-de-whatsapp-da-puc-rio",
-      "published": "2026-10-30T18:57:00-03:00"
+      "title": "Protestos da Geração Z chegam à Alemanha; milhares se manifestam",
+      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-10/protestos-da-geracao-z-chegam-alemanha-milhares-se-manifestam",
+      "published": "2026-10-31T16:43:00-03:00"
     },
     {
-      "id": "047f151b17c61006",
+      "id": "482e85ca365c5301",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Terceira edição do CNU pode ter até 3 mil vagas",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/terceira-edicao-do-cnu-pode-ter-ate-3-mil-vagas",
-      "published": "2026-10-30T18:30:00-03:00"
+      "title": "Aluno é ameaçado de morte no DF por opção política",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/aluno-e-ameacado-de-morte-no-df-por-opcao-politica",
+      "published": "2026-10-31T16:15:00-03:00"
     },
     {
-      "id": "263aa7a3a284e69a",
+      "id": "b0092e6efd93bc85",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Aneel mantém bandeira tarifária verde em novembro",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/aneel-mantem-bandeira-tarifaria-verde-em-novembro",
-      "published": "2026-10-30T17:50:00-03:00"
+      "title": "Corinthians encerra jejum com vitória sobre o Mirassol: 2 a 0",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/corinthians-encerra-jejum-com-vitoria-sobre-o-mirassol-2-0",
+      "published": "2026-10-31T16:01:00-03:00"
     },
     {
-      "id": "e0c13a5d3c5c7882",
+      "id": "25182d50e3b1ea7f",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Justiça manda Meta excluir posts sobre demissão por voto político",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/justica-manda-meta-excluir-posts-sobre-demissao-por-voto-politico",
-      "published": "2026-10-30T17:09:00-03:00"
+      "title": "Estudo mostra necessidade de proteger soja para evitar perdas",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/estudo-mostra-necessidade-de-proteger-soja-para-evitar-perdas",
+      "published": "2026-10-31T15:47:00-03:00"
     }
   ],
   "unavailable": []
