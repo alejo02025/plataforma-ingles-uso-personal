@@ -1,32 +1,14 @@
 {
-  "checkedAt": "2026-10-30T22:26:19.952022+00:00",
+  "checkedAt": "2026-10-31T12:42:29.861199+00:00",
   "stories": [
     {
-      "id": "02ecd35b7079ec56",
+      "id": "deefa82a83a2bcad",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Crypto giant Binance attempting to recover $6.3bn stolen in hack linked to North Korea",
-      "url": "https://www.bbc.co.uk/news/articles/cwe8lp7zy07zo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-30T21:13:14+00:00"
-    },
-    {
-      "id": "e901d507c9b3e341",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "US inmate Christa Pike says she woke up 'confused and in pain' after failed execution",
-      "url": "https://www.bbc.co.uk/news/articles/ck62ydn7dj9eo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-30T17:07:19+00:00"
-    },
-    {
-      "id": "d739e6ac886f7d18",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Hundreds evacuated from Russian-occupied Oleshky during rare Ukraine ceasefire",
-      "url": "https://www.bbc.co.uk/news/articles/c60me298k1yeo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-30T16:26:11+00:00"
+      "title": "Evacuees from Russia-occupied city where residents ate weeds on way to Ukraine",
+      "url": "https://www.bbc.co.uk/news/articles/cqx2818elrnzo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-31T12:05:04+00:00"
     },
     {
       "id": "736c0e058d642f6b",
@@ -35,7 +17,16 @@
       "source": "BBC News",
       "title": "US approves sale of 500 Patriot missiles to Ukraine",
       "url": "https://www.bbc.co.uk/news/articles/c3vgxznlx7jzo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-30T22:20:52+00:00"
+      "published": "2026-10-31T12:21:25+00:00"
+    },
+    {
+      "id": "d13e42607d018e9c",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Why North Korea's 'elite' hackers are the prime suspect in major Binance hack",
+      "url": "https://www.bbc.co.uk/news/articles/ck9dz3v7z7v3o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-31T02:12:19+00:00"
     },
     {
       "id": "a1794eefe13088e1",
@@ -44,16 +35,25 @@
       "source": "BBC News",
       "title": "Police deployed during stand-off over control of top Poland court",
       "url": "https://www.bbc.co.uk/news/articles/crz9824d5e88o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-30T20:52:01+00:00"
+      "published": "2026-10-31T01:11:43+00:00"
     },
     {
-      "id": "8fef7464e6b80437",
+      "id": "0783a78dc33abe0d",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "They strangled us, says founder of Russian newspaper shut under pressure from authorities",
-      "url": "https://www.bbc.co.uk/news/articles/cmewepdr109do?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-30T20:41:51+00:00"
+      "title": "Spain train disaster clouds Sánchez chances of re-election",
+      "url": "https://www.bbc.co.uk/news/articles/cmeweppr990qo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-31T05:44:21+00:00"
+    },
+    {
+      "id": "03f161c6332a2077",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "G20 'family photo' cancelled after protests over presence of Russian minister",
+      "url": "https://www.bbc.co.uk/news/articles/cmd6dp2y576do?at_medium=RSS&at_campaign=rss",
+      "published": "2026-10-30T22:11:52+00:00"
     },
     {
       "id": "0de680b82ffb0bb6",
@@ -101,13 +101,31 @@
       "published": "2026-10-30T09:33:51+00:00"
     },
     {
-      "id": "809b0a58997163d1",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "How video game remakes tap the power of nostalgia",
-      "url": "https://www.bbc.co.uk/news/articles/cm9qz428nnljo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-30T07:45:00+00:00"
+      "id": "1306fe1519e1fe87",
+      "language": "pt",
+      "topic": "Brasil",
+      "source": "Agência Brasil",
+      "title": "\"Luto é permanente\", diz viúva 30 anos após acidente com Fokker da TAM",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/luto-e-permanente-diz-viuva-30-anos-apos-acidente-com-fokker-da-tam",
+      "published": "2026-10-31T08:01:00-03:00"
+    },
+    {
+      "id": "1b42d0c4543eb553",
+      "language": "pt",
+      "topic": "Brasil",
+      "source": "Agência Brasil",
+      "title": "Dólar fecha a R$ 5,44 e registra maior alta semanal desde 2008",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/dolar-fecha-r-544-e-registra-maior-alta-semanal-desde-2008",
+      "published": "2026-10-30T19:40:00-03:00"
+    },
+    {
+      "id": "afe667251af0d982",
+      "language": "pt",
+      "topic": "Brasil",
+      "source": "Agência Brasil",
+      "title": "Família denuncia agressão a Marielle em grupo de WhatsApp da PUC-Rio",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-10/familia-denuncia-agressao-marielle-em-grupo-de-whatsapp-da-puc-rio",
+      "published": "2026-10-30T18:57:00-03:00"
     },
     {
       "id": "047f151b17c61006",
@@ -135,33 +153,6 @@
       "title": "Justiça manda Meta excluir posts sobre demissão por voto político",
       "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/justica-manda-meta-excluir-posts-sobre-demissao-por-voto-politico",
       "published": "2026-10-30T17:09:00-03:00"
-    },
-    {
-      "id": "0ee0ecb3efd4caf2",
-      "language": "pt",
-      "topic": "Brasil",
-      "source": "Agência Brasil",
-      "title": "Caseiro explorado e usado como laranja no DF receberá pensão mensal",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/caseiro-explorado-eusado-como-laranja-no-df-recebera-pensao-mensal",
-      "published": "2026-10-30T16:49:00-03:00"
-    },
-    {
-      "id": "11dfd807c6a06f75",
-      "language": "pt",
-      "topic": "Brasil",
-      "source": "Agência Brasil",
-      "title": "SUS detecta quase 10 mil testes positivos para HPV de alto risco",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-10/sus-detecta-quase-10-mil-testes-positivos-para-hpv-de-alto-risco",
-      "published": "2026-10-30T16:30:00-03:00"
-    },
-    {
-      "id": "e721eba0a861f094",
-      "language": "pt",
-      "topic": "Brasil",
-      "source": "Agência Brasil",
-      "title": "Pesca na foz do Rio Doce volta a ser liberada depois de dez anos",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-10/pesca-na-foz-do-rio-doce-volta-ser-liberada-depois-de-dez-anos",
-      "published": "2026-10-30T15:53:00-03:00"
     }
   ],
   "unavailable": []
