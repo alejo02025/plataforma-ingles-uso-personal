@@ -1,6 +1,33 @@
 {
-  "checkedAt": "2026-10-31T21:41:10.888420+00:00",
+  "checkedAt": "2026-11-01T13:33:15.152237+00:00",
   "stories": [
+    {
+      "id": "f845da07825410f4",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Shops looted as German cost of living protests turn violent",
+      "url": "https://www.bbc.co.uk/news/articles/cqj34gnd3n30o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-01T11:57:48+00:00"
+    },
+    {
+      "id": "e5976f38079c1f10",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Judge dismisses Trump's lawsuit against Wall Street Journal over Epstein birthday book",
+      "url": "https://www.bbc.co.uk/news/articles/cwr5yj2lj9myo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-01T00:41:24+00:00"
+    },
+    {
+      "id": "9fdd859de5445198",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "India's opposition holds mega rally seeking election chief's resignation",
+      "url": "https://www.bbc.co.uk/news/articles/c60qk92dvlwgo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-01T07:00:55+00:00"
+    },
     {
       "id": "2eb9ed0951b88425",
       "language": "en",
@@ -20,40 +47,22 @@
       "published": "2026-10-31T17:53:35+00:00"
     },
     {
-      "id": "c1e60918b29464db",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Thousands demonstrate in Paris as protests spread across Europe",
-      "url": "https://www.bbc.co.uk/news/videos/ck0j0y87j303o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-31T21:29:01+00:00"
-    },
-    {
       "id": "1620a9d27876be6c",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
       "title": "Crypto firm Binance covers 90% of losses after $6.3bn hack",
       "url": "https://www.bbc.co.uk/news/articles/ckpdg3ql4169o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-31T16:32:08+00:00"
+      "published": "2026-11-01T13:11:37+00:00"
     },
     {
-      "id": "060a985d9c7f79f8",
+      "id": "de7377484e8d5621",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "More than 5,000 die from Ebola in DR Congo's deadliest outbreak",
-      "url": "https://www.bbc.co.uk/news/articles/cj5ynryyep2yo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-31T15:16:20+00:00"
-    },
-    {
-      "id": "f1e04e3b7f91dcbe",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Ethiopian PM puts ministers through military training",
-      "url": "https://www.bbc.co.uk/news/articles/cmwyv2y7g9l8o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-31T14:28:15+00:00"
+      "title": "These firms you've never heard of are feeding fears the AI bubble could burst",
+      "url": "https://www.bbc.co.uk/news/articles/cje36degrgv5o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-01T01:37:26+00:00"
     },
     {
       "id": "d13e42607d018e9c",
@@ -101,67 +110,58 @@
       "published": "2026-10-30T11:35:51+00:00"
     },
     {
-      "id": "8e8e4f8e579727c9",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Crypto giant Binance hit by $6.3bn hack suspected to be largest in history",
-      "url": "https://www.bbc.co.uk/news/articles/cwg7xp8kx4v5o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-30T09:33:51+00:00"
-    },
-    {
-      "id": "3b4dcaad496811e1",
+      "id": "61b3a2537909ef9e",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Aldeias Guarani Kaiowá vão receber proteção da Força Nacional",
-      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-10/aldeias-guarani-kaiowa-vao-receber-protecao-da-forca-nacional",
-      "published": "2026-10-31T17:38:00-03:00"
+      "title": "Menino cego que abraçou Lula sonha em ser presidente e tem propostas",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-10/menino-cego-que-abracou-lula-sonha-ser-presidente-e-ja-tem-propostas",
+      "published": "2026-11-01T09:56:00-03:00"
     },
     {
-      "id": "c7be1c555e6d1575",
+      "id": "d4ace14fe29f1b10",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Brasil avança às quartas da AmeriCup no basquete masculino 3x3",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/brasil-avanca-quartas-da-americup-no-basquete-masculino-3x3",
-      "published": "2026-10-31T17:10:00-03:00"
+      "title": "Campanha alerta para doença em diabéticos que pode causar cegueira",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-10/campanha-alerta-para-doenca-em-diabeticos-que-pode-causar-cegueira",
+      "published": "2026-11-01T09:01:00-03:00"
     },
     {
-      "id": "dddbe43316ec24e6",
+      "id": "e6981fc745860528",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Protestos da Geração Z chegam à Alemanha; milhares se manifestam",
-      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-10/protestos-da-geracao-z-chegam-alemanha-milhares-se-manifestam",
-      "published": "2026-10-31T16:43:00-03:00"
+      "title": "Câncer de próstata matou 50 homens por dia no país em 2025",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-10/cancer-de-prostata-matou-50-homens-por-dia-no-pais-em-2025",
+      "published": "2026-11-01T08:12:00-03:00"
     },
     {
-      "id": "482e85ca365c5301",
+      "id": "01fb69fe6ce81678",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Aluno é ameaçado de morte no DF por opção política",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-10/aluno-e-ameacado-de-morte-no-df-por-opcao-politica",
-      "published": "2026-10-31T16:15:00-03:00"
+      "title": "Hoje é Dia: datas, fatos e feriados de novembro de 2026",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/hoje-e-dia-datas-fatos-e-feriados-de-novembro-de-2026",
+      "published": "2026-11-01T07:30:00-03:00"
     },
     {
-      "id": "b0092e6efd93bc85",
+      "id": "7e0702d36d45c6a4",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Corinthians encerra jejum com vitória sobre o Mirassol: 2 a 0",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/corinthians-encerra-jejum-com-vitoria-sobre-o-mirassol-2-0",
-      "published": "2026-10-31T16:01:00-03:00"
+      "title": "Com virada, Corinthians bate Palmeiras na semi do Paulista F Sub-20",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/com-virada-corinthians-bate-palmeiras-na-semi-do-paulista-f-sub-20",
+      "published": "2026-10-31T18:38:00-03:00"
     },
     {
-      "id": "25182d50e3b1ea7f",
+      "id": "9997dea0af2fbe1a",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Estudo mostra necessidade de proteger soja para evitar perdas",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-10/estudo-mostra-necessidade-de-proteger-soja-para-evitar-perdas",
-      "published": "2026-10-31T15:47:00-03:00"
+      "title": "Coritiba derrota Vitória e volta a vencer depois de sete jogos: 2 a 0",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/coritiba-derrota-vitoria-e-volta-vencer-depois-de-sete-jogos-2-0",
+      "published": "2026-10-31T18:32:00-03:00"
     }
   ],
   "unavailable": []
