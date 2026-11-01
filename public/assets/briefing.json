@@ -1,59 +1,59 @@
 {
-  "checkedAt": "2026-11-01T13:33:15.152237+00:00",
+  "checkedAt": "2026-11-01T22:07:55.302487+00:00",
   "stories": [
+    {
+      "id": "d99340fc39d91895",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Russian strikes cut power to thousands in Ukraine as Kherson ceasefire ends",
+      "url": "https://www.bbc.co.uk/news/articles/c64g1y90p71eo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-01T21:55:01+00:00"
+    },
+    {
+      "id": "947eeaf0750c1a62",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Israeli strikes in Gaza kill eight including child, hospitals say",
+      "url": "https://www.bbc.co.uk/news/articles/cmqln14rrzxvo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-01T17:06:32+00:00"
+    },
+    {
+      "id": "d35ebe7fd60cb9cd",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "University of Cambridge scientist among those who died in Spanish train crash",
+      "url": "https://www.bbc.co.uk/news/articles/cq5ynzvkn1d8o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-01T17:05:18+00:00"
+    },
     {
       "id": "f845da07825410f4",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Shops looted as German cost of living protests turn violent",
+      "title": "Shops looted as German cost-of-living protests turn violent",
       "url": "https://www.bbc.co.uk/news/articles/cqj34gnd3n30o?at_medium=RSS&at_campaign=rss",
       "published": "2026-11-01T11:57:48+00:00"
     },
     {
-      "id": "e5976f38079c1f10",
+      "id": "a9b69dcdd86f7a89",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Judge dismisses Trump's lawsuit against Wall Street Journal over Epstein birthday book",
-      "url": "https://www.bbc.co.uk/news/articles/cwr5yj2lj9myo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-01T00:41:24+00:00"
+      "title": "Armed police start patrols in Sydney after Bondi Beach attack",
+      "url": "https://www.bbc.co.uk/news/articles/c9kgj7k7ry0ro?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-01T17:56:47+00:00"
     },
     {
-      "id": "9fdd859de5445198",
+      "id": "189e284fa7d7d78a",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "India's opposition holds mega rally seeking election chief's resignation",
-      "url": "https://www.bbc.co.uk/news/articles/c60qk92dvlwgo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-01T07:00:55+00:00"
-    },
-    {
-      "id": "2eb9ed0951b88425",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "'We came back from hell', say Ukrainians after years in Russia-occupied front-line city",
-      "url": "https://www.bbc.co.uk/news/articles/cqglw3k7djp1o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-31T19:22:26+00:00"
-    },
-    {
-      "id": "deefa82a83a2bcad",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Ukrainian evacuees reunite with family after years trapped in Russia-occupied city",
-      "url": "https://www.bbc.co.uk/news/articles/cqx2818elrnzo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-31T17:53:35+00:00"
-    },
-    {
-      "id": "1620a9d27876be6c",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Crypto firm Binance covers 90% of losses after $6.3bn hack",
-      "url": "https://www.bbc.co.uk/news/articles/ckpdg3ql4169o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-01T13:11:37+00:00"
+      "title": "Democrat endorses Republican candidate in key Michigan Senate race as party spat erupts",
+      "url": "https://www.bbc.co.uk/news/articles/c95ynzv88n68o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-01T21:16:45+00:00"
     },
     {
       "id": "de7377484e8d5621",
@@ -110,58 +110,58 @@
       "published": "2026-10-30T11:35:51+00:00"
     },
     {
-      "id": "61b3a2537909ef9e",
+      "id": "5cc6d3d8534b9939",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Menino cego que abraçou Lula sonha em ser presidente e tem propostas",
-      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-10/menino-cego-que-abracou-lula-sonha-ser-presidente-e-ja-tem-propostas",
-      "published": "2026-11-01T09:56:00-03:00"
+      "title": "Fux atende AGU e inclui ministérios e Abras em debate sobre bets",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/fux-atende-agu-e-inclui-ministerios-e-abras-em-debate-sobre-bets",
+      "published": "2026-11-01T17:55:00-03:00"
     },
     {
-      "id": "d4ace14fe29f1b10",
+      "id": "f54679d1e6bc0fdd",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Campanha alerta para doença em diabéticos que pode causar cegueira",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-10/campanha-alerta-para-doenca-em-diabeticos-que-pode-causar-cegueira",
-      "published": "2026-11-01T09:01:00-03:00"
+      "title": "Denúncias de violência política quadriplicam em outubro no Disque 100",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/violencia-politica-disque-100-recebeu-189-denuncias-durante-eleicao",
+      "published": "2026-11-01T17:06:00-03:00"
     },
     {
-      "id": "e6981fc745860528",
+      "id": "4806de12db689f3b",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Câncer de próstata matou 50 homens por dia no país em 2025",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-10/cancer-de-prostata-matou-50-homens-por-dia-no-pais-em-2025",
-      "published": "2026-11-01T08:12:00-03:00"
+      "title": "Petrobras reajusta combustível de aviação em R$ 0,45 por litro",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/petrobras-reajusta-combustivel-de-aviacao-em-r-045-por-litro",
+      "published": "2026-11-01T15:41:00-03:00"
     },
     {
-      "id": "01fb69fe6ce81678",
+      "id": "10731d26463481d1",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Hoje é Dia: datas, fatos e feriados de novembro de 2026",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-10/hoje-e-dia-datas-fatos-e-feriados-de-novembro-de-2026",
-      "published": "2026-11-01T07:30:00-03:00"
+      "title": "Brasil contribui para avanços das ações de proteção da biodiversidade",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/brasil-contribui-para-avancos-das-acoes-de-protecao-da-biodiversidade",
+      "published": "2026-11-01T15:34:00-03:00"
     },
     {
-      "id": "7e0702d36d45c6a4",
+      "id": "883b1ef38e193fad",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Com virada, Corinthians bate Palmeiras na semi do Paulista F Sub-20",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/com-virada-corinthians-bate-palmeiras-na-semi-do-paulista-f-sub-20",
-      "published": "2026-10-31T18:38:00-03:00"
+      "title": "Mega-Sena acumula; prêmio para sorteio de quarta vai a R$ 46 milhões",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/mega-sena-acumula-premio-para-sorteio-de-quarta-vai-r-46-milhoes",
+      "published": "2026-11-01T15:17:00-03:00"
     },
     {
-      "id": "9997dea0af2fbe1a",
+      "id": "07881a2c3f6776ae",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Coritiba derrota Vitória e volta a vencer depois de sete jogos: 2 a 0",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-10/coritiba-derrota-vitoria-e-volta-vencer-depois-de-sete-jogos-2-0",
-      "published": "2026-10-31T18:32:00-03:00"
+      "title": "Falta uma semana para o Enem 2026; veja horários e o que levar",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/falta-uma-semana-para-o-enem-2026-veja-horarios-e-o-que-levar",
+      "published": "2026-11-01T14:47:00-03:00"
     }
   ],
   "unavailable": []
