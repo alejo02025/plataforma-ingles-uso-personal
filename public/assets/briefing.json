@@ -1,59 +1,77 @@
 {
-  "checkedAt": "2026-11-03T01:02:52.976571+00:00",
+  "checkedAt": "2026-11-03T14:25:32.839326+00:00",
   "stories": [
     {
-      "id": "9bcfdc55331da27b",
+      "id": "fe01e4934507b524",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Russian bombing kills 26 people at Ukraine aid centre, Kyiv says",
-      "url": "https://www.bbc.co.uk/news/articles/cjy56dndlyz0o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-02T21:10:04+00:00"
+      "title": "US strikes Iranian island ahead of midterm elections",
+      "url": "https://www.bbc.co.uk/news/articles/cx240mrm3g8vo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-03T11:33:33+00:00"
     },
     {
-      "id": "c380716d7c1b2ad5",
+      "id": "0c99334a12ae9024",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Thousands of European troops to rehearse Ukraine deployment in event of peace",
-      "url": "https://www.bbc.co.uk/news/articles/cm3wv085ne6po?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-03T00:07:05+00:00"
+      "title": "Tenerife striker De Miguel dies after on-field collision",
+      "url": "https://www.bbc.co.uk/sport/football/articles/ck62yvz046pjo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-03T09:09:18+00:00"
     },
     {
-      "id": "e3b756138fe24336",
+      "id": "db2af41f605757f6",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Plane may have broken apart ahead of deadly Florida jet crash, say investigators",
-      "url": "https://www.bbc.co.uk/news/articles/cm369yy7lw73o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-03T00:08:14+00:00"
+      "title": "Indian tourist killed after two helicopters collide near Everest base camp",
+      "url": "https://www.bbc.co.uk/news/articles/cmqlnx7z1549o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-03T11:51:08+00:00"
     },
     {
-      "id": "83f9b7f4ae34ad1f",
+      "id": "c5713532d0c0b478",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Shop freezers in seven European countries hit by cyber-attack",
-      "url": "https://www.bbc.co.uk/news/articles/cq1kd1nee80eo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-02T17:38:11+00:00"
+      "title": "Europe on alert after supermarket freezers hit by cyber-attacks in 10 countries",
+      "url": "https://www.bbc.co.uk/news/articles/cwy8lm1m59mvo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-03T13:55:47+00:00"
     },
     {
-      "id": "6b62f0830533dc7d",
+      "id": "cbe8b1061522d97b",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Fighting returns to Kherson region after longest Ukraine war ceasefire",
-      "url": "https://www.bbc.co.uk/news/articles/ckg5jlyp66jzo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-02T17:33:19+00:00"
+      "title": "US urges Venezuela to release remaining political prisoners",
+      "url": "https://www.bbc.co.uk/news/articles/cxg5jln586pno?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-03T12:09:20+00:00"
     },
     {
-      "id": "04e8f100cd83342d",
+      "id": "bea48636cc0f4d36",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Legal challenge to Australia's social media ban to start in High Court",
-      "url": "https://www.bbc.co.uk/news/articles/ck79py02p1jlo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-02T23:37:31+00:00"
+      "title": "Asian Cup postponed in wake of attacks on Saudi Arabia",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6y0e79yjg44o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-03T07:15:17+00:00"
+    },
+    {
+      "id": "a4648347bec45e1a",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "UK meat industry hit by cyber-attack which targeted European supermarket freezers",
+      "url": "https://www.bbc.co.uk/news/articles/ckq6ndq8l6v0o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-03T13:07:00+00:00"
+    },
+    {
+      "id": "9da12d45db340b67",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Apple unsure when it will get more foldable iPhones ahead of Christmas",
+      "url": "https://www.bbc.co.uk/news/articles/c6n8dn457ypko?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-03T11:10:37+00:00"
     },
     {
       "id": "860a0e7c55bab773",
@@ -62,16 +80,7 @@
       "source": "BBC News",
       "title": "North Korea denies being behind record $6.3bn Binance hack",
       "url": "https://www.bbc.co.uk/news/articles/c6rey4v53exgo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-03T00:56:43+00:00"
-    },
-    {
-      "id": "9da12d45db340b67",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Apple unsure when more foldable iPhones will be available after selling out",
-      "url": "https://www.bbc.co.uk/news/articles/c6n8dn457ypko?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-03T00:29:00+00:00"
+      "published": "2026-11-03T08:33:20+00:00"
     },
     {
       "id": "5b9f2f37879a136a",
@@ -101,67 +110,58 @@
       "published": "2026-11-01T01:37:26+00:00"
     },
     {
-      "id": "d13e42607d018e9c",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Why North Korea's 'elite' hackers are the prime suspect in major Binance hack",
-      "url": "https://www.bbc.co.uk/news/articles/ck9dz3v7z7v3o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-31T02:12:19+00:00"
-    },
-    {
-      "id": "d2a7c440a6828763",
+      "id": "1a3037374863213e",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "A menos de uma semana para o Enem 2026, MEC dá dicas aos participantes",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/menos-de-uma-semana-para-o-enem-2026-mec-da-dicas-aos-participantes",
-      "published": "2026-11-02T18:29:00-03:00"
+      "title": "Mercado eleva projeção para inflação, juros e dólar em 2026",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/mercado-eleva-projecao-para-inflacao-juros-e-dolar-em-2026",
+      "published": "2026-11-03T10:43:00-03:00"
     },
     {
-      "id": "9ec70664dc17cd04",
+      "id": "c33ef52278ecde85",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Desembargador assume governo de MS após licença de governador e vice",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/desembargador-assume-governo-de-ms-apos-licenca-de-governador-e-vice",
-      "published": "2026-11-02T17:29:00-03:00"
+      "title": "Terremoto de magnitude 5,6 atinge a Colômbia",
+      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-11/terremoto-de-magnitude-56-atinge-colombia",
+      "published": "2026-11-03T10:31:00-03:00"
     },
     {
-      "id": "6cf86d2bc000dd13",
+      "id": "c61e842cb600748a",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Polícia investiga acidente com asa-delta que deixou dois mortos no Rio",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/policia-investiga-acidente-com-asa-delta-que-deixou-dois-mortos-no-rio",
-      "published": "2026-11-02T17:00:00-03:00"
+      "title": "Anvisa interdita parte de terminal no Porto de Santos",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/anvisa-interdita-parte-de-terminal-no-porto-de-santos",
+      "published": "2026-11-03T09:55:00-03:00"
     },
     {
-      "id": "7bd5ae6021a9a806",
+      "id": "b52abf29710b9785",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Impa Tech abre inscrições para graduação em matemática nesta terça",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-10/impa-tech-abre-inscricoes-para-graduacao-em-matematica-nesta-terca",
-      "published": "2026-11-02T15:38:00-03:00"
+      "title": "Força Nacional apoiará Funai na Terra Indígena Ituna-Itatá, no Pará",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/forca-nacional-apoiara-funai-na-terra-indigena-ituna-itata-no-para",
+      "published": "2026-11-03T09:26:00-03:00"
     },
     {
-      "id": "0188ca309b4568b0",
+      "id": "c0b04bfe98397c26",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "ONU ressalta importância de proteger jornalistas e acesso à informação",
-      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-11/onu-ressalta-importancia-de-proteger-jornalistas-e-acesso-informacao",
-      "published": "2026-11-02T15:21:00-03:00"
+      "title": "Semana de Educação Midiática terá atividades em todas as regiões",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/semana-de-educacao-midiatica-tera-atividades-em-todas-regioes",
+      "published": "2026-11-03T07:58:00-03:00"
     },
     {
-      "id": "0938aa8f78b124d5",
+      "id": "a3fc421795726c55",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Novas regras de atendimento ao consumidor começam a valer hoje",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/novas-regras-de-atendimento-ao-consumidor-comecam-valer-hoje",
-      "published": "2026-11-02T14:37:00-03:00"
+      "title": "Fies 2: inscrições para vagas remanescentes terminam nesta terça",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/fies-2-inscricoes-para-vagas-remanescentes-terminam-nesta-terca",
+      "published": "2026-11-03T07:02:00-03:00"
     }
   ],
   "unavailable": []
