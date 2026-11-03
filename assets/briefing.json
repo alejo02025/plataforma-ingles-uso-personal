@@ -1,6 +1,33 @@
 {
-  "checkedAt": "2026-11-02T16:08:21.899631+00:00",
+  "checkedAt": "2026-11-03T01:02:52.976571+00:00",
   "stories": [
+    {
+      "id": "9bcfdc55331da27b",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Russian bombing kills 26 people at Ukraine aid centre, Kyiv says",
+      "url": "https://www.bbc.co.uk/news/articles/cjy56dndlyz0o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-02T21:10:04+00:00"
+    },
+    {
+      "id": "c380716d7c1b2ad5",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Thousands of European troops to rehearse Ukraine deployment in event of peace",
+      "url": "https://www.bbc.co.uk/news/articles/cm3wv085ne6po?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-03T00:07:05+00:00"
+    },
+    {
+      "id": "e3b756138fe24336",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Plane may have broken apart ahead of deadly Florida jet crash, say investigators",
+      "url": "https://www.bbc.co.uk/news/articles/cm369yy7lw73o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-03T00:08:14+00:00"
+    },
     {
       "id": "83f9b7f4ae34ad1f",
       "language": "en",
@@ -8,52 +35,52 @@
       "source": "BBC News",
       "title": "Shop freezers in seven European countries hit by cyber-attack",
       "url": "https://www.bbc.co.uk/news/articles/cq1kd1nee80eo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-02T15:12:22+00:00"
+      "published": "2026-11-02T17:38:11+00:00"
     },
     {
-      "id": "105dd427b029f799",
+      "id": "6b62f0830533dc7d",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Fake nuclear warnings issued after Ukrainian and Russian air alert apps hacked",
-      "url": "https://www.bbc.co.uk/news/articles/c51kdy1ew7zvo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-02T14:35:01+00:00"
+      "title": "Fighting returns to Kherson region after longest Ukraine war ceasefire",
+      "url": "https://www.bbc.co.uk/news/articles/ckg5jlyp66jzo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-02T17:33:19+00:00"
     },
     {
-      "id": "e3b756138fe24336",
+      "id": "04e8f100cd83342d",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Nine killed as small jet crashes on Florida street",
-      "url": "https://www.bbc.co.uk/news/articles/cm369yy7lw73o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-02T09:10:19+00:00"
+      "title": "Legal challenge to Australia's social media ban to start in High Court",
+      "url": "https://www.bbc.co.uk/news/articles/ck79py02p1jlo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-02T23:37:31+00:00"
     },
     {
-      "id": "5d4ca73724edaa6a",
+      "id": "860a0e7c55bab773",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Five arrested after South African farmer shot and tortured",
-      "url": "https://www.bbc.co.uk/news/articles/cv4g13z0px8yo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-02T10:48:47+00:00"
+      "title": "North Korea denies being behind record $6.3bn Binance hack",
+      "url": "https://www.bbc.co.uk/news/articles/c6rey4v53exgo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-03T00:56:43+00:00"
     },
     {
-      "id": "51989af3e30c5734",
+      "id": "9da12d45db340b67",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Wizz Air flight from Luton in emergency landing after bomb threat",
-      "url": "https://www.bbc.co.uk/news/articles/c6rryvwre0p5o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-02T14:35:38+00:00"
+      "title": "Apple unsure when more foldable iPhones will be available after selling out",
+      "url": "https://www.bbc.co.uk/news/articles/c6n8dn457ypko?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-03T00:29:00+00:00"
     },
     {
-      "id": "f2de8e72f98519e1",
+      "id": "5b9f2f37879a136a",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Ryanair says it may freeze workers' pay and raise airfares",
-      "url": "https://www.bbc.co.uk/news/articles/cr0qkve1x224o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-02T12:22:10+00:00"
+      "title": "If hackers can take control of a supermarket freezer, how vulnerable is other tech?",
+      "url": "https://www.bbc.co.uk/news/articles/ckpqg8lve73go?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-02T18:25:01+00:00"
     },
     {
       "id": "62fdb0afd8785200",
@@ -83,67 +110,58 @@
       "published": "2026-10-31T02:12:19+00:00"
     },
     {
-      "id": "0de680b82ffb0bb6",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "US tech stocks see sharp falls as AI spending nears $1tn",
-      "url": "https://www.bbc.co.uk/news/articles/cvwy72e0n72yo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-10-30T20:34:46+00:00"
-    },
-    {
-      "id": "96fb138ebd79e9e1",
+      "id": "d2a7c440a6828763",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Pnuma: emissões precisam cair 18% até 2030 para limitar aquecimento",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/pnuma-emissoes-precisam-cair-18-ate-2030-para-limitar-aquecimento",
-      "published": "2026-11-02T12:00:00-03:00"
+      "title": "A menos de uma semana para o Enem 2026, MEC dá dicas aos participantes",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/menos-de-uma-semana-para-o-enem-2026-mec-da-dicas-aos-participantes",
+      "published": "2026-11-02T18:29:00-03:00"
     },
     {
-      "id": "a6185d43dcf4c6e9",
+      "id": "9ec70664dc17cd04",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Eleitores dos EUA demonstram pessimismo em relação à economia",
-      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-11/eleitores-dos-eua-demonstram-pessimismo-em-relacao-economia",
-      "published": "2026-11-02T11:47:00-03:00"
+      "title": "Desembargador assume governo de MS após licença de governador e vice",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/desembargador-assume-governo-de-ms-apos-licenca-de-governador-e-vice",
+      "published": "2026-11-02T17:29:00-03:00"
     },
     {
-      "id": "c46394ffbef9100d",
+      "id": "6cf86d2bc000dd13",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Lembranças e saudades marcam Dia de Finados em Brasília",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/saudades-emocionam-visitantes-do-campo-da-esperanca-em-brasilia",
-      "published": "2026-11-02T11:21:00-03:00"
+      "title": "Polícia investiga acidente com asa-delta que deixou dois mortos no Rio",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/policia-investiga-acidente-com-asa-delta-que-deixou-dois-mortos-no-rio",
+      "published": "2026-11-02T17:00:00-03:00"
     },
     {
-      "id": "7f371bd6a3535e70",
+      "id": "7bd5ae6021a9a806",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "REC'n'Play 2026 será palco de tecnologia e criatividade em Recife",
-      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-11/recnplay-2026-sera-palco-de-tecnologia-e-criatividade-em-recife",
-      "published": "2026-11-02T11:19:00-03:00"
+      "title": "Impa Tech abre inscrições para graduação em matemática nesta terça",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-10/impa-tech-abre-inscricoes-para-graduacao-em-matematica-nesta-terca",
+      "published": "2026-11-02T15:38:00-03:00"
     },
     {
-      "id": "bd33f392b0773062",
+      "id": "0188ca309b4568b0",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Inscrições para vagas remanescentes do Fies terminam na terça-feira",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-10/inscricoes-para-vagas-remanescentes-do-fies-terminam-na-terca-feira",
-      "published": "2026-11-02T10:24:00-03:00"
+      "title": "ONU ressalta importância de proteger jornalistas e acesso à informação",
+      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-11/onu-ressalta-importancia-de-proteger-jornalistas-e-acesso-informacao",
+      "published": "2026-11-02T15:21:00-03:00"
     },
     {
-      "id": "26f6106fc023235e",
+      "id": "0938aa8f78b124d5",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Chuva e calor ganham força no centro-sul do Brasil",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/chuva-e-calor-ganham-forca-no-centro-sul-do-brasil",
-      "published": "2026-11-02T08:52:00-03:00"
+      "title": "Novas regras de atendimento ao consumidor começam a valer hoje",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/novas-regras-de-atendimento-ao-consumidor-comecam-valer-hoje",
+      "published": "2026-11-02T14:37:00-03:00"
     }
   ],
   "unavailable": []
