@@ -1,32 +1,50 @@
 {
-  "checkedAt": "2026-11-03T14:25:32.839326+00:00",
+  "checkedAt": "2026-11-03T23:29:09.563131+00:00",
   "stories": [
     {
-      "id": "fe01e4934507b524",
+      "id": "a5b086ccd08b4cef",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "US strikes Iranian island ahead of midterm elections",
-      "url": "https://www.bbc.co.uk/news/articles/cx240mrm3g8vo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-03T11:33:33+00:00"
+      "title": "Spanish transport minister resigns days after deadly train crash",
+      "url": "https://www.bbc.co.uk/news/articles/c6wydqd4yxdyo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-03T22:45:59+00:00"
     },
     {
-      "id": "0c99334a12ae9024",
+      "id": "b3922c87fbdbf45c",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Tenerife striker De Miguel dies after on-field collision",
-      "url": "https://www.bbc.co.uk/sport/football/articles/ck62yvz046pjo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-03T09:09:18+00:00"
+      "title": "Seven flights across Europe targeted by suspected bomb threats",
+      "url": "https://www.bbc.co.uk/news/articles/c6x2wd4v04eeo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-03T20:42:47+00:00"
     },
     {
-      "id": "db2af41f605757f6",
+      "id": "6b6c7100781c3e9d",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Binance says fake job interviews used as part of $6.3bn crypto hack",
+      "url": "https://www.bbc.co.uk/news/articles/ck5ynwz9gy67o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-03T16:19:29+00:00"
+    },
+    {
+      "id": "58fb556ee30cd7a7",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Indian tourist killed after two helicopters collide near Everest base camp",
-      "url": "https://www.bbc.co.uk/news/articles/cmqlnx7z1549o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-03T11:51:08+00:00"
+      "title": "NTSB says crucial plane parts found three miles from Florida crash site",
+      "url": "https://www.bbc.co.uk/news/articles/c9e8lk5dpj7no?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-03T21:53:38+00:00"
+    },
+    {
+      "id": "e743b0302fdabad4",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Libya's top religious authority rules against wearing Nike clothes",
+      "url": "https://www.bbc.co.uk/news/articles/c5djv0p0re2no?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-03T14:56:46+00:00"
     },
     {
       "id": "c5713532d0c0b478",
@@ -36,24 +54,6 @@
       "title": "Europe on alert after supermarket freezers hit by cyber-attacks in 10 countries",
       "url": "https://www.bbc.co.uk/news/articles/cwy8lm1m59mvo?at_medium=RSS&at_campaign=rss",
       "published": "2026-11-03T13:55:47+00:00"
-    },
-    {
-      "id": "cbe8b1061522d97b",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "US urges Venezuela to release remaining political prisoners",
-      "url": "https://www.bbc.co.uk/news/articles/cxg5jln586pno?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-03T12:09:20+00:00"
-    },
-    {
-      "id": "bea48636cc0f4d36",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Asian Cup postponed in wake of attacks on Saudi Arabia",
-      "url": "https://www.bbc.co.uk/sport/football/articles/c6y0e79yjg44o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-03T07:15:17+00:00"
     },
     {
       "id": "a4648347bec45e1a",
@@ -101,67 +101,58 @@
       "published": "2026-11-02T07:42:33+00:00"
     },
     {
-      "id": "de7377484e8d5621",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "These firms you've never heard of are feeding fears the AI bubble could burst",
-      "url": "https://www.bbc.co.uk/news/articles/cje36degrgv5o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-01T01:37:26+00:00"
-    },
-    {
-      "id": "1a3037374863213e",
+      "id": "43d580ca4732bc3f",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Mercado eleva projeção para inflação, juros e dólar em 2026",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/mercado-eleva-projecao-para-inflacao-juros-e-dolar-em-2026",
-      "published": "2026-11-03T10:43:00-03:00"
+      "title": "Medina vence etapa nas Filipinas e assume vice-liderança da WSL",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/medina-vence-etapa-nas-filipinas-e-assume-vice-lideranca-da-wsl",
+      "published": "2026-11-03T19:39:00-03:00"
     },
     {
-      "id": "c33ef52278ecde85",
+      "id": "025fc856dda224d7",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Terremoto de magnitude 5,6 atinge a Colômbia",
-      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-11/terremoto-de-magnitude-56-atinge-colombia",
-      "published": "2026-11-03T10:31:00-03:00"
+      "title": "Câmara de SP arquiva pedido de impeachment contra Ricardo Nunes",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/camara-de-sp-arquiva-pedido-de-impeachment-contra-ricardo-nunes",
+      "published": "2026-11-03T19:39:00-03:00"
     },
     {
-      "id": "c61e842cb600748a",
+      "id": "e0ffc188b5323a83",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Anvisa interdita parte de terminal no Porto de Santos",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/anvisa-interdita-parte-de-terminal-no-porto-de-santos",
-      "published": "2026-11-03T09:55:00-03:00"
+      "title": "El Niño 2026 registra mais um marco histórico de aquecimento",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/el-nino-2026-registra-mais-um-marco-historico-de-aquecimento",
+      "published": "2026-11-03T19:28:00-03:00"
     },
     {
-      "id": "b52abf29710b9785",
+      "id": "fbfe856c0f997190",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Força Nacional apoiará Funai na Terra Indígena Ituna-Itatá, no Pará",
-      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/forca-nacional-apoiara-funai-na-terra-indigena-ituna-itata-no-para",
-      "published": "2026-11-03T09:26:00-03:00"
+      "title": "Ministro aponta ligação entre bets e crime organizado",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/ministro-aponta-ligacao-entre-bets-e-crime-organizado",
+      "published": "2026-11-03T19:20:00-03:00"
     },
     {
-      "id": "c0b04bfe98397c26",
+      "id": "6cd7eeebac800f82",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Semana de Educação Midiática terá atividades em todas as regiões",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/semana-de-educacao-midiatica-tera-atividades-em-todas-regioes",
-      "published": "2026-11-03T07:58:00-03:00"
+      "title": "Governabilidade de Lula exigirá negociação e acordos além da Esplanada",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/governabilidade-de-lula-exigira-negociacao-e-acordos-alem-da-esplanada",
+      "published": "2026-11-03T19:05:00-03:00"
     },
     {
-      "id": "a3fc421795726c55",
+      "id": "9a1a737152486d2d",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Fies 2: inscrições para vagas remanescentes terminam nesta terça",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/fies-2-inscricoes-para-vagas-remanescentes-terminam-nesta-terca",
-      "published": "2026-11-03T07:02:00-03:00"
+      "title": "Dólar sobe 0,74% e aproxima-se de R$ 5,50 em dia de cautela fiscal",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-sobe-074-e-aproxima-se-de-r-550-em-dia-de-cautela-fiscal",
+      "published": "2026-11-03T18:59:00-03:00"
     }
   ],
   "unavailable": []
