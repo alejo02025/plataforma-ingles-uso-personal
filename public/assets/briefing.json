@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-04T14:39:47.146072+00:00",
+  "checkedAt": "2026-11-04T23:44:24.687876+00:00",
   "stories": [
     {
       "id": "7eb1efdc2101c626",
@@ -11,58 +11,58 @@
       "published": "2026-11-04T13:33:30+00:00"
     },
     {
-      "id": "644d6479773719fb",
+      "id": "5d000570d3259a75",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "James Talarico becomes first Democrat to win Texas Senate seat since 1988",
-      "url": "https://www.bbc.co.uk/news/articles/c6n8dnn09jg7o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-04T14:17:58+00:00"
+      "title": "US midterm results a 'victory' for Canadians hopeful of tariff relief",
+      "url": "https://www.bbc.co.uk/news/articles/cqev3mw3e0kdo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-04T18:01:31+00:00"
     },
     {
-      "id": "bbc10e21f9f20d30",
+      "id": "16e3880f90bf9000",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Left-wing Democrat Abdul El-Sayed wins in Michigan to become first Muslim senator",
-      "url": "https://www.bbc.co.uk/news/articles/c893z55pxrewo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-04T10:03:19+00:00"
+      "title": "Ukraine says bodycam video shows deadly Russian double-tap bombing",
+      "url": "https://www.bbc.co.uk/news/articles/c98rz6penv86o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-04T22:48:43+00:00"
     },
     {
-      "id": "0a02afb05cabbf5a",
+      "id": "91fc8537a51a82dc",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Florida Republicans fend off Democrats as state elects first black governor",
-      "url": "https://www.bbc.co.uk/news/articles/c9146d88pl32o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-04T07:12:21+00:00"
+      "title": "French blood storage impacted by freezer hacks as theories swirl about culprits",
+      "url": "https://www.bbc.co.uk/news/articles/c8vgxyvz6y9ro?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-04T16:26:15+00:00"
     },
     {
-      "id": "686a08ca0b1bb4ae",
+      "id": "0bf57da7297e0726",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Iran's chief negotiator says Americans voted 'no to war'",
-      "url": "https://www.bbc.co.uk/news/articles/c6d934npl9y8o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-04T12:21:21+00:00"
+      "title": "'Most difficult days of my life' for keeper Owono",
+      "url": "https://www.bbc.co.uk/sport/football/articles/c6zxjz40l280o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-04T16:40:38+00:00"
     },
     {
-      "id": "f032d238c1161944",
+      "id": "b3e17f1dddadae32",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Delhi air quality worsens ahead of Diwali as firework restrictions enter force",
-      "url": "https://www.bbc.co.uk/news/articles/c699z8792n7ro?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-04T07:39:38+00:00"
+      "title": "Israel's president begins consultations with parties after election deadlock",
+      "url": "https://www.bbc.co.uk/news/articles/c6z98z5z91ppo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-04T16:18:21+00:00"
     },
     {
       "id": "5420898fdc120aaa",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "Elon Musk's millions fail to deliver Texas for the Republicans in fierce midterms",
+      "title": "Elon Musk's millions failed to deliver Republican wins in fierce midterms",
       "url": "https://www.bbc.co.uk/news/articles/cv8ez3p3ge5ko?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-04T13:43:16+00:00"
+      "published": "2026-11-04T21:41:15+00:00"
     },
     {
       "id": "4f07d3c53b716ad9",
@@ -101,67 +101,58 @@
       "published": "2026-11-03T11:10:37+00:00"
     },
     {
-      "id": "860a0e7c55bab773",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "North Korea denies being behind record $6.3bn Binance hack",
-      "url": "https://www.bbc.co.uk/news/articles/c6rey4v53exgo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-03T08:33:20+00:00"
-    },
-    {
-      "id": "1b5899f89192dde2",
+      "id": "7fbf1f61870855aa",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Anvisa aprova primeiro medicamento de GLP-1 oral para obesidade",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/anvisa-aprova-primeiro-medicamento-de-glp-1-oral-para-obesidade",
-      "published": "2026-11-04T10:33:00-03:00"
+      "title": "Orlando Luz e Rafael Matos arrematam vaga histórica no ATP Finals",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/orlando-luz-e-rafael-matos-arrematam-vaga-historica-no-atp-finals",
+      "published": "2026-11-04T19:55:00-03:00"
     },
     {
-      "id": "8b71eccac75a8164",
+      "id": "e4286346d3b31650",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Urbanização em favelas quase triplicou e vegetação diminuiu em 40 anos",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/urbanizacao-em-favelas-quase-triplicou-e-vegetacao-diminuiu-em-40-anos",
-      "published": "2026-11-04T10:21:00-03:00"
+      "title": "Setor produtivo critica manutenção da Selic em 13,75% ao ano",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/setor-produtivo-critica-manutencao-da-selic-em-1375-ao-ano",
+      "published": "2026-11-04T19:34:00-03:00"
     },
     {
-      "id": "55555a2c3f74a59e",
+      "id": "c889fcc4662ac989",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Painel permite analisar mudanças climáticas no Brasil e América Latina",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/painel-permite-analisar-mudancas-climaticas-no-brasil-e-america-latina",
-      "published": "2026-11-04T08:48:00-03:00"
+      "title": "Sete brasileiros são eleitos para assembleias estaduais nos EUA",
+      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-11/sete-brasileiros-sao-eleitos-para-assembleias-estaduais-nos-eua",
+      "published": "2026-11-04T19:30:00-03:00"
     },
     {
-      "id": "0068bcef94a2cedb",
+      "id": "e0ef8cc7855d6dc6",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Racismo e desigualdades afetam aprendizagem das crianças, diz estudo",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/racismo-e-desigualdades-afetam-aprendizagem-das-criancas-diz-estudo-0",
-      "published": "2026-11-04T08:28:00-03:00"
+      "title": "Tornados e temporais atingem Santa Catarina e Rio Grande do Sul",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/tornados-e-temporais-atingem-santa-catarina-e-rio-grande-do-sul",
+      "published": "2026-11-04T19:16:00-03:00"
     },
     {
-      "id": "0e285bdda061849f",
+      "id": "ae293576924583aa",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Exames do presidente Lula estão dentro da normalidade, diz boletim",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/exames-do-presidente-lula-estao-dentro-da-normalidade-diz-boletim",
-      "published": "2026-11-04T08:27:00-03:00"
+      "title": "Fenabrave prevê aumento de 12,8% na venda de veículos novos em 2026",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/fenabrave-preve-aumento-de-128-na-venda-de-veiculos-novos-em-2026",
+      "published": "2026-11-04T19:11:00-03:00"
     },
     {
-      "id": "e8773a4089ffcbdf",
+      "id": "b52bd5197e405ec1",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Enem 2026: confira dicas para cuidar do corpo e da mente na reta final",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/enem-2026-confira-dicas-para-cuidar-do-corpo-e-da-mente-na-reta-final",
-      "published": "2026-11-04T08:10:00-03:00"
+      "title": "Receita apreende 15 toneladas de produtos irregulares no Porto do Rio",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/receita-apreende-15-toneladas-de-produtos-irregulares-no-porto-do-rio",
+      "published": "2026-11-04T18:42:00-03:00"
     }
   ],
   "unavailable": []
