@@ -1,59 +1,59 @@
 {
-  "checkedAt": "2026-11-04T23:44:24.687876+00:00",
+  "checkedAt": "2026-11-05T14:44:58.841461+00:00",
   "stories": [
     {
-      "id": "7eb1efdc2101c626",
+      "id": "e6b199bf98c83979",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "'This is a disaster': Angry Republicans blame Trump for midterms defeat",
-      "url": "https://www.bbc.co.uk/news/articles/c6x29rr8djy3o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-04T13:33:30+00:00"
+      "title": "Vance walks Trump tightrope with scathing election critique blaming Iran war",
+      "url": "https://www.bbc.co.uk/news/articles/crz98zqkz7z0o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-05T03:47:56+00:00"
     },
     {
-      "id": "5d000570d3259a75",
+      "id": "56b9ffa8fd550eb4",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "US midterm results a 'victory' for Canadians hopeful of tariff relief",
-      "url": "https://www.bbc.co.uk/news/articles/cqev3mw3e0kdo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-04T18:01:31+00:00"
+      "title": "What Democrats can and can't do with their new power after taking Congress",
+      "url": "https://www.bbc.co.uk/news/articles/cq1kdgnn2xdeo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-04T18:01:27+00:00"
     },
     {
-      "id": "16e3880f90bf9000",
+      "id": "54ee0b3551a524aa",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Ukraine says bodycam video shows deadly Russian double-tap bombing",
-      "url": "https://www.bbc.co.uk/news/articles/c98rz6penv86o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-04T22:48:43+00:00"
+      "title": "France holds new strikes and protests as unions demand immediate answers",
+      "url": "https://www.bbc.co.uk/news/articles/ckx2qzv835pgo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-05T14:42:29+00:00"
     },
     {
-      "id": "91fc8537a51a82dc",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "French blood storage impacted by freezer hacks as theories swirl about culprits",
-      "url": "https://www.bbc.co.uk/news/articles/c8vgxyvz6y9ro?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-04T16:26:15+00:00"
-    },
-    {
-      "id": "0bf57da7297e0726",
+      "id": "a26253c45ffad9dd",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "'Most difficult days of my life' for keeper Owono",
-      "url": "https://www.bbc.co.uk/sport/football/articles/c6zxjz40l280o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-04T16:40:38+00:00"
+      "title": "Ronaldo retires from Portugal duty",
+      "url": "https://www.bbc.co.uk/sport/football/articles/cme8rxx2e1w9o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-05T12:28:01+00:00"
     },
     {
-      "id": "b3e17f1dddadae32",
+      "id": "b1a7a3701a980564",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Israel's president begins consultations with parties after election deadlock",
-      "url": "https://www.bbc.co.uk/news/articles/c6z98z5z91ppo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-04T16:18:21+00:00"
+      "title": "Joshua Wong, face of Hong Kong's pro-democracy protests, jailed for 10 years",
+      "url": "https://www.bbc.co.uk/news/articles/cwp9g3rlp8jlo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-05T13:51:03+00:00"
+    },
+    {
+      "id": "63b80da325130f73",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Typhoons batter East Asia as El Niño makes Pacific 'burn with fever'",
+      "url": "https://www.bbc.co.uk/news/articles/cw33kgj7nkemo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-04T23:12:47+00:00"
     },
     {
       "id": "5420898fdc120aaa",
@@ -63,6 +63,15 @@
       "title": "Elon Musk's millions failed to deliver Republican wins in fierce midterms",
       "url": "https://www.bbc.co.uk/news/articles/cv8ez3p3ge5ko?at_medium=RSS&at_campaign=rss",
       "published": "2026-11-04T21:41:15+00:00"
+    },
+    {
+      "id": "91fc8537a51a82dc",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "French blood storage impacted by freezer hacks as theories swirl about culprits",
+      "url": "https://www.bbc.co.uk/news/articles/c8vgxyvz6y9ro?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-04T16:26:15+00:00"
     },
     {
       "id": "4f07d3c53b716ad9",
@@ -101,58 +110,58 @@
       "published": "2026-11-03T11:10:37+00:00"
     },
     {
-      "id": "7fbf1f61870855aa",
+      "id": "6c3d56547d9c2645",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Orlando Luz e Rafael Matos arrematam vaga histórica no ATP Finals",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/orlando-luz-e-rafael-matos-arrematam-vaga-historica-no-atp-finals",
-      "published": "2026-11-04T19:55:00-03:00"
+      "title": "Memorial a vítimas da violência é reinaugurado no Complexo da Maré",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/memorial-vitimas-da-violencia-e-reinaugurado-no-complexo-da-mare",
+      "published": "2026-11-05T10:54:00-03:00"
     },
     {
-      "id": "e4286346d3b31650",
+      "id": "c4da7fc47fbf11b4",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Setor produtivo critica manutenção da Selic em 13,75% ao ano",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/setor-produtivo-critica-manutencao-da-selic-em-1375-ao-ano",
-      "published": "2026-11-04T19:34:00-03:00"
+      "title": "Produção da indústria recua 0,8% em setembro; 4ª queda em cinco meses",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/producao-da-industria-recua-08-em-setembro-4a-queda-em-cinco-meses",
+      "published": "2026-11-05T10:45:00-03:00"
     },
     {
-      "id": "c889fcc4662ac989",
+      "id": "d2a3a6f9b291edf4",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Sete brasileiros são eleitos para assembleias estaduais nos EUA",
-      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-11/sete-brasileiros-sao-eleitos-para-assembleias-estaduais-nos-eua",
-      "published": "2026-11-04T19:30:00-03:00"
+      "title": "Governo publica MP das alíquotas do Imposto Seletivo para 2027",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/governo-publica-mp-das-aliquotas-do-imposto-seletivo-para-2027",
+      "published": "2026-11-05T09:37:00-03:00"
     },
     {
-      "id": "e0ef8cc7855d6dc6",
+      "id": "706292bbd7394834",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Tornados e temporais atingem Santa Catarina e Rio Grande do Sul",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/tornados-e-temporais-atingem-santa-catarina-e-rio-grande-do-sul",
-      "published": "2026-11-04T19:16:00-03:00"
+      "title": "Receita apreende brinquedos falsificados da Lego no Porto do Rio",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/receita-apreende-milhares-de-caixas-de-brinquedos-falsificados-da-lego",
+      "published": "2026-11-05T09:01:00-03:00"
     },
     {
-      "id": "ae293576924583aa",
+      "id": "fc07574dc080f760",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Fenabrave prevê aumento de 12,8% na venda de veículos novos em 2026",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/fenabrave-preve-aumento-de-128-na-venda-de-veiculos-novos-em-2026",
-      "published": "2026-11-04T19:11:00-03:00"
+      "title": "PF faz operação no Rio para conter repasses ilegais de arma a CACs",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/pf-faz-operacao-no-rio-para-conter-repasses-ilegais-de-arma-cacs",
+      "published": "2026-11-05T08:26:00-03:00"
     },
     {
-      "id": "b52bd5197e405ec1",
+      "id": "08fc2749f478e45d",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Receita apreende 15 toneladas de produtos irregulares no Porto do Rio",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/receita-apreende-15-toneladas-de-produtos-irregulares-no-porto-do-rio",
-      "published": "2026-11-04T18:42:00-03:00"
+      "title": "Enem: cursinhos populares preparam alunos em vulnerabilidade social",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/enem-cursinhos-populares-preparam-alunos-em-vulnerabilidade-social",
+      "published": "2026-11-05T08:00:00-03:00"
     }
   ],
   "unavailable": []
