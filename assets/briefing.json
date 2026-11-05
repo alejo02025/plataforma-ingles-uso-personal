@@ -1,59 +1,59 @@
 {
-  "checkedAt": "2026-11-05T14:44:58.841461+00:00",
+  "checkedAt": "2026-11-05T23:40:58.692570+00:00",
   "stories": [
     {
-      "id": "e6b199bf98c83979",
+      "id": "7f806f4d6ebc196f",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Vance walks Trump tightrope with scathing election critique blaming Iran war",
-      "url": "https://www.bbc.co.uk/news/articles/crz98zqkz7z0o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-05T03:47:56+00:00"
+      "title": "Major tech stocks plunge as US midterms add to fears of AI slowdown",
+      "url": "https://www.bbc.co.uk/news/articles/cmn04705rd8jo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-05T23:21:34+00:00"
     },
     {
-      "id": "56b9ffa8fd550eb4",
+      "id": "d1175aa63bac5e5e",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "What Democrats can and can't do with their new power after taking Congress",
-      "url": "https://www.bbc.co.uk/news/articles/cq1kdgnn2xdeo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-04T18:01:27+00:00"
+      "title": "Hoax bomb threats target European airlines and airports for second time in a week",
+      "url": "https://www.bbc.co.uk/news/articles/cmpqg08nz3pqo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-05T17:39:48+00:00"
+    },
+    {
+      "id": "ffff2886fc4b1906",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "California governor commutes sentences for state's 548 death row inmates",
+      "url": "https://www.bbc.co.uk/news/articles/cqrkyyd2j8mvo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-05T23:09:33+00:00"
     },
     {
       "id": "54ee0b3551a524aa",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "France holds new strikes and protests as unions demand immediate answers",
+      "title": "French protests see numbers surge as unions join strikes over high cost of living",
       "url": "https://www.bbc.co.uk/news/articles/ckx2qzv835pgo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-05T14:42:29+00:00"
+      "published": "2026-11-05T17:59:53+00:00"
     },
     {
-      "id": "a26253c45ffad9dd",
+      "id": "e8ecc5bc243f1f9c",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Ronaldo retires from Portugal duty",
-      "url": "https://www.bbc.co.uk/sport/football/articles/cme8rxx2e1w9o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-05T12:28:01+00:00"
+      "title": "Paraguay President Santiago Peña resigns after bank collapse",
+      "url": "https://www.bbc.co.uk/news/articles/c6p9g39vln3yo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-05T17:40:40+00:00"
     },
     {
-      "id": "b1a7a3701a980564",
+      "id": "cf91e8ba59594a0e",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Joshua Wong, face of Hong Kong's pro-democracy protests, jailed for 10 years",
-      "url": "https://www.bbc.co.uk/news/articles/cwp9g3rlp8jlo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-05T13:51:03+00:00"
-    },
-    {
-      "id": "63b80da325130f73",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Typhoons batter East Asia as El Niño makes Pacific 'burn with fever'",
-      "url": "https://www.bbc.co.uk/news/articles/cw33kgj7nkemo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-04T23:12:47+00:00"
+      "title": "Eight killed in series of shootings in western Turkey",
+      "url": "https://www.bbc.co.uk/news/articles/cvj6jj21pd2ko?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-05T19:32:54+00:00"
     },
     {
       "id": "5420898fdc120aaa",
@@ -101,67 +101,58 @@
       "published": "2026-11-03T13:07:00+00:00"
     },
     {
-      "id": "9da12d45db340b67",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Apple unsure when it will get more foldable iPhones ahead of Christmas",
-      "url": "https://www.bbc.co.uk/news/articles/c6n8dn457ypko?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-03T11:10:37+00:00"
-    },
-    {
-      "id": "6c3d56547d9c2645",
+      "id": "f29f90931e278cbb",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Memorial a vítimas da violência é reinaugurado no Complexo da Maré",
-      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/memorial-vitimas-da-violencia-e-reinaugurado-no-complexo-da-mare",
-      "published": "2026-11-05T10:54:00-03:00"
+      "title": "Governo define minerais críticos prioritários para investimentos",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/governo-define-minerais-criticos-prioritarios-para-investimentos",
+      "published": "2026-11-05T19:55:00-03:00"
     },
     {
-      "id": "c4da7fc47fbf11b4",
+      "id": "ee8a524eaf43b2e5",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Produção da indústria recua 0,8% em setembro; 4ª queda em cinco meses",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/producao-da-industria-recua-08-em-setembro-4a-queda-em-cinco-meses",
-      "published": "2026-11-05T10:45:00-03:00"
+      "title": "Skatista Duda Ribeiro é prata na Olimpíada da Juventude, em Dacar",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/skatista-duda-ribeiro-e-prata-na-olimpiada-da-juventude-em-dacar",
+      "published": "2026-11-05T19:47:00-03:00"
     },
     {
-      "id": "d2a3a6f9b291edf4",
+      "id": "acb089228e9da845",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Governo publica MP das alíquotas do Imposto Seletivo para 2027",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/governo-publica-mp-das-aliquotas-do-imposto-seletivo-para-2027",
-      "published": "2026-11-05T09:37:00-03:00"
+      "title": "Itamaraty: diplomatas indígenas e quilombolas tomam posse pela 1º vez",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/itamaraty-diplomatas-indigenas-e-quilombolas-tomam-posse-pela-1o-vez",
+      "published": "2026-11-05T19:41:00-03:00"
     },
     {
-      "id": "706292bbd7394834",
+      "id": "41a07371488a5cdb",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Receita apreende brinquedos falsificados da Lego no Porto do Rio",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/receita-apreende-milhares-de-caixas-de-brinquedos-falsificados-da-lego",
-      "published": "2026-11-05T09:01:00-03:00"
+      "title": "Dólar volta a aproximar-se de R$ 5,49 em dia de instabilidade global",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-volta-aproximar-se-de-r-549-em-dia-de-instabilidade-global",
+      "published": "2026-11-05T19:11:00-03:00"
     },
     {
-      "id": "fc07574dc080f760",
+      "id": "fde7e3434e4ef55d",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "PF faz operação no Rio para conter repasses ilegais de arma a CACs",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/pf-faz-operacao-no-rio-para-conter-repasses-ilegais-de-arma-cacs",
-      "published": "2026-11-05T08:26:00-03:00"
+      "title": "Lula quer economia arrumada para atrair investimentos",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/lula-quer-economia-arrumada-para-atrair-investimentos",
+      "published": "2026-11-05T19:07:00-03:00"
     },
     {
-      "id": "08fc2749f478e45d",
+      "id": "610f33ab9874e261",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Enem: cursinhos populares preparam alunos em vulnerabilidade social",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/enem-cursinhos-populares-preparam-alunos-em-vulnerabilidade-social",
-      "published": "2026-11-05T08:00:00-03:00"
+      "title": "Ministério da Saúde vai comprar até 20 mil doses da vacina contra mpox",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/ministerio-da-saude-vai-comprar-20-mil-doses-da-vacina-contra-mpox",
+      "published": "2026-11-05T19:03:00-03:00"
     }
   ],
   "unavailable": []
