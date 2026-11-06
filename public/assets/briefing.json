@@ -1,23 +1,23 @@
 {
-  "checkedAt": "2026-11-06T14:22:49.390002+00:00",
+  "checkedAt": "2026-11-06T23:14:14.935197+00:00",
   "stories": [
     {
-      "id": "3d1809fe5e7d2a90",
+      "id": "de0c28c9953fb6e7",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "White House denies Hegseth and Rubio to leave jobs after Republican election losses",
-      "url": "https://www.bbc.co.uk/news/articles/cqg7xxg4jdv5o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-06T02:08:57+00:00"
+      "title": "AI stocks climb after trillions wiped from market values",
+      "url": "https://www.bbc.co.uk/news/articles/c35ynnpzdq51o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-06T21:06:25+00:00"
     },
     {
-      "id": "89b5f6f07cd9652c",
+      "id": "9345adcc936c06fe",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Trump signs order to preserve Oval Office as national monument",
-      "url": "https://www.bbc.co.uk/news/articles/cmy0eeg101djo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-06T09:19:57+00:00"
+      "title": "Four midterms takeaways for 2028 White House race",
+      "url": "https://www.bbc.co.uk/news/articles/cq1m41n3v7mmo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-06T16:12:22+00:00"
     },
     {
       "id": "bf1e47684d2f391c",
@@ -26,7 +26,16 @@
       "source": "BBC News",
       "title": "Two dead after bus crashes in France, officials say",
       "url": "https://www.bbc.co.uk/news/articles/cmly00l4p3lwo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-06T12:27:33+00:00"
+      "published": "2026-11-06T15:33:52+00:00"
+    },
+    {
+      "id": "55e7c02a81d113ed",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "New wave of bomb threats hit European airlines",
+      "url": "https://www.bbc.co.uk/news/articles/cq62yy064vjpo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-06T15:25:35+00:00"
     },
     {
       "id": "efbeca1e8e750597",
@@ -35,25 +44,34 @@
       "source": "BBC News",
       "title": "Kenyan doomsday cult leader given life sentence for murdering 191 people",
       "url": "https://www.bbc.co.uk/news/articles/cm5yne5984l0o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-06T12:54:04+00:00"
+      "published": "2026-11-06T14:46:03+00:00"
     },
     {
-      "id": "ca5031a28a3ec123",
+      "id": "1ac43336cbc52c0f",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Russian extremist group denies sending hoax bomb threats",
-      "url": "https://www.bbc.co.uk/news/articles/cm2d66n0lx1yo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-06T12:51:38+00:00"
+      "title": "Spain's rail authorities face European fraud probe after Urda rail disaster",
+      "url": "https://www.bbc.co.uk/news/articles/c6x2wwnz5445o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-06T17:44:02+00:00"
     },
     {
-      "id": "c3be5729c60de277",
+      "id": "25cd541ca2207ece",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Pope begins lengthy trip to Latin America weeks after lung cancer surgery",
-      "url": "https://www.bbc.co.uk/news/articles/cqn06j0y61k6o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-06T00:02:57+00:00"
+      "title": "Elon Musk appears to signal the end of the road for Cybertruck",
+      "url": "https://www.bbc.co.uk/news/articles/cq1j33w7d232o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-06T21:49:50+00:00"
+    },
+    {
+      "id": "01856f52ceb43a68",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Why the US midterms sparked an AI stock selloff",
+      "url": "https://www.bbc.co.uk/news/articles/crlykkzwwpydo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-06T18:32:16+00:00"
     },
     {
       "id": "7f806f4d6ebc196f",
@@ -63,15 +81,6 @@
       "title": "Global stocks plunge as fears over US AI slowdown spread to Asia and Europe",
       "url": "https://www.bbc.co.uk/news/articles/cmn04705rd8jo?at_medium=RSS&at_campaign=rss",
       "published": "2026-11-06T13:25:50+00:00"
-    },
-    {
-      "id": "25cd541ca2207ece",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Elon Musk appears to signal the end of the road for Cybertruck",
-      "url": "https://www.bbc.co.uk/news/articles/cq1j33w7d232o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-06T09:57:04+00:00"
     },
     {
       "id": "3880731809dbbf5e",
@@ -92,76 +101,58 @@
       "published": "2026-11-04T21:41:15+00:00"
     },
     {
-      "id": "91fc8537a51a82dc",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "French blood storage impacted by freezer hacks as theories swirl about culprits",
-      "url": "https://www.bbc.co.uk/news/articles/c8vgxyvz6y9ro?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-04T16:26:15+00:00"
-    },
-    {
-      "id": "4f07d3c53b716ad9",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Graduates are managing AI - but are they learning much else?",
-      "url": "https://www.bbc.co.uk/news/articles/c820vz6wyp65o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-04T00:04:35+00:00"
-    },
-    {
-      "id": "0cf0f0e2a0fd87b2",
+      "id": "45e3b5a0b226e37c",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Médica é denunciada à Justiça após morte de paciente em lipoescultura",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/medica-e-denunciada-justica-apos-morte-de-paciente-em-lipoescultura",
-      "published": "2026-11-06T08:44:00-03:00"
+      "title": "Lula apresentará avanços ambientais na COP31, na Turquia",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/lula-apresentara-avancos-ambientais-na-cop31-na-turquia",
+      "published": "2026-11-06T19:32:00-03:00"
     },
     {
-      "id": "ff0a95bb5ad63e64",
+      "id": "95a4bab371ce00b0",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Chuvas permanecem intensas no Sul e aumentam no Sudeste e Centro-Oeste",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/chuvas-permanecem-intensas-no-sul-e-aumentam-no-sudeste-e-centro-oeste",
-      "published": "2026-11-06T08:20:00-03:00"
+      "title": "Dólar sobe para R$ 5,51, com dados de emprego nos EUA",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-sobe-para-r-551-com-dados-de-emprego-nos-eua",
+      "published": "2026-11-06T19:10:00-03:00"
     },
     {
-      "id": "7e128fd79f4c97ac",
+      "id": "f30e9de7d5b894cc",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Moradores do campo receberão moradias do Minha Casa, Minha Vida",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/moradores-do-campo-terao-moradias-do-minha-casa-minha-vida",
-      "published": "2026-11-06T08:02:00-03:00"
+      "title": "Lula sanciona exame que irá avaliar qualidade de alunos de medicina",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/lula-sanciona-exame-que-ira-avaliar-qualidade-de-alunos-de-medicina",
+      "published": "2026-11-06T18:57:00-03:00"
     },
     {
-      "id": "84e8d9a260b59be1",
+      "id": "9b83c7b6d807649a",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Enem: 90 itens, redação e 5h30 de duração; conheça estrutura da prova",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/enem-90-itens-redacao-e-5h30-de-duracao-conheca-estrutura-da-prova",
-      "published": "2026-11-06T07:32:00-03:00"
+      "title": "Ex-funcionários e colaboradores da Oi começam a receber indenizações",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/ex-funcionarios-e-colaboradores-da-oi-comecam-receber-indenizacoes",
+      "published": "2026-11-06T18:30:00-03:00"
     },
     {
-      "id": "a298dcaf6c1234da",
+      "id": "78a5a108edf42df3",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Receita apreende artigos de futebol falsificados no Porto do Rio",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/receita-apreende-artigos-de-futebol-falsificados-no-porto-do-rio",
-      "published": "2026-11-06T07:02:00-03:00"
+      "title": "Enem: cidades de Seara e Canoinhas (SC) têm locais de prova alterados",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/enem-cidades-de-seara-e-canoinhas-sc-tem-locais-de-prova-alterados",
+      "published": "2026-11-06T18:25:00-03:00"
     },
     {
-      "id": "8d98bcd669c66752",
+      "id": "08117e406ca39bb3",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Mulheres defendem articulação em rede para ampliar participação",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/mulheres-defendem-articulacao-em-rede-para-ampliar-participacao",
-      "published": "2026-11-05T21:54:00-03:00"
+      "title": "Sem posição do Senado, regras sobre Flávio seguem indefinidas",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/sem-posicao-do-senado-regras-sobre-flavio-seguem-indefinidas",
+      "published": "2026-11-06T17:51:00-03:00"
     }
   ],
   "unavailable": []
