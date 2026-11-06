@@ -1,59 +1,86 @@
 {
-  "checkedAt": "2026-11-05T23:40:58.692570+00:00",
+  "checkedAt": "2026-11-06T14:22:49.390002+00:00",
   "stories": [
+    {
+      "id": "3d1809fe5e7d2a90",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "White House denies Hegseth and Rubio to leave jobs after Republican election losses",
+      "url": "https://www.bbc.co.uk/news/articles/cqg7xxg4jdv5o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-06T02:08:57+00:00"
+    },
+    {
+      "id": "89b5f6f07cd9652c",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Trump signs order to preserve Oval Office as national monument",
+      "url": "https://www.bbc.co.uk/news/articles/cmy0eeg101djo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-06T09:19:57+00:00"
+    },
+    {
+      "id": "bf1e47684d2f391c",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Two dead after bus crashes in France, officials say",
+      "url": "https://www.bbc.co.uk/news/articles/cmly00l4p3lwo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-06T12:27:33+00:00"
+    },
+    {
+      "id": "efbeca1e8e750597",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Kenyan doomsday cult leader given life sentence for murdering 191 people",
+      "url": "https://www.bbc.co.uk/news/articles/cm5yne5984l0o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-06T12:54:04+00:00"
+    },
+    {
+      "id": "ca5031a28a3ec123",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Russian extremist group denies sending hoax bomb threats",
+      "url": "https://www.bbc.co.uk/news/articles/cm2d66n0lx1yo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-06T12:51:38+00:00"
+    },
+    {
+      "id": "c3be5729c60de277",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Pope begins lengthy trip to Latin America weeks after lung cancer surgery",
+      "url": "https://www.bbc.co.uk/news/articles/cqn06j0y61k6o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-06T00:02:57+00:00"
+    },
     {
       "id": "7f806f4d6ebc196f",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "Major tech stocks plunge as US midterms add to fears of AI slowdown",
+      "title": "Global stocks plunge as fears over US AI slowdown spread to Asia and Europe",
       "url": "https://www.bbc.co.uk/news/articles/cmn04705rd8jo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-05T23:21:34+00:00"
+      "published": "2026-11-06T13:25:50+00:00"
     },
     {
-      "id": "d1175aa63bac5e5e",
+      "id": "25cd541ca2207ece",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Hoax bomb threats target European airlines and airports for second time in a week",
-      "url": "https://www.bbc.co.uk/news/articles/cmpqg08nz3pqo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-05T17:39:48+00:00"
+      "title": "Elon Musk appears to signal the end of the road for Cybertruck",
+      "url": "https://www.bbc.co.uk/news/articles/cq1j33w7d232o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-06T09:57:04+00:00"
     },
     {
-      "id": "ffff2886fc4b1906",
+      "id": "3880731809dbbf5e",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "California governor commutes sentences for state's 548 death row inmates",
-      "url": "https://www.bbc.co.uk/news/articles/cqrkyyd2j8mvo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-05T23:09:33+00:00"
-    },
-    {
-      "id": "54ee0b3551a524aa",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "French protests see numbers surge as unions join strikes over high cost of living",
-      "url": "https://www.bbc.co.uk/news/articles/ckx2qzv835pgo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-05T17:59:53+00:00"
-    },
-    {
-      "id": "e8ecc5bc243f1f9c",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Paraguay President Santiago Peña resigns after bank collapse",
-      "url": "https://www.bbc.co.uk/news/articles/c6p9g39vln3yo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-05T17:40:40+00:00"
-    },
-    {
-      "id": "cf91e8ba59594a0e",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Eight killed in series of shootings in western Turkey",
-      "url": "https://www.bbc.co.uk/news/articles/cvj6jj21pd2ko?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-05T19:32:54+00:00"
+      "title": "The engine parts that 'fight the laws of the universe'",
+      "url": "https://www.bbc.co.uk/news/articles/cwe9lmp1pyyxo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-06T00:06:06+00:00"
     },
     {
       "id": "5420898fdc120aaa",
@@ -83,76 +110,58 @@
       "published": "2026-11-04T00:04:35+00:00"
     },
     {
-      "id": "6b6c7100781c3e9d",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Binance says fake job interviews used as part of $6.3bn crypto hack",
-      "url": "https://www.bbc.co.uk/news/articles/ck5ynwz9gy67o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-03T16:19:29+00:00"
-    },
-    {
-      "id": "a4648347bec45e1a",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "UK meat industry hit by cyber-attack which targeted European supermarket freezers",
-      "url": "https://www.bbc.co.uk/news/articles/ckq6ndq8l6v0o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-03T13:07:00+00:00"
-    },
-    {
-      "id": "f29f90931e278cbb",
+      "id": "0cf0f0e2a0fd87b2",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Governo define minerais críticos prioritários para investimentos",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/governo-define-minerais-criticos-prioritarios-para-investimentos",
-      "published": "2026-11-05T19:55:00-03:00"
+      "title": "Médica é denunciada à Justiça após morte de paciente em lipoescultura",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/medica-e-denunciada-justica-apos-morte-de-paciente-em-lipoescultura",
+      "published": "2026-11-06T08:44:00-03:00"
     },
     {
-      "id": "ee8a524eaf43b2e5",
+      "id": "ff0a95bb5ad63e64",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Skatista Duda Ribeiro é prata na Olimpíada da Juventude, em Dacar",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/skatista-duda-ribeiro-e-prata-na-olimpiada-da-juventude-em-dacar",
-      "published": "2026-11-05T19:47:00-03:00"
+      "title": "Chuvas permanecem intensas no Sul e aumentam no Sudeste e Centro-Oeste",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/chuvas-permanecem-intensas-no-sul-e-aumentam-no-sudeste-e-centro-oeste",
+      "published": "2026-11-06T08:20:00-03:00"
     },
     {
-      "id": "acb089228e9da845",
+      "id": "7e128fd79f4c97ac",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Itamaraty: diplomatas indígenas e quilombolas tomam posse pela 1º vez",
-      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/itamaraty-diplomatas-indigenas-e-quilombolas-tomam-posse-pela-1o-vez",
-      "published": "2026-11-05T19:41:00-03:00"
+      "title": "Moradores do campo receberão moradias do Minha Casa, Minha Vida",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/moradores-do-campo-terao-moradias-do-minha-casa-minha-vida",
+      "published": "2026-11-06T08:02:00-03:00"
     },
     {
-      "id": "41a07371488a5cdb",
+      "id": "84e8d9a260b59be1",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Dólar volta a aproximar-se de R$ 5,49 em dia de instabilidade global",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-volta-aproximar-se-de-r-549-em-dia-de-instabilidade-global",
-      "published": "2026-11-05T19:11:00-03:00"
+      "title": "Enem: 90 itens, redação e 5h30 de duração; conheça estrutura da prova",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/enem-90-itens-redacao-e-5h30-de-duracao-conheca-estrutura-da-prova",
+      "published": "2026-11-06T07:32:00-03:00"
     },
     {
-      "id": "fde7e3434e4ef55d",
+      "id": "a298dcaf6c1234da",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Lula quer economia arrumada para atrair investimentos",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/lula-quer-economia-arrumada-para-atrair-investimentos",
-      "published": "2026-11-05T19:07:00-03:00"
+      "title": "Receita apreende artigos de futebol falsificados no Porto do Rio",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/receita-apreende-artigos-de-futebol-falsificados-no-porto-do-rio",
+      "published": "2026-11-06T07:02:00-03:00"
     },
     {
-      "id": "610f33ab9874e261",
+      "id": "8d98bcd669c66752",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Ministério da Saúde vai comprar até 20 mil doses da vacina contra mpox",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/ministerio-da-saude-vai-comprar-20-mil-doses-da-vacina-contra-mpox",
-      "published": "2026-11-05T19:03:00-03:00"
+      "title": "Mulheres defendem articulação em rede para ampliar participação",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/mulheres-defendem-articulacao-em-rede-para-ampliar-participacao",
+      "published": "2026-11-05T21:54:00-03:00"
     }
   ],
   "unavailable": []
