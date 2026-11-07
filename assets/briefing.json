@@ -1,6 +1,42 @@
 {
-  "checkedAt": "2026-11-06T23:14:14.935197+00:00",
+  "checkedAt": "2026-11-07T13:12:13.334174+00:00",
   "stories": [
+    {
+      "id": "6918e8874575f88f",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "With Stephen Miller pick, Trump readies for a battle",
+      "url": "https://www.bbc.co.uk/news/articles/crp3gg2z171go?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-06T23:24:15+00:00"
+    },
+    {
+      "id": "8bd0144092331135",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Paraguay's president impeached and under house arrest after bank collapse",
+      "url": "https://www.bbc.co.uk/news/articles/c68jzzvjgdy9o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-07T07:20:00+00:00"
+    },
+    {
+      "id": "7bc889d73f785e59",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Ukraine's power network suffers further damage after fresh Russian strikes",
+      "url": "https://www.bbc.co.uk/news/articles/cm4g1nq8158po?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-07T12:49:36+00:00"
+    },
+    {
+      "id": "42531dc9299c2c06",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Pope in 'pretty good health' as he starts Latin America tour",
+      "url": "https://www.bbc.co.uk/news/articles/c60e0001ve9wo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-07T06:59:48+00:00"
+    },
     {
       "id": "de0c28c9953fb6e7",
       "language": "en",
@@ -11,24 +47,6 @@
       "published": "2026-11-06T21:06:25+00:00"
     },
     {
-      "id": "9345adcc936c06fe",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Four midterms takeaways for 2028 White House race",
-      "url": "https://www.bbc.co.uk/news/articles/cq1m41n3v7mmo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-06T16:12:22+00:00"
-    },
-    {
-      "id": "bf1e47684d2f391c",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Two dead after bus crashes in France, officials say",
-      "url": "https://www.bbc.co.uk/news/articles/cmly00l4p3lwo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-06T15:33:52+00:00"
-    },
-    {
       "id": "55e7c02a81d113ed",
       "language": "en",
       "topic": "World",
@@ -36,24 +54,6 @@
       "title": "New wave of bomb threats hit European airlines",
       "url": "https://www.bbc.co.uk/news/articles/cq62yy064vjpo?at_medium=RSS&at_campaign=rss",
       "published": "2026-11-06T15:25:35+00:00"
-    },
-    {
-      "id": "efbeca1e8e750597",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Kenyan doomsday cult leader given life sentence for murdering 191 people",
-      "url": "https://www.bbc.co.uk/news/articles/cm5yne5984l0o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-06T14:46:03+00:00"
-    },
-    {
-      "id": "1ac43336cbc52c0f",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Spain's rail authorities face European fraud probe after Urda rail disaster",
-      "url": "https://www.bbc.co.uk/news/articles/c6x2wwnz5445o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-06T17:44:02+00:00"
     },
     {
       "id": "25cd541ca2207ece",
@@ -101,58 +101,58 @@
       "published": "2026-11-04T21:41:15+00:00"
     },
     {
-      "id": "45e3b5a0b226e37c",
+      "id": "f6b45cd8181b9aa6",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Lula apresentará avanços ambientais na COP31, na Turquia",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/lula-apresentara-avancos-ambientais-na-cop31-na-turquia",
-      "published": "2026-11-06T19:32:00-03:00"
+      "title": "VR e VA podem ser aceitos em mais maquininhas a partir deste sábado",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/vr-e-va-podem-ser-aceitos-em-mais-maquininhas-partir-deste-sabado",
+      "published": "2026-11-07T09:03:00-03:00"
     },
     {
-      "id": "95a4bab371ce00b0",
+      "id": "f46a27241759ef76",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Dólar sobe para R$ 5,51, com dados de emprego nos EUA",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-sobe-para-r-551-com-dados-de-emprego-nos-eua",
-      "published": "2026-11-06T19:10:00-03:00"
+      "title": "Cartórios fazem mutirão para prevenir golpes na compra de imóveis",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/cartorios-fazem-mutirao-para-prevenir-golpes-na-compra-de-imoveis",
+      "published": "2026-11-07T08:31:00-03:00"
     },
     {
-      "id": "f30e9de7d5b894cc",
+      "id": "70e795388044d605",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Lula sanciona exame que irá avaliar qualidade de alunos de medicina",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/lula-sanciona-exame-que-ira-avaliar-qualidade-de-alunos-de-medicina",
-      "published": "2026-11-06T18:57:00-03:00"
+      "title": "Enem: confira as regras da redação e dicas para um texto nota 1.000",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/enem-confira-regras-da-redacao-e-dicas-para-um-texto-nota-1000",
+      "published": "2026-11-07T08:01:00-03:00"
     },
     {
-      "id": "9b83c7b6d807649a",
+      "id": "abfae7a4bba17766",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Ex-funcionários e colaboradores da Oi começam a receber indenizações",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/ex-funcionarios-e-colaboradores-da-oi-comecam-receber-indenizacoes",
-      "published": "2026-11-06T18:30:00-03:00"
+      "title": "Lula vai às Filipinas buscando estreitar vínculo com bloco asiático",
+      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-11/lula-vai-filipinas-buscando-estreitar-vinculo-com-bloco-asiatico",
+      "published": "2026-11-06T21:16:00-03:00"
     },
     {
-      "id": "78a5a108edf42df3",
+      "id": "76506b0e8bb1b3c0",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Enem: cidades de Seara e Canoinhas (SC) têm locais de prova alterados",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/enem-cidades-de-seara-e-canoinhas-sc-tem-locais-de-prova-alterados",
-      "published": "2026-11-06T18:25:00-03:00"
+      "title": "Teto de loja de roupas desaba no Brás, em São Paulo",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/teto-de-loja-de-roupas-desaba-no-bras-em-sao-paulo",
+      "published": "2026-11-06T21:15:00-03:00"
     },
     {
-      "id": "08117e406ca39bb3",
+      "id": "6876990aa6b07673",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Sem posição do Senado, regras sobre Flávio seguem indefinidas",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/sem-posicao-do-senado-regras-sobre-flavio-seguem-indefinidas",
-      "published": "2026-11-06T17:51:00-03:00"
+      "title": "Justiça suspende decisão que liberou o funcionamento de três bets",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/justica-suspende-decisao-que-liberou-o-funcionamento-de-tres-bets",
+      "published": "2026-11-06T20:39:00-03:00"
     }
   ],
   "unavailable": []
