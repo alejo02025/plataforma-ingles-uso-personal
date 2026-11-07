@@ -1,6 +1,51 @@
 {
-  "checkedAt": "2026-11-07T13:12:13.334174+00:00",
+  "checkedAt": "2026-11-07T21:56:16.002764+00:00",
   "stories": [
+    {
+      "id": "d04570c52c8f8b01",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "What we know so far after Krakow gun attack",
+      "url": "https://www.bbc.co.uk/news/articles/cmd7q15drwgeo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-07T21:13:24+00:00"
+    },
+    {
+      "id": "a3a63a91f6daf1ab",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "No clear winner after tight New Zealand general election",
+      "url": "https://www.bbc.co.uk/news/articles/c3ewev11g1e0o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-07T15:56:28+00:00"
+    },
+    {
+      "id": "082aa9ac915444e4",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "US offers $20m reward for information about Iran's nuclear programme",
+      "url": "https://www.bbc.co.uk/news/articles/c6d091ev3p0jo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-07T18:14:38+00:00"
+    },
+    {
+      "id": "6d8a06c4630839f6",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Houthis say at least 25 killed in Saudi air strike",
+      "url": "https://www.bbc.co.uk/news/articles/c65yn1v99ypmo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-07T17:09:24+00:00"
+    },
+    {
+      "id": "062a70b67af36c2c",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "UK cannot 'cherry pick' EU single market deal, Barnier tells BBC",
+      "url": "https://www.bbc.co.uk/news/articles/c9kgjj206nzpo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-07T15:19:35+00:00"
+    },
     {
       "id": "6918e8874575f88f",
       "language": "en",
@@ -11,31 +56,13 @@
       "published": "2026-11-06T23:24:15+00:00"
     },
     {
-      "id": "8bd0144092331135",
+      "id": "25cd541ca2207ece",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Paraguay's president impeached and under house arrest after bank collapse",
-      "url": "https://www.bbc.co.uk/news/articles/c68jzzvjgdy9o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-07T07:20:00+00:00"
-    },
-    {
-      "id": "7bc889d73f785e59",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Ukraine's power network suffers further damage after fresh Russian strikes",
-      "url": "https://www.bbc.co.uk/news/articles/cm4g1nq8158po?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-07T12:49:36+00:00"
-    },
-    {
-      "id": "42531dc9299c2c06",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Pope in 'pretty good health' as he starts Latin America tour",
-      "url": "https://www.bbc.co.uk/news/articles/c60e0001ve9wo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-07T06:59:48+00:00"
+      "title": "Elon Musk appears to signal the end of the road for Cybertruck",
+      "url": "https://www.bbc.co.uk/news/articles/cq1j33w7d232o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-06T21:49:50+00:00"
     },
     {
       "id": "de0c28c9953fb6e7",
@@ -45,24 +72,6 @@
       "title": "AI stocks climb after trillions wiped from market values",
       "url": "https://www.bbc.co.uk/news/articles/c35ynnpzdq51o?at_medium=RSS&at_campaign=rss",
       "published": "2026-11-06T21:06:25+00:00"
-    },
-    {
-      "id": "55e7c02a81d113ed",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "New wave of bomb threats hit European airlines",
-      "url": "https://www.bbc.co.uk/news/articles/cq62yy064vjpo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-06T15:25:35+00:00"
-    },
-    {
-      "id": "25cd541ca2207ece",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Elon Musk appears to signal the end of the road for Cybertruck",
-      "url": "https://www.bbc.co.uk/news/articles/cq1j33w7d232o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-06T21:49:50+00:00"
     },
     {
       "id": "01856f52ceb43a68",
@@ -92,67 +101,58 @@
       "published": "2026-11-06T00:06:06+00:00"
     },
     {
-      "id": "5420898fdc120aaa",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Elon Musk's millions failed to deliver Republican wins in fierce midterms",
-      "url": "https://www.bbc.co.uk/news/articles/cv8ez3p3ge5ko?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-04T21:41:15+00:00"
-    },
-    {
-      "id": "f6b45cd8181b9aa6",
+      "id": "257ad46f12487686",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "VR e VA podem ser aceitos em mais maquininhas a partir deste sábado",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/vr-e-va-podem-ser-aceitos-em-mais-maquininhas-partir-deste-sabado",
-      "published": "2026-11-07T09:03:00-03:00"
+      "title": "Rio de Janeiro registra chuva intensa e rajadas de vento",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/rio-de-janeiro-registra-chuva-intensa-e-rajadas-de-vento",
+      "published": "2026-11-07T18:16:00-03:00"
     },
     {
-      "id": "f46a27241759ef76",
+      "id": "77bddaf4fa7bf5ee",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Cartórios fazem mutirão para prevenir golpes na compra de imóveis",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/cartorios-fazem-mutirao-para-prevenir-golpes-na-compra-de-imoveis",
-      "published": "2026-11-07T08:31:00-03:00"
+      "title": "Anvisa vai certificar insumos farmacêuticos ativos fabricados no país",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/anvisa-vai-certificar-insumos-farmaceuticos-ativos-fabricados-no-pais",
+      "published": "2026-11-07T17:07:00-03:00"
     },
     {
-      "id": "70e795388044d605",
+      "id": "61a2885395796e17",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Enem: confira as regras da redação e dicas para um texto nota 1.000",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/enem-confira-regras-da-redacao-e-dicas-para-um-texto-nota-1000",
-      "published": "2026-11-07T08:01:00-03:00"
+      "title": "TV Brasil transmite jogo entre Ferroviária e Paulista Sub-20 Petrobras",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/tv-brasil-transmite-jogo-entre-ferroviaria-e-paulista-sub-20-petrobras",
+      "published": "2026-11-07T17:06:00-03:00"
     },
     {
-      "id": "abfae7a4bba17766",
+      "id": "29f67fe4692a5a59",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Lula vai às Filipinas buscando estreitar vínculo com bloco asiático",
-      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-11/lula-vai-filipinas-buscando-estreitar-vinculo-com-bloco-asiatico",
-      "published": "2026-11-06T21:16:00-03:00"
+      "title": "Brasil sofre goleada e termina em 4º lugar no Mundial Feminino Sub-17",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/brasil-sofre-goleada-e-termina-em-4o-lugar-no-mundial-feminino-sub-17",
+      "published": "2026-11-07T16:48:00-03:00"
     },
     {
-      "id": "76506b0e8bb1b3c0",
+      "id": "e9e1abc568a9526e",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Teto de loja de roupas desaba no Brás, em São Paulo",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/teto-de-loja-de-roupas-desaba-no-bras-em-sao-paulo",
-      "published": "2026-11-06T21:15:00-03:00"
+      "title": "Covid-19: pelo menos 5 estados registram aumento de casos graves",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/covid-19-pelo-menos-5-estados-registram-aumento-de-casos-graves",
+      "published": "2026-11-07T15:30:00-03:00"
     },
     {
-      "id": "6876990aa6b07673",
+      "id": "39291acf63737c78",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Justiça suspende decisão que liberou o funcionamento de três bets",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/justica-suspende-decisao-que-liberou-o-funcionamento-de-tres-bets",
-      "published": "2026-11-06T20:39:00-03:00"
+      "title": "Enem: confira as regras, os horários e os itens proibidos na prova",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/enem-confira-regras-os-horarios-e-os-itens-proibidos-na-prova",
+      "published": "2026-11-07T14:52:00-03:00"
     }
   ],
   "unavailable": []
