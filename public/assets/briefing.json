@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-07T21:56:16.002764+00:00",
+  "checkedAt": "2026-11-08T13:33:46.092552+00:00",
   "stories": [
     {
       "id": "d04570c52c8f8b01",
@@ -8,16 +8,34 @@
       "source": "BBC News",
       "title": "What we know so far after Krakow gun attack",
       "url": "https://www.bbc.co.uk/news/articles/cmd7q15drwgeo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-07T21:13:24+00:00"
+      "published": "2026-11-08T11:22:17+00:00"
     },
     {
-      "id": "a3a63a91f6daf1ab",
+      "id": "6d8a06c4630839f6",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "No clear winner after tight New Zealand general election",
-      "url": "https://www.bbc.co.uk/news/articles/c3ewev11g1e0o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-07T15:56:28+00:00"
+      "title": "Houthis say at least 33 killed in Saudi air strike",
+      "url": "https://www.bbc.co.uk/news/articles/c65yn1v99ypmo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-08T04:03:12+00:00"
+    },
+    {
+      "id": "c4c648932b3d7ff1",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "'Flat', 'tired', 'cynical': Unusually gloomy Kiwis deliver New Zealand's tightest election in years",
+      "url": "https://www.bbc.co.uk/news/articles/cxr5yyg2nj9eo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-07T21:36:16+00:00"
+    },
+    {
+      "id": "79a8ecf18d146019",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Israel's president tasks opposition leader Eisenkot with forming government",
+      "url": "https://www.bbc.co.uk/news/articles/cmy8367lj5xlo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-07T22:19:59+00:00"
     },
     {
       "id": "082aa9ac915444e4",
@@ -29,15 +47,6 @@
       "published": "2026-11-07T18:14:38+00:00"
     },
     {
-      "id": "6d8a06c4630839f6",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Houthis say at least 25 killed in Saudi air strike",
-      "url": "https://www.bbc.co.uk/news/articles/c65yn1v99ypmo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-07T17:09:24+00:00"
-    },
-    {
       "id": "062a70b67af36c2c",
       "language": "en",
       "topic": "World",
@@ -47,13 +56,22 @@
       "published": "2026-11-07T15:19:35+00:00"
     },
     {
-      "id": "6918e8874575f88f",
+      "id": "1fd2c4b355c27cd8",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "With Stephen Miller pick, Trump readies for a battle",
-      "url": "https://www.bbc.co.uk/news/articles/crp3gg2z171go?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-06T23:24:15+00:00"
+      "title": "Government 'looking seriously' at banning under-16s from Vinted and eBay",
+      "url": "https://www.bbc.co.uk/news/articles/cmzxjvpqrjxro?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-08T11:25:32+00:00"
+    },
+    {
+      "id": "e3d6f99e0ff04bc7",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Can the Zelda remake capture the magic of the original?",
+      "url": "https://www.bbc.co.uk/news/articles/cm8xznl0n1q4o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-08T00:37:45+00:00"
     },
     {
       "id": "25cd541ca2207ece",
@@ -92,67 +110,58 @@
       "published": "2026-11-06T13:25:50+00:00"
     },
     {
-      "id": "3880731809dbbf5e",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "The engine parts that 'fight the laws of the universe'",
-      "url": "https://www.bbc.co.uk/news/articles/cwe9lmp1pyyxo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-06T00:06:06+00:00"
-    },
-    {
-      "id": "257ad46f12487686",
+      "id": "93b2e628880629aa",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Rio de Janeiro registra chuva intensa e rajadas de vento",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/rio-de-janeiro-registra-chuva-intensa-e-rajadas-de-vento",
-      "published": "2026-11-07T18:16:00-03:00"
+      "title": "Falecido deixou dívidas? Saiba quem deve pagar",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/falecido-deixou-dividas-saiba-quem-deve-pagar",
+      "published": "2026-11-08T09:07:00-03:00"
     },
     {
-      "id": "77bddaf4fa7bf5ee",
+      "id": "d0afbdecbbd78b81",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Anvisa vai certificar insumos farmacêuticos ativos fabricados no país",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/anvisa-vai-certificar-insumos-farmaceuticos-ativos-fabricados-no-pais",
-      "published": "2026-11-07T17:07:00-03:00"
+      "title": "Copa do Brasil: Rádio Nacional transmite Vasco x Palmeiras às 17h",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/copa-do-brasil-radio-nacional-transmite-vasco-x-palmeiras-17h",
+      "published": "2026-11-08T08:10:00-03:00"
     },
     {
-      "id": "61a2885395796e17",
+      "id": "59179130a105ebb6",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "TV Brasil transmite jogo entre Ferroviária e Paulista Sub-20 Petrobras",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/tv-brasil-transmite-jogo-entre-ferroviaria-e-paulista-sub-20-petrobras",
-      "published": "2026-11-07T17:06:00-03:00"
+      "title": "Notas do Enem são critério de acesso para faculdades públicas",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/notas-do-enem-sao-criterio-de-acesso-para-faculdades-publicas",
+      "published": "2026-11-08T07:20:00-03:00"
     },
     {
-      "id": "29f67fe4692a5a59",
+      "id": "102c5ed0abaa9953",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Brasil sofre goleada e termina em 4º lugar no Mundial Feminino Sub-17",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/brasil-sofre-goleada-e-termina-em-4o-lugar-no-mundial-feminino-sub-17",
-      "published": "2026-11-07T16:48:00-03:00"
+      "title": "Enem 2026: candidatos precisam chegar antes das 13h ao local da prova",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/enem-2026-candidatos-precisam-chegar-antes-das-13h-ao-local-da-prova",
+      "published": "2026-11-08T07:02:00-03:00"
     },
     {
-      "id": "e9e1abc568a9526e",
+      "id": "3bf24f06b013cae0",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Covid-19: pelo menos 5 estados registram aumento de casos graves",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/covid-19-pelo-menos-5-estados-registram-aumento-de-casos-graves",
-      "published": "2026-11-07T15:30:00-03:00"
+      "title": "Grêmio avança à final da Copa do Brasil após empate com Atlético-MG",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/gremio-avanca-final-da-copa-do-brasil-apos-empate-com-atletico-mg",
+      "published": "2026-11-07T21:33:00-03:00"
     },
     {
-      "id": "39291acf63737c78",
+      "id": "76f608c0b13fee81",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Enem: confira as regras, os horários e os itens proibidos na prova",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/enem-confira-regras-os-horarios-e-os-itens-proibidos-na-prova",
-      "published": "2026-11-07T14:52:00-03:00"
+      "title": "Frente fria provoca queda de temperatura e risco de tempestades",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/frente-fria-provoca-queda-de-temperatura-e-risco-de-tempestades",
+      "published": "2026-11-07T18:59:00-03:00"
     }
   ],
   "unavailable": []
