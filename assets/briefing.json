@@ -1,14 +1,41 @@
 {
-  "checkedAt": "2026-11-08T13:33:46.092552+00:00",
+  "checkedAt": "2026-11-08T22:13:07.955929+00:00",
   "stories": [
     {
-      "id": "d04570c52c8f8b01",
+      "id": "379d0639d8e7925b",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "What we know so far after Krakow gun attack",
-      "url": "https://www.bbc.co.uk/news/articles/cmd7q15drwgeo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-08T11:22:17+00:00"
+      "title": "Surgeon having lunch near Krakow shooting undoubtedly saved officer's life, colleague says",
+      "url": "https://www.bbc.co.uk/news/articles/c5x2vw4e1gx1o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-08T18:22:53+00:00"
+    },
+    {
+      "id": "07141ad7abea7551",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Seven dead and more than 100 injured after trains collide in Egypt",
+      "url": "https://www.bbc.co.uk/news/articles/cwvgr20mmmevo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-08T19:58:02+00:00"
+    },
+    {
+      "id": "d2b9303010106a59",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Homes and temples glow across India to mark Diwali",
+      "url": "https://www.bbc.co.uk/news/articles/cm70pdwz122ro?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-08T14:42:09+00:00"
+    },
+    {
+      "id": "659206a1382c3234",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Iran executes three men for 'armed unrest' after January protests",
+      "url": "https://www.bbc.co.uk/news/articles/ckly0ex633ydo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-08T13:37:50+00:00"
     },
     {
       "id": "6d8a06c4630839f6",
@@ -29,40 +56,13 @@
       "published": "2026-11-07T21:36:16+00:00"
     },
     {
-      "id": "79a8ecf18d146019",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Israel's president tasks opposition leader Eisenkot with forming government",
-      "url": "https://www.bbc.co.uk/news/articles/cmy8367lj5xlo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-07T22:19:59+00:00"
-    },
-    {
-      "id": "082aa9ac915444e4",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "US offers $20m reward for information about Iran's nuclear programme",
-      "url": "https://www.bbc.co.uk/news/articles/c6d091ev3p0jo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-07T18:14:38+00:00"
-    },
-    {
-      "id": "062a70b67af36c2c",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "UK cannot 'cherry pick' EU single market deal, Barnier tells BBC",
-      "url": "https://www.bbc.co.uk/news/articles/c9kgjj206nzpo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-07T15:19:35+00:00"
-    },
-    {
       "id": "1fd2c4b355c27cd8",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
       "title": "Government 'looking seriously' at banning under-16s from Vinted and eBay",
       "url": "https://www.bbc.co.uk/news/articles/cmzxjvpqrjxro?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-08T11:25:32+00:00"
+      "published": "2026-11-08T15:37:25+00:00"
     },
     {
       "id": "e3d6f99e0ff04bc7",
@@ -110,58 +110,58 @@
       "published": "2026-11-06T13:25:50+00:00"
     },
     {
-      "id": "93b2e628880629aa",
+      "id": "0a8a51a4f494410e",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Falecido deixou dívidas? Saiba quem deve pagar",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-10/falecido-deixou-dividas-saiba-quem-deve-pagar",
-      "published": "2026-11-08T09:07:00-03:00"
+      "title": "Ministério informa ter adquirido 25 mil doses de vacina contra mpox",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/ministerio-informa-ter-adquirido-25-mil-doses-de-vacina-contra-mpox",
+      "published": "2026-11-08T18:31:00-03:00"
     },
     {
-      "id": "d0afbdecbbd78b81",
+      "id": "e839b507ccc3ca2e",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Copa do Brasil: Rádio Nacional transmite Vasco x Palmeiras às 17h",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/copa-do-brasil-radio-nacional-transmite-vasco-x-palmeiras-17h",
-      "published": "2026-11-08T08:10:00-03:00"
+      "title": "Defesa Civil diz não haver motivo para pânico por kit de emergência",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/defesa-civil-diz-nao-haver-motivo-para-panico-por-kit-de-emergencia",
+      "published": "2026-11-08T17:26:00-03:00"
     },
     {
-      "id": "59179130a105ebb6",
+      "id": "8300b96b2fc15e92",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Notas do Enem são critério de acesso para faculdades públicas",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/notas-do-enem-sao-criterio-de-acesso-para-faculdades-publicas",
-      "published": "2026-11-08T07:20:00-03:00"
+      "title": "Pescador morre após embarcações virarem no interior paulista",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/pescador-morre-apos-embarcacoes-virarem-no-interior-paulista",
+      "published": "2026-11-08T16:39:00-03:00"
     },
     {
-      "id": "102c5ed0abaa9953",
+      "id": "e19597f3d1841a0b",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Enem 2026: candidatos precisam chegar antes das 13h ao local da prova",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/enem-2026-candidatos-precisam-chegar-antes-das-13h-ao-local-da-prova",
-      "published": "2026-11-08T07:02:00-03:00"
+      "title": "Professores avaliam tema da redação do Enem como relevante e acessível",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/professores-avaliam-tema-da-redacao-do-enem-como-relevante-e-acessivel",
+      "published": "2026-11-08T16:23:00-03:00"
     },
     {
-      "id": "3bf24f06b013cae0",
+      "id": "35677fd34d099a69",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Grêmio avança à final da Copa do Brasil após empate com Atlético-MG",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/gremio-avanca-final-da-copa-do-brasil-apos-empate-com-atletico-mg",
-      "published": "2026-11-07T21:33:00-03:00"
+      "title": "Seleção masculina inicia apresentação para últimos amistosos do ano",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/selecao-masculina-inicia-apresentacao-para-ultimos-amistosos-do-ano",
+      "published": "2026-11-08T16:15:00-03:00"
     },
     {
-      "id": "76f608c0b13fee81",
+      "id": "af9e2c9265b70542",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Frente fria provoca queda de temperatura e risco de tempestades",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/frente-fria-provoca-queda-de-temperatura-e-risco-de-tempestades",
-      "published": "2026-11-07T18:59:00-03:00"
+      "title": "Tema da redação do Enem é “Valorização do SUS como direito universal”",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/tema-da-redacao-do-enem-e-valorizacao-do-sus-como-direito-universal",
+      "published": "2026-11-08T14:10:00-03:00"
     }
   ],
   "unavailable": []
