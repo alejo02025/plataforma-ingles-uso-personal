@@ -1,59 +1,77 @@
 {
-  "checkedAt": "2026-11-08T22:13:07.955929+00:00",
+  "checkedAt": "2026-11-09T16:31:42.417813+00:00",
   "stories": [
     {
-      "id": "379d0639d8e7925b",
+      "id": "33f8c47084864e07",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Surgeon having lunch near Krakow shooting undoubtedly saved officer's life, colleague says",
-      "url": "https://www.bbc.co.uk/news/articles/c5x2vw4e1gx1o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-08T18:22:53+00:00"
+      "title": "Krakow shooting suspect has died in hospital, police say",
+      "url": "https://www.bbc.co.uk/news/articles/c6y434dw8319o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-09T11:56:25+00:00"
     },
     {
-      "id": "07141ad7abea7551",
+      "id": "90b23b1d03a122e8",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Seven dead and more than 100 injured after trains collide in Egypt",
-      "url": "https://www.bbc.co.uk/news/articles/cwvgr20mmmevo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-08T19:58:02+00:00"
+      "title": "Inside the French drug gangs recruiting children to kill",
+      "url": "https://www.bbc.co.uk/news/articles/cq62y01r2313o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-09T06:00:26+00:00"
     },
     {
-      "id": "d2b9303010106a59",
+      "id": "7c67e426ffe21dd1",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Homes and temples glow across India to mark Diwali",
-      "url": "https://www.bbc.co.uk/news/articles/cm70pdwz122ro?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-08T14:42:09+00:00"
+      "title": "Trump says he was 'kidding' about Dana White press secretary offer",
+      "url": "https://www.bbc.co.uk/news/articles/ck0j0j87959eo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-09T08:49:17+00:00"
     },
     {
-      "id": "659206a1382c3234",
+      "id": "4688c3e49b475ee5",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Iran executes three men for 'armed unrest' after January protests",
-      "url": "https://www.bbc.co.uk/news/articles/ckly0ex633ydo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-08T13:37:50+00:00"
+      "title": "Cruise ship pianist rescued from sea after nine hours in Pacific Ocean",
+      "url": "https://www.bbc.co.uk/news/articles/ck1wvrrgln13o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-09T02:50:13+00:00"
     },
     {
-      "id": "6d8a06c4630839f6",
+      "id": "4a6aece1109d2634",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Houthis say at least 33 killed in Saudi air strike",
-      "url": "https://www.bbc.co.uk/news/articles/c65yn1v99ypmo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-08T04:03:12+00:00"
+      "title": "Nine foreigners caught allegedly trying to leave South Africa to fight in Ukraine",
+      "url": "https://www.bbc.co.uk/news/articles/cm93z3lp5lnpo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-09T12:33:24+00:00"
     },
     {
-      "id": "c4c648932b3d7ff1",
+      "id": "e573ed3951e8163c",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "'Flat', 'tired', 'cynical': Unusually gloomy Kiwis deliver New Zealand's tightest election in years",
-      "url": "https://www.bbc.co.uk/news/articles/cxr5yyg2nj9eo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-07T21:36:16+00:00"
+      "title": "At least 39 die after Europe-bound migrant boat sinks off Senegal",
+      "url": "https://www.bbc.co.uk/news/articles/cv2d6dpge65go?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-09T14:44:47+00:00"
+    },
+    {
+      "id": "e869dd4c2eff5433",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "What we know so far about Jensen Huang's affair with suspected Chinese spy",
+      "url": "https://www.bbc.co.uk/news/articles/ckgel338xql3o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-09T15:46:20+00:00"
+    },
+    {
+      "id": "73882470a9b31a7c",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Who is the suspected Chinese spy at centre of the Nvidia investigation?",
+      "url": "https://www.bbc.co.uk/news/videos/c80404zyr53wo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-09T14:50:35+00:00"
     },
     {
       "id": "1fd2c4b355c27cd8",
@@ -92,76 +110,58 @@
       "published": "2026-11-06T21:06:25+00:00"
     },
     {
-      "id": "01856f52ceb43a68",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Why the US midterms sparked an AI stock selloff",
-      "url": "https://www.bbc.co.uk/news/articles/crlykkzwwpydo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-06T18:32:16+00:00"
-    },
-    {
-      "id": "7f806f4d6ebc196f",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Global stocks plunge as fears over US AI slowdown spread to Asia and Europe",
-      "url": "https://www.bbc.co.uk/news/articles/cmn04705rd8jo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-06T13:25:50+00:00"
-    },
-    {
-      "id": "0a8a51a4f494410e",
+      "id": "a56219ab97b4de03",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Ministério informa ter adquirido 25 mil doses de vacina contra mpox",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/ministerio-informa-ter-adquirido-25-mil-doses-de-vacina-contra-mpox",
-      "published": "2026-11-08T18:31:00-03:00"
+      "title": "Gás do Povo: governo prorroga vigência do auxílio até 2031",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/gas-do-povo-governo-prorroga-vigencia-do-programa-ate-2031",
+      "published": "2026-11-09T12:02:00-03:00"
     },
     {
-      "id": "e839b507ccc3ca2e",
+      "id": "e93d204e947d6631",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Defesa Civil diz não haver motivo para pânico por kit de emergência",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/defesa-civil-diz-nao-haver-motivo-para-panico-por-kit-de-emergencia",
-      "published": "2026-11-08T17:26:00-03:00"
+      "title": "Fux suspende afastamento de juíza da Lava Jato punida pelo CNJ",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/fux-suspende-afastamento-de-juiza-da-lava-jato-punida-pelo-cnj",
+      "published": "2026-11-09T11:44:00-03:00"
     },
     {
-      "id": "8300b96b2fc15e92",
+      "id": "adf3025e7c986bb4",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Pescador morre após embarcações virarem no interior paulista",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/pescador-morre-apos-embarcacoes-virarem-no-interior-paulista",
-      "published": "2026-11-08T16:39:00-03:00"
+      "title": "Anvisa determina recolhimento de emagrecedor Ultra Shape",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/anvisa-determina-recolhimento-de-emagrecedor-ultra-shape",
+      "published": "2026-11-09T10:51:00-03:00"
     },
     {
-      "id": "e19597f3d1841a0b",
+      "id": "4dfc9c237fd99f84",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Professores avaliam tema da redação do Enem como relevante e acessível",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/professores-avaliam-tema-da-redacao-do-enem-como-relevante-e-acessivel",
-      "published": "2026-11-08T16:23:00-03:00"
+      "title": "ONU diz que 2026 será um dos anos mais quentes já registrados",
+      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-11/onu-diz-que-2026-sera-um-dos-anos-mais-quentes-ja-registrados",
+      "published": "2026-11-09T10:49:00-03:00"
     },
     {
-      "id": "35677fd34d099a69",
+      "id": "91ffd5f2df1fd2f3",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Seleção masculina inicia apresentação para últimos amistosos do ano",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/selecao-masculina-inicia-apresentacao-para-ultimos-amistosos-do-ano",
-      "published": "2026-11-08T16:15:00-03:00"
+      "title": "Mercado eleva projeção da Selic para 13,75% em 2026",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/mercado-eleva-projecao-da-selic-para-1375-em-2026",
+      "published": "2026-11-09T10:26:00-03:00"
     },
     {
-      "id": "af9e2c9265b70542",
+      "id": "f51c3a43af519b3d",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Tema da redação do Enem é “Valorização do SUS como direito universal”",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/tema-da-redacao-do-enem-e-valorizacao-do-sus-como-direito-universal",
-      "published": "2026-11-08T14:10:00-03:00"
+      "title": "Planalto que abastece Pantanal perde 6,7 mi de hectares de vegetação",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/planalto-que-abastece-pantanal-perdeu-67-mi-de-hectares-de-vegetacao",
+      "published": "2026-11-09T10:25:00-03:00"
     }
   ],
   "unavailable": []
