@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-10T01:36:49.084090+00:00",
+  "checkedAt": "2026-11-10T14:58:49.520729+00:00",
   "stories": [
     {
       "id": "4a9293f6fb187443",
@@ -8,52 +8,79 @@
       "source": "BBC News",
       "title": "Trump says FBI investigating Nvidia boss's affair with alleged Chinese spy",
       "url": "https://www.bbc.co.uk/news/articles/cqg7x7dpvym8o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-10T01:22:10+00:00"
-    },
-    {
-      "id": "c4bc507025bdc22c",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Nvidia shares tumble over investigation into Huang's affair with alleged Chinese spy",
-      "url": "https://www.bbc.co.uk/news/articles/c6zxjx01vyleo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-09T19:58:01+00:00"
+      "published": "2026-11-10T08:23:21+00:00"
     },
     {
       "id": "d3212160414aac1d",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Ukraine peace talks resume with 'some flexibility' by warring sides, US officials say",
+      "title": "First day of Ukraine peace talks 'very productive', US says",
       "url": "https://www.bbc.co.uk/news/articles/cqpvgvrpjvv8o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-10T00:09:49+00:00"
+      "published": "2026-11-10T14:36:57+00:00"
     },
     {
-      "id": "6ee79d0416da88e1",
+      "id": "27831ce6633310b0",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Epstein associate who still runs model agency 'put me in danger' says abuse survivor",
-      "url": "https://www.bbc.co.uk/news/articles/cm86z6w59gggo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-10T00:14:03+00:00"
+      "title": "DR Congo sentences 66 soldiers to death for being 'cowards'",
+      "url": "https://www.bbc.co.uk/news/articles/cmreye1q3dnjo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-10T08:39:05+00:00"
     },
     {
-      "id": "afdc6ec15c3be9fd",
+      "id": "cf6e8a467b708ab1",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "France accuses Iran of supermarket fridge hacking",
-      "url": "https://www.bbc.co.uk/news/articles/cmg474vk6dyqo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-09T20:20:08+00:00"
+      "title": "'Cruise for life' ship seized in Singapore",
+      "url": "https://www.bbc.co.uk/news/articles/cqr7y7myer53o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-10T01:49:06+00:00"
     },
     {
-      "id": "64de75add4ac8f42",
+      "id": "119606f9f2d23278",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Republican congressman to force impeachment vote on Defence Secretary Hegseth",
-      "url": "https://www.bbc.co.uk/news/articles/cwr5y58jjp8ro?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-09T23:45:14+00:00"
+      "title": "Arrests made in Mohamed Al Fayed probe in France, police say",
+      "url": "https://www.bbc.co.uk/news/articles/ck1wvwyrd4ywo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-10T14:29:00+00:00"
+    },
+    {
+      "id": "79d2d8b7c1cd87dd",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Israel's new parliament to be sworn in as leaders compete to form government",
+      "url": "https://www.bbc.co.uk/news/articles/crd939lpzjp9o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-10T12:25:48+00:00"
+    },
+    {
+      "id": "c67f8109386fc65f",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Anthropic heads for lower than expected $1.3 trillion valuation in stock market debut",
+      "url": "https://www.bbc.co.uk/news/articles/crpdgd723x2zo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-10T14:46:50+00:00"
+    },
+    {
+      "id": "9d5d87a4a4770378",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Faisal Islam: What the boss of US tech giant Nvidia told me about China and national security",
+      "url": "https://www.bbc.co.uk/news/articles/c64g1gzy2vdzo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-10T09:23:55+00:00"
+    },
+    {
+      "id": "d4036d1f11fee211",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Australia considers criminal penalties for rogue AI in wake of OpenAI hack",
+      "url": "https://www.bbc.co.uk/news/articles/cmp3g37l566po?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-10T05:22:39+00:00"
     },
     {
       "id": "e869dd4c2eff5433",
@@ -65,85 +92,67 @@
       "published": "2026-11-09T23:51:22+00:00"
     },
     {
-      "id": "73882470a9b31a7c",
+      "id": "a4177bf4c6759b03",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "Who is the suspected Chinese spy at centre of the Nvidia investigation?",
-      "url": "https://www.bbc.co.uk/news/videos/c80404zyr53wo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-09T14:50:35+00:00"
+      "title": "Zoe Kleinman: Nvidia CEO's affair will cause ripples across US and beyond",
+      "url": "https://www.bbc.co.uk/news/articles/cj3vqv3nee72o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-09T21:52:28+00:00"
     },
     {
-      "id": "1fd2c4b355c27cd8",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Government 'looking seriously' at banning under-16s from Vinted and eBay",
-      "url": "https://www.bbc.co.uk/news/articles/cmzxjvpqrjxro?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-08T15:37:25+00:00"
-    },
-    {
-      "id": "e3d6f99e0ff04bc7",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Can the Zelda remake capture the magic of the original?",
-      "url": "https://www.bbc.co.uk/news/articles/cm8xznl0n1q4o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-08T00:37:45+00:00"
-    },
-    {
-      "id": "7807e4ec947ecbae",
+      "id": "bcf65e47fab80d5b",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Chuvas deixam feridos, desabrigados e casas destelhadas no Sul",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/chuvas-deixam-feridos-desabrigados-e-casas-destelhadas-no-sul",
-      "published": "2026-11-09T20:31:00-03:00"
+      "title": "Ata do Copom indica que desaceleração da economia não conteve inflação",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/ata-do-copom-indica-que-desaceleracao-da-economia-nao-conteve-inflacao",
+      "published": "2026-11-10T11:20:00-03:00"
     },
     {
-      "id": "430509d5bb086adb",
+      "id": "81cec09f0841cb48",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "STF: ministro Fachin arquiva inquérito das Fake News",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/stf-ministro-fachin-arquiva-inquerito-das-fake-news",
-      "published": "2026-11-09T20:21:00-03:00"
+      "title": "Um terço dos jovens de 16 a 29 anos quer chegar à universidade",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/um-terco-dos-jovens-de-ate-29-anos-quer-chegar-universidade",
+      "published": "2026-11-10T11:18:00-03:00"
     },
     {
-      "id": "f5968b386cbbfb36",
+      "id": "8e2327ddbcdce176",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "COP31 pode consolidar legado brasileiro na agenda climática",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/cop31-pode-consolidar-legado-brasileiro-na-agenda-climatica",
-      "published": "2026-11-09T20:12:00-03:00"
+      "title": "Governo prorroga até 9 de dezembro desoneração da gasolina e do etanol",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/governo-prorroga-ate-9-de-dezembro-desoneracao-da-gasolina-e-do-etanol",
+      "published": "2026-11-10T09:33:00-03:00"
     },
     {
-      "id": "ca47c34ff9c3a990",
+      "id": "5621c7c6ec823227",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Bolsa sobe 2,22% e registra maior alta diária desde outubro",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/bolsa-sobe-222-e-registra-maior-alta-diaria-desde-outubro",
-      "published": "2026-11-09T19:38:00-03:00"
+      "title": "Anvisa proíbe saneante e pó descolorante",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/anvisa-proibe-saneante-e-po-descolorante",
+      "published": "2026-11-10T09:25:00-03:00"
     },
     {
-      "id": "e01d6b65584ce902",
+      "id": "46ad6dba28653b19",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Justiça suspende regra que ampliou aceitação de VR e VA em maquininhas",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/justica-suspende-regra-que-ampliou-aceitacao-de-vr-e-va-em-maquininhas",
-      "published": "2026-11-09T19:28:00-03:00"
+      "title": "PF prende ex-servidor do STJ suspeito de vazar informações sigilosas",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/pf-prende-ex-servidor-do-stj-suspeito-de-vazar-informacoes-sigilosas",
+      "published": "2026-11-10T08:31:00-03:00"
     },
     {
-      "id": "bd295378fed3b74c",
+      "id": "5b4b5f46c8ee53aa",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Aneel propõe Tarifa Hora Certa para reduzir valor em função do horário",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/aneel-propoe-tarifa-hora-certa-para-reduzir-valor-em-funcao-do-horario",
-      "published": "2026-11-09T19:23:00-03:00"
+      "title": "Polícia Civil prende homem que fornecia fuzis a traficantes da Rocinha",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/policia-civil-prende-homem-que-fornecia-fuzis-traficantes-da-rocinha",
+      "published": "2026-11-10T08:28:00-03:00"
     }
   ],
   "unavailable": []
