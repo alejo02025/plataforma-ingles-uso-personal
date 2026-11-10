@@ -1,68 +1,86 @@
 {
-  "checkedAt": "2026-11-10T14:58:49.520729+00:00",
+  "checkedAt": "2026-11-10T23:28:05.660037+00:00",
   "stories": [
     {
-      "id": "4a9293f6fb187443",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Trump says FBI investigating Nvidia boss's affair with alleged Chinese spy",
-      "url": "https://www.bbc.co.uk/news/articles/cqg7x7dpvym8o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-10T08:23:21+00:00"
-    },
-    {
-      "id": "d3212160414aac1d",
+      "id": "d0e1cc1440dbbaef",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "First day of Ukraine peace talks 'very productive', US says",
-      "url": "https://www.bbc.co.uk/news/articles/cqpvgvrpjvv8o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-10T14:36:57+00:00"
+      "title": "Meghan's father Thomas Markle back in federal custody after allegedly removing ankle monitor",
+      "url": "https://www.bbc.co.uk/news/articles/c9j3433zy4vro?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-10T22:17:45+00:00"
     },
     {
-      "id": "27831ce6633310b0",
+      "id": "b812a27808c73cb4",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "DR Congo sentences 66 soldiers to death for being 'cowards'",
-      "url": "https://www.bbc.co.uk/news/articles/cmreye1q3dnjo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-10T08:39:05+00:00"
-    },
-    {
-      "id": "cf6e8a467b708ab1",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "'Cruise for life' ship seized in Singapore",
-      "url": "https://www.bbc.co.uk/news/articles/cqr7y7myer53o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-10T01:49:06+00:00"
-    },
-    {
-      "id": "119606f9f2d23278",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Arrests made in Mohamed Al Fayed probe in France, police say",
-      "url": "https://www.bbc.co.uk/news/articles/ck1wvwyrd4ywo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-10T14:29:00+00:00"
+      "title": "Malaysia's disgraced former PM leaves jail for house arrest after embezzling millions",
+      "url": "https://www.bbc.co.uk/news/articles/cxnv0v4yln7do?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-10T18:33:51+00:00"
     },
     {
       "id": "79d2d8b7c1cd87dd",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Israel's new parliament to be sworn in as leaders compete to form government",
+      "title": "Israel's new parliament sworn in as leaders compete to form government",
       "url": "https://www.bbc.co.uk/news/articles/crd939lpzjp9o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-10T12:25:48+00:00"
+      "published": "2026-11-10T17:03:16+00:00"
+    },
+    {
+      "id": "43b41d6003dac1cb",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Violence erupts in Bangladesh as ousted PM's supporters stage protest",
+      "url": "https://www.bbc.co.uk/news/articles/cwkg5g5pjpyko?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-10T19:26:42+00:00"
+    },
+    {
+      "id": "78377496e414ed1c",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Spain's king and queen attend memorial service for rail crash victims",
+      "url": "https://www.bbc.co.uk/news/articles/ckjwew54yd4wo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-10T20:46:40+00:00"
+    },
+    {
+      "id": "207a4fa17cf57c07",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Anti-homosexuality laws in Trinidad and Tobago overturned",
+      "url": "https://www.bbc.co.uk/news/articles/cm0e0evlpp87o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-10T18:04:18+00:00"
+    },
+    {
+      "id": "9435eb24521189ad",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Nvidia hires major US law firm to investigate alleged Chinese spy affair",
+      "url": "https://www.bbc.co.uk/news/articles/ck1wvwwl3x0go?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-10T22:52:15+00:00"
+    },
+    {
+      "id": "e869dd4c2eff5433",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "What we know so far about Jensen Huang's affair with suspected Chinese spy",
+      "url": "https://www.bbc.co.uk/news/articles/ckgel338xql3o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-10T21:22:36+00:00"
     },
     {
       "id": "c67f8109386fc65f",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "Anthropic heads for lower than expected $1.3 trillion valuation in stock market debut",
+      "title": "Claude chatbot maker set for $1.3tn stock market debut despite 'catastrophic' AI warning",
       "url": "https://www.bbc.co.uk/news/articles/crpdgd723x2zo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-10T14:46:50+00:00"
+      "published": "2026-11-10T17:56:12+00:00"
     },
     {
       "id": "9d5d87a4a4770378",
@@ -74,6 +92,15 @@
       "published": "2026-11-10T09:23:55+00:00"
     },
     {
+      "id": "4a9293f6fb187443",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Trump says FBI investigating Nvidia boss's affair with alleged Chinese spy",
+      "url": "https://www.bbc.co.uk/news/articles/cqg7x7dpvym8o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-10T08:23:21+00:00"
+    },
+    {
       "id": "d4036d1f11fee211",
       "language": "en",
       "topic": "Technology",
@@ -83,76 +110,58 @@
       "published": "2026-11-10T05:22:39+00:00"
     },
     {
-      "id": "e869dd4c2eff5433",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "What we know so far about Jensen Huang's affair with suspected Chinese spy",
-      "url": "https://www.bbc.co.uk/news/articles/ckgel338xql3o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-09T23:51:22+00:00"
-    },
-    {
-      "id": "a4177bf4c6759b03",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Zoe Kleinman: Nvidia CEO's affair will cause ripples across US and beyond",
-      "url": "https://www.bbc.co.uk/news/articles/cj3vqv3nee72o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-09T21:52:28+00:00"
-    },
-    {
-      "id": "bcf65e47fab80d5b",
+      "id": "3744cbad1e52af5d",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Ata do Copom indica que desaceleração da economia não conteve inflação",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/ata-do-copom-indica-que-desaceleracao-da-economia-nao-conteve-inflacao",
-      "published": "2026-11-10T11:20:00-03:00"
+      "title": "WTA Finals: após vitória na estreia, dupla de Stefani joga na quarta",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/wta-finals-apos-vitoria-na-estreia-dupla-de-stefani-joga-na-quarta",
+      "published": "2026-11-10T19:46:00-03:00"
     },
     {
-      "id": "81cec09f0841cb48",
+      "id": "93aaad96501c5c3f",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Um terço dos jovens de 16 a 29 anos quer chegar à universidade",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/um-terco-dos-jovens-de-ate-29-anos-quer-chegar-universidade",
-      "published": "2026-11-10T11:18:00-03:00"
+      "title": "MEC aprova diretrizes para uso de IA em cada etapa da educação",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/mec-aprova-diretrizes-para-uso-de-ia-em-cada-etapa-da-educacao",
+      "published": "2026-11-10T19:26:00-03:00"
     },
     {
-      "id": "8e2327ddbcdce176",
+      "id": "68c7079495fb10b1",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Governo prorroga até 9 de dezembro desoneração da gasolina e do etanol",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/governo-prorroga-ate-9-de-dezembro-desoneracao-da-gasolina-e-do-etanol",
-      "published": "2026-11-10T09:33:00-03:00"
+      "title": "MP mira bingos ligados à cúpula do jogo do bicho no Rio",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/mp-mira-bingos-ligados-cupula-do-jogo-do-bicho-no-rio",
+      "published": "2026-11-10T18:58:00-03:00"
     },
     {
-      "id": "5621c7c6ec823227",
+      "id": "9ecb3c7255707873",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Anvisa proíbe saneante e pó descolorante",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/anvisa-proibe-saneante-e-po-descolorante",
-      "published": "2026-11-10T09:25:00-03:00"
+      "title": "Novo painel de dados mostra chuva abaixo da média em 70% do país",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/novo-painel-de-dados-mostra-chuva-abaixo-da-media-em-70-do-pais",
+      "published": "2026-11-10T18:21:00-03:00"
     },
     {
-      "id": "46ad6dba28653b19",
+      "id": "d7c522e3829a0176",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "PF prende ex-servidor do STJ suspeito de vazar informações sigilosas",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/pf-prende-ex-servidor-do-stj-suspeito-de-vazar-informacoes-sigilosas",
-      "published": "2026-11-10T08:31:00-03:00"
+      "title": "Deputados admitem rever isenções se IVA superar 26,5%",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/deputados-admitem-rever-isencoes-se-iva-superar-265",
+      "published": "2026-11-10T18:20:00-03:00"
     },
     {
-      "id": "5b4b5f46c8ee53aa",
+      "id": "a5db6884dd0bed06",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Polícia Civil prende homem que fornecia fuzis a traficantes da Rocinha",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/policia-civil-prende-homem-que-fornecia-fuzis-traficantes-da-rocinha",
-      "published": "2026-11-10T08:28:00-03:00"
+      "title": "Porto de Santos: sistemas seguem afetados após ataque cibernético",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/porto-de-santos-sistemas-seguem-afetados-apos-ataque-cibernetico",
+      "published": "2026-11-10T18:08:00-03:00"
     }
   ],
   "unavailable": []
