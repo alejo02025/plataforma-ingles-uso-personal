@@ -2644,3 +2644,75 @@
     padding: 14px;
   }
 }
+
+
+/* Lesson-focused layout on top of the latest bilingual theme. Word lookup stays usable. */
+html[data-exercise-active='lesson'] .skip-learning-link,
+html[data-exercise-active='lesson'] .class-method {
+  display: none !important;
+}
+html[data-exercise-active='lesson'] .workspace-heading {
+  display: block !important;
+  position: fixed;
+  z-index: 44;
+  top: 12px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  margin: 0;
+  pointer-events: none;
+  background: transparent;
+  border: 0;
+}
+html[data-exercise-active='lesson'] .workspace-heading .workspace-kicker,
+html[data-exercise-active='lesson'] .workspace-heading h1,
+html[data-exercise-active='lesson'] .workspace-heading .section-tabs {
+  display: none !important;
+}
+html[data-exercise-active='lesson'] .workspace-heading .workspace-title-row {
+  display: flex;
+  width: 44px;
+  min-height: 44px;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+}
+html[data-exercise-active='lesson'] .workspace-heading .word-help-toggle {
+  pointer-events: auto;
+  min-width: 44px;
+  min-height: 44px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  box-shadow: 0 5px 18px rgba(20, 31, 46, 0.12);
+}
+@media (max-width: 800px) {
+  html[data-exercise-active='lesson'] .mobile-masthead,
+  html[data-exercise-active='lesson'] .mobile-bottom-nav {
+    display: none !important;
+  }
+  html[data-exercise-active='lesson'] #main-content {
+    padding: calc(12px + env(safe-area-inset-top, 0px)) 12px
+      calc(28px + env(safe-area-inset-bottom, 0px));
+  }
+  html[data-exercise-active='lesson'] .lesson-player {
+    margin: 0;
+    padding: 12px 8px 104px;
+    min-height: calc(100dvh - 32px - env(safe-area-inset-top, 0px));
+  }
+  html[data-exercise-active='lesson'] .lesson-player-meter {
+    margin: 10px 0 23px;
+  }
+  html[data-exercise-active='lesson'] .lesson-player .lesson-heading h2 {
+    font-size: 1.5rem;
+  }
+  html[data-exercise-active='lesson'] .lesson-player-top {
+    padding-right: 44px;
+  }
+  html[data-exercise-active='lesson'] .workspace-heading {
+    top: calc(9px + env(safe-area-inset-top, 0px));
+    right: 13px;
+  }
+}
