@@ -92,8 +92,8 @@ for (const pt of [false, true]) {
     await offlineReady(page);
     await go(page, 'Home');
     await page
-      .getByLabel(pt ? 'Tempo de estudo' : 'Study time', { exact: true })
-      .selectOption('15');
+      .getByLabel(pt ? 'Tempo disponível' : 'Time available', { exact: true })
+      .selectOption('30');
     await page
       .locator('.today-task')
       .filter({ hasText: pt ? 'Construa frases' : 'Build sentences' })
@@ -316,94 +316,30 @@ for (const pt of [false, true]) {
     await ready(page);
     await expect(page.locator('.today-completion')).toContainText(pt ? '0 of 4' : '0 de 4');
   });
-  test(`Studio 3.0: ambient colours move without intercepting actions and respect saved/reduced motion (${pt ? 'PT' : 'EN'})`, async ({
+  test(`Lingua: quiet background keeps the daily action usable with reduced motion (${pt ? 'PT' : 'EN'})`, async ({
     page,
   }) => {
-    await page.emulateMedia({ reducedMotion: 'no-preference' });
+    await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.setViewportSize({ width: 320, height: 700 });
     await page.goto(pt ? './portugues/' : './');
     await ready(page);
-    const atmosphere = page.locator('.studio-atmosphere'),
-      orb = atmosphere.locator('.studio-orb').first();
-    await expect(atmosphere).toHaveAttribute('aria-hidden', 'true');
-    expect(await atmosphere.evaluate((el) => getComputedStyle(el).pointerEvents)).toBe('none');
-    const transform = await orb.evaluate((el) => getComputedStyle(el).transform);
-    await expect
-      .poll(() => orb.evaluate((el) => getComputedStyle(el).transform))
-      .not.toBe(transform);
+    await expect(page.locator('.studio-atmosphere,.studio-orb')).toHaveCount(0);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
       true,
     );
-    // Use actual computed gradient stops, including their alpha, to bound text contrast
-    // when moving colour patches overlap. Token contrast alone misses this case.
-    for (const theme of ['light', 'dark']) {
-      await page.locator('html').evaluate((el, theme) => {
-        el.dataset.theme = theme;
-      }, theme);
-      const worst = await page.evaluate(() => {
-        const ctx = document.createElement('canvas').getContext('2d')!;
-        const rgba = (color: string) => {
-          ctx.clearRect(0, 0, 1, 1);
-          ctx.fillStyle = color;
-          ctx.fillRect(0, 0, 1, 1);
-          return Array.from(ctx.getImageData(0, 0, 1, 1).data);
-        };
-        const base = rgba(getComputedStyle(document.body).backgroundColor).slice(0, 3);
-        const stops = [...document.querySelectorAll('.studio-orb')].map((el) => {
-          const match = getComputedStyle(el).backgroundImage.match(
-            /color\(srgb[^)]+\)|rgba?\([^)]+\)/,
-          );
-          if (!match) throw Error('Gradient stop cannot be measured');
-          return rgba(match[0]);
-        });
-        const opacity = Number(
-          getComputedStyle(document.querySelector('.studio-atmosphere')!).opacity,
-        );
-        const lum = (rgb: number[]) =>
-          rgb
-            .map((v) => v / 255)
-            .map((v) => (v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4))
-            .reduce((s, v, i) => s + v * [0.2126, 0.7152, 0.0722][i], 0);
-        const foreground = lum(
-          rgba(getComputedStyle(document.documentElement).getPropertyValue('--muted')).slice(0, 3),
-        );
-        return Math.min(
-          ...Array.from({ length: 2 ** stops.length }, (_, mask) => {
-            let mix = base;
-            stops.forEach((stop, i) => {
-              const alpha = mask & (1 << i) ? stop[3] / 255 : 0;
-              mix = mix.map((v, c) => v * (1 - alpha) + stop[c] * alpha);
-            });
-            const background = lum(mix.map((v, c) => base[c] * (1 - opacity) + v * opacity));
-            return (
-              (Math.max(background, foreground) + 0.05) / (Math.min(background, foreground) + 0.05)
-            );
-          }),
-        );
-      });
-      expect(worst, `${theme} moving-background contrast`).toBeGreaterThanOrEqual(4.5);
-    }
-    await page.locator('html').evaluate((el) => {
-      el.dataset.theme = 'light';
-    });
+    await expect(page.locator('.start-button')).toBeInViewport();
     await page.locator('.start-button').click();
     await expect(page.locator('.lesson-player')).toBeVisible();
     await go(page, 'Settings');
-    const toggle = page.getByRole('checkbox', {
-      name: pt ? 'Cores em movimento no fundo' : 'Moving background colours',
-      exact: true,
-    });
-    await toggle.uncheck();
-    await expect(page.locator('html')).toHaveAttribute('data-background-motion', 'off');
-    expect(await orb.evaluate((el) => getComputedStyle(el).animationName)).toBe('none');
+    await expect(page.locator('.local-backup')).toBeVisible();
+    await expect(page.locator('.motion-preference')).toHaveCount(0);
+    await page.getByLabel(pt ? 'Aparência' : 'Appearance', { exact: true }).selectOption('dark');
+    await page
+      .getByRole('button', { name: pt ? 'Salvar preferências' : 'Save preferences', exact: true })
+      .click();
     await page.reload();
     await ready(page);
-    await go(page, 'Settings');
-    await expect(toggle).not.toBeChecked();
-    await toggle.check();
-    await page.emulateMedia({ reducedMotion: 'reduce' });
-    expect(await orb.evaluate((el) => getComputedStyle(el).animationName)).toBe('none');
-    await page.emulateMedia({ reducedMotion: 'no-preference' });
-    expect(await orb.evaluate((el) => getComputedStyle(el).animationName)).toBe('studio-drift');
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+    await expect(page.locator('.start-button')).toBeInViewport();
   });
 }

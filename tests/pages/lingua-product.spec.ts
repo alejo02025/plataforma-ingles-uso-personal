@@ -79,7 +79,7 @@ for (const pt of [false, true]) {
     });
 
     await page.locator('.mobile-bottom-nav').getByRole('button').nth(2).click();
-    await expect(page.locator('.review-tools')).toBeVisible();
+    await expect(page.locator('.review-practice')).toBeVisible();
     await page.locator('.mobile-bottom-nav').getByRole('button').nth(3).click();
     await expect(page.locator('.studio-drop')).toBeVisible();
     await page

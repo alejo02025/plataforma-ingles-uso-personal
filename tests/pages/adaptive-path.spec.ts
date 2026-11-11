@@ -20,7 +20,7 @@ for (const pt of [false, true])
       nav.getByRole('button', { name: pt ? 'Conversação' : 'Speaking', exact: true }),
     ).toHaveCount(0);
     const classes = () =>
-      nav.getByRole('button', { name: pt ? 'Aulas' : 'Classes', exact: true }).click();
+      nav.getByRole('button', { name: pt ? 'Aprender' : 'Learn', exact: true }).click();
     await classes();
     await page.locator('.class-card').first().click();
     const first = (pt ? portugueseClasses : englishClasses).find(

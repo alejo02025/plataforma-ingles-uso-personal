@@ -1,11 +1,8 @@
-import { isPortuguese } from '../workspace';
+import { isPortuguese, languageConfig } from '../workspace';
 let opening: Promise<IDBDatabase> | undefined;
 function database() {
   return (opening ||= new Promise<IDBDatabase>((resolve, reject) => {
-    const request = indexedDB.open(
-      isPortuguese ? 'portuguese-os-private-v1' : 'english-os-private-v1',
-      1,
-    );
+    const request = indexedDB.open(languageConfig.database, 1);
     request.onupgradeneeded = () => request.result.createObjectStore('values');
     request.onsuccess = () => resolve(request.result);
     request.onerror = () => {
@@ -83,5 +80,25 @@ export async function readMany(keys: readonly string[]) {
       } catch {}
       reject(error);
     }
+  });
+}
+
+/** One read transaction, including saved PDF originals and local recordings. */
+export async function readAttachments(): Promise<Array<[string, Uint8Array | Blob]>> {
+  const handle = await database();
+  return new Promise((resolve, reject) => {
+    const tx = handle.transaction('values');
+    const entries: Array<[string, Uint8Array | Blob]> = [];
+    const cursor = tx.objectStore('values').openCursor();
+    cursor.onsuccess = () => {
+      const item = cursor.result;
+      if (!item) return;
+      if (/^(file:|oral-audio:)/.test(String(item.key)))
+        entries.push([String(item.key), item.value]);
+      item.continue();
+    };
+    tx.oncomplete = () => resolve(entries);
+    tx.onerror = () => reject(tx.error);
+    tx.onabort = () => reject(tx.error);
   });
 }

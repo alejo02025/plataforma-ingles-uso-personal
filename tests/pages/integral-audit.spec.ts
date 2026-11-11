@@ -227,23 +227,20 @@ test('Integral: multiple PDFs, deletion, restoration and language isolation', as
   await expect(page.getByRole('tablist', { name: 'Saved PDFs' }).getByRole('tab')).toHaveCount(2);
 });
 
-test('Integral: failed GitHub authorization retains local data and forgets credentials', async ({
+test('Integral: local-only settings expose backup and no account or remote sync controls', async ({
   page,
 }) => {
-  await page.route('https://api.github.com/**', (route) =>
-    route.fulfill({ status: 401, json: { message: 'Bad credentials' } }),
-  );
   await enter(page);
   await go(page, 'Settings');
-  await page.getByLabel('GitHub token').fill('audit-fake-token-never-real');
-  await page.getByRole('button', { name: 'Connect GitHub', exact: true }).click();
-  await expect(page.locator('p[role="alert"]')).toContainText(/Authorization|authorization/);
+  await expect(page.locator('.local-backup')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Export full backup', exact: true })).toBeVisible();
+  await expect(page.locator('input[type="password"],input[type="email"],.github-sync')).toHaveCount(
+    0,
+  );
   await page.reload();
+  await ready(page);
   await go(page, 'Settings');
-  await expect(page.getByLabel('GitHub token')).toHaveValue('');
-  expect(
-    await page.evaluate(() => JSON.stringify(localStorage).includes('audit-fake-token-never-real')),
-  ).toBe(false);
+  await expect(page.getByLabel('Your name', { exact: true })).toHaveValue('Alejo');
 });
 
 for (const pt of [false, true])
@@ -290,7 +287,7 @@ for (const pt of [false, true])
       await page
         .locator('html')
         .evaluate((el) => getComputedStyle(el).getPropertyValue('--bg').trim()),
-    ).toBe('#f7f8f6');
+    ).toBe('#f6f4ee');
     const measure = () =>
       page.evaluate(() => {
         const style = getComputedStyle(document.documentElement);

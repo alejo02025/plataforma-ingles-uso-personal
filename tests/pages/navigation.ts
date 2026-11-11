@@ -41,33 +41,33 @@ export async function go(page: Page, target: string | RegExp) {
   }
   if (/^(Language help|Ajuda com o idioma|Speaking|Course practice)$/.test(key)) {
     await select(1);
-    await tab(pt ? 'Guia de idioma' : 'Language reference');
+    await tab(pt ? 'Gramática e frases' : 'Grammar & phrases');
     return;
   }
   if (/^(Vocabulary|Vocabulário|Review|Revisão|Revisar)/.test(key)) {
     await select(2);
+    await tab(pt ? 'Palavras' : 'Vocabulary');
     return;
   }
   if (/^(Errors|My mistakes|Meus erros)$/.test(key)) {
     await select(2);
-    await tab(pt ? 'Meus erros' : 'My mistakes');
+    await page.locator('.extra-tools summary').click();
+    await page
+      .locator('.extra-tools')
+      .getByRole('button', { name: pt ? 'Meus erros' : 'My mistakes', exact: true })
+      .click();
     return;
   }
   if (/^(Practice|Praticar|Games|Jogos|Oral practice|Prática oral)$/.test(key)) {
     await select(2);
-    await tab(
-      /Games|Jogos/.test(key)
-        ? pt
-          ? 'Jogos'
-          : 'Games'
-        : /Oral practice|Prática oral/.test(key)
-          ? pt
-            ? 'Ouvir e gravar'
-            : 'Listen & record'
-          : pt
-            ? 'Prática'
-            : 'Practice',
-    );
+    if (/Games|Jogos/.test(key)) {
+      await page.locator('.extra-tools summary').click();
+      await page
+        .locator('.extra-tools')
+        .getByRole('button', { name: pt ? 'Jogos' : 'Games', exact: true })
+        .click();
+    } else if (/Oral practice|Prática oral/.test(key))
+      await tab(pt ? 'Falar e ouvir' : 'Speak & listen');
     return;
   }
   if (/^(PDF Studio|Estúdio de PDFs)$/.test(key)) {

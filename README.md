@@ -1,4 +1,4 @@
-# English OS & Português OS
+# lingua · English & Português
 
 Dos espacios personales para estudiar idiomas, con una sola pregunta al entrar: **¿qué estudio hoy?** Inglés y portugués brasileño comparten la experiencia y conservan sus datos por separado.
 
@@ -10,19 +10,19 @@ Abrí Today / Hoje y tocá Start / Começar. La actividad principal considera tr
 
 Podés elegir 15, 20, 30 o 45 minutos. Los ajustes históricos de 5 y 40 se respetan. Cambiar duración conserva lo que terminaste. La preferencia habitual está en Settings / Ajustes y se aplica a días nuevos.
 
-No hace falta crear una cuenta ni configurar GitHub para estudiar y guardar progreso en ese navegador. El respaldo privado entre dispositivos es opcional.
+No hay cuentas, emails, contraseñas ni sincronización remota. El progreso queda únicamente en este navegador. En Settings / Ajustes se puede exportar y restaurar una copia local completa por idioma.
 
 ## Cinco áreas
 
-| Área                 | Qué contiene                                                                         |
-| -------------------- | ------------------------------------------------------------------------------------ |
-| Today / Hoje         | Una actividad principal, hasta tres siguientes y su contador real                    |
-| Classes / Aulas      | Próxima clase, bloque de cuatro lecciones, requisitos y guía de idioma siempre libre |
-| Review / Revisão     | Palabras y ejemplos guardados, repasos, rutinas, juegos, escucha y grabaciones       |
-| Library / Biblioteca | PDFs con pestañas independientes, textos personales, lecturas y noticias             |
-| Progress / Progresso | Semana de estudio, resultados de ejercicios, evidencias e historial/calendario       |
+| Área                  | Qué contiene                                                                         |
+| --------------------- | ------------------------------------------------------------------------------------ |
+| Today / Hoje          | Una actividad principal, hasta tres siguientes y su contador real                    |
+| Learn / Aprender      | Próxima clase, bloque de cuatro lecciones, requisitos y guía de idioma siempre libre |
+| Practice / Praticar   | Palabras y ejemplos guardados, repasos, rutinas, juegos, escucha y grabaciones       |
+| Materials / Materiais | PDFs con pestañas independientes, textos personales, lecturas y noticias             |
+| Progress / Progresso  | Semana de estudio, resultados de ejercicios, evidencias e historial/calendario       |
 
-Ajustes reúne tema, tiempo habitual, diagnóstico orientativo, datos, sincronización y actualización. En computadora hay un lateral; en móvil, una barra inferior compacta. No hay un menú adicional de trece herramientas.
+Ajustes reúne tema, tiempo habitual, diagnóstico orientativo, datos, respaldos locales y actualización. En computadora hay un lateral; en móvil, una barra inferior compacta. No hay un menú adicional de trece herramientas.
 
 ## Aprendizaje conectado
 
@@ -46,19 +46,19 @@ Límites de archivos: PDF con texto seleccionable, 10 MB, 150 páginas y 100.000
 
 ## Audio
 
-En Review → Listen & record / Revisão → Ouvir e gravar se puede grabar hasta dos minutos, reproducir y guardar audio, nota y transcripción manual. No hay charla oral con IA ni nota automática de pronunciación o fluidez.
+En Practice → Speak & listen / Praticar → Falar e ouvir se puede grabar hasta dos minutos, reproducir y guardar audio, nota y transcripción manual. No hay charla oral con IA ni nota automática de pronunciación o fluidez.
 
-Listening usa voz sintética y dos preguntas objetivas. Mostrar la transcripción registra ayuda y excluye ese resultado de la evidencia independiente. Las voces disponibles y su funcionamiento sin señal dependen del navegador y del dispositivo.
+Listening usa voz sintética y dos preguntas objetivas. Mostrar la transcripción registra ayuda y excluye ese resultado de la evidencia independiente. Solo se usan voces que el navegador identifica como locales (`localService`). Si no hay una instalada para el idioma, se ofrece la transcripción: nunca se recurre a una voz remota.
 
 ## Guardado, offline y actualización
 
-La edición de GitHub Pages usa SQLite en IndexedDB. Ambos idiomas tienen bases independientes; actualizaciones, cambios visuales y sincronización no restablecen esas bases. La agenda diaria se guarda dentro de la base existente y no crea sesiones o resultados ficticios.
+La edición de GitHub Pages usa SQLite en IndexedDB. Ambos idiomas tienen bases independientes; actualizaciones y cambios visuales no restablecen esas bases. La agenda diaria se guarda dentro de la base existente y no crea sesiones o resultados ficticios.
 
 Una primera conexión descarga la app y sus recursos de estudio. En Ajustes se puede comprobar Ready offline / Pronto sem conexão. Los PDFs personales y el progreso quedan en IndexedDB. Los pesos del modelo local se descargan solo al elegir activarlo; no son necesarios para leer o practicar.
 
 Update app / Atualizar aplicativo está en Ajustes. La actualización compartida renueva ambos espacios y espera si hay una grabación o preferencias modificadas. Los enlaces de idioma mantienen la versión compartida. No se borran caches de datos personales como método de actualizar.
 
-El guardado del navegador no es una copia externa. Para otro dispositivo se puede exportar o configurar un repositorio privado. La sincronización combina historiales y usa carpetas `english-os/` y `portuguese-os/`; no mezcla idiomas. El token queda solo en memoria y debe volver a autorizarse tras recargar. Nunca se escribe en el código o el chat. [Despliegue y límites](docs/DEPLOYMENT.md).
+El guardado del navegador no es una copia de seguridad. Export full backup / Exportar cópia completa descarga un JSON de hasta 100 MB con historial, PDFs originales y grabaciones. Restore backup / Restaurar cópia valida formato, idioma y referencias antes de pedir confirmación. Confirmar descarga primero una copia del estado actual y reemplaza los registros de ese idioma; los archivos y la base se guardan en una sola transacción. Los borradores de ejercicios abiertos y el modelo de IA no se incluyen. El JSON no está cifrado: guardalo en un lugar privado. Borrar datos del navegador, modo privado, cambiar de dispositivo o usar otro navegador puede hacer que el historial no esté disponible. No hay sincronización automática. [Despliegue y límites](docs/DEPLOYMENT.md).
 
 ## Ejecutar y verificar
 

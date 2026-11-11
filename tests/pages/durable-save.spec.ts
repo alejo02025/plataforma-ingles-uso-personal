@@ -177,43 +177,37 @@ test('Durable save: a transient opening error does not permanently reject startu
   await expect(page.getByLabel('Your name', { exact: true })).toHaveValue('Alejo');
 });
 
-test('Durable save: a failed local sync commit preserves the device snapshot and can retry the remote merge', async ({
+test('Durable save: failed backup restore preserves current data, then permits retry', async ({
   page,
-  context,
 }) => {
   await enter(page, false);
+  await go(page, 'Settings');
   const before = await fingerprint(page, false);
-  const remote = JSON.parse(before.manifest);
-  remote.data.profile[0].name = 'Remote profile fixture';
-  remote.clocks['profile/1'].name = '9999999999999999:durable-fixture';
-  await context.route('https://api.github.com/**', async (route) => {
-    if (new URL(route.request().url()).pathname === '/repos/alejo02025/english-os-datos')
-      return route.fulfill({ json: { private: true, permissions: { push: true } } });
-    if (route.request().method() === 'GET')
-      return route.fulfill({
-        json: {
-          sha: 'durable-revision',
-          type: 'file',
-          encoding: 'base64',
-          size: JSON.stringify(remote).length,
-          content: Buffer.from(JSON.stringify(remote)).toString('base64'),
-        },
-      });
-    await route.fulfill({ json: { content: { sha: 'durable-upload' } } });
-  });
-  await go(page, 'Settings');
-  await page.getByLabel('GitHub token').fill('synthetic-durable-token-never-real');
+  const manifest = JSON.parse(before.manifest);
+  manifest.data.profile[0].name = 'Restored fixture';
+  const file = {
+    name: 'backup.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(
+      JSON.stringify({
+        format: 'lingua-local-backup',
+        version: 1,
+        workspace: 'en',
+        createdAt: new Date().toISOString(),
+        manifest,
+        attachments: [],
+      }),
+    ),
+  };
+  await page.getByLabel('Restore backup', { exact: true }).setInputFiles(file);
+  await expect(page.getByRole('dialog')).toBeVisible();
   await failNextManifest(page, 'abort');
-  await page.getByRole('button', { name: 'Connect GitHub', exact: true }).click();
-  await expect(page.getByRole('status')).toContainText('No se pudo guardar en este dispositivo');
-  expect(await fingerprint(page, false)).toEqual(before);
-  await expect(page.getByLabel('Your name', { exact: true })).toHaveValue('Alejo');
-  await page.getByRole('button', { name: 'Sync now', exact: true }).click();
-  await expect(page.locator('.github-sync [role="status"]')).toContainText('Synced with GitHub');
-  await go(page, 'Home');
-  await go(page, 'Settings');
-  await expect(page.getByLabel('Your name', { exact: true })).toHaveValue('Remote profile fixture');
-  expect(JSON.parse((await fingerprint(page, false)).manifest).data.profile[0].name).toBe(
-    'Remote profile fixture',
+  await page.getByRole('button', { name: 'Back up current data & replace', exact: true }).click();
+  await expect(page.locator('.local-backup [role="alert"]')).toContainText(
+    'No se pudo guardar en este dispositivo',
   );
+  expect(await fingerprint(page, false)).toEqual(before);
+  await page.getByRole('button', { name: 'Back up current data & replace', exact: true }).click();
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+  await expect(page.getByLabel('Your name', { exact: true })).toHaveValue('Restored fixture');
 });

@@ -1,4 +1,4 @@
-import { go, dailyWord, ready } from './navigation';
+import { go, dailyWord, ready, manifest } from './navigation';
 import { test, expect } from '@playwright/test';
 import { makePdf } from '../pdf-fixture';
 
@@ -51,10 +51,27 @@ test('Jazmín has Brazilian Portuguese study content, independent PDFs, vocabula
   await expect(page.getByRole('tab', { name: 'Alejo only', exact: true })).toHaveCount(0);
   await expect(page.locator('.studio-passage')).toContainText('café aconchegante');
   await page.evaluate(() => {
-    const captured = window as unknown as { spokenLocale?: string };
-    window.speechSynthesis.speak = (utterance) => {
-      captured.spokenLocale = utterance.lang;
-    };
+    const captured = window as unknown as { spokenLocale?: string; localVoice?: boolean };
+    Object.defineProperty(window, 'SpeechSynthesisUtterance', {
+      configurable: true,
+      value: class {
+        constructor(public text: string) {}
+      },
+    });
+    Object.defineProperty(window, 'speechSynthesis', {
+      configurable: true,
+      value: {
+        getVoices: () => [
+          { lang: 'pt-BR', localService: false },
+          { lang: 'pt-BR', localService: true },
+        ],
+        cancel: () => {},
+        speak: (utterance: { lang: string; voice: { localService: boolean } }) => {
+          captured.spokenLocale = utterance.lang;
+          captured.localVoice = utterance.voice.localService;
+        },
+      },
+    });
   });
   await go(page, 'Vocabulário');
   await page
@@ -64,6 +81,9 @@ test('Jazmín has Brazilian Portuguese study content, independent PDFs, vocabula
   expect(
     await page.evaluate(() => (window as unknown as { spokenLocale: string }).spokenLocale),
   ).toBe('pt-BR');
+  expect(await page.evaluate(() => (window as unknown as { localVoice: boolean }).localVoice)).toBe(
+    true,
+  );
   await go(page, 'Estúdio de PDFs');
   await page.getByRole('button', { name: 'Praticar', exact: true }).last().click();
   const choice = page.locator('.studio-question').first();
@@ -145,82 +165,39 @@ test('Jazmín has Brazilian Portuguese study content, independent PDFs, vocabula
   expect(errors).toEqual([]);
 });
 
-test('English and Portuguese sync to different folders even in the same private GitHub repository', async ({
+test('English and Portuguese keep separate local vocabulary and backup identities without remote sync', async ({
   page,
 }) => {
-  const files = new Map<string, { sha: string; content: string }>();
-  let revision = 0;
-  await page.route('https://api.github.com/**', async (route) => {
-    const request = route.request(),
-      url = new URL(request.url());
-    expect(request.headers().authorization).toBe('Bearer study-spaces-test-never-real');
-    if (url.pathname === '/repos/alejo02025/shared-study-data') {
-      await route.fulfill({ json: { private: true, permissions: { push: true } } });
-      return;
-    }
-    const file = url.pathname.split('/contents/')[1];
-    expect(file).toMatch(/^(english-os|portuguese-os)\//);
-    const current = files.get(file);
-    if (request.method() === 'GET') {
-      await route.fulfill(
-        current
-          ? {
-              json: {
-                ...current,
-                type: 'file',
-                encoding: 'base64',
-                size: Buffer.from(current.content, 'base64').length,
-              },
-            }
-          : { status: 404, json: { message: 'Not Found' } },
-      );
-      return;
-    }
-    const payload = request.postDataJSON();
-    if (payload.sha !== current?.sha) {
-      await route.fulfill({ status: 409, json: { message: 'Conflict' } });
-      return;
-    }
-    const next = { sha: `revision-${++revision}`, content: payload.content };
-    files.set(file, next);
-    await route.fulfill({ json: { content: { sha: next.sha } } });
+  const remoteRequests: string[] = [];
+  page.on('request', (request) => {
+    if (request.url().startsWith('https://api.github.com/')) remoteRequests.push(request.url());
   });
   await page.goto('./');
-  await dailyWord(page);
-  const englishWord = page.getByRole('dialog', { name: 'Word of the Day' });
+  const englishWord = await dailyWord(page);
   const en = await englishWord.getByRole('heading').innerText();
   await englishWord.getByRole('button', { name: 'Save this word' }).click();
   await englishWord.getByRole('button', { name: 'Close daily word' }).click();
-  await go(page, 'Settings');
-  await page.getByLabel('Private repository').fill('alejo02025/shared-study-data');
-  await page.getByLabel('GitHub token').fill('study-spaces-test-never-real');
-  await page.getByRole('button', { name: 'Connect GitHub', exact: true }).click();
-  await expect(page.locator('.github-sync [role="status"]')).toContainText('Synced with GitHub');
-  const englishState = files.get('english-os/state.json')!.content;
-  expect(JSON.parse(Buffer.from(englishState, 'base64').toString()).workspace).toBe('en');
-  await go(page, 'Home');
-  await page
-    .getByRole('link', { name: '🇧🇷 Português brasileiro', exact: true })
-    .filter({ visible: true })
-    .click();
-  await dailyWord(page);
-  const portugueseWord = page.getByRole('dialog', { name: 'Palavra do dia' });
+  const englishState = await manifest(page, false);
+  expect(englishState.workspace).toBe('en');
+  expect(englishState.data.vocabulary.map((word: { word: string }) => word.word)).toEqual([en]);
+  await page.locator('.language-switcher a:not([aria-current])').click();
+  const portugueseWord = await dailyWord(page);
   const pt = await portugueseWord.getByRole('heading').innerText();
   await portugueseWord.getByRole('button', { name: 'Salvar esta palavra' }).click();
   await portugueseWord.getByRole('button', { name: 'Fechar palavra do dia' }).click();
+  const portugueseState = await manifest(page, true);
+  expect(portugueseState.workspace).toBe('pt');
+  expect(portugueseState.data.vocabulary.map((word: { word: string }) => word.word)).toEqual([pt]);
+  expect(portugueseState.data.vocabulary.some((word: { word: string }) => word.word === en)).toBe(
+    false,
+  );
+  await page.locator('.language-switcher a:not([aria-current])').click();
+  await ready(page);
+  expect((await manifest(page, false)).data.vocabulary).toEqual(englishState.data.vocabulary);
   await go(page, 'Settings');
-  await page.getByLabel('Repositório privado').fill('alejo02025/shared-study-data');
-  await page.getByLabel('Token do GitHub').fill('study-spaces-test-never-real');
-  await page.getByRole('button', { name: 'Conectar GitHub', exact: true }).click();
-  await expect(page.locator('.github-sync [role="status"]')).toContainText(
-    'Sincronizado com GitHub',
+  await expect(page.locator('.local-backup')).toBeVisible();
+  await expect(page.locator('.github-sync,input[type="password"],input[type="email"]')).toHaveCount(
+    0,
   );
-  expect(files.get('english-os/state.json')!.content).toBe(englishState);
-  const state = JSON.parse(
-    Buffer.from(files.get('portuguese-os/state.json')!.content, 'base64').toString(),
-  );
-  expect(state.workspace).toBe('pt');
-  expect(state.data.profile[0].name).toBe('Jazmín');
-  expect(state.data.vocabulary.map((word: { word: string }) => word.word)).toEqual([pt]);
-  expect(state.data.vocabulary.some((word: { word: string }) => word.word === en)).toBe(false);
+  expect(remoteRequests).toEqual([]);
 });
