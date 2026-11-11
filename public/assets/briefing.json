@@ -1,6 +1,51 @@
 {
-  "checkedAt": "2026-11-10T23:28:05.660037+00:00",
+  "checkedAt": "2026-11-11T14:30:33.894084+00:00",
   "stories": [
+    {
+      "id": "bf0354919e892807",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Three Iran-backed suspects plotted attacks including RAF Fairford incident, US says",
+      "url": "https://www.bbc.co.uk/news/articles/c3rryrryk59zo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-11T01:01:20+00:00"
+    },
+    {
+      "id": "bb354b722b4500e4",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "US House blocks bid to impeach Defence Secretary Pete Hegseth",
+      "url": "https://www.bbc.co.uk/news/articles/cxly4y5jzl0qo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-11T11:47:22+00:00"
+    },
+    {
+      "id": "3a0b6122a2ac65d0",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Spain sees widespread disruption in first general strike for 14 years",
+      "url": "https://www.bbc.co.uk/news/articles/cwvg25nypmrvo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-11T14:06:27+00:00"
+    },
+    {
+      "id": "ac468bbb6b4cc89d",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Hundreds of Italian schools hit by threats in suspected bomb hoax",
+      "url": "https://www.bbc.co.uk/news/articles/cwz0k79pr8z2o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-11T12:30:29+00:00"
+    },
+    {
+      "id": "2487502ed7655fd1",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Four grizzly bears killed in Canada after fatal attack on mother and daughter",
+      "url": "https://www.bbc.co.uk/news/articles/cwg5r8zrm11mo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-11T13:24:29+00:00"
+    },
     {
       "id": "d0e1cc1440dbbaef",
       "language": "en",
@@ -8,52 +53,34 @@
       "source": "BBC News",
       "title": "Meghan's father Thomas Markle back in federal custody after allegedly removing ankle monitor",
       "url": "https://www.bbc.co.uk/news/articles/c9j3433zy4vro?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-10T22:17:45+00:00"
+      "published": "2026-11-11T02:41:16+00:00"
     },
     {
-      "id": "b812a27808c73cb4",
+      "id": "f2638f7d630ee77c",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Malaysia's disgraced former PM leaves jail for house arrest after embezzling millions",
-      "url": "https://www.bbc.co.uk/news/articles/cxnv0v4yln7do?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-10T18:33:51+00:00"
+      "title": "New Indian mega library rocked by scandal over 'AI-generated books'",
+      "url": "https://www.bbc.co.uk/news/articles/c54gne3plvrxo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-11T11:33:24+00:00"
     },
     {
-      "id": "79d2d8b7c1cd87dd",
+      "id": "e869dd4c2eff5433",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Israel's new parliament sworn in as leaders compete to form government",
-      "url": "https://www.bbc.co.uk/news/articles/crd939lpzjp9o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-10T17:03:16+00:00"
+      "title": "What we know so far about Jensen Huang's affair with suspected Chinese spy",
+      "url": "https://www.bbc.co.uk/news/articles/ckgel338xql3o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-11T07:44:24+00:00"
     },
     {
-      "id": "43b41d6003dac1cb",
+      "id": "b2f23fe60f3a3e03",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Violence erupts in Bangladesh as ousted PM's supporters stage protest",
-      "url": "https://www.bbc.co.uk/news/articles/cwkg5g5pjpyko?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-10T19:26:42+00:00"
-    },
-    {
-      "id": "78377496e414ed1c",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Spain's king and queen attend memorial service for rail crash victims",
-      "url": "https://www.bbc.co.uk/news/articles/ckjwew54yd4wo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-10T20:46:40+00:00"
-    },
-    {
-      "id": "207a4fa17cf57c07",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Anti-homosexuality laws in Trinidad and Tobago overturned",
-      "url": "https://www.bbc.co.uk/news/articles/cm0e0evlpp87o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-10T18:04:18+00:00"
+      "title": "Robot vessels take on the dangerous work of mine hunting",
+      "url": "https://www.bbc.co.uk/news/articles/cj5yn24llxd6o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-11T00:19:13+00:00"
     },
     {
       "id": "9435eb24521189ad",
@@ -63,15 +90,6 @@
       "title": "Nvidia hires major US law firm to investigate alleged Chinese spy affair",
       "url": "https://www.bbc.co.uk/news/articles/ck1wvwwl3x0go?at_medium=RSS&at_campaign=rss",
       "published": "2026-11-10T22:52:15+00:00"
-    },
-    {
-      "id": "e869dd4c2eff5433",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "What we know so far about Jensen Huang's affair with suspected Chinese spy",
-      "url": "https://www.bbc.co.uk/news/articles/ckgel338xql3o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-10T21:22:36+00:00"
     },
     {
       "id": "c67f8109386fc65f",
@@ -92,76 +110,58 @@
       "published": "2026-11-10T09:23:55+00:00"
     },
     {
-      "id": "4a9293f6fb187443",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Trump says FBI investigating Nvidia boss's affair with alleged Chinese spy",
-      "url": "https://www.bbc.co.uk/news/articles/cqg7x7dpvym8o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-10T08:23:21+00:00"
-    },
-    {
-      "id": "d4036d1f11fee211",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Australia considers criminal penalties for rogue AI in wake of OpenAI hack",
-      "url": "https://www.bbc.co.uk/news/articles/cmp3g37l566po?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-10T05:22:39+00:00"
-    },
-    {
-      "id": "3744cbad1e52af5d",
+      "id": "7c0ed2a9391142d6",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "WTA Finals: após vitória na estreia, dupla de Stefani joga na quarta",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/wta-finals-apos-vitoria-na-estreia-dupla-de-stefani-joga-na-quarta",
-      "published": "2026-11-10T19:46:00-03:00"
+      "title": "Saques da poupança superam depósitos em R$ 8,88 bilhões em outubro",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/saques-da-poupanca-superam-depositos-em-r-888-bilhoes-em-outubro",
+      "published": "2026-11-11T10:20:00-03:00"
     },
     {
-      "id": "93aaad96501c5c3f",
+      "id": "05d4af8714cf0585",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "MEC aprova diretrizes para uso de IA em cada etapa da educação",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/mec-aprova-diretrizes-para-uso-de-ia-em-cada-etapa-da-educacao",
-      "published": "2026-11-10T19:26:00-03:00"
+      "title": "Setor de serviços varia -0,1% em setembro, impactado pelos transportes",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/setor-de-servicos-varia-01-em-setembro-impactado-pelos-transportes",
+      "published": "2026-11-11T10:15:00-03:00"
     },
     {
-      "id": "68c7079495fb10b1",
+      "id": "c572b7d724b8c657",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "MP mira bingos ligados à cúpula do jogo do bicho no Rio",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/mp-mira-bingos-ligados-cupula-do-jogo-do-bicho-no-rio",
-      "published": "2026-11-10T18:58:00-03:00"
+      "title": "Presença feminina no comando de prefeituras mais que dobrou em 24 anos",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/presenca-feminina-no-comando-de-prefeituras-mais-que-dobrou-em-24-anos",
+      "published": "2026-11-11T10:02:00-03:00"
     },
     {
-      "id": "9ecb3c7255707873",
+      "id": "585a24df89f8ca9b",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Novo painel de dados mostra chuva abaixo da média em 70% do país",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/novo-painel-de-dados-mostra-chuva-abaixo-da-media-em-70-do-pais",
-      "published": "2026-11-10T18:21:00-03:00"
+      "title": "Faturamento da indústria sobe 0,8% em setembro, mostra CNI",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/faturamento-da-industria-sobe-08-em-setembro-mostra-cni",
+      "published": "2026-11-11T10:02:00-03:00"
     },
     {
-      "id": "d7c522e3829a0176",
+      "id": "c2ae7b3f4e9d5fa2",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Deputados admitem rever isenções se IVA superar 26,5%",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/deputados-admitem-rever-isencoes-se-iva-superar-265",
-      "published": "2026-11-10T18:20:00-03:00"
+      "title": "Três em cada quatro municípios sofreram impacto ambiental em dois anos",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/tres-em-cada-quatro-municipios-sofreram-impacto-ambiental-em-dois-anos",
+      "published": "2026-11-11T10:01:00-03:00"
     },
     {
-      "id": "a5db6884dd0bed06",
+      "id": "b1c6007a98f7d46e",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Porto de Santos: sistemas seguem afetados após ataque cibernético",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/porto-de-santos-sistemas-seguem-afetados-apos-ataque-cibernetico",
-      "published": "2026-11-10T18:08:00-03:00"
+      "title": "Free flow: governo envia notificações sobre débitos pendentes",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/free-flow-governo-envia-notificacoes-sobre-debitos-pendentes",
+      "published": "2026-11-11T09:55:00-03:00"
     }
   ],
   "unavailable": []
