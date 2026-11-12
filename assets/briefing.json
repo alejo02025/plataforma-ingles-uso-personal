@@ -1,59 +1,95 @@
 {
-  "checkedAt": "2026-11-12T00:48:12.166616+00:00",
+  "checkedAt": "2026-11-12T15:22:52.006716+00:00",
   "stories": [
     {
-      "id": "3a0b6122a2ac65d0",
+      "id": "eabeef9e80729989",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Clashes erupt in Barcelona after thousands join Spain general strike",
-      "url": "https://www.bbc.co.uk/news/articles/cwvg25nypmrvo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-11T22:07:37+00:00"
+      "title": "Ukraine says military Starlink disrupted again as US envoys meet Putin in Moscow",
+      "url": "https://www.bbc.co.uk/news/articles/cwrkgmymk55zo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-12T15:16:39+00:00"
+    },
+    {
+      "id": "8bb3609cab28554e",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "'We've got to run': Inside ruined Ukraine power plant under constant drone threat",
+      "url": "https://www.bbc.co.uk/news/videos/cm93rp3gxn6qo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-12T13:02:46+00:00"
     },
     {
       "id": "6b0875495d9978f4",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Democrat Scott Colom seals historic win in Mississippi Senate race",
+      "title": "Democrat Scott Colom makes history as Mississippi's first black senator since 19th Century",
       "url": "https://www.bbc.co.uk/news/articles/cw7vppyr80eeo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-11T23:52:30+00:00"
+      "published": "2026-11-12T12:56:55+00:00"
     },
     {
-      "id": "7dfc53730f00e86a",
+      "id": "42327152d90ec1f5",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Russia-Ukraine talks turn to post-war security but end without breakthrough",
-      "url": "https://www.bbc.co.uk/news/articles/ck792we7zrz4o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-11T18:04:58+00:00"
+      "title": "Millions of Ebola dollars going missing as virus spreads, medical charity warns",
+      "url": "https://www.bbc.co.uk/news/articles/cx98757ymm6zo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-12T15:18:20+00:00"
     },
     {
-      "id": "ba0f48ae267121da",
+      "id": "7c670ec87508ee71",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "New York building collapse kills one person and injures 12",
-      "url": "https://www.bbc.co.uk/news/videos/c60rkwjj7x7go?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-11T22:55:26+00:00"
+      "title": "Israeli strike on Gaza hospital kills six Palestinians, health ministry says",
+      "url": "https://www.bbc.co.uk/news/articles/ckzd9p7e4eqeo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-12T14:27:30+00:00"
     },
     {
-      "id": "e636ac149ba8b884",
+      "id": "b288570e37df8ba3",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Indonesia's vice president resigns amid signs ruling alliance is fraying",
-      "url": "https://www.bbc.co.uk/news/articles/cmvgxgz87qqro?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-11T16:38:07+00:00"
+      "title": "Oranges investigated after four girls die in suspected Uganda school poisoning",
+      "url": "https://www.bbc.co.uk/news/articles/ck9d71wyn7wwo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-12T07:45:52+00:00"
     },
     {
-      "id": "f6f2c356227b45bc",
+      "id": "a603fb20f5ffaf85",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Kidnapper, 74, escapes from house arrest in Argentina by abseiling from balcony",
-      "url": "https://www.bbc.co.uk/news/articles/c933gn6710lyo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-11T14:56:11+00:00"
+      "title": "Who is Nvidia's interim CEO Colette Kress and who could take over after Jensen Huang resigned?",
+      "url": "https://www.bbc.co.uk/news/articles/cqgm37dv20e8o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-12T15:10:32+00:00"
+    },
+    {
+      "id": "00916c7a76a8c68a",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Nvidia's CEO was the rock star of AI before his dramatic unravelling",
+      "url": "https://www.bbc.co.uk/news/articles/cmze750zg0jeo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-12T14:18:33+00:00"
+    },
+    {
+      "id": "e869dd4c2eff5433",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "What we know as pressure builds on embattled Nvidia CEO Jensen Huang",
+      "url": "https://www.bbc.co.uk/news/articles/ckgel338xql3o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-12T04:18:33+00:00"
+    },
+    {
+      "id": "76c32aad363e140c",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Lego marketplace BrickLink offline after 'unusual activity' detected",
+      "url": "https://www.bbc.co.uk/news/articles/c6rmgw8zynr4o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-11T22:26:18+00:00"
     },
     {
       "id": "f2638f7d630ee77c",
@@ -65,15 +101,6 @@
       "published": "2026-11-11T11:33:24+00:00"
     },
     {
-      "id": "e869dd4c2eff5433",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "What we know so far about Jensen Huang's affair with suspected Chinese spy",
-      "url": "https://www.bbc.co.uk/news/articles/ckgel338xql3o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-11T07:44:24+00:00"
-    },
-    {
       "id": "b2f23fe60f3a3e03",
       "language": "en",
       "topic": "Technology",
@@ -83,85 +110,58 @@
       "published": "2026-11-11T00:19:13+00:00"
     },
     {
-      "id": "9435eb24521189ad",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Nvidia hires major US law firm to investigate alleged Chinese spy affair",
-      "url": "https://www.bbc.co.uk/news/articles/ck1wvwwl3x0go?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-10T22:52:15+00:00"
-    },
-    {
-      "id": "c67f8109386fc65f",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Claude chatbot maker set for $1.3tn stock market debut despite 'catastrophic' AI warning",
-      "url": "https://www.bbc.co.uk/news/articles/crpdgd723x2zo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-10T17:56:12+00:00"
-    },
-    {
-      "id": "9d5d87a4a4770378",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Faisal Islam: What the boss of US tech giant Nvidia told me about China and national security",
-      "url": "https://www.bbc.co.uk/news/articles/c64g1gzy2vdzo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-10T09:23:55+00:00"
-    },
-    {
-      "id": "31a492dfefb67ca5",
+      "id": "a2e254d66567e2e9",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "BNDES recebe selo Diamante de transparência pública pela quarta vez",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/bndes-recebe-selo-diamante-de-transparencia-publica-pela-quarta-vez",
-      "published": "2026-11-11T21:06:00-03:00"
+      "title": "COP30 fortaleceu multilateralismo, diz Corrêa do Lago",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/cop30-fortaleceu-multilateralismo-diz-correa-do-lago",
+      "published": "2026-11-12T11:39:00-03:00"
     },
     {
-      "id": "2d8c3d767b11a816",
+      "id": "91930db220a2b806",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Precariedade do sistema prisional entra no debate da maioridade penal",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/precariedade-do-sistema-prisional-entra-no-debate-da-maioridade-penal",
-      "published": "2026-11-11T20:46:00-03:00"
+      "title": "Justiça determina que valor do triplex em Guarujá deve ir para OAS",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/justica-determina-que-valor-do-triplex-em-guaruja-deve-ir-para-oas",
+      "published": "2026-11-12T11:38:00-03:00"
     },
     {
-      "id": "d9ccb87418a41cb5",
+      "id": "1a966c638b910eef",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Letramento digital precisa vir antes de uso da IA, diz Unesco",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/letramento-digital-precisa-vir-antes-de-uso-da-ia-diz-unesco",
-      "published": "2026-11-11T20:46:00-03:00"
+      "title": "Anvisa manda recolher lotes de insumos para canetas emagrecedoras",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/anvisa-manda-recolher-lotes-de-insumos-para-canetas-emagrecedoras",
+      "published": "2026-11-12T11:19:00-03:00"
     },
     {
-      "id": "a2b17b5127855207",
+      "id": "0de243b6dd60a839",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Projetos de lei que envolvem saúde feminina avançam na Câmara",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/projetos-de-lei-que-envolvem-saude-feminina-avancam-na-camara",
-      "published": "2026-11-11T20:21:00-03:00"
+      "title": "Inflação perde força e fica em 0,14% em outubro; conta de luz cai",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/inflacao-perde-forca-e-fica-em-014-em-outubro-conta-de-luz-cai",
+      "published": "2026-11-12T10:18:00-03:00"
     },
     {
-      "id": "d834e8086c8f3b6d",
+      "id": "30b29f786971daf7",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Petrobras amplia capacidade de 11 plataformas sem novos investimentos",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/petrobras-amplia-capacidade-de-11-plataformas-sem-novos-investimentos",
-      "published": "2026-11-11T20:19:00-03:00"
+      "title": "INPC, inflação que corrige salários, acumula 4,49% em 12 meses",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/inpc-inflacao-que-corrige-salarios-acumula-449-em-12-meses",
+      "published": "2026-11-12T10:11:00-03:00"
     },
     {
-      "id": "22f4f40799d4c89b",
+      "id": "c42a5b71d65c994b",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "PGR envia ao Supremo parecer favorável a manter prisão de Vorcaro",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/pgr-envia-ao-supremo-parecer-favoravel-manter-prisao-de-vorcaro",
-      "published": "2026-11-11T20:00:00-03:00"
+      "title": "Senado deve votar ajuste fiscal com previsão de economia de R$ 60 bi",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/senado-deve-votar-ajuste-fiscal-com-previsao-de-economia-de-r-60-bi",
+      "published": "2026-11-12T09:54:00-03:00"
     }
   ],
   "unavailable": []
