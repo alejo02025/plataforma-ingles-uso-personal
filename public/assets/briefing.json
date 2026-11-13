@@ -1,158 +1,149 @@
 {
-  "checkedAt": "2026-11-12T23:41:26.975684+00:00",
+  "checkedAt": "2026-11-13T14:40:41.620422+00:00",
   "stories": [
+    {
+      "id": "f83f812563eb29b6",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "What we know about the global Microsoft outage",
+      "url": "https://www.bbc.co.uk/news/articles/cwvg238zrnm5o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-13T14:21:26+00:00"
+    },
+    {
+      "id": "82c7a02c82378a75",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "What we know so far about the Microsoft outage",
+      "url": "https://www.bbc.co.uk/news/videos/cqzjr903n01po?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-13T11:43:27+00:00"
+    },
     {
       "id": "607d4d7557c40807",
       "language": "en",
-      "topic": "Technology",
+      "topic": "World",
       "source": "BBC News",
-      "title": "Scandal-hit Nvidia CEO Jensen Huang quits, plunging AI chipmaking giant into turmoil",
+      "title": "Ex-Nvidia CEO Jensen Huang summoned to testify before Congress about affair with alleged Chinese spy",
       "url": "https://www.bbc.co.uk/news/articles/cmq5vd1wdgz6o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-12T23:34:05+00:00"
+      "published": "2026-11-13T03:57:01+00:00"
     },
     {
-      "id": "eabeef9e80729989",
+      "id": "c4e104b78dbe843c",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "US envoys meet Zelensky in Dublin after talks with Putin in Moscow",
-      "url": "https://www.bbc.co.uk/news/articles/cwrkgmymk55zo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-12T21:00:42+00:00"
+      "title": "Zelensky welcomes US bringing Europe into Russia-Ukraine peace talks",
+      "url": "https://www.bbc.co.uk/news/articles/ckn80j9jv3jxo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-13T02:01:35+00:00"
     },
     {
-      "id": "88784d92e59c8158",
+      "id": "cbe4cb9ecfaef226",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Russian warship hit by Ukrainian drone in Gulf of Finland",
-      "url": "https://www.bbc.co.uk/news/articles/cmn0d33zz34zo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-12T20:09:16+00:00"
+      "title": "UN watchdog 'increasingly concerned' over Iran nuclear site",
+      "url": "https://www.bbc.co.uk/news/articles/cm75261e3pdko?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-13T12:28:28+00:00"
     },
     {
-      "id": "7ec49616553583c5",
+      "id": "2699a76e030ebddc",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Suspected bomb hoax threats force fresh evacuations of Italian schools",
-      "url": "https://www.bbc.co.uk/news/articles/cr894w453e90o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-12T19:23:02+00:00"
+      "title": "African Miss Universe beauty queens in limbo as US visa restrictions bite",
+      "url": "https://www.bbc.co.uk/news/articles/cklyw3neqg2wo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-13T07:01:43+00:00"
     },
     {
-      "id": "6b0875495d9978f4",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Democrat Scott Colom makes history as Mississippi's first black senator since 19th Century",
-      "url": "https://www.bbc.co.uk/news/articles/cw7vppyr80eeo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-12T12:56:55+00:00"
-    },
-    {
-      "id": "8b16e71439866d2a",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Hegseth awards medal to war memorial guard who reprimanded him and group",
-      "url": "https://www.bbc.co.uk/news/articles/cmvg2r3dq7xno?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-12T18:47:35+00:00"
-    },
-    {
-      "id": "00916c7a76a8c68a",
+      "id": "938c3e3c199878a4",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "The rise and fall of Jensen Huang - how the tech superstar became mired in scandal",
-      "url": "https://www.bbc.co.uk/news/articles/cmze750zg0jeo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-12T17:11:48+00:00"
+      "title": "GPs, police and pharmacies among UK services affected by Microsoft outage",
+      "url": "https://www.bbc.co.uk/news/articles/c6vg2ljjpj32o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-13T13:41:25+00:00"
     },
     {
-      "id": "376d5a6f39d9f86f",
+      "id": "829c82d81c0a08b0",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "How AI visionary Jensen Huang was undone by his own bad decisions",
-      "url": "https://www.bbc.co.uk/news/articles/cq5y13819gpjo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-12T16:43:36+00:00"
+      "title": "Courts, spies and MPs: How the Microsoft outage has been felt around the world",
+      "url": "https://www.bbc.co.uk/news/articles/cqp9d58eldlro?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-13T13:19:51+00:00"
     },
     {
-      "id": "e869dd4c2eff5433",
+      "id": "64838ee6839b9ce3",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "What we know as Nvidia CEO Jensen Huang resigns over affair allegations",
-      "url": "https://www.bbc.co.uk/news/articles/ckgel338xql3o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-12T15:26:39+00:00"
+      "title": "How a sex scandal at Nvidia is putting pressure on the White House",
+      "url": "https://www.bbc.co.uk/news/articles/c67429m3vem3o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-13T12:22:30+00:00"
     },
     {
-      "id": "a603fb20f5ffaf85",
+      "id": "691a4e74f9e6dd4e",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "Who is Nvidia's interim CEO Colette Kress - and who could take over permanently?",
-      "url": "https://www.bbc.co.uk/news/articles/cqgm37dv20e8o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-12T15:10:32+00:00"
+      "title": "Heat pumps: How much heat does your home really need?",
+      "url": "https://www.bbc.co.uk/news/articles/cqy43zk3kk04o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-13T09:29:25+00:00"
     },
     {
-      "id": "76c32aad363e140c",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Lego marketplace BrickLink offline after 'unusual activity' detected",
-      "url": "https://www.bbc.co.uk/news/articles/c6rmgw8zynr4o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-11T22:26:18+00:00"
-    },
-    {
-      "id": "51eda80ff834e041",
+      "id": "f463546e14d1c4b0",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Caixa Seguridade informa ataque cibernético e vazamento de dados",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/caixa-seguridade-informa-ataque-cibernetico-e-vazamento-de-dados",
-      "published": "2026-11-12T20:06:00-03:00"
+      "title": "Ex-tesoureiro da Caixa é condenado por desviar quase R$ 890 mil",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/ex-tesoureiro-da-caixa-e-condenado-por-desviar-quase-r-890-mil",
+      "published": "2026-11-13T11:02:00-03:00"
     },
     {
-      "id": "d790c4119c0cf8f2",
+      "id": "c887417a1cd6c4c8",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Dólar dispara 1,58% e fecha a R$ 5,65, maior nível em 17 meses",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-dispara-158-e-fecha-r-565-maior-nivel-em-17-meses",
-      "published": "2026-11-12T19:35:00-03:00"
+      "title": "Governo recebe sugestões para proteger crianças no ambiente digital",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/governo-recebe-sugestoes-para-proteger-criancas-no-ambiente-digital",
+      "published": "2026-11-13T10:35:00-03:00"
     },
     {
-      "id": "20ff58d710d47b87",
+      "id": "962682954b8bb8b4",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Zanin rejeita ação para determinar segundo turno para o governo do Rio",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/zanin-rejeita-acao-para-determinar-segundo-turno-para-o-governo-do-rio",
-      "published": "2026-11-12T19:30:00-03:00"
+      "title": "Vendas no comércio variam 0,2% em setembro; IBGE mostra estabilidade",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/vendas-no-comercio-variam-02-em-setembro-ibge-mostra-estabilidade",
+      "published": "2026-11-13T10:26:00-03:00"
     },
     {
-      "id": "820b4f0d63700856",
+      "id": "9af12b87203c75d6",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Drauzio Varella é novo membro da Academia Brasileira de Letras",
-      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-11/drauzio-varela-e-novo-membro-da-academia-brasileira-de-letras",
-      "published": "2026-11-12T18:47:00-03:00"
+      "title": "Diferenças regionais influenciam uso de gás no preparo de alimentos",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/diferencas-regionais-influenciam-uso-de-gas-no-preparo-de-alimentos",
+      "published": "2026-11-13T10:09:00-03:00"
     },
     {
-      "id": "cd81f505e2e7d337",
+      "id": "4bbf56c0aed7bc51",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Sara dos Santos é ouro no boxe nos Jogos Olímpicos da Juventude",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/sara-dos-santos-e-ouro-no-boxe-nos-jogos-olimpicos-da-juventude",
-      "published": "2026-11-12T18:30:00-03:00"
+      "title": "Lula chega às Filipinas; Brasil quer ser Parceiro de Diálogo da Asean",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/lula-chega-filipinas-brasil-quer-ser-parceiro-de-dialogo-da-asean",
+      "published": "2026-11-13T09:59:00-03:00"
     },
     {
-      "id": "8ab0a30689cacf3b",
+      "id": "e1ecabb501f378c6",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Copa do Mundo Feminina: taça está em exposição na sede da CBF",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/copa-do-mundo-feminina-taca-esta-em-exposicao-na-sede-da-cbf",
-      "published": "2026-11-12T18:21:00-03:00"
+      "title": "Paulistas dominam finalistas do Prêmio TV Brasil Petrobras Para Elas",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/paulistas-dominam-finalistas-do-premio-tv-brasil-petrobras-para-elas",
+      "published": "2026-11-13T08:31:00-03:00"
     }
   ],
   "unavailable": []
