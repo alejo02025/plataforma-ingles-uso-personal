@@ -1,59 +1,68 @@
 {
-  "checkedAt": "2026-11-13T23:38:15.799430+00:00",
+  "checkedAt": "2026-11-14T13:37:49.553304+00:00",
   "stories": [
     {
-      "id": "334ebcca23065263",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Microsoft 'deeply sorry' for global outage after almost 24 hours of disruption",
-      "url": "https://www.bbc.co.uk/news/articles/c6rrg51rkz09o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-13T21:14:22+00:00"
-    },
-    {
-      "id": "f83f812563eb29b6",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Why is Microsoft's outage lasting so long and will emails be lost?",
-      "url": "https://www.bbc.co.uk/news/articles/cwvg238zrnm5o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-13T18:36:57+00:00"
-    },
-    {
-      "id": "82c7a02c82378a75",
+      "id": "530533c1157d7fd4",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Watch: How a server outage took down Microsoft Teams and Outlook",
-      "url": "https://www.bbc.co.uk/news/videos/cqzjr903n01po?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-13T11:43:27+00:00"
+      "title": "What we know about the ground stop and what to do if you're affected",
+      "url": "https://www.bbc.co.uk/news/articles/cqx2wyvyr3zzo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-14T07:42:11+00:00"
+    },
+    {
+      "id": "4d3f357daa8cc28f",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "US has floated Ukraine ceding Donbas for Nato membership, Zelensky says",
+      "url": "https://www.bbc.co.uk/news/articles/cwvg2l312ylqo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-14T11:41:20+00:00"
+    },
+    {
+      "id": "c680cb902e27912f",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Trump, Putin and Xi plan historic joint meeting in China next week, White House says",
+      "url": "https://www.bbc.co.uk/news/articles/ckz74jzpy18do?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-14T05:52:31+00:00"
+    },
+    {
+      "id": "2eafa4b1bb39d8eb",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "'Miracle on Mississippi' - All passengers rescued after New Orleans cruise ship collision",
+      "url": "https://www.bbc.co.uk/news/articles/cw20xmy0m5yyo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-13T23:40:45+00:00"
     },
     {
       "id": "8573d9e8e576a4ad",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "SpaceX to attempt double catch of huge Starship rocket",
+      "title": "Setback for SpaceX Starship rocket's double-catch test",
       "url": "https://www.bbc.co.uk/news/articles/ckregdgnl0xpo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-13T20:12:02+00:00"
+      "published": "2026-11-14T00:01:01+00:00"
     },
     {
-      "id": "b13e18c3f67ad0a3",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Rosenberg: Uncompromising Putin ups demands for peace with Ukraine",
-      "url": "https://www.bbc.co.uk/news/articles/cq39glwprknjo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-13T16:40:31+00:00"
-    },
-    {
-      "id": "c195611169542d12",
+      "id": "334ebcca23065263",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "Pressure grows on Trump's Commerce Secretary Lutnick in fallout from Nvidia scandal",
-      "url": "https://www.bbc.co.uk/news/articles/cqvg2d1eg7zro?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-13T19:53:57+00:00"
+      "title": "Microsoft says services fully restored after day-long global outage",
+      "url": "https://www.bbc.co.uk/news/articles/c6rrg51rkz09o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-14T06:42:27+00:00"
+    },
+    {
+      "id": "f42c8666591c38b9",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Even Grand Theft Auto's original creators haven't been able to play GTA 6",
+      "url": "https://www.bbc.co.uk/news/articles/c6jd7k5ryl1mo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-14T00:37:01+00:00"
     },
     {
       "id": "59d35bd98e0729bd",
@@ -74,67 +83,76 @@
       "published": "2026-11-13T21:15:41+00:00"
     },
     {
-      "id": "829c82d81c0a08b0",
+      "id": "c195611169542d12",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "Courts, spies and MPs: How the Microsoft outage has been felt around the world",
-      "url": "https://www.bbc.co.uk/news/articles/cqp9d58eldlro?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-13T17:34:58+00:00"
+      "title": "Pressure grows on Trump's Commerce Secretary Lutnick in fallout from Nvidia scandal",
+      "url": "https://www.bbc.co.uk/news/articles/cqvg2d1eg7zro?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-13T19:53:57+00:00"
     },
     {
-      "id": "6299476f72ecb37a",
+      "id": "f83f812563eb29b6",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Why is Microsoft's outage lasting so long and will emails be lost?",
+      "url": "https://www.bbc.co.uk/news/articles/cwvg238zrnm5o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-13T18:36:57+00:00"
+    },
+    {
+      "id": "1deaa034bd89fdf3",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Governo não renova subsídio de R$ 1,40 ao diesel importado",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/governo-nao-renova-subsidio-de-r-140-ao-diesel-importado",
-      "published": "2026-11-13T19:54:00-03:00"
+      "title": "Enem: confira os horários e o que levar no segundo dia de prova",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/enem-confira-os-horarios-e-o-que-levar-no-segundo-dia-de-prova",
+      "published": "2026-11-14T09:03:00-03:00"
     },
     {
-      "id": "33f4b27c64517bf3",
+      "id": "4247a4d1597bf74f",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Tesouro prevê normalizar sistemas fora do ar até segunda-feira",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/tesouro-preve-normalizar-sistemas-fora-do-ar-ate-segunda-feira",
-      "published": "2026-11-13T19:27:00-03:00"
+      "title": "Enem em classe hospitalar garante prova a pacientes em salas especiais",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/enem-em-classe-hospitalar-garante-prova-pacientes-em-salas-especiais",
+      "published": "2026-11-14T08:40:00-03:00"
     },
     {
-      "id": "c57f87cca3b6945b",
+      "id": "5ccb0327ea801c31",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Dólar fecha estável a R$ 5,65, mas sobe 2,63% na semana",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-fecha-estavel-r-565-mas-sobe-263-na-semana",
-      "published": "2026-11-13T18:53:00-03:00"
+      "title": "Brasil terá três meio-campistas em amistoso contra Japão neste sábado",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/brasil-tera-tres-meio-campistas-em-amistoso-contra-japao-neste-sabado",
+      "published": "2026-11-13T21:55:00-03:00"
     },
     {
-      "id": "ac9264857780020b",
+      "id": "ebb17754a034007f",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Fifa abre venda de ingressos para Copa Feminina 2027 em 1º de dezembro",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/fifa-abre-venda-de-ingressos-para-copa-feminina-2027-em-1o-de-dezembro",
-      "published": "2026-11-13T18:18:00-03:00"
+      "title": "STF tem 4 votos para manter início da escala 5x2 em dezembro",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/stf-tem-4-votos-para-manter-inicio-da-escala-5x2-em-dezembro",
+      "published": "2026-11-13T21:23:00-03:00"
     },
     {
-      "id": "93574998e01d3498",
+      "id": "16ea0aa5436c2e98",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Morre Claudette Soares, aos 91, no dia de lançamento do último álbum",
-      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-11/morre-claudette-soares-aos-91-no-dia-de-lancamento-do-ultimo-album",
-      "published": "2026-11-13T18:16:00-03:00"
+      "title": "Gilmar diz que Moro agiu para impedir candidatura de Lula em 2018",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/gilmar-diz-que-moro-agiu-para-impedir-candidatura-de-lula-em-2018",
+      "published": "2026-11-13T21:11:00-03:00"
     },
     {
-      "id": "5649fd01ce6d0c2a",
+      "id": "25f18c0a597bd72d",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Fachin defende indicação de ministra negra para o STF",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/fachin-defende-indicacao-de-ministra-negra-para-o-stf",
-      "published": "2026-11-13T17:47:00-03:00"
+      "title": "Anac orienta passageiros a consultar aéreas sobre voos para os EUA",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/anac-orienta-passageiros-consultar-aereas-sobre-voos-para-os-eua",
+      "published": "2026-11-13T21:00:00-03:00"
     }
   ],
   "unavailable": []
