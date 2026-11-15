@@ -1,6 +1,15 @@
 {
-  "checkedAt": "2026-11-15T14:01:45.154604+00:00",
+  "checkedAt": "2026-11-15T22:54:49.895413+00:00",
   "stories": [
+    {
+      "id": "7c7b29f5e4c81914",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Zelensky urges US and Musk to lift Starlink restrictions and be on 'right side of history'",
+      "url": "https://www.bbc.co.uk/news/articles/c6m25zg88k45o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-15T19:32:39+00:00"
+    },
     {
       "id": "9a149bdd0ac60957",
       "language": "en",
@@ -11,49 +20,40 @@
       "published": "2026-11-15T13:37:45+00:00"
     },
     {
-      "id": "c397a88bd18fc3c0",
+      "id": "c27285778da4b00d",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Three men sentenced to death in Jordan over fatal church mass shooting",
-      "url": "https://www.bbc.co.uk/news/articles/c3rrg9xgqlwpo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-15T11:06:32+00:00"
+      "title": "Pope Leo rides in helicopter cockpit during Peru trip",
+      "url": "https://www.bbc.co.uk/news/videos/c6pw4rl00lrjo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-15T18:38:11+00:00"
     },
     {
-      "id": "6b2e3c144cb16d98",
+      "id": "56dedeeec32c3b29",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Israel kills Hamas commander in strike on Gaza camp, officials say",
-      "url": "https://www.bbc.co.uk/news/articles/cqrkg4r6mg7xo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-15T08:17:41+00:00"
+      "title": "Suspected China spy linked to Nvidia's ex-boss left in 2025, Megaspeed says",
+      "url": "https://www.bbc.co.uk/news/articles/cmdx1vpprk9vo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-15T22:24:20+00:00"
     },
     {
-      "id": "2a7d344b49180c07",
+      "id": "d3a2c471fef7377b",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "New Orleans port files $1m lawsuit over 'miracle on the Mississippi' tanker collision",
-      "url": "https://www.bbc.co.uk/news/articles/cwe89y2r5j20o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-14T22:27:06+00:00"
+      "title": "Czechs rally against plan to switch funding of public media",
+      "url": "https://www.bbc.co.uk/news/articles/cm8e0knr7604o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-15T21:03:40+00:00"
     },
     {
-      "id": "725edb5f53ee4146",
+      "id": "b94017ac948dc118",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Fifth Canadian soldier dies from injuries caused by large fire at military base",
-      "url": "https://www.bbc.co.uk/news/articles/cmrlgn4x2xw8o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-15T09:26:37+00:00"
-    },
-    {
-      "id": "1e4c1fc5abc49ad2",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Copper wire upgrade behind US flight suspension, transport secretary says",
-      "url": "https://www.bbc.co.uk/news/articles/c6wy9lynq4qno?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-15T07:10:31+00:00"
+      "title": "Police ban protests near 10 schools and five universities in Paris",
+      "url": "https://www.bbc.co.uk/news/articles/cqm2j0jvep4eo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-15T22:28:54+00:00"
     },
     {
       "id": "d66099d92304cf4e",
@@ -92,67 +92,58 @@
       "published": "2026-11-13T23:00:31+00:00"
     },
     {
-      "id": "d3bc368f2c827e78",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Microsoft outage 'stark reminder' of how much we rely on tech",
-      "url": "https://www.bbc.co.uk/news/articles/cxzd9171m51qo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-13T21:15:41+00:00"
-    },
-    {
-      "id": "33e3dba544f7f858",
+      "id": "c8793c4610db6455",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Oxê de Xangô, símbolo da justiça, será inaugurado no STF",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/oxe-de-xango-simbolo-da-justica-sera-inaugurado-no-stf",
-      "published": "2026-11-15T10:24:00-03:00"
+      "title": "Brasil encerra Grand Prix de Judô em 1º lugar no quadro de medalhas",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/brasil-encerra-grand-prix-de-judo-em-1o-lugar-no-quadro-de-medalhas",
+      "published": "2026-11-15T18:55:00-03:00"
     },
     {
-      "id": "a7bd885c0c3bb53b",
+      "id": "67e2cd4a83c9f4ea",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Enem 2026: candidatos fazem hoje 2º dia de provas em 1,9 mil cidades",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/enem-2026-candidatos-fazem-hoje-2o-dia-de-provas-em-19-mil-cidades",
-      "published": "2026-11-15T10:09:00-03:00"
+      "title": "Inter conquista Copa do Brasil de futebol feminino sobre o Flamengo",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/inter-conquista-copa-do-brasil-de-futebol-feminino-sobre-o-flamengo",
+      "published": "2026-11-15T18:42:00-03:00"
     },
     {
-      "id": "fb839bfa0a8a0c12",
+      "id": "dc676d1bf1b4a549",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Prevenção da dengue deve começar agora, diz especialista",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/prevencao-da-dengue-deve-comecar-agora-diz-especialista",
-      "published": "2026-11-15T09:30:00-03:00"
+      "title": "Pará tem 61 cidades em situação de emergência por incêndios florestais",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/para-tem-61-cidades-em-situacao-de-emergencia-por-incendios-florestais",
+      "published": "2026-11-15T18:35:00-03:00"
     },
     {
-      "id": "5ebd3be752ca9bca",
+      "id": "0546d9795322246b",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Prêmio TV Brasil Petrobras Para Elas celebra futebol feminino do país",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/premio-tv-brasil-petrobras-para-elas-celebra-futebol-feminino-do-pais",
-      "published": "2026-11-15T08:01:00-03:00"
+      "title": "Inmet prevê tempestades no Centro-Sul do país até segunda-feira",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/inmet-preve-tempestades-no-centro-sul-do-pais-ate-segunda-feira",
+      "published": "2026-11-15T16:34:00-03:00"
     },
     {
-      "id": "823ea7343aa97565",
+      "id": "3072546cef38b10d",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Novorizontino conquista a Série B e sobe junto com o Juventude",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/novorizontino-conquista-serie-b-e-sobe-junto-com-o-juventude",
-      "published": "2026-11-14T19:02:00-03:00"
+      "title": "Exposição no Rio resgata delicadeza e humanidade de João Cândido",
+      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-11/exposicao-no-rio-resgata-delicadeza-e-humanidade-de-joao-candido",
+      "published": "2026-11-15T16:27:00-03:00"
     },
     {
-      "id": "12615fbd70035e52",
+      "id": "dae15e4d72def5a9",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Brasil e Filipinas assinam acordos sobre agro e livre concorrência",
-      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-11/brasil-e-filipinas-assinam-acordos-sobre-agro-e-livre-concorrencia",
-      "published": "2026-11-14T18:53:00-03:00"
+      "title": "COP31: negociações avançam, mas financiamento é desafio para 2ª semana",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/cop31-negociacoes-avancam-mas-financiamento-e-desafio-para-2a-semana",
+      "published": "2026-11-15T16:09:00-03:00"
     }
   ],
   "unavailable": []
