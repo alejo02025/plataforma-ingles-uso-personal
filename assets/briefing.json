@@ -1,23 +1,59 @@
 {
-  "checkedAt": "2026-11-14T22:31:22.091086+00:00",
+  "checkedAt": "2026-11-15T14:01:45.154604+00:00",
   "stories": [
+    {
+      "id": "9a149bdd0ac60957",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "South Korea's top scorer in tax accountancy exam admits cheating",
+      "url": "https://www.bbc.co.uk/news/articles/ckvg2ezvpe08o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-15T13:37:45+00:00"
+    },
+    {
+      "id": "c397a88bd18fc3c0",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Three men sentenced to death in Jordan over fatal church mass shooting",
+      "url": "https://www.bbc.co.uk/news/articles/c3rrg9xgqlwpo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-15T11:06:32+00:00"
+    },
+    {
+      "id": "6b2e3c144cb16d98",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Israel kills Hamas commander in strike on Gaza camp, officials say",
+      "url": "https://www.bbc.co.uk/news/articles/cqrkg4r6mg7xo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-15T08:17:41+00:00"
+    },
+    {
+      "id": "2a7d344b49180c07",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "New Orleans port files $1m lawsuit over 'miracle on the Mississippi' tanker collision",
+      "url": "https://www.bbc.co.uk/news/articles/cwe89y2r5j20o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-14T22:27:06+00:00"
+    },
+    {
+      "id": "725edb5f53ee4146",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Fifth Canadian soldier dies from injuries caused by large fire at military base",
+      "url": "https://www.bbc.co.uk/news/articles/cmrlgn4x2xw8o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-15T09:26:37+00:00"
+    },
     {
       "id": "1e4c1fc5abc49ad2",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Copper wire upgrade caused nationwide flight suspension, US transport secretary says",
+      "title": "Copper wire upgrade behind US flight suspension, transport secretary says",
       "url": "https://www.bbc.co.uk/news/articles/c6wy9lynq4qno?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-14T19:12:25+00:00"
-    },
-    {
-      "id": "4d3f357daa8cc28f",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "US has floated Ukraine ceding Donbas for Nato membership, Zelensky says",
-      "url": "https://www.bbc.co.uk/news/articles/cwvg2l312ylqo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-14T20:41:45+00:00"
+      "published": "2026-11-15T07:10:31+00:00"
     },
     {
       "id": "d66099d92304cf4e",
@@ -27,33 +63,6 @@
       "title": "Italy fines Meta €805m over accessing users' photos",
       "url": "https://www.bbc.co.uk/news/articles/cwn83gxemk35o?at_medium=RSS&at_campaign=rss",
       "published": "2026-11-14T18:28:06+00:00"
-    },
-    {
-      "id": "22f849a8a9998288",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "'Can you believe it?': SpaceX catches part of its Starship rocket on return to Earth",
-      "url": "https://www.bbc.co.uk/news/videos/cwlym2gy3y3eo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-14T22:09:40+00:00"
-    },
-    {
-      "id": "76599d9076d2b2fa",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Philippines wins first Eurovision Song Contest Asia",
-      "url": "https://www.bbc.co.uk/news/articles/cqrlgnx9dx6eo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-14T18:17:58+00:00"
-    },
-    {
-      "id": "d644feeef9f24e33",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Sotheby's auction of $180m Van Gogh challenged over claims it was 'sold under duress'",
-      "url": "https://www.bbc.co.uk/news/articles/cmwy05gg75lvo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-14T18:00:10+00:00"
     },
     {
       "id": "334ebcca23065263",
@@ -92,67 +101,58 @@
       "published": "2026-11-13T21:15:41+00:00"
     },
     {
-      "id": "c195611169542d12",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Pressure grows on Trump's Commerce Secretary Lutnick in fallout from Nvidia scandal",
-      "url": "https://www.bbc.co.uk/news/articles/cqvg2d1eg7zro?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-13T19:53:57+00:00"
-    },
-    {
-      "id": "dc03e4763b53320d",
+      "id": "33e3dba544f7f858",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Circuito Cultural começa no Rio com celebração da Consciência Negra",
-      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-11/circuito-cultural-comeca-no-rio-com-celebracao-da-consciencia-negra",
-      "published": "2026-11-14T18:26:00-03:00"
+      "title": "Oxê de Xangô, símbolo da justiça, será inaugurado no STF",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/oxe-de-xango-simbolo-da-justica-sera-inaugurado-no-stf",
+      "published": "2026-11-15T10:24:00-03:00"
     },
     {
-      "id": "3e8080e622bcebb5",
+      "id": "a7bd885c0c3bb53b",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "REC'n'Play: rede social sem território não vira voto, diz deputado",
-      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-11/recnplay-rede-social-sem-territorio-nao-vira-voto-diz-deputado",
-      "published": "2026-11-14T17:55:00-03:00"
+      "title": "Enem 2026: candidatos fazem hoje 2º dia de provas em 1,9 mil cidades",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/enem-2026-candidatos-fazem-hoje-2o-dia-de-provas-em-19-mil-cidades",
+      "published": "2026-11-15T10:09:00-03:00"
     },
     {
-      "id": "b8a2111ffe630f69",
+      "id": "fb839bfa0a8a0c12",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Lula cita herói anticolonial das Filipinas ao comentar sua reeleição",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/lula-cita-heroi-anticolonial-das-filipinas-ao-comentar-sua-reeleicao",
-      "published": "2026-11-14T16:48:00-03:00"
+      "title": "Prevenção da dengue deve começar agora, diz especialista",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/prevencao-da-dengue-deve-comecar-agora-diz-especialista",
+      "published": "2026-11-15T09:30:00-03:00"
     },
     {
-      "id": "037f59f2cc748f3b",
+      "id": "5ebd3be752ca9bca",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Copa do Mundo da vela chega ao Rio de Janeiro para 2ª edição",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/copa-do-mundo-da-vela-chega-ao-rio-de-janeiro-para-2a-edicao",
-      "published": "2026-11-14T16:15:00-03:00"
+      "title": "Prêmio TV Brasil Petrobras Para Elas celebra futebol feminino do país",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/premio-tv-brasil-petrobras-para-elas-celebra-futebol-feminino-do-pais",
+      "published": "2026-11-15T08:01:00-03:00"
     },
     {
-      "id": "4e3ad0c49130c092",
+      "id": "823ea7343aa97565",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Inmet: chuvas e tempestades predominam no país, neste fim de semana",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/inmet-chuvas-e-tempestades-predominam-no-pais-neste-fim-de-semana",
-      "published": "2026-11-14T16:06:00-03:00"
+      "title": "Novorizontino conquista a Série B e sobe junto com o Juventude",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/novorizontino-conquista-serie-b-e-sobe-junto-com-o-juventude",
+      "published": "2026-11-14T19:02:00-03:00"
     },
     {
-      "id": "c955018991549d21",
+      "id": "12615fbd70035e52",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Coritiba lança camisa com Enedina Marques em alusão ao 20 de novembro",
-      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/coritiba-lanca-camisa-com-enedina-marques-em-alusao-ao-20-de-novembro",
-      "published": "2026-11-14T15:22:00-03:00"
+      "title": "Brasil e Filipinas assinam acordos sobre agro e livre concorrência",
+      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-11/brasil-e-filipinas-assinam-acordos-sobre-agro-e-livre-concorrencia",
+      "published": "2026-11-14T18:53:00-03:00"
     }
   ],
   "unavailable": []
