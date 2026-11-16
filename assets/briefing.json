@@ -1,14 +1,86 @@
 {
-  "checkedAt": "2026-11-15T22:54:49.895413+00:00",
+  "checkedAt": "2026-11-16T15:58:09.303619+00:00",
   "stories": [
     {
-      "id": "7c7b29f5e4c81914",
+      "id": "871c4bfc0c426ed1",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Zelensky urges US and Musk to lift Starlink restrictions and be on 'right side of history'",
-      "url": "https://www.bbc.co.uk/news/articles/c6m25zg88k45o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-15T19:32:39+00:00"
+      "title": "Yemeni forces retreat to defend port city from Houthis",
+      "url": "https://www.bbc.co.uk/news/articles/cqvg2xgyvnjpo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-16T11:09:38+00:00"
+    },
+    {
+      "id": "4dfe5806c8eee85f",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Trump says he wouldn't mind seeing Huang return to Nvidia",
+      "url": "https://www.bbc.co.uk/news/articles/cry49plv8v3go?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-16T15:31:20+00:00"
+    },
+    {
+      "id": "1c8dfbcb75eaec87",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Five EU countries expected to announce migrant deportation centre in Rwanda",
+      "url": "https://www.bbc.co.uk/news/articles/cw987343352go?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-16T12:54:44+00:00"
+    },
+    {
+      "id": "bc321a16103407a5",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Man sentenced over 'horrific' attempted murder of three children",
+      "url": "https://www.bbc.co.uk/news/articles/cr0qj0nzwj34o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-16T12:27:15+00:00"
+    },
+    {
+      "id": "aeeceed8b0e0ed92",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Raye, Rosalia and Dolly Parton recognised in Grammy nominations",
+      "url": "https://www.bbc.co.uk/news/articles/cq9vwkggpx73o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-16T14:48:55+00:00"
+    },
+    {
+      "id": "fda86912607e0ce5",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Landmark Crimea bridge hit as Russia reports biggest Ukrainian drone attack of war",
+      "url": "https://www.bbc.co.uk/news/articles/ckx27v6dpjz0o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-16T14:58:12+00:00"
+    },
+    {
+      "id": "1edbe06f78cf3cda",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "GTA 6 hacker pleads guilty after release from secure hospital",
+      "url": "https://www.bbc.co.uk/news/articles/cq99exy89dngo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-16T13:34:22+00:00"
+    },
+    {
+      "id": "529dff662e522801",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Intel sued by investors after PC sales slump hits share price",
+      "url": "https://www.bbc.co.uk/news/articles/cw62p42p288do?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-16T03:04:01+00:00"
+    },
+    {
+      "id": "56dedeeec32c3b29",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Suspected China spy linked to Nvidia's ex-boss left in 2025, Megaspeed says",
+      "url": "https://www.bbc.co.uk/news/articles/cmdx1vpprk9vo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-16T01:47:57+00:00"
     },
     {
       "id": "9a149bdd0ac60957",
@@ -20,42 +92,6 @@
       "published": "2026-11-15T13:37:45+00:00"
     },
     {
-      "id": "c27285778da4b00d",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Pope Leo rides in helicopter cockpit during Peru trip",
-      "url": "https://www.bbc.co.uk/news/videos/c6pw4rl00lrjo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-15T18:38:11+00:00"
-    },
-    {
-      "id": "56dedeeec32c3b29",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Suspected China spy linked to Nvidia's ex-boss left in 2025, Megaspeed says",
-      "url": "https://www.bbc.co.uk/news/articles/cmdx1vpprk9vo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-15T22:24:20+00:00"
-    },
-    {
-      "id": "d3a2c471fef7377b",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Czechs rally against plan to switch funding of public media",
-      "url": "https://www.bbc.co.uk/news/articles/cm8e0knr7604o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-15T21:03:40+00:00"
-    },
-    {
-      "id": "b94017ac948dc118",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Police ban protests near 10 schools and five universities in Paris",
-      "url": "https://www.bbc.co.uk/news/articles/cqm2j0jvep4eo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-15T22:28:54+00:00"
-    },
-    {
       "id": "d66099d92304cf4e",
       "language": "en",
       "topic": "Technology",
@@ -65,85 +101,58 @@
       "published": "2026-11-14T18:28:06+00:00"
     },
     {
-      "id": "334ebcca23065263",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Microsoft says services fully restored after day-long global outage",
-      "url": "https://www.bbc.co.uk/news/articles/c6rrg51rkz09o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-14T06:42:27+00:00"
-    },
-    {
-      "id": "f42c8666591c38b9",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Even Grand Theft Auto's original creators haven't been able to play GTA 6",
-      "url": "https://www.bbc.co.uk/news/articles/c6jd7k5ryl1mo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-14T00:37:01+00:00"
-    },
-    {
-      "id": "59d35bd98e0729bd",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "How the Jensen Huang scandal created a headache for business-friendly Singapore",
-      "url": "https://www.bbc.co.uk/news/articles/ck1exevgql4qo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-13T23:00:31+00:00"
-    },
-    {
-      "id": "c8793c4610db6455",
+      "id": "2512a2d52c1ab03c",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Brasil encerra Grand Prix de Judô em 1º lugar no quadro de medalhas",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/brasil-encerra-grand-prix-de-judo-em-1o-lugar-no-quadro-de-medalhas",
-      "published": "2026-11-15T18:55:00-03:00"
+      "title": "Atividade econômica tem queda de 0,9% no terceiro trimestre",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/atividade-economica-tem-queda-de-09-no-terceiro-trimestre",
+      "published": "2026-11-16T12:02:00-03:00"
     },
     {
-      "id": "67e2cd4a83c9f4ea",
+      "id": "6fe5259b44c0bf63",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Inter conquista Copa do Brasil de futebol feminino sobre o Flamengo",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/inter-conquista-copa-do-brasil-de-futebol-feminino-sobre-o-flamengo",
-      "published": "2026-11-15T18:42:00-03:00"
+      "title": "COP31: ministro defende esforço compartilhado na proteção da Amazônia",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/cop31-ministro-defende-esforco-compartilhado-na-protecao-da-amazonia",
+      "published": "2026-11-16T10:41:00-03:00"
     },
     {
-      "id": "dc676d1bf1b4a549",
+      "id": "55533087e2718e2d",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Pará tem 61 cidades em situação de emergência por incêndios florestais",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/para-tem-61-cidades-em-situacao-de-emergencia-por-incendios-florestais",
-      "published": "2026-11-15T18:35:00-03:00"
+      "title": "ANS amplia cobertura obrigatória para tratamento de câncer de pulmão",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/ans-amplia-cobertura-obrigatoria-para-tratamento-de-cancer-de-pulmao",
+      "published": "2026-11-16T09:28:00-03:00"
     },
     {
-      "id": "0546d9795322246b",
+      "id": "b7bea55eb90ac98a",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Inmet prevê tempestades no Centro-Sul do país até segunda-feira",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/inmet-preve-tempestades-no-centro-sul-do-pais-ate-segunda-feira",
-      "published": "2026-11-15T16:34:00-03:00"
+      "title": "Mercado reduz projeções para inflação e crescimento econômico em 2026",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/mercado-reduz-projecoes-para-inflacao-e-crescimento-da-economia-em-202",
+      "published": "2026-11-16T09:12:00-03:00"
     },
     {
-      "id": "3072546cef38b10d",
+      "id": "9cda3b058d359935",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Exposição no Rio resgata delicadeza e humanidade de João Cândido",
-      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-11/exposicao-no-rio-resgata-delicadeza-e-humanidade-de-joao-candido",
-      "published": "2026-11-15T16:27:00-03:00"
+      "title": "Instituto Tomie Ohtake celebra 25 anos com exposição especial",
+      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-11/instituto-tomie-ohtake-celebra-25-anos-com-exposicao-especial",
+      "published": "2026-11-16T08:02:00-03:00"
     },
     {
-      "id": "dae15e4d72def5a9",
+      "id": "dd8abf5d85271185",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "COP31: negociações avançam, mas financiamento é desafio para 2ª semana",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/cop31-negociacoes-avancam-mas-financiamento-e-desafio-para-2a-semana",
-      "published": "2026-11-15T16:09:00-03:00"
+      "title": "Caixa começa a pagar parcela do Bolsa Família de novembro",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/caixa-comeca-pagar-parcela-do-bolsa-familia-de-novembro",
+      "published": "2026-11-16T07:28:00-03:00"
     }
   ],
   "unavailable": []
