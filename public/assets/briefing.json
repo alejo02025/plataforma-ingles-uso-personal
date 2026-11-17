@@ -1,158 +1,158 @@
 {
-  "checkedAt": "2026-11-17T01:53:01.082239+00:00",
+  "checkedAt": "2026-11-17T16:09:17.647815+00:00",
   "stories": [
     {
-      "id": "1c8dfbcb75eaec87",
+      "id": "09543f7a2b137148",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Five EU countries announce migrant deportation centre in Rwanda",
-      "url": "https://www.bbc.co.uk/news/articles/cw987343352go?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-16T23:20:45+00:00"
+      "title": "Putin's Crimea bridge partly collapses as Zelensky hails 'unprecedented' attack by Ukraine",
+      "url": "https://www.bbc.co.uk/news/articles/cw772jk4rvmxo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-17T16:07:41+00:00"
     },
     {
-      "id": "74dca108d80eb27c",
+      "id": "f1bd0e2fadb1cb2d",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Houthi rebel advance in Yemen may further destabilise global economy",
-      "url": "https://www.bbc.co.uk/news/articles/cmy97qperq9eo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-16T21:40:07+00:00"
+      "title": "How the attack on Crimean Bridge unfolded",
+      "url": "https://www.bbc.co.uk/news/articles/crz9dgz28zwdo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-17T15:38:10+00:00"
     },
     {
-      "id": "4dfe5806c8eee85f",
+      "id": "02f09a3f2c48291e",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Palestinian woman, 72, shot dead by Israeli settlers in West Bank, health ministry says",
+      "url": "https://www.bbc.co.uk/news/articles/cqrlg377638yo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-17T15:36:11+00:00"
+    },
+    {
+      "id": "04b96a357bee9524",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "Nvidia dismisses 'Bring Jensen Back' campaign as Trump backs effort to reinstate ex CEO",
-      "url": "https://www.bbc.co.uk/news/articles/cry49plv8v3go?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-17T01:49:26+00:00"
+      "title": "US government confirms investigation into tech firm Megaspeed",
+      "url": "https://www.bbc.co.uk/news/articles/cmn504nq5033o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-17T11:17:32+00:00"
     },
     {
-      "id": "fda86912607e0ce5",
+      "id": "eeaf32979b6e2247",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Landmark Crimea bridge hit as Russia reports biggest Ukrainian drone attack of war",
-      "url": "https://www.bbc.co.uk/news/articles/ckx27v6dpjz0o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-16T14:58:12+00:00"
+      "title": "Indian woman gang-raped while pregnant in 2002 'heartbroken' after two perpetrators bailed",
+      "url": "https://www.bbc.co.uk/news/articles/cr868wd2qg18o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-17T09:27:44+00:00"
     },
     {
-      "id": "41ea534b8fc963e9",
+      "id": "4fa78833e8141a37",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "When will we see Robert Pattinson as Bond in cinemas?",
-      "url": "https://www.bbc.co.uk/news/videos/cmd91xjd9zk2o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-16T17:18:54+00:00"
+      "title": "UK sanctions firms over Israeli West Bank settlements",
+      "url": "https://www.bbc.co.uk/news/articles/cvglr977x3z0o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-17T15:59:47+00:00"
     },
     {
-      "id": "c919c34fce7334ac",
+      "id": "a126a11490f7a77e",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Forensic expert says his analysis of autopsy photos suggests Epstein was killed",
-      "url": "https://www.bbc.co.uk/news/articles/c5n4exg1kkmyo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-16T20:33:57+00:00"
+      "title": "How new US chip restrictions on South East Asia will hit China",
+      "url": "https://www.bbc.co.uk/news/articles/cwq6e2qgvmlgo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-17T14:25:45+00:00"
+    },
+    {
+      "id": "2b4aebc655461a30",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "NHS data contract to stay with Palantir until 2029",
+      "url": "https://www.bbc.co.uk/news/articles/cqvg27zpm8w8o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-17T12:00:12+00:00"
     },
     {
       "id": "55ee5feb0ebc0de1",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "New Zealand tricks and annual leave - the lengths fans are going to for GTA 6",
+      "title": "Pretending to be in New Zealand, booking leave and buying consoles - the lengths fans are going to for GTA 6",
       "url": "https://www.bbc.co.uk/news/articles/cm4gn9xnn1ppo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-17T01:04:45+00:00"
+      "published": "2026-11-17T11:49:01+00:00"
     },
     {
-      "id": "32ba01daa8e41ea7",
+      "id": "37027c5afa2868bf",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "The AI start-ups fixing India's broken roads and messy land records",
-      "url": "https://www.bbc.co.uk/news/articles/c820vnln2lzpo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-16T23:25:53+00:00"
+      "title": "'We're a capitalist society': Grindr defends $120 a month premium tier",
+      "url": "https://www.bbc.co.uk/news/articles/cr1ewlqjn694o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-17T09:41:07+00:00"
     },
     {
-      "id": "56c2cb6720edfcee",
+      "id": "4dfe5806c8eee85f",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "California sues OpenAI over Hugging Face attack",
-      "url": "https://www.bbc.co.uk/news/articles/c6wy4xv2mxglo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-16T23:12:24+00:00"
+      "title": "Nvidia dismisses 'Bring Jensen Back' campaign as Trump backs effort to reinstate ex boss",
+      "url": "https://www.bbc.co.uk/news/articles/cry49plv8v3go?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-17T02:37:53+00:00"
     },
     {
-      "id": "1edbe06f78cf3cda",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "GTA 6 hacker pleads guilty after release from secure hospital",
-      "url": "https://www.bbc.co.uk/news/articles/cq99exy89dngo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-16T13:34:22+00:00"
-    },
-    {
-      "id": "529dff662e522801",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Intel sued by investors after PC sales slump hits share price",
-      "url": "https://www.bbc.co.uk/news/articles/cw62p42p288do?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-16T03:04:01+00:00"
-    },
-    {
-      "id": "4b470f5e59536d3d",
+      "id": "9ff0b1cdeb436d09",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Brasil assina na COP31 pacto global por IA sustentável e empregos",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/brasil-assina-na-cop-31-pacto-global-por-ia-sustentavel-e-empregos",
-      "published": "2026-11-16T20:45:00-03:00"
+      "title": "PF cria divisão especializada em integridade esportiva",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/pf-faz-parceria-com-ministerio-para-combater-fraudes-no-esporte",
+      "published": "2026-11-17T11:30:00-03:00"
     },
     {
-      "id": "63d2628d9bfc5fa4",
+      "id": "53c6a94b8e3daaad",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Dólar sobe para R$ 5,77 e fecha no maior valor desde abril de 2025",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-sobe-para-r-577-e-fecha-no-maior-valor-desde-abril-de-2025",
-      "published": "2026-11-16T20:06:00-03:00"
+      "title": "Suplementos alimentares têm fabricação e venda suspensas no Brasil",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/suplementos-alimentares-tem-fabricacao-e-venda-suspensas-no-brasil",
+      "published": "2026-11-17T11:27:00-03:00"
     },
     {
-      "id": "d5b2329dc9ba9c4f",
+      "id": "31666fccbed1a76b",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Regulação de big techs pode reduzir custos em até R$ 50 bilhões",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/regulacao-de-big-techs-pode-reduzir-custos-em-ate-r-50-bilhoes",
-      "published": "2026-11-16T19:59:00-03:00"
+      "title": "Botox poderá ser usado no relaxamento do músculo da mastigação",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/botox-podera-ser-usado-no-relaxamento-do-musculo-da-mastigacao",
+      "published": "2026-11-17T10:57:00-03:00"
     },
     {
-      "id": "db1b062cc5dc4f12",
+      "id": "07745d75db6fbe79",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "CDH do Senado pede federalização do desaparecimento de crianças no MA",
-      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/cdh-do-senado-pede-federalizacao-do-desaparecimento-de-criancas-no-ma",
-      "published": "2026-11-16T18:55:00-03:00"
+      "title": "Presidiário usava celular para praticar abuso sexual infantojuvenil",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/presidiario-usava-celular-para-praticar-abuso-sexual-infantojuvenil",
+      "published": "2026-11-17T10:26:00-03:00"
     },
     {
-      "id": "e95e5192367fc31a",
+      "id": "037184aa4b699aeb",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "EBC inaugura nova sede em São Paulo e amplia estrutura de produção",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/ebc-inaugura-nova-sede-em-sao-paulo-e-amplia-estrutura-de-producao",
-      "published": "2026-11-16T18:42:00-03:00"
+      "title": "Fies: candidatos pré-selecionados devem validar dados da inscrição",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/fies-candidatos-pre-selecionados-devem-validar-dados-da-inscricao",
+      "published": "2026-11-17T10:03:00-03:00"
     },
     {
-      "id": "aa6b5a74b765cafa",
+      "id": "c3848e535001e253",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Anitta é indicada ao Grammy Internacional para melhor álbum global",
-      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-11/anitta-e-indicada-ao-grammy-internacional-para-melhor-album-global",
-      "published": "2026-11-16T16:59:00-03:00"
+      "title": "Mulheres lideram 63% dos negócios na Rocinha, diz pesquisa",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/mulheres-lideram-63-dos-negocios-da-rocinha-diz-pesquisa",
+      "published": "2026-11-17T09:20:00-03:00"
     }
   ],
   "unavailable": []
