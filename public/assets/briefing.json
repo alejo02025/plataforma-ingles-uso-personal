@@ -1,50 +1,32 @@
 {
-  "checkedAt": "2026-11-16T15:58:09.303619+00:00",
+  "checkedAt": "2026-11-17T01:53:01.082239+00:00",
   "stories": [
     {
-      "id": "871c4bfc0c426ed1",
+      "id": "1c8dfbcb75eaec87",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Yemeni forces retreat to defend port city from Houthis",
-      "url": "https://www.bbc.co.uk/news/articles/cqvg2xgyvnjpo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-16T11:09:38+00:00"
+      "title": "Five EU countries announce migrant deportation centre in Rwanda",
+      "url": "https://www.bbc.co.uk/news/articles/cw987343352go?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-16T23:20:45+00:00"
+    },
+    {
+      "id": "74dca108d80eb27c",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Houthi rebel advance in Yemen may further destabilise global economy",
+      "url": "https://www.bbc.co.uk/news/articles/cmy97qperq9eo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-16T21:40:07+00:00"
     },
     {
       "id": "4dfe5806c8eee85f",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "Trump says he wouldn't mind seeing Huang return to Nvidia",
+      "title": "Nvidia dismisses 'Bring Jensen Back' campaign as Trump backs effort to reinstate ex CEO",
       "url": "https://www.bbc.co.uk/news/articles/cry49plv8v3go?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-16T15:31:20+00:00"
-    },
-    {
-      "id": "1c8dfbcb75eaec87",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Five EU countries expected to announce migrant deportation centre in Rwanda",
-      "url": "https://www.bbc.co.uk/news/articles/cw987343352go?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-16T12:54:44+00:00"
-    },
-    {
-      "id": "bc321a16103407a5",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Man sentenced over 'horrific' attempted murder of three children",
-      "url": "https://www.bbc.co.uk/news/articles/cr0qj0nzwj34o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-16T12:27:15+00:00"
-    },
-    {
-      "id": "aeeceed8b0e0ed92",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Raye, Rosalia and Dolly Parton recognised in Grammy nominations",
-      "url": "https://www.bbc.co.uk/news/articles/cq9vwkggpx73o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-16T14:48:55+00:00"
+      "published": "2026-11-17T01:49:26+00:00"
     },
     {
       "id": "fda86912607e0ce5",
@@ -54,6 +36,51 @@
       "title": "Landmark Crimea bridge hit as Russia reports biggest Ukrainian drone attack of war",
       "url": "https://www.bbc.co.uk/news/articles/ckx27v6dpjz0o?at_medium=RSS&at_campaign=rss",
       "published": "2026-11-16T14:58:12+00:00"
+    },
+    {
+      "id": "41ea534b8fc963e9",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "When will we see Robert Pattinson as Bond in cinemas?",
+      "url": "https://www.bbc.co.uk/news/videos/cmd91xjd9zk2o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-16T17:18:54+00:00"
+    },
+    {
+      "id": "c919c34fce7334ac",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Forensic expert says his analysis of autopsy photos suggests Epstein was killed",
+      "url": "https://www.bbc.co.uk/news/articles/c5n4exg1kkmyo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-16T20:33:57+00:00"
+    },
+    {
+      "id": "55ee5feb0ebc0de1",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "New Zealand tricks and annual leave - the lengths fans are going to for GTA 6",
+      "url": "https://www.bbc.co.uk/news/articles/cm4gn9xnn1ppo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-17T01:04:45+00:00"
+    },
+    {
+      "id": "32ba01daa8e41ea7",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "The AI start-ups fixing India's broken roads and messy land records",
+      "url": "https://www.bbc.co.uk/news/articles/c820vnln2lzpo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-16T23:25:53+00:00"
+    },
+    {
+      "id": "56c2cb6720edfcee",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "California sues OpenAI over Hugging Face attack",
+      "url": "https://www.bbc.co.uk/news/articles/c6wy4xv2mxglo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-16T23:12:24+00:00"
     },
     {
       "id": "1edbe06f78cf3cda",
@@ -74,85 +101,58 @@
       "published": "2026-11-16T03:04:01+00:00"
     },
     {
-      "id": "56dedeeec32c3b29",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Suspected China spy linked to Nvidia's ex-boss left in 2025, Megaspeed says",
-      "url": "https://www.bbc.co.uk/news/articles/cmdx1vpprk9vo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-16T01:47:57+00:00"
-    },
-    {
-      "id": "9a149bdd0ac60957",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "South Korea's top scorer in tax accountancy exam admits cheating",
-      "url": "https://www.bbc.co.uk/news/articles/ckvg2ezvpe08o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-15T13:37:45+00:00"
-    },
-    {
-      "id": "d66099d92304cf4e",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Italy fines Meta €805m over accessing users' photos",
-      "url": "https://www.bbc.co.uk/news/articles/cwn83gxemk35o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-14T18:28:06+00:00"
-    },
-    {
-      "id": "2512a2d52c1ab03c",
+      "id": "4b470f5e59536d3d",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Atividade econômica tem queda de 0,9% no terceiro trimestre",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/atividade-economica-tem-queda-de-09-no-terceiro-trimestre",
-      "published": "2026-11-16T12:02:00-03:00"
+      "title": "Brasil assina na COP31 pacto global por IA sustentável e empregos",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/brasil-assina-na-cop-31-pacto-global-por-ia-sustentavel-e-empregos",
+      "published": "2026-11-16T20:45:00-03:00"
     },
     {
-      "id": "6fe5259b44c0bf63",
+      "id": "63d2628d9bfc5fa4",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "COP31: ministro defende esforço compartilhado na proteção da Amazônia",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/cop31-ministro-defende-esforco-compartilhado-na-protecao-da-amazonia",
-      "published": "2026-11-16T10:41:00-03:00"
+      "title": "Dólar sobe para R$ 5,77 e fecha no maior valor desde abril de 2025",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-sobe-para-r-577-e-fecha-no-maior-valor-desde-abril-de-2025",
+      "published": "2026-11-16T20:06:00-03:00"
     },
     {
-      "id": "55533087e2718e2d",
+      "id": "d5b2329dc9ba9c4f",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "ANS amplia cobertura obrigatória para tratamento de câncer de pulmão",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/ans-amplia-cobertura-obrigatoria-para-tratamento-de-cancer-de-pulmao",
-      "published": "2026-11-16T09:28:00-03:00"
+      "title": "Regulação de big techs pode reduzir custos em até R$ 50 bilhões",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/regulacao-de-big-techs-pode-reduzir-custos-em-ate-r-50-bilhoes",
+      "published": "2026-11-16T19:59:00-03:00"
     },
     {
-      "id": "b7bea55eb90ac98a",
+      "id": "db1b062cc5dc4f12",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Mercado reduz projeções para inflação e crescimento econômico em 2026",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/mercado-reduz-projecoes-para-inflacao-e-crescimento-da-economia-em-202",
-      "published": "2026-11-16T09:12:00-03:00"
+      "title": "CDH do Senado pede federalização do desaparecimento de crianças no MA",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/cdh-do-senado-pede-federalizacao-do-desaparecimento-de-criancas-no-ma",
+      "published": "2026-11-16T18:55:00-03:00"
     },
     {
-      "id": "9cda3b058d359935",
+      "id": "e95e5192367fc31a",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Instituto Tomie Ohtake celebra 25 anos com exposição especial",
-      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-11/instituto-tomie-ohtake-celebra-25-anos-com-exposicao-especial",
-      "published": "2026-11-16T08:02:00-03:00"
+      "title": "EBC inaugura nova sede em São Paulo e amplia estrutura de produção",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/ebc-inaugura-nova-sede-em-sao-paulo-e-amplia-estrutura-de-producao",
+      "published": "2026-11-16T18:42:00-03:00"
     },
     {
-      "id": "dd8abf5d85271185",
+      "id": "aa6b5a74b765cafa",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Caixa começa a pagar parcela do Bolsa Família de novembro",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/caixa-comeca-pagar-parcela-do-bolsa-familia-de-novembro",
-      "published": "2026-11-16T07:28:00-03:00"
+      "title": "Anitta é indicada ao Grammy Internacional para melhor álbum global",
+      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-11/anitta-e-indicada-ao-grammy-internacional-para-melhor-album-global",
+      "published": "2026-11-16T16:59:00-03:00"
     }
   ],
   "unavailable": []
