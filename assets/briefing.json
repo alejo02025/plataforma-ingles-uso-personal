@@ -1,158 +1,167 @@
 {
-  "checkedAt": "2026-11-18T00:59:50.429226+00:00",
+  "checkedAt": "2026-11-18T15:45:34.516712+00:00",
   "stories": [
     {
-      "id": "09543f7a2b137148",
+      "id": "a38f101401d45588",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Putin's Crimean Bridge partly collapses as Zelensky hails 'unprecedented' attack by Ukraine",
-      "url": "https://www.bbc.co.uk/news/articles/cw772jk4rvmxo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-17T21:24:35+00:00"
+      "title": "Trump shakes hands with Putin and Xi ahead of historic talks in China",
+      "url": "https://www.bbc.co.uk/news/articles/ck9d75x5wwwwo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-18T12:39:24+00:00"
     },
     {
-      "id": "f1bd0e2fadb1cb2d",
+      "id": "c9225e5cee2bd860",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "How the attack on Crimean Bridge unfolded",
-      "url": "https://www.bbc.co.uk/news/articles/crz9dgz28zwdo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-17T15:38:10+00:00"
+      "title": "William and Kate meet Indian Prime Minister Modi in New Delhi",
+      "url": "https://www.bbc.co.uk/news/articles/cq62ped2ypy4o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-18T14:30:33+00:00"
     },
     {
-      "id": "58ccec08be884d74",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Nvidia says it won't reinstate Huang as firm reports bumper results",
-      "url": "https://www.bbc.co.uk/news/articles/cm2kl50vkwkdo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-18T00:28:01+00:00"
-    },
-    {
-      "id": "e33f226d47912c64",
+      "id": "815730ca205ba108",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Thomas Markle charged over child sex abuse material in Philippines",
-      "url": "https://www.bbc.co.uk/news/articles/ckg5ry8m49ggo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-17T22:44:15+00:00"
+      "title": "Kuwait says it repelled first Iranian attack in two months after US strikes island",
+      "url": "https://www.bbc.co.uk/news/articles/cw4gn9jeqjq7o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-18T13:04:48+00:00"
     },
     {
-      "id": "4c41059aab1950cd",
+      "id": "959581aa59f46cda",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "'It was really scary': Mother describes sheltering during Russia strikes on Kyiv bridge",
-      "url": "https://www.bbc.co.uk/news/articles/cq7825234lgmo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-17T17:19:57+00:00"
+      "title": "Ghana's new $60m presidential jet sparks public outrage",
+      "url": "https://www.bbc.co.uk/news/articles/ck792dez8dp3o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-18T09:27:51+00:00"
     },
     {
-      "id": "8fefe823db1a58c6",
+      "id": "c7aba06582cfe1a5",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Russian military plane crashes, killing all 19 on board",
-      "url": "https://www.bbc.co.uk/news/articles/cw8085rykkmgo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-17T21:06:11+00:00"
+      "title": "Democrats win Alaska Senate race two weeks after midterms counting began",
+      "url": "https://www.bbc.co.uk/news/articles/cqev3v2ygzlvo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-18T10:23:57+00:00"
     },
     {
-      "id": "010b3a1c8069f2a8",
+      "id": "17a5c11e242497f3",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Bancroft sandpaper claims heap pressure on Cummins",
+      "url": "https://www.bbc.co.uk/sport/cricket/articles/cmqlqdevgl9ro?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-18T11:12:46+00:00"
+    },
+    {
+      "id": "d8da16886db7756f",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "Europe plans to catch the next computer chip wave",
-      "url": "https://www.bbc.co.uk/news/articles/cqglwjd450k0o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-18T00:00:24+00:00"
+      "title": "Grand Theft Auto 6 is a masterpiece, say critics",
+      "url": "https://www.bbc.co.uk/news/articles/cw8r75xm8v4po?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-18T14:57:56+00:00"
     },
     {
-      "id": "a126a11490f7a77e",
+      "id": "4890d4f9638ab71d",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "How new US chip restrictions on South East Asia will hit China",
-      "url": "https://www.bbc.co.uk/news/articles/cwq6e2qgvmlgo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-17T14:25:45+00:00"
+      "title": "The seven Anthropic founders who are about to become multi-billionaires",
+      "url": "https://www.bbc.co.uk/news/articles/cmd7159vlr85o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-18T13:55:14+00:00"
     },
     {
-      "id": "2b4aebc655461a30",
+      "id": "08a6226e73776bd3",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "NHS data contract to stay with Palantir until 2029",
-      "url": "https://www.bbc.co.uk/news/articles/cqvg27zpm8w8o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-17T12:00:12+00:00"
+      "title": "Hacks, AI or just overdue updates - why have there been so many outages?",
+      "url": "https://www.bbc.co.uk/news/articles/c6z0kly2lll7o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-18T13:16:53+00:00"
     },
     {
-      "id": "55ee5feb0ebc0de1",
+      "id": "64e86fd86d339f38",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "Pretending to be in New Zealand, booking leave and buying consoles - the lengths fans are going to for GTA 6",
-      "url": "https://www.bbc.co.uk/news/articles/cm4gn9xnn1ppo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-17T11:49:01+00:00"
+      "title": "British hacker who stole $11m through text message scheme jailed for six years in US",
+      "url": "https://www.bbc.co.uk/news/articles/cm87987w1qz5o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-18T09:28:35+00:00"
     },
     {
-      "id": "04b96a357bee9524",
+      "id": "4122aa6872a27946",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "US government confirms investigation into tech firm Megaspeed",
-      "url": "https://www.bbc.co.uk/news/articles/cmn504nq5033o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-17T11:17:32+00:00"
+      "title": "Security flaw found in Java, world's third-largest programming language",
+      "url": "https://www.bbc.co.uk/news/articles/cke89jevqm1vo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-18T08:47:06+00:00"
     },
     {
-      "id": "420ecbffb8fd053d",
+      "id": "9194ddb079718aec",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "How important are Nvidia and Jensen Huang to the US economy?",
+      "url": "https://www.bbc.co.uk/news/articles/c68798vdprwpo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-18T06:04:21+00:00"
+    },
+    {
+      "id": "fc48be731ac87362",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Indígenas isolados se aproximam de aldeia e governo fica em alerta",
-      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/indigenas-isolados-se-aproximam-de-aldeia-e-governo-fica-em-alerta",
-      "published": "2026-11-17T20:57:00-03:00"
+      "title": "Mapa do Caminho Indígena protegerá territórios, destaca Eloy Terena",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/mapa-do-caminho-indigena-protegera-territorios-destaca-eloy-terena",
+      "published": "2026-11-18T11:13:00-03:00"
     },
     {
-      "id": "fc6ca991e0caf4a7",
+      "id": "c768a715c6b55b24",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Defesa pede que Supremo julgue pedido para soltar Vorcaro",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/defesa-pede-que-supremo-julgue-pedido-para-soltar-vorcaro",
-      "published": "2026-11-17T20:41:00-03:00"
+      "title": "CCJ do Senado eleva pena para motorista que mata sob álcool ou drogas",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/ccj-do-senado-eleva-pena-para-motorista-que-mata-sob-alcool-ou-drogas",
+      "published": "2026-11-18T11:12:00-03:00"
     },
     {
-      "id": "6886f8759b121732",
+      "id": "4df3c25f81d44079",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "STF inaugura símbolo da Justiça na tradição iorubá",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/stf-inaugura-simbolo-da-justica-na-tradicao-ioruba",
-      "published": "2026-11-17T20:35:00-03:00"
+      "title": "Operação Cash Out investiga esquema de bets e bloqueia R$ 2,3 bilhões",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/operacao-cash-out-investiga-esquema-de-bets-e-bloqueia-r-23-bilhoes",
+      "published": "2026-11-18T10:55:00-03:00"
     },
     {
-      "id": "30bb06eefb55b3bb",
+      "id": "af4407a516119eb8",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Fachin sinaliza que STF pode julgar Lei da Dosimetria neste ano",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/fachin-sinaliza-que-stf-pode-julgar-lei-da-dosimetria-neste-ano",
-      "published": "2026-11-17T20:01:00-03:00"
+      "title": "Inep divulga gabarito oficial do Enem 2026; veja como consultar",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/inep-divulga-gabarito-oficial-do-enem-2026-veja-como-consultar",
+      "published": "2026-11-18T10:36:00-03:00"
     },
     {
-      "id": "b2b4f7667cd947f3",
+      "id": "27526b70887ef629",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Repórter da Agência Brasil é finalista em prêmio de proteção animal",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/reporter-da-agencia-brasil-e-finalista-em-premio-de-protecao-animal",
-      "published": "2026-11-17T19:40:00-03:00"
+      "title": "Fies: candidatos têm até hoje para validar informações da inscrição",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/fies-candidatos-tem-ate-hoje-para-validar-informacoes-da-inscricao",
+      "published": "2026-11-18T10:07:00-03:00"
     },
     {
-      "id": "6e3adbf49cf6c630",
+      "id": "11c16348bbdd066a",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Brasil avança a 2 semifinais do Mundial de tênis de mesa paralímpico",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/brasil-avanca-2-semifinais-do-mundial-de-tenis-de-mesa-paralimpico",
-      "published": "2026-11-17T19:34:00-03:00"
+      "title": "IBGE: percentual de negros com ensino superior é metade do de brancos",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/ibge-percentual-de-negros-com-ensino-superior-e-metade-da-de-brancos",
+      "published": "2026-11-18T10:02:00-03:00"
     }
   ],
   "unavailable": []
