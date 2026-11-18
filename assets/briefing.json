@@ -1,14 +1,14 @@
 {
-  "checkedAt": "2026-11-17T16:09:17.647815+00:00",
+  "checkedAt": "2026-11-18T00:59:50.429226+00:00",
   "stories": [
     {
       "id": "09543f7a2b137148",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Putin's Crimea bridge partly collapses as Zelensky hails 'unprecedented' attack by Ukraine",
+      "title": "Putin's Crimean Bridge partly collapses as Zelensky hails 'unprecedented' attack by Ukraine",
       "url": "https://www.bbc.co.uk/news/articles/cw772jk4rvmxo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-17T16:07:41+00:00"
+      "published": "2026-11-17T21:24:35+00:00"
     },
     {
       "id": "f1bd0e2fadb1cb2d",
@@ -20,40 +20,49 @@
       "published": "2026-11-17T15:38:10+00:00"
     },
     {
-      "id": "02f09a3f2c48291e",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Palestinian woman, 72, shot dead by Israeli settlers in West Bank, health ministry says",
-      "url": "https://www.bbc.co.uk/news/articles/cqrlg377638yo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-17T15:36:11+00:00"
-    },
-    {
-      "id": "04b96a357bee9524",
+      "id": "58ccec08be884d74",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "US government confirms investigation into tech firm Megaspeed",
-      "url": "https://www.bbc.co.uk/news/articles/cmn504nq5033o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-17T11:17:32+00:00"
+      "title": "Nvidia says it won't reinstate Huang as firm reports bumper results",
+      "url": "https://www.bbc.co.uk/news/articles/cm2kl50vkwkdo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-18T00:28:01+00:00"
     },
     {
-      "id": "eeaf32979b6e2247",
+      "id": "e33f226d47912c64",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Indian woman gang-raped while pregnant in 2002 'heartbroken' after two perpetrators bailed",
-      "url": "https://www.bbc.co.uk/news/articles/cr868wd2qg18o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-17T09:27:44+00:00"
+      "title": "Thomas Markle charged over child sex abuse material in Philippines",
+      "url": "https://www.bbc.co.uk/news/articles/ckg5ry8m49ggo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-17T22:44:15+00:00"
     },
     {
-      "id": "4fa78833e8141a37",
+      "id": "4c41059aab1950cd",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "UK sanctions firms over Israeli West Bank settlements",
-      "url": "https://www.bbc.co.uk/news/articles/cvglr977x3z0o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-17T15:59:47+00:00"
+      "title": "'It was really scary': Mother describes sheltering during Russia strikes on Kyiv bridge",
+      "url": "https://www.bbc.co.uk/news/articles/cq7825234lgmo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-17T17:19:57+00:00"
+    },
+    {
+      "id": "8fefe823db1a58c6",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Russian military plane crashes, killing all 19 on board",
+      "url": "https://www.bbc.co.uk/news/articles/cw8085rykkmgo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-17T21:06:11+00:00"
+    },
+    {
+      "id": "010b3a1c8069f2a8",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Europe plans to catch the next computer chip wave",
+      "url": "https://www.bbc.co.uk/news/articles/cqglwjd450k0o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-18T00:00:24+00:00"
     },
     {
       "id": "a126a11490f7a77e",
@@ -83,76 +92,67 @@
       "published": "2026-11-17T11:49:01+00:00"
     },
     {
-      "id": "37027c5afa2868bf",
+      "id": "04b96a357bee9524",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "'We're a capitalist society': Grindr defends $120 a month premium tier",
-      "url": "https://www.bbc.co.uk/news/articles/cr1ewlqjn694o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-17T09:41:07+00:00"
+      "title": "US government confirms investigation into tech firm Megaspeed",
+      "url": "https://www.bbc.co.uk/news/articles/cmn504nq5033o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-17T11:17:32+00:00"
     },
     {
-      "id": "4dfe5806c8eee85f",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Nvidia dismisses 'Bring Jensen Back' campaign as Trump backs effort to reinstate ex boss",
-      "url": "https://www.bbc.co.uk/news/articles/cry49plv8v3go?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-17T02:37:53+00:00"
-    },
-    {
-      "id": "9ff0b1cdeb436d09",
+      "id": "420ecbffb8fd053d",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "PF cria divisão especializada em integridade esportiva",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/pf-faz-parceria-com-ministerio-para-combater-fraudes-no-esporte",
-      "published": "2026-11-17T11:30:00-03:00"
+      "title": "Indígenas isolados se aproximam de aldeia e governo fica em alerta",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/indigenas-isolados-se-aproximam-de-aldeia-e-governo-fica-em-alerta",
+      "published": "2026-11-17T20:57:00-03:00"
     },
     {
-      "id": "53c6a94b8e3daaad",
+      "id": "fc6ca991e0caf4a7",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Suplementos alimentares têm fabricação e venda suspensas no Brasil",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/suplementos-alimentares-tem-fabricacao-e-venda-suspensas-no-brasil",
-      "published": "2026-11-17T11:27:00-03:00"
+      "title": "Defesa pede que Supremo julgue pedido para soltar Vorcaro",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/defesa-pede-que-supremo-julgue-pedido-para-soltar-vorcaro",
+      "published": "2026-11-17T20:41:00-03:00"
     },
     {
-      "id": "31666fccbed1a76b",
+      "id": "6886f8759b121732",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Botox poderá ser usado no relaxamento do músculo da mastigação",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/botox-podera-ser-usado-no-relaxamento-do-musculo-da-mastigacao",
-      "published": "2026-11-17T10:57:00-03:00"
+      "title": "STF inaugura símbolo da Justiça na tradição iorubá",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/stf-inaugura-simbolo-da-justica-na-tradicao-ioruba",
+      "published": "2026-11-17T20:35:00-03:00"
     },
     {
-      "id": "07745d75db6fbe79",
+      "id": "30bb06eefb55b3bb",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Presidiário usava celular para praticar abuso sexual infantojuvenil",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/presidiario-usava-celular-para-praticar-abuso-sexual-infantojuvenil",
-      "published": "2026-11-17T10:26:00-03:00"
+      "title": "Fachin sinaliza que STF pode julgar Lei da Dosimetria neste ano",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/fachin-sinaliza-que-stf-pode-julgar-lei-da-dosimetria-neste-ano",
+      "published": "2026-11-17T20:01:00-03:00"
     },
     {
-      "id": "037184aa4b699aeb",
+      "id": "b2b4f7667cd947f3",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Fies: candidatos pré-selecionados devem validar dados da inscrição",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/fies-candidatos-pre-selecionados-devem-validar-dados-da-inscricao",
-      "published": "2026-11-17T10:03:00-03:00"
+      "title": "Repórter da Agência Brasil é finalista em prêmio de proteção animal",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/reporter-da-agencia-brasil-e-finalista-em-premio-de-protecao-animal",
+      "published": "2026-11-17T19:40:00-03:00"
     },
     {
-      "id": "c3848e535001e253",
+      "id": "6e3adbf49cf6c630",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Mulheres lideram 63% dos negócios na Rocinha, diz pesquisa",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/mulheres-lideram-63-dos-negocios-da-rocinha-diz-pesquisa",
-      "published": "2026-11-17T09:20:00-03:00"
+      "title": "Brasil avança a 2 semifinais do Mundial de tênis de mesa paralímpico",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/brasil-avanca-2-semifinais-do-mundial-de-tenis-de-mesa-paralimpico",
+      "published": "2026-11-17T19:34:00-03:00"
     }
   ],
   "unavailable": []
