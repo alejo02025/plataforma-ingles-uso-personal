@@ -1,68 +1,59 @@
 {
-  "checkedAt": "2026-11-18T15:45:34.516712+00:00",
+  "checkedAt": "2026-11-19T00:28:33.413805+00:00",
   "stories": [
     {
-      "id": "a38f101401d45588",
+      "id": "3899f95c62c8755c",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Trump shakes hands with Putin and Xi ahead of historic talks in China",
-      "url": "https://www.bbc.co.uk/news/articles/ck9d75x5wwwwo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-18T12:39:24+00:00"
+      "title": "Inside the old gas pipeline where Ukraine is fighting an underground war with Russia",
+      "url": "https://www.bbc.co.uk/news/videos/c8p3vw4q6nzzo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-18T17:00:40+00:00"
     },
     {
-      "id": "c9225e5cee2bd860",
+      "id": "e8d478620ac5766e",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "William and Kate meet Indian Prime Minister Modi in New Delhi",
-      "url": "https://www.bbc.co.uk/news/articles/cq62ped2ypy4o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-18T14:30:33+00:00"
+      "title": "'The drones don't fly here' - BBC reports from Ukraine's new front line",
+      "url": "https://www.bbc.co.uk/news/articles/c32l507ev4v4o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-18T17:00:04+00:00"
     },
     {
-      "id": "815730ca205ba108",
+      "id": "5a9c64a2d43f289a",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Kuwait says it repelled first Iranian attack in two months after US strikes island",
-      "url": "https://www.bbc.co.uk/news/articles/cw4gn9jeqjq7o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-18T13:04:48+00:00"
+      "title": "Myanmar faces historic genocide verdict at UN court over Rohingya massacres",
+      "url": "https://www.bbc.co.uk/news/articles/c5m2l90ez144o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-18T23:04:06+00:00"
     },
     {
-      "id": "959581aa59f46cda",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Ghana's new $60m presidential jet sparks public outrage",
-      "url": "https://www.bbc.co.uk/news/articles/ck792dez8dp3o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-18T09:27:51+00:00"
-    },
-    {
-      "id": "c7aba06582cfe1a5",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Democrats win Alaska Senate race two weeks after midterms counting began",
-      "url": "https://www.bbc.co.uk/news/articles/cqev3v2ygzlvo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-18T10:23:57+00:00"
-    },
-    {
-      "id": "17a5c11e242497f3",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Bancroft sandpaper claims heap pressure on Cummins",
-      "url": "https://www.bbc.co.uk/sport/cricket/articles/cmqlqdevgl9ro?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-18T11:12:46+00:00"
-    },
-    {
-      "id": "d8da16886db7756f",
+      "id": "787ec3ea015eb548",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "Grand Theft Auto 6 is a masterpiece, say critics",
-      "url": "https://www.bbc.co.uk/news/articles/cw8r75xm8v4po?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-18T14:57:56+00:00"
+      "title": "Claude-maker Anthropic poised for more than $1.4tn stock market debut",
+      "url": "https://www.bbc.co.uk/news/articles/c6742m39xgzxo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-18T23:44:27+00:00"
+    },
+    {
+      "id": "4bae7c9dd7b588be",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Israeli military launches rare ground operation in Gaza beyond Yellow Line",
+      "url": "https://www.bbc.co.uk/news/articles/cw8r7510degno?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-18T22:34:56+00:00"
+    },
+    {
+      "id": "a841d7eae2401c93",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Russian man accused of spying on US tech defence company that assists Ukraine",
+      "url": "https://www.bbc.co.uk/news/articles/cq20xg80ly47o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-18T23:28:03+00:00"
     },
     {
       "id": "4890d4f9638ab71d",
@@ -71,7 +62,16 @@
       "source": "BBC News",
       "title": "The seven Anthropic founders who are about to become multi-billionaires",
       "url": "https://www.bbc.co.uk/news/articles/cmd7159vlr85o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-18T13:55:14+00:00"
+      "published": "2026-11-18T23:42:07+00:00"
+    },
+    {
+      "id": "d8da16886db7756f",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Grand Theft Auto 6 is a masterpiece, say critics",
+      "url": "https://www.bbc.co.uk/news/articles/cw8r75xm8v4po?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-18T17:34:25+00:00"
     },
     {
       "id": "08a6226e73776bd3",
@@ -101,67 +101,58 @@
       "published": "2026-11-18T08:47:06+00:00"
     },
     {
-      "id": "9194ddb079718aec",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "How important are Nvidia and Jensen Huang to the US economy?",
-      "url": "https://www.bbc.co.uk/news/articles/c68798vdprwpo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-18T06:04:21+00:00"
-    },
-    {
-      "id": "fc48be731ac87362",
+      "id": "c8888259317ed40e",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Mapa do Caminho Indígena protegerá territórios, destaca Eloy Terena",
-      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/mapa-do-caminho-indigena-protegera-territorios-destaca-eloy-terena",
-      "published": "2026-11-18T11:13:00-03:00"
+      "title": "Senado rejeita mudanças no texto e aprova ajuste fiscal do governo",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/senado-rejeita-mudancas-no-texto-e-aprova-ajuste-fiscal-do-governo",
+      "published": "2026-11-18T19:39:00-03:00"
     },
     {
-      "id": "c768a715c6b55b24",
+      "id": "446a255a58d2f8c7",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "CCJ do Senado eleva pena para motorista que mata sob álcool ou drogas",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/ccj-do-senado-eleva-pena-para-motorista-que-mata-sob-alcool-ou-drogas",
-      "published": "2026-11-18T11:12:00-03:00"
+      "title": "Dólar sobe para R$ 5,87 com expectativa sobre votação de ajuste fiscal",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-sobe-para-r-587-com-expectativa-sobre-votacao-de-ajuste-fiscal",
+      "published": "2026-11-18T19:26:00-03:00"
     },
     {
-      "id": "4df3c25f81d44079",
+      "id": "1668a1f16ccb1f8d",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Operação Cash Out investiga esquema de bets e bloqueia R$ 2,3 bilhões",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/operacao-cash-out-investiga-esquema-de-bets-e-bloqueia-r-23-bilhoes",
-      "published": "2026-11-18T10:55:00-03:00"
+      "title": "Guia orienta passageiros a agirem em casos de racismo em aeroportos",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/guia-orienta-passageiros-agirem-em-casos-de-racismo-em-aeroportos",
+      "published": "2026-11-18T19:23:00-03:00"
     },
     {
-      "id": "af4407a516119eb8",
+      "id": "0372d3189183830b",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Inep divulga gabarito oficial do Enem 2026; veja como consultar",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/inep-divulga-gabarito-oficial-do-enem-2026-veja-como-consultar",
-      "published": "2026-11-18T10:36:00-03:00"
+      "title": "Festival Animage reúne mais de 280 filmes de animação no Recife",
+      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-11/festival-animage-reune-mais-de-280-filmes-de-animacao-no-recife",
+      "published": "2026-11-18T19:19:00-03:00"
     },
     {
-      "id": "27526b70887ef629",
+      "id": "ba1bb5f0a20662f7",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Fies: candidatos têm até hoje para validar informações da inscrição",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/fies-candidatos-tem-ate-hoje-para-validar-informacoes-da-inscricao",
-      "published": "2026-11-18T10:07:00-03:00"
+      "title": "Agência Brasil e Rádio Nacional ganham prêmio de direitos humanos",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/agencia-brasil-e-radio-nacional-ganham-premio-de-direitos-humanos",
+      "published": "2026-11-18T19:12:00-03:00"
     },
     {
-      "id": "11c16348bbdd066a",
+      "id": "9bb5356df1aa8927",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "IBGE: percentual de negros com ensino superior é metade do de brancos",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/ibge-percentual-de-negros-com-ensino-superior-e-metade-da-de-brancos",
-      "published": "2026-11-18T10:02:00-03:00"
+      "title": "Encontro dos Tambores valoriza tradições negras da Amazônia em Macapá",
+      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-11/encontro-dos-tambores-valoriza-tradicoes-negras-da-amazonia-em-macapa",
+      "published": "2026-11-18T18:55:00-03:00"
     }
   ],
   "unavailable": []
