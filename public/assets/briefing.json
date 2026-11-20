@@ -1,6 +1,42 @@
 {
-  "checkedAt": "2026-11-19T15:51:32.662565+00:00",
+  "checkedAt": "2026-11-20T00:40:46.171165+00:00",
   "stories": [
+    {
+      "id": "8febbadd7da71c0f",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Anthropic becomes one of world's most valuable public companies in stock market debut",
+      "url": "https://www.bbc.co.uk/news/articles/c3x29ggenz12o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-19T23:33:51+00:00"
+    },
+    {
+      "id": "923a007fa0f3d1a7",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "'I tell my son it's just fireworks': People inside besieged Yemeni city speak to BBC",
+      "url": "https://www.bbc.co.uk/news/articles/cx7v2d8q879eo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-20T00:13:21+00:00"
+    },
+    {
+      "id": "968ebb26e1aec61e",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Myanmar committed genocide against Rohingya minority, top UN court rules",
+      "url": "https://www.bbc.co.uk/news/articles/c804wzp20ddvo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-19T20:07:02+00:00"
+    },
+    {
+      "id": "92ca9ff247094edd",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Europe ready for talks with Russia on ending war in Ukraine, leaders say",
+      "url": "https://www.bbc.co.uk/news/articles/ckzd9nln5e6go?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-19T21:21:43+00:00"
+    },
     {
       "id": "eeaf96b77ff1efc7",
       "language": "en",
@@ -8,52 +44,43 @@
       "source": "BBC News",
       "title": "Trump, Putin and Xi release 'peace declaration' after historic meeting",
       "url": "https://www.bbc.co.uk/news/articles/c623j4ln97x7o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-19T15:23:34+00:00"
+      "published": "2026-11-19T17:38:22+00:00"
     },
     {
-      "id": "1548d446c7c63613",
+      "id": "a178720431e75cf7",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Dozens missing after boat carrying 100 migrants sinks off Senegal's coast",
-      "url": "https://www.bbc.co.uk/news/articles/c58j484089ewo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-19T09:02:52+00:00"
+      "title": "California targets Nvidia in China AI chip probe",
+      "url": "https://www.bbc.co.uk/news/articles/cqn70vxp5p4no?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-19T23:04:30+00:00"
     },
     {
-      "id": "0f1dfbdae502ca8b",
+      "id": "4bbafec6b8ea82af",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Venezuela signs military deal with US less than a year after Maduro's removal",
-      "url": "https://www.bbc.co.uk/news/articles/cmwy8pyqlq5vo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-19T13:31:23+00:00"
+      "title": "Tens of thousands of UK fridges secured from hackers in secret nationwide operation",
+      "url": "https://www.bbc.co.uk/news/articles/c6eq49zyx7p4o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-20T00:02:07+00:00"
     },
     {
-      "id": "ecb256426dd1c275",
+      "id": "eb2f6d1f6a76ebef",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Putin vows 'far more painful' response to Ukraine's strikes on Crimean Bridge",
-      "url": "https://www.bbc.co.uk/news/articles/cm879dqn3e1jo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-19T13:07:35+00:00"
+      "title": "Dutch watchdog tells people not to buy AI smart glasses",
+      "url": "https://www.bbc.co.uk/news/articles/ckq6eyrzrzy5o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-19T16:33:17+00:00"
     },
     {
-      "id": "877afe82f192b0c8",
+      "id": "787ec3ea015eb548",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Van Gogh painting sells for record $190.4m after row over its Nazi history",
-      "url": "https://www.bbc.co.uk/news/articles/c5dj1dkwzvzwo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-19T00:49:19+00:00"
-    },
-    {
-      "id": "eb1e212b48f5a233",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "US consortium wins huge Kenya mining deal, beating Chinese rivals",
-      "url": "https://www.bbc.co.uk/news/articles/cm9q84gp0gr3o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-19T12:56:30+00:00"
+      "title": "Anthropic raises $81bn in record-breaking stock market debut",
+      "url": "https://www.bbc.co.uk/news/articles/c6742m39xgzxo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-19T15:58:58+00:00"
     },
     {
       "id": "db5722a0b368ed2e",
@@ -65,15 +92,6 @@
       "published": "2026-11-19T12:26:39+00:00"
     },
     {
-      "id": "787ec3ea015eb548",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Anthropic raises $81bn in record-breaking stock market debut",
-      "url": "https://www.bbc.co.uk/news/articles/c6742m39xgzxo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-19T10:48:04+00:00"
-    },
-    {
       "id": "5b76b8d80d91a943",
       "language": "en",
       "topic": "Technology",
@@ -83,85 +101,58 @@
       "published": "2026-11-19T02:59:06+00:00"
     },
     {
-      "id": "4890d4f9638ab71d",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "The seven Anthropic founders who are about to become multi-billionaires",
-      "url": "https://www.bbc.co.uk/news/articles/cmd7159vlr85o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-18T23:42:07+00:00"
-    },
-    {
-      "id": "1c9f1ec88723e6c1",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Simon Jack: Can Anthropic's record-breaking IPO stop the AI bubble bursting?",
-      "url": "https://www.bbc.co.uk/news/articles/cj4gnpzll020o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-18T21:28:08+00:00"
-    },
-    {
-      "id": "d8da16886db7756f",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Grand Theft Auto 6 is a masterpiece, say critics",
-      "url": "https://www.bbc.co.uk/news/articles/cw8r75xm8v4po?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-18T17:34:25+00:00"
-    },
-    {
-      "id": "f1713e283fc44c30",
+      "id": "9499095aefd63d68",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Trinta países aderiram à Declaração de Combate ao Racismo Ambiental",
-      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/trinta-paises-aderiram-%C3%A0-declaracao-de-combate-ao-racismo-ambiental",
-      "published": "2026-11-19T11:53:00-03:00"
+      "title": "Prêmio Brasil Olímpico 2026 revela finalistas a melhor atleta do ano",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/premio-brasil-olimpico-2026-revela-finalistas-melhor-atleta-do-ano",
+      "published": "2026-11-19T20:34:00-03:00"
     },
     {
-      "id": "a89aef99f3fc17db",
+      "id": "81141a0e99cf240c",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Escola pública do Rio vence Prêmio Melhores Escolas do Mundo",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/escola-publica-do-rio-vence-premio-melhores-escolas-do-mundo",
-      "published": "2026-11-19T11:46:00-03:00"
+      "title": "CMN amplia controle sobre recolhimentos de tributos dos bancos",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/cmn-amplia-controle-sobre-recolhimentos-de-tributos-dos-bancos",
+      "published": "2026-11-19T20:33:00-03:00"
     },
     {
-      "id": "ee0c920026928e36",
+      "id": "440d2909f98afd5b",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Tribunal da ONU conclui que Mianmar cometeu genocídio contra rohingyas",
-      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-11/tribunal-da-onu-conclui-que-mianmar-cometeu-genocidio",
-      "published": "2026-11-19T11:20:00-03:00"
+      "title": "Banco Central amplia acesso de cooperativas ao mercado aberto",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/banco-central-amplia-acesso-de-cooperativas-ao-mercado-aberto",
+      "published": "2026-11-19T20:22:00-03:00"
     },
     {
-      "id": "0a4a44e0a76648df",
+      "id": "f931d4fd0d949fda",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Manifestação em Porto Alegre pede união contra o racismo",
-      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/manifestacao-em-porto-alegre-pede-uniao-contra-o-racismo",
-      "published": "2026-11-19T10:46:00-03:00"
+      "title": "Governo lança campanha para proteger mulheres no meio digital",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/governo-lanca-campanha-para-proteger-mulheres-no-meio-digital",
+      "published": "2026-11-19T20:11:00-03:00"
     },
     {
-      "id": "986baa0a1914bccd",
+      "id": "3184079415512724",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Termina em um dia prazo para pedir reaplicação do Enem 2026",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/termina-em-um-dia-prazo-para-pedir-reaplicacao-do-enem-2026",
-      "published": "2026-11-19T10:13:00-03:00"
+      "title": "Manifestantes reúnem-se na Lapa para cobrar justiça por André Aires",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/manifestantes-reunem-se-na-lapa-para-cobrar-justica-por-andre-aires",
+      "published": "2026-11-19T20:05:00-03:00"
     },
     {
-      "id": "bf83d837dfef5b30",
+      "id": "171dfc565cd0e34d",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Trump, Xi e Putin encerram reunião histórica na China",
-      "url": "https://agenciabrasil.ebc.com.br/internacional/noticia/2026-11/trump-xi-e-putin-encerram-reuniao-historica-na-china",
-      "published": "2026-11-19T09:59:00-03:00"
+      "title": "Dólar supera R$ 5,93 e fecha no maior valor desde abril de 2025",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-supera-r-593-e-fecha-no-maior-valor-desde-abril-de-2025",
+      "published": "2026-11-19T19:47:00-03:00"
     }
   ],
   "unavailable": []
