@@ -1,6 +1,15 @@
 {
-  "checkedAt": "2026-11-21T00:00:22.784881+00:00",
+  "checkedAt": "2026-11-21T14:44:21.546918+00:00",
   "stories": [
+    {
+      "id": "714dcc77cc1a9fcd",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Zelensky says Crimean Bridge strikes 'fair response' as he meets UK's Streeting",
+      "url": "https://www.bbc.co.uk/news/articles/c6wy0qj7w5zqo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-21T13:17:38+00:00"
+    },
     {
       "id": "53ba164e0140f69f",
       "language": "en",
@@ -11,22 +20,22 @@
       "published": "2026-11-20T22:42:47+00:00"
     },
     {
-      "id": "b489ac03011e847a",
+      "id": "e54ec07f73645f1c",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "UK to explore even closer ties with EU after agreeing deal, says Burnham",
-      "url": "https://www.bbc.co.uk/news/articles/c6jreyqgw4e9o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-20T17:49:48+00:00"
+      "title": "Fight over fossil fuels leaves COP31 climate talks in deadlock",
+      "url": "https://www.bbc.co.uk/news/articles/c6ly5w40eg07o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-21T09:52:11+00:00"
     },
     {
-      "id": "b1ffe06b42b6644b",
+      "id": "1c64d44e2f0cbfcc",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Russian missile hits Poland as Ukraine's allies hold military exercise, says Tusk",
-      "url": "https://www.bbc.co.uk/news/articles/cqx2x9dklxnro?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-20T16:54:29+00:00"
+      "title": "FBI reportedly investigating apparent hack of its criminal database",
+      "url": "https://www.bbc.co.uk/news/articles/cvze7de86pk3o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-21T09:34:20+00:00"
     },
     {
       "id": "397265b10097e3d9",
@@ -38,22 +47,31 @@
       "published": "2026-11-20T22:37:09+00:00"
     },
     {
+      "id": "81231055e0a0be42",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Man convicted of starting Palisades fire in Los Angeles",
+      "url": "https://www.bbc.co.uk/news/articles/c64gn0gy8rj3o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-21T04:34:00+00:00"
+    },
+    {
+      "id": "47de4a29b250ca71",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Can AI really help spot Black Friday deals? We put it to the test",
+      "url": "https://www.bbc.co.uk/news/articles/cw8dv4jmnle2o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-21T00:06:11+00:00"
+    },
+    {
       "id": "f1bb42fd1c541aea",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "In a year of AI solving maths problems, Anthropic may have just solved the biggest",
+      "title": "In a year of AI solving maths problems, an Anthropic worker says he may have cracked the biggest",
       "url": "https://www.bbc.co.uk/news/articles/c6pqr2g7w059o?at_medium=RSS&at_campaign=rss",
       "published": "2026-11-20T23:08:57+00:00"
-    },
-    {
-      "id": "d88d0288efc8318c",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Gérard Depardieu and French author investigated over sexual allegations",
-      "url": "https://www.bbc.co.uk/news/articles/c9ly43pj10mvo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-20T19:45:20+00:00"
     },
     {
       "id": "5ef06037f3faa4d5",
@@ -83,67 +101,58 @@
       "published": "2026-11-20T19:03:56+00:00"
     },
     {
-      "id": "b6973fc351e5f01d",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Should AI be judging our credit worthiness?",
-      "url": "https://www.bbc.co.uk/news/articles/c6d94pzk9vleo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-20T07:32:19+00:00"
-    },
-    {
-      "id": "eef4e09a583a941d",
+      "id": "2953e381defa6309",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "PF diz que não há conversas de Mendonça com Vorcaro",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/pf-diz-que-nao-ha-conversas-de-mendonca-com-vorcaro",
-      "published": "2026-11-20T19:34:00-03:00"
+      "title": "Dossiê mapeia desafios do ensino de matemática e sugere soluções",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/dossie-mapeia-desafios-do-ensino-de-matematica-e-sugere-solucoes",
+      "published": "2026-11-21T10:50:00-03:00"
     },
     {
-      "id": "ab583cb3ac2fd290",
+      "id": "607b4528dcb9d029",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "RS: ex-vereador está entre as vítimas da tempestade em Tupanciretã",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/rs-ex-vereador-esta-entre-vitimas-da-tempestade-em-tupancireta",
-      "published": "2026-11-20T19:17:00-03:00"
+      "title": "70% dos cursos de pedagogia dedicam apenas 2,5% da grade horária",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/70-dos-cursos-de-pedagogia-dedicam-apenas-25-da-grade-horaria",
+      "published": "2026-11-21T10:03:00-03:00"
     },
     {
-      "id": "28febcd24ea2233b",
+      "id": "d3c6d205495efbd0",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Renda de 73% de negras vítimas de violência é de até 2 salários mínimo",
-      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/renda-de-73-de-negras-vitimas-de-violencia-e-de-ate-2-salarios-minimo",
-      "published": "2026-11-20T18:59:00-03:00"
+      "title": "\"Policiais queriam vingança\", diz advogado da família de Kathlen Romeu",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/policiais-queriam-vinganca-diz-advogado-da-familia-de-kathlen-romeu",
+      "published": "2026-11-21T09:32:00-03:00"
     },
     {
-      "id": "b4f6d6308906a8c5",
+      "id": "c11434885596dd17",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Filme Camisas Negras retrata luta do Vasco contra o racismo em 1923",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/filme-camisas-negras-retrata-luta-do-vasco-contra-o-racismo-em-1923",
-      "published": "2026-11-20T18:41:00-03:00"
+      "title": "Especialista analisa impacto de reformas previdenciárias no país",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/especialista-analisa-impacto-de-reformas-previdenciarias-no-pais",
+      "published": "2026-11-21T08:56:00-03:00"
     },
     {
-      "id": "0954cfc86e3f0ce0",
+      "id": "d73c8d724cf6bd99",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Sociedade civil diz que COP31 poderá ser a pior da história",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/sociedade-civil-diz-que-cop31-podera-ser-pior-da-historia",
-      "published": "2026-11-20T18:20:00-03:00"
+      "title": "Feira Orgulho Nerd, em SP, tem cinema, oficinas e games",
+      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-11/feira-orgulho-nerd-em-sp-tem-cinema-oficinas-e-games",
+      "published": "2026-11-21T07:12:00-03:00"
     },
     {
-      "id": "ceba8df00ad2e601",
+      "id": "a39483950228cb8e",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Bolsonaro é internado com quadro de dor e distensão abdominal",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/bolsonaro-e-internado-com-quadro-de-dor-e-distens%C3%A3o-abdominal",
-      "published": "2026-11-20T18:12:00-03:00"
+      "title": "Portugal estreia com vitória de virada na Copa do Mundo de vela no RJ",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/portugal-estreia-com-vitoria-de-virada-na-copa-do-mundo-de-vela-no-rj",
+      "published": "2026-11-20T22:02:00-03:00"
     }
   ],
   "unavailable": []
