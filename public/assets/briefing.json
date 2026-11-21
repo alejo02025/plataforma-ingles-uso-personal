@@ -1,14 +1,23 @@
 {
-  "checkedAt": "2026-11-20T15:33:35.789206+00:00",
+  "checkedAt": "2026-11-21T00:00:22.784881+00:00",
   "stories": [
     {
-      "id": "57f7a6cabf16791e",
+      "id": "53ba164e0140f69f",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Tech stock sell-off drags markets down as Anthropic shares slide",
+      "url": "https://www.bbc.co.uk/news/articles/c6808ym10vzgo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-20T22:42:47+00:00"
+    },
+    {
+      "id": "b489ac03011e847a",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Russia targets Kyiv crossings days after Ukraine hits Crimean Bridge",
-      "url": "https://www.bbc.co.uk/news/articles/c6x29gn4pdn9o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-20T13:01:16+00:00"
+      "title": "UK to explore even closer ties with EU after agreeing deal, says Burnham",
+      "url": "https://www.bbc.co.uk/news/articles/c6jreyqgw4e9o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-20T17:49:48+00:00"
     },
     {
       "id": "b1ffe06b42b6644b",
@@ -17,16 +26,52 @@
       "source": "BBC News",
       "title": "Russian missile hits Poland as Ukraine's allies hold military exercise, says Tusk",
       "url": "https://www.bbc.co.uk/news/articles/cqx2x9dklxnro?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-20T13:52:04+00:00"
+      "published": "2026-11-20T16:54:29+00:00"
     },
     {
-      "id": "08e02bb46220c500",
+      "id": "397265b10097e3d9",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Nearly 600 women killed in South Africa within three months",
-      "url": "https://www.bbc.co.uk/news/articles/c69vwyjp0339o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-20T10:56:02+00:00"
+      "title": "French police officers sentenced for beating of music producer Michel Zecler",
+      "url": "https://www.bbc.co.uk/news/articles/ck9d7e9wvvweo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-20T22:37:09+00:00"
+    },
+    {
+      "id": "f1bb42fd1c541aea",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "In a year of AI solving maths problems, Anthropic may have just solved the biggest",
+      "url": "https://www.bbc.co.uk/news/articles/c6pqr2g7w059o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-20T23:08:57+00:00"
+    },
+    {
+      "id": "d88d0288efc8318c",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Gérard Depardieu and French author investigated over sexual allegations",
+      "url": "https://www.bbc.co.uk/news/articles/c9ly43pj10mvo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-20T19:45:20+00:00"
+    },
+    {
+      "id": "5ef06037f3faa4d5",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "GTA 6 sales hit $3.8bn in a single day - the biggest entertainment launch in history",
+      "url": "https://www.bbc.co.uk/news/articles/c9zr5nyv5dj2o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-20T22:53:24+00:00"
+    },
+    {
+      "id": "d020b8aa67dc2154",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Trump threatens ban on US firms building AI data centres overseas",
+      "url": "https://www.bbc.co.uk/news/articles/cmde1lw9y54ko?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-20T20:54:12+00:00"
     },
     {
       "id": "8543ddf4a5288125",
@@ -35,43 +80,7 @@
       "source": "BBC News",
       "title": "White House removes cyber-security chief after series of tech outages",
       "url": "https://www.bbc.co.uk/news/articles/cwz0k3nn5p5mo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-20T13:28:32+00:00"
-    },
-    {
-      "id": "ff5afed7ad5ce552",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "South Korea catches 111 students with new measures against exam cheating",
-      "url": "https://www.bbc.co.uk/news/articles/cm3vgw1xevvwo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-20T10:16:19+00:00"
-    },
-    {
-      "id": "c8cbc07c0aa7aeb6",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Nigeria moves to end jail terms for attempted suicide",
-      "url": "https://www.bbc.co.uk/news/articles/cm3rgnvxj339o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-20T06:32:17+00:00"
-    },
-    {
-      "id": "53ba164e0140f69f",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Anthropic shares fall a day after blockbuster opening",
-      "url": "https://www.bbc.co.uk/news/articles/c6808ym10vzgo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-20T15:16:52+00:00"
-    },
-    {
-      "id": "5ef06037f3faa4d5",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "GTA 6 drives spike in download demand, as estimated sales top $2.3bn",
-      "url": "https://www.bbc.co.uk/news/articles/c9zr5nyv5dj2o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-20T13:08:30+00:00"
+      "published": "2026-11-20T19:03:56+00:00"
     },
     {
       "id": "b6973fc351e5f01d",
@@ -83,76 +92,58 @@
       "published": "2026-11-20T07:32:19+00:00"
     },
     {
-      "id": "4bbafec6b8ea82af",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Tens of thousands of UK fridges secured from hackers in secret nationwide operation",
-      "url": "https://www.bbc.co.uk/news/articles/c6eq49zyx7p4o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-20T00:02:07+00:00"
-    },
-    {
-      "id": "8febbadd7da71c0f",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Anthropic becomes one of world's most valuable public companies in stock market debut",
-      "url": "https://www.bbc.co.uk/news/articles/c3x29ggenz12o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-19T23:33:51+00:00"
-    },
-    {
-      "id": "c9351ede7b72ac1d",
+      "id": "eef4e09a583a941d",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Tempestade deixa um morto em Tupanciretã, no Rio Grande do Sul",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/tempestade-deixa-um-morto-em-tupancireta-no-rio-grande-do-sul",
-      "published": "2026-11-20T11:42:00-03:00"
+      "title": "PF diz que não há conversas de Mendonça com Vorcaro",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/pf-diz-que-nao-ha-conversas-de-mendonca-com-vorcaro",
+      "published": "2026-11-20T19:34:00-03:00"
     },
     {
-      "id": "9e2ccf3a851e4cad",
+      "id": "ab583cb3ac2fd290",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Fachin manda quebrar sigilo de relatório da PF com menções a Mendonça",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/fachin-manda-quebrar-sigilo-de-relatorio-da-pf-com-mencoes-mendonca",
-      "published": "2026-11-20T10:34:00-03:00"
+      "title": "RS: ex-vereador está entre as vítimas da tempestade em Tupanciretã",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/rs-ex-vereador-esta-entre-vitimas-da-tempestade-em-tupancireta",
+      "published": "2026-11-20T19:17:00-03:00"
     },
     {
-      "id": "aece9256f9b72cd4",
+      "id": "28febcd24ea2233b",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Quase 90% das usinas eólicas do país têm alertas socioambientais",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/quase-90-das-usinas-eolicas-do-pais-tem-alertas-socioambientais",
-      "published": "2026-11-20T09:32:00-03:00"
+      "title": "Renda de 73% de negras vítimas de violência é de até 2 salários mínimo",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/renda-de-73-de-negras-vitimas-de-violencia-e-de-ate-2-salarios-minimo",
+      "published": "2026-11-20T18:59:00-03:00"
     },
     {
-      "id": "0b39d7affc25af1a",
+      "id": "b4f6d6308906a8c5",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Brasileirão: Rádio Nacional transmite duelo entre Palmeiras e Flamengo",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/brasileirao-radio-nacional-transmite-duelo-entre-palmeiras-e-flamengo-0",
-      "published": "2026-11-20T08:32:00-03:00"
+      "title": "Filme Camisas Negras retrata luta do Vasco contra o racismo em 1923",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/filme-camisas-negras-retrata-luta-do-vasco-contra-o-racismo-em-1923",
+      "published": "2026-11-20T18:41:00-03:00"
     },
     {
-      "id": "4a1f1b52866cc999",
+      "id": "0954cfc86e3f0ce0",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Termina nesta sexta prazo para pedir reaplicação do Enem 2026",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/termina-nesta-sexta-prazo-para-pedir-reaplicacao-do-enem-2026",
-      "published": "2026-11-20T08:00:00-03:00"
+      "title": "Sociedade civil diz que COP31 poderá ser a pior da história",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/sociedade-civil-diz-que-cop31-podera-ser-pior-da-historia",
+      "published": "2026-11-20T18:20:00-03:00"
     },
     {
-      "id": "ed3afb74441d0787",
+      "id": "ceba8df00ad2e601",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Mulheres retomam defesa de indicação inédita de ministra negra ao STF",
-      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/mulheres-retomam-defesa-de-indicacao-inedita-de-ministra-negra-ao-stf",
-      "published": "2026-11-20T07:50:00-03:00"
+      "title": "Bolsonaro é internado com quadro de dor e distensão abdominal",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/bolsonaro-e-internado-com-quadro-de-dor-e-distens%C3%A3o-abdominal",
+      "published": "2026-11-20T18:12:00-03:00"
     }
   ],
   "unavailable": []
