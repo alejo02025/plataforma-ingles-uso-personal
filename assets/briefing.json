@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-21T14:44:21.546918+00:00",
+  "checkedAt": "2026-11-21T23:25:18.959542+00:00",
   "stories": [
     {
       "id": "714dcc77cc1a9fcd",
@@ -11,13 +11,13 @@
       "published": "2026-11-21T13:17:38+00:00"
     },
     {
-      "id": "53ba164e0140f69f",
+      "id": "a9bb7c6e29da205c",
       "language": "en",
-      "topic": "Technology",
+      "topic": "World",
       "source": "BBC News",
-      "title": "Tech stock sell-off drags markets down as Anthropic shares slide",
-      "url": "https://www.bbc.co.uk/news/articles/c6808ym10vzgo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-20T22:42:47+00:00"
+      "title": "Russia-bound ship attacked in Gulf of Finland",
+      "url": "https://www.bbc.co.uk/news/articles/cj752ddve27ko?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-21T19:20:22+00:00"
     },
     {
       "id": "e54ec07f73645f1c",
@@ -26,7 +26,16 @@
       "source": "BBC News",
       "title": "Fight over fossil fuels leaves COP31 climate talks in deadlock",
       "url": "https://www.bbc.co.uk/news/articles/c6ly5w40eg07o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-21T09:52:11+00:00"
+      "published": "2026-11-21T22:19:43+00:00"
+    },
+    {
+      "id": "d53e011b61eef9a5",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Mexican drug lord on FBI's 10 most wanted list arrested in shoot-out",
+      "url": "https://www.bbc.co.uk/news/articles/ckz749ey0r75o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-21T21:05:29+00:00"
     },
     {
       "id": "1c64d44e2f0cbfcc",
@@ -35,25 +44,16 @@
       "source": "BBC News",
       "title": "FBI reportedly investigating apparent hack of its criminal database",
       "url": "https://www.bbc.co.uk/news/articles/cvze7de86pk3o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-21T09:34:20+00:00"
+      "published": "2026-11-21T16:35:15+00:00"
     },
     {
-      "id": "397265b10097e3d9",
+      "id": "c520d2a1ddb57e76",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "French police officers sentenced for beating of music producer Michel Zecler",
-      "url": "https://www.bbc.co.uk/news/articles/ck9d7e9wvvweo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-20T22:37:09+00:00"
-    },
-    {
-      "id": "81231055e0a0be42",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Man convicted of starting Palisades fire in Los Angeles",
-      "url": "https://www.bbc.co.uk/news/articles/c64gn0gy8rj3o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-21T04:34:00+00:00"
+      "title": "Denmark accuses Russia of plotting to assassinate US-Ukrainian rapper",
+      "url": "https://www.bbc.co.uk/news/articles/cmde1lj4yjxno?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-21T10:26:36+00:00"
     },
     {
       "id": "47de4a29b250ca71",
@@ -83,6 +83,15 @@
       "published": "2026-11-20T22:53:24+00:00"
     },
     {
+      "id": "53ba164e0140f69f",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Tech stock sell-off drags markets down as Anthropic shares slide",
+      "url": "https://www.bbc.co.uk/news/articles/c6808ym10vzgo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-20T22:42:47+00:00"
+    },
+    {
       "id": "d020b8aa67dc2154",
       "language": "en",
       "topic": "Technology",
@@ -101,58 +110,58 @@
       "published": "2026-11-20T19:03:56+00:00"
     },
     {
-      "id": "2953e381defa6309",
+      "id": "b13cb03e2a9dd59f",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Dossiê mapeia desafios do ensino de matemática e sugere soluções",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/dossie-mapeia-desafios-do-ensino-de-matematica-e-sugere-solucoes",
-      "published": "2026-11-21T10:50:00-03:00"
+      "title": "Deputada Talíria Petrone é ameaçada de morte e violência sexual",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/deputada-taliria-petrone-e-ameacada-de-morte-e-violencia-sexual",
+      "published": "2026-11-21T18:59:00-03:00"
     },
     {
-      "id": "607b4528dcb9d029",
+      "id": "985466b5674c7b92",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "70% dos cursos de pedagogia dedicam apenas 2,5% da grade horária",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/70-dos-cursos-de-pedagogia-dedicam-apenas-25-da-grade-horaria",
-      "published": "2026-11-21T10:03:00-03:00"
+      "title": "Flamengo empata com Palmeiras e é campeão brasileiro de 2026",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/flamengo-empata-com-palmeiras-e-e-campeao-brasileiro-de-2026",
+      "published": "2026-11-21T18:39:00-03:00"
     },
     {
-      "id": "d3c6d205495efbd0",
+      "id": "b57431b668c89123",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "\"Policiais queriam vingança\", diz advogado da família de Kathlen Romeu",
-      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/policiais-queriam-vinganca-diz-advogado-da-familia-de-kathlen-romeu",
-      "published": "2026-11-21T09:32:00-03:00"
+      "title": "Força Nacional do SUS avalia instalar posto médico em Tupanciretã",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/forca-nacional-do-sus-avalia-instalar-posto-medico-em-tupancireta",
+      "published": "2026-11-21T18:28:00-03:00"
     },
     {
-      "id": "c11434885596dd17",
+      "id": "da65dcdc6deed936",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Especialista analisa impacto de reformas previdenciárias no país",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/especialista-analisa-impacto-de-reformas-previdenciarias-no-pais",
-      "published": "2026-11-21T08:56:00-03:00"
+      "title": "Mostra apresenta legado de Milton Santos para pensar o Brasil",
+      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-11/mostra-apresenta-legado-de-milton-santos-para-pensar-o-brasil",
+      "published": "2026-11-21T18:04:00-03:00"
     },
     {
-      "id": "d73c8d724cf6bd99",
+      "id": "860e11669b74506c",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Feira Orgulho Nerd, em SP, tem cinema, oficinas e games",
-      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-11/feira-orgulho-nerd-em-sp-tem-cinema-oficinas-e-games",
-      "published": "2026-11-21T07:12:00-03:00"
+      "title": "Brasil vence Irlanda por 2 a 1 em estreia na Copa do Mundo Sub-17",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/brasil-vence-irlanda-por-2-1-em-estreia-na-copa-do-mundo-sub-17",
+      "published": "2026-11-21T16:51:00-03:00"
     },
     {
-      "id": "a39483950228cb8e",
+      "id": "7b07ba4bfe3a97e7",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Portugal estreia com vitória de virada na Copa do Mundo de vela no RJ",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/portugal-estreia-com-vitoria-de-virada-na-copa-do-mundo-de-vela-no-rj",
-      "published": "2026-11-20T22:02:00-03:00"
+      "title": "Cocal dos Alves: como a matemática mudou destino de município do Piauí",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/cocal-dos-alves-como-matematica-mudou-destino-de-municipio-do-piaui",
+      "published": "2026-11-21T16:43:00-03:00"
     }
   ],
   "unavailable": []
