@@ -1,6 +1,51 @@
 {
-  "checkedAt": "2026-11-22T14:40:37.704383+00:00",
+  "checkedAt": "2026-11-22T23:39:16.502036+00:00",
   "stories": [
+    {
+      "id": "e4dc3fa8f4ea0ce6",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "COP31 fails to reach major climate deal as talks expose deep divisions",
+      "url": "https://www.bbc.co.uk/news/articles/cqwy06zrd26lo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-22T18:17:59+00:00"
+    },
+    {
+      "id": "4d2dfd34c10fd72a",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "What's next after no deal at COP31 climate talks?",
+      "url": "https://www.bbc.co.uk/news/videos/cr1ewge81q4qo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-22T18:57:24+00:00"
+    },
+    {
+      "id": "cb29a20e38ef835b",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Explosion on Russian ship at Libya port caused by suspected drone attack, officials say",
+      "url": "https://www.bbc.co.uk/news/articles/cr894gjz0j0yo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-22T20:28:09+00:00"
+    },
+    {
+      "id": "3a79b8d5c4b42531",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "'Danger seems greater all the time': Ukrainians search for missing after Russian strikes",
+      "url": "https://www.bbc.co.uk/news/videos/cre3dvd1k9y1o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-22T22:37:43+00:00"
+    },
+    {
+      "id": "a9bb7c6e29da205c",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Russia-bound ship towed away after it was attacked in Gulf of Finland",
+      "url": "https://www.bbc.co.uk/news/articles/cj752ddve27ko?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-22T17:18:26+00:00"
+    },
     {
       "id": "1702b449ef0b09d7",
       "language": "en",
@@ -9,51 +54,6 @@
       "title": "South Korea education minister resigns over exam cheating scandal",
       "url": "https://www.bbc.co.uk/news/articles/cw3dgk29d37no?at_medium=RSS&at_campaign=rss",
       "published": "2026-11-22T09:20:45+00:00"
-    },
-    {
-      "id": "a9bb7c6e29da205c",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Russia-bound ship still on fire after attack in Gulf of Finland",
-      "url": "https://www.bbc.co.uk/news/articles/cj752ddve27ko?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-22T11:25:14+00:00"
-    },
-    {
-      "id": "d53e011b61eef9a5",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Mexican drug lord on FBI's 10 most wanted list arrested in shoot-out",
-      "url": "https://www.bbc.co.uk/news/articles/ckz749ey0r75o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-22T01:25:03+00:00"
-    },
-    {
-      "id": "737a9facdd26faa1",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Three killed and dozens missing after fire at Indonesian factory",
-      "url": "https://www.bbc.co.uk/news/articles/cw8dvg5pgm0eo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-22T14:05:20+00:00"
-    },
-    {
-      "id": "f52c822b3d4b2383",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Italian jeweller and businessman Paolo Bulgari dies aged 89",
-      "url": "https://www.bbc.co.uk/news/articles/c8e39qk5vrpdo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-22T07:12:41+00:00"
-    },
-    {
-      "id": "714dcc77cc1a9fcd",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Zelensky says Crimean Bridge strikes 'fair response' as he meets UK's Streeting",
-      "url": "https://www.bbc.co.uk/news/articles/c6wy0qj7w5zqo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-21T13:17:38+00:00"
     },
     {
       "id": "47de4a29b250ca71",
@@ -110,58 +110,58 @@
       "published": "2026-11-20T19:03:56+00:00"
     },
     {
-      "id": "ca1adbb12122f903",
+      "id": "a5cb09b47936c386",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "MEC apresenta programa Toda Matemática em evento nacional no Maranhão",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/mec-apresenta-programa-toda-matematica-em-evento-nacional-no-maranhao",
-      "published": "2026-11-22T10:23:00-03:00"
+      "title": "Escolas já podem se inscrever para a Olitef 2027",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/escolas-ja-podem-se-inscrever-para-olitef-2027",
+      "published": "2026-11-22T19:00:00-03:00"
     },
     {
-      "id": "5f48d13fdcf19ebd",
+      "id": "435c4aa4854fff2c",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "IA na educação exige capacitação de professores, dizem especialistas",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/ia-na-educacao-exige-capacitacao-de-professores-dizem-especial",
-      "published": "2026-11-22T09:32:00-03:00"
+      "title": "Temporais atingem 46 municípios e mais de 25 mil pessoas no RS",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/temporais-atingem-46-municipios-e-mais-de-25-mil-pessoas-no-rs",
+      "published": "2026-11-22T18:31:00-03:00"
     },
     {
-      "id": "8d71c9c0f3f23c42",
+      "id": "8b911c920b01acb5",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Serviço Geológico do Brasil traz retorno de R$ 14 por real investido",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/servico-geologico-do-brasil-traz-retorno-de-r-14-por-real-investido",
-      "published": "2026-11-22T09:21:00-03:00"
+      "title": "“Não vamos recuar”, promete organizador de parada LGBTI+ do Rio",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/nao-vamos-recuar-promete-organizador-de-parada-lgbti-do-rio",
+      "published": "2026-11-22T18:29:00-03:00"
     },
     {
-      "id": "e8ac879639075579",
+      "id": "556054ada8a6a4d6",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "CNJ cria regra para corrigir registros por mortes em ações policiais",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/cnj-cria-regra-para-corrigir-registros-por-mortes-em-acoes-policiais",
-      "published": "2026-11-22T08:36:00-03:00"
+      "title": "Nova plataforma de streaming exibirá filmes de países do Brics",
+      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-11/nova-plataforma-de-streaming-exibira-filmes-de-paises-do-brics",
+      "published": "2026-11-22T17:05:00-03:00"
     },
     {
-      "id": "315c75491faa04c4",
+      "id": "34d51e8e11564207",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Dez vezes Flamengo",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/dez-vezes-flamengo",
-      "published": "2026-11-21T19:49:00-03:00"
+      "title": "Simpósio de matemática premia professores e expõe soluções de ensino",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/simposio-de-matematica-premia-professores-e-expoe-solucoes-de-ensino",
+      "published": "2026-11-22T17:01:00-03:00"
     },
     {
-      "id": "76c77f5e0b0b1b07",
+      "id": "6a820293a46e2bf5",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Sobe para 4 o número de mortos em Tupanciretã, no Sul",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/sobe-para-4-o-numero-de-mortos-em-tupancireta-no-sul",
-      "published": "2026-11-21T19:39:00-03:00"
+      "title": "Tempestades no Paraná deixam mais de 250 casas danificadas",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/tempestades-no-parana-deixam-mais-de-250-casas-danificadas",
+      "published": "2026-11-22T16:41:00-03:00"
     }
   ],
   "unavailable": []
