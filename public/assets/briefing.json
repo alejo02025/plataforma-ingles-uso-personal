@@ -1,59 +1,104 @@
 {
-  "checkedAt": "2026-11-22T23:39:16.502036+00:00",
+  "checkedAt": "2026-11-23T18:21:34.186469+00:00",
   "stories": [
-    {
-      "id": "e4dc3fa8f4ea0ce6",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "COP31 fails to reach major climate deal as talks expose deep divisions",
-      "url": "https://www.bbc.co.uk/news/articles/cqwy06zrd26lo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-22T18:17:59+00:00"
-    },
-    {
-      "id": "4d2dfd34c10fd72a",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "What's next after no deal at COP31 climate talks?",
-      "url": "https://www.bbc.co.uk/news/videos/cr1ewge81q4qo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-22T18:57:24+00:00"
-    },
     {
       "id": "cb29a20e38ef835b",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Explosion on Russian ship at Libya port caused by suspected drone attack, officials say",
+      "title": "Russian warship hit by Ukrainian drones in Libya, Zelensky says",
       "url": "https://www.bbc.co.uk/news/articles/cr894gjz0j0yo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-22T20:28:09+00:00"
+      "published": "2026-11-23T15:41:23+00:00"
     },
     {
-      "id": "3a79b8d5c4b42531",
+      "id": "1221712236f0eeea",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "'Danger seems greater all the time': Ukrainians search for missing after Russian strikes",
-      "url": "https://www.bbc.co.uk/news/videos/cre3dvd1k9y1o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-22T22:37:43+00:00"
+      "title": "Iranian authorities flog singer who performed without hijab, lawyers say",
+      "url": "https://www.bbc.co.uk/news/articles/cq1j6585l5g6o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-23T18:04:20+00:00"
     },
     {
-      "id": "a9bb7c6e29da205c",
+      "id": "8006ba0f9c438f1c",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Russia-bound ship towed away after it was attacked in Gulf of Finland",
-      "url": "https://www.bbc.co.uk/news/articles/cj752ddve27ko?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-22T17:18:26+00:00"
+      "title": "'I want to destroy capitalism, not France': On the streets with the French ultra left",
+      "url": "https://www.bbc.co.uk/news/articles/cw074km48myeo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-23T13:09:52+00:00"
     },
     {
-      "id": "1702b449ef0b09d7",
+      "id": "df8cf82ed3b7a0b0",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "South Korea education minister resigns over exam cheating scandal",
-      "url": "https://www.bbc.co.uk/news/articles/cw3dgk29d37no?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-22T09:20:45+00:00"
+      "title": "What failure of COP31 reveals about a divided world",
+      "url": "https://www.bbc.co.uk/news/articles/cky970n83rvjo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-23T17:24:25+00:00"
+    },
+    {
+      "id": "81800622d8bc9a04",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Israeli attacks have turned Gaza into 'toxic wasteland', Oxfam says",
+      "url": "https://www.bbc.co.uk/news/articles/c8r4gzzxvxl3o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-23T17:07:25+00:00"
+    },
+    {
+      "id": "593cf9abec850eba",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "India pledges $1.6bn to Nepal in reset of ties",
+      "url": "https://www.bbc.co.uk/news/articles/cwx2ervemj4ko?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-23T13:39:30+00:00"
+    },
+    {
+      "id": "90dea8d2d19230c9",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Nvidia shares up nearly 33% and tech stocks rally after Jensen Huang returns",
+      "url": "https://www.bbc.co.uk/news/articles/cq62pn6j42jko?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-23T17:42:37+00:00"
+    },
+    {
+      "id": "9194ddb079718aec",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "How important are Nvidia and Jensen Huang to the US economy?",
+      "url": "https://www.bbc.co.uk/news/articles/c68798vdprwpo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-23T16:12:35+00:00"
+    },
+    {
+      "id": "00916c7a76a8c68a",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "The rise and fall and rise again of Jensen Huang",
+      "url": "https://www.bbc.co.uk/news/articles/cmze750zg0jeo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-23T15:49:52+00:00"
+    },
+    {
+      "id": "c2c96bd84b3ba5df",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "GTA 6 hacker released on licence with warning 'don't let this happen again'",
+      "url": "https://www.bbc.co.uk/news/articles/cqpv9kr7pxmro?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-23T14:08:50+00:00"
+    },
+    {
+      "id": "6352bd0d59b48f2b",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "San Francisco is enjoying an AI boom, but worries about a crash are growing",
+      "url": "https://www.bbc.co.uk/news/articles/cqe9k09j9jv4o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-23T00:08:00+00:00"
     },
     {
       "id": "47de4a29b250ca71",
@@ -65,103 +110,58 @@
       "published": "2026-11-21T00:06:11+00:00"
     },
     {
-      "id": "f1bb42fd1c541aea",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "In a year of AI solving maths problems, an Anthropic worker says he may have cracked the biggest",
-      "url": "https://www.bbc.co.uk/news/articles/c6pqr2g7w059o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-20T23:08:57+00:00"
-    },
-    {
-      "id": "5ef06037f3faa4d5",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "GTA 6 sales hit $3.8bn in a single day - the biggest entertainment launch in history",
-      "url": "https://www.bbc.co.uk/news/articles/c9zr5nyv5dj2o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-20T22:53:24+00:00"
-    },
-    {
-      "id": "53ba164e0140f69f",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Tech stock sell-off drags markets down as Anthropic shares slide",
-      "url": "https://www.bbc.co.uk/news/articles/c6808ym10vzgo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-20T22:42:47+00:00"
-    },
-    {
-      "id": "d020b8aa67dc2154",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Trump threatens ban on US firms building AI data centres overseas",
-      "url": "https://www.bbc.co.uk/news/articles/cmde1lw9y54ko?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-20T20:54:12+00:00"
-    },
-    {
-      "id": "8543ddf4a5288125",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "White House removes cyber-security chief after series of tech outages",
-      "url": "https://www.bbc.co.uk/news/articles/cwz0k3nn5p5mo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-20T19:03:56+00:00"
-    },
-    {
-      "id": "a5cb09b47936c386",
+      "id": "abaf41cf720f5057",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Escolas já podem se inscrever para a Olitef 2027",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/escolas-ja-podem-se-inscrever-para-olitef-2027",
-      "published": "2026-11-22T19:00:00-03:00"
+      "title": "Brasil defende fortalecimento da cooperação internacional em saúde",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/brasil-defende-fortalecimento-da-cooperacao-internacional-em-saude",
+      "published": "2026-11-23T14:01:00-03:00"
     },
     {
-      "id": "435c4aa4854fff2c",
+      "id": "91146aed0636496c",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Temporais atingem 46 municípios e mais de 25 mil pessoas no RS",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/temporais-atingem-46-municipios-e-mais-de-25-mil-pessoas-no-rs",
-      "published": "2026-11-22T18:31:00-03:00"
+      "title": "Abin apresenta estratégia para criptografia pós-quântica",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/abin-apresenta-estrategia-para-criptografia-pos-quantica",
+      "published": "2026-11-23T13:29:00-03:00"
     },
     {
-      "id": "8b911c920b01acb5",
+      "id": "ce3faf358fedea87",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "“Não vamos recuar”, promete organizador de parada LGBTI+ do Rio",
-      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/nao-vamos-recuar-promete-organizador-de-parada-lgbti-do-rio",
-      "published": "2026-11-22T18:29:00-03:00"
+      "title": "Uso racional de antibióticos pode diminuir bactérias resistentes",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/uso-racional-de-antibioticos-pode-diminuir-bacterias-resistentes",
+      "published": "2026-11-23T13:17:00-03:00"
     },
     {
-      "id": "556054ada8a6a4d6",
+      "id": "6f1148099851e2a4",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Nova plataforma de streaming exibirá filmes de países do Brics",
-      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-11/nova-plataforma-de-streaming-exibira-filmes-de-paises-do-brics",
-      "published": "2026-11-22T17:05:00-03:00"
+      "title": "Anvisa aprova novo medicamento para tratar câncer de mama",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/anvisa-aprova-novo-medicamento-para-tratar-cancer-de-mama",
+      "published": "2026-11-23T12:29:00-03:00"
     },
     {
-      "id": "34d51e8e11564207",
+      "id": "9d5ceae97d1fe20d",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Simpósio de matemática premia professores e expõe soluções de ensino",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/simposio-de-matematica-premia-professores-e-expoe-solucoes-de-ensino",
-      "published": "2026-11-22T17:01:00-03:00"
+      "title": "Chuvas deixam 34 desalojados e um desaparecido em São Paulo",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/chuvas-deixam-34-desalojados-e-um-desaparecido-em-sao-paulo",
+      "published": "2026-11-23T11:52:00-03:00"
     },
     {
-      "id": "6a820293a46e2bf5",
+      "id": "2dc6bfab03986990",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Tempestades no Paraná deixam mais de 250 casas danificadas",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/tempestades-no-parana-deixam-mais-de-250-casas-danificadas",
-      "published": "2026-11-22T16:41:00-03:00"
+      "title": "Anvisa manda recolher xampu anticaspa para crianças",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/anvisa-manda-recolher-xampu-anticaspa-para-criancas",
+      "published": "2026-11-23T10:36:00-03:00"
     }
   ],
   "unavailable": []
