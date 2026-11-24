@@ -1,68 +1,86 @@
 {
-  "checkedAt": "2026-11-23T18:21:34.186469+00:00",
+  "checkedAt": "2026-11-24T17:52:58.056054+00:00",
   "stories": [
     {
-      "id": "cb29a20e38ef835b",
+      "id": "2a1422ea57bb08bb",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Russian warship hit by Ukrainian drones in Libya, Zelensky says",
-      "url": "https://www.bbc.co.uk/news/articles/cr894gjz0j0yo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-23T15:41:23+00:00"
+      "title": "Nvidia shares slide as Trump's role in Jensen Huang's comeback questioned by US politicians",
+      "url": "https://www.bbc.co.uk/news/articles/crpdw1qx7jgxo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-24T17:04:20+00:00"
     },
     {
-      "id": "1221712236f0eeea",
+      "id": "c2d8990c4b9f1e11",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Iranian authorities flog singer who performed without hijab, lawyers say",
-      "url": "https://www.bbc.co.uk/news/articles/cq1j6585l5g6o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-23T18:04:20+00:00"
+      "title": "What Jensen Huang's return teaches China's Xi about Trump",
+      "url": "https://www.bbc.co.uk/news/articles/c63rgpy50x98o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-24T07:26:27+00:00"
     },
     {
-      "id": "8006ba0f9c438f1c",
+      "id": "8a11be66dc0b8ac7",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "'I want to destroy capitalism, not France': On the streets with the French ultra left",
-      "url": "https://www.bbc.co.uk/news/articles/cw074km48myeo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-23T13:09:52+00:00"
+      "title": "Nato chief vows defence against space threat after Russian nuclear satellite reports",
+      "url": "https://www.bbc.co.uk/news/articles/c9x2er1ry2mzo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-24T10:58:51+00:00"
     },
     {
-      "id": "df8cf82ed3b7a0b0",
+      "id": "318e9d12844de6ba",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "What failure of COP31 reveals about a divided world",
-      "url": "https://www.bbc.co.uk/news/articles/cky970n83rvjo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-23T17:24:25+00:00"
+      "title": "Land mine casualties soar in Syria, two years after war",
+      "url": "https://www.bbc.co.uk/news/articles/c893rl37ywdgo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-24T15:17:28+00:00"
     },
     {
-      "id": "81800622d8bc9a04",
+      "id": "4acc4486706bb165",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Israeli attacks have turned Gaza into 'toxic wasteland', Oxfam says",
-      "url": "https://www.bbc.co.uk/news/articles/c8r4gzzxvxl3o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-23T17:07:25+00:00"
+      "title": "Indian government has 'lost the plot', says 'cockroach' leader barred from UK flight",
+      "url": "https://www.bbc.co.uk/news/articles/cm5y1ezx2gqyo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-24T16:37:04+00:00"
     },
     {
-      "id": "593cf9abec850eba",
+      "id": "e8a823548b9b67b0",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "India pledges $1.6bn to Nepal in reset of ties",
-      "url": "https://www.bbc.co.uk/news/articles/cwx2ervemj4ko?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-23T13:39:30+00:00"
+      "title": "Israeli air strike kills Hamas internal security chief in Gaza",
+      "url": "https://www.bbc.co.uk/news/articles/c6rrg7ggq190o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-24T15:35:53+00:00"
+    },
+    {
+      "id": "217d643100a86d27",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Helpful but awkward: My week with Meta's Muse ahead of its UK launch",
+      "url": "https://www.bbc.co.uk/news/articles/c9gkld2l38y6o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-24T09:33:00+00:00"
+    },
+    {
+      "id": "66403463587777bc",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "US to blacklist Asian AI firm Megaspeed after Nvidia scandal",
+      "url": "https://www.bbc.co.uk/news/articles/cv98xpg5dg5zo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-23T23:16:08+00:00"
     },
     {
       "id": "90dea8d2d19230c9",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "Nvidia shares up nearly 33% and tech stocks rally after Jensen Huang returns",
+      "title": "Nvidia value climbs by almost $1tn and tech stocks rally after Jensen Huang returns",
       "url": "https://www.bbc.co.uk/news/articles/cq62pn6j42jko?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-23T17:42:37+00:00"
+      "published": "2026-11-23T21:23:42+00:00"
     },
     {
       "id": "9194ddb079718aec",
@@ -83,85 +101,58 @@
       "published": "2026-11-23T15:49:52+00:00"
     },
     {
-      "id": "c2c96bd84b3ba5df",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "GTA 6 hacker released on licence with warning 'don't let this happen again'",
-      "url": "https://www.bbc.co.uk/news/articles/cqpv9kr7pxmro?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-23T14:08:50+00:00"
-    },
-    {
-      "id": "6352bd0d59b48f2b",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "San Francisco is enjoying an AI boom, but worries about a crash are growing",
-      "url": "https://www.bbc.co.uk/news/articles/cqe9k09j9jv4o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-23T00:08:00+00:00"
-    },
-    {
-      "id": "47de4a29b250ca71",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Can AI really help spot Black Friday deals? We put it to the test",
-      "url": "https://www.bbc.co.uk/news/articles/cw8dv4jmnle2o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-21T00:06:11+00:00"
-    },
-    {
-      "id": "abaf41cf720f5057",
+      "id": "284d00fd40c1c297",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Brasil defende fortalecimento da cooperação internacional em saúde",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/brasil-defende-fortalecimento-da-cooperacao-internacional-em-saude",
-      "published": "2026-11-23T14:01:00-03:00"
+      "title": "Ministério Público pede intervenção judicial no Corinthians por dívida",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/ministerio-publico-pede-intervencao-judicial-no-corinthians-por-divida",
+      "published": "2026-11-24T13:55:00-03:00"
     },
     {
-      "id": "91146aed0636496c",
+      "id": "37d4d62e71e7b74f",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Abin apresenta estratégia para criptografia pós-quântica",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/abin-apresenta-estrategia-para-criptografia-pos-quantica",
-      "published": "2026-11-23T13:29:00-03:00"
+      "title": "BCs de países de língua portuguesa criam rede de cooperação",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/bcs-de-paises-de-lingua-portuguesa-criam-rede-de-cooperacao",
+      "published": "2026-11-24T13:22:00-03:00"
     },
     {
-      "id": "ce3faf358fedea87",
+      "id": "abb4c745ae15a4f7",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Uso racional de antibióticos pode diminuir bactérias resistentes",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/uso-racional-de-antibioticos-pode-diminuir-bacterias-resistentes",
-      "published": "2026-11-23T13:17:00-03:00"
+      "title": "Cidade de São Paulo encerra transmissão de casos importados de sarampo",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/cidade-de-sao-paulo-encerra-transmissao-de-casos-importados-de-sarampo",
+      "published": "2026-11-24T13:03:00-03:00"
     },
     {
-      "id": "6f1148099851e2a4",
+      "id": "bda36a6ebb6de17d",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Anvisa aprova novo medicamento para tratar câncer de mama",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/anvisa-aprova-novo-medicamento-para-tratar-cancer-de-mama",
-      "published": "2026-11-23T12:29:00-03:00"
+      "title": "Arrecadação federal atinge R$ 294 bilhões e bate recorde para outubro",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/arrecadacao-federal-atinge-r-294-bilhoes-e-bate-recorde-para-outubro",
+      "published": "2026-11-24T12:57:00-03:00"
     },
     {
-      "id": "9d5ceae97d1fe20d",
+      "id": "8b8746cc6c1b5151",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Chuvas deixam 34 desalojados e um desaparecido em São Paulo",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/chuvas-deixam-34-desalojados-e-um-desaparecido-em-sao-paulo",
-      "published": "2026-11-23T11:52:00-03:00"
+      "title": "Brasília International Film Festival 2026 chega a Paraty",
+      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-11/brasilia-international-film-festival-2026-chega-paraty",
+      "published": "2026-11-24T12:21:00-03:00"
     },
     {
-      "id": "2dc6bfab03986990",
+      "id": "e5f8a5eff0226d0f",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Anvisa manda recolher xampu anticaspa para crianças",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/anvisa-manda-recolher-xampu-anticaspa-para-criancas",
-      "published": "2026-11-23T10:36:00-03:00"
+      "title": "Anvisa determina apreensão de água mineral por falhas na fabricação",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/anvisa-determina-apreensao-de-agua-mineral-por-falhas-na-fabricacao",
+      "published": "2026-11-24T11:28:00-03:00"
     }
   ],
   "unavailable": []
