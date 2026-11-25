@@ -1,6 +1,42 @@
 {
-  "checkedAt": "2026-11-25T02:33:52.782613+00:00",
+  "checkedAt": "2026-11-25T17:20:11.238380+00:00",
   "stories": [
+    {
+      "id": "4980e212d8f2fd41",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Russia's own figures show it has lost nearly 500,000 people in Ukraine war",
+      "url": "https://www.bbc.co.uk/news/articles/cmx27g533zwyo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-25T12:21:49+00:00"
+    },
+    {
+      "id": "209b69b840618609",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "My family were killed in Ukraine. My mum blamed Zelensky's troops - the truth is complicated",
+      "url": "https://www.bbc.co.uk/news/articles/cw24e17v9e51o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-25T00:54:13+00:00"
+    },
+    {
+      "id": "6cd45e2d2b78eb32",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Close-up images to be revealed of asteroid deliberately hit to test ability to protect Earth",
+      "url": "https://www.bbc.co.uk/news/articles/cw8dv112r5gmo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-25T06:00:36+00:00"
+    },
+    {
+      "id": "5d6d58571fb0b25a",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Five Russian military jets hit in airfield strike, says Ukraine",
+      "url": "https://www.bbc.co.uk/news/articles/ck9q8xp5r5pgo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-25T14:46:41+00:00"
+    },
     {
       "id": "2a1422ea57bb08bb",
       "language": "en",
@@ -8,52 +44,43 @@
       "source": "BBC News",
       "title": "US attorney general dodges questions about Nvidia investigation",
       "url": "https://www.bbc.co.uk/news/articles/crpdw1qx7jgxo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-24T21:19:42+00:00"
+      "published": "2026-11-25T03:44:07+00:00"
     },
     {
-      "id": "a77a44f3631df568",
+      "id": "931118a83c11690e",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "French ex-President Sarkozy and wife Carla Bruni to face trial",
-      "url": "https://www.bbc.co.uk/news/articles/c65y17pwv1z7o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-24T16:49:07+00:00"
-    },
-    {
-      "id": "4acc4486706bb165",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Indian government has 'lost the plot', says 'cockroach' leader barred from UK flight",
-      "url": "https://www.bbc.co.uk/news/articles/cm5y1ezx2gqyo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-24T18:07:46+00:00"
+      "title": "Thomas Markle charged in US for possessing child sex abuse images",
+      "url": "https://www.bbc.co.uk/news/articles/crwy4egxn592o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-25T01:40:42+00:00"
     },
     {
       "id": "762ce6d7fedd6d19",
       "language": "en",
       "topic": "Technology",
       "source": "BBC News",
-      "title": "Huawei found guilty of stealing trade secrets but acquitted of racketeering",
+      "title": "Huawei found guilty of stealing US trade secrets but acquitted of racketeering",
       "url": "https://www.bbc.co.uk/news/articles/cmy49ngydqzpo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-25T01:11:57+00:00"
+      "published": "2026-11-25T10:52:09+00:00"
     },
     {
-      "id": "318e9d12844de6ba",
+      "id": "b50e46d04304c434",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Land mine casualties soar in Syria, two years after war",
-      "url": "https://www.bbc.co.uk/news/articles/c893rl37ywdgo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-24T15:17:28+00:00"
+      "title": "EA adds AI-generated John Motson to FC 27 video game",
+      "url": "https://www.bbc.co.uk/news/articles/c65y10j841jpo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-25T10:11:34+00:00"
     },
     {
-      "id": "03d1b8471517e466",
+      "id": "58957c3acc4b07d3",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Nigerian monarch, 92, suspended after sexual assault claims",
-      "url": "https://www.bbc.co.uk/news/articles/cmglrz462nn6o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-24T19:10:31+00:00"
+      "title": "Zoe Kleinman: Nobody is irreplaceable - unless you're Jensen Huang",
+      "url": "https://www.bbc.co.uk/news/articles/c3rrgqj2zx5yo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-25T10:03:12+00:00"
     },
     {
       "id": "3267b6051ed13edd",
@@ -74,76 +101,58 @@
       "published": "2026-11-24T18:21:43+00:00"
     },
     {
-      "id": "217d643100a86d27",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Helpful but awkward: My week with Meta's Muse ahead of its UK launch",
-      "url": "https://www.bbc.co.uk/news/articles/c9gkld2l38y6o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-24T09:33:00+00:00"
-    },
-    {
-      "id": "66403463587777bc",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "US to blacklist Asian AI firm Megaspeed after Nvidia scandal",
-      "url": "https://www.bbc.co.uk/news/articles/cv98xpg5dg5zo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-23T23:16:08+00:00"
-    },
-    {
-      "id": "ad29cb755ba7ee7a",
+      "id": "fae67dabc8b86ad0",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Mega-Sena acumula para R$ 75 milhões; confira os números sorteados",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/mega-sena-acumula-para-r-75-milhoes-confira-os-numeros-sorteados",
-      "published": "2026-11-24T21:32:00-03:00"
+      "title": "CCJ do Senado aprova PEC sobre papel da União no financiamento do DF",
+      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/ccj-do-senado-aprova-pec-sobre-papel-da-uniao-no-financiamento-do-df",
+      "published": "2026-11-25T13:09:00-03:00"
     },
     {
-      "id": "f10c15e5e967fbcc",
+      "id": "c9066f29525a52f3",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "MPF pede mudanças na gestão de políticas para população de rua em SP",
-      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/mpf-pede-mudancas-na-gestao-de-politicas-para-populacao-de-rua-em-sp",
-      "published": "2026-11-24T20:29:00-03:00"
+      "title": "Anvisa determina apreensão de suplementos alimentares",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/anvisa-determina-apreensao-de-suplementos-alimentares-0",
+      "published": "2026-11-25T12:51:00-03:00"
     },
     {
-      "id": "a0a61b0b316dfe63",
+      "id": "a7d30e588c683e55",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Projeto de regulação das big techs será votado na próxima semana",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/projeto-de-regulacao-das-big-techs-sera-votado-na-proxima-semana",
-      "published": "2026-11-24T20:23:00-03:00"
+      "title": "Anvisa manda apreender medicamentos falsificados para tratar câncer",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/anvisa-manda-apreender-medicamentos-falsificados-para-tratar-cancer",
+      "published": "2026-11-25T12:24:00-03:00"
     },
     {
-      "id": "7123b6f184402310",
+      "id": "151999c3165ea34f",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Plano busca fortalecer protagonismo das mulheres no agronegócio",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/plano-busca-fortalecer-protagonismo-das-mulheres-no-agronegocio",
-      "published": "2026-11-24T20:00:00-03:00"
+      "title": "Tempestades e frente fria devem atingir Centro-Sul até sexta-feira",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/tempestades-e-frente-fria-devem-atingir-centro-sul-ate-sexta-feira",
+      "published": "2026-11-25T12:11:00-03:00"
     },
     {
-      "id": "7c71419d34b6b4cb",
+      "id": "80ed4e1662f707db",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Queda de árvore em escola pública em SP deixa cinco pessoas feridas",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/queda-de-arvore-em-escola-publica-em-sp-deixa-cinco-pessoas-feridas",
-      "published": "2026-11-24T19:30:00-03:00"
+      "title": "Defesa Civil Alerta já emitiu mais de 4 mil avisos desde 2024",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/defesa-civil-alerta-ja-emitiu-mais-de-4-mil-avisos-desde-2024",
+      "published": "2026-11-25T11:36:00-03:00"
     },
     {
-      "id": "8211e87ab6b98f1a",
+      "id": "e5644f2c3e5378ee",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Dólar cai para R$ 5,91 com expectativa de ajuste fiscal",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-cai-para-r-591-com-expectativa-de-ajuste-fiscal",
-      "published": "2026-11-24T19:01:00-03:00"
+      "title": "Clima: Brasil é vítima da falta de compromisso de outros, diz ministro",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/clima-brasil-e-vitima-da-falta-de-compromisso-de-outros-diz-ministro",
+      "published": "2026-11-25T11:23:00-03:00"
     }
   ],
   "unavailable": []
