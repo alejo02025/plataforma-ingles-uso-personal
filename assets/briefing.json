@@ -1,59 +1,59 @@
 {
-  "checkedAt": "2026-11-25T17:20:11.238380+00:00",
+  "checkedAt": "2026-11-26T01:48:34.225553+00:00",
   "stories": [
     {
-      "id": "4980e212d8f2fd41",
+      "id": "be54e905a796b4ce",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Russia's own figures show it has lost nearly 500,000 people in Ukraine war",
-      "url": "https://www.bbc.co.uk/news/articles/cmx27g533zwyo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-25T12:21:49+00:00"
-    },
-    {
-      "id": "209b69b840618609",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "My family were killed in Ukraine. My mum blamed Zelensky's troops - the truth is complicated",
-      "url": "https://www.bbc.co.uk/news/articles/cw24e17v9e51o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-25T00:54:13+00:00"
+      "title": "US announces new tariffs on host of countries including China",
+      "url": "https://www.bbc.co.uk/news/articles/c893r9ke5p97o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-26T01:20:14+00:00"
     },
     {
       "id": "6cd45e2d2b78eb32",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Close-up images to be revealed of asteroid deliberately hit to test ability to protect Earth",
+      "title": "Images of asteroid targeted to test Earth's defences reveal stadium-sized crater",
       "url": "https://www.bbc.co.uk/news/articles/cw8dv112r5gmo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-25T06:00:36+00:00"
+      "published": "2026-11-25T17:30:16+00:00"
     },
     {
-      "id": "5d6d58571fb0b25a",
+      "id": "1c6024d18fe8d709",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Five Russian military jets hit in airfield strike, says Ukraine",
-      "url": "https://www.bbc.co.uk/news/articles/ck9q8xp5r5pgo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-25T14:46:41+00:00"
+      "title": "Thirty-one killed in massive fire as fuel tanker crashes on Cairo highway",
+      "url": "https://www.bbc.co.uk/news/articles/cqy7rn30v314o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-25T22:18:06+00:00"
     },
     {
-      "id": "2a1422ea57bb08bb",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "US attorney general dodges questions about Nvidia investigation",
-      "url": "https://www.bbc.co.uk/news/articles/crpdw1qx7jgxo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-25T03:44:07+00:00"
-    },
-    {
-      "id": "931118a83c11690e",
+      "id": "2fc73247a0153f3d",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Thomas Markle charged in US for possessing child sex abuse images",
-      "url": "https://www.bbc.co.uk/news/articles/crwy4egxn592o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-25T01:40:42+00:00"
+      "title": "Israeli judges recommend dropping most serious charges against Netanyahu",
+      "url": "https://www.bbc.co.uk/news/articles/cxj05mv723r2o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-25T19:47:39+00:00"
+    },
+    {
+      "id": "42b954009353f086",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "US stocks fall further as fears over AI intensify",
+      "url": "https://www.bbc.co.uk/news/articles/cq0md8g14zryo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-25T21:43:18+00:00"
+    },
+    {
+      "id": "b6100b41d82114b1",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "US Army says controlled blast of explosives in Iowa was 'huge success'",
+      "url": "https://www.bbc.co.uk/news/articles/cwg7l5ve251ko?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-26T00:23:05+00:00"
     },
     {
       "id": "762ce6d7fedd6d19",
@@ -83,6 +83,15 @@
       "published": "2026-11-25T10:03:12+00:00"
     },
     {
+      "id": "2a1422ea57bb08bb",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "US attorney general dodges questions about Nvidia investigation",
+      "url": "https://www.bbc.co.uk/news/articles/crpdw1qx7jgxo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-25T03:44:07+00:00"
+    },
+    {
       "id": "3267b6051ed13edd",
       "language": "en",
       "topic": "Technology",
@@ -101,58 +110,58 @@
       "published": "2026-11-24T18:21:43+00:00"
     },
     {
-      "id": "fae67dabc8b86ad0",
+      "id": "c2c742814aba01ab",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "CCJ do Senado aprova PEC sobre papel da União no financiamento do DF",
-      "url": "https://agenciabrasil.ebc.com.br/politica/noticia/2026-11/ccj-do-senado-aprova-pec-sobre-papel-da-uniao-no-financiamento-do-df",
-      "published": "2026-11-25T13:09:00-03:00"
+      "title": "Gana é eleita na ONU Turismo e Brasil assume vice-presidência",
+      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/gana-e-eleita-na-onu-turismo-e-brasil-assume-vice-presidencia",
+      "published": "2026-11-25T21:36:00-03:00"
     },
     {
-      "id": "c9066f29525a52f3",
+      "id": "7f83397642472a6f",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Anvisa determina apreensão de suplementos alimentares",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/anvisa-determina-apreensao-de-suplementos-alimentares-0",
-      "published": "2026-11-25T12:51:00-03:00"
+      "title": "Pesquisadoras recebem prêmio por inovações e valorizam trajetória",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/pesquisadoras-recebem-premio-por-inovacoes-e-valorizam-percurso",
+      "published": "2026-11-25T21:03:00-03:00"
     },
     {
-      "id": "a7d30e588c683e55",
+      "id": "950a8b93d8db1795",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Anvisa manda apreender medicamentos falsificados para tratar câncer",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/anvisa-manda-apreender-medicamentos-falsificados-para-tratar-cancer",
-      "published": "2026-11-25T12:24:00-03:00"
+      "title": "Câmara aprova protocolo nacional para combater racismo nas escolas",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/camara-aprova-protocolo-nacional-para-combater-racismo-nas-escolas",
+      "published": "2026-11-25T20:52:00-03:00"
     },
     {
-      "id": "151999c3165ea34f",
+      "id": "0f7dd7f92a300194",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Tempestades e frente fria devem atingir Centro-Sul até sexta-feira",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/tempestades-e-frente-fria-devem-atingir-centro-sul-ate-sexta-feira",
-      "published": "2026-11-25T12:11:00-03:00"
+      "title": "CMN e BC anunciam novas regras para conter endividamento das famílias",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/cmn-e-bc-anunciam-novas-regras-para-conter-endividamento-das-familias",
+      "published": "2026-11-25T20:37:00-03:00"
     },
     {
-      "id": "80ed4e1662f707db",
+      "id": "4a73d359a5e4bb2f",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Defesa Civil Alerta já emitiu mais de 4 mil avisos desde 2024",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/defesa-civil-alerta-ja-emitiu-mais-de-4-mil-avisos-desde-2024",
-      "published": "2026-11-25T11:36:00-03:00"
+      "title": "STF mantém indicação prévia de valor em ações trabalhistas",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/stf-mantem-indicacao-previa-de-valor-em-acoes-trabalhistas",
+      "published": "2026-11-25T20:35:00-03:00"
     },
     {
-      "id": "e5644f2c3e5378ee",
+      "id": "d39b4789bf9f6417",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Clima: Brasil é vítima da falta de compromisso de outros, diz ministro",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/clima-brasil-e-vitima-da-falta-de-compromisso-de-outros-diz-ministro",
-      "published": "2026-11-25T11:23:00-03:00"
+      "title": "Amcham participará de consulta dos EUA sobre tarifas ao Brasil",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/amcham-participara-de-consulta-dos-eua-sobre-tarifas-ao-brasil",
+      "published": "2026-11-25T20:22:00-03:00"
     }
   ],
   "unavailable": []
