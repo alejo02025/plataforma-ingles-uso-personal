@@ -1,59 +1,68 @@
 {
-  "checkedAt": "2026-11-26T01:48:34.225553+00:00",
+  "checkedAt": "2026-11-26T16:59:52.401388+00:00",
   "stories": [
     {
-      "id": "be54e905a796b4ce",
+      "id": "0c801dca8e73e521",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "US announces new tariffs on host of countries including China",
-      "url": "https://www.bbc.co.uk/news/articles/c893r9ke5p97o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-26T01:20:14+00:00"
+      "title": "German boat dealer suspected of supplying Channel smuggling gangs, BBC finds",
+      "url": "https://www.bbc.co.uk/news/articles/cqlymky8kpzjo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-26T05:00:24+00:00"
     },
     {
-      "id": "6cd45e2d2b78eb32",
+      "id": "e4297a5a2ecfdc50",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Images of asteroid targeted to test Earth's defences reveal stadium-sized crater",
-      "url": "https://www.bbc.co.uk/news/articles/cw8dv112r5gmo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-25T17:30:16+00:00"
+      "title": "Watch: BBC confronts German man suspected of supplying migrant gangs with small boats",
+      "url": "https://www.bbc.co.uk/news/videos/cvglrz5yr79go?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-26T05:00:27+00:00"
     },
     {
-      "id": "1c6024d18fe8d709",
+      "id": "5a12d8427988c919",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Thirty-one killed in massive fire as fuel tanker crashes on Cairo highway",
-      "url": "https://www.bbc.co.uk/news/articles/cqy7rn30v314o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-25T22:18:06+00:00"
+      "title": "Diesel tanker carrying up to 7,000 tonnes capsizes near Ibiza, killing one",
+      "url": "https://www.bbc.co.uk/news/articles/c9gklryvj24do?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-26T15:17:18+00:00"
     },
     {
-      "id": "2fc73247a0153f3d",
+      "id": "44e71f7f5015b6ee",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Israeli judges recommend dropping most serious charges against Netanyahu",
-      "url": "https://www.bbc.co.uk/news/articles/cxj05mv723r2o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-25T19:47:39+00:00"
+      "title": "Gérard Depardieu to stand trial for alleged rape of actress in 2018, court rules",
+      "url": "https://www.bbc.co.uk/news/articles/cmlyd76kyx44o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-26T14:44:26+00:00"
     },
     {
-      "id": "42b954009353f086",
+      "id": "a067c0da2f1d9669",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "US stocks fall further as fears over AI intensify",
-      "url": "https://www.bbc.co.uk/news/articles/cq0md8g14zryo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-25T21:43:18+00:00"
+      "title": "Hundreds of flights cancelled as severe weather disrupts Thanksgiving travel in US",
+      "url": "https://www.bbc.co.uk/news/articles/ckm2mz3prq77o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-26T15:57:26+00:00"
     },
     {
-      "id": "b6100b41d82114b1",
+      "id": "976736d634d0cfa5",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "US Army says controlled blast of explosives in Iowa was 'huge success'",
-      "url": "https://www.bbc.co.uk/news/articles/cwg7l5ve251ko?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-26T00:23:05+00:00"
+      "title": "Pregnant US inmate escapes in prison vehicle after medical appointment",
+      "url": "https://www.bbc.co.uk/news/articles/c9m2jke85xzxo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-26T14:35:22+00:00"
+    },
+    {
+      "id": "29f2b2d83a49bfb7",
+      "language": "en",
+      "topic": "Technology",
+      "source": "BBC News",
+      "title": "Musk's plan to send a million SpaceX data satellites into space approved",
+      "url": "https://www.bbc.co.uk/news/articles/cwp836l8n1jgo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-26T09:27:44+00:00"
     },
     {
       "id": "762ce6d7fedd6d19",
@@ -101,67 +110,58 @@
       "published": "2026-11-25T00:34:05+00:00"
     },
     {
-      "id": "a4e986911abd23a3",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Faisal Islam: Fears over the AI boom haven't gone away",
-      "url": "https://www.bbc.co.uk/news/articles/c6894evgpel5o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-24T18:21:43+00:00"
-    },
-    {
-      "id": "c2c742814aba01ab",
+      "id": "54cd4f8ac09d9282",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Gana é eleita na ONU Turismo e Brasil assume vice-presidência",
-      "url": "https://agenciabrasil.ebc.com.br/esportes/noticia/2026-11/gana-e-eleita-na-onu-turismo-e-brasil-assume-vice-presidencia",
-      "published": "2026-11-25T21:36:00-03:00"
+      "title": "Seca na Amazônia: governo estuda auxílio emergencial para pescadores",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/seca-na-amazonia-governo-estuda-auxilio-emergencial-para-pescadores",
+      "published": "2026-11-26T12:56:00-03:00"
     },
     {
-      "id": "7f83397642472a6f",
+      "id": "22fe795ffa226e90",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Pesquisadoras recebem prêmio por inovações e valorizam trajetória",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/pesquisadoras-recebem-premio-por-inovacoes-e-valorizam-percurso",
-      "published": "2026-11-25T21:03:00-03:00"
+      "title": "Jogador do Vasco é preso por suspeita de tentativa de homicídio",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/jogador-do-vasco-e-preso-por-suspeita-de-tentativa-de-homicidio",
+      "published": "2026-11-26T12:54:00-03:00"
     },
     {
-      "id": "950a8b93d8db1795",
+      "id": "d5699b9443f67620",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Câmara aprova protocolo nacional para combater racismo nas escolas",
-      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/camara-aprova-protocolo-nacional-para-combater-racismo-nas-escolas",
-      "published": "2026-11-25T20:52:00-03:00"
+      "title": "Investimento estrangeiro no país chega a US$ 1,416 trilhão em 2025",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/investimento-estrangeiro-no-pais-chega-us-1416-trilhao-em-2025",
+      "published": "2026-11-26T12:50:00-03:00"
     },
     {
-      "id": "0f7dd7f92a300194",
+      "id": "aaccaecbf2d73973",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "CMN e BC anunciam novas regras para conter endividamento das famílias",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/cmn-e-bc-anunciam-novas-regras-para-conter-endividamento-das-familias",
-      "published": "2026-11-25T20:37:00-03:00"
+      "title": "Anvisa proíbe tirzepatida e retatrutida sem registro",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/anvisa-proibe-tirzepatida-e-retatrutida-sem-registro",
+      "published": "2026-11-26T12:13:00-03:00"
     },
     {
-      "id": "4a73d359a5e4bb2f",
+      "id": "317a8999e808d760",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "STF mantém indicação prévia de valor em ações trabalhistas",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/stf-mantem-indicacao-previa-de-valor-em-acoes-trabalhistas",
-      "published": "2026-11-25T20:35:00-03:00"
+      "title": "PGR denuncia deputado Gustavo Gayer por desvio de cota parlamentar",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/pgr-denuncia-deputado-gustavo-gayer-por-desvio-de-cota-parlamentar",
+      "published": "2026-11-26T11:49:00-03:00"
     },
     {
-      "id": "d39b4789bf9f6417",
+      "id": "ba873909caaa8275",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Amcham participará de consulta dos EUA sobre tarifas ao Brasil",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/amcham-participara-de-consulta-dos-eua-sobre-tarifas-ao-brasil",
-      "published": "2026-11-25T20:22:00-03:00"
+      "title": "Contas públicas: demanda por financiamento cresceu 27,1% em 2025",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/contas-publicas-demanda-por-financiamento-cresceu-271-em-2025",
+      "published": "2026-11-26T11:17:00-03:00"
     }
   ],
   "unavailable": []
