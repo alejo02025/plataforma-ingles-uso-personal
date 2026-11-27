@@ -1,6 +1,33 @@
 {
-  "checkedAt": "2026-11-26T16:59:52.401388+00:00",
+  "checkedAt": "2026-11-27T01:46:07.829060+00:00",
   "stories": [
+    {
+      "id": "2eccc11da40e85e3",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "US too focused on Middle East and not pushing Russia hard enough, Zelensky tells BBC",
+      "url": "https://www.bbc.co.uk/news/articles/c820q9wgrpyyo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-26T22:49:27+00:00"
+    },
+    {
+      "id": "a067c0da2f1d9669",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Major Thanksgiving storm brings flooding, flight delays across US",
+      "url": "https://www.bbc.co.uk/news/articles/ckm2mz3prq77o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-27T00:52:11+00:00"
+    },
+    {
+      "id": "531caf503c7fef54",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Watch: Roofs torn off and streets under water as severe weather hits US",
+      "url": "https://www.bbc.co.uk/news/videos/cq808d704m22o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-26T19:26:16+00:00"
+    },
     {
       "id": "0c801dca8e73e521",
       "language": "en",
@@ -26,34 +53,25 @@
       "source": "BBC News",
       "title": "Diesel tanker carrying up to 7,000 tonnes capsizes near Ibiza, killing one",
       "url": "https://www.bbc.co.uk/news/articles/c9gklryvj24do?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-26T15:17:18+00:00"
+      "published": "2026-11-26T22:01:22+00:00"
     },
     {
-      "id": "44e71f7f5015b6ee",
+      "id": "3c01055c44d74eef",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Gérard Depardieu to stand trial for alleged rape of actress in 2018, court rules",
-      "url": "https://www.bbc.co.uk/news/articles/cmlyd76kyx44o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-26T14:44:26+00:00"
+      "title": "Why is there a shortage of 'wizard' elevator mechanics?",
+      "url": "https://www.bbc.co.uk/news/articles/c52e8k19y94mo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-27T00:02:19+00:00"
     },
     {
-      "id": "a067c0da2f1d9669",
+      "id": "1319dbd59774efca",
       "language": "en",
-      "topic": "World",
+      "topic": "Technology",
       "source": "BBC News",
-      "title": "Hundreds of flights cancelled as severe weather disrupts Thanksgiving travel in US",
-      "url": "https://www.bbc.co.uk/news/articles/ckm2mz3prq77o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-26T15:57:26+00:00"
-    },
-    {
-      "id": "976736d634d0cfa5",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Pregnant US inmate escapes in prison vehicle after medical appointment",
-      "url": "https://www.bbc.co.uk/news/articles/c9m2jke85xzxo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-26T14:35:22+00:00"
+      "title": "Asia made a big AI bet on Nvidia. What happens now?",
+      "url": "https://www.bbc.co.uk/news/articles/cqevr4lnd1nxo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-26T23:08:12+00:00"
     },
     {
       "id": "29f2b2d83a49bfb7",
@@ -92,76 +110,58 @@
       "published": "2026-11-25T10:03:12+00:00"
     },
     {
-      "id": "2a1422ea57bb08bb",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "US attorney general dodges questions about Nvidia investigation",
-      "url": "https://www.bbc.co.uk/news/articles/crpdw1qx7jgxo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-25T03:44:07+00:00"
-    },
-    {
-      "id": "3267b6051ed13edd",
-      "language": "en",
-      "topic": "Technology",
-      "source": "BBC News",
-      "title": "Why tiny cars are taking off across Europe",
-      "url": "https://www.bbc.co.uk/news/articles/cmwy9jne0g7qo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-25T00:34:05+00:00"
-    },
-    {
-      "id": "54cd4f8ac09d9282",
+      "id": "fcd9c795a8a97938",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Seca na Amazônia: governo estuda auxílio emergencial para pescadores",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/seca-na-amazonia-governo-estuda-auxilio-emergencial-para-pescadores",
-      "published": "2026-11-26T12:56:00-03:00"
+      "title": "Governo e produtores repudiam crítica de Macron à carne brasileira",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/governo-e-produtores-repudiam-critica-de-macron-carne-brasileira",
+      "published": "2026-11-26T21:13:00-03:00"
     },
     {
-      "id": "22fe795ffa226e90",
+      "id": "9e07bc4a31bf1d56",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Jogador do Vasco é preso por suspeita de tentativa de homicídio",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/jogador-do-vasco-e-preso-por-suspeita-de-tentativa-de-homicidio",
-      "published": "2026-11-26T12:54:00-03:00"
+      "title": "Amazonas, Pará e Roraima passam por apagão de energia nesta quinta",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/amazonas-para-e-roraima-passam-por-apagao-de-energia-nesta-quinta",
+      "published": "2026-11-26T20:58:00-03:00"
     },
     {
-      "id": "d5699b9443f67620",
+      "id": "17b07b6eafce8f48",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Investimento estrangeiro no país chega a US$ 1,416 trilhão em 2025",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/investimento-estrangeiro-no-pais-chega-us-1416-trilhao-em-2025",
-      "published": "2026-11-26T12:50:00-03:00"
+      "title": "Angra dos Reis registra maior volume de chuva no estado nesta quinta",
+      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/angra-dos-reis-registra-maior-volume-de-chuva-no-estado-nesta-quinta",
+      "published": "2026-11-26T20:56:00-03:00"
     },
     {
-      "id": "aaccaecbf2d73973",
+      "id": "b03191e43d4dd6f0",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Anvisa proíbe tirzepatida e retatrutida sem registro",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/anvisa-proibe-tirzepatida-e-retatrutida-sem-registro",
-      "published": "2026-11-26T12:13:00-03:00"
+      "title": "Trabuco aceita convite de Lula para comandar a Fazenda, diz Planalto",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/trabuco-aceita-convite-de-lula-para-comandar-fazenda-diz-planalto",
+      "published": "2026-11-26T20:14:00-03:00"
     },
     {
-      "id": "317a8999e808d760",
+      "id": "a7d5e65bfe45f5b3",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "PGR denuncia deputado Gustavo Gayer por desvio de cota parlamentar",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/pgr-denuncia-deputado-gustavo-gayer-por-desvio-de-cota-parlamentar",
-      "published": "2026-11-26T11:49:00-03:00"
+      "title": "Bolsa sobe 6% e tem maior alta desde o 1º turno; dólar cai a R$ 5,74",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/bolsa-sobe-6-e-tem-maior-alta-desde-o-1o-turno-dolar-cai-r-574",
+      "published": "2026-11-26T19:54:00-03:00"
     },
     {
-      "id": "ba873909caaa8275",
+      "id": "f478a13f62a65e4a",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Contas públicas: demanda por financiamento cresceu 27,1% em 2025",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/contas-publicas-demanda-por-financiamento-cresceu-271-em-2025",
-      "published": "2026-11-26T11:17:00-03:00"
+      "title": "Inca lança atlas sobre características do câncer em brasileiros",
+      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/inca-lanca-atlas-sobre-caracteristicas-do-cancer-em-brasileiros",
+      "published": "2026-11-26T19:44:00-03:00"
     }
   ],
   "unavailable": []
