@@ -1,59 +1,59 @@
 {
-  "checkedAt": "2026-11-27T01:46:07.829060+00:00",
+  "checkedAt": "2026-11-27T16:46:17.814295+00:00",
   "stories": [
     {
       "id": "2eccc11da40e85e3",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "US too focused on Middle East and not pushing Russia hard enough, Zelensky tells BBC",
+      "title": "Zelensky criticises 'strange' Trump-Putin friendship in BBC interview",
       "url": "https://www.bbc.co.uk/news/articles/c820q9wgrpyyo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-26T22:49:27+00:00"
+      "published": "2026-11-27T09:07:48+00:00"
     },
     {
-      "id": "a067c0da2f1d9669",
+      "id": "1eab93bf7e54c93e",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Major Thanksgiving storm brings flooding, flight delays across US",
-      "url": "https://www.bbc.co.uk/news/articles/ckm2mz3prq77o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-27T00:52:11+00:00"
+      "title": "John Simpson: Ukraine is bowed but still unbroken as freezing weather sets in",
+      "url": "https://www.bbc.co.uk/news/articles/c3pw4yrr8kz9o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-27T15:18:51+00:00"
     },
     {
-      "id": "531caf503c7fef54",
+      "id": "5813550398040e4f",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Watch: Roofs torn off and streets under water as severe weather hits US",
-      "url": "https://www.bbc.co.uk/news/videos/cq808d704m22o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-26T19:26:16+00:00"
+      "title": "Marching bands scramble to cover costs after Thanksgiving parade rearranged",
+      "url": "https://www.bbc.co.uk/news/articles/ckd71ypy9e8eo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-27T15:15:19+00:00"
     },
     {
-      "id": "0c801dca8e73e521",
+      "id": "93051a4c5712f2cc",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "German boat dealer suspected of supplying Channel smuggling gangs, BBC finds",
-      "url": "https://www.bbc.co.uk/news/articles/cqlymky8kpzjo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-26T05:00:24+00:00"
+      "title": "Leaders clash in final Spain election debate as housing dominates run-in",
+      "url": "https://www.bbc.co.uk/news/articles/ckr5gr4g8gn5o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-27T06:03:39+00:00"
     },
     {
-      "id": "e4297a5a2ecfdc50",
+      "id": "f53be474bc7fc47c",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Watch: BBC confronts German man suspected of supplying migrant gangs with small boats",
-      "url": "https://www.bbc.co.uk/news/videos/cvglrz5yr79go?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-26T05:00:27+00:00"
+      "title": "Brazil pushes back on Macron calling its meat 'doped'",
+      "url": "https://www.bbc.co.uk/news/articles/c6rrg28npvzeo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-27T15:54:15+00:00"
     },
     {
-      "id": "5a12d8427988c919",
+      "id": "88cd0cc8f59ee648",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Diesel tanker carrying up to 7,000 tonnes capsizes near Ibiza, killing one",
-      "url": "https://www.bbc.co.uk/news/articles/c9gklryvj24do?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-26T22:01:22+00:00"
+      "title": "Ex-media executive admits saying Australian child sex abuse survivor 'looking to be raped again'",
+      "url": "https://www.bbc.co.uk/news/articles/ckr5grlq78n9o?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-27T11:44:40+00:00"
     },
     {
       "id": "3c01055c44d74eef",
@@ -110,58 +110,58 @@
       "published": "2026-11-25T10:03:12+00:00"
     },
     {
-      "id": "fcd9c795a8a97938",
+      "id": "17d28f7273a6b4b8",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Governo e produtores repudiam crítica de Macron à carne brasileira",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/governo-e-produtores-repudiam-critica-de-macron-carne-brasileira",
-      "published": "2026-11-26T21:13:00-03:00"
+      "title": "Contas do governo têm superávit de R$ 52,3 bilhões em outubro",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/contas-do-governo-tem-superavit-de-r-523-bilhoes-em-outubro",
+      "published": "2026-11-27T12:57:00-03:00"
     },
     {
-      "id": "9e07bc4a31bf1d56",
+      "id": "b2aeec5770316a32",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Amazonas, Pará e Roraima passam por apagão de energia nesta quinta",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/amazonas-para-e-roraima-passam-por-apagao-de-energia-nesta-quinta",
-      "published": "2026-11-26T20:58:00-03:00"
+      "title": "Fachin prorroga por 60 dias investigação da PF sobre filme Dark Horse",
+      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/fachin-prorroga-por-60-dias-investigacao-da-pf-sobre-filme-dark-horse",
+      "published": "2026-11-27T12:49:00-03:00"
     },
     {
-      "id": "17b07b6eafce8f48",
+      "id": "20494bd4d7b86b23",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Angra dos Reis registra maior volume de chuva no estado nesta quinta",
-      "url": "https://agenciabrasil.ebc.com.br/meio-ambiente/noticia/2026-11/angra-dos-reis-registra-maior-volume-de-chuva-no-estado-nesta-quinta",
-      "published": "2026-11-26T20:56:00-03:00"
+      "title": "TV Brasil: Sem Censura reúne Adriana Calcanhotto e Arnaldo Antunes",
+      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-11/tv-brasil-sem-censura-reune-adriana-calcanhotto-e-arnaldo-antunes",
+      "published": "2026-11-27T12:30:00-03:00"
     },
     {
-      "id": "b03191e43d4dd6f0",
+      "id": "97bdc091c6d12cd5",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Trabuco aceita convite de Lula para comandar a Fazenda, diz Planalto",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/trabuco-aceita-convite-de-lula-para-comandar-fazenda-diz-planalto",
-      "published": "2026-11-26T20:14:00-03:00"
+      "title": "Enade 2026: estudantes de 18 áreas fazem a prova neste domingo",
+      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/enade-2026-estudantes-de-18-areas-fazem-prova-neste-domingo",
+      "published": "2026-11-27T12:21:00-03:00"
     },
     {
-      "id": "a7d5e65bfe45f5b3",
+      "id": "c2f0ece7c5dc81da",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Bolsa sobe 6% e tem maior alta desde o 1º turno; dólar cai a R$ 5,74",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/bolsa-sobe-6-e-tem-maior-alta-desde-o-1o-turno-dolar-cai-r-574",
-      "published": "2026-11-26T19:54:00-03:00"
+      "title": "Mulheres ganham espaço na animação, mas ainda são minoria",
+      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-11/mulheres-ganham-espaco-na-animacao-mas-ainda-sao-minoria",
+      "published": "2026-11-27T11:31:00-03:00"
     },
     {
-      "id": "f478a13f62a65e4a",
+      "id": "917a9163a7a0c6ba",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Inca lança atlas sobre características do câncer em brasileiros",
-      "url": "https://agenciabrasil.ebc.com.br/saude/noticia/2026-11/inca-lanca-atlas-sobre-caracteristicas-do-cancer-em-brasileiros",
-      "published": "2026-11-26T19:44:00-03:00"
+      "title": "SP: rompimento de cabos de fibra óptica causa instabilidade",
+      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/sp-rompimento-de-cabos-de-fibra-optica-causa-instabilidade",
+      "published": "2026-11-27T11:25:00-03:00"
     }
   ],
   "unavailable": []
