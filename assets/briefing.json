@@ -1,6 +1,15 @@
 {
-  "checkedAt": "2026-11-27T16:46:17.814295+00:00",
+  "checkedAt": "2026-11-28T01:29:14.050753+00:00",
   "stories": [
+    {
+      "id": "65e067513a05324a",
+      "language": "en",
+      "topic": "World",
+      "source": "BBC News",
+      "title": "Spanish PM and rivals rally supporters in final pitch for votes",
+      "url": "https://www.bbc.co.uk/news/articles/c8wy5p4gdnwvo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-27T21:55:53+00:00"
+    },
     {
       "id": "2eccc11da40e85e3",
       "language": "en",
@@ -8,34 +17,25 @@
       "source": "BBC News",
       "title": "Zelensky criticises 'strange' Trump-Putin friendship in BBC interview",
       "url": "https://www.bbc.co.uk/news/articles/c820q9wgrpyyo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-27T09:07:48+00:00"
+      "published": "2026-11-27T18:00:40+00:00"
     },
     {
       "id": "1eab93bf7e54c93e",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "John Simpson: Ukraine is bowed but still unbroken as freezing weather sets in",
+      "title": "Weary of war but with no sign of backing down, Kyiv faces another punishing winter",
       "url": "https://www.bbc.co.uk/news/articles/c3pw4yrr8kz9o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-27T15:18:51+00:00"
+      "published": "2026-11-27T18:42:50+00:00"
     },
     {
       "id": "5813550398040e4f",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Marching bands scramble to cover costs after Thanksgiving parade rearranged",
+      "title": "'We couldn't give up that easily': Marching bands scramble to cover costs after Thanksgiving parade rearranged",
       "url": "https://www.bbc.co.uk/news/articles/ckd71ypy9e8eo?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-27T15:15:19+00:00"
-    },
-    {
-      "id": "93051a4c5712f2cc",
-      "language": "en",
-      "topic": "World",
-      "source": "BBC News",
-      "title": "Leaders clash in final Spain election debate as housing dominates run-in",
-      "url": "https://www.bbc.co.uk/news/articles/ckr5gr4g8gn5o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-27T06:03:39+00:00"
+      "published": "2026-11-27T20:06:31+00:00"
     },
     {
       "id": "f53be474bc7fc47c",
@@ -47,13 +47,13 @@
       "published": "2026-11-27T15:54:15+00:00"
     },
     {
-      "id": "88cd0cc8f59ee648",
+      "id": "6ccc7c31dee7390a",
       "language": "en",
       "topic": "World",
       "source": "BBC News",
-      "title": "Ex-media executive admits saying Australian child sex abuse survivor 'looking to be raped again'",
-      "url": "https://www.bbc.co.uk/news/articles/ckr5grlq78n9o?at_medium=RSS&at_campaign=rss",
-      "published": "2026-11-27T11:44:40+00:00"
+      "title": "'Poison seller' Kenneth Law apologises in court to the families of his victims",
+      "url": "https://www.bbc.co.uk/news/articles/cmx2898wq2qjo?at_medium=RSS&at_campaign=rss",
+      "published": "2026-11-28T00:56:55+00:00"
     },
     {
       "id": "3c01055c44d74eef",
@@ -110,58 +110,58 @@
       "published": "2026-11-25T10:03:12+00:00"
     },
     {
-      "id": "17d28f7273a6b4b8",
+      "id": "01b7508bfffaeaa3",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Contas do governo têm superávit de R$ 52,3 bilhões em outubro",
-      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/contas-do-governo-tem-superavit-de-r-523-bilhoes-em-outubro",
-      "published": "2026-11-27T12:57:00-03:00"
+      "title": "Dólar cai quase 4% e fecha em R$ 5,51, após anúncio de Trabuco",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/dolar-cai-quase-4-e-fecha-em-r-551-apos-anuncio-de-trabuco",
+      "published": "2026-11-27T19:47:00-03:00"
     },
     {
-      "id": "b2aeec5770316a32",
+      "id": "dec506acb34138e9",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Fachin prorroga por 60 dias investigação da PF sobre filme Dark Horse",
-      "url": "https://agenciabrasil.ebc.com.br/justica/noticia/2026-11/fachin-prorroga-por-60-dias-investigacao-da-pf-sobre-filme-dark-horse",
-      "published": "2026-11-27T12:49:00-03:00"
+      "title": "Distribuidoras de energia oferecem descontos para renegociar dívidas",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/distribuidoras-de-energia-oferecem-descontos-para-renegociar-dividas",
+      "published": "2026-11-27T19:40:00-03:00"
     },
     {
-      "id": "20494bd4d7b86b23",
+      "id": "b77fd7a65b389f48",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "TV Brasil: Sem Censura reúne Adriana Calcanhotto e Arnaldo Antunes",
-      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-11/tv-brasil-sem-censura-reune-adriana-calcanhotto-e-arnaldo-antunes",
-      "published": "2026-11-27T12:30:00-03:00"
+      "title": "Com bandeira tarifária verde, energia não terá custo extra em dezembro",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/com-bandeira-tarifaria-verde-energia-nao-tera-custo-extra-em-dezembro",
+      "published": "2026-11-27T19:29:00-03:00"
     },
     {
-      "id": "97bdc091c6d12cd5",
+      "id": "6cadf68b45afd07b",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Enade 2026: estudantes de 18 áreas fazem a prova neste domingo",
-      "url": "https://agenciabrasil.ebc.com.br/educacao/noticia/2026-11/enade-2026-estudantes-de-18-areas-fazem-prova-neste-domingo",
-      "published": "2026-11-27T12:21:00-03:00"
+      "title": "Inauguração da Árvore de Natal da Lagoa terá queima de fogos e drones",
+      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-11/inauguracao-da-arvore-de-natal-da-lagoa-tera-queima-de-fogos-e-drones",
+      "published": "2026-11-27T18:50:00-03:00"
     },
     {
-      "id": "c2f0ece7c5dc81da",
+      "id": "010a5233e2d41f90",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "Mulheres ganham espaço na animação, mas ainda são minoria",
-      "url": "https://agenciabrasil.ebc.com.br/cultura/noticia/2026-11/mulheres-ganham-espaco-na-animacao-mas-ainda-sao-minoria",
-      "published": "2026-11-27T11:31:00-03:00"
+      "title": "Ato marca um ano do duplo feminicídio de servidoras no Cefet-RJ",
+      "url": "https://agenciabrasil.ebc.com.br/direitos-humanos/noticia/2026-11/ato-marca-um-ano-do-duplo-feminicidio-de-servidoras-no-cefet-rj",
+      "published": "2026-11-27T18:20:00-03:00"
     },
     {
-      "id": "917a9163a7a0c6ba",
+      "id": "e12df41e78a19762",
       "language": "pt",
       "topic": "Brasil",
       "source": "Agência Brasil",
-      "title": "SP: rompimento de cabos de fibra óptica causa instabilidade",
-      "url": "https://agenciabrasil.ebc.com.br/geral/noticia/2026-11/sp-rompimento-de-cabos-de-fibra-optica-causa-instabilidade",
-      "published": "2026-11-27T11:25:00-03:00"
+      "title": "Vendas do Tesouro Direto registram melhor outubro da história",
+      "url": "https://agenciabrasil.ebc.com.br/economia/noticia/2026-11/vendas-do-tesouro-direto-registram-melhor-outubro-da-historia",
+      "published": "2026-11-27T18:01:00-03:00"
     }
   ],
   "unavailable": []
